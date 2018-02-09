@@ -37,7 +37,7 @@ namespace NumC
 		//====================================Attributes==============================
 		int32	start;
 		int32	stop;
-		int32	step;
+		uint32	step;
 
 		//============================================================================
 		// Method Description: 
@@ -63,7 +63,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		Slice(uint16 inStop) :
+		Slice(int32 inStop) :
 			start(0),
 			stop(inStop),
 			step(1)
@@ -79,16 +79,12 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		Slice(uint16 inStart, uint16 inStop) :
+		Slice(int32 inStart, int32 inStop) :
 			start(inStart),
 			stop(inStop),
 			step(1)
 		{
-			// check that stop is after start
-			if (!isValid())
-			{
-				throw std::invalid_argument("ERROR: start index must be less than to stop index.");
-			}
+			isValid();
 		}
 
 		//============================================================================
@@ -102,16 +98,12 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		Slice(uint16 inStart, uint16 inStop, uint16 inStep) :
+		Slice(int32 inStart, int32 inStop, uint32 inStep) :
 			start(inStart),
 			stop(inStop),
 			step(inStep)
 		{
-			// check that stop is after start
-			if (!isValid())
-			{
-				throw std::invalid_argument("ERROR: start index must be less than to stop index.");
-			}
+			isValid();
 		}
 
 		//============================================================================
@@ -123,7 +115,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		Slice(const std::initializer_list<uint16>& inList) :
+		Slice(const std::initializer_list<int32>& inList) :
 			start(0),
 			stop(0),
 			step(0)
@@ -158,26 +150,7 @@ namespace NumC
 				}
 			}
 
-			// check that stop is after start
-			if (!isValid())
-			{
-				throw std::invalid_argument("ERROR: start index must be less than to stop index.");
-			}
-		}
-
-		//============================================================================
-		// Method Description:
-		//						Checks that the slice is valid. Start must come before end
-		//			
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		bool isValid() const
-		{
-			// check that stop is after start
-			return start < stop;
+			isValid();
 		}
 
 		//============================================================================
@@ -207,6 +180,30 @@ namespace NumC
 		{
 			inOStream << "[" << inSlice.start << ": " << inSlice.stop << ": " << inSlice.step << "]" << std::endl;
 			return inOStream;
+		}
+
+	private:
+		//============================================================================
+		// Method Description:
+		//						Checks that the slice is valid. Start must come before end
+		//			
+		// Inputs:
+		//				None
+		// Outputs:
+		//				None
+		//
+		void isValid() const
+		{
+			// check that stop is after start for the two cases where start and stop are the same sign.
+			// for the other cases... can't really check anything.
+			if (start > -1 && stop > -1 && start >= stop)
+			{
+				throw std::invalid_argument("ERROR: Invalid start stop combination.");
+			}
+			else if (start < 0 && stop < 0 && start >= stop)
+			{
+				throw std::invalid_argument("ERROR: Invalid start stop combination.");
+			}
 		}
 	};
 }

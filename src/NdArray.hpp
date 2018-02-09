@@ -268,9 +268,16 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		dtype& operator()(uint16 inIndex)
+		dtype& operator()(int64 inIndex)
 		{
-
+			if (inIndex > -1)
+			{
+				return array_[inIndex];
+			}
+			else
+			{
+				return array_[size_ + inIndex];
+			}
 		}
 
 		//============================================================================
@@ -282,9 +289,16 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		const dtype& operator()(uint16 inIndex) const
+		const dtype& operator()(int64 inIndex) const
 		{
-
+			if (inIndex > -1)
+			{
+				return array_[inIndex];
+			}
+			else
+			{
+				return array_[size_ + inIndex];
+			}
 		}
 
 		//============================================================================
@@ -297,9 +311,33 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		dtype& operator()(uint16 inRowIndex, uint16 inColIndex)
+		dtype& operator()(int32 inRowIndex, int32 inColIndex)
 		{
-
+			if (inRowIndex > -1 && inColIndex > -1)
+			{
+				return array_[inRowIndex * shape_.cols + inColIndex];
+			}
+			else if (inRowIndex < 0 && inColIndex < 0)
+			{
+				uint16 rowIdx = size_ + inRowIndex;
+				uint16 colIdx = size_ + inColIndex;
+				return array_[rowIdx * shape_.cols + colIdx];
+			}
+			else if (inRowIndex > -1 && inColIndex < 0)
+			{
+				uint16 colIdx = size_ + inColIndex;
+				return array_[inRowIndex * shape_.cols + colIdx];
+			}
+			else if (inRowIndex < 0 && inColIndex > -1)
+			{
+				uint16 rowIdx = size_ + inRowIndex;
+				return array_[rowIdx * shape_.cols + inColIndex];
+			}
+			else
+			{
+				// I don't think it is possible to get in here...
+				throw std::runtime_error("ERROR: Investigate this!");
+			}
 		}
 
 		//============================================================================
@@ -312,28 +350,82 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		const dtype& operator()(uint16 inRowIndex, uint16 inColIndex) const
+		const dtype& operator()(int32 inRowIndex, int32 inColIndex) const
 		{
-
+			if (inRowIndex > -1 && inColIndex > -1)
+			{
+				return array_[inRowIndex * shape_.cols + inColIndex];
+			}
+			else if (inRowIndex < 0 && inColIndex < 0)
+			{
+				uint16 rowIdx = size_ + inRowIndex;
+				uint16 colIdx = size_ + inColIndex;
+				return array_[rowIdx * shape_.cols + colIdx];
+			}
+			else if (inRowIndex > -1 && inColIndex < 0)
+			{
+				uint16 colIdx = size_ + inColIndex;
+				return array_[inRowIndex * shape_.cols + colIdx];
+			}
+			else if (inRowIndex < 0 && inColIndex > -1)
+			{
+				uint16 rowIdx = size_ + inRowIndex;
+				return array_[rowIdx * shape_.cols + inColIndex];
+			}
+			else
+			{
+				// I don't think it is possible to get in here...
+				throw std::runtime_error("ERROR: Investigate this!");
+			}
 		}
 
 		//============================================================================
 		// Method Description: 
-		//						1D Slicing access operator with no bounds checking
+		//						1D Slicing access operator with no bounds checking. 
+		//						returned array is of the range [start, stop).
 		//		
 		// Inputs:
 		//				Slice
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> operator()(const Slice& inSlice)
+		NdArray<dtype> operator()(const Slice& inSlice) const
 		{
+			uint32 numElements = 0;
 
+			if ((inSlice.start > -1 && inSlice.stop > -1) || 
+				(inSlice.start < 0 && inSlice.stop < 0))
+			{
+				numElements = (inSlice.stop - inSlice.start + 1) / inSlice.step;
+			}
+			else if (inSlice.start > -1 && inSlice.stop < 0)
+			{
+				uint16 stop = size_ + inSlice.stop - 1;
+				numElements = (stop - inSlice.start) / inSlice.step;
+			}
+			else if (inSlice.start < 0 && inSlice.stop > -1)
+			{
+				uint16 start = size_ + inSlice.start;
+				numElements = (inSlice.stop - start) / inSlice.step;
+			}
+			else
+			{
+				// I don't think it is possible to get in here...
+				throw std::runtime_error("ERROR: Investigate this!");
+			}
+
+			uint32 counter = 0;
+			NdArray<dtype> returnArray(numElements, 1);
+			for (uint32 i = 0; i < numElements; i += inSlice.step)
+			{
+				returnArray(counter++) = array_[i];
+			}
 		}
 
 		//============================================================================
 		// Method Description: 
-		//						2D Slicing access operator with no bounds checking
+		//						2D Slicing access operator with no bounds checking.
+		//						returned array is of the range [start, stop).
 		//		
 		// Inputs:
 		//				Row Slice
@@ -341,7 +433,7 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> operator()(const Slice& inRowSlice, const Slice& inColSlice)
+		NdArray<dtype> operator()(const Slice& inRowSlice, const Slice& inColSlice) const
 		{
 
 		}
@@ -355,9 +447,15 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		dtype& at(uint16 inIndex)
+		dtype& at(int64 inIndex)
 		{
+			if (inIndex > size_ - 1 || std::abs(inIndex) > size_)
+			{
+				std::string errStr = "ERROR: Input index " + num2str(inIndex) + " is out of bounds for array of size " + num2str(size_) + ".";
+				throw std::invalid_argument(errStr);
+			}
 
+			return this->operator()(inIndex);
 		}
 
 		//============================================================================
@@ -369,9 +467,15 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		const dtype& at(uint16 inIndex) const
+		const dtype& at(int64 inIndex) const
 		{
+			if (inIndex > size_ - 1 || std::abs(inIndex) > size_)
+			{
+				std::string errStr = "ERROR: Input index " + num2str(inIndex) + " is out of bounds for array of size " + num2str(size_) + ".";
+				throw std::invalid_argument(errStr);
+			}
 
+			return this->operator()(inIndex);
 		}
 
 		//============================================================================
@@ -384,9 +488,21 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		dtype& at(uint16 inRowIndex, uint16 inColIndex)
+		dtype& at(int32 inRowIndex, int32 inColIndex)
 		{
+			if (inRowIndex > shape_.rows - 1 || std::abs(inRowIndex) > shape_.rows)
+			{
+				std::string errStr = "ERROR: Row index " + num2str(inRowIndex) + " is out of bounds for array of size " + num2str(shape_.rows) + ".";
+				throw std::invalid_argument(errStr);
+			}
 
+			if (inColIndex > shape_.cols - 1 || std::abs(inColIndex) > shape_.cols)
+			{
+				std::string errStr = "ERROR: Column index " + num2str(inColIndex) + " is out of bounds for array of size " + num2str(shape_.cols) + ".";
+				throw std::invalid_argument(errStr);
+			}
+
+			return this->operator()(inRowIndex, inColIndex);
 		}
 
 		//============================================================================
@@ -399,28 +515,42 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		const dtype& at(uint16 inRowIndex, uint16 inColIndex) const
+		const dtype& at(int32 inRowIndex, int32 inColIndex) const
 		{
+			if (inRowIndex > shape_.rows - 1 || std::abs(inRowIndex) > shape_.rows)
+			{
+				std::string errStr = "ERROR: Row index " + num2str(inRowIndex) + " is out of bounds for array of size " + num2str(shape_.rows) + ".";
+				throw std::invalid_argument(errStr);
+			}
 
+			if (inColIndex > shape_.cols - 1 || std::abs(inColIndex) > shape_.cols)
+			{
+				std::string errStr = "ERROR: Column index " + num2str(inColIndex) + " is out of bounds for array of size " + num2str(shape_.cols) + ".";
+				throw std::invalid_argument(errStr);
+			}
+
+			return this->operator()(inRowIndex, inColIndex);
 		}
 
 		//============================================================================
 		// Method Description: 
-		//						1D Slicing access operator with bounds checking
+		//						1D Slicing access operator with bounds checking.
+		//						returned array is of the range [start, stop).
 		//		
 		// Inputs:
 		//				Slice
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> at(const Slice& inSlice)
+		NdArray<dtype> at(const Slice& inSlice) const
 		{
 
 		}
 
 		//============================================================================
 		// Method Description: 
-		//						2D Slicing access operator with bounds checking
+		//						2D Slicing access operator with bounds checking.
+		//						returned array is of the range [start, stop).
 		//		
 		// Inputs:
 		//				Row Slice
@@ -428,7 +558,7 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> at(const Slice& inRowSlice, const Slice& inColSlice)
+		NdArray<dtype> at(const Slice& inRowSlice, const Slice& inColSlice) const
 		{
 
 		}
