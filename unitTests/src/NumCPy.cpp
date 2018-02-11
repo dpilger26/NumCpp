@@ -36,12 +36,17 @@ namespace Interface
 }
 
 //================================================================================
-//double&	(NdArray<double>::*accessOperator1d)(int64) = &NdArray<double>::operator();
-//double	(NdArray<double>::*constAccessOperator1d)(int64) const = &NdArray<double>::operator();
-//double&	(NdArray<double>::*accessOperator2d)(int32, int32) = &NdArray<double>::operator();
-//double	(NdArray<double>::*constAccessOperator2d)(int32, int32) const = &NdArray<double>::operator();
-//NdArray<double>	(NdArray<double>::*accessOperator1dSlice)(const Slice&) const = &NdArray<double>::operator();
-//NdArray<double> (NdArray<double>::*accessOperator2dSlice)(const Slice&, const Slice&) const = &NdArray<double>::operator();
+
+namespace NdArrayInterface
+{
+	template<typename T>
+	np::ndarray getNumpyArray(const NdArray<T>& inArray) 
+	{
+		return numCToBoost(inArray);
+	}
+}
+
+//================================================================================
 
 BOOST_PYTHON_MODULE(NumC)
 {
@@ -91,13 +96,8 @@ BOOST_PYTHON_MODULE(NumC)
 		.def(bp::init<int16, int16>())
 		.def(bp::init<Shape>())
 		.def("shape", &NdArrayDouble::shape)
-		.def("size", &NdArrayDouble::size);
-		//.def("accessOperator1d", &accessOperator1d, bp::return_internal_reference<>())
-		//.def("constAccessOperator1d", &constAccessOperator1d)
-		//.def("accessOperator2d", &accessOperator2d, bp::return_internal_reference<>())
-		//.def("constAccessOperator2d", &constAccessOperator2d)
-		//.def("accessOperator1dSlice", &accessOperator1dSlice)
-		//.def("accessOperator2dSlice", &accessOperator2dSlice);
+		.def("size", &NdArrayDouble::size)
+		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>);
 
 	boost::python::def("zeros", Interface::zeros);
 

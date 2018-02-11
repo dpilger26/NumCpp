@@ -53,7 +53,7 @@ namespace NumC
 	{
 	private:
 		//====================================Attributes==============================
-		boost::python::numpy::ndarray*	theArray_;
+		boost::python::numpy::ndarray	theArray_;
 		uint8							numDimensions_;
 		std::vector<Py_intptr_t>		shape_;
 		std::vector<uint32>				strides_;
@@ -145,14 +145,17 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		BoostNdarrayHelper(boost::python::numpy::ndarray* inArray):
-			theArray_(inArray)
+		BoostNdarrayHelper(boost::python::numpy::ndarray* inArray) :
+			theArray_(inArray->astype(boost::python::numpy::dtype::get_builtin<double>())),
+			numDimensions_(static_cast<uint8>(inArray->get_nd())),
+			order_(Order::C)
+
 		{
 			Py_intptr_t const * shapePtr = inArray->get_shape();
 
 			for (uint8 i = 0; i < numDimensions_; ++i)
 			{
-				strides_.push_back(static_cast<uint32>(theArray_->strides(i)));
+				strides_.push_back(static_cast<uint32>(theArray_.strides(i)));
 				shape_.push_back(shapePtr[i]);
 			}
 
@@ -161,6 +164,26 @@ namespace NumC
 				order_ = Order::F;
 			}
 		}
+
+		//============================================================================
+		// Method Description: 
+		//						Constructor
+		//		
+		// Inputs:
+		//				pointer to an ndarray
+		// Outputs:
+		//				None
+		//
+		BoostNdarrayHelper(boost::python::tuple inShape) :
+			theArray_(boost::python::numpy::zeros(inShape, boost::python::numpy::dtype::get_builtin<double>()))
+		{
+			BoostNdarrayHelper newArrayHelper(&theArray_);
+			numDimensions_ = newArrayHelper.numDimensions();
+			shape_ = newArrayHelper.shape();
+			strides_ = newArrayHelper.strides();
+			order_ = newArrayHelper.order();
+		}
+
 
 		//============================================================================
 		// Method Description: 
@@ -173,7 +196,7 @@ namespace NumC
 		//
 		const boost::python::numpy::ndarray* getArray()
 		{
-			return theArray_;
+			return &theArray_;
 		}
 
 		//============================================================================
@@ -187,7 +210,7 @@ namespace NumC
 		//
 		boost::python::numpy::matrix getArrayAsMatrix()
 		{
-			return boost::python::numpy::matrix(*theArray_);
+			return boost::python::numpy::matrix(theArray_);
 		}
 
 		//============================================================================
@@ -217,6 +240,26 @@ namespace NumC
 		{
 			return shape_;
 		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns the size of the array
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				size
+		//
+		uint32 size()
+		{
+			uint32 theSize = 1;
+			for (uint8 dim = 0; dim < numDimensions_; ++dim)
+			{
+				theSize *= static_cast<uint32>(shape_[dim]);
+			}
+			return theSize;
+		}
+
 
 		//============================================================================
 		// Method Description: 
@@ -285,7 +328,7 @@ namespace NumC
 		{
 			checkIndices1D(index);
 
-			return *reinterpret_cast<double*>(theArray_->get_data() + strides_[0] * index);
+			return *reinterpret_cast<double*>(theArray_.get_data() + strides_[0] * index);
 		}
 
 		//============================================================================
@@ -300,8 +343,7 @@ namespace NumC
 		double& operator()(uint16 index1, uint16 index2)
 		{
 			checkIndices2D(index1, index2);
-
-			return *reinterpret_cast<double*>(theArray_->get_data() + strides_[0] * index1 + strides_[1] * index2);
+			return *reinterpret_cast<double*>(theArray_.get_data() + strides_[0] * index1 + strides_[1] * index2);
 		}
 
 		//============================================================================
@@ -317,7 +359,7 @@ namespace NumC
 		{
 			checkIndices3D(index1, index2, index3);
 
-			return *reinterpret_cast<double*>(theArray_->get_data() + strides_[0] * index1 + strides_[1] * index2 + strides_[2] * index3);
+			return *reinterpret_cast<double*>(theArray_.get_data() + strides_[0] * index1 + strides_[1] * index2 + strides_[2] * index3);
 		}
 
 		//============================================================================
@@ -407,17 +449,17 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						converts from a boost ndarray to a NumC NdArray<double>
+	//						converts from a boost ndarray to a NumC NdArray<T>
 	//		
 	// Inputs:
 	//				ndarray
 	// Outputs:
-	//				NdArray<double>
+	//				NdArray<T>
 	//
 	template<typename T>
-	NumC::NdArray<T> boostToNumC(const boost::python::numpy::ndarray& inArray)
+	NdArray<T> boostToNumC(const boost::python::numpy::ndarray& inArray)
 	{
-		NdarrayHelper helper(inArray);
+		BoostNdarrayHelper helper(inArray);
 		if (helper.numDimensions() > 2)
 		{
 			throw std::runtime_error("ERROR: Can only convert 1 and 2 dimensional arrays.");
@@ -435,7 +477,7 @@ namespace NumC
 			arrayShape.cols = helper.shape()[1];
 		}
 
-		NumC::NdArray<T> returnArray(arrayShape);
+		NdArray<T> returnArray(arrayShape);
 		uint32 numElements = arrayShape.rows * arrayShape.cols;
 		for (uint32 i = 0; i < numElements; ++i)
 		{
@@ -444,4 +486,30 @@ namespace NumC
 
 		return returnArray;
 	}
-} // namespace boost
+
+	//============================================================================
+	// Method Description: 
+	//						converts from a NumC NdArray<T> to a boost ndarray
+	//		
+	// Inputs:
+	//				NdArray<T>
+	// Outputs:
+	//				ndarray
+	//
+	template<typename T>
+	boost::python::numpy::ndarray numCToBoost(const NdArray<T>& inArray)
+	{
+		Shape inShape = inArray.shape();
+		bp::tuple shape = bp::make_tuple(inShape.rows, inShape.cols);
+		BoostNdarrayHelper newNdArrayHelper(shape);
+
+		for (uint16 row = 0; row < inShape.rows; ++row)
+		{
+			for (uint16 col = 0; col < inShape.cols; ++col)
+			{
+				newNdArrayHelper(row, col) = inArray(row, col);
+			}
+		}
+		return *(newNdArrayHelper.getArray());
+	}
+}

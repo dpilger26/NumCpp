@@ -18,7 +18,9 @@ def doTest():
     print(colored('Testing Square Constructor', 'cyan'))
     numRowsCols = np.random.randint(1, 100, [1,]).item()
     cArray = NumC.NdArray(numRowsCols)
-    if cArray.shape().rows == numRowsCols and cArray.shape().cols == numRowsCols and cArray.size() == numRowsCols**2:
+    a = cArray.getNumpyArray()
+    if (cArray.shape().rows == numRowsCols and cArray.shape().cols == numRowsCols and
+            cArray.size() == numRowsCols**2 and not a.any()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -26,7 +28,9 @@ def doTest():
     print(colored('Testing Rectangle Constructor', 'cyan'))
     numRowsCols = np.random.randint(1, 100, [2,])
     cArray = NumC.NdArray(numRowsCols[0].item(), numRowsCols[1].item())
-    if cArray.shape().rows == numRowsCols[0] and cArray.shape().cols == numRowsCols[1] and cArray.size() == numRowsCols.prod():
+    a = cArray.getNumpyArray()
+    if (cArray.shape().rows == numRowsCols[0] and cArray.shape().cols == numRowsCols[1] and
+            cArray.size() == numRowsCols.prod() and not a.any()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -35,7 +39,9 @@ def doTest():
     shapeInput = np.random.randint(0, 100, [2,])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
-    if cArray.shape().rows == shape.rows and cArray.shape().cols == shape.cols and cArray.size() == shape.rows * shape.cols:
+    a = cArray.getNumpyArray()
+    if (cArray.shape().rows == shape.rows and cArray.shape().cols == shape.cols and
+            cArray.size() == shape.rows * shape.cols and not a.any()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

@@ -278,7 +278,8 @@ namespace NumC
 			}
 			else
 			{
-				return array_[size_ + inIndex];
+				uint32 index = static_cast<uint32>(static_cast<int64>(size_) + inIndex);
+				return array_[index];
 			}
 		}
 
@@ -291,7 +292,7 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		dtype operator()(int64 inIndex) const
+		const dtype& operator()(int64 inIndex) const
 		{
 			if (inIndex > -1)
 			{
@@ -299,7 +300,8 @@ namespace NumC
 			}
 			else
 			{
-				return array_[size_ + inIndex];
+				uint32 index = static_cast<uint32>(static_cast<int64>(size_) + inIndex);
+				return array_[index];
 			}
 		}
 
@@ -321,18 +323,18 @@ namespace NumC
 			}
 			else if (inRowIndex < 0 && inColIndex < 0)
 			{
-				uint16 rowIdx = size_ + inRowIndex;
-				uint16 colIdx = size_ + inColIndex;
+				uint16 rowIdx = static_cast<uint16>(static_cast<int32>(shape_.rows) + inRowIndex);
+				uint16 colIdx = static_cast<uint16>(static_cast<int32>(shape_.cols) + inColIndex);
 				return array_[rowIdx * shape_.cols + colIdx];
 			}
 			else if (inRowIndex > -1 && inColIndex < 0)
 			{
-				uint16 colIdx = size_ + inColIndex;
+				uint16 colIdx = static_cast<uint16>(static_cast<int32>(shape_.cols) + inColIndex);
 				return array_[inRowIndex * shape_.cols + colIdx];
 			}
 			else if (inRowIndex < 0 && inColIndex > -1)
 			{
-				uint16 rowIdx = size_ + inRowIndex;
+				uint16 rowIdx = static_cast<uint16>(static_cast<int32>(shape_.rows) + inRowIndex);
 				return array_[rowIdx * shape_.cols + inColIndex];
 			}
 			else
@@ -352,7 +354,7 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		dtype operator()(int32 inRowIndex, int32 inColIndex) const
+		const dtype& operator()(int32 inRowIndex, int32 inColIndex) const
 		{
 			if (inRowIndex > -1 && inColIndex > -1)
 			{
@@ -360,18 +362,18 @@ namespace NumC
 			}
 			else if (inRowIndex < 0 && inColIndex < 0)
 			{
-				uint16 rowIdx = size_ + inRowIndex;
-				uint16 colIdx = size_ + inColIndex;
+				uint16 rowIdx = static_cast<uint16>(static_cast<int32>(shape_.rows) + inRowIndex);
+				uint16 colIdx = static_cast<uint16>(static_cast<int32>(shape_.cols) + inColIndex);
 				return array_[rowIdx * shape_.cols + colIdx];
 			}
 			else if (inRowIndex > -1 && inColIndex < 0)
 			{
-				uint16 colIdx = size_ + inColIndex;
+				uint16 colIdx = static_cast<uint16>(static_cast<int32>(shape_.cols) + inColIndex);
 				return array_[inRowIndex * shape_.cols + colIdx];
 			}
 			else if (inRowIndex < 0 && inColIndex > -1)
 			{
-				uint16 rowIdx = size_ + inRowIndex;
+				uint16 rowIdx = static_cast<uint16>(static_cast<int32>(shape_.rows) + inRowIndex);
 				return array_[rowIdx * shape_.cols + inColIndex];
 			}
 			else
@@ -466,17 +468,17 @@ namespace NumC
 			}
 			else if (inRowSlice.start < 0 && inRowSlice.stop < 0)
 			{
-				rowStart = size_ + inRowSlice.start;
-				rowStop = size_ + inRowSlice.stop - 1;
+				rowStart = shape_.rows + inRowSlice.start;
+				rowStop = shape_.rows + inRowSlice.stop - 1;
 			}
 			else if (inRowSlice.start > -1 && inRowSlice.stop < 0)
 			{
 				rowStart = inRowSlice.start;
-				rowStop = size_ + inRowSlice.stop - 1;
+				rowStop = shape_.rows + inRowSlice.stop - 1;
 			}
 			else if (inRowSlice.start < 0 && inRowSlice.stop > -1)
 			{
-				rowStart = size_ + inRowSlice.start;
+				rowStart = shape_.rows + inRowSlice.start;
 				rowStop = inRowSlice.stop;
 			}
 			else
@@ -508,17 +510,17 @@ namespace NumC
 			}
 			else if (inColSlice.start < 0 && inColSlice.stop < 0)
 			{
-				colStart = size_ + inColSlice.start;
-				colStop = size_ + inColSlice.stop - 1;
+				colStart = shape_.cols + inColSlice.start;
+				colStop = shape_.cols + inColSlice.stop - 1;
 			}
 			else if (inColSlice.start > -1 && inColSlice.stop < 0)
 			{
 				colStart = inColSlice.start;
-				colStop = size_ + inColSlice.stop - 1;
+				colStop = shape_.cols + inColSlice.stop - 1;
 			}
 			else if (inColSlice.start < 0 && inColSlice.stop > -1)
 			{
-				colStart = size_ + inColSlice.start;
+				colStart = shape_.cols + inColSlice.start;
 				colStop = inColSlice.stop;
 			}
 			else
@@ -560,7 +562,7 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						1D access operator with bounds checking
+		//						1D access method with bounds checking
 		//		
 		// Inputs:
 		//				array index
@@ -580,14 +582,14 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						const 1D access operator with bounds checking
+		//						const 1D access method with bounds checking
 		//		
 		// Inputs:
 		//				array index
 		// Outputs:
 		//				value
 		//
-		dtype at(int64 inIndex) const
+		const dtype& at(int64 inIndex) const
 		{
 			if (inIndex > size_ - 1 || std::abs(inIndex) > size_)
 			{
@@ -600,7 +602,7 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						2D access operator with bounds checking
+		//						2D access method with bounds checking
 		//		
 		// Inputs:
 		//				row index
@@ -627,7 +629,7 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						const 2D access operator with bounds checking
+		//						const 2D access method with bounds checking
 		//		
 		// Inputs:
 		//				row index
@@ -635,7 +637,7 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		dtype at(int32 inRowIndex, int32 inColIndex) const
+		const dtype& at(int32 inRowIndex, int32 inColIndex) const
 		{
 			if (inRowIndex > shape_.rows - 1 || std::abs(inRowIndex) > shape_.rows)
 			{
@@ -650,6 +652,39 @@ namespace NumC
 			}
 
 			return this->operator()(inRowIndex, inColIndex);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						const 1D access method with bounds checking
+		//		
+		// Inputs:
+		//				Slice
+		// Outputs:
+		//				Ndarray
+		//
+		NdArray<dtype> at(const Slice& inSlice) const
+		{
+			// the slice operator already provides bounds checking. just including
+			// the at method for completeness
+			return this->operator()(inSlice);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						const 2D access method with bounds checking
+		//		
+		// Inputs:
+		//				Row Slice,
+		//				Column Slice
+		// Outputs:
+		//				Ndarray
+		//
+		NdArray<dtype> at(const Slice& inRowSlice, const Slice& inColSlice) const
+		{
+			// the slice operator already provides bounds checking. just including
+			// the at method for completeness
+			return this->operator()(inRowSlice, inColSlice);
 		}
 
 		//============================================================================
@@ -1378,7 +1413,10 @@ namespace NumC
 		//
 		void zeros()
 		{
-
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] = 0;
+			}
 		}
 
 		//============================================================================
