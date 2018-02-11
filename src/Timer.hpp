@@ -101,7 +101,7 @@ namespace NumC
 		//				None
 		//
 		Timer(const std::string& inName) :
-			name_(inName),
+			name_(inName + " "),
 			unit_("")
 		{
 			setUnits();
@@ -133,7 +133,7 @@ namespace NumC
 		int64 toc()
 		{
 			__int64 duration = std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count();
-			std::cout << name_ << " Elapsed Time = " << duration << unit_ << std::endl;
+			std::cout << name_ << "Elapsed Time = " << duration << unit_ << std::endl;
 			return static_cast<uint64>(duration);
 		}
 	};

@@ -249,6 +249,8 @@ namespace NumC
 		//
 		NdArray<dtype>& operator=(const NdArray<dtype>& inOtherArray)
 		{
+			deleteArray();
+
 			shape_ = Shape(inOtherArray.shape_);
 			size_ = inOtherArray.size_;
 			array_ = new dtype[size_];
@@ -289,7 +291,7 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		const dtype& operator()(int64 inIndex) const
+		dtype operator()(int64 inIndex) const
 		{
 			if (inIndex > -1)
 			{
@@ -350,7 +352,7 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		const dtype& operator()(int32 inRowIndex, int32 inColIndex) const
+		dtype operator()(int32 inRowIndex, int32 inColIndex) const
 		{
 			if (inRowIndex > -1 && inColIndex > -1)
 			{
@@ -549,7 +551,7 @@ namespace NumC
 			{
 				for (uint16 col = colStart; col < colStop; col += inColSlice.step)
 				{
-					returnArray(rowCounter, colCounter++) = this->operator(row, col);
+					returnArray(rowCounter, colCounter++) = this->operator()(row, col);
 				}
 				colCounter = 0;
 				++rowCounter;
@@ -585,7 +587,7 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		const dtype& at(int64 inIndex) const
+		dtype at(int64 inIndex) const
 		{
 			if (inIndex > size_ - 1 || std::abs(inIndex) > size_)
 			{
@@ -633,7 +635,7 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		const dtype& at(int32 inRowIndex, int32 inColIndex) const
+		dtype at(int32 inRowIndex, int32 inColIndex) const
 		{
 			if (inRowIndex > shape_.rows - 1 || std::abs(inRowIndex) > shape_.rows)
 			{

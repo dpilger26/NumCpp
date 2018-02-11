@@ -178,7 +178,7 @@ namespace NumC
 		//
 		friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
 		{
-			inOStream << "[" << inSlice.start << ": " << inSlice.stop << ": " << inSlice.step << "]" << std::endl;
+			inOStream << "[" << inSlice.start << ":" << inSlice.stop << ":" << inSlice.step << "]" << std::endl;
 			return inOStream;
 		}
 

@@ -25,35 +25,6 @@ namespace np = boost::python::numpy;
 using namespace NumC;
 
 //================================================================================
-template<typename T>
-class NdArrayInterface
-{
-private:
-	NumC::NdArray<T>	theArray_;
-
-public:
-	//================================================================================
-
-	NdArrayInterface() :
-		theArray_()
-	{};
-
-	//================================================================================
-
-	Shape shape()
-	{
-		return theArray_.shape();
-	}
-
-	//================================================================================
-
-	uint32 size()
-	{
-		return theArray_.size();
-	}
-};
-
-//================================================================================
 
 namespace Interface
 {
@@ -65,6 +36,12 @@ namespace Interface
 }
 
 //================================================================================
+double&	(NdArray<double>::*accessOperator1d)(int64) = &NdArray<double>::operator();
+double	(NdArray<double>::*constAccessOperator1d)(int64) const = &NdArray<double>::operator();
+double&	(NdArray<double>::*accessOperator2d)(int32, int32) = &NdArray<double>::operator();
+double	(NdArray<double>::*constAccessOperator2d)(int32, int32) const = &NdArray<double>::operator();
+NdArray<double>	(NdArray<double>::*accessOperator1dSlice)(const Slice&) const = &NdArray<double>::operator();
+NdArray<double> (NdArray<double>::*accessOperator2dSlice)(const Slice&, const Slice&) const = &NdArray<double>::operator();
 
 BOOST_PYTHON_MODULE(NumC)
 {
@@ -87,9 +64,9 @@ BOOST_PYTHON_MODULE(NumC)
 
 	bp::class_<Slice>
 		("Slice", bp::init<>())
-		.def(bp::init<uint16>())
-		.def(bp::init<uint16, uint16>())
-		.def(bp::init<uint16, uint16, uint16>())
+		.def(bp::init<int16>())
+		.def(bp::init<int16, int16>())
+		.def(bp::init<int16, int16, int16>())
 		.def_readwrite("start", &Slice::start)
 		.def_readwrite("stop", &Slice::stop)
 		.def_readwrite("step", &Slice::step)
@@ -107,11 +84,20 @@ BOOST_PYTHON_MODULE(NumC)
 		.value("ROW", Axis::ROW)
 		.value("COL", Axis::COL);
 
-	typedef NdArrayInterface<double> NdArrayInterfaceDouble;
-	bp::class_<NdArrayInterfaceDouble>
+	typedef NdArray<double> NdArrayDouble;
+	bp::class_<NdArrayDouble>
 		("NdArray", bp::init<>())
-		.def("shape", &NdArrayInterfaceDouble::shape)
-		.def("size", &NdArrayInterfaceDouble::size);
+		.def(bp::init<int16>())
+		.def(bp::init<int16, int16>())
+		.def(bp::init<Shape>())
+		.def("shape", &NdArrayDouble::shape)
+		.def("size", &NdArrayDouble::size)
+		.def("accessOperator1d", &accessOperator1d, bp::return_internal_reference<>())
+		.def("constAccessOperator1d", &constAccessOperator1d)
+		.def("accessOperator2d", &accessOperator2d, bp::return_internal_reference<>())
+		.def("constAccessOperator2d", &constAccessOperator2d)
+		.def("accessOperator1dSlice", &accessOperator1dSlice)
+		.def("accessOperator2dSlice", &accessOperator2dSlice);
 
 	boost::python::def("zeros", Interface::zeros);
 
