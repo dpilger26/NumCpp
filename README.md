@@ -1,2 +1,2 @@
 # NumC
-C++ implementation on Python Numpy library
+C++ implementation of the Python Numpy library
