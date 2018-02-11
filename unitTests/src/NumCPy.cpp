@@ -1,7 +1,5 @@
 #include"NumC.hpp"
 
-//#include "ndarrayHelper.h"
-
 #include<string>
 #include<iostream>
 
@@ -26,6 +24,37 @@ namespace np = boost::python::numpy;
 
 using namespace NumC;
 
+//================================================================================
+template<typename T>
+class NdArrayInterface
+{
+private:
+	NumC::NdArray<T>	theArray_;
+
+public:
+	//================================================================================
+
+	NdArrayInterface() :
+		theArray_()
+	{};
+
+	//================================================================================
+
+	Shape shape()
+	{
+		return theArray_.shape();
+	}
+
+	//================================================================================
+
+	uint32 size()
+	{
+		return theArray_.size();
+	}
+};
+
+//================================================================================
+
 namespace Interface
 {
 	int zeros(uint16 inNumRows, uint16 inNumCols)
@@ -34,6 +63,8 @@ namespace Interface
 		return 666;
 	}
 }
+
+//================================================================================
 
 BOOST_PYTHON_MODULE(NumC)
 {
@@ -62,7 +93,6 @@ BOOST_PYTHON_MODULE(NumC)
 		.def_readwrite("start", &Slice::start)
 		.def_readwrite("stop", &Slice::stop)
 		.def_readwrite("step", &Slice::step)
-		.def("isValid", &Slice::isValid)
 		.def("print", &Slice::print);
 
 	typedef Timer<std::chrono::microseconds> MicroTimer;
@@ -72,9 +102,16 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("tic", &MicroTimer::tic)
 		.def("toc", &MicroTimer::toc);
 
-	typedef NdArray<double> NdArrayDouble;
-	bp::class_<NdArrayDouble>
-		("NdArray", bp::init<>());
+	bp::enum_<Axis::Type>("Axis")
+		.value("NONE", Axis::NONE)
+		.value("ROW", Axis::ROW)
+		.value("COL", Axis::COL);
+
+	typedef NdArrayInterface<double> NdArrayInterfaceDouble;
+	bp::class_<NdArrayInterfaceDouble>
+		("NdArray", bp::init<>())
+		.def("shape", &NdArrayInterfaceDouble::shape)
+		.def("size", &NdArrayInterfaceDouble::size);
 
 	boost::python::def("zeros", Interface::zeros);
 

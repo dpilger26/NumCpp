@@ -192,7 +192,7 @@ namespace NumC
 		//						Constructor
 		//		
 		// Inputs:
-		//				initializer list
+		//				vector
 		// Outputs:
 		//				None
 		//
@@ -391,22 +391,28 @@ namespace NumC
 		//
 		NdArray<dtype> operator()(const Slice& inSlice) const
 		{
-			uint32 numElements = 0;
+			uint32 start = 0;
+			uint32 stop = 0;
 
-			if ((inSlice.start > -1 && inSlice.stop > -1) || 
-				(inSlice.start < 0 && inSlice.stop < 0))
+			if (inSlice.start > -1 && inSlice.stop > -1)
 			{
-				numElements = (inSlice.stop - inSlice.start + 1) / inSlice.step;
+				start = inSlice.start;
+				stop = inSlice.stop;
+			}
+			else if (inSlice.start < 0 && inSlice.stop < 0)
+			{
+				start = size_ + inSlice.start;
+				stop = size_ + inSlice.stop - 1;
 			}
 			else if (inSlice.start > -1 && inSlice.stop < 0)
 			{
-				uint16 stop = size_ + inSlice.stop - 1;
-				numElements = (stop - inSlice.start) / inSlice.step;
+				start = inSlice.start;
+				stop = size_ + inSlice.stop - 1;
 			}
 			else if (inSlice.start < 0 && inSlice.stop > -1)
 			{
-				uint16 start = size_ + inSlice.start;
-				numElements = (inSlice.stop - start) / inSlice.step;
+				start = size_ + inSlice.start;
+				stop = inSlice.stop;
 			}
 			else
 			{
@@ -414,9 +420,22 @@ namespace NumC
 				throw std::runtime_error("ERROR: Investigate this!");
 			}
 
+			if (stop < start)
+			{
+				std::string errStr = "ERROR: Slice stop must be less than slice start.";
+				throw std::invalid_argument(errStr);
+			}
+
+			if (start > size_ || stop > size_)
+			{
+				std::string errStr = "ERROR: Slice parameters are out of bounds for array of size " + num2str(size_);
+				throw std::invalid_argument(errStr);
+			}
+
+			uint32 numElements = (stop - start + 1) / inSlice.step;
 			uint32 counter = 0;
 			NdArray<dtype> returnArray(numElements, 1);
-			for (uint32 i = 0; i < numElements; i += inSlice.step)
+			for (uint32 i = start; i < stop; i += inSlice.step)
 			{
 				returnArray(counter++) = array_[i];
 			}
@@ -435,7 +454,106 @@ namespace NumC
 		//
 		NdArray<dtype> operator()(const Slice& inRowSlice, const Slice& inColSlice) const
 		{
+			uint32 rowStart = 0;
+			uint32 rowStop = 0;
 
+			if (inRowSlice.start > -1 && inRowSlice.stop > -1)
+			{
+				rowStart = inRowSlice.start;
+				rowStop = inRowSlice.stop;
+			}
+			else if (inRowSlice.start < 0 && inRowSlice.stop < 0)
+			{
+				rowStart = size_ + inRowSlice.start;
+				rowStop = size_ + inRowSlice.stop - 1;
+			}
+			else if (inRowSlice.start > -1 && inRowSlice.stop < 0)
+			{
+				rowStart = inRowSlice.start;
+				rowStop = size_ + inRowSlice.stop - 1;
+			}
+			else if (inRowSlice.start < 0 && inRowSlice.stop > -1)
+			{
+				rowStart = size_ + inRowSlice.start;
+				rowStop = inRowSlice.stop;
+			}
+			else
+			{
+				// I don't think it is possible to get in here...
+				throw std::runtime_error("ERROR: Investigate this!");
+			}
+
+			if (rowStop < rowStart)
+			{
+				std::string errStr = "ERROR: Slice stop must be less than slice start.";
+				throw std::invalid_argument(errStr);
+			}
+
+			if (rowStart > shape_.rows || rowStop > shape_.rows)
+			{
+				std::string errStr = "ERROR: Slice parameters are out of bounds for array of size [";
+				errStr += num2str(shape_.rows) + ", " + num2str(shape_.cols) + "]";
+				throw std::invalid_argument(errStr);
+			}
+
+			uint32 colStart = 0;
+			uint32 colStop = 0;
+
+			if (inColSlice.start > -1 && inColSlice.stop > -1)
+			{
+				colStart = inColSlice.start;
+				colStop = inColSlice.stop;
+			}
+			else if (inColSlice.start < 0 && inColSlice.stop < 0)
+			{
+				colStart = size_ + inColSlice.start;
+				colStop = size_ + inColSlice.stop - 1;
+			}
+			else if (inColSlice.start > -1 && inColSlice.stop < 0)
+			{
+				colStart = inColSlice.start;
+				colStop = size_ + inColSlice.stop - 1;
+			}
+			else if (inColSlice.start < 0 && inColSlice.stop > -1)
+			{
+				colStart = size_ + inColSlice.start;
+				colStop = inColSlice.stop;
+			}
+			else
+			{
+				// I don't think it is possible to get in here...
+				throw std::runtime_error("ERROR: Investigate this!");
+			}
+
+			if (colStop < colStart)
+			{
+				std::string errStr = "ERROR: Slice stop must be less than slice start.";
+				throw std::invalid_argument(errStr);
+			}
+
+			if (colStart > shape_.cols || colStop > shape_.cols)
+			{
+				std::string errStr = "ERROR: Slice parameters are out of bounds for array of size [";
+				errStr += num2str(shape_.rows) + ", " + num2str(shape_.cols) + "]";
+				throw std::invalid_argument(errStr);
+			}
+
+			uint16 numRowElements = (rowStop - rowStart + 1) / inRowSlice.step;
+			uint16 numColElements = (colStop - colStart + 1) / inColSlice.step;
+
+			uint16 rowCounter = 0;
+			uint16 colCounter = 0;
+
+			NdArray<dtype> returnArray(numRowElements, numColElements);
+			for (uint16 row = rowStart; row < rowStop; row += inRowSlice.step)
+			{
+				for (uint16 col = colStart; col < colStop; col += inColSlice.step)
+				{
+					returnArray(rowCounter, colCounter++) = this->operator(row, col);
+				}
+				colCounter = 0;
+				++rowCounter;
+			}
 		}
 
 		//============================================================================
@@ -530,37 +648,6 @@ namespace NumC
 			}
 
 			return this->operator()(inRowIndex, inColIndex);
-		}
-
-		//============================================================================
-		// Method Description: 
-		//						1D Slicing access operator with bounds checking.
-		//						returned array is of the range [start, stop).
-		//		
-		// Inputs:
-		//				Slice
-		// Outputs:
-		//				NdArray
-		//
-		NdArray<dtype> at(const Slice& inSlice) const
-		{
-
-		}
-
-		//============================================================================
-		// Method Description: 
-		//						2D Slicing access operator with bounds checking.
-		//						returned array is of the range [start, stop).
-		//		
-		// Inputs:
-		//				Row Slice
-		//				Col Slice
-		// Outputs:
-		//				NdArray
-		//
-		NdArray<dtype> at(const Slice& inRowSlice, const Slice& inColSlice) const
-		{
-
 		}
 
 		//============================================================================
@@ -1111,7 +1198,7 @@ namespace NumC
 		//
 		Shape shape() const
 		{
-
+			return shape_;
 		}
 
 		//============================================================================
@@ -1125,7 +1212,7 @@ namespace NumC
 		//
 		uint32 size() const
 		{
-
+			return size_;
 		}
 
 		//============================================================================

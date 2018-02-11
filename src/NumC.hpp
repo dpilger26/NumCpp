@@ -28,3 +28,4 @@
 #include"Linalg.hpp"
 #include"Random.hpp"
 #include"Timer.hpp"
+#include"BoostNumpyNdarrayHelper.hpp"
