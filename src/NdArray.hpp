@@ -750,11 +750,70 @@ namespace NumC
 		// Inputs:
 		//				(Optional) axis
 		// Outputs:
-		//				bool
+		//				NdArray
 		//
-		bool all(Axis::Type inAxis = Axis::NONE) const
+		NdArray<bool> all(Axis::Type inAxis = Axis::NONE) const
 		{
-
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					bool allNonzero = true;
+					for (uint32 i = 0; i < size_; ++i)
+					{
+						if (array_[i] == static_cast<dtype>(0))
+						{
+							allNonzero = false;
+							break;
+						}
+					}
+					NdArray<bool> returnArray(1);
+					returnArray(0) = allNonzero;
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<bool> returnArray(1, shape_.rows);
+					for (uint16 row = 0; row < shape_.rows; ++row)
+					{
+						bool allNonzero = true;
+						for (uint16 col = 0; col < shape_.cols; ++col)
+						{
+							if (this->operator()(row, col) == static_cast<dtype>(0))
+							{
+								allNonzero = false;
+								break;
+							}
+						}
+						returnArray(0, row) = allNonzero;
+					}
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<bool> returnArray(1, shape_.cols);
+					for (uint16 col = 0; col < shape_.cols; ++col)
+					{
+						bool allNonzero = true;
+						for (uint16 row = 0; row < shape_.rows; ++row)
+						{
+							if (this->operator()(row, col) == static_cast<dtype>(0))
+							{
+								allNonzero = false;
+								break;
+							}
+						}
+						returnArray(0, col) = allNonzero;
+					}
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<bool>(1);
+				}
+			}
 		}
 
 		//============================================================================
@@ -764,9 +823,9 @@ namespace NumC
 		// Inputs:
 		//				(Optional) axis
 		// Outputs:
-		//				Bool
+		//				NdArray
 		//
-		bool any(Axis::Type inAxis = Axis::NONE) const
+		NdArray<bool> any(Axis::Type inAxis = Axis::NONE) const
 		{
 
 		}
@@ -944,7 +1003,10 @@ namespace NumC
 		//
 		void fill(dtype inFillValue)
 		{
-
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] = inFillValue;
+			}
 		}
 
 		//============================================================================
@@ -1196,6 +1258,25 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						Change shape and size of array in-place. All previous
+		//						data of the array is lost.
+		//		
+		// Inputs:
+		//				Shape
+		// Outputs:
+		//				None
+		//
+		void resizeFast(const Shape& inShape)
+		{
+			shape_ = inShape;
+			size_ = shape_.rows * shape_.cols;
+			deleteArray();
+			array_ = new dtype[size_];
+			zeros();
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Change shape and size of array in-place. All data outide
 		//						of new size is lost.
 		//		
@@ -1204,9 +1285,29 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		void resize(const Shape& inShape)
+		void resizeSlow(const Shape& inShape)
 		{
+			T* oldData = new dtype[size_];
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				oldData[i] = array_[i];
+			}
 
+			uint32 newSize = shape_.rows * shape_.cols;
+
+			deleteArray();
+			array_ = new dtype[size_];
+			for (uint16 row = 0; row < shape_.rows; ++row)
+			{
+				for (uint16 col = 0; col < shape_.cols; ++col)
+				{
+					this->operator()(row, col) = oldData[row * shape_.cols + col];
+				}
+			}
+
+			delete[] oldData;
+			shape_ = inShape;
+			size_ = newSize;
 		}
 
 		//============================================================================

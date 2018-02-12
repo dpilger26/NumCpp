@@ -72,7 +72,7 @@ namespace NumC
 		{
 			if (boost::python::len(indices) != numDimensions_)
 			{
-				std::string errorString = "Error: Array has " + std::to_string(numDimensions_) + ", you asked for " + std::to_string(static_cast<int>(boost::python::len(indices))) + "!";
+				std::string errorString = "Error: Array has " + std::to_string(numDimensions_) + " dimensions, you asked for " + std::to_string(static_cast<int>(boost::python::len(indices))) + "!";
 				PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
 			}
 

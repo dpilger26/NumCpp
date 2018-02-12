@@ -44,6 +44,56 @@ namespace NdArrayInterface
 	{
 		return numCToBoost(inArray);
 	}
+
+	//================================================================================
+
+	template<typename T>
+	void setArray(NdArray<T>& inArray, np::ndarray& inBoostArray)
+	{
+		BoostNdarrayHelper newNdArrayHelper(&inBoostArray);
+		uint8 numDims = newNdArrayHelper.numDimensions();
+		if (numDims > 2)
+		{
+			std::string errorString = "ERROR: Input array can only have up to 2 dimensions!";
+			PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
+		}
+
+		uint16 numRows = 0;
+		uint16 numCols = 0;
+		if (numDims == 1)
+		{
+			numCols = static_cast<uint16>(newNdArrayHelper.shape()[0]);
+			numRows = 1;
+		}
+		else
+		{
+			numRows = static_cast<uint16>(newNdArrayHelper.shape()[0]);
+			numCols = static_cast<uint16>(newNdArrayHelper.shape()[1]);
+		}
+
+		Shape boostArrayShape(numRows, numCols);
+		Shape arrayShape = inArray.shape();
+		if (!(arrayShape.rows == numRows && arrayShape.cols == numCols))
+		{
+			inArray.resizeFast(boostArrayShape);
+		}
+
+		for (uint16 row = 0; row < numRows; ++row)
+		{
+			for (uint16 col = 0; col < numCols; ++col)
+			{
+				inArray(row, col) = newNdArrayHelper(row, col);
+			}
+		}
+	}
+
+	//================================================================================
+
+	template<typename T>
+	np::ndarray all(NdArray<T>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.all(inAxis));
+	}
 }
 
 //================================================================================
@@ -97,7 +147,9 @@ BOOST_PYTHON_MODULE(NumC)
 		.def(bp::init<Shape>())
 		.def("shape", &NdArrayDouble::shape)
 		.def("size", &NdArrayDouble::size)
-		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>);
+		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>)
+		.def("setArray", &NdArrayInterface::setArray<double>)
+		.def("all", &NdArrayInterface::all<double>);
 
 	boost::python::def("zeros", Interface::zeros);
 
