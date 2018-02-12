@@ -28,6 +28,9 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<algorithm>
+#include<limits>
+#include<numeric>
 
 namespace NumC
 {
@@ -166,13 +169,11 @@ namespace NumC
 		NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
 			shape_(0, 0),
 			size_(0),
-			array_(new dtype[size_])
+			array_(nullptr)
 		{
 			typename std::initializer_list<std::initializer_list<dtype> >::iterator iter;
 			for (iter = inList.begin(); iter < inList.end(); ++iter)
 			{
-				std::copy(iter->begin(), iter->end(), data_ + size_);
-
 				size_ += iter->size();
 				++shape_.rows;
 
@@ -184,6 +185,15 @@ namespace NumC
 				{
 					throw std::runtime_error("ERROR: All rows of the initializer list needs to have the same number of elements");
 				}
+			}
+
+			array_ = new dtype[size_];
+			typename std::initializer_list<std::initializer_list<dtype> >::iterator iter;
+			uint16 row = 0;
+			for (iter = inList.begin(); iter < inList.end(); ++iter)
+			{
+				std::copy(iter->begin(), iter->end(), array_ + row * shape_.cols);
+				++row;
 			}
 		}
 
@@ -197,9 +207,9 @@ namespace NumC
 		//				None
 		//
 		NdArray(const std::vector<dtype>& inVector) :
-			shape_(static_cast<uint16>(inList.size()), 1),
-			size_(static_cast<uint32>(inList.size())),
-			array_(new dtype[shape_])
+			shape_(static_cast<uint16>(inVector.size()), 1),
+			size_(static_cast<uint32>(inVector.size())),
+			array_(new dtype[size_])
 		{
 			std::copy(inVector.begin(), inVector.end(), array_);
 		}
@@ -689,7 +699,7 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						iterator to the beginning of the array
+		//						iterator to the beginning of the flattened array
 		//		
 		// Inputs:
 		//				None
@@ -703,7 +713,21 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						iterator to the end of the array
+		//						iterator to the beginning of the input row
+		//		
+		// Inputs:
+		//				row
+		// Outputs:
+		//				iterator
+		//
+		iterator begin(uint16 inRow)
+		{
+			return array_ + inRow * shape_.cols;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						iterator to 1 past the end of the flattened array
 		//		
 		// Inputs:
 		//				None
@@ -717,7 +741,21 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						const iterator to the beginning of the array
+		//						iterator to the 1 past end of the row
+		//		
+		// Inputs:
+		//				row
+		// Outputs:
+		//				iterator
+		//
+		iterator end(uint16 inRow)
+		{
+			return array_ + inRow * shape_.cols + shape_.cols;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						const iterator to the beginning of the flattened array
 		//		
 		// Inputs:
 		//				None
@@ -731,7 +769,21 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						const iterator to the end of the array
+		//						const iterator to the beginning of the input row
+		//		
+		// Inputs:
+		//				row
+		// Outputs:
+		//				const_iterator
+		//
+		const_iterator cbegin(uint16 inRow) const
+		{
+			return array_ + inRow * shape_.cols;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						const iterator to 1 past the end of the flattened array
 		//		
 		// Inputs:
 		//				None
@@ -741,6 +793,20 @@ namespace NumC
 		const_iterator cend() const
 		{
 			return array_ + size_;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						const iterator to 1 past the end of the input row
+		//		
+		// Inputs:
+		//				row
+		// Outputs:
+		//				const_iterator
+		//
+		const_iterator cend(uint16 inRow) const
+		{
+			return array_ + inRow * shape_.cols + shape_.cols;
 		}
 
 		//============================================================================
@@ -758,17 +824,8 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					bool allNonzero = true;
-					for (uint32 i = 0; i < size_; ++i)
-					{
-						if (array_[i] == static_cast<dtype>(0))
-						{
-							allNonzero = false;
-							break;
-						}
-					}
 					NdArray<bool> returnArray(1);
-					returnArray(0) = allNonzero;
+					returnArray(0) = std::all_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); });
 					return returnArray;
 				}
 				case Axis::COL:
@@ -776,16 +833,7 @@ namespace NumC
 					NdArray<bool> returnArray(1, shape_.rows);
 					for (uint16 row = 0; row < shape_.rows; ++row)
 					{
-						bool allNonzero = true;
-						for (uint16 col = 0; col < shape_.cols; ++col)
-						{
-							if (this->operator()(row, col) == static_cast<dtype>(0))
-							{
-								allNonzero = false;
-								break;
-							}
-						}
-						returnArray(0, row) = allNonzero;
+						returnArray(0, row) = std::all_of(cbegin(row), cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
 					}
 					return returnArray;
 				}
@@ -827,12 +875,54 @@ namespace NumC
 		//
 		NdArray<bool> any(Axis::Type inAxis = Axis::NONE) const
 		{
-
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<bool> returnArray(1);
+					returnArray(0) = std::any_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); });
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<bool> returnArray(1, shape_.rows);
+					for (uint16 row = 0; row < shape_.rows; ++row)
+					{
+						returnArray(0, row) = std::any_of(cbegin(row), cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
+					}
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<bool> returnArray(1, shape_.cols);
+					for (uint16 col = 0; col < shape_.cols; ++col)
+					{
+						bool anyNonzero = false;
+						for (uint16 row = 0; row < shape_.rows; ++row)
+						{
+							if (this->operator()(row, col) != static_cast<dtype>(0))
+							{
+								anyNonzero = true;
+								break;
+							}
+						}
+						returnArray(0, col) = anyNonzero;
+					}
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<bool>(1);
+				}
+			}
 		}
 
 		//============================================================================
 		// Method Description: 
 		//						Return indices of the maximum values along the given axis.
+		//						Only the first index is returned.
 		//		
 		// Inputs:
 		//				(Optional) axis
@@ -841,12 +931,56 @@ namespace NumC
 		//
 		NdArray<uint16> argmax(Axis::Type inAxis = Axis::NONE) const
 		{
-
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<uint16> returnArray(1);
+					returnArray(0) = static_cast<uint16>(std::max_element(cbegin(), cend()) - cbegin());
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<uint16> returnArray(1, shape_.rows);
+					for (uint16 row = 0; row < shape_.rows; ++row)
+					{
+						returnArray(0, row) = static_cast<uint16>(std::max_element(cbegin(row), cend(row)) - cbegin(row));
+					}
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<uint16> returnArray(1, shape_.cols);
+					for (uint16 col = 0; col < shape_.cols; ++col)
+					{
+						uint16 maxArg = 0;
+						dtype maxValue = std::numeric_limits<dtype>::min();
+						for (uint16 row = 0; row < shape_.rows; ++row)
+						{
+							dtype value = this->operator()(row, col);
+							if (value > maxValue)
+							{
+								maxValue = value;
+								maxArg = row;
+							}
+						}
+						returnArray(0, col) = maxArg;
+					}
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<uint16>(0);
+				}
+			}
 		}
 
 		//============================================================================
 		// Method Description: 
 		//						Return indices of the minimum values along the given axis.
+		//						Only the first index is returned.
 		//		
 		// Inputs:
 		//				(Optional) axis
@@ -855,7 +989,50 @@ namespace NumC
 		//
 		NdArray<uint16> argmin(Axis::Type inAxis = Axis::NONE) const
 		{
-
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<uint16> returnArray(1);
+					returnArray(0) = static_cast<uint16>(std::min_element(cbegin(), cend()) - cbegin());
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<uint16> returnArray(1, shape_.rows);
+					for (uint16 row = 0; row < shape_.rows; ++row)
+					{
+						returnArray(0, row) = static_cast<uint16>(std::min_element(cbegin(row), cend(row)) - cbegin(row));
+					}
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<uint16> returnArray(1, shape_.cols);
+					for (uint16 col = 0; col < shape_.cols; ++col)
+					{
+						uint16 minArg = 0;
+						dtype minValue = std::numeric_limits<dtype>::max();
+						for (uint16 row = 0; row < shape_.rows; ++row)
+						{
+							dtype value = this->operator()(row, col);
+							if (value < minValue)
+							{
+								minValue = value;
+								minArg = row;
+							}
+						}
+						returnArray(0, col) = minArg;
+					}
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<uint16>(0);
+				}
+			}
 		}
 
 		//============================================================================
@@ -869,7 +1046,42 @@ namespace NumC
 		//
 		NdArray<uint16> argsort(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					std::vector<uint16> idx(size_);
+					std::iota(idx.begin(), idx.end(), 0);
+					std::stable_sort(idx.begin(), idx.end(), [this](uint32 i1, uint32 i2) {return this->array_[i1] < this->array_[i2]; });
+					return NdArray<uint16>(idx);
+				}
+				case Axis::COL:
+				{
+					NdArray<uint16> returnArray(shape_.rows, shape_.cols);
+					for (uint16 row = 0; row < shape_.rows; ++row)
+					{
+						std::vector<uint16> idx(shape_.rows);
+						std::iota(idx.begin(), idx.end(), 0);
+						std::stable_sort(idx.begin(), idx.end(), [this, row](uint16 i1, uint16 i2) {return this->operator()(row, i1) < this->operator()(row, i2); });
 
+						for (uint16 col = 0; col < shape_.cols; ++col)
+						{
+							returnArray(row, col) = idx[col];
+						}
+					}
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					return NdArray<uint16>(0);
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<uint16>(0);
+				}
+			}
 		}
 
 		//============================================================================

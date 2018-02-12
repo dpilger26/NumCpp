@@ -94,6 +94,38 @@ namespace NdArrayInterface
 	{
 		return numCToBoost(inArray.all(inAxis));
 	}
+
+	//================================================================================
+
+	template<typename T>
+	np::ndarray any(NdArray<T>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.any(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename T>
+	np::ndarray argmax(NdArray<T>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.argmax(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename T>
+	np::ndarray argmin(NdArray<T>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.argmin(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename T>
+	np::ndarray argsort(NdArray<T>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.argsort(inAxis));
+	}
 }
 
 //================================================================================
@@ -149,7 +181,11 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("size", &NdArrayDouble::size)
 		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>)
 		.def("setArray", &NdArrayInterface::setArray<double>)
-		.def("all", &NdArrayInterface::all<double>);
+		.def("all", &NdArrayInterface::all<double>)
+		.def("any", &NdArrayInterface::any<double>)
+		.def("argmax", &NdArrayInterface::argmax<double>)
+		.def("argmin", &NdArrayInterface::argmin<double>)
+		.def("argsort", &NdArrayInterface::argsort<double>);
 
 	boost::python::def("zeros", Interface::zeros);
 
