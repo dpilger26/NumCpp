@@ -340,7 +340,7 @@ namespace NumC
 		// Outputs:
 		//				double
 		//
-		double& operator()(uint16 index1, uint16 index2)
+		double& operator()(uint32 index1, uint32 index2)
 		{
 			checkIndices2D(index1, index2);
 			return *reinterpret_cast<double*>(theArray_.get_data() + strides_[0] * index1 + strides_[1] * index2);
@@ -355,7 +355,7 @@ namespace NumC
 		// Outputs:
 		//				double
 		//
-		double& operator()(uint16 index1, uint16 index2, uint16 index3)
+		double& operator()(uint32 index1, uint32 index2, uint32 index3)
 		{
 			checkIndices3D(index1, index2, index3);
 
@@ -404,9 +404,9 @@ namespace NumC
 				return;
 			}
 
-			for (uint16 index1 = 0; index1 < shape_[0]; ++index1)
+			for (uint32 index1 = 0; index1 < shape_[0]; ++index1)
 			{
-				for (uint16 index2 = 0; index2 < shape_[1]; ++index2)
+				for (uint32 index2 = 0; index2 < shape_[1]; ++index2)
 				{
 					printf("\t%f", this->operator()(index1, index2));
 				}
@@ -432,11 +432,11 @@ namespace NumC
 				return;
 			}
 
-			for (uint16 index1 = 0; index1 < shape_[0]; ++index1)
+			for (uint32 index1 = 0; index1 < shape_[0]; ++index1)
 			{
-				for (uint16 index2 = 0; index2 < shape_[1]; ++index2)
+				for (uint32 index2 = 0; index2 < shape_[1]; ++index2)
 				{
-					for (uint16 index3 = 0; index3 < shape_[2]; ++index3)
+					for (uint32 index3 = 0; index3 < shape_[2]; ++index3)
 					{
 						printf("\t%f", this->operator()(index1, index2, index3));
 					}
@@ -503,11 +503,11 @@ namespace NumC
 		bp::tuple shape = bp::make_tuple(inShape.rows, inShape.cols);
 		BoostNdarrayHelper newNdArrayHelper(shape);
 
-		for (uint16 row = 0; row < inShape.rows; ++row)
+		for (uint32 row = 0; row < inShape.rows; ++row)
 		{
-			for (uint16 col = 0; col < inShape.cols; ++col)
+			for (uint32 col = 0; col < inShape.cols; ++col)
 			{
-				newNdArrayHelper(row, col) = inArray(row, col);
+				newNdArrayHelper(row, col) = static_cast<double>(inArray(row, col));
 			}
 		}
 		return *(newNdArrayHelper.getArray());

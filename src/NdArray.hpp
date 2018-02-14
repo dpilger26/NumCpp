@@ -97,9 +97,9 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		NdArray(uint16 inSquareSize) :
+		NdArray(uint32 inSquareSize) :
 			shape_(inSquareSize, inSquareSize),
-			size_(static_cast<uint32>(inSquareSize) * static_cast<uint32>(inSquareSize)),
+			size_(inSquareSize * inSquareSize),
 			array_(new dtype[size_])
 		{
 			zeros();
@@ -115,9 +115,9 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		NdArray(uint16 inNumRows, uint16 inNumCols) :
+		NdArray(uint32 inNumRows, uint32 inNumCols) :
 			shape_(inNumRows, inNumCols),
-			size_(static_cast<uint32>(inNumRows) * static_cast<uint32>(inNumCols)),
+			size_(inNumRows * inNumCols),
 			array_(new dtype[size_])
 		{
 			zeros();
@@ -134,7 +134,7 @@ namespace NumC
 		//
 		NdArray(const Shape& inShape) :
 			shape_(inShape),
-			size_(static_cast<uint32>(inShape.rows) * static_cast<uint32>(inShape.cols)),
+			size_(inShape.rows * inShape.cols),
 			array_(new dtype[size_])
 		{
 			zeros();
@@ -150,7 +150,7 @@ namespace NumC
 		//				None
 		//
 		NdArray(const std::initializer_list<dtype>& inList) :
-			shape_(static_cast<uint16>(inList.size()), 1),
+			shape_(static_cast<uint32>(inList.size()), 1),
 			size_(static_cast<uint32>(inList.size())),
 			array_(new dtype[size_])
 		{
@@ -207,7 +207,7 @@ namespace NumC
 		//				None
 		//
 		NdArray(const std::vector<dtype>& inVector) :
-			shape_(static_cast<uint16>(inVector.size()), 1),
+			shape_(1, static_cast<uint32>(inVector.size())),
 			size_(static_cast<uint32>(inVector.size())),
 			array_(new dtype[size_])
 		{
@@ -280,7 +280,7 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		dtype& operator()(int64 inIndex)
+		dtype& operator[](int32 inIndex)
 		{
 			if (inIndex > -1)
 			{
@@ -288,7 +288,7 @@ namespace NumC
 			}
 			else
 			{
-				uint32 index = static_cast<uint32>(static_cast<int64>(size_) + inIndex);
+				uint32 index = static_cast<uint32>(static_cast<int32>(size_) + inIndex);
 				return array_[index];
 			}
 		}
@@ -302,7 +302,7 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		const dtype& operator()(int64 inIndex) const
+		const dtype& operator[](int32 inIndex) const
 		{
 			if (inIndex > -1)
 			{
@@ -310,7 +310,7 @@ namespace NumC
 			}
 			else
 			{
-				uint32 index = static_cast<uint32>(static_cast<int64>(size_) + inIndex);
+				uint32 index = static_cast<uint32>(static_cast<int32>(size_) + inIndex);
 				return array_[index];
 			}
 		}
@@ -333,18 +333,18 @@ namespace NumC
 			}
 			else if (inRowIndex < 0 && inColIndex < 0)
 			{
-				uint16 rowIdx = static_cast<uint16>(static_cast<int32>(shape_.rows) + inRowIndex);
-				uint16 colIdx = static_cast<uint16>(static_cast<int32>(shape_.cols) + inColIndex);
+				uint32 rowIdx = static_cast<uint32>(static_cast<int32>(shape_.rows) + inRowIndex);
+				uint32 colIdx = static_cast<uint32>(static_cast<int32>(shape_.cols) + inColIndex);
 				return array_[rowIdx * shape_.cols + colIdx];
 			}
 			else if (inRowIndex > -1 && inColIndex < 0)
 			{
-				uint16 colIdx = static_cast<uint16>(static_cast<int32>(shape_.cols) + inColIndex);
+				uint32 colIdx = static_cast<uint32>(static_cast<int32>(shape_.cols) + inColIndex);
 				return array_[inRowIndex * shape_.cols + colIdx];
 			}
 			else if (inRowIndex < 0 && inColIndex > -1)
 			{
-				uint16 rowIdx = static_cast<uint16>(static_cast<int32>(shape_.rows) + inRowIndex);
+				uint32 rowIdx = static_cast<uint32>(static_cast<int32>(shape_.rows) + inRowIndex);
 				return array_[rowIdx * shape_.cols + inColIndex];
 			}
 			else
@@ -372,18 +372,18 @@ namespace NumC
 			}
 			else if (inRowIndex < 0 && inColIndex < 0)
 			{
-				uint16 rowIdx = static_cast<uint16>(static_cast<int32>(shape_.rows) + inRowIndex);
-				uint16 colIdx = static_cast<uint16>(static_cast<int32>(shape_.cols) + inColIndex);
+				uint32 rowIdx = static_cast<uint32>(static_cast<int32>(shape_.rows) + inRowIndex);
+				uint32 colIdx = static_cast<uint32>(static_cast<int32>(shape_.cols) + inColIndex);
 				return array_[rowIdx * shape_.cols + colIdx];
 			}
 			else if (inRowIndex > -1 && inColIndex < 0)
 			{
-				uint16 colIdx = static_cast<uint16>(static_cast<int32>(shape_.cols) + inColIndex);
+				uint32 colIdx = static_cast<uint32>(static_cast<int32>(shape_.cols) + inColIndex);
 				return array_[inRowIndex * shape_.cols + colIdx];
 			}
 			else if (inRowIndex < 0 && inColIndex > -1)
 			{
-				uint16 rowIdx = static_cast<uint16>(static_cast<int32>(shape_.rows) + inRowIndex);
+				uint32 rowIdx = static_cast<uint32>(static_cast<int32>(shape_.rows) + inRowIndex);
 				return array_[rowIdx * shape_.cols + inColIndex];
 			}
 			else
@@ -403,7 +403,7 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> operator()(const Slice& inSlice) const
+		NdArray<dtype> operator[](const Slice& inSlice) const
 		{
 			uint32 start = 0;
 			uint32 stop = 0;
@@ -587,7 +587,7 @@ namespace NumC
 				throw std::invalid_argument(errStr);
 			}
 
-			return this->operator()(inIndex);
+			return array_[inIndex];
 		}
 
 		//============================================================================
@@ -607,7 +607,7 @@ namespace NumC
 				throw std::invalid_argument(errStr);
 			}
 
-			return this->operator()(inIndex);
+			return array_[inIndex];
 		}
 
 		//============================================================================
@@ -677,7 +677,7 @@ namespace NumC
 		{
 			// the slice operator already provides bounds checking. just including
 			// the at method for completeness
-			return this->operator()(inSlice);
+			return this->operator[](inSlice);
 		}
 
 		//============================================================================
@@ -720,7 +720,7 @@ namespace NumC
 		// Outputs:
 		//				iterator
 		//
-		iterator begin(uint16 inRow)
+		iterator begin(uint32 inRow)
 		{
 			return array_ + inRow * shape_.cols;
 		}
@@ -748,7 +748,7 @@ namespace NumC
 		// Outputs:
 		//				iterator
 		//
-		iterator end(uint16 inRow)
+		iterator end(uint32 inRow)
 		{
 			return array_ + inRow * shape_.cols + shape_.cols;
 		}
@@ -776,7 +776,7 @@ namespace NumC
 		// Outputs:
 		//				const_iterator
 		//
-		const_iterator cbegin(uint16 inRow) const
+		const_iterator cbegin(uint32 inRow) const
 		{
 			return array_ + inRow * shape_.cols;
 		}
@@ -804,7 +804,7 @@ namespace NumC
 		// Outputs:
 		//				const_iterator
 		//
-		const_iterator cend(uint16 inRow) const
+		const_iterator cend(uint32 inRow) const
 		{
 			return array_ + inRow * shape_.cols + shape_.cols;
 		}
@@ -825,13 +825,13 @@ namespace NumC
 				case Axis::NONE:
 				{
 					NdArray<bool> returnArray(1);
-					returnArray(0) = std::all_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); });
+					returnArray[0] = std::all_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); });
 					return returnArray;
 				}
 				case Axis::COL:
 				{
 					NdArray<bool> returnArray(1, shape_.rows);
-					for (uint16 row = 0; row < shape_.rows; ++row)
+					for (uint32 row = 0; row < shape_.rows; ++row)
 					{
 						returnArray(0, row) = std::all_of(cbegin(row), cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
 					}
@@ -841,7 +841,7 @@ namespace NumC
 				{
 					NdArray<dtype> arrayTransposed = transpose();
 					NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
-					for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
+					for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
 					{
 						returnArray(0, row) = std::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
 					}
@@ -872,13 +872,13 @@ namespace NumC
 				case Axis::NONE:
 				{
 					NdArray<bool> returnArray(1);
-					returnArray(0) = std::any_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); });
+					returnArray[0] = std::any_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); });
 					return returnArray;
 				}
 				case Axis::COL:
 				{
 					NdArray<bool> returnArray(1, shape_.rows);
-					for (uint16 row = 0; row < shape_.rows; ++row)
+					for (uint32 row = 0; row < shape_.rows; ++row)
 					{
 						returnArray(0, row) = std::any_of(cbegin(row), cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
 					}
@@ -888,7 +888,7 @@ namespace NumC
 				{
 					NdArray<dtype> arrayTransposed = transpose();
 					NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
-					for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
+					for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
 					{
 						returnArray(0, row) = std::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
 					}
@@ -913,32 +913,32 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<uint16> argmax(Axis::Type inAxis = Axis::NONE) const
+		NdArray<uint32> argmax(Axis::Type inAxis = Axis::NONE) const
 		{
 			switch (inAxis)
 			{
 				case Axis::NONE:
 				{
-					NdArray<uint16> returnArray(1);
-					returnArray(0) = static_cast<uint16>(std::max_element(cbegin(), cend()) - cbegin());
+					NdArray<uint32> returnArray(1);
+					returnArray[0] = static_cast<uint32>(std::max_element(cbegin(), cend()) - cbegin());
 					return returnArray;
 				}
 				case Axis::COL:
 				{
-					NdArray<uint16> returnArray(1, shape_.rows);
-					for (uint16 row = 0; row < shape_.rows; ++row)
+					NdArray<uint32> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
 					{
-						returnArray(0, row) = static_cast<uint16>(std::max_element(cbegin(row), cend(row)) - cbegin(row));
+						returnArray(0, row) = static_cast<uint32>(std::max_element(cbegin(row), cend(row)) - cbegin(row));
 					}
 					return returnArray;
 				}
 				case Axis::ROW:
 				{
 					NdArray<dtype> arrayTransposed = transpose();
-					NdArray<uint16> returnArray(1, arrayTransposed.shape_.rows);
+					NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
 					for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
 					{
-						returnArray(0, row) = static_cast<uint16>(std::max_element(arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+						returnArray(0, row) = static_cast<uint32>(std::max_element(arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
 					}
 					return returnArray;
 				}
@@ -946,7 +946,7 @@ namespace NumC
 				{
 					// this isn't actually possible, just putting this here to get rid
 					// of the compiler warning.
-					return NdArray<uint16>(0);
+					return NdArray<uint32>(0);
 				}
 			}
 		}
@@ -961,32 +961,32 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<uint16> argmin(Axis::Type inAxis = Axis::NONE) const
+		NdArray<uint32> argmin(Axis::Type inAxis = Axis::NONE) const
 		{
 			switch (inAxis)
 			{
 				case Axis::NONE:
 				{
-					NdArray<uint16> returnArray(1);
-					returnArray(0) = static_cast<uint16>(std::min_element(cbegin(), cend()) - cbegin());
+					NdArray<uint32> returnArray(1);
+					returnArray[0] = static_cast<uint32>(std::min_element(cbegin(), cend()) - cbegin());
 					return returnArray;
 				}
 				case Axis::COL:
 				{
-					NdArray<uint16> returnArray(1, shape_.rows);
-					for (uint16 row = 0; row < shape_.rows; ++row)
+					NdArray<uint32> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
 					{
-						returnArray(0, row) = static_cast<uint16>(std::min_element(cbegin(row), cend(row)) - cbegin(row));
+						returnArray(0, row) = static_cast<uint32>(std::min_element(cbegin(row), cend(row)) - cbegin(row));
 					}
 					return returnArray;
 				}
 				case Axis::ROW:
 				{
 					NdArray<dtype> arrayTransposed = transpose();
-					NdArray<uint16> returnArray(1, arrayTransposed.shape_.rows);
-					for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
+					NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
+					for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
 					{
-						returnArray(0, row) = static_cast<uint16>(std::min_element(arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+						returnArray(0, row) = static_cast<uint32>(std::min_element(arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
 					}
 					return returnArray;
 				}
@@ -994,7 +994,7 @@ namespace NumC
 				{
 					// this isn't actually possible, just putting this here to get rid
 					// of the compiler warning.
-					return NdArray<uint16>(0);
+					return NdArray<uint32>(0);
 				}
 			}
 		}
@@ -1008,27 +1008,27 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<uint16> argsort(Axis::Type inAxis = Axis::NONE) const
+		NdArray<uint32> argsort(Axis::Type inAxis = Axis::NONE) const
 		{
 			switch (inAxis)
 			{
 				case Axis::NONE:
 				{
-					std::vector<uint16> idx(size_);
+					std::vector<uint32> idx(size_);
 					std::iota(idx.begin(), idx.end(), 0);
 					std::stable_sort(idx.begin(), idx.end(), [this](uint32 i1, uint32 i2) {return this->array_[i1] < this->array_[i2]; });
-					return NdArray<uint16>(idx);
+					return NdArray<uint32>(idx);
 				}
 				case Axis::COL:
 				{
-					NdArray<uint16> returnArray(shape_);
-					for (uint16 row = 0; row < shape_.rows; ++row)
+					NdArray<uint32> returnArray(shape_);
+					for (uint32 row = 0; row < shape_.rows; ++row)
 					{
-						std::vector<uint16> idx(shape_.cols);
+						std::vector<uint32> idx(shape_.cols);
 						std::iota(idx.begin(), idx.end(), 0);
-						std::stable_sort(idx.begin(), idx.end(), [this, row](uint16 i1, uint16 i2) {return this->operator()(row, i1) < this->operator()(row, i2); });
+						std::stable_sort(idx.begin(), idx.end(), [this, row](uint32 i1, uint32 i2) {return this->operator()(row, i1) < this->operator()(row, i2); });
 
-						for (uint16 col = 0; col < shape_.cols; ++col)
+						for (uint32 col = 0; col < shape_.cols; ++col)
 						{
 							returnArray(row, col) = idx[col];
 						}
@@ -1038,14 +1038,14 @@ namespace NumC
 				case Axis::ROW:
 				{
 					NdArray<dtype> arrayTransposed = transpose();
-					NdArray<uint16> returnArray(shape_.cols, shape_.rows);
-					for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
+					NdArray<uint32> returnArray(shape_.cols, shape_.rows);
+					for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
 					{
-						std::vector<uint16> idx(arrayTransposed.shape_.cols);
+						std::vector<uint32> idx(arrayTransposed.shape_.cols);
 						std::iota(idx.begin(), idx.end(), 0);
-						std::stable_sort(idx.begin(), idx.end(), [&arrayTransposed, row](uint16 i1, uint16 i2) {return arrayTransposed(row, i1) < arrayTransposed(row, i2); });
+						std::stable_sort(idx.begin(), idx.end(), [&arrayTransposed, row](uint32 i1, uint32 i2) {return arrayTransposed(row, i1) < arrayTransposed(row, i2); });
 
-						for (uint16 col = 0; col < arrayTransposed.shape_.cols; ++col)
+						for (uint32 col = 0; col < arrayTransposed.shape_.cols; ++col)
 						{
 							returnArray(row, col) = idx[col];
 						}
@@ -1056,7 +1056,7 @@ namespace NumC
 				{
 					// this isn't actually possible, just putting this here to get rid
 					// of the compiler warning.
-					return NdArray<uint16>(0);
+					return NdArray<uint32>(0);
 				}
 			}
 		}
@@ -1124,7 +1124,54 @@ namespace NumC
 		template<typename dtypeOut>
 		NdArray<dtypeOut> cumprod(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<dtypeOut> returnArray(1, size_);
+					returnArray.array_[0] = array_[0];
+					for (uint32 i = 1; i < size_; ++i)
+					{
+						returnArray.array_[i] = returnArray.array_[i - 1] * static_cast<dtypeOut>(array_[i]);
+					}
 
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<dtypeOut> returnArray(shape_);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						returnArray(row, 0) = this->operator()(row, 0);
+						for (uint32 col = 1; col < shape_.cols; ++col)
+						{
+							returnArray(row, col) = returnArray(row, col - 1) * static_cast<dtypeOut>(this->operator()(row, col));
+						}
+					}
+
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtypeOut> returnArray(shape_);
+					for (uint32 col = 0; col < shape_.cols; ++col)
+					{
+						returnArray(0, col) = this->operator()(0, col);
+						for (uint32 row = 1; row < shape_.rows; ++row)
+						{
+							returnArray(row, col) = returnArray(row - 1, col) * static_cast<dtypeOut>(this->operator()(row, col));
+						}
+					}
+
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtypeOut>(0);
+				}
+			}
 		}
 
 		//============================================================================

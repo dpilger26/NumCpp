@@ -237,6 +237,39 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing Cumprod: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 5, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 4, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(cArray.cumprod(NumC.Axis.NONE).flatten().astype(np.uint32), data.cumprod()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing Cumprod: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 5, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 4, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(cArray.cumprod(NumC.Axis.ROW).astype(np.uint32), data.cumprod(axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing Cumprod: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 5, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 4, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(cArray.cumprod(NumC.Axis.COL).astype(np.uint32), data.cumprod(axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
 ####################################################################################
 if __name__ == '__main__':
     doTest()

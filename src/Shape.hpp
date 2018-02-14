@@ -35,8 +35,8 @@ namespace NumC
 	{
 	public:
 		//====================================Attributes==============================
-		uint16	rows;
-		uint16	cols;
+		uint32	rows;
+		uint32	cols;
 
 		//============================================================================
 		// Method Description: 
@@ -63,7 +63,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		Shape(uint16 inRows, uint16 inCols) :
+		Shape(uint32 inRows, uint32 inCols) :
 			rows(inRows),
 			cols(inCols)
 		{};
@@ -77,7 +77,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		Shape(const std::initializer_list<uint16>& inList) :
+		Shape(const std::initializer_list<uint32>& inList) :
 			rows(0),
 			cols(0)
 		{

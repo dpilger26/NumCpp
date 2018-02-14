@@ -58,17 +58,17 @@ namespace NdArrayInterface
 			PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
 		}
 
-		uint16 numRows = 0;
-		uint16 numCols = 0;
+		uint32 numRows = 0;
+		uint32 numCols = 0;
 		if (numDims == 1)
 		{
-			numCols = static_cast<uint16>(newNdArrayHelper.shape()[0]);
+			numCols = static_cast<uint32>(newNdArrayHelper.shape()[0]);
 			numRows = 1;
 		}
 		else
 		{
-			numRows = static_cast<uint16>(newNdArrayHelper.shape()[0]);
-			numCols = static_cast<uint16>(newNdArrayHelper.shape()[1]);
+			numRows = static_cast<uint32>(newNdArrayHelper.shape()[0]);
+			numCols = static_cast<uint32>(newNdArrayHelper.shape()[1]);
 		}
 
 		Shape boostArrayShape(numRows, numCols);
@@ -78,9 +78,9 @@ namespace NdArrayInterface
 			inArray.resizeFast(boostArrayShape);
 		}
 
-		for (uint16 row = 0; row < numRows; ++row)
+		for (uint32 row = 0; row < numRows; ++row)
 		{
-			for (uint16 col = 0; col < numCols; ++col)
+			for (uint32 col = 0; col < numCols; ++col)
 			{
 				inArray(row, col) = newNdArrayHelper(row, col);
 			}
@@ -133,6 +133,14 @@ namespace NdArrayInterface
 	np::ndarray clip(NdArray<dtype>& inArray, dtype inMin, dtype inMax)
 	{
 		return numCToBoost(inArray.clip(inMin, inMax));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray cumprod(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.cumprod<dtypeOut>(inAxis));
 	}
 }
 
@@ -194,7 +202,8 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("argmax", &NdArrayInterface::argmax<double>)
 		.def("argmin", &NdArrayInterface::argmin<double>)
 		.def("argsort", &NdArrayInterface::argsort<double>)
-		.def("clip", &NdArrayInterface::clip<double>);
+		.def("clip", &NdArrayInterface::clip<double>)
+		.def("cumprod", &NdArrayInterface::cumprod<double, double>);
 
 	boost::python::def("zeros", Interface::zeros);
 
