@@ -196,7 +196,14 @@ def doTest():
     cArray = NumC.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(cArray.argsort(NumC.Axis.ROW).astype(np.uint16), np.argsort(data, axis=0)):
+    pIdx = np.argsort(data, axis=0)
+    cIdx = cArray.argsort(NumC.Axis.ROW).astype(np.uint16)
+    allPass = True
+    for idx, row in enumerate(data.T):
+        if not np.array_equal(row[cIdx[:, idx]], row[pIdx[:, idx]]):
+            allPass = False
+            break
+    if allPass:
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -207,7 +214,25 @@ def doTest():
     cArray = NumC.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(cArray.argsort(NumC.Axis.COL).astype(np.uint16), np.argsort(data, axis=1)):
+    pIdx = np.argsort(data, axis=1)
+    cIdx = cArray.argsort(NumC.Axis.COL).astype(np.uint16)
+    allPass = True
+    for idx, row in enumerate(data):
+        if not np.array_equal(row[cIdx[idx, :]], row[pIdx[idx, :]]):
+            allPass = False
+            break
+    if allPass:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing Clip', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(cArray.clip(5, 90).astype(np.ushort), data.clip(5, 90)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

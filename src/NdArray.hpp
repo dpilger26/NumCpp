@@ -839,19 +839,11 @@ namespace NumC
 				}
 				case Axis::ROW:
 				{
-					NdArray<bool> returnArray(1, shape_.cols);
-					for (uint16 col = 0; col < shape_.cols; ++col)
+					NdArray<dtype> arrayTransposed = transpose();
+					NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
+					for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
 					{
-						bool allNonzero = true;
-						for (uint16 row = 0; row < shape_.rows; ++row)
-						{
-							if (this->operator()(row, col) == static_cast<dtype>(0))
-							{
-								allNonzero = false;
-								break;
-							}
-						}
-						returnArray(0, col) = allNonzero;
+						returnArray(0, row) = std::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
 					}
 					return returnArray;
 				}
@@ -894,19 +886,11 @@ namespace NumC
 				}
 				case Axis::ROW:
 				{
-					NdArray<bool> returnArray(1, shape_.cols);
-					for (uint16 col = 0; col < shape_.cols; ++col)
+					NdArray<dtype> arrayTransposed = transpose();
+					NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
+					for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
 					{
-						bool anyNonzero = false;
-						for (uint16 row = 0; row < shape_.rows; ++row)
-						{
-							if (this->operator()(row, col) != static_cast<dtype>(0))
-							{
-								anyNonzero = true;
-								break;
-							}
-						}
-						returnArray(0, col) = anyNonzero;
+						returnArray(0, row) = std::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
 					}
 					return returnArray;
 				}
@@ -950,21 +934,11 @@ namespace NumC
 				}
 				case Axis::ROW:
 				{
-					NdArray<uint16> returnArray(1, shape_.cols);
-					for (uint16 col = 0; col < shape_.cols; ++col)
+					NdArray<dtype> arrayTransposed = transpose();
+					NdArray<uint16> returnArray(1, arrayTransposed.shape_.rows);
+					for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
 					{
-						uint16 maxArg = 0;
-						dtype maxValue = std::numeric_limits<dtype>::min();
-						for (uint16 row = 0; row < shape_.rows; ++row)
-						{
-							dtype value = this->operator()(row, col);
-							if (value > maxValue)
-							{
-								maxValue = value;
-								maxArg = row;
-							}
-						}
-						returnArray(0, col) = maxArg;
+						returnArray(0, row) = static_cast<uint16>(std::max_element(arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
 					}
 					return returnArray;
 				}
@@ -1008,21 +982,11 @@ namespace NumC
 				}
 				case Axis::ROW:
 				{
-					NdArray<uint16> returnArray(1, shape_.cols);
-					for (uint16 col = 0; col < shape_.cols; ++col)
+					NdArray<dtype> arrayTransposed = transpose();
+					NdArray<uint16> returnArray(1, arrayTransposed.shape_.rows);
+					for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
 					{
-						uint16 minArg = 0;
-						dtype minValue = std::numeric_limits<dtype>::max();
-						for (uint16 row = 0; row < shape_.rows; ++row)
-						{
-							dtype value = this->operator()(row, col);
-							if (value < minValue)
-							{
-								minValue = value;
-								minArg = row;
-							}
-						}
-						returnArray(0, col) = minArg;
+						returnArray(0, row) = static_cast<uint16>(std::min_element(arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
 					}
 					return returnArray;
 				}
@@ -1057,10 +1021,10 @@ namespace NumC
 				}
 				case Axis::COL:
 				{
-					NdArray<uint16> returnArray(shape_.rows, shape_.cols);
+					NdArray<uint16> returnArray(shape_);
 					for (uint16 row = 0; row < shape_.rows; ++row)
 					{
-						std::vector<uint16> idx(shape_.rows);
+						std::vector<uint16> idx(shape_.cols);
 						std::iota(idx.begin(), idx.end(), 0);
 						std::stable_sort(idx.begin(), idx.end(), [this, row](uint16 i1, uint16 i2) {return this->operator()(row, i1) < this->operator()(row, i2); });
 
@@ -1073,7 +1037,20 @@ namespace NumC
 				}
 				case Axis::ROW:
 				{
-					return NdArray<uint16>(0);
+					NdArray<dtype> arrayTransposed = transpose();
+					NdArray<uint16> returnArray(shape_.cols, shape_.rows);
+					for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
+					{
+						std::vector<uint16> idx(arrayTransposed.shape_.cols);
+						std::iota(idx.begin(), idx.end(), 0);
+						std::stable_sort(idx.begin(), idx.end(), [&arrayTransposed, row](uint16 i1, uint16 i2) {return arrayTransposed(row, i1) < arrayTransposed(row, i2); });
+
+						for (uint16 col = 0; col < arrayTransposed.shape_.cols; ++col)
+						{
+							returnArray(row, col) = idx[col];
+						}
+					}
+					return returnArray.transpose();
 				}
 				default:
 				{
@@ -1096,7 +1073,12 @@ namespace NumC
 		template<typename dtypeOut>
 		NdArray<dtypeOut> astype() const
 		{
-
+			NdArray<dtypeOut> outArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				outArray.array_[i] = static_cast<dtypeOut>(array_[i]);
+			}
+			return outArray;
 		}
 
 		//============================================================================
@@ -1111,7 +1093,23 @@ namespace NumC
 		//
 		NdArray<dtype> clip(dtype inMin, dtype inMax) const
 		{
-
+			NdArray<dtype> outArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				if (array_[i] < inMin)
+				{
+					outArray.array_[i] = inMin;
+				}
+				else if (array_[i] > inMax)
+				{
+					outArray.array_[i] = inMax;
+				}
+				else
+				{
+					outArray.array_[i] = array_[i];
+				}
+			}
+			return outArray;
 		}
 
 		//============================================================================
@@ -1697,7 +1695,15 @@ namespace NumC
 		//
 		NdArray<dtype> transpose() const
 		{
-
+			NdArray<dtype> transArray(shape_.cols, shape_.rows);
+			for (uint16 row = 0; row < shape_.rows; ++row)
+			{
+				for (uint16 col = 0; col < shape_.cols; ++col)
+				{
+					transArray(col, row) = this->operator()(row, col);
+				}
+			}
+			return transArray;
 		}
 
 		//============================================================================

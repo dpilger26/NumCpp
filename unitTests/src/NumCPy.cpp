@@ -39,16 +39,16 @@ namespace Interface
 
 namespace NdArrayInterface
 {
-	template<typename T>
-	np::ndarray getNumpyArray(const NdArray<T>& inArray) 
+	template<typename dtype>
+	np::ndarray getNumpyArray(const NdArray<dtype>& inArray) 
 	{
 		return numCToBoost(inArray);
 	}
 
 	//================================================================================
 
-	template<typename T>
-	void setArray(NdArray<T>& inArray, np::ndarray& inBoostArray)
+	template<typename dtype>
+	void setArray(NdArray<dtype>& inArray, np::ndarray& inBoostArray)
 	{
 		BoostNdarrayHelper newNdArrayHelper(&inBoostArray);
 		uint8 numDims = newNdArrayHelper.numDimensions();
@@ -89,42 +89,50 @@ namespace NdArrayInterface
 
 	//================================================================================
 
-	template<typename T>
-	np::ndarray all(NdArray<T>& inArray, Axis::Type inAxis = Axis::NONE)
+	template<typename dtype>
+	np::ndarray all(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return numCToBoost(inArray.all(inAxis));
 	}
 
 	//================================================================================
 
-	template<typename T>
-	np::ndarray any(NdArray<T>& inArray, Axis::Type inAxis = Axis::NONE)
+	template<typename dtype>
+	np::ndarray any(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return numCToBoost(inArray.any(inAxis));
 	}
 
 	//================================================================================
 
-	template<typename T>
-	np::ndarray argmax(NdArray<T>& inArray, Axis::Type inAxis = Axis::NONE)
+	template<typename dtype>
+	np::ndarray argmax(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return numCToBoost(inArray.argmax(inAxis));
 	}
 
 	//================================================================================
 
-	template<typename T>
-	np::ndarray argmin(NdArray<T>& inArray, Axis::Type inAxis = Axis::NONE)
+	template<typename dtype>
+	np::ndarray argmin(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return numCToBoost(inArray.argmin(inAxis));
 	}
 
 	//================================================================================
 
-	template<typename T>
-	np::ndarray argsort(NdArray<T>& inArray, Axis::Type inAxis = Axis::NONE)
+	template<typename dtype>
+	np::ndarray argsort(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return numCToBoost(inArray.argsort(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray clip(NdArray<dtype>& inArray, dtype inMin, dtype inMax)
+	{
+		return numCToBoost(inArray.clip(inMin, inMax));
 	}
 }
 
@@ -185,7 +193,8 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("any", &NdArrayInterface::any<double>)
 		.def("argmax", &NdArrayInterface::argmax<double>)
 		.def("argmin", &NdArrayInterface::argmin<double>)
-		.def("argsort", &NdArrayInterface::argsort<double>);
+		.def("argsort", &NdArrayInterface::argsort<double>)
+		.def("clip", &NdArrayInterface::clip<double>);
 
 	boost::python::def("zeros", Interface::zeros);
 
