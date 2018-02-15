@@ -23,9 +23,12 @@
 #include"Shape.hpp"
 #include"Slice.hpp"
 
+#include<boost/filesystem.hpp>
+
 #include<initializer_list>
 #include<stdexcept>
 #include<iostream>
+#include<fstream>
 #include<string>
 #include<vector>
 #include<algorithm>
@@ -1186,22 +1189,54 @@ namespace NumC
 		template<typename dtypeOut>
 		NdArray<dtypeOut> cumsum(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<dtypeOut> returnArray(1, size_);
+					returnArray.array_[0] = array_[0];
+					for (uint32 i = 1; i < size_; ++i)
+					{
+						returnArray.array_[i] = returnArray.array_[i - 1] + static_cast<dtypeOut>(array_[i]);
+					}
 
-		}
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<dtypeOut> returnArray(shape_);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						returnArray(row, 0) = this->operator()(row, 0);
+						for (uint32 col = 1; col < shape_.cols; ++col)
+						{
+							returnArray(row, col) = returnArray(row, col - 1) + static_cast<dtypeOut>(this->operator()(row, col));
+						}
+					}
 
-		//============================================================================
-		// Method Description: 
-		//						Returns the determinant as if the array was a matrix
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				determinant
-		//
-		template<typename dtypeOut>
-		dtypeOut det() const
-		{
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtypeOut> returnArray(shape_);
+					for (uint32 col = 0; col < shape_.cols; ++col)
+					{
+						returnArray(0, col) = this->operator()(0, col);
+						for (uint32 row = 1; row < shape_.rows; ++row)
+						{
+							returnArray(row, col) = returnArray(row - 1, col) + static_cast<dtypeOut>(this->operator()(row, col));
+						}
+					}
 
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtypeOut>(0);
+				}
+			}
 		}
 
 		//============================================================================
@@ -1214,14 +1249,61 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> diagonal(uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
+		NdArray<dtype> diagonal(uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
 		{
+			switch (inAxis)
+			{
+				case Axis::COL:
+				{
+					std::vector<dtype> diagnolValues;
+					uint32 col = inOffset;
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						if (col >= shape_.cols)
+						{
+							break;
+						}
+							
+						diagnolValues.push_back(this->operator()(row, col));
+						++col;
+					}
 
+					return NdArray<dtype>(diagnolValues);
+				}
+				case Axis::ROW:
+				{
+					std::vector<dtype> diagnolValues;
+					uint32 col = 0;
+					for (uint32 row = inOffset; row < shape_.rows; ++row)
+					{
+						if (col >= shape_.cols)
+						{
+							break;
+						}
+
+						diagnolValues.push_back(this->operator()(row, col));
+						++col;
+					}
+
+					return NdArray<dtype>(diagnolValues);
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtype>(0);
+				}
+			}
 		}
 
 		//============================================================================
 		// Method Description: 
 		//						Dot product of two arrays.
+		//
+		//						For 2-D arrays it is equivalent to matrix multiplication, 
+		//						and for 1-D arrays to inner product of vectors. For N 
+		//						dimensions it is a sum product over the last axis of a 
+		//						and the second-to-last of b:
 		//		
 		// Inputs:
 		//				NdArray
@@ -1246,7 +1328,16 @@ namespace NumC
 		//
 		void dump(const std::string& inFilename) const
 		{
+			boost::filesystem::path p(inFilename);
+			if (!boost::filesystem::exists(p.parent_path()))
+			{
+				std::string errStr = "ERROR: Input path does not exist:\n\t" + p.parent_path().string();
+				throw std::runtime_error(errStr);
+			}
 
+			std::ofstream ofile(inFilename.c_str(), std::ios::binary);
+			ofile.write(reinterpret_cast<const char*>(array_) , size_ * sizeof(dtype));
+			ofile.close();
 		}
 
 		//============================================================================
@@ -1277,21 +1368,13 @@ namespace NumC
 		//
 		NdArray<dtype> flatten() const
 		{
+			NdArray<dtype> outArray(1, size_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				outArray.array_[i] = array_[i];
+			}
 
-		}
-
-		//============================================================================
-		// Method Description: 
-		//						Return the inverse of the array as if it were a matrix
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				NdArray
-		//
-		NdArray<double> inverse() const
-		{
-
+			return outArray;
 		}
 
 		//============================================================================
@@ -1305,7 +1388,14 @@ namespace NumC
 		//
 		dtype item() const
 		{
-
+			if (size_ == 1)
+			{
+				return array_[0];
+			}
+			else
+			{
+				throw std::runtime_error("ERROR: Can only convert an array of size 1 to a C++ scalar");
+			}
 		}
 
 		//============================================================================
@@ -1319,7 +1409,43 @@ namespace NumC
 		//
 		NdArray<dtype> max(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<dtype> returnArray(1, 1);
+					returnArray[0] = *std::max_element(cbegin(), cend());
 
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<dtype> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						returnArray(0, row) = *std::max_element(cbegin(row), cend(row));
+					}
+
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtype> transposedArray = transpose();
+					NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						returnArray(0, row) = *std::max_element(transposedArray.cbegin(row), transposedArray.cend(row));
+					}
+
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtype>(0);
+				}
+			}
 		}
 
 		//============================================================================
@@ -1333,7 +1459,43 @@ namespace NumC
 		//
 		NdArray<dtype> min(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<dtype> returnArray(1, 1);
+					returnArray[0] = *std::min_element(cbegin(), cend());
 
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<dtype> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						returnArray(0, row) = *std::min_element(cbegin(row), cend(row));
+					}
+
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtype> transposedArray = transpose();
+					NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						returnArray(0, row) = *std::min_element(transposedArray.cbegin(row), transposedArray.cend(row));
+					}
+
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtype>(0);
+				}
+			}
 		}
 
 		//============================================================================
@@ -1511,6 +1673,28 @@ namespace NumC
 		void put(const NdArray<uint16>& inIndices, const NdArray<dtype>& inValues)
 		{
 
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array containing the same data with a new shape.
+		//		
+		// Inputs:
+		//				Shape
+		// Outputs:
+		//				None
+		//
+		void reshape(const Shape& inShape)
+		{
+			if (inShape.rows * inShape.cols != size_)
+			{
+				std::string errStr = "ERROR: Cannot reshape array of size " + num2str(size_) + " into shape ";
+				errStr += "[" + num2str(inShape.rows) + ", " + num2str(inShape.cols) + "]";
+				throw std::runtime_error(errStr);
+			}
+
+			shape_.rows = inShape.rows;
+			shape_.cols = inShape.cols;
 		}
 
 		//============================================================================

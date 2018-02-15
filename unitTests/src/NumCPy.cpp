@@ -142,6 +142,46 @@ namespace NdArrayInterface
 	{
 		return numCToBoost(inArray.cumprod<dtypeOut>(inAxis));
 	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray cumsum(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.cumsum<dtypeOut>(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray diagonal(NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+	{
+		return numCToBoost(inArray.diagonal(inOffset, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray flatten(NdArray<dtype>& inArray)
+	{
+		return numCToBoost(inArray.flatten());
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray max(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.max(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray min(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.min(inAxis));
+	}
 }
 
 //================================================================================
@@ -203,7 +243,15 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("argmin", &NdArrayInterface::argmin<double>)
 		.def("argsort", &NdArrayInterface::argsort<double>)
 		.def("clip", &NdArrayInterface::clip<double>)
-		.def("cumprod", &NdArrayInterface::cumprod<double, double>);
+		.def("cumprod", &NdArrayInterface::cumprod<double, double>)
+		.def("cumsum", &NdArrayInterface::cumsum<double, double>)
+		.def("diagonal", &NdArrayInterface::diagonal<double>)
+		.def("dump", &NdArray<double>::dump)
+		.def("fill", &NdArray<double>::fill)
+		.def("flatten", &NdArrayInterface::flatten<double>)
+		.def("item", &NdArray<double>::item)
+		.def("max", &NdArrayInterface::max<double>)
+		.def("min", &NdArrayInterface::min<double>);
 
 	boost::python::def("zeros", Interface::zeros);
 
