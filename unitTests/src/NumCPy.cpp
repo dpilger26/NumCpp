@@ -182,6 +182,30 @@ namespace NdArrayInterface
 	{
 		return numCToBoost(inArray.min(inAxis));
 	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray mean(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.mean(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray median(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.median(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray swapbyteorder(NdArray<dtype>& inArray)
+	{
+		return numCToBoost(inArray.swapbyteorder());
+	}
 }
 
 //================================================================================
@@ -251,7 +275,11 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("flatten", &NdArrayInterface::flatten<double>)
 		.def("item", &NdArray<double>::item)
 		.def("max", &NdArrayInterface::max<double>)
-		.def("min", &NdArrayInterface::min<double>);
+		.def("min", &NdArrayInterface::min<double>)
+		.def("mean", &NdArrayInterface::mean<double>)
+		.def("median", &NdArrayInterface::median<double>)
+		.def("nbytes", &NdArrayDouble::nbytes)
+		.def("swapbyteorder", &NdArrayInterface::swapbyteorder<double>);
 
 	boost::python::def("zeros", Interface::zeros);
 

@@ -24,6 +24,7 @@
 #include"Slice.hpp"
 
 #include<boost/filesystem.hpp>
+#include<boost/endian/conversion.hpp>
 
 #include<initializer_list>
 #include<stdexcept>
@@ -1507,14 +1508,54 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> mean(Axis::Type inAxis = Axis::NONE) const
+		NdArray<double> mean(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<double> returnArray(1, 1);
+					double sum = static_cast<double>(std::accumulate(cbegin(), cend(), 0.0));
+					returnArray[0] = sum / static_cast<double>(size_);
 
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<double> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						double sum = static_cast<double>(std::accumulate(cbegin(row), cend(row), 0.0));
+						returnArray(0, row) = sum / static_cast<double>(shape_.cols);
+					}
+
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtype> transposedArray = transpose();
+					NdArray<double> returnArray(1, transposedArray.shape_.rows);
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0));
+						returnArray(0, row) = sum / static_cast<double>(transposedArray.shape_.cols);
+					}
+
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<double>(0);
+				}
+			}
 		}
 
 		//============================================================================
 		// Method Description: 
-		//						Return the median along a given axis.
+		//						Return the median along a given axis. Does NOT average
+		//						if array has even number of elements!
 		//		
 		// Inputs:
 		//				(Optional) Axis
@@ -1523,7 +1564,52 @@ namespace NumC
 		//
 		NdArray<dtype> median(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<dtype> copyArray(*this);
+					NdArray<dtype> returnArray(1, 1);
+					
+					uint32 middle = size_ / 2;
+					std::nth_element(copyArray.begin(), copyArray.begin() + middle, copyArray.end());
+					returnArray[0] = copyArray.array_[middle];
 
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<dtype> copyArray(*this);
+					NdArray<dtype> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						uint32 middle = shape_.cols / 2;
+						std::nth_element(copyArray.begin(row), copyArray.begin(row) + middle, copyArray.end(row));
+						returnArray(0, row) = copyArray(row, middle);
+					}
+
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtype> transposedArray = transpose();
+					NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						uint32 middle = transposedArray.shape_.cols / 2;
+						std::nth_element(transposedArray.begin(row), transposedArray.begin(row) + middle, transposedArray.end(row));
+						returnArray(0, row) = transposedArray(row, middle);
+					}
+
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtype>(0);
+				}
+			}
 		}
 
 		//============================================================================
@@ -1537,7 +1623,7 @@ namespace NumC
 		//
 		uint64 nbytes() const
 		{
-
+			return static_cast<uint64>(sizeof(dtype) * size_);
 		}
 
 		//============================================================================
@@ -1545,13 +1631,19 @@ namespace NumC
 		//						Return the array with the same data viewed with a different byte order.
 		//		
 		// Inputs:
-		//				string new order
+		//				None
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> newbyteorder(const std::string& inNewOrder) const
+		NdArray<dtype> swapbyteorder() const
 		{
+			NdArray outArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				outArray[i] = boost::endian::endian_reverse(array_[i]);
+			}
 
+			return outArray;
 		}
 
 		//============================================================================
