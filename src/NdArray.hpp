@@ -52,9 +52,10 @@ namespace NumC
 
 	private:
 		//====================================Attributes==============================
-		Shape	shape_;
-		uint32	size_;
-		dtype*	array_;
+		Shape			shape_;
+		uint32			size_;
+		Endian::Type	endianess_;
+		dtype*			array_;
 
 		//============================================================================
 		// Method Description: 
@@ -89,6 +90,7 @@ namespace NumC
 		NdArray() :
 			shape_(0, 0),
 			size_(0),
+			endianess_(Endian::NATIVE),
 			array_(nullptr)
 		{};
 
@@ -104,6 +106,7 @@ namespace NumC
 		NdArray(uint32 inSquareSize) :
 			shape_(inSquareSize, inSquareSize),
 			size_(inSquareSize * inSquareSize),
+			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
 		{
 			zeros();
@@ -122,6 +125,7 @@ namespace NumC
 		NdArray(uint32 inNumRows, uint32 inNumCols) :
 			shape_(inNumRows, inNumCols),
 			size_(inNumRows * inNumCols),
+			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
 		{
 			zeros();
@@ -139,6 +143,7 @@ namespace NumC
 		NdArray(const Shape& inShape) :
 			shape_(inShape),
 			size_(inShape.rows * inShape.cols),
+			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
 		{
 			zeros();
@@ -156,6 +161,7 @@ namespace NumC
 		NdArray(const std::initializer_list<dtype>& inList) :
 			shape_(static_cast<uint32>(inList.size()), 1),
 			size_(static_cast<uint32>(inList.size())),
+			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
 		{
 			std::copy(inList.begin(), inList.end(), array_);
@@ -173,6 +179,7 @@ namespace NumC
 		NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
 			shape_(0, 0),
 			size_(0),
+			endianess_(Endian::NATIVE),
 			array_(nullptr)
 		{
 			typename std::initializer_list<std::initializer_list<dtype> >::iterator iter;
@@ -213,6 +220,7 @@ namespace NumC
 		NdArray(const std::vector<dtype>& inVector) :
 			shape_(1, static_cast<uint32>(inVector.size())),
 			size_(static_cast<uint32>(inVector.size())),
+			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
 		{
 			std::copy(inVector.begin(), inVector.end(), array_);
@@ -230,6 +238,7 @@ namespace NumC
 		NdArray(const NdArray<dtype>& inOtherArray) :
 			shape_(inOtherArray.shape_),
 			size_(inOtherArray.size_),
+			endianess_(inOtherArray.endianess_),
 			array_(new dtype[inOtherArray.size_])
 		{
 			for (uint32 i = 0; i < inOtherArray.size_; ++i)
@@ -1628,22 +1637,144 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						Return the array with the same data viewed with a different byte order.
+		//						Return the array with the same data viewed with a 
+		//						different byte order. only works for integer types, 
+		//						floating point types will not compile and you will
+		//						be confused as to why...
 		//		
 		// Inputs:
-		//				None
+		//				Endian::Type
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> swapbyteorder() const
+		NdArray<dtype> newbyteorder(Endian::Type inEndiness) const
 		{
-			NdArray outArray(shape_);
-			for (uint32 i = 0; i < size_; ++i)
-			{
-				outArray[i] = boost::endian::endian_reverse(array_[i]);
-			}
+			// only works with integer types
+			static_assert(std::numeric_limits<dtype>::is_integer, "Type Error: Can only compile newbyteorder method of NdArray<T> with integer types.");
 
-			return outArray;
+			switch (endianess_)
+			{
+				case Endian::NATIVE:
+				{
+					switch (inEndiness)
+					{
+						case Endian::NATIVE:
+						{
+							return NdArray(*this);
+						}
+						case Endian::BIG:
+						{
+							NdArray<dtype> outArray(shape_);
+							for (uint32 i = 0; i < size_; ++i)
+							{
+								outArray[i] = boost::endian::native_to_big<dtype>(array_[i]);
+							}
+
+							outArray.endianess_ = Endian::BIG;
+							return outArray;
+						}
+						case Endian::LITTLE:
+						{
+							NdArray<dtype> outArray(shape_);
+							for (uint32 i = 0; i < size_; ++i)
+							{
+								outArray[i] = boost::endian::native_to_little<dtype>(array_[i]);
+							}
+
+							outArray.endianess_ = Endian::LITTLE;
+							return outArray;
+						}
+						default:
+						{
+							// this isn't actually possible, just putting this here to get rid
+							// of the compiler warning.
+							return NdArray<dtype>(0);
+						}
+					}
+				}
+				case Endian::BIG:
+				{
+					switch (inEndiness)
+					{
+						case Endian::NATIVE:
+						{
+							NdArray<dtype> outArray(shape_);
+							for (uint32 i = 0; i < size_; ++i)
+							{
+								outArray[i] = boost::endian::big_to_native<dtype>(array_[i]);
+							}
+
+							outArray.endianess_ = Endian::NATIVE;
+							return outArray;
+						}
+						case Endian::BIG:
+						{
+							return NdArray(*this);
+						}
+						case Endian::LITTLE:
+						{
+							NdArray<dtype> outArray(shape_);
+							for (uint32 i = 0; i < size_; ++i)
+							{
+								outArray[i] = boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(array_[i]));
+							}
+
+							outArray.endianess_ = Endian::LITTLE;
+							return outArray;
+						}
+						default:
+						{
+							// this isn't actually possible, just putting this here to get rid
+							// of the compiler warning.
+							return NdArray<dtype>(0);
+						}
+					}
+				}
+				case Endian::LITTLE:
+				{
+					switch (inEndiness)
+					{
+						case Endian::NATIVE:
+						{
+							NdArray<dtype> outArray(shape_);
+							for (uint32 i = 0; i < size_; ++i)
+							{
+								outArray[i] = boost::endian::little_to_native<dtype>(array_[i]);
+							}
+
+							outArray.endianess_ = Endian::NATIVE;
+							return outArray;
+						}
+						case Endian::BIG:
+						{
+							NdArray<dtype> outArray(shape_);
+							for (uint32 i = 0; i < size_; ++i)
+							{
+								outArray[i] = boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(array_[i]));
+							}
+
+							outArray.endianess_ = Endian::BIG;
+							return outArray;
+						}
+						case Endian::LITTLE:
+						{
+							return NdArray(*this);
+						}
+						default:
+						{
+							// this isn't actually possible, just putting this here to get rid
+							// of the compiler warning.
+							return NdArray<dtype>(0);
+						}
+					}
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtype>(0);
+				}
+			}
 		}
 
 		//============================================================================

@@ -202,9 +202,9 @@ namespace NdArrayInterface
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray swapbyteorder(NdArray<dtype>& inArray)
+	np::ndarray newbyteorder(NdArray<dtype>& inArray, Endian::Type inEndiness = Endian::NATIVE)
 	{
-		return numCToBoost(inArray.swapbyteorder());
+		return numCToBoost(inArray.newbyteorder(inEndiness));
 	}
 }
 
@@ -251,6 +251,11 @@ BOOST_PYTHON_MODULE(NumC)
 		.value("ROW", Axis::ROW)
 		.value("COL", Axis::COL);
 
+	bp::enum_<Endian::Type>("Endian")
+		.value("NATIVE", Endian::NATIVE)
+		.value("BIG", Endian::BIG)
+		.value("LITTLE", Endian::LITTLE);
+
 	typedef NdArray<double> NdArrayDouble;
 	bp::class_<NdArrayDouble>
 		("NdArray", bp::init<>())
@@ -279,7 +284,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("mean", &NdArrayInterface::mean<double>)
 		.def("median", &NdArrayInterface::median<double>)
 		.def("nbytes", &NdArrayDouble::nbytes)
-		.def("swapbyteorder", &NdArrayInterface::swapbyteorder<double>);
+		.def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>);
 
 	boost::python::def("zeros", Interface::zeros);
 
