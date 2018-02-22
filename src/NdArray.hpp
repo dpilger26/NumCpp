@@ -1779,16 +1779,26 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						Return the indices of the elements that are non-zero.
+		//						Return the indices of the flattened array of the 
+		//						elements that are non-zero.
 		//		
 		// Inputs:
 		//				None
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<uint16> nonzero() const
+		NdArray<uint32> nonzero() const
 		{
+			std::vector<uint32> indices;
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				if (array_[i] != static_cast<dtype>(0))
+				{
+					indices.push_back(i);
+				}
+			}
 
+			return NdArray<uint32>(indices);
 		}
 
 		//============================================================================

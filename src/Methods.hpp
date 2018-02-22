@@ -2101,7 +2101,8 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						Return the indices of the elements that are non-zero.
+	//						Return the indices of the flattened array of the 
+	//						elements that are non-zero.
 	//
 	//		
 	// Inputs:

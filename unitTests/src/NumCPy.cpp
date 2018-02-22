@@ -40,7 +40,7 @@ namespace Interface
 namespace NdArrayInterface
 {
 	template<typename dtype>
-	np::ndarray getNumpyArray(const NdArray<dtype>& inArray) 
+	np::ndarray getNumpyArray(const NdArray<dtype>& inArray)
 	{
 		return numCToBoost(inArray);
 	}
@@ -82,7 +82,7 @@ namespace NdArrayInterface
 		{
 			for (uint32 col = 0; col < numCols; ++col)
 			{
-				inArray(row, col) = newNdArrayHelper(row, col);
+				inArray(row, col) = static_cast<dtype>(newNdArrayHelper(row, col));
 			}
 		}
 	}
@@ -206,6 +206,14 @@ namespace NdArrayInterface
 	{
 		return numCToBoost(inArray.newbyteorder(inEndiness));
 	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray nonzero(NdArray<dtype>& inArray)
+	{
+		return numCToBoost(inArray.nonzero());
+	}
 }
 
 //================================================================================
@@ -284,6 +292,18 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("mean", &NdArrayInterface::mean<double>)
 		.def("median", &NdArrayInterface::median<double>)
 		.def("nbytes", &NdArrayDouble::nbytes)
+		.def("nonzero", &NdArrayInterface::nonzero<double>);
+
+	typedef NdArray<uint32> NdArrayInt;
+	bp::class_<NdArrayInt>
+		("NdArrayInt", bp::init<>())
+		.def(bp::init<int16>())
+		.def(bp::init<int16, int16>())
+		.def(bp::init<Shape>())
+		.def("shape", &NdArrayInt::shape)
+		.def("size", &NdArrayInt::size)
+		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
+		.def("setArray", &NdArrayInterface::setArray<uint32>)
 		.def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>);
 
 	boost::python::def("zeros", Interface::zeros);

@@ -47,7 +47,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing All: Axis = None', 'cyan'))
+    print(colored('Testing all: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -58,7 +58,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing All: Axis = Row', 'cyan'))
+    print(colored('Testing all: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -69,7 +69,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing All: Axis = Column', 'cyan'))
+    print(colored('Testing all: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -80,7 +80,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Any: Axis = None', 'cyan'))
+    print(colored('Testing any: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -91,7 +91,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Any: Axis = Row', 'cyan'))
+    print(colored('Testing any: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -102,7 +102,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Any: Axis = Column', 'cyan'))
+    print(colored('Testing any: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -113,7 +113,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Argmax: Axis = None', 'cyan'))
+    print(colored('Testing argmax: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -124,7 +124,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Argmax: Axis = Row', 'cyan'))
+    print(colored('Testing argmax: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -135,7 +135,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Argmax: Axis = Column', 'cyan'))
+    print(colored('Testing argmax: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -146,7 +146,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Argmin: Axis = None', 'cyan'))
+    print(colored('Testing argmin: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -157,7 +157,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Argmin: Axis = Row', 'cyan'))
+    print(colored('Testing argmin: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -168,7 +168,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Argmin: Axis = Column', 'cyan'))
+    print(colored('Testing argmin: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -179,7 +179,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Argsort: Axis = None', 'cyan'))
+    print(colored('Testing argsort: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -191,7 +191,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Argsort: Axis = Row', 'cyan'))
+    print(colored('Testing argsort: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -209,7 +209,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Argsort: Axis = Column', 'cyan'))
+    print(colored('Testing argsort: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -227,7 +227,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Clip', 'cyan'))
+    print(colored('Testing clip', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -238,7 +238,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Cumprod: Axis = None', 'cyan'))
+    print(colored('Testing cumprod: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 5, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -249,7 +249,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Cumprod: Axis = Row', 'cyan'))
+    print(colored('Testing cumprod: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 5, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -260,7 +260,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Cumprod: Axis = Col', 'cyan'))
+    print(colored('Testing cumprod: Axis = Col', 'cyan'))
     shapeInput = np.random.randint(1, 5, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -271,7 +271,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Cumsum: Axis = None', 'cyan'))
+    print(colored('Testing cumsum: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 50, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -282,7 +282,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Cumsum: Axis = Row', 'cyan'))
+    print(colored('Testing cumsum: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 50, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -293,7 +293,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Cumsum: Axis = Col', 'cyan'))
+    print(colored('Testing cumsum: Axis = Col', 'cyan'))
     shapeInput = np.random.randint(1, 50, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -304,7 +304,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Diagonal: Axis = Row', 'cyan'))
+    print(colored('Testing diagonal: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 50, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -316,7 +316,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Diagonal: Axis = Col', 'cyan'))
+    print(colored('Testing diagonal: Axis = Col', 'cyan'))
     shapeInput = np.random.randint(1, 50, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -328,7 +328,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Dump', 'cyan'))
+    print(colored('Testing dump', 'cyan'))
     shapeInput = np.random.randint(1, 50, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -349,7 +349,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
     os.remove(tempFile)
 
-    print(colored('Testing Fill', 'cyan'))
+    print(colored('Testing fill', 'cyan'))
     shapeInput = np.random.randint(1, 50, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -360,7 +360,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Flatten', 'cyan'))
+    print(colored('Testing flatten', 'cyan'))
     shapeInput = np.random.randint(1, 50, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -371,7 +371,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Item', 'cyan'))
+    print(colored('Testing item', 'cyan'))
     shape = NumC.Shape(1, 1)
     cArray = NumC.NdArray(shape)
     fillValue = np.random.randint(1, 100, [1, ]).item()
@@ -381,7 +381,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Max: Axis = None', 'cyan'))
+    print(colored('Testing max: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -392,7 +392,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Max: Axis = Row', 'cyan'))
+    print(colored('Testing max: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -403,7 +403,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Max: Axis = Column', 'cyan'))
+    print(colored('Testing max: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -414,7 +414,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Min: Axis = None', 'cyan'))
+    print(colored('Testing min: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -425,7 +425,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Min: Axis = Row', 'cyan'))
+    print(colored('Testing min: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -436,7 +436,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Min: Axis = Column', 'cyan'))
+    print(colored('Testing min: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -447,7 +447,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Mean: Axis = None', 'cyan'))
+    print(colored('Testing mean: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -458,7 +458,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Mean: Axis = Row', 'cyan'))
+    print(colored('Testing mean: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -470,7 +470,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     # only test the odd sized array, even will not match by design
-    print(colored('Testing Mean: Axis = Column', 'cyan'))
+    print(colored('Testing mean: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
@@ -481,7 +481,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Median: Axis = None', 'cyan'))
+    print(colored('Testing median: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     while np.prod(shapeInput) % 2 == 0:
         shapeInput = np.random.randint(1, 100, [2, ])
@@ -494,7 +494,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Median: Axis = Row', 'cyan'))
+    print(colored('Testing median: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     while shapeInput[0] % 2 == 0:
         shapeInput = np.random.randint(1, 100, [2, ])
@@ -507,7 +507,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Median: Axis = Column', 'cyan'))
+    print(colored('Testing median: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     while shapeInput[1] % 2 == 0:
         shapeInput = np.random.randint(1, 100, [2, ])
@@ -520,13 +520,35 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Nbytes', 'cyan'))
+    print(colored('Testing nbytes', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     if cArray.nbytes() == 8 * data.size:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing newbyteorder', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArrayInt(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols], dtype=np.uint)
+    cArray.setArray(data)
+    if np.array_equal(cArray.newbyteorder(NumC.Endian.BIG), data.newbyteorder()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nonzero', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(cArray.nonzero(), data.flatten().nonzero()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
