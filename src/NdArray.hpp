@@ -22,6 +22,7 @@
 #include"Types.hpp"
 #include"Shape.hpp"
 #include"Slice.hpp"
+#include"Utils.hpp"
 
 #include<boost/filesystem.hpp>
 #include<boost/endian/conversion.hpp>
@@ -1803,7 +1804,7 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						Returns the norm as if the array was a matrix
+		//						Returns the norm of the array
 		//		
 		// Inputs:
 		//				(Optional) Axis
@@ -1813,7 +1814,40 @@ namespace NumC
 		template<typename dtypeOut>
 		dtypeOut norm(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<dtypeOut> returnArray(1, 1);
+					dtypeOut sumOfSquares = 0;
+					for (uint32 i = 0; i < size_; ++i)
+					{
+						sumOfSquares += sqr(array_[i]);
+					}
+					returnArray[0] = std::sqrt(sumOfSquares);
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<dtype> returnArray(1, shape_.rows);
 
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtype> transposedArray = transpose();
+					NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+
+
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtypeOut>(0);
+				}
+			}
 		}
 
 		//============================================================================

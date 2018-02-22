@@ -19,27 +19,55 @@
 
 #pragma once
 
-#include"Types.hpp"
-#include"NdArray.hpp"
-
 namespace NumC
 {
-	//================================Linalg Namespace=============================
-	namespace Linalg
+	//============================================================================
+	// Method Description: 
+	//						Squares in input value
+	//		
+	// Inputs:
+	//				T
+	// Outputs:
+	//				T
+	//
+	template<typename T>
+	T sqr(T inValue)
 	{
-		//============================================================================
-		// Method Description: 
-		//						Returns the norm of the array
-		//		
-		// Inputs:
-		//				(Optional) Axis
-		// Outputs:
-		//				norm
-		//
-		template<typename dtype, typename dtypeOut>
-		dtypeOut norm(NdArray<dtype> inArray, Axis::Type inAxis = Axis::NONE)
-		{
+		return inValue * inValue;
+	}
 
+	//============================================================================
+	// Method Description: 
+	//						Cubes in input value
+	//		
+	// Inputs:
+	//				T
+	// Outputs:
+	//				T
+	//
+	template<typename T>
+	T cube(T inValue)
+	{
+		return inValue * inValue * inValue;
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						raises the input value to a power
+	//		
+	// Inputs:
+	//				T
+	// Outputs:
+	//				T
+	//
+	template<typename T>
+	T power(T inValue, uint8 inPower)
+	{
+		T returnVal = 1;
+		for (uint8 i = 0; i < inPower; ++i)
+		{
+			returnVal *= inValue;
 		}
+		return returnVal;
 	}
 }

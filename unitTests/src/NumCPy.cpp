@@ -26,17 +26,6 @@ using namespace NumC;
 
 //================================================================================
 
-namespace Interface
-{
-	int zeros(uint16 inNumRows, uint16 inNumCols)
-	{
-		NdArray<double> zeroArray = NumC::zeros<double>(Shape(inNumRows, inNumCols));
-		return 666;
-	}
-}
-
-//================================================================================
-
 namespace NdArrayInterface
 {
 	template<typename dtype>
@@ -306,6 +295,36 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("setArray", &NdArrayInterface::setArray<uint32>)
 		.def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>);
 
-	boost::python::def("zeros", Interface::zeros);
+	boost::python::def("sqr", NumC::sqr<double>);
+	boost::python::def("sqr", NumC::sqr<float>);
+	boost::python::def("sqr", NumC::sqr<int8>);
+	boost::python::def("sqr", NumC::sqr<int16>);
+	boost::python::def("sqr", NumC::sqr<int32>);
+	boost::python::def("sqr", NumC::sqr<int64>);
+	boost::python::def("sqr", NumC::sqr<uint8>);
+	boost::python::def("sqr", NumC::sqr<uint16>);
+	boost::python::def("sqr", NumC::sqr<uint32>);
+	boost::python::def("sqr", NumC::sqr<uint64>);
 
+	boost::python::def("cube", NumC::cube<double>);
+	boost::python::def("cube", NumC::cube<float>);
+	boost::python::def("cube", NumC::cube<int8>);
+	boost::python::def("cube", NumC::cube<int16>);
+	boost::python::def("cube", NumC::cube<int32>);
+	boost::python::def("cube", NumC::cube<int64>);
+	boost::python::def("cube", NumC::cube<uint8>);
+	boost::python::def("cube", NumC::cube<uint16>);
+	boost::python::def("cube", NumC::cube<uint32>);
+	boost::python::def("cube", NumC::cube<uint64>);
+
+	boost::python::def("power", NumC::power<double>);
+	boost::python::def("power", NumC::power<float>);
+	boost::python::def("power", NumC::power<int8>);
+	boost::python::def("power", NumC::power<int16>);
+	boost::python::def("power", NumC::power<int32>);
+	boost::python::def("power", NumC::power<int64>);
+	boost::python::def("power", NumC::power<uint8>);
+	boost::python::def("power", NumC::power<uint16>);
+	boost::python::def("power", NumC::power<uint32>);
+	boost::python::def("power", NumC::power<uint64>);
 }

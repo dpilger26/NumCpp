@@ -6,12 +6,14 @@ import TestMethods
 import TestConstants
 import TestLinalg
 import TestRandom
+import TestUtils
 
 #################################################################################
 def doTest():
     TestShape.doTest()
     TestSlice.doTest()
     TestTimer.doTest()
+    TestUtils.doTest()
     TestNdArray.doTest()
     TestMethods.doTest()
     TestConstants.doTest()
