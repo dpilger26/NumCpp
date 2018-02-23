@@ -203,6 +203,14 @@ namespace NdArrayInterface
 	{
 		return numCToBoost(inArray.nonzero());
 	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray norm(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost<dtypeOut>(inArray.norm<dtypeOut>(inAxis));
+	}
 }
 
 //================================================================================
@@ -281,7 +289,9 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("mean", &NdArrayInterface::mean<double>)
 		.def("median", &NdArrayInterface::median<double>)
 		.def("nbytes", &NdArrayDouble::nbytes)
-		.def("nonzero", &NdArrayInterface::nonzero<double>);
+		.def("nonzero", &NdArrayInterface::nonzero<double>)
+		.def("norm", &NdArrayInterface::norm<double, double>)
+		.def("ones", &NdArrayDouble::ones);
 
 	typedef NdArray<uint32> NdArrayInt;
 	bp::class_<NdArrayInt>

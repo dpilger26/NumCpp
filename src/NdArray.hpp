@@ -1812,7 +1812,7 @@ namespace NumC
 		//				norm
 		//
 		template<typename dtypeOut>
-		dtypeOut norm(Axis::Type inAxis = Axis::NONE) const
+		NdArray<dtypeOut> norm(Axis::Type inAxis = Axis::NONE) const
 		{
 			switch (inAxis)
 			{
@@ -1822,22 +1822,39 @@ namespace NumC
 					dtypeOut sumOfSquares = 0;
 					for (uint32 i = 0; i < size_; ++i)
 					{
-						sumOfSquares += sqr(array_[i]);
+						sumOfSquares += static_cast<dtypeOut>(sqr(array_[i]));
 					}
 					returnArray[0] = std::sqrt(sumOfSquares);
 					return returnArray;
 				}
 				case Axis::COL:
 				{
-					NdArray<dtype> returnArray(1, shape_.rows);
+					NdArray<dtypeOut> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						dtypeOut sumOfSquares = 0;
+						for (uint32 col = 0; col < shape_.cols; ++col)
+						{
+							sumOfSquares += static_cast<dtypeOut>(sqr(this->operator()(row, col)));
+						}
+						returnArray(0, row) = std::sqrt(sumOfSquares);
+					}
 
 					return returnArray;
 				}
 				case Axis::ROW:
 				{
 					NdArray<dtype> transposedArray = transpose();
-					NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
-
+					NdArray<dtypeOut> returnArray(1, transposedArray.shape_.rows);
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						dtypeOut sumOfSquares = 0;
+						for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
+						{
+							sumOfSquares += static_cast<dtypeOut>(sqr(transposedArray(row, col)));
+						}
+						returnArray(0, row) = std::sqrt(sumOfSquares);
+					}
 
 					return returnArray;
 				}
@@ -1861,7 +1878,10 @@ namespace NumC
 		//
 		void ones()
 		{
-
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] = static_cast<dtype>(1);
+			}
 		}
 
 		//============================================================================
