@@ -277,12 +277,15 @@ namespace NumC
 
 			shape_ = Shape(inOtherArray.shape_);
 			size_ = inOtherArray.size_;
+			endianess_ = inOtherArray.endianess_;
 			array_ = new dtype[size_];
 
 			for (uint32 i = 0; i < size_; ++i)
 			{
-				array_[i] = inOtherArray.data_[i];
+				array_[i] = inOtherArray.array_[i];
 			}
+
+			return *this;
 		}
 
 		//============================================================================
@@ -1899,9 +1902,51 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		void partition(dtype inKth, Axis::Type inAxis = Axis::NONE)
+		void partition(uint32 inKth, Axis::Type inAxis = Axis::NONE)
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					if (inKth >= size_)
+					{
+						std::string errStr = "ERROR: kth(=" + num2str(inKth) + ") out of bounds (" + num2str(size_) + ")";
+						throw std::invalid_argument(errStr);
+					}
+					std::nth_element(begin(), begin() + inKth, end());
+					break;
+				}
+				case Axis::COL:
+				{
+					if (inKth >= shape_.cols)
+					{
+						std::string errStr = "ERROR: kth(=" + num2str(inKth) + ") out of bounds (" + num2str(shape_.cols) + ")";
+						throw std::invalid_argument(errStr);
+					}
 
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						std::nth_element(begin(row), begin(row) + inKth, end(row));
+					}
+					break;
+				}
+				case Axis::ROW:
+				{
+					if (inKth >= shape_.rows)
+					{
+						std::string errStr = "ERROR: kth(=" + num2str(inKth) + ") out of bounds (" + num2str(shape_.rows) + ")";
+						throw std::invalid_argument(errStr);
+					}
+
+					NdArray<dtype> transposedArray = transpose();
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						std::nth_element(transposedArray.begin(row), transposedArray.begin(row) + inKth, transposedArray.end(row));
+					}
+					*this = transposedArray.transpose();
+					break;
+				}
+			}
 		}
 
 		//============================================================================

@@ -291,7 +291,8 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("nbytes", &NdArrayDouble::nbytes)
 		.def("nonzero", &NdArrayInterface::nonzero<double>)
 		.def("norm", &NdArrayInterface::norm<double, double>)
-		.def("ones", &NdArrayDouble::ones);
+		.def("ones", &NdArrayDouble::ones)
+		.def("partition", &NdArrayDouble::partition);
 
 	typedef NdArray<uint32> NdArrayInt;
 	bp::class_<NdArrayInt>

@@ -608,6 +608,62 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing partition: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    kthElement = np.random.randint(0, shapeInput.prod(), [1,], dtype=np.uint32).item()
+    cArray.partition(kthElement, NumC.Axis.NONE)
+    partitionedArray = cArray.getNumpyArray().flatten()
+    if (np.all(partitionedArray[:kthElement] <= partitionedArray[kthElement]) and
+        np.all(partitionedArray[kthElement:] >= partitionedArray[kthElement])):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing partition: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    kthElement = np.random.randint(0, shapeInput[1], [1,], dtype=np.uint32).item()
+    cArray.partition(kthElement, NumC.Axis.ROW)
+    partitionedArray = cArray.getNumpyArray().transpose()
+    allPass = True
+    for row in partitionedArray:
+        if not (np.all(row[:kthElement] <= row[kthElement]) and
+                np.all(row[kthElement:] >= row[kthElement])):
+            allPass = False
+            break
+    if allPass:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing partition: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    kthElement = np.random.randint(0, shapeInput[0], [1,], dtype=np.uint32).item()
+    cArray.partition(kthElement, NumC.Axis.COL)
+    partitionedArray = cArray.getNumpyArray()
+    allPass = True
+    for row in partitionedArray:
+        if not (np.all(row[:kthElement] <= row[kthElement]) and
+                np.all(row[kthElement:] >= row[kthElement])):
+            allPass = False
+            break
+    if allPass:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+
 ####################################################################################
 if __name__ == '__main__':
     doTest()
