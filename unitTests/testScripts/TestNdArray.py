@@ -629,7 +629,7 @@ def doTest():
     cArray = NumC.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    kthElement = np.random.randint(0, shapeInput[1], [1,], dtype=np.uint32).item()
+    kthElement = np.random.randint(0, shapeInput[0], [1,], dtype=np.uint32).item()
     cArray.partition(kthElement, NumC.Axis.ROW)
     partitionedArray = cArray.getNumpyArray().transpose()
     allPass = True
@@ -649,7 +649,7 @@ def doTest():
     cArray = NumC.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    kthElement = np.random.randint(0, shapeInput[0], [1,], dtype=np.uint32).item()
+    kthElement = np.random.randint(0, shapeInput[1], [1,], dtype=np.uint32).item()
     cArray.partition(kthElement, NumC.Axis.COL)
     partitionedArray = cArray.getNumpyArray()
     allPass = True
@@ -663,6 +663,71 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing prod: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 10, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32).astype(np.double)
+    cArray.setArray(data)
+    if cArray.prod(NumC.Axis.NONE).item() == data.prod():
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing prod: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 10, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32).astype(np.double)
+    cArray.setArray(data)
+    if np.array_equal(cArray.prod(NumC.Axis.ROW).flatten(), data.prod(axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing prod: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 10, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32).astype(np.double)
+    cArray.setArray(data)
+    if np.array_equal(cArray.prod(NumC.Axis.COL).flatten(), data.prod(axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing ptp: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 10, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    if cArray.ptp(NumC.Axis.NONE).astype(np.uint32).item() == data.ptp():
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing ptp: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 10, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(cArray.ptp(NumC.Axis.ROW).flatten().astype(np.uint32), data.ptp(axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing ptp: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 10, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(cArray.ptp(NumC.Axis.COL).flatten().astype(np.uint32), data.ptp(axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
 ####################################################################################
 if __name__ == '__main__':

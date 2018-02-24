@@ -211,6 +211,22 @@ namespace NdArrayInterface
 	{
 		return numCToBoost<dtypeOut>(inArray.norm<dtypeOut>(inAxis));
 	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray prod(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost<dtypeOut>(inArray.prod<dtypeOut>(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray ptp(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.ptp(inAxis));
+	}
 }
 
 //================================================================================
@@ -292,7 +308,10 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("nonzero", &NdArrayInterface::nonzero<double>)
 		.def("norm", &NdArrayInterface::norm<double, double>)
 		.def("ones", &NdArrayDouble::ones)
-		.def("partition", &NdArrayDouble::partition);
+		.def("partition", &NdArrayDouble::partition)
+		.def("print", &NdArrayDouble::print)
+		.def("prod", &NdArrayInterface::prod<double, double>)
+		.def("ptp", &NdArrayInterface::ptp<double>);
 
 	typedef NdArray<uint32> NdArrayInt;
 	bp::class_<NdArrayInt>

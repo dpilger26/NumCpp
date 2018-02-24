@@ -1975,7 +1975,57 @@ namespace NumC
 		template<typename dtypeOut>
 		NdArray<dtypeOut> prod(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<dtypeOut> returnArray(1, 1);
+					dtypeOut product = 1;
+					for (uint32 i = 0; i < size_; ++i)
+					{
+						product *= static_cast<dtypeOut>(array_[i]);
+					}
+					returnArray[0] = product;
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<dtypeOut> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						dtypeOut product = 1;
+						for (uint32 col = 0; col < shape_.cols; ++col)
+						{
+							product *= static_cast<dtypeOut>(this->operator()(row, col));
+						}
+						returnArray(0, row) = product;
+					}
 
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtype> transposedArray = transpose();
+					NdArray<dtypeOut> returnArray(1, transposedArray.shape_.rows);
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						dtypeOut product = 1;
+						for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
+						{
+							product *= static_cast<dtypeOut>(transposedArray(row, col));
+						}
+						returnArray(0, row) = product;
+					}
+
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtypeOut>(0);
+				}
+			}
 		}
 
 		//============================================================================
@@ -1989,7 +2039,45 @@ namespace NumC
 		//
 		NdArray<dtype> ptp(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<dtype> returnArray(1, 1);
+					std::pair<const dtype*, const dtype*> result = std::minmax_element(cbegin(), cend());
+					returnArray[0] = *result.second - *result.first;
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<dtype> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						std::pair<const dtype*, const dtype*> result = std::minmax_element(cbegin(row), cend(row));
+						returnArray(0, row) = *result.second - *result.first;
+					}
 
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtype> transposedArray = transpose();
+					NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						std::pair<const dtype*, const dtype*> result = std::minmax_element(transposedArray.cbegin(row), transposedArray.cend(row));
+						returnArray(0, row) = *result.second - *result.first;
+					}
+
+					return returnArray;
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtype>(0);
+				}
+			}
 		}
 
 		//============================================================================
@@ -2016,17 +2104,31 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		void reshape(const Shape& inShape)
+		void reshape(uint32 inNumRows, uint32 inNumCols)
 		{
-			if (inShape.rows * inShape.cols != size_)
+			if (inNumRows * inNumCols != size_)
 			{
 				std::string errStr = "ERROR: Cannot reshape array of size " + num2str(size_) + " into shape ";
-				errStr += "[" + num2str(inShape.rows) + ", " + num2str(inShape.cols) + "]";
+				errStr += "[" + num2str(inNumRows) + ", " + num2str(inNumCols) + "]";
 				throw std::runtime_error(errStr);
 			}
 
-			shape_.rows = inShape.rows;
-			shape_.cols = inShape.cols;
+			shape_.rows = inNumRows;
+			shape_.cols = inNumCols;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array containing the same data with a new shape.
+		//		
+		// Inputs:
+		//				Shape
+		// Outputs:
+		//				None
+		//
+		void reshape(const Shape& inShape)
+		{
+			reshape(inShape.rows, inShape.cols);
 		}
 
 		//============================================================================
