@@ -23,6 +23,23 @@ namespace NumC
 {
 	//============================================================================
 	// Method Description: 
+	//						Converts the number into a string
+	//		
+	// Inputs:
+	//				number
+	// Outputs:
+	//				string
+	//
+	template<typename dtype>
+	std::string num2str(dtype inNumber)
+	{
+		std::ostringstream ss;
+		ss << inNumber;
+		return ss.str();
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Squares in input value
 	//		
 	// Inputs:

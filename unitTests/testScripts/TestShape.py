@@ -23,6 +23,12 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing List Constructor', 'cyan'))
+    if NumC.Shape.testListContructor():
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing Member Setting', 'cyan'))
     shape = NumC.Shape()
     shapeInput = np.random.randint(0, 100, [2, ])

@@ -457,9 +457,9 @@ namespace NumC
 	//				NdArray<T>
 	//
 	template<typename T>
-	NdArray<T> boostToNumC(const boost::python::numpy::ndarray& inArray)
+	NdArray<T> boostToNumC(boost::python::numpy::ndarray& inArray)
 	{
-		BoostNdarrayHelper helper(inArray);
+		BoostNdarrayHelper helper(&inArray);
 		if (helper.numDimensions() > 2)
 		{
 			throw std::runtime_error("ERROR: Can only convert 1 and 2 dimensional arrays.");
@@ -469,12 +469,12 @@ namespace NumC
 		if (helper.numDimensions() == 1)
 		{
 			arrayShape.rows = 1;
-			arrayShape.cols = helper.shape()[0];
+			arrayShape.cols = static_cast<uint32>(helper.shape()[0]);
 		}
 		else
 		{
-			arrayShape.rows = helper.shape()[0];
-			arrayShape.cols = helper.shape()[1];
+			arrayShape.rows = static_cast<uint32>(helper.shape()[0]);
+			arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
 		}
 
 		NdArray<T> returnArray(arrayShape);

@@ -26,8 +26,90 @@ using namespace NumC;
 
 //================================================================================
 
+namespace ShapeInterface
+{
+	bool testListContructor()
+	{
+		Shape test = { 357, 666 };
+		if (test.rows == 357 && test.cols == 666)
+		{
+			return true;
+		}
+
+		return false;
+	}
+}
+
+//================================================================================
+
+namespace SliceInterface
+{
+	bool testListContructor()
+	{
+		Slice test1 = { 666 };
+		if (!(test1.start == 0 && test1.stop == 666 && test1.step == 1))
+		{
+			return false;
+		}
+
+		Slice test2 = { 357, 777 };
+		if (!(test2.start == 357 && test2.stop == 777 && test2.step == 1))
+		{
+			return false;
+		}
+
+		Slice test3 = { 7, 45, 10 };
+		if (!(test3.start == 7 && test3.stop == 45 && test3.step == 10))
+		{
+			return false;
+		}
+
+		return true;
+	}
+}
+
+//================================================================================
+
 namespace NdArrayInterface
 {
+	template<typename dtype>
+	bool test1DListContructor()
+	{
+		NdArray<dtype> test = { 1,2,3,4,666,357,314159 };
+		if (test.size() != 7)
+		{
+			return false;
+		}
+
+		if (test.shape().rows != 1 || test.shape().cols != test.size())
+		{
+			return false;
+		}
+
+		return test[0] == 1 && test[1] == 2 && test[2] == 3 && test[3] == 4 && test[4] == 666 && test[5] == 357 && test[6] == 314159;
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool test2DListContructor()
+	{
+		NdArray<dtype> test = { {1,2}, {4,666}, {314159, 9}, {0, 8} };
+		if (test.size() != 8)
+		{
+			return false;
+		}
+
+		if (test.shape().rows != 4 || test.shape().cols != 2)
+		{
+			return false;
+		}
+
+		return test[0] == 1 && test[1] == 2 && test[2] == 4 && test[3] == 666 && test[4] == 314159 && test[5] == 9 && test[6] == 0 && test[7] == 8;
+	}
+
+	//================================================================================
+
 	template<typename dtype>
 	np::ndarray getNumpyArray(const NdArray<dtype>& inArray)
 	{
@@ -151,9 +233,82 @@ namespace NdArrayInterface
 	//================================================================================
 
 	template<typename dtype>
+	np::ndarray fill(NdArray<dtype>& inArray, dtype inFillValue)
+	{
+		inArray.fill(inFillValue);
+		return numCToBoost(inArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	np::ndarray flatten(NdArray<dtype>& inArray)
 	{
 		return numCToBoost(inArray.flatten());
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype getValueFlat(NdArray<dtype>& inArray, int32 inIndex)
+	{
+		return inArray.at(inIndex);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype getValueRowCol(NdArray<dtype>& inArray, int32 inRow, int32 inCol)
+	{
+		return inArray.at(inRow, inCol);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray getSlice1D(NdArray<dtype>& inArray, const Slice& inSlice)
+	{
+		return numCToBoost(inArray.at(inSlice));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool testGetSlice1DList()
+	{
+		NdArray<dtype> test = {9,8,7,6,5,4,3,2,1,0};
+		NdArray<dtype> slice = test.at({0,10,2});
+
+		if (slice.size() != 5 || !(slice.shape().rows == 1 && slice.shape().cols == slice.size()))
+		{
+			return false;
+		}
+
+		return slice[0] == 9 && slice[1] == 7 && slice[2] == 5 && slice[3] == 3 && slice[4] == 1;
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray getSlice2D(NdArray<dtype>& inArray, const Slice& inRowSlice, const Slice& inColSlice)
+	{
+		return numCToBoost(inArray.at(inRowSlice, inColSlice));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool testGetSlice2DList()
+	{
+		NdArray<dtype> test = { {9,8},{7,6},{5,4},{3,2},{1,0} };
+		NdArray<dtype> slice = test.at({ 1,3,1 }, {0, 1, 2});
+
+		if (slice.size() != 2 || !(slice.shape().rows == 2 && slice.shape().cols == 1))
+		{
+			return false;
+		}
+
+		return slice[0] == 7 && slice[1] == 5;
 	}
 
 	//================================================================================
@@ -214,6 +369,24 @@ namespace NdArrayInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	np::ndarray ones(NdArray<dtype>& inArray)
+	{
+		inArray.ones();
+		return numCToBoost<dtype>(inArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray partition(NdArray<dtype>& inArray, uint32 inKth, Axis::Type inAxis = Axis::NONE)
+	{
+		inArray.partition(inKth, inAxis);
+		return numCToBoost<dtype>(inArray);
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	np::ndarray prod(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
@@ -226,6 +399,62 @@ namespace NdArrayInterface
 	np::ndarray ptp(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return numCToBoost(inArray.ptp(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray putFlat(NdArray<dtype>& inArray, int32 inIndex, dtype inValue)
+	{
+		inArray.put(inIndex, inValue);
+		return numCToBoost(inArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray putRowCol(NdArray<dtype>& inArray, int32 inRow, int32 inCol, dtype inValue)
+	{
+		inArray.put(inRow, inCol, inValue);
+		return numCToBoost(inArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray putSlice1DValue(NdArray<dtype>& inArray, const Slice& inSlice, dtype inValue)
+	{
+		inArray.put(inSlice, inValue);
+		return numCToBoost(inArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray putSlice1DValues(NdArray<dtype>& inArray, const Slice& inSlice, np::ndarray& inArrayValues)
+	{
+		NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
+		inArray.put(inSlice, inValues);
+		return numCToBoost(inArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray putSlice2DValue(NdArray<dtype>& inArray, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
+	{
+		inArray.put(inSliceRow, inSliceCol, inValue);
+		return numCToBoost(inArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray putSlice2DValues(NdArray<dtype>& inArray, const Slice& inSliceRow, const Slice& inSliceCol, np::ndarray& inArrayValues)
+	{
+		NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
+		inArray.put(inSliceRow, inSliceCol, inValues);
+		return numCToBoost(inArray);
 	}
 }
 
@@ -246,6 +475,7 @@ BOOST_PYTHON_MODULE(NumC)
 	bp::class_<Shape>
 		("Shape", bp::init<>())
 		.def(bp::init<uint16, uint16>())
+		.def("testListContructor", &ShapeInterface::testListContructor).staticmethod("testListContructor")
 		.def_readwrite("rows", &Shape::rows)
 		.def_readwrite("cols", &Shape::cols)
 		.def("print", &Shape::print);
@@ -255,6 +485,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def(bp::init<int16>())
 		.def(bp::init<int16, int16>())
 		.def(bp::init<int16, int16, int16>())
+		.def("testListContructor", &SliceInterface::testListContructor).staticmethod("testListContructor")
 		.def_readwrite("start", &Slice::start)
 		.def_readwrite("stop", &Slice::stop)
 		.def_readwrite("step", &Slice::step)
@@ -283,6 +514,8 @@ BOOST_PYTHON_MODULE(NumC)
 		.def(bp::init<int16>())
 		.def(bp::init<int16, int16>())
 		.def(bp::init<Shape>())
+		.def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>).staticmethod("test1DListContructor")
+		.def("test2DListContructor", &NdArrayInterface::test2DListContructor<double>).staticmethod("test2DListContructor")
 		.def("shape", &NdArrayDouble::shape)
 		.def("size", &NdArrayDouble::size)
 		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>)
@@ -297,8 +530,14 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("cumsum", &NdArrayInterface::cumsum<double, double>)
 		.def("diagonal", &NdArrayInterface::diagonal<double>)
 		.def("dump", &NdArray<double>::dump)
-		.def("fill", &NdArray<double>::fill)
+		.def("fill", &NdArrayInterface::fill<double>)
 		.def("flatten", &NdArrayInterface::flatten<double>)
+		.def("get", &NdArrayInterface::getValueFlat<double>)
+		.def("get", &NdArrayInterface::getValueRowCol<double>)
+		.def("get", &NdArrayInterface::getSlice1D<double>)
+		.def("testGetSlice1DList", &NdArrayInterface::testGetSlice1DList<double>).staticmethod("testGetSlice1DList")
+		.def("get", &NdArrayInterface::getSlice2D<double>)
+		.def("testGetSlice2DList", &NdArrayInterface::testGetSlice2DList<double>).staticmethod("testGetSlice2DList")
 		.def("item", &NdArray<double>::item)
 		.def("max", &NdArrayInterface::max<double>)
 		.def("min", &NdArrayInterface::min<double>)
@@ -307,11 +546,17 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("nbytes", &NdArrayDouble::nbytes)
 		.def("nonzero", &NdArrayInterface::nonzero<double>)
 		.def("norm", &NdArrayInterface::norm<double, double>)
-		.def("ones", &NdArrayDouble::ones)
-		.def("partition", &NdArrayDouble::partition)
+		.def("ones", &NdArrayInterface::ones<double>)
+		.def("partition", &NdArrayInterface::partition<double>)
 		.def("print", &NdArrayDouble::print)
 		.def("prod", &NdArrayInterface::prod<double, double>)
-		.def("ptp", &NdArrayInterface::ptp<double>);
+		.def("ptp", &NdArrayInterface::ptp<double>)
+		.def("put", &NdArrayInterface::putFlat<double>)
+		.def("put", &NdArrayInterface::putRowCol<double>)
+		.def("put", &NdArrayInterface::putSlice1DValue<double>)
+		.def("put", &NdArrayInterface::putSlice1DValues<double>)
+		.def("put", &NdArrayInterface::putSlice2DValue<double>)
+		.def("put", &NdArrayInterface::putSlice2DValues<double>);
 
 	typedef NdArray<uint32> NdArrayInt;
 	bp::class_<NdArrayInt>

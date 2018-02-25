@@ -2137,23 +2137,6 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						Converts the number into a string
-	//		
-	// Inputs:
-	//				number
-	// Outputs:
-	//				string
-	//
-	template<typename dtype>
-	std::string num2str(dtype inNumber)
-	{
-		std::ostringstream ss;
-		ss << inNumber;
-		return ss.str();
-	}
-
-	//============================================================================
-	// Method Description: 
 	//						Return a new array of given shape and type, filled with ones.
 	//		
 	// Inputs:

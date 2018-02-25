@@ -20,6 +20,7 @@
 #pragma once
 
 #include"Types.hpp"
+#include"Utils.hpp"
 
 #include<initializer_list>
 #include<stdexcept>
@@ -37,7 +38,7 @@ namespace NumC
 		//====================================Attributes==============================
 		int32	start;
 		int32	stop;
-		uint32	step;
+		int32	step;
 
 		//============================================================================
 		// Method Description: 
@@ -83,9 +84,7 @@ namespace NumC
 			start(inStart),
 			stop(inStop),
 			step(1)
-		{
-			isValid();
-		}
+		{};
 
 		//============================================================================
 		// Method Description:
@@ -98,13 +97,11 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		Slice(int32 inStart, int32 inStop, uint32 inStep) :
+		Slice(int32 inStart, int32 inStop, int32 inStep) :
 			start(inStart),
 			stop(inStop),
 			step(inStep)
-		{
-			isValid();
-		}
+		{};
 
 		//============================================================================
 		// Method Description: 
@@ -149,8 +146,6 @@ namespace NumC
 					break;
 				}
 			}
-
-			isValid();
 		}
 
 		//============================================================================
@@ -182,28 +177,80 @@ namespace NumC
 			return inOStream;
 		}
 
-	private:
 		//============================================================================
 		// Method Description:
-		//						Checks that the slice is valid. Start must come before end
+		//						Make the slice all positive and does some error checking
 		//			
 		// Inputs:
-		//				None
+		//				The calling array size
 		// Outputs:
 		//				None
 		//
-		void isValid() const
+		void makePositiveAndValidate(uint32 inArraySize)
 		{
-			// check that stop is after start for the two cases where start and stop are the same sign.
-			// for the other cases... can't really check anything.
-			if (start > -1 && stop > -1 && start >= stop)
+			// convert the start value
+			if (start < 0)
 			{
-				throw std::invalid_argument("ERROR: Invalid start stop combination.");
+				start += inArraySize;
 			}
-			else if (start < 0 && stop < 0 && start >= stop)
+			if (start > static_cast<int32>(inArraySize - 1))
 			{
-				throw std::invalid_argument("ERROR: Invalid start stop combination.");
+				throw std::invalid_argument("ERROR: Invalid start value for array of size " + num2str(inArraySize) + ".");
 			}
+
+			// convert the stop value
+			if (stop < 0)
+			{
+				stop += inArraySize;
+			}
+			if (stop > static_cast<int32>(inArraySize - 1))
+			{
+				throw std::invalid_argument("ERROR: Invalid stop value for array of size " + num2str(inArraySize) + ".");
+			}
+
+			// do some error checking
+			if (start < stop)
+			{
+				if (step < 0)
+				{
+					throw std::invalid_argument("ERROR: Invalid slice values.");
+				}
+			}
+
+			if (stop < start)
+			{
+				if (step > 0)
+				{
+					throw std::invalid_argument("ERROR: Invalid slice values.");
+				}
+
+				// otherwise flip things around for my own sanity
+				std::swap(start, stop);
+				step *= -1;
+			}
+		}
+
+		//============================================================================
+		// Method Description:
+		//						returns the number of elements that the slice contains.
+		//						be aware that this method will also make the slice all 
+		//						positive!
+		//			
+		// Inputs:
+		//				The calling array size
+		// Outputs:
+		//				None
+		//
+		uint32 numElements(uint32 inArraySize)
+		{
+			makePositiveAndValidate(inArraySize);
+
+			uint32 num = 0;
+			for (int32 i = start; i < stop; i += step)
+			{
+				++num;
+			}
+			return num;
 		}
 	};
 }

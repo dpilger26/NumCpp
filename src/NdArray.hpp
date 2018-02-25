@@ -33,6 +33,7 @@
 #include<fstream>
 #include<string>
 #include<vector>
+#include<set>
 #include<algorithm>
 #include<limits>
 #include<numeric>
@@ -160,7 +161,7 @@ namespace NumC
 		//				None
 		//
 		NdArray(const std::initializer_list<dtype>& inList) :
-			shape_(static_cast<uint32>(inList.size()), 1),
+			shape_(1, static_cast<uint32>(inList.size())),
 			size_(static_cast<uint32>(inList.size())),
 			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
@@ -178,7 +179,7 @@ namespace NumC
 		//				None
 		//
 		NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
-			shape_(0, 0),
+			shape_(static_cast<uint32>(inList.size()), 0),
 			size_(0),
 			endianess_(Endian::NATIVE),
 			array_(nullptr)
@@ -186,12 +187,11 @@ namespace NumC
 			typename std::initializer_list<std::initializer_list<dtype> >::iterator iter;
 			for (iter = inList.begin(); iter < inList.end(); ++iter)
 			{
-				size_ += iter->size();
-				++shape_.rows;
+				size_ += static_cast<uint32>(iter->size());
 
 				if (shape_.cols == 0)
 				{
-					shape_.cols = iter->size();
+					shape_.cols = static_cast<uint32>(iter->size());
 				}
 				else if (iter->size() != shape_.cols)
 				{
@@ -200,7 +200,6 @@ namespace NumC
 			}
 
 			array_ = new dtype[size_];
-			typename std::initializer_list<std::initializer_list<dtype> >::iterator iter;
 			uint16 row = 0;
 			for (iter = inList.begin(); iter < inList.end(); ++iter)
 			{
@@ -225,6 +224,24 @@ namespace NumC
 			array_(new dtype[size_])
 		{
 			std::copy(inVector.begin(), inVector.end(), array_);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Constructor
+		//		
+		// Inputs:
+		//				set
+		// Outputs:
+		//				None
+		//
+		NdArray(const std::set<dtype>& inSet) :
+			shape_(1, static_cast<uint32>(inSet.size())),
+			size_(static_cast<uint32>(inSet.size())),
+			endianess_(Endian::NATIVE),
+			array_(new dtype[size_])
+		{
+			std::copy(inSet.begin(), inSet.end(), array_);
 		}
 
 		//============================================================================
@@ -299,15 +316,12 @@ namespace NumC
 		//
 		dtype& operator[](int32 inIndex)
 		{
-			if (inIndex > -1)
+			if (inIndex < 0)
 			{
-				return array_[inIndex];
+				inIndex += size_;
 			}
-			else
-			{
-				uint32 index = static_cast<uint32>(static_cast<int32>(size_) + inIndex);
-				return array_[index];
-			}
+
+			return array_[inIndex];
 		}
 
 		//============================================================================
@@ -321,15 +335,12 @@ namespace NumC
 		//
 		const dtype& operator[](int32 inIndex) const
 		{
-			if (inIndex > -1)
+			if (inIndex < 0)
 			{
-				return array_[inIndex];
+				inIndex += size_;
 			}
-			else
-			{
-				uint32 index = static_cast<uint32>(static_cast<int32>(size_) + inIndex);
-				return array_[index];
-			}
+
+			return array_[inIndex];
 		}
 
 		//============================================================================
@@ -344,31 +355,17 @@ namespace NumC
 		//
 		dtype& operator()(int32 inRowIndex, int32 inColIndex)
 		{
-			if (inRowIndex > -1 && inColIndex > -1)
+			if (inRowIndex < 0)
 			{
-				return array_[inRowIndex * shape_.cols + inColIndex];
+				inRowIndex += shape_.rows;
 			}
-			else if (inRowIndex < 0 && inColIndex < 0)
+
+			if (inColIndex < 0)
 			{
-				uint32 rowIdx = static_cast<uint32>(static_cast<int32>(shape_.rows) + inRowIndex);
-				uint32 colIdx = static_cast<uint32>(static_cast<int32>(shape_.cols) + inColIndex);
-				return array_[rowIdx * shape_.cols + colIdx];
+				inColIndex += shape_.cols;
 			}
-			else if (inRowIndex > -1 && inColIndex < 0)
-			{
-				uint32 colIdx = static_cast<uint32>(static_cast<int32>(shape_.cols) + inColIndex);
-				return array_[inRowIndex * shape_.cols + colIdx];
-			}
-			else if (inRowIndex < 0 && inColIndex > -1)
-			{
-				uint32 rowIdx = static_cast<uint32>(static_cast<int32>(shape_.rows) + inRowIndex);
-				return array_[rowIdx * shape_.cols + inColIndex];
-			}
-			else
-			{
-				// I don't think it is possible to get in here...
-				throw std::runtime_error("ERROR: Investigate this!");
-			}
+
+			return array_[inRowIndex * shape_.cols + inColIndex];
 		}
 
 		//============================================================================
@@ -383,31 +380,17 @@ namespace NumC
 		//
 		const dtype& operator()(int32 inRowIndex, int32 inColIndex) const
 		{
-			if (inRowIndex > -1 && inColIndex > -1)
+			if (inRowIndex < 0)
 			{
-				return array_[inRowIndex * shape_.cols + inColIndex];
+				inRowIndex += shape_.rows;
 			}
-			else if (inRowIndex < 0 && inColIndex < 0)
+
+			if (inColIndex < 0)
 			{
-				uint32 rowIdx = static_cast<uint32>(static_cast<int32>(shape_.rows) + inRowIndex);
-				uint32 colIdx = static_cast<uint32>(static_cast<int32>(shape_.cols) + inColIndex);
-				return array_[rowIdx * shape_.cols + colIdx];
+				inColIndex += shape_.cols;
 			}
-			else if (inRowIndex > -1 && inColIndex < 0)
-			{
-				uint32 colIdx = static_cast<uint32>(static_cast<int32>(shape_.cols) + inColIndex);
-				return array_[inRowIndex * shape_.cols + colIdx];
-			}
-			else if (inRowIndex < 0 && inColIndex > -1)
-			{
-				uint32 rowIdx = static_cast<uint32>(static_cast<int32>(shape_.rows) + inRowIndex);
-				return array_[rowIdx * shape_.cols + inColIndex];
-			}
-			else
-			{
-				// I don't think it is possible to get in here...
-				throw std::runtime_error("ERROR: Investigate this!");
-			}
+
+			return array_[inRowIndex * shape_.cols + inColIndex];
 		}
 
 		//============================================================================
@@ -422,54 +405,40 @@ namespace NumC
 		//
 		NdArray<dtype> operator[](const Slice& inSlice) const
 		{
-			uint32 start = 0;
-			uint32 stop = 0;
+			Slice inSliceCopy(inSlice);
 
-			if (inSlice.start > -1 && inSlice.stop > -1)
-			{
-				start = inSlice.start;
-				stop = inSlice.stop;
-			}
-			else if (inSlice.start < 0 && inSlice.stop < 0)
-			{
-				start = size_ + inSlice.start;
-				stop = size_ + inSlice.stop - 1;
-			}
-			else if (inSlice.start > -1 && inSlice.stop < 0)
-			{
-				start = inSlice.start;
-				stop = size_ + inSlice.stop - 1;
-			}
-			else if (inSlice.start < 0 && inSlice.stop > -1)
-			{
-				start = size_ + inSlice.start;
-				stop = inSlice.stop;
-			}
-			else
-			{
-				// I don't think it is possible to get in here...
-				throw std::runtime_error("ERROR: Investigate this!");
-			}
-
-			if (stop < start)
-			{
-				std::string errStr = "ERROR: Slice stop must be less than slice start.";
-				throw std::invalid_argument(errStr);
-			}
-
-			if (start > size_ || stop > size_)
-			{
-				std::string errStr = "ERROR: Slice parameters are out of bounds for array of size " + num2str(size_);
-				throw std::invalid_argument(errStr);
-			}
-
-			uint32 numElements = (stop - start + 1) / inSlice.step;
 			uint32 counter = 0;
-			NdArray<dtype> returnArray(numElements, 1);
-			for (uint32 i = start; i < stop; i += inSlice.step)
+			NdArray<dtype> returnArray(1, inSliceCopy.numElements(size_));
+			for (int32 i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
 			{
-				returnArray(counter++) = array_[i];
+				returnArray[counter++] = this->at(i);
 			}
+
+			return returnArray;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						1D Slicing access operator with no bounds checking. 
+		//						returned array is of the range [start, stop).
+		//		
+		// Inputs:
+		//				initializer list
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator[](const std::initializer_list<int32>& inList) const
+		{
+			Slice inSlice(inList);
+
+			uint32 counter = 0;
+			NdArray<dtype> returnArray(1, inSlice.numElements(size_));
+			for (int32 i = inSlice.start; i < inSlice.stop; i += inSlice.step)
+			{
+				returnArray[counter++] = this->at(i);
+			}
+
+			return returnArray;
 		}
 
 		//============================================================================
@@ -485,106 +454,57 @@ namespace NumC
 		//
 		NdArray<dtype> operator()(const Slice& inRowSlice, const Slice& inColSlice) const
 		{
-			uint32 rowStart = 0;
-			uint32 rowStop = 0;
+			Slice inRowSliceCopy(inRowSlice);
+			Slice inColSliceCopy(inColSlice);
 
-			if (inRowSlice.start > -1 && inRowSlice.stop > -1)
-			{
-				rowStart = inRowSlice.start;
-				rowStop = inRowSlice.stop;
-			}
-			else if (inRowSlice.start < 0 && inRowSlice.stop < 0)
-			{
-				rowStart = shape_.rows + inRowSlice.start;
-				rowStop = shape_.rows + inRowSlice.stop - 1;
-			}
-			else if (inRowSlice.start > -1 && inRowSlice.stop < 0)
-			{
-				rowStart = inRowSlice.start;
-				rowStop = shape_.rows + inRowSlice.stop - 1;
-			}
-			else if (inRowSlice.start < 0 && inRowSlice.stop > -1)
-			{
-				rowStart = shape_.rows + inRowSlice.start;
-				rowStop = inRowSlice.stop;
-			}
-			else
-			{
-				// I don't think it is possible to get in here...
-				throw std::runtime_error("ERROR: Investigate this!");
-			}
+			NdArray<dtype> returnArray(inRowSliceCopy.numElements(shape_.rows), inColSliceCopy.numElements(shape_.cols));
 
-			if (rowStop < rowStart)
+			uint32 rowCounter = 0;
+			uint32 colCounter = 0;
+			for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
 			{
-				std::string errStr = "ERROR: Slice stop must be less than slice start.";
-				throw std::invalid_argument(errStr);
-			}
-
-			if (rowStart > shape_.rows || rowStop > shape_.rows)
-			{
-				std::string errStr = "ERROR: Slice parameters are out of bounds for array of size [";
-				errStr += num2str(shape_.rows) + ", " + num2str(shape_.cols) + "]";
-				throw std::invalid_argument(errStr);
-			}
-
-			uint32 colStart = 0;
-			uint32 colStop = 0;
-
-			if (inColSlice.start > -1 && inColSlice.stop > -1)
-			{
-				colStart = inColSlice.start;
-				colStop = inColSlice.stop;
-			}
-			else if (inColSlice.start < 0 && inColSlice.stop < 0)
-			{
-				colStart = shape_.cols + inColSlice.start;
-				colStop = shape_.cols + inColSlice.stop - 1;
-			}
-			else if (inColSlice.start > -1 && inColSlice.stop < 0)
-			{
-				colStart = inColSlice.start;
-				colStop = shape_.cols + inColSlice.stop - 1;
-			}
-			else if (inColSlice.start < 0 && inColSlice.stop > -1)
-			{
-				colStart = shape_.cols + inColSlice.start;
-				colStop = inColSlice.stop;
-			}
-			else
-			{
-				// I don't think it is possible to get in here...
-				throw std::runtime_error("ERROR: Investigate this!");
-			}
-
-			if (colStop < colStart)
-			{
-				std::string errStr = "ERROR: Slice stop must be less than slice start.";
-				throw std::invalid_argument(errStr);
-			}
-
-			if (colStart > shape_.cols || colStop > shape_.cols)
-			{
-				std::string errStr = "ERROR: Slice parameters are out of bounds for array of size [";
-				errStr += num2str(shape_.rows) + ", " + num2str(shape_.cols) + "]";
-				throw std::invalid_argument(errStr);
-			}
-
-			uint16 numRowElements = (rowStop - rowStart + 1) / inRowSlice.step;
-			uint16 numColElements = (colStop - colStart + 1) / inColSlice.step;
-
-			uint16 rowCounter = 0;
-			uint16 colCounter = 0;
-
-			NdArray<dtype> returnArray(numRowElements, numColElements);
-			for (uint16 row = rowStart; row < rowStop; row += inRowSlice.step)
-			{
-				for (uint16 col = colStart; col < colStop; col += inColSlice.step)
+				for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
 				{
-					returnArray(rowCounter, colCounter++) = this->operator()(row, col);
+					returnArray(rowCounter, colCounter++) = this->at(row, col);
 				}
 				colCounter = 0;
 				++rowCounter;
 			}
+
+			return returnArray;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						2D Slicing access operator with no bounds checking.
+		//						returned array is of the range [start, stop).
+		//		
+		// Inputs:
+		//				Row initializer list
+		//				Col initializer list
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator()(const std::initializer_list<int32>& inRowList, const std::initializer_list<int32>& inColList) const
+		{
+			Slice inRowSlice(inRowList);
+			Slice inColSlice(inColList);
+
+			NdArray<dtype> returnArray(inRowSlice.numElements(shape_.rows), inColSlice.numElements(shape_.cols));
+
+			uint32 rowCounter = 0;
+			uint32 colCounter = 0;
+			for (int32 row = inRowSlice.start; row < inRowSlice.stop; row += inRowSlice.step)
+			{
+				for (int32 col = inColSlice.start; col < inColSlice.stop; col += inColSlice.step)
+				{
+					returnArray(rowCounter, colCounter++) = this->at(row, col);
+				}
+				colCounter = 0;
+				++rowCounter;
+			}
+
+			return returnArray;
 		}
 
 		//============================================================================
@@ -596,15 +516,17 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		dtype& at(int64 inIndex)
+		dtype& at(int32 inIndex)
 		{
-			if (inIndex > size_ - 1 || std::abs(inIndex) > size_)
+			// this doesn't allow for calling the first element as -size_... 
+			// but why would you really want to that anyway?
+			if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
 			{
 				std::string errStr = "ERROR: Input index " + num2str(inIndex) + " is out of bounds for array of size " + num2str(size_) + ".";
 				throw std::invalid_argument(errStr);
 			}
 
-			return array_[inIndex];
+			return this->operator[](inIndex);
 		}
 
 		//============================================================================
@@ -616,15 +538,17 @@ namespace NumC
 		// Outputs:
 		//				value
 		//
-		const dtype& at(int64 inIndex) const
+		const dtype& at(int32 inIndex) const
 		{
-			if (inIndex > size_ - 1 || std::abs(inIndex) > size_)
+			// this doesn't allow for calling the first element as -size_... 
+			// but why would you really want to that anyway?
+			if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
 			{
 				std::string errStr = "ERROR: Input index " + num2str(inIndex) + " is out of bounds for array of size " + num2str(size_) + ".";
 				throw std::invalid_argument(errStr);
 			}
 
-			return array_[inIndex];
+			return this->operator[](inIndex);
 		}
 
 		//============================================================================
@@ -639,13 +563,17 @@ namespace NumC
 		//
 		dtype& at(int32 inRowIndex, int32 inColIndex)
 		{
-			if (inRowIndex > shape_.rows - 1 || std::abs(inRowIndex) > shape_.rows)
+			// this doesn't allow for calling the first element as -size_... 
+			// but why would you really want to that anyway?
+			if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
 			{
 				std::string errStr = "ERROR: Row index " + num2str(inRowIndex) + " is out of bounds for array of size " + num2str(shape_.rows) + ".";
 				throw std::invalid_argument(errStr);
 			}
 
-			if (inColIndex > shape_.cols - 1 || std::abs(inColIndex) > shape_.cols)
+			// this doesn't allow for calling the first element as -size_... 
+			// but why would you really want to that anyway?
+			if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
 			{
 				std::string errStr = "ERROR: Column index " + num2str(inColIndex) + " is out of bounds for array of size " + num2str(shape_.cols) + ".";
 				throw std::invalid_argument(errStr);
@@ -666,13 +594,17 @@ namespace NumC
 		//
 		const dtype& at(int32 inRowIndex, int32 inColIndex) const
 		{
-			if (inRowIndex > shape_.rows - 1 || std::abs(inRowIndex) > shape_.rows)
+			// this doesn't allow for calling the first element as -size_... 
+			// but why would you really want to that anyway?
+			if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
 			{
 				std::string errStr = "ERROR: Row index " + num2str(inRowIndex) + " is out of bounds for array of size " + num2str(shape_.rows) + ".";
 				throw std::invalid_argument(errStr);
 			}
 
-			if (inColIndex > shape_.cols - 1 || std::abs(inColIndex) > shape_.cols)
+			// this doesn't allow for calling the first element as -size_... 
+			// but why would you really want to that anyway?
+			if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
 			{
 				std::string errStr = "ERROR: Column index " + num2str(inColIndex) + " is out of bounds for array of size " + num2str(shape_.cols) + ".";
 				throw std::invalid_argument(errStr);
@@ -699,6 +631,22 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						const 1D access method with bounds checking
+		//		
+		// Inputs:
+		//				initializer list
+		// Outputs:
+		//				Ndarray
+		//
+		NdArray<dtype> at(const std::initializer_list<int32>& inList) const
+		{
+			// the slice operator already provides bounds checking. just including
+			// the at method for completeness
+			return this->operator[](inList);
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						const 2D access method with bounds checking
 		//		
 		// Inputs:
@@ -712,6 +660,23 @@ namespace NumC
 			// the slice operator already provides bounds checking. just including
 			// the at method for completeness
 			return this->operator()(inRowSlice, inColSlice);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						const 2D access method with bounds checking
+		//		
+		// Inputs:
+		//				Row Slice,
+		//				Column Slice
+		// Outputs:
+		//				Ndarray
+		//
+		NdArray<dtype> at(const std::initializer_list<int32>& inRowList, const std::initializer_list<int32>& inColList) const
+		{
+			// the slice operator already provides bounds checking. just including
+			// the at method for completeness
+			return this->operator()(inRowList, inColList);
 		}
 
 		//============================================================================
@@ -2082,6 +2047,61 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						set the flat index element to the value
+		//		
+		// Inputs:
+		//				index
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(int32 inIndex, dtype inValue)
+		{
+			this->at(inIndex) = inValue;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						set the 2D row/col index element to the value
+		//		
+		// Inputs:
+		//				row index
+		//				col index
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(int32 inRow, int32 inCol, dtype inValue)
+		{
+			this->at(inRow, inCol) = inValue;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set a.flat[n] = values for all n in indices.
+		//		
+		// Inputs:
+		//				NdArray of indices
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(const NdArray<uint32>& inIndices, dtype inValue)
+		{
+			dtype maxIndex = *std::max_element(inIndices.cbegin(), inIndices.cend());
+			if (maxIndex >= size_)
+			{
+				throw std::invalid_argument("Error: Input indices are greater than the size of the array.");
+			}
+
+			for (uint32 i = 0; i < inIndices.size(); ++i)
+			{
+				this->at(inIndices[i]) = inValue;
+			}
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Set a.flat[n] = values[n] for all n in indices.
 		//		
 		// Inputs:
@@ -2090,9 +2110,140 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		void put(const NdArray<uint16>& inIndices, const NdArray<dtype>& inValues)
+		void put(const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
 		{
+			dtype maxIndex = *std::max_element(inIndices.cbegin(), inIndices.cend());
+			if (maxIndex >= size_)
+			{
+				throw std::invalid_argument("Error: Input indices are greater than the size of the array.");
+			}
 
+			for (uint32 i = 0; i < inIndices.size(); ++i)
+			{
+				this->at(inIndices[i]) = inValues[i];
+			}
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input value.
+		//		
+		// Inputs:
+		//				Slice 1D
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(const Slice& inSlice, dtype inValue)
+		{
+			Slice inSliceCopy(inSlice);
+			inSliceCopy.makePositiveAndValidate(size_);
+
+			std::vector<uint32> indices;
+			for (int32 i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
+			{
+				indices.push_back(i);
+			}
+
+			put(NdArray<uint32>(indices), inValue);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				Slice 1D
+		//				NdArray of values
+		// Outputs:
+		//				None
+		//
+		void put(const Slice& inSlice, const NdArray<dtype>& inValues)
+		{
+			Slice inSliceCopy(inSlice);
+			inSliceCopy.makePositiveAndValidate(size_);
+
+			std::vector<uint32> indices;
+			for (int32 i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
+			{
+				indices.push_back(i);
+			}
+
+			if (indices.size() != inValues.size_)
+			{
+				throw std::invalid_argument("Error: Input indices do not match slice dimensions.");
+			}
+
+			put(NdArray<uint32>(indices), inValues);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				Slice rows
+		//				Slice cols
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(const Slice& inRowSlice, const Slice& inColSlice, dtype inValue)
+		{
+			Slice inRowSliceCopy(inRowSlice);
+			Slice inColSliceCopy(inColSlice);
+
+			inRowSliceCopy.makePositiveAndValidate(shape_.rows);
+			inColSliceCopy.makePositiveAndValidate(shape_.cols);
+
+			std::vector<uint32> indices;
+			for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
+			{
+				for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
+				{
+					uint32 index = row * shape_.cols + col;
+					indices.push_back(index);
+				}
+			}
+
+			put(NdArray<uint32>(indices), inValue);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				Slice rows
+		//				Slice cols
+		//				NdArray of values
+		// Outputs:
+		//				None
+		//
+		void put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype>& inValues)
+		{
+			Slice inRowSliceCopy(inRowSlice);
+			Slice inColSliceCopy(inColSlice);
+
+			inRowSliceCopy.makePositiveAndValidate(shape_.rows);
+			inColSliceCopy.makePositiveAndValidate(shape_.cols);
+
+			std::vector<uint32> indices;
+			for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
+			{
+				for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
+				{
+					uint32 index = row * shape_.cols + col;
+					indices.push_back(index);
+				}
+			}
+
+			if (indices.size() != inValues.size_)
+			{
+				throw std::invalid_argument("Error: Input indices do not match slice dimensions.");
+			}
+
+			put(NdArray<uint32>(indices), inValues);
 		}
 
 		//============================================================================
