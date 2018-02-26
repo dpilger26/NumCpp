@@ -2429,9 +2429,23 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> round(uint8 inNumDecimals) const
+		NdArray<dtype> round(uint8 inNumDecimals=0) const
 		{
+			if (std::numeric_limits<dtype>::is_integer())
+			{
+				return NdArray<dtype>(*this);
+			}
+			else
+			{
+				NdArray<dtype> returnArray(shape_);
+				double multFactor = power(10.0, inNumDecimals);
+				for (uint32 i = 0; i < size_; ++i)
+				{
+					returnArray[i] = static_cast<dtype>(std::round(static_cast<double>(array_[i]) * multFactor) / multFactor);
+				}
 
+				return returnArray;
+			}
 		}
 
 		//============================================================================
@@ -2607,8 +2621,8 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						Tranpose the rows and columns of an array
-		//		
+		//						Returns the variance of the array elements, along given axis.
+		//
 		// Inputs:
 		//				(Optional) Axes
 		// Outputs:
