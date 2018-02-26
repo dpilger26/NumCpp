@@ -92,6 +92,20 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						returns the size of the shape
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				size
+		//
+		uint32 size() const
+		{
+			return rows * cols;
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						prints the shape to the console
 		//		
 		// Inputs:

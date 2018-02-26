@@ -129,33 +129,7 @@ namespace NdArrayInterface
 			PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
 		}
 
-		uint32 numRows = 0;
-		uint32 numCols = 0;
-		if (numDims == 1)
-		{
-			numCols = static_cast<uint32>(newNdArrayHelper.shape()[0]);
-			numRows = 1;
-		}
-		else
-		{
-			numRows = static_cast<uint32>(newNdArrayHelper.shape()[0]);
-			numCols = static_cast<uint32>(newNdArrayHelper.shape()[1]);
-		}
-
-		Shape boostArrayShape(numRows, numCols);
-		Shape arrayShape = inArray.shape();
-		if (!(arrayShape.rows == numRows && arrayShape.cols == numCols))
-		{
-			inArray.resizeFast(boostArrayShape);
-		}
-
-		for (uint32 row = 0; row < numRows; ++row)
-		{
-			for (uint32 col = 0; col < numCols; ++col)
-			{
-				inArray(row, col) = static_cast<dtype>(newNdArrayHelper(row, col));
-			}
-		}
+		inArray = boostToNumC<dtype>(inBoostArray);
 	}
 
 	//================================================================================
@@ -456,6 +430,100 @@ namespace NdArrayInterface
 		inArray.put(inSliceRow, inSliceCol, inValues);
 		return numCToBoost(inArray);
 	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool testPutSlice1DValueList()
+	{
+		NdArray<dtype> test = { 9,8,7,6,5,4,3,2,1,0 };
+		test.put({ 0,10,2 }, 666);
+
+		for (uint32 i = 0; i < 10; i += 2)
+		{
+			if (test[i] != 666)
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool testPutSlice1DValuesList()
+	{
+		NdArray<dtype> test = { 9,8,7,6,5,4,3,2,1,0 };
+		Slice theSlice = { 0,10,2 };
+		std::vector<dtype> values;
+		for (uint32 i = 0; i < theSlice.numElements(test.size()); ++i)
+		{
+			values.push_back(666);
+		}
+		test.put({ 0,10,2 }, NdArray<dtype>(values));
+
+		for (int32 i = theSlice.start; i < theSlice.stop; i += theSlice.step)
+		{
+			if (test[i] != 666)
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool testPutSlice2DValueList()
+	{
+		NdArray<dtype> test = { { 1,1,1,1,1 },{ 2,2,2,2,2 },{ 3,3,3,3,3 },{ 4,4,4,4,4 },{ 5,5,5,5,5 } };
+		test.put({ 0,5,2 }, { 0,5,2 }, 666);
+
+		for (uint32 row = 0; row < 5; row += 2)
+		{
+			for (uint32 col = 0; col < 5; col += 2)
+			{
+				if (test(row, col) != 666)
+				{
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool testPutSlice2DValuesList()
+	{
+		NdArray<dtype> test = { { 1,1,1,1,1 },{ 2,2,2,2,2 },{ 3,3,3,3,3 },{ 4,4,4,4,4 },{ 5,5,5,5,5 } };
+		Slice theSlice = { 0,5,2 };
+		std::vector<dtype> values;
+		for (uint32 i = 0; i < sqr(theSlice.numElements(test.shape().rows)); ++i)
+		{
+			values.push_back(666);
+		}
+		test.put({ 0,5,2 }, { 0,5,2 }, NdArray<dtype>(values));
+
+		for (uint32 row = 0; row < 5; row += 2)
+		{
+			for (uint32 col = 0; col < 5; col += 2)
+			{
+				if (test(row, col) != 666)
+				{
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
 }
 
 //================================================================================
@@ -474,21 +542,25 @@ BOOST_PYTHON_MODULE(NumC)
 
 	bp::class_<Shape>
 		("Shape", bp::init<>())
-		.def(bp::init<uint16, uint16>())
+		.def(bp::init<uint32, uint32>())
+		.def(bp::init<Shape>())
 		.def("testListContructor", &ShapeInterface::testListContructor).staticmethod("testListContructor")
 		.def_readwrite("rows", &Shape::rows)
 		.def_readwrite("cols", &Shape::cols)
+		.def("size", &Shape::size)
 		.def("print", &Shape::print);
 
 	bp::class_<Slice>
 		("Slice", bp::init<>())
-		.def(bp::init<int16>())
-		.def(bp::init<int16, int16>())
-		.def(bp::init<int16, int16, int16>())
+		.def(bp::init<int32>())
+		.def(bp::init<int32, int32>())
+		.def(bp::init<int32, int32, int32>())
+		.def(bp::init<Slice>())
 		.def("testListContructor", &SliceInterface::testListContructor).staticmethod("testListContructor")
 		.def_readwrite("start", &Slice::start)
 		.def_readwrite("stop", &Slice::stop)
 		.def_readwrite("step", &Slice::step)
+		.def("numElements", &Slice::numElements)
 		.def("print", &Slice::print);
 
 	typedef Timer<std::chrono::microseconds> MicroTimer;
@@ -514,10 +586,9 @@ BOOST_PYTHON_MODULE(NumC)
 		.def(bp::init<int16>())
 		.def(bp::init<int16, int16>())
 		.def(bp::init<Shape>())
+		.def(bp::init<NdArrayDouble>())
 		.def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>).staticmethod("test1DListContructor")
 		.def("test2DListContructor", &NdArrayInterface::test2DListContructor<double>).staticmethod("test2DListContructor")
-		.def("shape", &NdArrayDouble::shape)
-		.def("size", &NdArrayDouble::size)
 		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>)
 		.def("setArray", &NdArrayInterface::setArray<double>)
 		.def("all", &NdArrayInterface::all<double>)
@@ -535,8 +606,8 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("get", &NdArrayInterface::getValueFlat<double>)
 		.def("get", &NdArrayInterface::getValueRowCol<double>)
 		.def("get", &NdArrayInterface::getSlice1D<double>)
-		.def("testGetSlice1DList", &NdArrayInterface::testGetSlice1DList<double>).staticmethod("testGetSlice1DList")
 		.def("get", &NdArrayInterface::getSlice2D<double>)
+		.def("testGetSlice1DList", &NdArrayInterface::testGetSlice1DList<double>).staticmethod("testGetSlice1DList")
 		.def("testGetSlice2DList", &NdArrayInterface::testGetSlice2DList<double>).staticmethod("testGetSlice2DList")
 		.def("item", &NdArray<double>::item)
 		.def("max", &NdArrayInterface::max<double>)
@@ -556,7 +627,13 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("put", &NdArrayInterface::putSlice1DValue<double>)
 		.def("put", &NdArrayInterface::putSlice1DValues<double>)
 		.def("put", &NdArrayInterface::putSlice2DValue<double>)
-		.def("put", &NdArrayInterface::putSlice2DValues<double>);
+		.def("put", &NdArrayInterface::putSlice2DValues<double>)
+		.def("testPutSlice1DValueList", &NdArrayInterface::testPutSlice1DValueList<double>).staticmethod("testPutSlice1DValueList")
+		.def("testPutSlice1DValuesList", &NdArrayInterface::testPutSlice1DValuesList<double>).staticmethod("testPutSlice1DValuesList")
+		.def("testPutSlice2DValueList", &NdArrayInterface::testPutSlice2DValueList<double>).staticmethod("testPutSlice2DValueList")
+		.def("testPutSlice2DValuesList", &NdArrayInterface::testPutSlice2DValuesList<double>).staticmethod("testPutSlice2DValuesList")
+		.def("shape", &NdArrayDouble::shape)
+		.def("size", &NdArrayDouble::size);
 
 	typedef NdArray<uint32> NdArrayInt;
 	bp::class_<NdArrayInt>

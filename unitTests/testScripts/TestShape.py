@@ -29,6 +29,13 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing Copy Constructor', 'cyan'))
+    shape2 = NumC.Shape(shape)
+    if shape2.rows == shape.rows and shape2.cols == shape.cols:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing Member Setting', 'cyan'))
     shape = NumC.Shape()
     shapeInput = np.random.randint(0, 100, [2, ])

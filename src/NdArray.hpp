@@ -144,7 +144,7 @@ namespace NumC
 		//
 		NdArray(const Shape& inShape) :
 			shape_(inShape),
-			size_(inShape.rows * inShape.cols),
+			size_(shape_.size()),
 			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
 		{
@@ -162,7 +162,7 @@ namespace NumC
 		//
 		NdArray(const std::initializer_list<dtype>& inList) :
 			shape_(1, static_cast<uint32>(inList.size())),
-			size_(static_cast<uint32>(inList.size())),
+			size_(shape_.size()),
 			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
 		{
@@ -219,7 +219,7 @@ namespace NumC
 		//
 		NdArray(const std::vector<dtype>& inVector) :
 			shape_(1, static_cast<uint32>(inVector.size())),
-			size_(static_cast<uint32>(inVector.size())),
+			size_(shape_.size()),
 			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
 		{
@@ -237,7 +237,7 @@ namespace NumC
 		//
 		NdArray(const std::set<dtype>& inSet) :
 			shape_(1, static_cast<uint32>(inSet.size())),
-			size_(static_cast<uint32>(inSet.size())),
+			size_(shape_.size()),
 			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
 		{
@@ -1280,17 +1280,15 @@ namespace NumC
 		//						Dot product of two arrays.
 		//
 		//						For 2-D arrays it is equivalent to matrix multiplication, 
-		//						and for 1-D arrays to inner product of vectors. For N 
-		//						dimensions it is a sum product over the last axis of a 
-		//						and the second-to-last of b:
+		//						and for 1-D arrays to inner product of vectors. 
 		//		
 		// Inputs:
 		//				NdArray
 		// Outputs:
 		//				dot product
 		//
-		template<typename dtype>
-		dtype dot(const NdArray<dtype>& inOtherArray) const
+		template<typename dtypeOut>
+		dtypeOut dot(const NdArray<dtype>& inOtherArray) const
 		{
 
 		}
@@ -2057,7 +2055,7 @@ namespace NumC
 		//
 		void put(int32 inIndex, dtype inValue)
 		{
-			this->at(inIndex) = inValue;
+			at(inIndex) = inValue;
 		}
 
 		//============================================================================
@@ -2073,7 +2071,7 @@ namespace NumC
 		//
 		void put(int32 inRow, int32 inCol, dtype inValue)
 		{
-			this->at(inRow, inCol) = inValue;
+			at(inRow, inCol) = inValue;
 		}
 
 		//============================================================================
@@ -2088,15 +2086,9 @@ namespace NumC
 		//
 		void put(const NdArray<uint32>& inIndices, dtype inValue)
 		{
-			dtype maxIndex = *std::max_element(inIndices.cbegin(), inIndices.cend());
-			if (maxIndex >= size_)
-			{
-				throw std::invalid_argument("Error: Input indices are greater than the size of the array.");
-			}
-
 			for (uint32 i = 0; i < inIndices.size(); ++i)
 			{
-				this->at(inIndices[i]) = inValue;
+				put(inIndices[i], value);
 			}
 		}
 
@@ -2112,15 +2104,14 @@ namespace NumC
 		//
 		void put(const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
 		{
-			dtype maxIndex = *std::max_element(inIndices.cbegin(), inIndices.cend());
-			if (maxIndex >= size_)
+			if (inIndices.size() != inValues.size())
 			{
-				throw std::invalid_argument("Error: Input indices are greater than the size of the array.");
+				throw std::invalid_argument("Error: Input indices do not match values dimensions.");
 			}
 
 			for (uint32 i = 0; i < inIndices.size(); ++i)
 			{
-				this->at(inIndices[i]) = inValues[i];
+				put(inIndices[i], inValues[i]);
 			}
 		}
 
@@ -2139,13 +2130,25 @@ namespace NumC
 			Slice inSliceCopy(inSlice);
 			inSliceCopy.makePositiveAndValidate(size_);
 
-			std::vector<uint32> indices;
 			for (int32 i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
 			{
-				indices.push_back(i);
+				put(i, inValue);
 			}
+		}
 
-			put(NdArray<uint32>(indices), inValue);
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input value.
+		//		
+		// Inputs:
+		//				initializer_list<int32>
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(const std::initializer_list<int32>& inSliceList, dtype inValue)
+		{
+			put(Slice(inSliceList), inValue);
 		}
 
 		//============================================================================
@@ -2169,12 +2172,22 @@ namespace NumC
 				indices.push_back(i);
 			}
 
-			if (indices.size() != inValues.size_)
-			{
-				throw std::invalid_argument("Error: Input indices do not match slice dimensions.");
-			}
-
 			put(NdArray<uint32>(indices), inValues);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				initializer_list<int32>
+		//				NdArray of values
+		// Outputs:
+		//				None
+		//
+		void put(const std::initializer_list<int32>& inSliceList, const NdArray<dtype>& inValues)
+		{
+			put(Slice(inSliceList), inValues);
 		}
 
 		//============================================================================
@@ -2201,12 +2214,25 @@ namespace NumC
 			{
 				for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
 				{
-					uint32 index = row * shape_.cols + col;
-					indices.push_back(index);
+					put(row, col, inValue);
 				}
 			}
+		}
 
-			put(NdArray<uint32>(indices), inValue);
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				initializer_list<int32> row slice
+		//				initializer_list<int32> col slice
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(const std::initializer_list<int32>& inRowSliceList, const std::initializer_list<int32>& inColSliceList, dtype inValue)
+		{
+			put(Slice(inRowSliceList), Slice(inColSliceList), inValue);
 		}
 
 		//============================================================================
@@ -2238,12 +2264,23 @@ namespace NumC
 				}
 			}
 
-			if (indices.size() != inValues.size_)
-			{
-				throw std::invalid_argument("Error: Input indices do not match slice dimensions.");
-			}
-
 			put(NdArray<uint32>(indices), inValues);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				initializer_list<int32> row slice
+		//				initializer_list<int32> col slice
+		//				NdArray of values
+		// Outputs:
+		//				None
+		//
+		void put(const std::initializer_list<int32>& inRowSliceList, const std::initializer_list<int32>& inColSliceList, const NdArray<dtype>& inValues)
+		{
+			put(Slice(inRowSliceList), Slice(inColSliceList), inValues);
 		}
 
 		//============================================================================
@@ -2284,6 +2321,20 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						Returns an array containing the same data with a new shape.
+		//		
+		// Inputs:
+		//				initializer_list<uint32>
+		// Outputs:
+		//				None
+		//
+		void reshape(const std::initializer_list<uint32>& inShapeList)
+		{
+			reshape(Shape(inShapeList));
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Change shape and size of array in-place. All previous
 		//						data of the array is lost.
 		//		
@@ -2295,10 +2346,25 @@ namespace NumC
 		void resizeFast(const Shape& inShape)
 		{
 			shape_ = inShape;
-			size_ = shape_.rows * shape_.cols;
+			size_ = shape_.size();
 			deleteArray();
 			array_ = new dtype[size_];
 			zeros();
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Change shape and size of array in-place. All previous
+		//						data of the array is lost.
+		//		
+		// Inputs:
+		//				initializer_list<uint32>
+		// Outputs:
+		//				None
+		//
+		void resizeFast(const std::initializer_list<uint32>& inShapeList)
+		{
+			resizeFast(Shape(inShapeList));
 		}
 
 		//============================================================================
@@ -2313,27 +2379,44 @@ namespace NumC
 		//
 		void resizeSlow(const Shape& inShape)
 		{
-			T* oldData = new dtype[size_];
-			for (uint32 i = 0; i < size_; ++i)
-			{
-				oldData[i] = array_[i];
-			}
-
-			uint32 newSize = shape_.rows * shape_.cols;
+			dtype* oldData = new dtype[size_];
+			std::copy(begin(), end(), oldData);
 
 			deleteArray();
-			array_ = new dtype[size_];
-			for (uint16 row = 0; row < shape_.rows; ++row)
+			array_ = new dtype[inShape.size()];
+			for (uint16 row = 0; row < inShape.rows; ++row)
 			{
-				for (uint16 col = 0; col < shape_.cols; ++col)
+				for (uint16 col = 0; col < inShape.cols; ++col)
 				{
-					this->operator()(row, col) = oldData[row * shape_.cols + col];
+					if (row >= shape_.rows || col >= shape_.cols)
+					{
+						this->operator()(row, col) = static_cast<dtype>(0); // zero fill
+					}
+					else
+					{
+						this->operator()(row, col) = oldData[row * inShape.cols + col];
+					}
 				}
 			}
 
 			delete[] oldData;
 			shape_ = inShape;
-			size_ = newSize;
+			size_ = inShape.size();
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Change shape and size of array in-place. All data outide
+		//						of new size is lost.
+		//		
+		// Inputs:
+		//				initializer_list<uint32>
+		// Outputs:
+		//				None
+		//
+		void resizeSlow(const std::initializer_list<uint32>& inShapeList)
+		{
+			resizeSlow(Shape(inShapeList));
 		}
 
 		//============================================================================

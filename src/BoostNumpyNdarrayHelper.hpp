@@ -456,8 +456,8 @@ namespace NumC
 	// Outputs:
 	//				NdArray<T>
 	//
-	template<typename T>
-	NdArray<T> boostToNumC(boost::python::numpy::ndarray& inArray)
+	template<typename dtype>
+	NdArray<dtype> boostToNumC(boost::python::numpy::ndarray& inArray)
 	{
 		BoostNdarrayHelper helper(&inArray);
 		if (helper.numDimensions() > 2)
@@ -470,21 +470,32 @@ namespace NumC
 		{
 			arrayShape.rows = 1;
 			arrayShape.cols = static_cast<uint32>(helper.shape()[0]);
+
+			NdArray<dtype> returnArray(arrayShape);
+			for (uint32 i = 0; i < arrayShape.size(); ++i)
+			{
+				returnArray[i] = static_cast<dtype>(helper(i));
+			}
+
+			return returnArray;
 		}
 		else
 		{
 			arrayShape.rows = static_cast<uint32>(helper.shape()[0]);
 			arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
-		}
 
-		NdArray<T> returnArray(arrayShape);
-		uint32 numElements = arrayShape.rows * arrayShape.cols;
-		for (uint32 i = 0; i < numElements; ++i)
-		{
-			returnArray[i] = helper(i);
-		}
+			NdArray<dtype> returnArray(arrayShape);
+			uint32 i = 0;
+			for (uint32 row = 0; row < arrayShape.rows; ++row)
+			{
+				for (uint32 col = 0; col < arrayShape.cols; ++col)
+				{
+					returnArray[i++] = static_cast<dtype>(helper(row, col));
+				}
+			}
 
-		return returnArray;
+			return returnArray;
+		}
 	}
 
 	//============================================================================
@@ -496,8 +507,8 @@ namespace NumC
 	// Outputs:
 	//				ndarray
 	//
-	template<typename T>
-	boost::python::numpy::ndarray numCToBoost(const NdArray<T>& inArray)
+	template<typename dtype>
+	boost::python::numpy::ndarray numCToBoost(const NdArray<dtype>& inArray)
 	{
 		Shape inShape = inArray.shape();
 		bp::tuple shape = bp::make_tuple(inShape.rows, inShape.cols);

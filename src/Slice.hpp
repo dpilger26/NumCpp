@@ -203,7 +203,7 @@ namespace NumC
 			{
 				stop += inArraySize;
 			}
-			if (stop > static_cast<int32>(inArraySize - 1))
+			if (stop > static_cast<int32>(inArraySize))
 			{
 				throw std::invalid_argument("ERROR: Invalid stop value for array of size " + num2str(inArraySize) + ".");
 			}
