@@ -806,9 +806,7 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					NdArray<bool> returnArray(1);
-					returnArray[0] = std::all_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); });
-					return returnArray;
+					NdArray<bool> returnArray = { std::all_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); }) };
 				}
 				case Axis::COL:
 				{
@@ -853,9 +851,7 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					NdArray<bool> returnArray(1);
-					returnArray[0] = std::any_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); });
-					return returnArray;
+					NdArray<bool> returnArray = { std::any_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); }) };
 				}
 				case Axis::COL:
 				{
@@ -901,9 +897,7 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					NdArray<uint32> returnArray(1);
-					returnArray[0] = static_cast<uint32>(std::max_element(cbegin(), cend()) - cbegin());
-					return returnArray;
+					NdArray<uint32> returnArray = { static_cast<uint32>(std::max_element(cbegin(), cend()) - cbegin()) };
 				}
 				case Axis::COL:
 				{
@@ -949,9 +943,7 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					NdArray<uint32> returnArray(1);
-					returnArray[0] = static_cast<uint32>(std::min_element(cbegin(), cend()) - cbegin());
-					return returnArray;
+					NdArray<uint32> returnArray = { static_cast<uint32>(std::min_element(cbegin(), cend()) - cbegin()) };
 				}
 				case Axis::COL:
 				{
@@ -1390,10 +1382,7 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					NdArray<dtype> returnArray(1, 1);
-					returnArray[0] = *std::max_element(cbegin(), cend());
-
-					return returnArray;
+					NdArray<dtype> returnArray = { *std::max_element(cbegin(), cend()) };
 				}
 				case Axis::COL:
 				{
@@ -1440,10 +1429,7 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					NdArray<dtype> returnArray(1, 1);
-					returnArray[0] = *std::min_element(cbegin(), cend());
-
-					return returnArray;
+					NdArray<dtype> returnArray = { *std::min_element(cbegin(), cend()) };
 				}
 				case Axis::COL:
 				{
@@ -1490,9 +1476,8 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					NdArray<double> returnArray(1, 1);
 					double sum = static_cast<double>(std::accumulate(cbegin(), cend(), 0.0));
-					returnArray[0] = sum / static_cast<double>(size_);
+					NdArray<double> returnArray = {sum /= static_cast<double>(size_) };
 
 					return returnArray;
 				}
@@ -1545,11 +1530,10 @@ namespace NumC
 				case Axis::NONE:
 				{
 					NdArray<dtype> copyArray(*this);
-					NdArray<dtype> returnArray(1, 1);
 					
 					uint32 middle = size_ / 2;
 					std::nth_element(copyArray.begin(), copyArray.begin() + middle, copyArray.end());
-					returnArray[0] = copyArray.array_[middle];
+					NdArray<dtype> returnArray = { copyArray.array_[middle] };
 
 					return returnArray;
 				}
@@ -1784,13 +1768,12 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					NdArray<dtypeOut> returnArray(1, 1);
 					dtypeOut sumOfSquares = 0;
 					for (uint32 i = 0; i < size_; ++i)
 					{
 						sumOfSquares += static_cast<dtypeOut>(sqr(array_[i]));
 					}
-					returnArray[0] = std::sqrt(sumOfSquares);
+					NdArray<dtypeOut> returnArray = { std::sqrt(sumOfSquares) };
 					return returnArray;
 				}
 				case Axis::COL:
@@ -1844,10 +1827,7 @@ namespace NumC
 		//
 		void ones()
 		{
-			for (uint32 i = 0; i < size_; ++i)
-			{
-				array_[i] = static_cast<dtype>(1);
-			}
+			fill(1);
 		}
 
 		//============================================================================
@@ -1942,13 +1922,12 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					NdArray<dtypeOut> returnArray(1, 1);
 					dtypeOut product = 1;
 					for (uint32 i = 0; i < size_; ++i)
 					{
 						product *= static_cast<dtypeOut>(array_[i]);
 					}
-					returnArray[0] = product;
+					NdArray<dtypeOut> returnArray = { product };
 					return returnArray;
 				}
 				case Axis::COL:
@@ -2006,9 +1985,8 @@ namespace NumC
 			{
 				case Axis::NONE:
 				{
-					NdArray<dtype> returnArray(1, 1);
 					std::pair<const dtype*, const dtype*> result = std::minmax_element(cbegin(), cend());
-					returnArray[0] = *result.second - *result.first;
+					NdArray<dtype> returnArray = { *result.second - *result.first };
 					return returnArray;
 				}
 				case Axis::COL:
@@ -2487,7 +2465,29 @@ namespace NumC
 		//
 		void sort(Axis::Type inAxis = Axis::NONE)
 		{
-
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					std::sort(begin(), end());
+				}
+				case Axis::COL:
+				{
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						std::sort(begin(row), end(col));
+					}
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtype> transposedArray = transpose();
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						std::sort(transposedArray.begin(row), transposedArray.end(col));
+					}
+					this = transposedArray.transpose();
+				}
+			}
 		}
 
 		//============================================================================
@@ -2516,12 +2516,46 @@ namespace NumC
 		template<typename dtypeOut>
 		NdArray<dtypeOut> sum(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<dtypeOut> returnArray = { std::accumulate(cbegin(), cend(), static_cast<dtypeOut>(0)) };
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<dtypeOut> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						returnArray(0, row) = std::accumulate(cbegin(row), cend(row), static_cast<dtypeOut>(0));
+					}
 
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtype> transposedArray = transpose();
+					NdArray<dtypeOut> returnArray(1, transposedArray.shape_.rows);
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), static_cast<dtypeOut>(0));
+					}
+
+					return returnArray;
+				}
+				default
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<dtypeOut>(0);
+				}
+			}
 		}
 
 		//============================================================================
 		// Method Description: 
-		//						Interchange two axes of an array.
+		//						Interchange two axes of an array. Equivalent to transpose...
 		//		
 		// Inputs:
 		//				None
@@ -2530,7 +2564,7 @@ namespace NumC
 		//
 		NdArray<dtype> swapaxes() const
 		{
-
+			return transpose();
 		}
 
 		//============================================================================
@@ -2563,7 +2597,30 @@ namespace NumC
 		//
 		void tofile(const std::string& inFilename, const std::string& inSep = "") const
 		{
+			if (inSep.compare("") == 0)
+			{
+				dump();
+			}
+			else
+			{
+				boost::filesystem::path p(inFilename);
+				if (!boost::filesystem::exists(p.parent_path()))
+				{
+					std::string errStr = "ERROR: Input path does not exist:\n\t" + p.parent_path().string();
+					throw std::runtime_error(errStr);
+				}
 
+				std::ofstream ofile(inFilename.c_str());
+				for (uint32 i = 0; i < size_; ++i)
+				{
+					ofile << array_[i];
+					if (i != size_ - 1)
+					{
+						ofile << inSep;
+					}
+				}
+				ofile.close();
+			}
 		}
 
 		//============================================================================
@@ -2575,9 +2632,9 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		std::vector<dtype> toVector() const
+		std::vector<dtype> toStlVector() const
 		{
-
+			return std::vector<dtype>(cbegin(), cend());
 		}
 
 		//============================================================================
@@ -2645,10 +2702,7 @@ namespace NumC
 		//
 		void zeros()
 		{
-			for (uint32 i = 0; i < size_; ++i)
-			{
-				array_[i] = 0;
-			}
+			fill(0);
 		}
 
 		//============================================================================
