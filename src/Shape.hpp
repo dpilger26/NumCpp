@@ -92,6 +92,34 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						equality operator
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				None
+		//
+		bool operator==(const Shape& inOtherShape) const
+		{
+			return rows == inOtherShape.rows && cols == inOtherShape.cols;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						not equality operator
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				None
+		//
+		bool operator!=(const Shape& inOtherShape) const
+		{
+			return !(*this == inOtherShape);
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						returns the size of the shape
 		//		
 		// Inputs:

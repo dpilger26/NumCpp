@@ -3072,8 +3072,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> zeros(const Shape& inShape)
 	{
-		NdArray<double> returnArray(inShape);
-		returnArray.zeros();
-		return returnArray;
+		NdArray<dtype> returnArray(inShape);
+		return returnArray.zeros();
 	}
 }

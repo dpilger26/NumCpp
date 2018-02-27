@@ -2546,7 +2546,7 @@ namespace NumC
 		//
 		NdArray<dtype> take(const NdArray<uint16>& inIndices, Axis::Type inAxis = Axis::NONE) const
 		{
-
+			// this should have all of the operator and equivalants to put method overloads
 		}
 
 		//============================================================================
@@ -2662,7 +2662,21 @@ namespace NumC
 		//
 		NdArray<dtype> operator+(const NdArray<dtype>& inOtherArray) const
 		{
+			return NdArray<dtype>(*this) += inOtherArray;
+		}
 
+		//============================================================================
+		// Method Description: 
+		//						Adds the scalar to the array
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator+(dtype inScalar) const
+		{
+			return NdArray<dtype>(*this) += inScalar;
 		}
 
 		//============================================================================
@@ -2676,7 +2690,41 @@ namespace NumC
 		//
 		NdArray<dtype>& operator+=(const NdArray<dtype>& inOtherArray)
 		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
 
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] += inOtherArray.array_[i];
+			}
+
+			return *this;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Adds the scalar to the array
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype>& operator+=(dtype inScalar)
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
+
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] += inScalar;
+			}
+
+			return *this;
 		}
 
 		//============================================================================
@@ -2690,7 +2738,21 @@ namespace NumC
 		//
 		NdArray<dtype> operator-(const NdArray<dtype>& inOtherArray) const
 		{
+			return NdArray<dtype>(*this) -= inOtherArray;
+		}
 
+		//============================================================================
+		// Method Description: 
+		//						Subtracts the scalar from the array
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator-(dtype inScalar) const
+		{
+			return NdArray<dtype>(*this) -= inScalar;
 		}
 
 		//============================================================================
@@ -2704,7 +2766,41 @@ namespace NumC
 		//
 		NdArray<dtype>& operator-=(const NdArray<dtype>& inOtherArray)
 		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
 
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] -= inOtherArray.array_[i];
+			}
+
+			return *this;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Subtracts the scalar from the array
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype>& operator-=(dtype inScalar)
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
+
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] -= inScalar;
+			}
+
+			return *this;
 		}
 
 		//============================================================================
@@ -2718,7 +2814,21 @@ namespace NumC
 		//
 		NdArray<dtype> operator*(const NdArray<dtype>& inOtherArray) const
 		{
+			return NdArray<dtype>(*this) *= inOtherArray;
+		}
 
+		//============================================================================
+		// Method Description: 
+		//						Muliplies the scalar to the array
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator*(dtype inScalar) const
+		{
+			return NdArray<dtype>(*this) *= inScalar;
 		}
 
 		//============================================================================
@@ -2732,7 +2842,41 @@ namespace NumC
 		//
 		NdArray<dtype>& operator*=(const NdArray<dtype>& inOtherArray)
 		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
 
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] *= inOtherArray.array_[i];
+			}
+
+			return *this;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Muliplies the scalar to the array
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype>& operator*=(dtype inScalar)
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
+
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] *= inScalar;
+			}
+
+			return *this;
 		}
 
 		//============================================================================
@@ -2746,7 +2890,21 @@ namespace NumC
 		//
 		NdArray<dtype> operator/(const NdArray<dtype>& inOtherArray) const
 		{
+			return NdArray<dtype>(*this) /= inOtherArray;
+		}
 
+		//============================================================================
+		// Method Description: 
+		//						Divides the array by the scalar
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator/(dtype inScalar) const
+		{
+			return NdArray<dtype>(*this) /= inScalar;
 		}
 
 		//============================================================================
@@ -2760,7 +2918,41 @@ namespace NumC
 		//
 		NdArray<dtype>& operator/=(const NdArray<dtype>& inOtherArray)
 		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
 
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] /= inOtherArray.array_[i];
+			}
+
+			return *this;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Divides the array by the scalar
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype>& operator/=(dtype inScalar)
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
+
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] /= inScalar;
+			}
+
+			return *this;
 		}
 
 		//============================================================================
@@ -2774,7 +2966,21 @@ namespace NumC
 		//
 		NdArray<dtype> operator%(const NdArray<dtype>& inOtherArray) const
 		{
+			return NdArray<dtype>(*this) %= inOtherArray;
+		}
 
+		//============================================================================
+		// Method Description: 
+		//						Modulus of the array and the scalar
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator%(dtype inScalar) const
+		{
+			return NdArray<dtype>(*this) %= inScalar;
 		}
 
 		//============================================================================
@@ -2788,7 +2994,41 @@ namespace NumC
 		//
 		NdArray<dtype>& operator%=(const NdArray<dtype>& inOtherArray)
 		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
 
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] %= inOtherArray.array_[i];
+			}
+
+			return *this;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Modulus of the array and the scalar
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype>& operator%=(dtype inScalar)
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
+
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] %= inScalar;
+			}
+
+			return *this;
 		}
 
 		//============================================================================
@@ -2802,7 +3042,21 @@ namespace NumC
 		//
 		NdArray<dtype> operator|(const NdArray<dtype>& inOtherArray) const
 		{
+			return NdArray<dtype>(*this) |= inOtherArray;
+		}
 
+		//============================================================================
+		// Method Description: 
+		//						Takes the bitwise or of the array and the scalar
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator|(dtype inScalar) const
+		{
+			return NdArray<dtype>(*this) |= inScalar;
 		}
 
 		//============================================================================
@@ -2816,7 +3070,41 @@ namespace NumC
 		//
 		NdArray<dtype>& operator|=(const NdArray<dtype>& inOtherArray)
 		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
 
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] |= inOtherArray.array_[i];
+			}
+
+			return *this;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Takes the bitwise or of the array and the scalar
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype>& operator|=(dtype inScalar)
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
+
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] |= inScalar;
+			}
+
+			return *this;
 		}
 
 		//============================================================================
@@ -2830,7 +3118,21 @@ namespace NumC
 		//
 		NdArray<dtype> operator&(const NdArray<dtype>& inOtherArray) const
 		{
+			return NdArray<dtype>(*this) &= inOtherArray;
+		}
 
+		//============================================================================
+		// Method Description: 
+		//						Takes the bitwise and of the array and the scalar
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator&(dtype inScalar) const
+		{
+			return NdArray<dtype>(*this) &= inScalar;
 		}
 
 		//============================================================================
@@ -2844,12 +3146,46 @@ namespace NumC
 		//
 		NdArray<dtype>& operator&=(const NdArray<dtype>& inOtherArray)
 		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
 
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] &= inOtherArray.array_[i];
+			}
+
+			return *this;
 		}
 
 		//============================================================================
 		// Method Description: 
-		//						Takes the bitwise and of the elements of two arrays
+		//						Takes the bitwise and of the array and the scalar
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype>& operator&=(dtype inScalar)
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
+
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] &= inScalar;
+			}
+
+			return *this;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Takes the bitwise xor of the elements of two arrays
 		//		
 		// Inputs:
 		//				None
@@ -2859,12 +3195,26 @@ namespace NumC
 		template<typename dtype>
 		NdArray<dtype> operator^(const NdArray<dtype>& inOtherArray)
 		{
-
+			return NdArray<dtype>(*this) ^= inOtherArray;
 		}
 
 		//============================================================================
 		// Method Description: 
-		//						Takes the bitwise and of the elements of two arrays
+		//						Takes the bitwise xor of the array and the scalar
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator^(dtype inScalar) const
+		{
+			return NdArray<dtype>(*this) ^= inScalar;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Takes the bitwise xor of the elements of two arrays
 		//		
 		// Inputs:
 		//				None
@@ -2874,7 +3224,41 @@ namespace NumC
 		template<typename dtype>
 		NdArray<dtype>& operator^=(const NdArray<dtype>& inOtherArray)
 		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
 
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] ^= inOtherArray.array_[i];
+			}
+
+			return *this;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Takes the bitwise xor of the array and the scalar
+		//		
+		// Inputs:
+		//				scalar
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype>& operator^=(dtype inScalar)
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
+
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] ^= inScalar;
+			}
+
+			return *this;
 		}
 
 		//============================================================================
@@ -2889,7 +3273,18 @@ namespace NumC
 		//
 		NdArray<bool> operator==(const NdArray<dtype>& inOtherArray)
 		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
 
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray.array_[i] = array_[i] == inOtherArray.array_[i];
+			}
+
+			return returnArray;
 		}
 
 		//============================================================================
@@ -2904,7 +3299,18 @@ namespace NumC
 		//
 		NdArray<bool> operator!=(const NdArray<dtype>& inOtherArray)
 		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+			}
 
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray.array_[i] = array_[i] != inOtherArray.array_[i];
+			}
+
+			return returnArray;
 		}
 
 		//============================================================================
@@ -2919,7 +3325,7 @@ namespace NumC
 		template<typename dtype>
 		NdArray<dtype> operator<<(uint8 inNumBits)
 		{
-
+			return NdArray<dtype>(*this) <<= inNumBits;
 		}
 
 		//============================================================================
@@ -2934,7 +3340,12 @@ namespace NumC
 		template<typename dtype>
 		NdArray<dtype>& operator<<=(uint8 inNumBits)
 		{
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] << inNumBits;
+			}
 
+			return *this;
 		}
 
 		//============================================================================
@@ -2949,7 +3360,7 @@ namespace NumC
 		template<typename dtype>
 		NdArray<dtype> operator>>(uint8 inNumBits)
 		{
-
+			return NdArray<dtype>(*this) >>= inNumBits;
 		}
 
 		//============================================================================
@@ -2964,7 +3375,12 @@ namespace NumC
 		template<typename dtype>
 		NdArray<dtype>& operator>>=(uint8 inNumBits)
 		{
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] >> inNumBits;
+			}
 
+			return *this;
 		}
 
 		//============================================================================
@@ -2979,7 +3395,12 @@ namespace NumC
 
 		NdArray<dtype>& operator++()
 		{
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				++array_[i];
+			}
 
+			return *this;
 		}
 
 		//============================================================================
@@ -2993,7 +3414,12 @@ namespace NumC
 		//
 		NdArray<dtype>& operator--()
 		{
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				--array_[i];
+			}
 
+			return *this;
 		}
 
 		//============================================================================
@@ -3007,7 +3433,13 @@ namespace NumC
 		//
 		NdArray<dtype> operator++(int) const
 		{
+			NdArray<dtype> copy(*this);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				++array_[i];
+			}
 
+			return copy;
 		}
 
 		//============================================================================
@@ -3021,7 +3453,13 @@ namespace NumC
 		//
 		NdArray<dtype> operator--(int) const
 		{
+			NdArray<dtype> copy(*this);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				--array_[i];
+			}
 
+			return copy;
 		}
 
 		//============================================================================
@@ -3033,7 +3471,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		friend std::ostream& operator<<(std::ostream& inOStream, const NdArray& inArray)
+		friend std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype>& inArray)
 		{
 			Shape arrayShape = inArray.shape();
 			inOStream << "[";
