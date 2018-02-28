@@ -1234,7 +1234,7 @@ namespace NumC
 						{
 							break;
 						}
-							
+
 						diagnolValues.push_back(this->operator()(row, col));
 						++col;
 					}
@@ -1305,7 +1305,7 @@ namespace NumC
 			}
 
 			std::ofstream ofile(inFilename.c_str(), std::ios::binary);
-			ofile.write(reinterpret_cast<const char*>(array_) , size_ * sizeof(dtype));
+			ofile.write(reinterpret_cast<const char*>(array_), size_ * sizeof(dtype));
 			ofile.close();
 		}
 
@@ -1477,7 +1477,7 @@ namespace NumC
 				case Axis::NONE:
 				{
 					double sum = static_cast<double>(std::accumulate(cbegin(), cend(), 0.0));
-					NdArray<double> returnArray = {sum /= static_cast<double>(size_) };
+					NdArray<double> returnArray = { sum /= static_cast<double>(size_) };
 
 					return returnArray;
 				}
@@ -1530,7 +1530,7 @@ namespace NumC
 				case Axis::NONE:
 				{
 					NdArray<dtype> copyArray(*this);
-					
+
 					uint32 middle = size_ / 2;
 					std::nth_element(copyArray.begin(), copyArray.begin() + middle, copyArray.end());
 					NdArray<dtype> returnArray = { copyArray.array_[middle] };
@@ -2407,7 +2407,7 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> round(uint8 inNumDecimals=0) const
+		NdArray<dtype> round(uint8 inNumDecimals = 0) const
 		{
 			if (std::numeric_limits<dtype>::is_integer())
 			{
@@ -2499,9 +2499,61 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> std(Axis::Type inAxis = Axis::NONE) const
+		NdArray<double> std(Axis::Type inAxis = Axis::NONE) const
 		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					double meanValue = mean(inAxis).item();
+					double sum = 0;
+					for (uint32 i = 0; i < size_; ++i)
+					{
+						sum += sqr(static_cast<double>(array_[i]) - meanValue);
+					}
+					NdArray<double> returnArray = {std::sqrt(sum / size_)};
+					return returnArray;
+				}
+				case Axis::COL:
+				{
+					NdArray<double> meanValue = mean(inAxis);
+					NdArray<double> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						double sum = 0; 
+						for (uint32 col = 0; col < shape_.cols; ++col)
+						{
+							sum += sqr(static_cast<double>(this->operator()(row, col)) - meanValue[row]);
+						}
+						returnArray(0, row) = std::sqrt(sum / shape_.cols);
+					}
 
+					return returnArray;
+				}
+				case Axis::ROW:
+				{
+					NdArray<double> meanValue = mean(inAxis);
+					NdArray<dtype> transposedArray = transpose();
+					NdArray<double> returnArray(1, transposedArray.shape_.rows);
+					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+					{
+						double sum = 0;
+						for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
+						{
+							sum += sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
+						}
+						returnArray(0, row) = std::sqrt(sum / shape_.cols);
+					}
+
+					return returnArray;
+				}
+				default
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return NdArray<double>(0);
+				}
+			}
 		}
 
 		//============================================================================
@@ -2649,9 +2701,43 @@ namespace NumC
 		//				None
 		//
 		template<typename dtypeOut>
-		NdArray<dtypeOut> trace(uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
+		dtypeOut trace(uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
 		{
+			uint16 rowStart = 0;
+			uint16 colStart = 0;
+			switch (inAxis)
+			{
+				case Axis::ROW:
+				{
+					rowStart += inOffset;
+				}
+				case Axis::COL:
+				{
+					colStart += inOffset;
+				}
+				default:
+				{
+					throw std::invalid_argument("ERROR: trace takes in either ROW or COL for the axis offset.");
+				}
+			}
 
+			if (rowStart >= shape_.rows || colStart >= shape_.cols)
+			{
+				return static_cast<dtypeOut>(0);
+			}
+
+			uint16 col = colStart;
+			dtypeOut sum = 0;
+			for (uint16 row = rowStart; row < shape_.rows; ++row)
+			{
+				if (col >= shape_.cols)
+				{
+					break;
+				}
+				sum += this->operator()(row, col++);
+			}
+
+			return sum;
 		}
 
 		//============================================================================
@@ -2685,10 +2771,14 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		template<typename dtypeOut>
-		NdArray<dtypeOut> var(Axis::Type inAxis = Axis::NONE) const
+		NdArray<double> var(Axis::Type inAxis = Axis::NONE) const
 		{
-
+			NdArray<double> stdValues = std(inAxis);
+			for (uint32 i = 0; i < stdValues.size(); ++i)
+			{
+				stdValues[i] *= stdValues[i];
+			}
+			return stdValues;
 		}
 
 		//============================================================================
