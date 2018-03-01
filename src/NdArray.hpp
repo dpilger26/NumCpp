@@ -1280,9 +1280,51 @@ namespace NumC
 		//				dot product
 		//
 		template<typename dtypeOut>
-		dtypeOut dot(const NdArray<dtype>& inOtherArray) const
+		NdArray<dtypeOut> dot(const NdArray<dtype>& inOtherArray) const
 		{
+			if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
+			{
+				// flat array, use dot product
+				if (inOtherArray.shape_ != shape_)
+				{
+					throw std::invalid_argument("ERROR: Arrays have different number of elements.");
+				}
 
+				dtypeOut dotProduct = 0;
+				for (uint32 i = 0; i < size_; ++i)
+				{
+					dotProduct += static_cast<dtypeOut>(array_[i]) * static_cast<dtypeOut>(inOtherArray.array_[i]);
+				}
+
+				NdArray<dtypeOut> returnArray = { dotProduct };
+				return returnArray;
+			}
+			else if (shape_.cols == inOtherArray.shape_.rows)
+			{
+				// 2D array, use matrix multiplication
+				NdArray<dtypeOut> returnArray(shape_.rows, inOtherArray.shape_.cols);
+
+				for (uint32 i = 0; i < shape_.rows; ++i)
+				{
+					for (uint32 j = 0; j < inOtherArray.shape_.cols; ++j)
+					{
+						returnArray(i, j) = 0;
+						for (uint32 k = 0; k < inOtherArray.shape_.rows; ++k)
+						{
+							returnArray(i, j) += static_cast<dtypeOut>(this->operator()(i, k)) * static_cast<dtypeOut>(inOtherArray(k, j));
+						}
+					}
+				}
+
+				return returnArray;
+			}
+			else
+			{
+				std::string errStr = "ERROR: Array shapes of [" << num2str(shape_.rows) << ", " << num2str(shape_.cols) << "]";
+				errStr += " and [" << num2str(inOtherArray.shape_.rows) << ", " << num2str(inOtherArray.shape_.cols) << "]";
+				errStr += "are not consistent.";
+				throw std::invalid_argument(errStr);
+			}
 		}
 
 		//============================================================================
