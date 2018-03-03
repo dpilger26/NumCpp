@@ -73,6 +73,7 @@ namespace NumC
 			if (array_ != nullptr)
 			{
 				delete[] array_;
+				array_ = nullptr;
 			}
 
 			shape_ = Shape(0, 0);
@@ -82,7 +83,7 @@ namespace NumC
 	public:
 		//============================================================================
 		// Method Description: 
-		//						Defualt Constructor
+		//						Defualt Constructor, not very usefull...
 		//		
 		// Inputs:
 		//				None
@@ -519,7 +520,7 @@ namespace NumC
 		dtype& at(int32 inIndex)
 		{
 			// this doesn't allow for calling the first element as -size_... 
-			// but why would you really want to that anyway?
+			// but why would you really want to do that anyway?
 			if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
 			{
 				std::string errStr = "ERROR: Input index " + num2str(inIndex) + " is out of bounds for array of size " + num2str(size_) + ".";
@@ -541,7 +542,7 @@ namespace NumC
 		const dtype& at(int32 inIndex) const
 		{
 			// this doesn't allow for calling the first element as -size_... 
-			// but why would you really want to that anyway?
+			// but why would you really want to do that anyway?
 			if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
 			{
 				std::string errStr = "ERROR: Input index " + num2str(inIndex) + " is out of bounds for array of size " + num2str(size_) + ".";
@@ -564,7 +565,7 @@ namespace NumC
 		dtype& at(int32 inRowIndex, int32 inColIndex)
 		{
 			// this doesn't allow for calling the first element as -size_... 
-			// but why would you really want to that anyway?
+			// but why would you really want to do that anyway?
 			if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
 			{
 				std::string errStr = "ERROR: Row index " + num2str(inRowIndex) + " is out of bounds for array of size " + num2str(shape_.rows) + ".";
@@ -595,7 +596,7 @@ namespace NumC
 		const dtype& at(int32 inRowIndex, int32 inColIndex) const
 		{
 			// this doesn't allow for calling the first element as -size_... 
-			// but why would you really want to that anyway?
+			// but why would you really want to do that anyway?
 			if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
 			{
 				std::string errStr = "ERROR: Row index " + num2str(inRowIndex) + " is out of bounds for array of size " + num2str(shape_.rows) + ".";
@@ -603,7 +604,7 @@ namespace NumC
 			}
 
 			// this doesn't allow for calling the first element as -size_... 
-			// but why would you really want to that anyway?
+			// but why would you really want to do that anyway?
 			if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
 			{
 				std::string errStr = "ERROR: Column index " + num2str(inColIndex) + " is out of bounds for array of size " + num2str(shape_.cols) + ".";
@@ -807,6 +808,7 @@ namespace NumC
 				case Axis::NONE:
 				{
 					NdArray<bool> returnArray = { std::all_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); }) };
+					return returnArray;
 				}
 				case Axis::COL:
 				{
@@ -852,6 +854,7 @@ namespace NumC
 				case Axis::NONE:
 				{
 					NdArray<bool> returnArray = { std::any_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); }) };
+					return returnArray;
 				}
 				case Axis::COL:
 				{
@@ -898,6 +901,7 @@ namespace NumC
 				case Axis::NONE:
 				{
 					NdArray<uint32> returnArray = { static_cast<uint32>(std::max_element(cbegin(), cend()) - cbegin()) };
+					return returnArray;
 				}
 				case Axis::COL:
 				{
@@ -944,6 +948,7 @@ namespace NumC
 				case Axis::NONE:
 				{
 					NdArray<uint32> returnArray = { static_cast<uint32>(std::min_element(cbegin(), cend()) - cbegin()) };
+					return returnArray;
 				}
 				case Axis::COL:
 				{
@@ -1284,12 +1289,6 @@ namespace NumC
 		{
 			if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
 			{
-				// flat array, use dot product
-				if (inOtherArray.shape_ != shape_)
-				{
-					throw std::invalid_argument("ERROR: Arrays have different number of elements.");
-				}
-
 				dtypeOut dotProduct = 0;
 				for (uint32 i = 0; i < size_; ++i)
 				{
@@ -1320,9 +1319,9 @@ namespace NumC
 			}
 			else
 			{
-				std::string errStr = "ERROR: Array shapes of [" << num2str(shape_.rows) << ", " << num2str(shape_.cols) << "]";
-				errStr += " and [" << num2str(inOtherArray.shape_.rows) << ", " << num2str(inOtherArray.shape_.cols) << "]";
-				errStr += "are not consistent.";
+				std::string errStr = "ERROR: Array shapes of [" + num2str(shape_.rows) + ", " + num2str(shape_.cols) + "]";
+				errStr += " and [" + num2str(inOtherArray.shape_.rows) + ", " + num2str(inOtherArray.shape_.cols) + "]";
+				errStr += " are not consistent.";
 				throw std::invalid_argument(errStr);
 			}
 		}
@@ -1425,6 +1424,7 @@ namespace NumC
 				case Axis::NONE:
 				{
 					NdArray<dtype> returnArray = { *std::max_element(cbegin(), cend()) };
+					return returnArray;
 				}
 				case Axis::COL:
 				{
@@ -1472,6 +1472,7 @@ namespace NumC
 				case Axis::NONE:
 				{
 					NdArray<dtype> returnArray = { *std::min_element(cbegin(), cend()) };
+					return returnArray;
 				}
 				case Axis::COL:
 				{
@@ -2659,22 +2660,6 @@ namespace NumC
 		NdArray<dtype> swapaxes() const
 		{
 			return transpose();
-		}
-
-		//============================================================================
-		// Method Description: 
-		//						Return an array formed from the elements of a at the 
-		//						given indices.
-		//		
-		// Inputs:
-		//				array indices
-		//				(Optional) axis
-		// Outputs:
-		//				NdArray
-		//
-		NdArray<dtype> take(const NdArray<uint16>& inIndices, Axis::Type inAxis = Axis::NONE) const
-		{
-			// this should have all of the operator and equivalants to put method overloads
 		}
 
 		//============================================================================

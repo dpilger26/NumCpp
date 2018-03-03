@@ -119,7 +119,7 @@ namespace NdArrayInterface
 	//================================================================================
 
 	template<typename dtype>
-	void setArray(NdArray<dtype>& inArray, np::ndarray& inBoostArray)
+	void setArray(NdArray<dtype>& self, np::ndarray& inBoostArray)
 	{
 		BoostNdarrayHelper newNdArrayHelper(&inBoostArray);
 		uint8 numDims = newNdArrayHelper.numDimensions();
@@ -129,120 +129,128 @@ namespace NdArrayInterface
 			PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
 		}
 
-		inArray = boostToNumC<dtype>(inBoostArray);
+		self = boostToNumC<dtype>(inBoostArray);
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray all(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray all(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.all(inAxis));
+		return numCToBoost(self.all(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray any(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray any(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.any(inAxis));
+		return numCToBoost(self.any(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray argmax(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray argmax(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.argmax(inAxis));
+		return numCToBoost(self.argmax(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray argmin(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray argmin(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.argmin(inAxis));
+		return numCToBoost(self.argmin(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray argsort(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray argsort(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.argsort(inAxis));
+		return numCToBoost(self.argsort(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray clip(NdArray<dtype>& inArray, dtype inMin, dtype inMax)
+	np::ndarray clip(NdArray<dtype>& self, dtype inMin, dtype inMax)
 	{
-		return numCToBoost(inArray.clip(inMin, inMax));
+		return numCToBoost(self.clip(inMin, inMax));
 	}
 
 	//================================================================================
 
 	template<typename dtype, typename dtypeOut>
-	np::ndarray cumprod(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray cumprod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.cumprod<dtypeOut>(inAxis));
+		return numCToBoost(self.cumprod<dtypeOut>(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype, typename dtypeOut>
-	np::ndarray cumsum(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray cumsum(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.cumsum<dtypeOut>(inAxis));
+		return numCToBoost(self.cumsum<dtypeOut>(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray diagonal(NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+	np::ndarray diagonal(NdArray<dtype>& self, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
 	{
-		return numCToBoost(inArray.diagonal(inOffset, inAxis));
+		return numCToBoost(self.diagonal(inOffset, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray dot(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self.dot<dtypeOut>(inOtherArray));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray fill(NdArray<dtype>& inArray, dtype inFillValue)
+	np::ndarray fill(NdArray<dtype>& self, dtype inFillValue)
 	{
-		inArray.fill(inFillValue);
-		return numCToBoost(inArray);
+		self.fill(inFillValue);
+		return numCToBoost(self);
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray flatten(NdArray<dtype>& inArray)
+	np::ndarray flatten(NdArray<dtype>& self)
 	{
-		return numCToBoost(inArray.flatten());
+		return numCToBoost(self.flatten());
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	dtype getValueFlat(NdArray<dtype>& inArray, int32 inIndex)
+	dtype getValueFlat(NdArray<dtype>& self, int32 inIndex)
 	{
-		return inArray.at(inIndex);
+		return self.at(inIndex);
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	dtype getValueRowCol(NdArray<dtype>& inArray, int32 inRow, int32 inCol)
+	dtype getValueRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol)
 	{
-		return inArray.at(inRow, inCol);
+		return self.at(inRow, inCol);
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray getSlice1D(NdArray<dtype>& inArray, const Slice& inSlice)
+	np::ndarray getSlice1D(NdArray<dtype>& self, const Slice& inSlice)
 	{
-		return numCToBoost(inArray.at(inSlice));
+		return numCToBoost(self.at(inSlice));
 	}
 
 	//================================================================================
@@ -264,9 +272,9 @@ namespace NdArrayInterface
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray getSlice2D(NdArray<dtype>& inArray, const Slice& inRowSlice, const Slice& inColSlice)
+	np::ndarray getSlice2D(NdArray<dtype>& self, const Slice& inRowSlice, const Slice& inColSlice)
 	{
-		return numCToBoost(inArray.at(inRowSlice, inColSlice));
+		return numCToBoost(self.at(inRowSlice, inColSlice));
 	}
 
 	//================================================================================
@@ -288,147 +296,147 @@ namespace NdArrayInterface
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray max(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray max(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.max(inAxis));
+		return numCToBoost(self.max(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray min(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray min(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.min(inAxis));
+		return numCToBoost(self.min(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray mean(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray mean(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.mean(inAxis));
+		return numCToBoost(self.mean(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray median(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray median(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.median(inAxis));
+		return numCToBoost(self.median(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray newbyteorder(NdArray<dtype>& inArray, Endian::Type inEndiness = Endian::NATIVE)
+	np::ndarray newbyteorder(NdArray<dtype>& self, Endian::Type inEndiness = Endian::NATIVE)
 	{
-		return numCToBoost(inArray.newbyteorder(inEndiness));
+		return numCToBoost(self.newbyteorder(inEndiness));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray nonzero(NdArray<dtype>& inArray)
+	np::ndarray nonzero(NdArray<dtype>& self)
 	{
-		return numCToBoost(inArray.nonzero());
+		return numCToBoost(self.nonzero());
 	}
 
 	//================================================================================
 
 	template<typename dtype, typename dtypeOut>
-	np::ndarray norm(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray norm(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost<dtypeOut>(inArray.norm<dtypeOut>(inAxis));
+		return numCToBoost<dtypeOut>(self.norm<dtypeOut>(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray ones(NdArray<dtype>& inArray)
+	np::ndarray ones(NdArray<dtype>& self)
 	{
-		inArray.ones();
-		return numCToBoost<dtype>(inArray);
+		self.ones();
+		return numCToBoost<dtype>(self);
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray partition(NdArray<dtype>& inArray, uint32 inKth, Axis::Type inAxis = Axis::NONE)
+	np::ndarray partition(NdArray<dtype>& self, uint32 inKth, Axis::Type inAxis = Axis::NONE)
 	{
-		inArray.partition(inKth, inAxis);
-		return numCToBoost<dtype>(inArray);
+		self.partition(inKth, inAxis);
+		return numCToBoost<dtype>(self);
 	}
 
 	//================================================================================
 
 	template<typename dtype, typename dtypeOut>
-	np::ndarray prod(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray prod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost<dtypeOut>(inArray.prod<dtypeOut>(inAxis));
+		return numCToBoost<dtypeOut>(self.prod<dtypeOut>(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray ptp(NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	np::ndarray ptp(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(inArray.ptp(inAxis));
+		return numCToBoost(self.ptp(inAxis));
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray putFlat(NdArray<dtype>& inArray, int32 inIndex, dtype inValue)
+	np::ndarray putFlat(NdArray<dtype>& self, int32 inIndex, dtype inValue)
 	{
-		inArray.put(inIndex, inValue);
-		return numCToBoost(inArray);
+		self.put(inIndex, inValue);
+		return numCToBoost(self);
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray putRowCol(NdArray<dtype>& inArray, int32 inRow, int32 inCol, dtype inValue)
+	np::ndarray putRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol, dtype inValue)
 	{
-		inArray.put(inRow, inCol, inValue);
-		return numCToBoost(inArray);
+		self.put(inRow, inCol, inValue);
+		return numCToBoost(self);
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray putSlice1DValue(NdArray<dtype>& inArray, const Slice& inSlice, dtype inValue)
+	np::ndarray putSlice1DValue(NdArray<dtype>& self, const Slice& inSlice, dtype inValue)
 	{
-		inArray.put(inSlice, inValue);
-		return numCToBoost(inArray);
+		self.put(inSlice, inValue);
+		return numCToBoost(self);
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray putSlice1DValues(NdArray<dtype>& inArray, const Slice& inSlice, np::ndarray& inArrayValues)
+	np::ndarray putSlice1DValues(NdArray<dtype>& self, const Slice& inSlice, np::ndarray& inArrayValues)
 	{
 		NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
-		inArray.put(inSlice, inValues);
-		return numCToBoost(inArray);
+		self.put(inSlice, inValues);
+		return numCToBoost(self);
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray putSlice2DValue(NdArray<dtype>& inArray, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
+	np::ndarray putSlice2DValue(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
 	{
-		inArray.put(inSliceRow, inSliceCol, inValue);
-		return numCToBoost(inArray);
+		self.put(inSliceRow, inSliceCol, inValue);
+		return numCToBoost(self);
 	}
 
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray putSlice2DValues(NdArray<dtype>& inArray, const Slice& inSliceRow, const Slice& inSliceCol, np::ndarray& inArrayValues)
+	np::ndarray putSlice2DValues(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, np::ndarray& inArrayValues)
 	{
 		NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
-		inArray.put(inSliceRow, inSliceCol, inValues);
-		return numCToBoost(inArray);
+		self.put(inSliceRow, inSliceCol, inValues);
+		return numCToBoost(self);
 	}
 
 	//================================================================================
@@ -600,6 +608,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("cumprod", &NdArrayInterface::cumprod<double, double>)
 		.def("cumsum", &NdArrayInterface::cumsum<double, double>)
 		.def("diagonal", &NdArrayInterface::diagonal<double>)
+		.def("dot", &NdArrayInterface::dot<double, double>)
 		.def("dump", &NdArray<double>::dump)
 		.def("fill", &NdArrayInterface::fill<double>)
 		.def("flatten", &NdArrayInterface::flatten<double>)

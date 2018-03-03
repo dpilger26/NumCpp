@@ -141,7 +141,7 @@ def doTest():
     cArray = NumC.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(cArray.all(NumC.Axis.NONE).astype(np.bool).item(), np.all(data)):
+    if cArray.all(NumC.Axis.NONE).astype(np.bool).item() == np.all(data).item():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -174,7 +174,7 @@ def doTest():
     cArray = NumC.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(cArray.any(NumC.Axis.NONE).astype(np.bool).item(), np.any(data)):
+    if cArray.any(NumC.Axis.NONE).astype(np.bool).item() == np.any(data).item():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -412,6 +412,35 @@ def doTest():
     cArray.setArray(data)
     offset = np.random.randint(0, min(shape.rows, shape.cols), [1,]).item()
     if np.array_equal(cArray.diagonal(offset, NumC.Axis.COL).astype(np.uint32).flatten(), data.diagonal(offset, axis1=0, axis2=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing dot vector', 'cyan'))
+    size = np.random.randint(1, 100, [1,]).item()
+    shape = NumC.Shape(1, size)
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    data2 = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if cArray1.dot(cArray2).item() == np.dot(data1, data2.T).item():
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing dot array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[1].item(), np.random.randint(1, 100, [1,]).item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    data1 = np.random.randint(1, 50, [shape1.rows, shape1.cols], dtype=np.uint32)
+    data2 = np.random.randint(1, 50, [shape2.rows, shape2.cols], dtype=np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(cArray1.dot(cArray2), np.dot(data1, data2)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
