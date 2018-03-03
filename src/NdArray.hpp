@@ -196,7 +196,7 @@ namespace NumC
 				}
 				else if (iter->size() != shape_.cols)
 				{
-					throw std::runtime_error("ERROR: All rows of the initializer list needs to have the same number of elements");
+					throw std::runtime_error("ERROR: Constructor: All rows of the initializer list needs to have the same number of elements");
 				}
 			}
 
@@ -523,7 +523,7 @@ namespace NumC
 			// but why would you really want to do that anyway?
 			if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
 			{
-				std::string errStr = "ERROR: Input index " + num2str(inIndex) + " is out of bounds for array of size " + num2str(size_) + ".";
+				std::string errStr = "ERROR: at: Input index " + num2str(inIndex) + " is out of bounds for array of size " + num2str(size_) + ".";
 				throw std::invalid_argument(errStr);
 			}
 
@@ -545,7 +545,7 @@ namespace NumC
 			// but why would you really want to do that anyway?
 			if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
 			{
-				std::string errStr = "ERROR: Input index " + num2str(inIndex) + " is out of bounds for array of size " + num2str(size_) + ".";
+				std::string errStr = "ERROR: at: Input index " + num2str(inIndex) + " is out of bounds for array of size " + num2str(size_) + ".";
 				throw std::invalid_argument(errStr);
 			}
 
@@ -568,7 +568,7 @@ namespace NumC
 			// but why would you really want to do that anyway?
 			if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
 			{
-				std::string errStr = "ERROR: Row index " + num2str(inRowIndex) + " is out of bounds for array of size " + num2str(shape_.rows) + ".";
+				std::string errStr = "ERROR: at: Row index " + num2str(inRowIndex) + " is out of bounds for array of size " + num2str(shape_.rows) + ".";
 				throw std::invalid_argument(errStr);
 			}
 
@@ -576,7 +576,7 @@ namespace NumC
 			// but why would you really want to that anyway?
 			if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
 			{
-				std::string errStr = "ERROR: Column index " + num2str(inColIndex) + " is out of bounds for array of size " + num2str(shape_.cols) + ".";
+				std::string errStr = "ERROR: at: Column index " + num2str(inColIndex) + " is out of bounds for array of size " + num2str(shape_.cols) + ".";
 				throw std::invalid_argument(errStr);
 			}
 
@@ -599,7 +599,7 @@ namespace NumC
 			// but why would you really want to do that anyway?
 			if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
 			{
-				std::string errStr = "ERROR: Row index " + num2str(inRowIndex) + " is out of bounds for array of size " + num2str(shape_.rows) + ".";
+				std::string errStr = "ERROR: at: Row index " + num2str(inRowIndex) + " is out of bounds for array of size " + num2str(shape_.rows) + ".";
 				throw std::invalid_argument(errStr);
 			}
 
@@ -607,7 +607,7 @@ namespace NumC
 			// but why would you really want to do that anyway?
 			if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
 			{
-				std::string errStr = "ERROR: Column index " + num2str(inColIndex) + " is out of bounds for array of size " + num2str(shape_.cols) + ".";
+				std::string errStr = "ERROR: at: Column index " + num2str(inColIndex) + " is out of bounds for array of size " + num2str(shape_.cols) + ".";
 				throw std::invalid_argument(errStr);
 			}
 
@@ -1329,7 +1329,7 @@ namespace NumC
 		//============================================================================
 		// Method Description: 
 		//						Dump a binary file of the array to the specified file. 
-		//						The array can be read back with or numpy::load.
+		//						The array can be read back with or NumC::load.
 		//		
 		// Inputs:
 		//				filename
@@ -1341,7 +1341,7 @@ namespace NumC
 			boost::filesystem::path p(inFilename);
 			if (!boost::filesystem::exists(p.parent_path()))
 			{
-				std::string errStr = "ERROR: Input path does not exist:\n\t" + p.parent_path().string();
+				std::string errStr = "ERROR: dump: Input path does not exist:\n\t" + p.parent_path().string();
 				throw std::runtime_error(errStr);
 			}
 
@@ -1404,7 +1404,7 @@ namespace NumC
 			}
 			else
 			{
-				throw std::runtime_error("ERROR: Can only convert an array of size 1 to a C++ scalar");
+				throw std::runtime_error("ERROR: item: Can only convert an array of size 1 to a C++ scalar");
 			}
 		}
 
@@ -1644,7 +1644,7 @@ namespace NumC
 		NdArray<dtype> newbyteorder(Endian::Type inEndiness) const
 		{
 			// only works with integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "Type Error: Can only compile newbyteorder method of NdArray<T> with integer types.");
+			static_assert(std::numeric_limits<dtype>::is_integer, "Type Error in newbyteorder: Can only compile newbyteorder method of NdArray<T> with integer types.");
 
 			switch (endianess_)
 			{
@@ -1896,7 +1896,7 @@ namespace NumC
 				{
 					if (inKth >= size_)
 					{
-						std::string errStr = "ERROR: kth(=" + num2str(inKth) + ") out of bounds (" + num2str(size_) + ")";
+						std::string errStr = "ERROR: partition: kth(=" + num2str(inKth) + ") out of bounds (" + num2str(size_) + ")";
 						throw std::invalid_argument(errStr);
 					}
 					std::nth_element(begin(), begin() + inKth, end());
@@ -1906,7 +1906,7 @@ namespace NumC
 				{
 					if (inKth >= shape_.cols)
 					{
-						std::string errStr = "ERROR: kth(=" + num2str(inKth) + ") out of bounds (" + num2str(shape_.cols) + ")";
+						std::string errStr = "ERROR: partition: kth(=" + num2str(inKth) + ") out of bounds (" + num2str(shape_.cols) + ")";
 						throw std::invalid_argument(errStr);
 					}
 
@@ -1920,7 +1920,7 @@ namespace NumC
 				{
 					if (inKth >= shape_.rows)
 					{
-						std::string errStr = "ERROR: kth(=" + num2str(inKth) + ") out of bounds (" + num2str(shape_.rows) + ")";
+						std::string errStr = "ERROR: partition: kth(=" + num2str(inKth) + ") out of bounds (" + num2str(shape_.rows) + ")";
 						throw std::invalid_argument(errStr);
 					}
 
@@ -2127,7 +2127,7 @@ namespace NumC
 		{
 			if (inIndices.size() != inValues.size())
 			{
-				throw std::invalid_argument("Error: Input indices do not match values dimensions.");
+				throw std::invalid_argument("Error: put: Input indices do not match values dimensions.");
 			}
 
 			for (uint32 i = 0; i < inIndices.size(); ++i)
@@ -2317,7 +2317,7 @@ namespace NumC
 		{
 			if (inNumRows * inNumCols != size_)
 			{
-				std::string errStr = "ERROR: Cannot reshape array of size " + num2str(size_) + " into shape ";
+				std::string errStr = "ERROR: reshape: Cannot reshape array of size " + num2str(size_) + " into shape ";
 				errStr += "[" + num2str(inNumRows) + ", " + num2str(inNumCols) + "]";
 				throw std::runtime_error(errStr);
 			}
@@ -2685,7 +2685,7 @@ namespace NumC
 				boost::filesystem::path p(inFilename);
 				if (!boost::filesystem::exists(p.parent_path()))
 				{
-					std::string errStr = "ERROR: Input path does not exist:\n\t" + p.parent_path().string();
+					std::string errStr = "ERROR: tofile: Input path does not exist:\n\t" + p.parent_path().string();
 					throw std::runtime_error(errStr);
 				}
 
@@ -2744,7 +2744,7 @@ namespace NumC
 				}
 				default:
 				{
-					throw std::invalid_argument("ERROR: trace takes in either ROW or COL for the axis offset.");
+					throw std::invalid_argument("ERROR: trace: takes in either ROW or COL for the axis offset.");
 				}
 			}
 
@@ -2863,7 +2863,7 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator+=: Array dimensions do not match.");
 			}
 
 			for (uint32 i = 0; i < size_; ++i)
@@ -2885,11 +2885,6 @@ namespace NumC
 		//
 		NdArray<dtype>& operator+=(dtype inScalar)
 		{
-			if (shape_ != inOtherArray.shape_)
-			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
-			}
-
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] += inScalar;
@@ -2939,7 +2934,7 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator-=: Array dimensions do not match.");
 			}
 
 			for (uint32 i = 0; i < size_; ++i)
@@ -2961,11 +2956,6 @@ namespace NumC
 		//
 		NdArray<dtype>& operator-=(dtype inScalar)
 		{
-			if (shape_ != inOtherArray.shape_)
-			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
-			}
-
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] -= inScalar;
@@ -3015,7 +3005,7 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator*=: Array dimensions do not match.");
 			}
 
 			for (uint32 i = 0; i < size_; ++i)
@@ -3037,11 +3027,6 @@ namespace NumC
 		//
 		NdArray<dtype>& operator*=(dtype inScalar)
 		{
-			if (shape_ != inOtherArray.shape_)
-			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
-			}
-
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] *= inScalar;
@@ -3091,7 +3076,7 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator/=: Array dimensions do not match.");
 			}
 
 			for (uint32 i = 0; i < size_; ++i)
@@ -3113,11 +3098,6 @@ namespace NumC
 		//
 		NdArray<dtype>& operator/=(dtype inScalar)
 		{
-			if (shape_ != inOtherArray.shape_)
-			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
-			}
-
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] /= inScalar;
@@ -3167,7 +3147,7 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator%=: Array dimensions do not match.");
 			}
 
 			for (uint32 i = 0; i < size_; ++i)
@@ -3189,11 +3169,6 @@ namespace NumC
 		//
 		NdArray<dtype>& operator%=(dtype inScalar)
 		{
-			if (shape_ != inOtherArray.shape_)
-			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
-			}
-
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] %= inScalar;
@@ -3243,7 +3218,7 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator|=: Array dimensions do not match.");
 			}
 
 			for (uint32 i = 0; i < size_; ++i)
@@ -3265,11 +3240,6 @@ namespace NumC
 		//
 		NdArray<dtype>& operator|=(dtype inScalar)
 		{
-			if (shape_ != inOtherArray.shape_)
-			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
-			}
-
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] |= inScalar;
@@ -3319,7 +3289,7 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator&=: Array dimensions do not match.");
 			}
 
 			for (uint32 i = 0; i < size_; ++i)
@@ -3341,11 +3311,6 @@ namespace NumC
 		//
 		NdArray<dtype>& operator&=(dtype inScalar)
 		{
-			if (shape_ != inOtherArray.shape_)
-			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
-			}
-
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] &= inScalar;
@@ -3397,7 +3362,7 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator^=: Array dimensions do not match.");
 			}
 
 			for (uint32 i = 0; i < size_; ++i)
@@ -3419,11 +3384,6 @@ namespace NumC
 		//
 		NdArray<dtype>& operator^=(dtype inScalar)
 		{
-			if (shape_ != inOtherArray.shape_)
-			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
-			}
-
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] ^= inScalar;
@@ -3446,7 +3406,7 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator==: Array dimensions do not match.");
 			}
 
 			NdArray<bool> returnArray(shape_);
@@ -3472,7 +3432,7 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator!=: Array dimensions do not match.");
 			}
 
 			NdArray<bool> returnArray(shape_);

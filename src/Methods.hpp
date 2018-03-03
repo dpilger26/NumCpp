@@ -1557,6 +1557,23 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						loads a .bin file from the dump() method into an NdArray
+	//
+	//		
+	// Inputs:
+	//				string filename
+	//				
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> load(const std::string& inFilename)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Natural logarithm, element-wise.
 	//
 	//		
