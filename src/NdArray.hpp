@@ -720,6 +720,11 @@ namespace NumC
 		//
 		iterator begin(uint32 inRow)
 		{
+			if (inRow >= shape_.rows)
+			{
+				throw std::invalid_argument("ERROR: begin: input row is greater than the number of rows in the array.");
+			}
+
 			return array_ + inRow * shape_.cols;
 		}
 
@@ -748,6 +753,11 @@ namespace NumC
 		//
 		iterator end(uint32 inRow)
 		{
+			if (inRow >= shape_.rows)
+			{
+				throw std::invalid_argument("ERROR: begin: input row is greater than the number of rows in the array.");
+			}
+
 			return array_ + inRow * shape_.cols + shape_.cols;
 		}
 
@@ -776,6 +786,11 @@ namespace NumC
 		//
 		const_iterator cbegin(uint32 inRow) const
 		{
+			if (inRow >= shape_.rows)
+			{
+				throw std::invalid_argument("ERROR: begin: input row is greater than the number of rows in the array.");
+			}
+
 			return array_ + inRow * shape_.cols;
 		}
 
@@ -804,6 +819,11 @@ namespace NumC
 		//
 		const_iterator cend(uint32 inRow) const
 		{
+			if (inRow >= shape_.rows)
+			{
+				throw std::invalid_argument("ERROR: begin: input row is greater than the number of rows in the array.");
+
+			}
 			return array_ + inRow * shape_.cols + shape_.cols;
 		}
 
@@ -1077,6 +1097,52 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						Swap the bytes of the array elements in place
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				NdArray
+		//
+		void byteswap()
+		{
+			switch (endianess_)
+			{
+				case Endian::BIG:
+				{
+					*this = newbyteorder(Endian::LITTLE);
+				}
+				case Endian::LITTLE:
+				{
+					*this = newbyteorder(Endian::BIG);
+				}
+				case Endian::NATIVE:
+				{
+#if defined(BOOST_BIG_ENDIAN) 
+					*this = newbyteorder(Endian::LITTLE);
+#elif defined(BOOST_LITTLE_ENDIAN)
+					*this = newbyteorder(Endian::BIG);
+#endif
+				}
+			}
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Return a copy of the array
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> copy()
+		{
+			return NdArray<dtype>(*this);
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Returns an array whose values are limited to [min, max].
 		//		
 		// Inputs:
@@ -1280,8 +1346,6 @@ namespace NumC
 				}
 				default:
 				{
-					// this isn't actually possible, just putting this here to get rid
-					// of the compiler warning.
 					return NdArray<dtype>(0);
 				}
 			}
@@ -2323,6 +2387,47 @@ namespace NumC
 		void put(const std::initializer_list<int32>& inRowSliceList, const std::initializer_list<int32>& inColSliceList, const NdArray<dtype>& inValues)
 		{
 			put(Slice(inRowSliceList), Slice(inColSliceList), inValues);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Repeat elements of an array.
+		//		
+		// Inputs:
+		//				Shape
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> repeat(const Shape& inRepeatShape) const
+		{
+			NdArray<dtype> returnArray(shape_.rows * inRepeatShape.rows, shape_.cols * inRepeatShape.cols);
+
+			for (uint32 row = 0; row < inRepeatShape.rows; ++row)
+			{
+				for (uint32 col = 0; col < inRepeatShape.cols; ++col)
+				{
+					std::vector<uint32> indices(shape_.size());
+
+					uint32 rowStart = row * shape_.rows;
+					uint32 colStart = col * shape_.cols;
+
+					uint32 rowEnd = (row + 1) * shape_.rows;
+					uint32 colEnd = (col + 1) * shape_.cols;
+
+					uint32 counter = 0;
+					for (uint32 rowIdx = rowStart; rowIdx < rowEnd; ++rowIdx)
+					{
+						for (uint32 colIdx = colStart; colIdx < colEnd; ++colIdx)
+						{
+							indices[counter++] = rowIdx * returnArray.shape_.cols + colIdx;
+						}
+					}
+
+					returnArray.put(NdArray<uint32>(indices), *this);
+				}
+			}
+
+			return returnArray;
 		}
 
 		//============================================================================

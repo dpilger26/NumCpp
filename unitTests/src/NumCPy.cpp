@@ -182,6 +182,14 @@ namespace NdArrayInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	np::ndarray copy(NdArray<dtype>& self)
+	{
+		return numCToBoost(self.copy());
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	np::ndarray cumprod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
@@ -531,6 +539,14 @@ namespace NdArrayInterface
 		}
 
 		return true;
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray repeat(NdArray<dtype>& self, const Shape& inRepeatShape)
+	{
+		return numCToBoost(self.repeat(inRepeatShape));
 	}
 
 	//================================================================================
@@ -919,11 +935,12 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("argmin", &NdArrayInterface::argmin<double>)
 		.def("argsort", &NdArrayInterface::argsort<double>)
 		.def("clip", &NdArrayInterface::clip<double>)
+		.def("copy", &NdArrayInterface::copy<double>)
 		.def("cumprod", &NdArrayInterface::cumprod<double, double>)
 		.def("cumsum", &NdArrayInterface::cumsum<double, double>)
 		.def("diagonal", &NdArrayInterface::diagonal<double>)
 		.def("dot", &NdArrayInterface::dot<double, double>)
-		.def("dump", &NdArray<double>::dump)
+		.def("dump", &NdArrayDouble::dump)
 		.def("fill", &NdArrayInterface::fill<double>)
 		.def("flatten", &NdArrayInterface::flatten<double>)
 		.def("get", &NdArrayInterface::getValueFlat<double>)
@@ -932,7 +949,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("get", &NdArrayInterface::getSlice2D<double>)
 		.def("testGetSlice1DList", &NdArrayInterface::testGetSlice1DList<double>).staticmethod("testGetSlice1DList")
 		.def("testGetSlice2DList", &NdArrayInterface::testGetSlice2DList<double>).staticmethod("testGetSlice2DList")
-		.def("item", &NdArray<double>::item)
+		.def("item", &NdArrayDouble::item)
 		.def("max", &NdArrayInterface::max<double>)
 		.def("min", &NdArrayInterface::min<double>)
 		.def("mean", &NdArrayInterface::mean<double>)
@@ -955,6 +972,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("testPutSlice1DValuesList", &NdArrayInterface::testPutSlice1DValuesList<double>).staticmethod("testPutSlice1DValuesList")
 		.def("testPutSlice2DValueList", &NdArrayInterface::testPutSlice2DValueList<double>).staticmethod("testPutSlice2DValueList")
 		.def("testPutSlice2DValuesList", &NdArrayInterface::testPutSlice2DValuesList<double>).staticmethod("testPutSlice2DValuesList")
+		.def("repeat", &NdArrayInterface::repeat<double>)
 		.def("reshape", &NdArrayInterface::reshape<double>)
 		.def("reshapeList", &NdArrayInterface::reshapeList<double>)
 		.def("resizeFast", &NdArrayInterface::resizeFast<double>)
@@ -999,6 +1017,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("size", &NdArrayInt::size)
 		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
 		.def("setArray", &NdArrayInterface::setArray<uint32>)
+		.def("byteswap", &NdArrayInt::byteswap)
 		.def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>)
 		.def("operatorModulusScalar", &NdArrayInterface::operatorModulusScalar<uint32>)
 		.def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<uint32>)

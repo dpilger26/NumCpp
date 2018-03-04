@@ -315,6 +315,18 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing byteswap', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArrayInt(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols], dtype=np.uint)
+    cArray.setArray(data)
+    cArray.byteswap()
+    if np.array_equal(cArray.getNumpyArray(), data.byteswap()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing clip', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -322,6 +334,17 @@ def doTest():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     if np.array_equal(cArray.clip(5, 90).astype(np.ushort), data.clip(5, 90)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing copy', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(cArray.copy(), data):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
