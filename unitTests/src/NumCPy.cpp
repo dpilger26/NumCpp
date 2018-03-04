@@ -532,6 +532,317 @@ namespace NdArrayInterface
 
 		return true;
 	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray reshape(NdArray<dtype>& self, const Shape& inShape)
+	{
+		self.reshape(inShape);
+		return numCToBoost(self);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray reshapeList(NdArray<dtype>& self, const Shape& inShape)
+	{
+		self.reshape({ inShape.rows, inShape.cols });
+		return numCToBoost(self);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray resizeFast(NdArray<dtype>& self, const Shape& inShape)
+	{
+		self.resizeFast(inShape);
+		return numCToBoost(self);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray resizeFastList(NdArray<dtype>& self, const Shape& inShape)
+	{
+		self.resizeFast({ inShape.rows, inShape.cols });
+		return numCToBoost(self);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray resizeSlow(NdArray<dtype>& self, const Shape& inShape)
+	{
+		self.resizeSlow(inShape);
+		return numCToBoost(self);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray resizeSlowList(NdArray<dtype>& self, const Shape& inShape)
+	{
+		self.resizeSlow({ inShape.rows, inShape.cols });
+		return numCToBoost(self);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray round(NdArray<dtype>& self, uint8 inNumDecimals)
+	{
+		return numCToBoost(self.round(inNumDecimals));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray sort(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+	{
+		self.sort(inAxis);
+		return numCToBoost(self);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray std(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(self.std(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray sum(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(self.sum<dtypeOut>(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray swapaxes(NdArray<dtype>& self)
+	{
+		return numCToBoost(self.swapaxes());
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray transpose(NdArray<dtype>& self)
+	{
+		return numCToBoost(self.transpose());
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray var(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(self.var(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorPlusScalar(NdArray<dtype>& self, dtype inScalar)
+	{
+		return numCToBoost(self + inScalar);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorPlusArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self + inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorMinusScalar(NdArray<dtype>& self, dtype inScalar)
+	{
+		return numCToBoost(self - inScalar);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorMinusArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self - inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorMultiplyScalar(NdArray<dtype>& self, dtype inScalar)
+	{
+		return numCToBoost(self * inScalar);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorMultiplyArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self * inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorDivideScalar(NdArray<dtype>& self, dtype inScalar)
+	{
+		return numCToBoost(self / inScalar);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorDivideArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self / inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorModulusScalar(NdArray<dtype>& self, dtype inScalar)
+	{
+		return numCToBoost(self % inScalar);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorModulusArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self % inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorBitwiseOrScalar(NdArray<dtype>& self, dtype inScalar)
+	{
+		return numCToBoost(self | inScalar);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorBitwiseOrArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self | inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorBitwiseAndScalar(NdArray<dtype>& self, dtype inScalar)
+	{
+		return numCToBoost(self & inScalar);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorBitwiseAndArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self & inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorBitwiseXorScalar(NdArray<dtype>& self, dtype inScalar)
+	{
+		return numCToBoost(self ^ inScalar);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorBitwiseXorArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self ^ inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorBitwiseNot(NdArray<dtype>& self)
+	{
+		return numCToBoost(~self);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorEquality(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self == inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorNotEquality(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self != inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorBitshiftLeft(NdArray<dtype>& self, uint8 inNumBits)
+	{
+		return numCToBoost(self << inNumBits);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorBitshiftRight(NdArray<dtype>& self, uint8 inNumBits)
+	{
+		return numCToBoost(self >> inNumBits);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorPrePlusPlus(NdArray<dtype>& self)
+	{
+		return numCToBoost(++self);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorPostPlusPlus(NdArray<dtype>& self)
+	{
+		return numCToBoost(self++);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorPreMinusMinus(NdArray<dtype>& self)
+	{
+		return numCToBoost(--self);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorPostMinusMinus(NdArray<dtype>& self)
+	{
+		return numCToBoost(self--);
+	}
 }
 
 //================================================================================
@@ -542,6 +853,9 @@ BOOST_PYTHON_MODULE(NumC)
 	np::initialize(); // needs to be called first thing in the BOOST_PYTHON_MODULE for numpy
 
 	//http://www.boost.org/doc/libs/1_60_0/libs/python/doc/html/tutorial/tutorial/exposing.html
+
+	bp::class_<std::vector<double> >("double_vector")
+		.def(bp::vector_indexing_suite<std::vector<double> >());
 
 	bp::scope().attr("e") = NumC::e;
 	bp::scope().attr("pi") = NumC::pi;
@@ -641,9 +955,40 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("testPutSlice1DValuesList", &NdArrayInterface::testPutSlice1DValuesList<double>).staticmethod("testPutSlice1DValuesList")
 		.def("testPutSlice2DValueList", &NdArrayInterface::testPutSlice2DValueList<double>).staticmethod("testPutSlice2DValueList")
 		.def("testPutSlice2DValuesList", &NdArrayInterface::testPutSlice2DValuesList<double>).staticmethod("testPutSlice2DValuesList")
+		.def("reshape", &NdArrayInterface::reshape<double>)
+		.def("reshapeList", &NdArrayInterface::reshapeList<double>)
+		.def("resizeFast", &NdArrayInterface::resizeFast<double>)
+		.def("resizeFastList", &NdArrayInterface::resizeFastList<double>)
+		.def("resizeSlow", &NdArrayInterface::resizeSlow<double>)
+		.def("resizeSlowList", &NdArrayInterface::resizeSlowList<double>)
+		.def("round", &NdArrayInterface::round<double>)
 		.def("shape", &NdArrayDouble::shape)
-		.def("size", &NdArrayDouble::size);
-
+		.def("size", &NdArrayDouble::size)
+		.def("sort", &NdArrayInterface::sort<double>)
+		.def("std", &NdArrayInterface::std<double>)
+		.def("sum", &NdArrayInterface::sum<double, double>)
+		.def("swapaxes", &NdArrayInterface::swapaxes<double>)
+		.def("tofile", &NdArrayDouble::tofile)
+		.def("toStlVector", &NdArrayDouble::toStlVector)
+		.def("trace", &NdArrayDouble::trace<double>)
+		.def("transpose", &NdArrayInterface::transpose<double>)
+		.def("var", &NdArrayInterface::var<double>)
+		.def("zeros", &NdArrayDouble::zeros)
+		.def("operatorPlusScalar", &NdArrayInterface::operatorPlusScalar<double>)
+		.def("operatorPlusArray", &NdArrayInterface::operatorPlusArray<double>)
+		.def("operatorMinusScalar", &NdArrayInterface::operatorMinusScalar<double>)
+		.def("operatorMinusArray", &NdArrayInterface::operatorMinusArray<double>)
+		.def("operatorMultiplyScalar", &NdArrayInterface::operatorMultiplyScalar<double>)
+		.def("operatorMultiplyArray", &NdArrayInterface::operatorMultiplyArray<double>)
+		.def("operatorDivideScalar", &NdArrayInterface::operatorDivideScalar<double>)
+		.def("operatorDivideArray", &NdArrayInterface::operatorDivideArray<double>)
+		.def("operatorEquality", &NdArrayInterface::operatorEquality<double>)
+		.def("operatorNotEquality", &NdArrayInterface::operatorNotEquality<double>)
+		.def("operatorPrePlusPlus", &NdArrayInterface::operatorPrePlusPlus<double>)
+		.def("operatorPostPlusPlus", &NdArrayInterface::operatorPostPlusPlus<double>)
+		.def("operatorPreMinusMinus", &NdArrayInterface::operatorPreMinusMinus<double>)
+		.def("operatorPostMinusMinus", &NdArrayInterface::operatorPostMinusMinus<double>);
+	
 	typedef NdArray<uint32> NdArrayInt;
 	bp::class_<NdArrayInt>
 		("NdArrayInt", bp::init<>())
@@ -654,7 +999,29 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("size", &NdArrayInt::size)
 		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
 		.def("setArray", &NdArrayInterface::setArray<uint32>)
-		.def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>);
+		.def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>)
+		.def("operatorModulusScalar", &NdArrayInterface::operatorModulusScalar<uint32>)
+		.def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<uint32>)
+		.def("operatorBitwiseOrScalar", &NdArrayInterface::operatorBitwiseOrScalar<uint32>)
+		.def("operatorBitwiseOrArray", &NdArrayInterface::operatorBitwiseOrArray<uint32>)
+		.def("operatorBitwiseAndScalar", &NdArrayInterface::operatorBitwiseAndScalar<uint32>)
+		.def("operatorBitwiseAndArray", &NdArrayInterface::operatorBitwiseAndArray<uint32>)
+		.def("operatorBitwiseXorScalar", &NdArrayInterface::operatorBitwiseXorScalar<uint32>)
+		.def("operatorBitwiseXorArray", &NdArrayInterface::operatorBitwiseXorArray<uint32>)
+		.def("operatorBitwiseNot", &NdArrayInterface::operatorBitwiseNot<uint32>)
+		.def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>)
+		.def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
+
+	boost::python::def("num2str", NumC::num2str<double>);
+	boost::python::def("num2str", NumC::num2str<float>);
+	boost::python::def("num2str", NumC::num2str<int8>);
+	boost::python::def("num2str", NumC::num2str<int16>);
+	boost::python::def("num2str", NumC::num2str<int32>);
+	boost::python::def("num2str", NumC::num2str<int64>);
+	boost::python::def("num2str", NumC::num2str<uint8>);
+	boost::python::def("num2str", NumC::num2str<uint16>);
+	boost::python::def("num2str", NumC::num2str<uint32>);
+	boost::python::def("num2str", NumC::num2str<uint64>);
 
 	boost::python::def("sqr", NumC::sqr<double>);
 	boost::python::def("sqr", NumC::sqr<float>);

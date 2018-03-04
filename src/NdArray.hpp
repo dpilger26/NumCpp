@@ -1345,7 +1345,13 @@ namespace NumC
 				throw std::runtime_error(errStr);
 			}
 
-			std::ofstream ofile(inFilename.c_str(), std::ios::binary);
+			std::string ext = "";
+			if (!p.has_extension())
+			{
+				ext += ".bin";
+			}
+
+			std::ofstream ofile((inFilename + ext).c_str(), std::ios::binary);
 			ofile.write(reinterpret_cast<const char*>(array_), size_ * sizeof(dtype));
 			ofile.close();
 		}
@@ -2364,13 +2370,28 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		void resizeFast(const Shape& inShape)
+		void resizeFast(uint32 inNumRows, uint32 inNumCols)
 		{
-			shape_ = inShape;
+			shape_ = Shape(inNumRows, inNumCols);
 			size_ = shape_.size();
 			deleteArray();
 			array_ = new dtype[size_];
 			zeros();
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Change shape and size of array in-place. All previous
+		//						data of the array is lost.
+		//		
+		// Inputs:
+		//				Shape
+		// Outputs:
+		//				None
+		//
+		void resizeFast(const Shape& inShape)
+		{
+			resizeFast(inShape.rows, inShape.cols);
 		}
 
 		//============================================================================
@@ -2398,12 +2419,13 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		void resizeSlow(const Shape& inShape)
+		void resizeSlow(uint32 inNumRows, uint32 inNumCols)
 		{
 			dtype* oldData = new dtype[size_];
 			std::copy(begin(), end(), oldData);
 
 			deleteArray();
+			Shape inShape(inNumRows, inNumCols);
 			array_ = new dtype[inShape.size()];
 			for (uint16 row = 0; row < inShape.rows; ++row)
 			{
@@ -2435,6 +2457,21 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
+		void resizeSlow(const Shape& inShape)
+		{
+			resizeSlow(inShape.rows, inShape.cols);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Change shape and size of array in-place. All data outide
+		//						of new size is lost.
+		//		
+		// Inputs:
+		//				initializer_list<uint32>
+		// Outputs:
+		//				None
+		//
 		void resizeSlow(const std::initializer_list<uint32>& inShapeList)
 		{
 			resizeSlow(Shape(inShapeList));
@@ -2452,7 +2489,7 @@ namespace NumC
 		//
 		NdArray<dtype> round(uint8 inNumDecimals = 0) const
 		{
-			if (std::numeric_limits<dtype>::is_integer())
+			if (std::numeric_limits<dtype>::is_integer)
 			{
 				return NdArray<dtype>(*this);
 			}
@@ -2518,7 +2555,7 @@ namespace NumC
 				{
 					for (uint32 row = 0; row < shape_.rows; ++row)
 					{
-						std::sort(begin(row), end(col));
+						std::sort(begin(row), end(row));
 					}
 				}
 				case Axis::ROW:
@@ -2526,9 +2563,9 @@ namespace NumC
 					NdArray<dtype> transposedArray = transpose();
 					for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
 					{
-						std::sort(transposedArray.begin(row), transposedArray.end(col));
+						std::sort(transposedArray.begin(row), transposedArray.end(row));
 					}
-					this = transposedArray.transpose();
+					*this = transposedArray.transpose();
 				}
 			}
 		}
@@ -2590,7 +2627,7 @@ namespace NumC
 
 					return returnArray;
 				}
-				default
+				default:
 				{
 					// this isn't actually possible, just putting this here to get rid
 					// of the compiler warning.
@@ -2639,7 +2676,7 @@ namespace NumC
 
 					return returnArray;
 				}
-				default
+				default:
 				{
 					// this isn't actually possible, just putting this here to get rid
 					// of the compiler warning.
@@ -2678,7 +2715,7 @@ namespace NumC
 		{
 			if (inSep.compare("") == 0)
 			{
-				dump();
+				dump(inFilename);
 			}
 			else
 			{
@@ -2689,7 +2726,13 @@ namespace NumC
 					throw std::runtime_error(errStr);
 				}
 
-				std::ofstream ofile(inFilename.c_str());
+				std::string ext = "";
+				if (!p.has_extension())
+				{
+					ext += ".txt";
+				}
+
+				std::ofstream ofile((inFilename + ext).c_str());
 				for (uint32 i = 0; i < size_; ++i)
 				{
 					ofile << array_[i];
@@ -2744,7 +2787,8 @@ namespace NumC
 				}
 				default:
 				{
-					throw std::invalid_argument("ERROR: trace: takes in either ROW or COL for the axis offset.");
+					// if the user input NONE, override back to ROW
+					inAxis = Axis::ROW;
 				}
 			}
 
@@ -3145,6 +3189,9 @@ namespace NumC
 		//
 		NdArray<dtype>& operator%=(const NdArray<dtype>& inOtherArray)
 		{
+			// can only be called on integer types
+			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: % operator can only be compiled with integer types.");
+
 			if (shape_ != inOtherArray.shape_)
 			{
 				throw std::invalid_argument("ERROR: operator%=: Array dimensions do not match.");
@@ -3169,6 +3216,9 @@ namespace NumC
 		//
 		NdArray<dtype>& operator%=(dtype inScalar)
 		{
+			// can only be called on integer types
+			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: % operator can only be compiled with integer types.");
+
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] %= inScalar;
@@ -3216,6 +3266,9 @@ namespace NumC
 		//
 		NdArray<dtype>& operator|=(const NdArray<dtype>& inOtherArray)
 		{
+			// can only be called on integer types
+			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: | operator can only be compiled with integer types.");
+
 			if (shape_ != inOtherArray.shape_)
 			{
 				throw std::invalid_argument("ERROR: operator|=: Array dimensions do not match.");
@@ -3240,6 +3293,9 @@ namespace NumC
 		//
 		NdArray<dtype>& operator|=(dtype inScalar)
 		{
+			// can only be called on integer types
+			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: | operator can only be compiled with integer types.");
+
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] |= inScalar;
@@ -3287,6 +3343,9 @@ namespace NumC
 		//
 		NdArray<dtype>& operator&=(const NdArray<dtype>& inOtherArray)
 		{
+			// can only be called on integer types
+			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: & operator can only be compiled with integer types.");
+
 			if (shape_ != inOtherArray.shape_)
 			{
 				throw std::invalid_argument("ERROR: operator&=: Array dimensions do not match.");
@@ -3311,6 +3370,9 @@ namespace NumC
 		//
 		NdArray<dtype>& operator&=(dtype inScalar)
 		{
+			// can only be called on integer types
+			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: & operator can only be compiled with integer types.");
+
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] &= inScalar;
@@ -3360,6 +3422,9 @@ namespace NumC
 		template<typename dtype>
 		NdArray<dtype>& operator^=(const NdArray<dtype>& inOtherArray)
 		{
+			// can only be called on integer types
+			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: ^ operator can only be compiled with integer types.");
+
 			if (shape_ != inOtherArray.shape_)
 			{
 				throw std::invalid_argument("ERROR: operator^=: Array dimensions do not match.");
@@ -3384,9 +3449,35 @@ namespace NumC
 		//
 		NdArray<dtype>& operator^=(dtype inScalar)
 		{
+			// can only be called on integer types
+			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: ^ operator can only be compiled with integer types.");
+
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] ^= inScalar;
+			}
+
+			return *this;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Takes the bitwise not of the array
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator~()
+		{
+			// can only be called on integer types
+			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: ~ operator can only be compiled with integer types.");
+
+			NdArray<dtype> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray.array_[i] = ~array_[i];
 			}
 
 			return *this;
@@ -3412,7 +3503,7 @@ namespace NumC
 			NdArray<bool> returnArray(shape_);
 			for (uint32 i = 0; i < size_; ++i)
 			{
-				returnArray.array_[i] = array_[i] == inOtherArray.array_[i];
+				returnArray[i] = array_[i] == inOtherArray.array_[i];
 			}
 
 			return returnArray;
@@ -3432,13 +3523,13 @@ namespace NumC
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
-				throw std::invalid_argument("ERROR: operator!=: Array dimensions do not match.");
+				throw std::invalid_argument("ERROR: operator==: Array dimensions do not match.");
 			}
 
 			NdArray<bool> returnArray(shape_);
 			for (uint32 i = 0; i < size_; ++i)
 			{
-				returnArray.array_[i] = array_[i] != inOtherArray.array_[i];
+				returnArray[i] = array_[i] != inOtherArray.array_[i];
 			}
 
 			return returnArray;
@@ -3453,10 +3544,11 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		template<typename dtype>
-		NdArray<dtype> operator<<(uint8 inNumBits)
+		friend NdArray<dtype> operator<<(const NdArray<dtype>& lhs, uint8 inNumBits)
 		{
-			return NdArray<dtype>(*this) <<= inNumBits;
+			NdArray<dtype> returnArray(lhs);
+			returnArray <<= inNumBits;
+			return returnArray;
 		}
 
 		//============================================================================
@@ -3468,15 +3560,14 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		template<typename dtype>
-		NdArray<dtype>& operator<<=(uint8 inNumBits)
+		friend NdArray<dtype>& operator<<=(NdArray<dtype>& lhs, uint8 inNumBits)
 		{
-			for (uint32 i = 0; i < size_; ++i)
+			for (uint32 i = 0; i < lhs.size_; ++i)
 			{
-				array_[i] << inNumBits;
+				lhs.array_[i] <<= inNumBits;
 			}
 
-			return *this;
+			return lhs;
 		}
 
 		//============================================================================
@@ -3488,10 +3579,11 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		template<typename dtype>
-		NdArray<dtype> operator>>(uint8 inNumBits)
+		friend NdArray<dtype> operator>>(const NdArray<dtype>& lhs, uint8 inNumBits)
 		{
-			return NdArray<dtype>(*this) >>= inNumBits;
+			NdArray<dtype> returnArray(lhs);
+			returnArray >>= inNumBits;
+			return returnArray;
 		}
 
 		//============================================================================
@@ -3503,15 +3595,14 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		template<typename dtype>
-		NdArray<dtype>& operator>>=(uint8 inNumBits)
+		friend NdArray<dtype>& operator>>=(NdArray<dtype>& lhs, uint8 inNumBits)
 		{
-			for (uint32 i = 0; i < size_; ++i)
+			for (uint32 i = 0; i < lhs.size_; ++i)
 			{
-				array_[i] >> inNumBits;
+				lhs.array_[i] >>= inNumBits;
 			}
 
-			return *this;
+			return lhs;
 		}
 
 		//============================================================================
