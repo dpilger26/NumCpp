@@ -861,6 +861,11 @@ namespace NdArrayInterface
 	}
 }
 
+namespace MethodsInterface
+{
+
+}
+
 //================================================================================
 
 BOOST_PYTHON_MODULE(NumC)
@@ -1016,6 +1021,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("shape", &NdArrayInt::shape)
 		.def("size", &NdArrayInt::size)
 		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
+		.def("endianess", &NdArrayInt::endianess)
 		.def("setArray", &NdArrayInterface::setArray<uint32>)
 		.def("byteswap", &NdArrayInt::byteswap)
 		.def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>)

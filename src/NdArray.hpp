@@ -74,10 +74,9 @@ namespace NumC
 			{
 				delete[] array_;
 				array_ = nullptr;
+				shape_ = Shape(0, 0);
+				size_ = 0;
 			}
-
-			shape_ = Shape(0, 0);
-			size_ = 0;
 		}
 
 		//============================================================================
@@ -287,6 +286,25 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						Move Constructor
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				None
+		//
+		NdArray(NdArray<dtype>&& inOtherArray) :
+			shape_(inOtherArray.shape_),
+			size_(inOtherArray.size_),
+			endianess_(inOtherArray.endianess_),
+			array_(inOtherArray.array_)
+		{
+			inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
+			inOtherArray.array_ = nullptr;
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Destructor
 		//		
 		// Inputs:
@@ -316,6 +334,32 @@ namespace NumC
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] = inOtherArray.array_[i];
+			}
+
+			return *this;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Move operator, performs a deep move
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				None
+		//
+		NdArray<dtype>& operator=(NdArray<dtype>&& inOtherArray)
+		{
+			if (&inOtherArray != this)
+			{
+				deleteArray();
+				shape_ = inOtherArray.shape_;
+				size_ = inOtherArray.size_;
+				endianess_ = inOtherArray.endianess_;
+				array_ = inOtherArray.array_;
+
+				inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
+				inOtherArray.array_ = nullptr;
 			}
 
 			return *this;
@@ -1111,10 +1155,12 @@ namespace NumC
 				case Endian::BIG:
 				{
 					*this = newbyteorder(Endian::LITTLE);
+					return;
 				}
 				case Endian::LITTLE:
 				{
 					*this = newbyteorder(Endian::BIG);
+					return;
 				}
 				case Endian::NATIVE:
 				{
@@ -1123,6 +1169,7 @@ namespace NumC
 #elif defined(BOOST_LITTLE_ENDIAN)
 					*this = newbyteorder(Endian::BIG);
 #endif
+					return;
 				}
 			}
 		}
@@ -1437,6 +1484,20 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						Return the NdArrays endianess
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				Endian::Type
+		//
+		Endian::Type endianess()
+		{
+			return endianess_;
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Fill the array with a scalar value.
 		//		
 		// Inputs:
@@ -1726,7 +1787,7 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> newbyteorder(Endian::Type inEndiness) const
+		NdArray<dtype> newbyteorder(Endian::Type inEndianess) const
 		{
 			// only works with integer types
 			static_assert(std::numeric_limits<dtype>::is_integer, "Type Error in newbyteorder: Can only compile newbyteorder method of NdArray<T> with integer types.");
@@ -1735,7 +1796,7 @@ namespace NumC
 			{
 				case Endian::NATIVE:
 				{
-					switch (inEndiness)
+					switch (inEndianess)
 					{
 						case Endian::NATIVE:
 						{
@@ -1770,10 +1831,11 @@ namespace NumC
 							return NdArray<dtype>(0);
 						}
 					}
+					break;
 				}
 				case Endian::BIG:
 				{
-					switch (inEndiness)
+					switch (inEndianess)
 					{
 						case Endian::NATIVE:
 						{
@@ -1808,10 +1870,11 @@ namespace NumC
 							return NdArray<dtype>(0);
 						}
 					}
+					break;
 				}
 				case Endian::LITTLE:
 				{
-					switch (inEndiness)
+					switch (inEndianess)
 					{
 						case Endian::NATIVE:
 						{
@@ -1846,6 +1909,7 @@ namespace NumC
 							return NdArray<dtype>(0);
 						}
 					}
+					break;
 				}
 				default:
 				{

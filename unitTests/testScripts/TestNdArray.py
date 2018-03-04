@@ -321,8 +321,9 @@ def doTest():
     cArray = NumC.NdArrayInt(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols], dtype=np.uint)
     cArray.setArray(data)
+    oldEndianess = cArray.endianess()
     cArray.byteswap()
-    if np.array_equal(cArray.getNumpyArray(), data.byteswap()):
+    if np.array_equal(cArray.getNumpyArray(), data.byteswap()) and cArray.endianess() != oldEndianess:
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

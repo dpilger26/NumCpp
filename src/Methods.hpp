@@ -24,6 +24,7 @@
 
 #include<boost/filesystem.hpp>
 
+#include<cmath>
 #include<initializer_list>
 #include<stdexcept>
 //#include<iostream>
