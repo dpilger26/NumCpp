@@ -22,6 +22,19 @@
 #include"Types.hpp"
 #include"NdArray.hpp"
 
+#include<boost/filesystem.hpp>
+
+#include<initializer_list>
+#include<stdexcept>
+//#include<iostream>
+//#include<fstream>
+#include<string>
+#include<vector>
+//#include<set>
+#include<algorithm>
+//#include<limits>
+//#include<numeric>
+
 namespace NumC
 {
 	//============================================================================
@@ -444,6 +457,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Returns a copy of the array, cast to a specified type.
+	//		
+	// Inputs:
+	//				NdArray
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype, typename dtypeOut>
+	NdArray<dtypeOut> astype(const NdArray<dtype> inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Convert an array of size 1 to its scalar equivalent.
 	//		
 	// Inputs:
@@ -581,6 +609,22 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<dtype> bitwise_xor(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Swap the bytes of the array elements in place
+	//		
+	// Inputs:
+	//				NdArray 
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	void byteswap(NdArray<dtype>& inArray)
 	{
 
 	}
@@ -886,6 +930,23 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Return specified diagonals.
+	//		
+	// Inputs:
+	//				NdArray
+	//				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. 
+	//				(Optional) axis the offset is applied to
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> diagnol(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Calculate the n-th discrete difference along given axis.
 	//		
 	// Inputs:
@@ -923,12 +984,28 @@ namespace NumC
 	// Inputs:
 	//				NdArray 1
 	//				NdArray 2
-	//				(Optional) Axis
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<uint32>& inArray2, Axis::Type inAxis = Axis::NONE)
+	NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<uint32>& inArray2)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Dump a binary file of the array to the specified file. 
+	//						The array can be read back with or NumC::load.
+	//		
+	// Inputs:
+	//				NdArray
+	//				string filename
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	void dump(const NdArray<dtype>& inArray, const std::string& inFilename)
 	{
 
 	}
@@ -1072,6 +1149,22 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<dtype> fix(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a copy of the array collapsed into one dimension.
+	//		
+	// Inputs:
+	//				NdArray
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> flatten(const NdArray<dtype>& inArray)
 	{
 
 	}
@@ -2101,6 +2194,27 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Return the array with the same data viewed with a 
+	//						different byte order. only works for integer types, 
+	//						floating point types will not compile and you will
+	//						be confused as to why...
+	//
+	//		
+	// Inputs:
+	//				NdArray
+	//				Endianess
+	//				
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian::Type inEndiness)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Numerical negative, element-wise.
 	//
 	//		
@@ -2130,6 +2244,25 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<uint32> nonzero(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return the indices of the flattened array of the 
+	//						elements that are non-zero.
+	//
+	//		
+	// Inputs:
+	//				NdArray
+	//				(Optional) Axis
+	//				
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype, typename dtypeOut>
+	NdArray<dtypeOut> norm(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 
 	}
@@ -2201,6 +2334,27 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Rearranges the elements in the array in such a way that 
+	//						value of the element in kth position is in the position it 
+	//						would be in a sorted array. All elements smaller than the kth 
+	//						element are moved before this element and all equal or greater 
+	//						are moved behind it. The ordering of the elements in the two 
+	//						partitions is undefined.
+	//		
+	// Inputs:
+	//				kth element
+	//				(Optional) Axis
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis::Type inAxis = Axis::NONE)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Pads an array.
 	//		
 	// Inputs:
@@ -2234,6 +2388,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Prints the array to the console.
+	//		
+	// Inputs:
+	//				NdArray
+	// Outputs:
+	//				None
+	//
+	template<typename dtype>
+	void print(const NdArray<dtype>& inArray)
+	{
+		std::cout << inArray;
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return the product of array elements over a given axis.
 	//		
 	// Inputs:
@@ -2246,21 +2415,6 @@ namespace NumC
 	NdArray<dtypeOut> prod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 
-	}
-
-	//============================================================================
-	// Method Description: 
-	//						Prints the array
-	//		
-	// Inputs:
-	//				NdArray
-	// Outputs:
-	//				None
-	//
-	template<typename dtype>
-	void print(const NdArray<dtype>& inArray)
-	{
-		std::cout << inArray;
 	}
 
 	//============================================================================
@@ -2365,6 +2519,23 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<dtype> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Repeat elements of an array.
+	//		
+	// Inputs:
+	//				NdArray
+	//				Shape
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> repeat(const NdArray<dtype>& inArray, const Shape& inRepeatShape)
 	{
 
 	}
@@ -2505,6 +2676,21 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<dtype> setdiff1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArra2)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return the shape of the array
+	//		
+	// Inputs:
+	//				NdArray 
+	// Outputs:
+	//				Shape
+	//
+	template<typename dtype>
+	Shape shape(const NdArray<dtype>& inArray)
 	{
 
 	}
@@ -2708,25 +2894,8 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> swapaxes(const NdArray<dtype>& inArray)
-	{
-
-	}
-
-	//============================================================================
-	// Method Description: 
-	//						Take elements from an array along an axis.
-	//		
-	// Inputs:
-	//				NdArray
-	//				NdArray indices
-	//				(optional) Axis
-	// Outputs:
-	//				NdArray
-	//
 	template<typename dtype>
-	NdArray<dtype> take(const NdArray<dtype>& inArray, const NdArray<uint16>& inIndices, Axis::Type inAxis = Axis::NONE)
+	NdArray<dtype> swapaxes(const NdArray<dtype>& inArray)
 	{
 
 	}
@@ -2779,16 +2948,51 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Write array to a file as text or binary (default)..
+	//						The data produced by this method can be recovered 
+	//						using the function fromfile().
+	//		
+	// Inputs:
+	//				NdArray
+	//				filename
+	//				Separator between array items for text output. If “” (empty), a binary file is written 
+	// Outputs:
+	//				None
+	//
+	template<typename dtype>
+	void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const std::string& inSep = "")
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Write flattened array to an STL vector
+	//		
+	// Inputs:
+	//				NdArray 
+	// Outputs:
+	//				std::vector
+	//
+	template<typename dtype>
+	std::vector<dtype> toStlVector(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return the sum along diagonals of the array.
 	//		
 	// Inputs:
 	//				NdArray
 	//				Offset from main diaganol, default = 0, negative=above, positve=below
+	//				Axis
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> trace(const NdArray<dtype>& inArray, int16 inOffset=0)
+	NdArray<dtypeOut> trace(const NdArray<dtype>& inArray, int16 inOffset=0, Axis::Type inAxis = Axis::ROW)
 	{
 
 	}

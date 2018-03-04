@@ -1129,20 +1129,6 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						Return a copy of the array
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				NdArray
-		//
-		NdArray<dtype> copy()
-		{
-			return NdArray<dtype>(*this);
-		}
-
-		//============================================================================
-		// Method Description: 
 		//						Returns an array whose values are limited to [min, max].
 		//		
 		// Inputs:
@@ -1170,6 +1156,20 @@ namespace NumC
 				}
 			}
 			return outArray;
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Return a copy of the array
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> copy()
+		{
+			return NdArray<dtype>(*this);
 		}
 
 		//============================================================================
