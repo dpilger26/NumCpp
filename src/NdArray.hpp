@@ -80,6 +80,25 @@ namespace NumC
 			size_ = 0;
 		}
 
+		//============================================================================
+		// Method Description: 
+		//						Creates a new internal array
+		//		
+		// Inputs:
+		//				Shape
+		// Outputs:
+		//				None
+		//
+		void newArray(const Shape& inShape)
+		{
+			deleteArray();
+
+			shape_ = inShape;
+			size_ = inShape.size();
+			endianess_ = Endian::NATIVE;
+			array_ = new dtype[size_];
+		}
+
 	public:
 		//============================================================================
 		// Method Description: 
@@ -291,12 +310,8 @@ namespace NumC
 		//
 		NdArray<dtype>& operator=(const NdArray<dtype>& inOtherArray)
 		{
-			deleteArray();
-
-			shape_ = Shape(inOtherArray.shape_);
-			size_ = inOtherArray.size_;
+			newArray(inOtherArray.shape_);
 			endianess_ = inOtherArray.endianess_;
-			array_ = new dtype[size_];
 
 			for (uint32 i = 0; i < size_; ++i)
 			{
@@ -2372,10 +2387,7 @@ namespace NumC
 		//
 		void resizeFast(uint32 inNumRows, uint32 inNumCols)
 		{
-			shape_ = Shape(inNumRows, inNumCols);
-			size_ = shape_.size();
-			deleteArray();
-			array_ = new dtype[size_];
+			newArray(Shape(inNumRows, inNumCols));
 			zeros();
 		}
 
@@ -2421,30 +2433,28 @@ namespace NumC
 		//
 		void resizeSlow(uint32 inNumRows, uint32 inNumCols)
 		{
-			dtype* oldData = new dtype[size_];
-			std::copy(begin(), end(), oldData);
+			std::vector<dtype> oldData(size_);
+			std::copy(begin(), end(), oldData.begin());
 
-			deleteArray();
 			Shape inShape(inNumRows, inNumCols);
-			array_ = new dtype[inShape.size()];
-			for (uint16 row = 0; row < inShape.rows; ++row)
+			Shape oldShape = shape_;
+
+			newArray(inShape);
+
+			for (uint32 row = 0; row < inShape.rows; ++row)
 			{
-				for (uint16 col = 0; col < inShape.cols; ++col)
+				for (uint32 col = 0; col < inShape.cols; ++col)
 				{
-					if (row >= shape_.rows || col >= shape_.cols)
+					if (row >= oldShape.rows || col >= oldShape.cols)
 					{
 						this->operator()(row, col) = static_cast<dtype>(0); // zero fill
 					}
 					else
 					{
-						this->operator()(row, col) = oldData[row * inShape.cols + col];
+						this->operator()(row, col) = oldData[row * oldShape.cols + col];
 					}
 				}
 			}
-
-			delete[] oldData;
-			shape_ = inShape;
-			size_ = inShape.size();
 		}
 
 		//============================================================================
@@ -2550,6 +2560,7 @@ namespace NumC
 				case Axis::NONE:
 				{
 					std::sort(begin(), end());
+					break;
 				}
 				case Axis::COL:
 				{
@@ -2557,6 +2568,7 @@ namespace NumC
 					{
 						std::sort(begin(row), end(row));
 					}
+					break;
 				}
 				case Axis::ROW:
 				{
@@ -2566,6 +2578,7 @@ namespace NumC
 						std::sort(transposedArray.begin(row), transposedArray.end(row));
 					}
 					*this = transposedArray.transpose();
+					break;
 				}
 			}
 		}
@@ -2622,7 +2635,7 @@ namespace NumC
 						{
 							sum += sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
 						}
-						returnArray(0, row) = std::sqrt(sum / shape_.cols);
+						returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
 					}
 
 					return returnArray;
@@ -2780,15 +2793,18 @@ namespace NumC
 				case Axis::ROW:
 				{
 					rowStart += inOffset;
+					break;
 				}
 				case Axis::COL:
 				{
 					colStart += inOffset;
+					break;
 				}
 				default:
 				{
 					// if the user input NONE, override back to ROW
 					inAxis = Axis::ROW;
+					break;
 				}
 			}
 
@@ -3480,7 +3496,7 @@ namespace NumC
 				returnArray.array_[i] = ~array_[i];
 			}
 
-			return *this;
+			return returnArray;
 		}
 
 		//============================================================================
