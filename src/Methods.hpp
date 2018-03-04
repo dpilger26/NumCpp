@@ -39,6 +39,21 @@ namespace NumC
 {
 	//============================================================================
 	// Method Description: 
+	//						Calculate the absolute value.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype abs(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Calculate the absolute value element-wise.
 	//		
 	// Inputs:
@@ -235,6 +250,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Trigonometric inverse cosine
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype arccos(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Trigonometric inverse cosine, element-wise.
 	//		
 	// Inputs:
@@ -244,6 +274,21 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<double> arccos(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Trigonometric inverse hyperbolic cosine.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype arccosh(dtype inValue)
 	{
 
 	}
@@ -265,6 +310,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Trigonometric inverse sine.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype arcsin(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Trigonometric inverse sine, element-wise.
 	//		
 	// Inputs:
@@ -274,6 +334,21 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<double> arcsin(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Trigonometric inverse hyperbolic sine.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype arcsinh(dtype inValue)
 	{
 
 	}
@@ -295,6 +370,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Trigonometric inverse tangent.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype arctan(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Trigonometric inverse tangent, element-wise.
 	//		
 	// Inputs:
@@ -310,6 +400,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Trigonometric inverse hyperbolic tangent.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype arctanh(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Trigonometric inverse hyperbolic tangent, element-wise.
 	//		
 	// Inputs:
@@ -318,7 +423,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<double> arcstanh(const NdArray<dtype>& inArray)
+	NdArray<double> arctanh(const NdArray<dtype>& inArray)
 	{
 
 	}
@@ -367,6 +472,22 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<uint16> argsort(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Evenly round to the given number of decimals.
+	//		
+	// Inputs:
+	//				value
+	//				(Optional) decimals, default = 0
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype around(dtype inValue, uint8 inNumDecimals = 0)
 	{
 
 	}
@@ -631,6 +752,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Return the cube-root of an array.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype cbr(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return the cube-root of an array, element-wise.
 	//		
 	// Inputs:
@@ -646,6 +782,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Return the ceiling of the input.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype ceil(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return the ceiling of the input, element-wise.
 	//		
 	// Inputs:
@@ -655,6 +806,23 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<dtype> ceil(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Clip (limit) the value.
+	//		
+	// Inputs:
+	//				value
+	//				min Value
+	//				max Value
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue)
 	{
 
 	}
@@ -758,6 +926,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Cosine .
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype cos(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Cosine element-wise.
 	//		
 	// Inputs:
@@ -767,6 +950,21 @@ namespace NumC
 	//
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> cos(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Hyperbolic Cosine.
+	//		
+	// Inputs:
+	//				Value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype cosh(dtype inValue)
 	{
 
 	}
@@ -862,6 +1060,21 @@ namespace NumC
 	//
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> cumsum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Convert angles from degrees to radians.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype deg2rad(dtype inValue)
 	{
 
 	}
@@ -1058,6 +1271,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Calculate the exponential of the input value.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype exp(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Calculate the exponential of all elements in the input array.
 	//		
 	// Inputs:
@@ -1073,6 +1301,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Calculate 2**p for all p in the input value.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype exp2(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Calculate 2**p for all p in the input array.
 	//		
 	// Inputs:
@@ -1082,6 +1325,21 @@ namespace NumC
 	//
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> exp2(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Calculate exp(x) - 1 for the input value.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype expm1(dtype inValue)
 	{
 
 	}
@@ -1134,6 +1392,21 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<dtype> eye(uint16 inN, uint16 inM, int32 inK = 0)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Round to nearest integer towards zero.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype fix(dtype inValue)
 	{
 
 	}
@@ -1232,6 +1505,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Return the floor of the input.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype floor(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return the floor of the input, element-wise.
 	//		
 	// Inputs:
@@ -1250,6 +1538,22 @@ namespace NumC
 	//						Return the largest integer smaller or equal to the division of the inputs.
 	//		
 	// Inputs:
+	//				value 1
+	//				value 2
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype floor_divide(dtype inValue1, dtype inValue2)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return the largest integer smaller or equal to the division of the inputs.
+	//		
+	// Inputs:
 	//				NdArray 1
 	//				NdArray 2
 	// Outputs:
@@ -1257,6 +1561,25 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<dtype> floor_divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						maximum of inputs.
+	//
+	//						Compare two value and returns a value containing the 
+	//						maxima
+	//		
+	// Inputs:
+	//				value 1
+	//				value 2
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype fmax(dtype inValue1, dtype inValue2)
 	{
 
 	}
@@ -1282,6 +1605,25 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						minimum of inputs.
+	//
+	//						Compare two value and returns a value containing the 
+	//						minima
+	//		
+	// Inputs:
+	//				value 1
+	//				value 2
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype fmin(dtype inValue1, dtype inValue2)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Element-wise minimum of array elements.
 	//
 	//						Compare two arrays and returns a new array containing the 
@@ -1295,6 +1637,23 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<dtype> fmin(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return the remainder of division.
+	//
+	//		
+	// Inputs:
+	//				value 1
+	//				value 2
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype fmod(dtype iValue1, dtype inValue2)
 	{
 
 	}
@@ -1443,6 +1802,26 @@ namespace NumC
 	//
 	//		
 	// Inputs:
+	//				value 1
+	//				value 2
+	//				
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	dtype hypot(dtype inValue1, dtype inValue2)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Given the “legs” of a right triangle, return its hypotenuse.
+	//
+	//						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
+	//
+	//		
+	// Inputs:
 	//				NdArray 1
 	//				NdArray 2
 	//				
@@ -1535,6 +1914,23 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Test for NaN and return result as a boolean.
+	//
+	//		
+	// Inputs:
+	//				value
+	//				
+	// Outputs:
+	//				bool
+	//
+	template<typename dtype>
+	bool isnan(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Test element-wise for NaN and return result as a boolean array.
 	//
 	//		
@@ -1550,6 +1946,23 @@ namespace NumC
 
 	}
 
+	//============================================================================
+	// Method Description: 
+	//						Returns x1 * 2^x2.
+	//
+	//		
+	// Inputs:
+	//				value 1
+	//				value 2
+	//				
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype ldexp(dtype inValue1, dtype inValue2)
+	{
+
+	}
 
 	//============================================================================
 	// Method Description: 
@@ -1667,6 +2080,23 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Natural logarithm.
+	//
+	//		
+	// Inputs:
+	//				value
+	//				
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype log(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Natural logarithm, element-wise.
 	//
 	//		
@@ -1678,6 +2108,23 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<double> log(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return the base 10 logarithm of the input array.
+	//
+	//		
+	// Inputs:
+	//				value
+	//				
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype log10(dtype inValue)
 	{
 
 	}
@@ -1701,6 +2148,25 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Return the natural logarithm of one plus the input array.
+	//
+	//						Calculates log(1 + x).
+	//
+	//		
+	// Inputs:
+	//				value
+	//				
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype log1p(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return the natural logarithm of one plus the input array, element-wise.
 	//
 	//						Calculates log(1 + x).
@@ -1714,6 +2180,23 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<double> log1p(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Base-2 logarithm of x.
+	//
+	//		
+	// Inputs:
+	//				value
+	//				
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype log2(dtype inValue)
 	{
 
 	}
@@ -2201,6 +2684,27 @@ namespace NumC
 	//
 	//		
 	// Inputs:
+	//				inValue
+	//				Endianess
+	//				
+	// Outputs:
+	//				inValue
+	//
+	template<typename dtype>
+	dtype newbyteorder(dtype inValue, Endian::Type inEndiness)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return the array with the same data viewed with a 
+	//						different byte order. only works for integer types, 
+	//						floating point types will not compile and you will
+	//						be confused as to why...
+	//
+	//		
+	// Inputs:
 	//				NdArray
 	//				Endianess
 	//				
@@ -2477,6 +2981,22 @@ namespace NumC
 	//						Convert angles from radians to degrees.
 	//		
 	// Inputs:
+	//				value
+	//
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype rad2deg(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Convert angles from radians to degrees.
+	//		
+	// Inputs:
 	//				NdArray
 	//
 	// Outputs:
@@ -2579,6 +3099,22 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Round value to the nearest integer.
+	//		
+	// Inputs:
+	//				value 
+	//
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype rint(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Round elements of the array to the nearest integer.
 	//		
 	// Inputs:
@@ -2624,6 +3160,23 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Round value to the given number of decimals.
+	//		
+	// Inputs:
+	//				value 
+	//				the number of decimals
+	//
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype round(dtype inValue, uint8 inDecimals)
 	{
 
 	}
@@ -2730,6 +3283,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Trigonometric sine.
+	//		
+	// Inputs:
+	//				value 
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype sin(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Trigonometric sine, element-wise.
 	//		
 	// Inputs:
@@ -2750,12 +3318,44 @@ namespace NumC
 	//						The sinc function is sin(pi*x) / (pi*x).
 	//		
 	// Inputs:
+	//				value 
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype sinc(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return the sinc function.
+	//
+	//						The sinc function is sin(pi*x) / (pi*x).
+	//		
+	// Inputs:
 	//				NdArray 
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> sinc(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Hyperbolic sine,.
+	//		
+	// Inputs:
+	//				value 
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype sinh(dtype inValue)
 	{
 
 	}
@@ -2809,6 +3409,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Return the positive square-root of a value.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype sqrt(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return the positive square-root of an array, element-wise.
 	//		
 	// Inputs:
@@ -2818,6 +3433,21 @@ namespace NumC
 	//
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> sqrt(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return the square of an array.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype square(dtype inValue)
 	{
 
 	}
@@ -2902,6 +3532,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Compute tangent.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype tan(dtype inValue)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Compute tangent element-wise.
 	//		
 	// Inputs:
@@ -2911,6 +3556,21 @@ namespace NumC
 	//
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> tan(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Compute hyperbolic tangent.
+	//		
+	// Inputs:
+	//				value
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype tanh(dtype inValue)
 	{
 
 	}
@@ -3162,6 +3822,23 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Trim the leading and/or trailing zeros from a value.
+	//		
+	// Inputs:
+	//				value
+	//				string, "f" = front, "b" = back, "fb" = front and back
+	//
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype trimZeros(dtype inValue, const std::string inTrim)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Trim the leading and/or trailing zeros from a 1-D array or sequence.
 	//		
 	// Inputs:
@@ -3177,6 +3854,22 @@ namespace NumC
 
 	}
 
+	//============================================================================
+	// Method Description: 
+	//						Return the truncated value of the input.
+	//		
+	// Inputs:
+	//				value 
+	//
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype trunc(dtype inValue)
+	{
+
+
+	}
 	//============================================================================
 	// Method Description: 
 	//						Return the truncated value of the input, element-wise.
@@ -3227,6 +3920,22 @@ namespace NumC
 	//
 	template<typename dtype>
 	NdArray<dtype> unique(const NdArray<dtype>& inArray)
+	{
+
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Unwrap by changing deltas between values to 2*pi complement.
+	//		
+	// Inputs:
+	//				value 
+	//
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	dtype unwrap(dtype inValue)
 	{
 
 	}
