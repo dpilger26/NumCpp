@@ -7,7 +7,13 @@ import NumC
 ####################################################################################
 def doTest():
     print(colored('Testing Methods Module', 'magenta'))
-    print(colored('\tPASS', 'green'))
+
+    print(colored('Testing abs scalar', 'cyan'))
+    randValue = np.random.randint(-100, -1, [1,]).astype(np.double).item()
+    if NumC.abs(randValue) == np.abs(randValue):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
 ####################################################################################
 if __name__ == '__main__':

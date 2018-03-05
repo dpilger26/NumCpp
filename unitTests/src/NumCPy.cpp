@@ -861,9 +861,15 @@ namespace NdArrayInterface
 	}
 }
 
+//================================================================================
+
 namespace MethodsInterface
 {
-
+	template<typename dtype>
+	dtype absScalar(dtype inValue)
+	{
+		return abs(inValue);
+	}
 }
 
 //================================================================================
@@ -1036,6 +1042,8 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("operatorBitwiseNot", &NdArrayInterface::operatorBitwiseNot<uint32>)
 		.def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>)
 		.def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
+
+	boost::python::def("abs", MethodsInterface::absScalar<double>);
 
 	boost::python::def("num2str", NumC::num2str<double>);
 	boost::python::def("num2str", NumC::num2str<float>);

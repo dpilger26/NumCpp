@@ -2453,17 +2453,18 @@ namespace NumC
 		//						Repeat elements of an array.
 		//		
 		// Inputs:
-		//				Shape
+		//				numRows
+		//				numCols
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> repeat(const Shape& inRepeatShape) const
+		NdArray<dtype> repeat(uint32 inNumRows, uint32 inNumCols) const
 		{
-			NdArray<dtype> returnArray(shape_.rows * inRepeatShape.rows, shape_.cols * inRepeatShape.cols);
+			NdArray<dtype> returnArray(shape_.rows * inNumRows, shape_.cols * inNumCols);
 
-			for (uint32 row = 0; row < inRepeatShape.rows; ++row)
+			for (uint32 row = 0; row < inNumRows; ++row)
 			{
-				for (uint32 col = 0; col < inRepeatShape.cols; ++col)
+				for (uint32 col = 0; col < inNumCols; ++col)
 				{
 					std::vector<uint32> indices(shape_.size());
 
@@ -2487,6 +2488,34 @@ namespace NumC
 			}
 
 			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Repeat elements of an array.
+		//		
+		// Inputs:
+		//				Shape
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> repeat(const Shape& inRepeatShape) const
+		{
+			return std::move(repeat(inRepeatShape.rows, inRepeatShape.cols));
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Repeat elements of an array.
+		//		
+		// Inputs:
+		//				initializer_list
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> repeat(std::initializer_list<uint32>& inRepeatShapeList) const
+		{
+			return std::move(repeat(Shape(inRepeatShapeList)));
 		}
 
 		//============================================================================
@@ -2587,8 +2616,10 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						Change shape and size of array in-place. All data outide
-		//						of new size is lost.
+		//						Return a new array with the specified shape. If new shape
+		//						is larger than old shape then array will be padded with zeros.
+		//						If new shape is smaller than the old shape then the data will
+		//						be discarded.
 		//		
 		// Inputs:
 		//				Shape
@@ -2623,8 +2654,10 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						Change shape and size of array in-place. All data outide
-		//						of new size is lost.
+		//						Return a new array with the specified shape. If new shape
+		//						is larger than old shape then array will be padded with zeros.
+		//						If new shape is smaller than the old shape then the data will
+		//						be discarded.
 		//		
 		// Inputs:
 		//				initializer_list<uint32>
@@ -2638,8 +2671,10 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
-		//						Change shape and size of array in-place. All data outide
-		//						of new size is lost.
+		//						Return a new array with the specified shape. If new shape
+		//						is larger than old shape then array will be padded with zeros.
+		//						If new shape is smaller than the old shape then the data will
+		//						be discarded.
 		//		
 		// Inputs:
 		//				initializer_list<uint32>

@@ -51,7 +51,7 @@ namespace NumC
 	template<typename dtype>
 	dtype abs(dtype inValue)
 	{
-
+		return std::abs(inValue);
 	}
 
 	//============================================================================
@@ -66,7 +66,10 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> abs(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray);
+		std::transform(returnArray.begin(), returnArray.end(), [](dtype inValue){ return std::abs(inValue); })
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -573,7 +576,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> asarray(std::initializer_list<dtype> inList)
+	NdArray<dtype> asarray(std::initializer_list<dtype>& inList)
 	{
 		return NdArray<dtype>(inList);
 	}
@@ -1230,6 +1233,22 @@ namespace NumC
 	//						Return a new array of given shape and type, without initializing entries.
 	//		
 	// Inputs:
+	//				inNumRows
+	//				inNumCols
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> empty(uint32 inNumRows, uint32 inNumCols)
+	{
+		return std::move(NdArray<dtype>(inNumRows, inNumCols));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, without initializing entries.
+	//		
+	// Inputs:
 	//				Shape
 	// Outputs:
 	//				NdArray
@@ -1238,6 +1257,21 @@ namespace NumC
 	NdArray<dtype> empty(const Shape& inShape)
 	{
 		return std::move(NdArray<dtype>(inShape));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, without initializing entries.
+	//		
+	// Inputs:
+	//				Shape
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> empty(std::initializer_list<uint32>& inShapeList)
+	{
+		return std::move(NdArray<dtype>(inShapeList));
 	}
 
 	//============================================================================
@@ -1714,6 +1748,23 @@ namespace NumC
 	//						Return a new array of given shape and type, filled with inFillValue
 	//		
 	// Inputs:
+	//				numRows
+	//				numCols
+	//				fill value
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue)
+	{
+		return std::move(NdArray<dtype>(inNumRows, inNumCols).fill(inFillValue));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, filled with inFillValue
+	//		
+	// Inputs:
 	//				Shape
 	//				fill value
 	// Outputs:
@@ -1723,6 +1774,22 @@ namespace NumC
 	NdArray<dtype> full(const Shape& inShape, dtype inFillValue)
 	{
 		return std::move(NdArray<dtype>(inShape).fill(inFillValue));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, filled with inFillValue
+	//		
+	// Inputs:
+	//				initializer_list
+	//				fill value
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> full(std::initializer_list<uint32>& inShapeList, dtype inFillValue)
+	{
+		return std::move(NdArray<dtype>(inShapeList).fill(inFillValue));
 	}
 
 	//============================================================================
@@ -2826,6 +2893,22 @@ namespace NumC
 	//						Return a new array of given shape and type, filled with ones.
 	//		
 	// Inputs:
+	//				numRows
+	//				numCols
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> ones(uint32 inNumRows, uint32 inNumCols)
+	{
+		return std::move(full(inNumRows, inNumCols, static_cast<dtype>(1)));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, filled with ones.
+	//		
+	// Inputs:
 	//				Shape
 	// Outputs:
 	//				NdArray
@@ -2833,7 +2916,22 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> ones(const Shape& inShape)
 	{
-		return std::move(NdArray<dtype>(inShape).ones());
+		return std::move(full(inShape, static_cast<dtype>(1)));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, filled with ones.
+	//		
+	// Inputs:
+	//				initializer_list
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> ones(std::initializer_list<uint32>& inShapeList)
+	{
+		return std::move(full(inShapeList, static_cast<dtype>(1)));
 	}
 
 	//============================================================================
@@ -3082,6 +3180,24 @@ namespace NumC
 	//						Repeat elements of an array.
 	//		
 	// Inputs:
+	//				numRows
+	//				numCols
+	//				Shape
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> repeat(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+	{
+		return std::move(inArray.repeat(inNumRows, inNumCols));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Repeat elements of an array.
+	//		
+	// Inputs:
 	//				NdArray
 	//				Shape
 	//
@@ -3096,6 +3212,41 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Repeat elements of an array.
+	//		
+	// Inputs:
+	//				NdArray
+	//				Shape
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> repeat(const NdArray<dtype>& inArray, std::initializer_list<uint32>& inRepeatShapeList)
+	{
+		return std::move(inArray.repeat(inRepeatShapeList));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Gives a new shape to an array without changing its data.
+	//		
+	// Inputs:
+	//				numRows
+	//				numCols
+	//				Shape, new Shape
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	void reshape(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+	{
+		inArray.reshape(inNumRows, inNumCols);
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Gives a new shape to an array without changing its data.
 	//		
 	// Inputs:
@@ -3106,9 +3257,102 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> reshape(const NdArray<dtype>& inArray, const Shape& inNewShape)
+	void reshape(const NdArray<dtype>& inArray, const Shape& inNewShape)
 	{
+		inArray.reshape(inNewShape);
+	}
 
+	//============================================================================
+	// Method Description: 
+	//						Gives a new shape to an array without changing its data.
+	//		
+	// Inputs:
+	//				NdArray
+	//				initializer_list
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	void reshape(const NdArray<dtype>& inArray, std::initializer_list<uint32>& inNewShapeList)
+	{
+		inArray.resizeFast(inNewShapeList);
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Change shape and size of array in-place. All previous
+	//						data of the array is lost.
+	//		
+	// Inputs:
+	//				NdArray
+	//				numRows
+	//				numCols
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	void resizeFast(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+	{
+		inArray.resizeFast(inNumRows, inNumCols);
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Change shape and size of array in-place. All previous
+	//						data of the array is lost.
+	//		
+	// Inputs:
+	//				NdArray 
+	//				Shape, new Shape
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	void resizeFast(const NdArray<dtype>& inArray, const Shape& inNewShape)
+	{
+		inArray.resizeFast(inNewShape);
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Change shape and size of array in-place. All previous
+	//						data of the array is lost.
+	//		
+	// Inputs:
+	//				NdArray
+	//				initializer_list 
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	void resizeFast(const NdArray<dtype>& inArray, std::initializer_list<uint32>& inNewShapeList)
+	{
+		inArray.resize(inNewShapeList);
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array with the specified shape. If new shape
+	//						is larger than old shape then array will be padded with zeros.
+	//						If new shape is smaller than the old shape then the data will
+	//						be discarded.
+	//		
+	// Inputs:
+	//				NdArray
+	//				numRows
+	//				numCols
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	void resizeSlow(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+	{
+		inArray.resizeSlow(inNumRows, inNumCols);
 	}
 
 	//============================================================================
@@ -3126,9 +3370,29 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> resize(const NdArray<dtype>& inArray, const Shape& inNewShape)
+	void resizeSlow(const NdArray<dtype>& inArray, const Shape& inNewShape)
 	{
+		inArray.resizeSlow(inNewShape);
+	}
 
+	//============================================================================
+	// Method Description: 
+	//						Return a new array with the specified shape. If new shape
+	//						is larger than old shape then array will be padded with zeros.
+	//						If new shape is smaller than the old shape then the data will
+	//						be discarded.
+	//		
+	// Inputs:
+	//				NdArray
+	//				initializer_list 
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	void resizeSlow(const NdArray<dtype>& inArray, std::initializer_list<uint32>& inNewShapeList)
+	{
+		inArray.resizeSlow(inNewShapeList);
 	}
 
 	//============================================================================
@@ -3630,6 +3894,23 @@ namespace NumC
 	//						Construct an array by repeating A the number of times given by reps.
 	//		
 	// Inputs:
+	//				initializer_list
+	//				numRows
+	//				numCols
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> tile(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+	{
+		return std::move(inArray.repeat(inNumRows, inNumCols));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Construct an array by repeating A the number of times given by reps.
+	//		
+	// Inputs:
 	//				NdArray
 	//				Shape
 	// Outputs:
@@ -3639,6 +3920,22 @@ namespace NumC
 	NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps)
 	{
 		return std::move(inArray.repeat(inReps));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Construct an array by repeating A the number of times given by reps.
+	//		
+	// Inputs:
+	//				NdArray
+	//				initializer_list
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> tile(const NdArray<dtype>& inArray, std::initializer_list<uint32>& inRepsList)
+	{
+		return std::move(inArray.repeat(inRepsList));
 	}
 
 	//============================================================================
@@ -4030,6 +4327,22 @@ namespace NumC
 	//						Return a new array of given shape and type, filled with zeros.
 	//		
 	// Inputs:
+	//				numRows
+	//				numCols
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> zeros(uint32 inNumRows, uint32 inNumCols)
+	{
+		return std::move(full(inNumRows, inNumCols, static_cast<dtype>(0)));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, filled with zeros.
+	//		
+	// Inputs:
 	//				Shape
 	// Outputs:
 	//				NdArray
@@ -4037,8 +4350,21 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> zeros(const Shape& inShape)
 	{
-		NdArray<dtype> returnArray(inShape);
-		returnArray.zeros()
-		return std::move(returnArray);
+		return std::move(full(inShape, static_cast<dtype>(0)));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, filled with zeros.
+	//		
+	// Inputs:
+	//				initializer_list
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> zeros(std::initializer_list<uint32>& inShapeList)
+	{
+		return std::move(full(inShapeList, static_cast<dtype>(0)));
 	}
 }
