@@ -66,8 +66,8 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> abs(const NdArray<dtype>& inArray)
 	{
-		NdArray<dtype> returnArray(inArray);
-		std::transform(returnArray.begin(), returnArray.end(), [](dtype inValue){ return std::abs(inValue); })
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::abs(inValue); });
 
 		return std::move(returnArray);
 	}
@@ -85,7 +85,15 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: add: input array dimensions are not consistant.");
+		}
 
+		NdArray<dtypeOut> returnArray(inArray1.shape());
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(), std::plus<dtypeOut>());
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -98,9 +106,9 @@ namespace NumC
 	//				length uint16
 	//
 	template<typename dtype>
-	uint16 alen(const NdArray<dtype>& inArray)
+	uint32 alen(const NdArray<dtype>& inArray)
 	{
-
+		return inArray.shape().rows;
 	}
 
 	//============================================================================
@@ -134,7 +142,21 @@ namespace NumC
 	template<typename dtype>
 	bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance = 1e-5)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: allclose: input array dimensions are not consistant.");
+		}
 
+		bool close = true;
+		for (uint32 i = 0; i < inArray1.size(); ++i)
+		{
+			if (std::abs(inArray1[i] - inArray2[i]) > inTolerance)
+			{
+				return false;
+			}
+		}
+
+		return close;
 	}
 
 	//============================================================================
@@ -150,7 +172,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> amax(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.max(inAxis));
 	}
 
 	//============================================================================
@@ -166,7 +188,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.min(inAxis));
 	}
 
 	//============================================================================
@@ -217,30 +239,6 @@ namespace NumC
 	//						not be consistent.It is better to use linspace for these cases.
 	//		
 	// Inputs:
-	//				stop value, start is assumed to be zero
-	//				(Optional) step value, defaults to 1
-	// Outputs:
-	//				NdArray
-	//
-	template<typename dtype>
-	NdArray<dtype> arange(dtype inStop, double inStep = 1.0)
-	{
-
-	}
-
-	//============================================================================
-	// Method Description: 
-	//						Return evenly spaced values within a given interval.
-	//
-	//						Values are generated within the half - open interval[start, stop)
-	//						(in other words, the interval including start but excluding stop).
-	//						For integer arguments the function is equivalent to the Python built - in
-	//						range function, but returns an ndarray rather than a list.
-	//
-	//						When using a non - integer step, such as 0.1, the results will often 
-	//						not be consistent.It is better to use linspace for these cases.
-	//		
-	// Inputs:
 	//				start value,
 	//				stop value, 
 	//				(Optional) step value, defaults to 1
@@ -248,9 +246,40 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> arange(dtype inStart, dtype inStop, double inStep = 1.0)
+	NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
 	{
+		if (inStep > 0 && inStop < inStart)
+		{
+			throw std::invalid_argument("ERROR: arange: stop value must be larger than the start value for positive step.");
+		}
 
+		if (inStep < 0 && inStop > inStart)
+		{
+			throw std::invalid_argument("ERROR: arange: start value must be larger than the stop value for negative step.");
+		}
+
+		std::vector<dtype> values;
+
+		dtype theValue = inStart;
+
+		if (inStep > 0)
+		{
+			while (theValue < inStop)
+			{
+				values.push_back(theValue);
+				theValue += static_cast<dtype>(inStep);
+			}
+		}
+		else
+		{
+			while (theValue > inStop)
+			{
+				values.push_back(theValue);
+				theValue += static_cast<dtype>(inStep);
+			}
+		}
+
+		return std::move(NdArray<dtype>(values));
 	}
 
 	//============================================================================

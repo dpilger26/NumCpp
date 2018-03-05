@@ -870,6 +870,86 @@ namespace MethodsInterface
 	{
 		return abs(inValue);
 	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray absArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(abs(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray addArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(add<dtype, dtypeOut>(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray allArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(all(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray anyArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(any(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray argmaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(argmax(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray argminArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(argmin(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray argsortArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(argsort(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray amaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(amax(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray aminArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(amin(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray arangeArray(dtype inStart, dtype inStop, dtype inStep)
+	{
+		return numCToBoost(arange<dtype>(inStart, inStop, inStep));
+	}
 }
 
 //================================================================================
@@ -1044,6 +1124,19 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
 
 	boost::python::def("abs", MethodsInterface::absScalar<double>);
+	boost::python::def("abs", MethodsInterface::absArray<double>);
+	boost::python::def("add", MethodsInterface::addArrays<double, double>);
+	boost::python::def("alen", NumC::alen<double>);
+	boost::python::def("all", MethodsInterface::allArray<double>);
+	boost::python::def("allclose", NumC::allclose<double>);
+	boost::python::def("amin", MethodsInterface::aminArray<double>);
+	boost::python::def("amax", MethodsInterface::amaxArray<double>);
+	boost::python::def("any", MethodsInterface::anyArray<double>);
+	boost::python::def("arange", MethodsInterface::arangeArray<double>);
+	boost::python::def("argmax", MethodsInterface::argmaxArray<double>);
+	boost::python::def("argmin", MethodsInterface::argminArray<double>);
+	boost::python::def("argsort", MethodsInterface::argsortArray<double>);
+
 
 	boost::python::def("num2str", NumC::num2str<double>);
 	boost::python::def("num2str", NumC::num2str<float>);
