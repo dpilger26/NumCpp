@@ -25,6 +25,7 @@
 #include<iostream>
 #include<string>
 #include<stdexcept>
+#include<utility>
 
 #ifndef BOOST_PYTHON_STATIC_LIB
 #define BOOST_PYTHON_STATIC_LIB    
@@ -477,7 +478,7 @@ namespace NumC
 				returnArray[i] = static_cast<dtype>(helper(i));
 			}
 
-			return returnArray;
+			return std::move(returnArray);
 		}
 		else
 		{
@@ -494,7 +495,7 @@ namespace NumC
 				}
 			}
 
-			return returnArray;
+			return std::move(returnArray);
 		}
 	}
 

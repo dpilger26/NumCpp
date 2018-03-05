@@ -35,6 +35,7 @@
 #include<algorithm>
 //#include<limits>
 //#include<numeric>
+#include<utility>
 
 namespace NumC
 {
@@ -112,7 +113,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> all(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.all(inAxis));
 	}
 
 	//============================================================================
@@ -178,7 +179,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> any(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.any(inAxis));
 	}
 
 	//============================================================================
@@ -440,9 +441,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<uint16> argmax(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	NdArray<uint32> argmax(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.argmax(inAxis));
 	}
 
 	//============================================================================
@@ -456,9 +457,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<uint16> argmin(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	NdArray<uint32> argmin(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.argmin(inAxis));
 	}
 
 	//============================================================================
@@ -472,9 +473,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<uint16> argsort(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	NdArray<uint32> argsort(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.argsort(inAxis));
 	}
 
 	//============================================================================
@@ -589,7 +590,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> astype(const NdArray<dtype> inArray)
 	{
-
+		return std::move(inArray.astype<dtypeOut>());
 	}
 
 	//============================================================================
@@ -737,7 +738,7 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						Swap the bytes of the array elements in place
+	//						Swap the bytes of the array elements
 	//		
 	// Inputs:
 	//				NdArray 
@@ -746,9 +747,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	void byteswap(NdArray<dtype>& inArray)
+	NdArray<dtype> byteswap(const NdArray<dtype>& inArray)
 	{
-
+		return NdArray<dtype>(inArray).byteswap();
 	}
 
 	//============================================================================
@@ -842,7 +843,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue)
 	{
-
+		return std::move(inArray.clip(inMinValue, inMaxValue));
 	}
 
 	//============================================================================
@@ -890,7 +891,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> copy(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(NdArray<dtype>(inArray));
 	}
 
 	//============================================================================
@@ -1046,7 +1047,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> cumprod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.cumprod<dtypeOut>(inAxis));
 	}
 
 	//============================================================================
@@ -1062,7 +1063,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> cumsum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.cumsum<dtypeOut>(inAxis));
 	}
 
 	//============================================================================
@@ -1156,7 +1157,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> diagnol(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
 	{
-
+		return std::move(inArray.diagonal(inOffset, inAxis));
 	}
 
 	//============================================================================
@@ -1202,9 +1203,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<uint32>& inArray2)
+	NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1.dot<dtypeOut>(inArray2));
 	}
 
 	//============================================================================
@@ -1221,7 +1222,7 @@ namespace NumC
 	template<typename dtype>
 	void dump(const NdArray<dtype>& inArray, const std::string& inFilename)
 	{
-
+		inArray.dump(inFilename);
 	}
 
 	//============================================================================
@@ -1236,7 +1237,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> empty(const Shape& inShape)
 	{
-		return NdArray<dtype>(inShape);
+		return std::move(NdArray<dtype>(inShape));
 	}
 
 	//============================================================================
@@ -1251,7 +1252,22 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> empty_like(const NdArray<dtype>& inArray)
 	{
-		return NdArray<dtypeOut>(inArray.shape());
+		return std::move(NdArray<dtypeOut>(inArray.shape()));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return the endianess of the array values.
+	//		
+	// Inputs:
+	//				NdArray
+	// Outputs:
+	//				Endian::Type
+	//
+	template<typename dtype>
+	Endian::Type endianess(const NdArray<dtype>& inArray)
+	{
+		return inArray.endianess();
 	}
 
 	//============================================================================
@@ -1440,7 +1456,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> flatten(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(inArray.flatten());
 	}
 
 	//============================================================================
@@ -1706,7 +1722,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> full(const Shape& inShape, dtype inFillValue)
 	{
-
+		return std::move(NdArray<dtype>(inShape).fill(inFillValue));
 	}
 
 	//============================================================================
@@ -1722,7 +1738,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue)
 	{
-
+		return std::move(NdArray<dtype>(inArray,shape()).fill(inFillValue));
 	}
 
 	//============================================================================
@@ -2323,7 +2339,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> max(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.max(inAxis));
 	}
 
 	//============================================================================
@@ -2359,7 +2375,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> mean(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.mean(inAxis));
 	}
 
 	//============================================================================
@@ -2377,7 +2393,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> median(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.median(inAxis));
 	}
 
 	//============================================================================
@@ -2395,7 +2411,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> min(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.min(inAxis));
 	}
 
 	//============================================================================
@@ -2678,6 +2694,21 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Returns the number of bytes held by the array
+	//	
+	// Inputs:
+	//				None
+	// Outputs:
+	//				number of bytes
+	//
+	template<typename dtype>
+	uint64 nbytes(const NdArray<dtype>& inArray)
+	{
+		return inArray.nbytes();
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return the array with the same data viewed with a 
 	//						different byte order. only works for integer types, 
 	//						floating point types will not compile and you will
@@ -2715,7 +2746,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian::Type inEndiness)
 	{
-
+		return std::move(inArray.newbyteorder(inEndiness));
 	}
 
 	//============================================================================
@@ -2750,7 +2781,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<uint32> nonzero(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(inArray.nonzero());
 	}
 
 	//============================================================================
@@ -2769,7 +2800,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> norm(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.norm(inAxis));
 	}
 
 	//============================================================================
@@ -2802,7 +2833,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> ones(const Shape& inShape)
 	{
-
+		return std::move(NdArray<dtype>(inShape).ones());
 	}
 
 	//============================================================================
@@ -2817,7 +2848,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(NdArray<dtype>(inArray.shape()).ones());
 	}
 
 	//============================================================================
@@ -2855,7 +2886,9 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis::Type inAxis = Axis::NONE)
 	{
-
+		NdArray<dtype> returnArray(inArray);
+		returnArray.partition(inKth, inAxis);
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2919,7 +2952,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> prod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.prod<dtypeOut>(inAxis));
 	}
 
 	//============================================================================
@@ -2935,7 +2968,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.ptp(inAxis));
 	}
 
 	//============================================================================
@@ -3058,7 +3091,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> repeat(const NdArray<dtype>& inArray, const Shape& inRepeatShape)
 	{
-
+		return std::move(inArray.repeat(inRepeatShape));
 	}
 
 	//============================================================================
@@ -3196,7 +3229,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals)
 	{
-
+		return std::move(inArray.round(inDecimals));
 	}
 
 	//============================================================================
@@ -3246,7 +3279,7 @@ namespace NumC
 	template<typename dtype>
 	Shape shape(const NdArray<dtype>& inArray)
 	{
-
+		return inArray.shape();
 	}
 
 	//============================================================================
@@ -3378,18 +3411,17 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						Return the number of elements along a given axis.
+	//						Return the number of elements.
 	//		
 	// Inputs:
-	//				NdArray 
-	//				(Optional) Axis
+	//				uint32 
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<uint32> size(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	uint32 size(const NdArray<dtype>& inArray)
 	{
-
+		return inArray.size();
 	}
 
 	//============================================================================
@@ -3405,7 +3437,9 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> sort(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		NdArray<dtype> returnArray(inArray);
+		returnArray.sort(inAxis);
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -3494,10 +3528,10 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> std(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	template<typename dtype>
+	NdArray<double> std(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.std(inAxis));
 	}
 
 	//============================================================================
@@ -3513,7 +3547,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.sum<dtypeOut>(inAxis));
 	}
 
 	//============================================================================
@@ -3528,7 +3562,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> swapaxes(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(inArray.swapaxes());
 	}
 
 	//============================================================================
@@ -3604,7 +3638,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps)
 	{
-
+		return std::move(inArray.repeat(inReps));
 	}
 
 	//============================================================================
@@ -3623,7 +3657,7 @@ namespace NumC
 	template<typename dtype>
 	void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const std::string& inSep = "")
 	{
-
+		return inArray.tofile(inFilename, inSep);
 	}
 
 	//============================================================================
@@ -3638,7 +3672,7 @@ namespace NumC
 	template<typename dtype>
 	std::vector<dtype> toStlVector(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(inArray.toStlVector());
 	}
 
 	//============================================================================
@@ -3653,9 +3687,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> trace(const NdArray<dtype>& inArray, int16 inOffset=0, Axis::Type inAxis = Axis::ROW)
+	NdArray<dtypeOut> trace(const NdArray<dtype>& inArray, uint16 inOffset=0, Axis::Type inAxis = Axis::ROW)
 	{
-
+		return std::move(inArray.trace<dtypeOut>(inOffset, inAxis));
 	}
 
 	//============================================================================
@@ -3671,7 +3705,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> tranpose(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(inArray.transpose());
 	}
 
 	//============================================================================
@@ -3968,10 +4002,10 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> var(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	template<typename dtype>
+	NdArray<double> var(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.var(inAxis));
 	}
 
 	//============================================================================
@@ -4004,6 +4038,7 @@ namespace NumC
 	NdArray<dtype> zeros(const Shape& inShape)
 	{
 		NdArray<dtype> returnArray(inShape);
-		return returnArray.zeros();
+		returnArray.zeros()
+		return std::move(returnArray);
 	}
 }
