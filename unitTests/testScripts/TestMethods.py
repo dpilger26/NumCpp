@@ -490,6 +490,81 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing average: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if NumC.average(cArray, NumC.Axis.NONE).item() == np.average(data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing average: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumC.average(cArray, NumC.Axis.ROW).flatten(), np.average(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing average: Axis = Column', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumC.average(cArray, NumC.Axis.COL).flatten(), np.average(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing average weighted: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    cWeights = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    weights = np.random.randint(1, 5, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    cWeights.setArray(weights)
+    if NumC.average(cArray, cWeights, NumC.Axis.NONE).item() == np.average(data, weights=weights):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing average weighted: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    cWeights = NumC.NdArray(1, shape.cols)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    weights = np.random.randint(1, 5, [1, shape.rows])
+    cArray.setArray(data)
+    cWeights.setArray(weights)
+    if np.array_equal(NumC.average(cArray, cWeights, NumC.Axis.ROW).flatten(), np.average(data, weights=weights.flatten(), axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing average weighted: Axis = Column', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    cWeights = NumC.NdArray(1, shape.rows)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    weights = np.random.randint(1, 5, [1, shape.cols])
+    cWeights.setArray(weights)
+    cArray.setArray(data)
+    if np.array_equal(NumC.average(cArray, cWeights, NumC.Axis.COL).flatten(), np.average(data, weights=weights.flatten(), axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
 ####################################################################################
 if __name__ == '__main__':
     doTest()

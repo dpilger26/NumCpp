@@ -667,7 +667,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> average(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		return std::move(inArray.mean(inAxis));
 	}
 
 	//============================================================================
@@ -684,7 +684,74 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::NONE)
 	{
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				if (inWeights.shape() != inArray.shape())
+				{
+					throw std::invalid_argument("ERROR: input array and weight values are not consistant.");
+				}
 
+				NdArray<double> weightedArray(inArray.shape());
+				std::transform(inArray.cbegin(), inArray.cend(), inWeights.cbegin(), weightedArray.begin(), std::multiplies<double>());
+
+				double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
+				NdArray<double> returnArray = { sum /= inWeights.sum<double>().item() };
+
+				return std::move(returnArray);
+			}
+			case Axis::COL:
+			{
+				Shape arrayShape = inArray.shape();
+				if (inWeights.size() != arrayShape.cols)
+				{
+					throw std::invalid_argument("ERROR: input array and weights value are not consistant.");
+				}
+
+				double weightSum = inWeights.sum<double>().item();
+				NdArray<double> returnArray(1, arrayShape.rows);
+				for (uint32 row = 0; row < arrayShape.rows; ++row)
+				{
+					NdArray<double> weightedArray(1, arrayShape.cols);
+					std::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(), weightedArray.begin(), std::multiplies<double>());
+
+					double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
+					returnArray(0, row) = sum / weightSum;
+				}
+
+				return std::move(returnArray);
+			}
+			case Axis::ROW:
+			{
+				if (inWeights.size() != inArray.shape().rows)
+				{
+					throw std::invalid_argument("ERROR: input array and weight values are not consistant.");
+				}
+
+				NdArray<dtype> transposedArray = inArray.transpose();
+
+				Shape transShape = transposedArray.shape();
+				double weightSum = inWeights.sum<double>().item();
+				NdArray<double> returnArray(1, transShape.rows);
+				for (uint32 row = 0; row < transShape.rows; ++row)
+				{
+					NdArray<double> weightedArray(1, transShape.cols);
+					std::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(), weightedArray.begin(), std::multiplies<double>());
+
+					double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
+					returnArray(0, row) = sum / weightSum;
+				}
+
+				return std::move(returnArray);
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<double>(0));
+			}
+		}
 	}
 
 	//============================================================================

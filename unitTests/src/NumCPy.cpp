@@ -1062,6 +1062,22 @@ namespace MethodsInterface
 	{
 		return numCToBoost(around(inArray, inNumDecimals));
 	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray average(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(inArray.mean(inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(average(inArray, inWeights, inAxis));
+	}
 }
 
 //================================================================================
@@ -1264,6 +1280,8 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("around", MethodsInterface::aroundArray<double>);
 	boost::python::def("array_equal", NumC::array_equal<double>);
 	boost::python::def("array_equiv", NumC::array_equiv<double>);
+	boost::python::def("average", MethodsInterface::average<double>);
+	boost::python::def("average", MethodsInterface::averageWeighted<double>);
 
 	boost::python::def("num2str", NumC::num2str<double>);
 	boost::python::def("num2str", NumC::num2str<float>);

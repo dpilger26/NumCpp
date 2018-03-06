@@ -610,7 +610,6 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    # only test the odd sized array, even will not match by design
     print(colored('Testing mean: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
