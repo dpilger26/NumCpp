@@ -1076,7 +1076,23 @@ namespace MethodsInterface
 	template<typename dtype>
 	np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::NONE)
 	{
-		return numCToBoost(average(inArray, inWeights, inAxis));
+		return numCToBoost(NumC::average(inArray, inWeights, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
+	{
+		return numCToBoost(NumC::bincount(inArray, inMinLength));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray bincountWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+	{
+		return numCToBoost(NumC::bincount(inArray, inWeights, inMinLength));
 	}
 }
 
@@ -1282,6 +1298,8 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("array_equiv", NumC::array_equiv<double>);
 	boost::python::def("average", MethodsInterface::average<double>);
 	boost::python::def("average", MethodsInterface::averageWeighted<double>);
+	boost::python::def("bincount", MethodsInterface::bincount<uint32>);
+	boost::python::def("bincount", MethodsInterface::bincountWeighted<uint32>);
 
 	boost::python::def("num2str", NumC::num2str<double>);
 	boost::python::def("num2str", NumC::num2str<float>);

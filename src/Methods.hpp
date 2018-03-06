@@ -33,7 +33,7 @@
 #include<vector>
 //#include<set>
 #include<algorithm>
-//#include<limits>
+#include<limits>
 //#include<numeric>
 #include<utility>
 
@@ -757,6 +757,7 @@ namespace NumC
 	//============================================================================
 	// Method Description: 
 	//						Count number of occurrences of each value in array of non-negative ints.
+	//						Negative values will be counted in the zero bin.
 	//
 	//						The number of bins(of size 1) is one larger than the largest value in x.
 	//						If minlength is specified, there will be at least this number of bins in 
@@ -771,14 +772,39 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<uint32> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
+	NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
 	{
+		// only works with integer input types
+		static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: bincount: can only use with integer types.");
 
+		dtype maxValue = inArray.max().item();
+		if (maxValue < 0)
+		{
+			// no positive values so just return an empty array
+			return std::move(NdArray<dtype>(0));
+		}
+
+		if (maxValue + 1 > std::numeric_limits<uint16>::max())
+		{
+			throw std::runtime_error("Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...");
+		}
+
+		uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
+		NdArray<dtype> clippedArray = inArray.clip(0, maxValue);
+
+		NdArray<dtype> outArray(1, outArraySize);
+		for (uint32 i = 0; i < inArray.size(); ++i)
+		{
+			++outArray[clippedArray[i]];
+		}
+
+		return std::move(outArray);
 	}
 
 	//============================================================================
 	// Method Description: 
 	//						Count number of occurrences of each value in array of non-negative ints.
+	//						Negative values will be counted in the zero bin.
 	//
 	//						The number of bins(of size 1) is one larger than the largest value in x.
 	//						If minlength is specified, there will be at least this number of bins in 
@@ -786,6 +812,7 @@ namespace NumC
 	//						contents of x).Each bin gives the number of occurrences of its index value 
 	//						in x.If weights is specified the input array is weighted by it, i.e. if a 
 	//						value n is found at position i, out[n] += weight[i] instead of out[n] += 1.
+	//						Weights array shall be of the same shape as inArray.
 	//		
 	// Inputs:
 	//				NdArray
@@ -795,9 +822,38 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<uint32> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+	NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
 	{
+		// only works with integer input types
+		static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: bincount: can only use with integer types.");
 
+		if (inArray.shape() != inWeights.shape())
+		{
+			throw std::invalid_argument("ERROR: bincount: weights array must be the same shape as the input array.");
+		}
+
+		dtype maxValue = inArray.max().item();
+		if (maxValue < 0)
+		{
+			// no positive values so just return an empty array
+			return std::move(NdArray<dtype>(0));
+		}
+
+		if (maxValue + 1 > std::numeric_limits<uint16>::max())
+		{
+			throw std::runtime_error("Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...");
+		}
+
+		uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
+		NdArray<dtype> clippedArray = inArray.clip(0, maxValue);
+
+		NdArray<dtype> outArray(1, outArraySize);
+		for (uint32 i = 0; i < inArray.size(); ++i)
+		{
+			outArray[clippedArray[i]] += inWeights[i];
+		}
+
+		return std::move(outArray);
 	}
 
 	//============================================================================
@@ -811,7 +867,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> bitwise_and(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+	NdArray<dtype> bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, uint16 inMinLength = 0)
 	{
 
 	}
@@ -827,7 +883,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+	NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, uint16 inMinLength = 0)
 	{
 
 	}
@@ -843,7 +899,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> bitwise_or(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+	NdArray<dtype> bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, uint16 inMinLength = 0)
 	{
 
 	}
@@ -859,7 +915,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> bitwise_xor(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+	NdArray<dtype> bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, uint16 inMinLength = 0)
 	{
 
 	}

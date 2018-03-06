@@ -565,6 +565,58 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing bincount', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArrayInt(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint16)
+    cArray.setArray(data)
+    if np.array_equal(NumC.bincount(cArray, 0).flatten(), np.bincount(data.flatten(), minlength=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing bincount with minLength', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArrayInt(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint16)
+    cArray.setArray(data)
+    minLength = int(data.max() + 10)
+    if np.array_equal(NumC.bincount(cArray, minLength).flatten(), np.bincount(data.flatten(), minlength=minLength)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing bincount weighted', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArrayInt(shape)
+    cWeights = NumC.NdArrayInt(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint16)
+    weights = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint16)
+    cArray.setArray(data)
+    cWeights.setArray(weights)
+    if np.array_equal(NumC.bincount(cArray, cWeights, 0).flatten(), np.bincount(data.flatten(), minlength=0, weights=weights.flatten())):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing bincount weighted with minLength', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArrayInt(shape)
+    cWeights = NumC.NdArrayInt(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint16)
+    weights = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint16)
+    cArray.setArray(data)
+    cWeights.setArray(weights)
+    minLength = int(data.max() + 10)
+    if np.array_equal(NumC.bincount(cArray, cWeights, minLength).flatten(), np.bincount(data.flatten(), minlength=minLength, weights=weights.flatten())):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
 ####################################################################################
 if __name__ == '__main__':
     doTest()
