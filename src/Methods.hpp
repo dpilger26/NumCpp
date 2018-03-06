@@ -85,15 +85,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-		if (inArray1.shape() != inArray2.shape())
-		{
-			throw std::invalid_argument("ERROR: add: input array dimensions are not consistant.");
-		}
-
-		NdArray<dtypeOut> returnArray(inArray1.shape());
-		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(), std::plus<dtypeOut>());
-
-		return std::move(returnArray);
+		return std::move(inArray1 + inArray2);
 	}
 
 	//============================================================================
@@ -147,7 +139,6 @@ namespace NumC
 			throw std::invalid_argument("ERROR: allclose: input array dimensions are not consistant.");
 		}
 
-		bool close = true;
 		for (uint32 i = 0; i < inArray1.size(); ++i)
 		{
 			if (std::abs(inArray1[i] - inArray2[i]) > inTolerance)
@@ -156,7 +147,7 @@ namespace NumC
 			}
 		}
 
-		return close;
+		return true;
 	}
 
 	//============================================================================
@@ -294,7 +285,7 @@ namespace NumC
 	template<typename dtype>
 	dtype arccos(dtype inValue)
 	{
-
+		return std::acos(inValue);
 	}
 
 	//============================================================================
@@ -307,9 +298,12 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<double> arccos(const NdArray<dtype>& inArray)
+	NdArray<dtype> arccos(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::acos(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -324,7 +318,7 @@ namespace NumC
 	template<typename dtype>
 	dtype arccosh(dtype inValue)
 	{
-
+		return std::acosh(inValue);
 	}
 
 	//============================================================================
@@ -339,7 +333,10 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> arccosh(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::acosh(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -354,7 +351,7 @@ namespace NumC
 	template<typename dtype>
 	dtype arcsin(dtype inValue)
 	{
-
+		return std::asin(inValue);
 	}
 
 	//============================================================================
@@ -369,7 +366,10 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> arcsin(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::asin(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -384,7 +384,7 @@ namespace NumC
 	template<typename dtype>
 	dtype arcsinh(dtype inValue)
 	{
-
+		return std::asinh(inValue);
 	}
 
 	//============================================================================
@@ -399,7 +399,10 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> arcsinh(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::asinh(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -414,7 +417,7 @@ namespace NumC
 	template<typename dtype>
 	dtype arctan(dtype inValue)
 	{
-
+		return std::atan(inValue);
 	}
 
 	//============================================================================
@@ -429,7 +432,10 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> arctan(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::atan(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -444,7 +450,7 @@ namespace NumC
 	template<typename dtype>
 	dtype arctanh(dtype inValue)
 	{
-
+		return std::atanh(inValue);
 	}
 
 	//============================================================================
@@ -459,7 +465,10 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> arctanh(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::atanh(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -523,7 +532,8 @@ namespace NumC
 	template<typename dtype>
 	dtype around(dtype inValue, uint8 inNumDecimals = 0)
 	{
-
+		NdArray<dtype> value = { inValue };
+		return value.round(inNumDecimals).item();
 	}
 
 	//============================================================================
@@ -539,7 +549,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> around(const NdArray<dtype>& inArray, uint8 inNumDecimals = 0)
 	{
-
+		return std::move(inArray.round(inNumDecimals));
 	}
 
 	//============================================================================
@@ -556,7 +566,13 @@ namespace NumC
 	template<typename dtype>
 	bool array_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			return false;
+		}
 
+		NdArray<bool> equal = inArray1 == inArray2;
+		return equal.all().item();
 	}
 
 	//============================================================================
@@ -576,7 +592,20 @@ namespace NumC
 	template<typename dtype>
 	bool array_equiv(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.size() != inArray2.size())
+		{
+			return false;
+		}
 
+		for (uint32 i = 0; i < inArray1.size(); ++i)
+		{
+			if (inArray1[i] != inArray2[i])
+			{
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	//============================================================================
@@ -591,7 +620,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> asarray(const std::vector<dtype>& inVector)
 	{
-		return NdArray<dtype>(inVector);
+		return std::move(NdArray<dtype>(inVector));
 	}
 
 	//============================================================================
@@ -607,7 +636,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> asarray(std::initializer_list<dtype>& inList)
 	{
-		return NdArray<dtype>(inList);
+		return std::move(NdArray<dtype>(inList));
 	}
 
 	//============================================================================
@@ -627,7 +656,7 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						Convert an array of size 1 to its scalar equivalent.
+	//						Compute the average along the specified axis.
 	//		
 	// Inputs:
 	//				NdArray
@@ -643,11 +672,11 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						Convert an array of size 1 to its scalar equivalent.
+	//						Compute the weighted average along the specified axis.
 	//		
 	// Inputs:
 	//				NdArray
-	//				(Optional) NdArray of weights, otherwise all weights = 1
+	//				NdArray of weights, otherwise all weights = 1
 	//				(Optional) axis
 	// Outputs:
 	//				NdArray
@@ -781,7 +810,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> byteswap(const NdArray<dtype>& inArray)
 	{
-		return NdArray<dtype>(inArray).byteswap();
+		return std::move(NdArray<dtype>(inArray).byteswap());
 	}
 
 	//============================================================================

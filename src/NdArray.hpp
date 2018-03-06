@@ -3606,7 +3606,7 @@ namespace NumC
 		//				None
 		//
 		template<typename dtype>
-		NdArray<dtype> operator^(const NdArray<dtype>& inOtherArray)
+		NdArray<dtype> operator^(const NdArray<dtype>& inOtherArray) const
 		{
 			return std::move(NdArray<dtype>(*this) ^= inOtherArray);
 		}
@@ -3684,7 +3684,7 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<dtype> operator~()
+		NdArray<dtype> operator~() const
 		{
 			// can only be called on integer types
 			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: ~ operator can only be compiled with integer types.");
@@ -3708,7 +3708,7 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<bool> operator==(const NdArray<dtype>& inOtherArray)
+		NdArray<bool> operator==(const NdArray<dtype>& inOtherArray) const
 		{
 			if (shape_ != inOtherArray.shape_)
 			{
@@ -3734,7 +3734,7 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
-		NdArray<bool> operator!=(const NdArray<dtype>& inOtherArray)
+		NdArray<bool> operator!=(const NdArray<dtype>& inOtherArray) const
 		{
 			if (shape_ != inOtherArray.shape_)
 			{

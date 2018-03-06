@@ -213,6 +213,114 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing arccos scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item())
+    if np.round(NumC.arccos(value), 10) == np.round(np.arccos(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arccos array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.arccos(cArray), 10), np.round(np.arccos(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arccosh scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item()) + 1
+    if np.round(NumC.arccosh(value), 10) == np.round(np.arccosh(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arccosh array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols) + 1
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.arccosh(cArray), 10), np.round(np.arccosh(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arcsin scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item())
+    if np.round(NumC.arcsin(value), 10) == np.round(np.arcsin(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arcsin array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.arcsin(cArray), 10), np.round(np.arcsin(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arcsinh scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item())
+    if np.round(NumC.arcsinh(value), 10) == np.round(np.arcsinh(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arcsinh array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.arcsinh(cArray), 10), np.round(np.arcsinh(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arctan scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item())
+    if np.round(NumC.arctan(value), 10) == np.round(np.arctan(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arctan array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.arctan(cArray), 10), np.round(np.arctan(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arctanh scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item())
+    if np.round(NumC.arctanh(value), 10) == np.round(np.arctanh(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arctanh array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.arctanh(cArray), 10), np.round(np.arctanh(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing argmax: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -323,6 +431,61 @@ def doTest():
             allPass = False
             break
     if allPass:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing around scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item()) * np.random.randint(1, 10, [1,]).item()
+    numDecimalsRound = np.random.randint(0, 10, [1,]).astype(np.uint8).item()
+    if NumC.around(value, numDecimalsRound) == np.round(value, numDecimalsRound):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing around array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols) * np.random.randint(1, 10, [1,]).item()
+    cArray.setArray(data)
+    numDecimalsRound = np.random.randint(0, 10, [1,]).astype(np.uint8).item()
+    if np.array_equal(NumC.around(cArray, numDecimalsRound), np.round(data, numDecimalsRound)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing array_equal', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    cArray3 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 100, shapeInput)
+    data2 = np.random.randint(1, 100, shapeInput)
+    cArray1.setArray(data1)
+    cArray2.setArray(data1)
+    cArray3.setArray(data2)
+    if NumC.array_equal(cArray1, cArray2) and not NumC.array_equal(cArray1, cArray3):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing array_equiv', 'cyan'))
+    shapeInput1 = np.random.randint(1, 100, [2, ])
+    shapeInput3 = np.random.randint(1, 100, [2, ])
+    shape1 = NumC.Shape(shapeInput1[0].item(), shapeInput1[1].item())
+    shape2 = NumC.Shape(shapeInput1[1].item(), shapeInput1[0].item())
+    shape3 = NumC.Shape(shapeInput3[0].item(), shapeInput3[1].item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    cArray3 = NumC.NdArray(shape3)
+    data1 = np.random.randint(1, 100, shapeInput1)
+    data3 = np.random.randint(1, 100, shapeInput3)
+    cArray1.setArray(data1)
+    cArray2.setArray(data1.reshape([shapeInput1[1].item(), shapeInput1[0].item()]))
+    cArray3.setArray(data3)
+    if NumC.array_equiv(cArray1, cArray2) and not NumC.array_equiv(cArray1, cArray3):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

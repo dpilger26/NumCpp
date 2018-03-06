@@ -950,6 +950,118 @@ namespace MethodsInterface
 	{
 		return numCToBoost(arange<dtype>(inStart, inStop, inStep));
 	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype arccosScalar(dtype inValue)
+	{
+		return arccos(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray arccosArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(arccos(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype arccoshScalar(dtype inValue)
+	{
+		return arccosh(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray arccoshArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(arccosh(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype arcsinScalar(dtype inValue)
+	{
+		return arcsin(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray arcsinArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(arcsin(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype arcsinhScalar(dtype inValue)
+	{
+		return arcsinh(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray arcsinhArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(arcsinh(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype arctanScalar(dtype inValue)
+	{
+		return arctan(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray arctanArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(arctan(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype arctanhScalar(dtype inValue)
+	{
+		return arctanh(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray arctanhArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(arctanh(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype aroundScalar(dtype inValue, uint8 inNumDecimals)
+	{
+		return around(inValue, inNumDecimals);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray aroundArray(const NdArray<dtype>& inArray, uint8 inNumDecimals)
+	{
+		return numCToBoost(around(inArray, inNumDecimals));
+	}
 }
 
 //================================================================================
@@ -1136,7 +1248,22 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("argmax", MethodsInterface::argmaxArray<double>);
 	boost::python::def("argmin", MethodsInterface::argminArray<double>);
 	boost::python::def("argsort", MethodsInterface::argsortArray<double>);
-
+	boost::python::def("arccos", MethodsInterface::arccosScalar<double>);
+	boost::python::def("arccos", MethodsInterface::arccosArray<double>);
+	boost::python::def("arccosh", MethodsInterface::arccoshScalar<double>);
+	boost::python::def("arccosh", MethodsInterface::arccoshArray<double>);
+	boost::python::def("arcsin", MethodsInterface::arcsinScalar<double>);
+	boost::python::def("arcsin", MethodsInterface::arcsinArray<double>);
+	boost::python::def("arcsinh", MethodsInterface::arcsinhScalar<double>);
+	boost::python::def("arcsinh", MethodsInterface::arcsinhArray<double>);
+	boost::python::def("arctan", MethodsInterface::arctanScalar<double>);
+	boost::python::def("arctan", MethodsInterface::arctanArray<double>);
+	boost::python::def("arctanh", MethodsInterface::arctanhScalar<double>);
+	boost::python::def("arctanh", MethodsInterface::arctanhArray<double>);
+	boost::python::def("around", MethodsInterface::aroundScalar<double>);
+	boost::python::def("around", MethodsInterface::aroundArray<double>);
+	boost::python::def("array_equal", NumC::array_equal<double>);
+	boost::python::def("array_equiv", NumC::array_equiv<double>);
 
 	boost::python::def("num2str", NumC::num2str<double>);
 	boost::python::def("num2str", NumC::num2str<float>);
