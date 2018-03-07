@@ -617,6 +617,114 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing bitwise_and', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArrayInt64(shape)
+    cArray2 = NumC.NdArrayInt64(shape)
+    data1 = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint64)
+    data2 = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint64)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.bitwise_and(cArray1, cArray2), np.bitwise_and(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing bitwise_not', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArrayInt64(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint64)
+    cArray.setArray(data)
+    if np.array_equal(NumC.bitwise_not(cArray), np.bitwise_not(data)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing bitwise_or', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArrayInt64(shape)
+    cArray2 = NumC.NdArrayInt64(shape)
+    data1 = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint64)
+    data2 = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint64)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.bitwise_or(cArray1, cArray2), np.bitwise_or(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing bitwise_xor', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArrayInt64(shape)
+    cArray2 = NumC.NdArrayInt64(shape)
+    data1 = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint64)
+    data2 = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.uint64)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.bitwise_xor(cArray1, cArray2), np.bitwise_xor(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing cbrt', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.cbrt(cArray), 10), np.round(np.cbrt(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing ceil', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols).astype(np.double) * 1000
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.ceil(cArray), 10), np.round(np.ceil(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing clip scalar', 'cyan'))
+    value = np.random.randint(0, 100, [1, ]).item()
+    minValue = np.random.randint(0, 10, [1, ]).item()
+    maxValue = np.random.randint(90, 100, [1, ]).item()
+    if NumC.clip(value, minValue, maxValue) == np.clip(value, minValue, maxValue):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing clip array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    minValue = np.random.randint(0, 10, [1, ]).item()
+    maxValue = np.random.randint(90, 100, [1, ]).item()
+    if np.array_equal(NumC.clip(cArray, minValue, maxValue), np.clip(data, minValue, maxValue)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing copy', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumC.copy(cArray), data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
 ####################################################################################
 if __name__ == '__main__':
     doTest()

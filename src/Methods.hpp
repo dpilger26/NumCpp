@@ -867,25 +867,24 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, uint16 inMinLength = 0)
+	NdArray<dtype> bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1 & inArray2);
 	}
 
 	//============================================================================
 	// Method Description: 
-	//						Compute the bit-wise NOT of two arrays element-wise.
+	//						Compute the bit-wise NOT the input array element-wise.
 	//		
 	// Inputs:
-	//				NdArray 1
-	//				NdArray 2
+	//				NdArray
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, uint16 inMinLength = 0)
+	NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(~inArray);
 	}
 
 	//============================================================================
@@ -899,9 +898,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, uint16 inMinLength = 0)
+	NdArray<dtype> bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1 | inArray2);
 	}
 
 	//============================================================================
@@ -915,14 +914,15 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, uint16 inMinLength = 0)
+	NdArray<dtype> bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1 ^ inArray2);
 	}
 
 	//============================================================================
 	// Method Description: 
-	//						Swap the bytes of the array elements
+	//						Return a new array with the bytes of the array elements
+	//						swapped.
 	//		
 	// Inputs:
 	//				NdArray 
@@ -933,12 +933,15 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> byteswap(const NdArray<dtype>& inArray)
 	{
-		return std::move(NdArray<dtype>(inArray).byteswap());
+		NdArray<dtype> returnArray(inArray);
+		returnArray.byteswap();
+		return std::move(returnArray);
 	}
 
 	//============================================================================
 	// Method Description: 
-	//						Return the cube-root of an array.
+	//						Return the cube-root of an array. Not super usefull 
+	//						if not using a floating point type
 	//		
 	// Inputs:
 	//				value
@@ -946,9 +949,9 @@ namespace NumC
 	//				value
 	//
 	template<typename dtype>
-	dtype cbr(dtype inValue)
+	dtype cbrt(dtype inValue)
 	{
-
+		return static_cast<dtype>(std::pow(inValue, 1. / 3.));
 	}
 
 	//============================================================================
@@ -961,9 +964,12 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<double> cbr(const NdArray<dtype>& inArray)
+	NdArray<double> cbrt(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return cbrt(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -978,7 +984,7 @@ namespace NumC
 	template<typename dtype>
 	dtype ceil(dtype inValue)
 	{
-
+		return std::ceil(inValue);
 	}
 
 	//============================================================================
@@ -993,7 +999,10 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> ceil(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::ceil(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -1010,7 +1019,8 @@ namespace NumC
 	template<typename dtype>
 	dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue)
 	{
-
+		NdArray<dtype> value = {inValue};
+		return std::move(value.clip(inMinValue, inMaxValue).item());
 	}
 
 	//============================================================================

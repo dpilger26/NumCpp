@@ -1094,6 +1094,102 @@ namespace MethodsInterface
 	{
 		return numCToBoost(NumC::bincount(inArray, inWeights, inMinLength));
 	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::bitwise_and(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray bitwise_not(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::bitwise_not(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::bitwise_or(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::bitwise_xor(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray byteswap(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::byteswap(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype cbrtScalar(dtype inValue)
+	{
+		return cbrt(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray cbrtArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(cbrt(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype ceilScalar(dtype inValue)
+	{
+		return ceil(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray ceilArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(ceil(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype clipScalar(dtype inValue, dtype inMinValue, dtype inMaxValue)
+	{
+		return clip(inValue, inMinValue, inMaxValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray clipArray(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue)
+	{
+		return numCToBoost(clip(inArray, inMinValue, inMaxValue));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray copy(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::copy(inArray));
+	}
 }
 
 //================================================================================
@@ -1156,8 +1252,8 @@ BOOST_PYTHON_MODULE(NumC)
 	typedef NdArray<double> NdArrayDouble;
 	bp::class_<NdArrayDouble>
 		("NdArray", bp::init<>())
-		.def(bp::init<int16>())
-		.def(bp::init<int16, int16>())
+		.def(bp::init<uint32>())
+		.def(bp::init<uint32, uint32>())
 		.def(bp::init<Shape>())
 		.def(bp::init<NdArrayDouble>())
 		.def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>).staticmethod("test1DListContructor")
@@ -1245,8 +1341,8 @@ BOOST_PYTHON_MODULE(NumC)
 	typedef NdArray<uint32> NdArrayInt;
 	bp::class_<NdArrayInt>
 		("NdArrayInt", bp::init<>())
-		.def(bp::init<int16>())
-		.def(bp::init<int16, int16>())
+		.def(bp::init<uint32>())
+		.def(bp::init<uint32, uint32>())
 		.def(bp::init<Shape>())
 		.def("shape", &NdArrayInt::shape)
 		.def("size", &NdArrayInt::size)
@@ -1266,6 +1362,18 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("operatorBitwiseNot", &NdArrayInterface::operatorBitwiseNot<uint32>)
 		.def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>)
 		.def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
+
+	typedef NdArray<uint64> NdArrayInt64;
+	bp::class_<NdArrayInt64>
+		("NdArrayInt64", bp::init<>())
+		.def(bp::init<uint32>())
+		.def(bp::init<uint32, uint32>())
+		.def(bp::init<Shape>())
+		.def("shape", &NdArrayInt64::shape)
+		.def("size", &NdArrayInt64::size)
+		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint64>)
+		.def("endianess", &NdArrayInt64::endianess)
+		.def("setArray", &NdArrayInterface::setArray<uint64>);
 
 	boost::python::def("abs", MethodsInterface::absScalar<double>);
 	boost::python::def("abs", MethodsInterface::absArray<double>);
@@ -1300,6 +1408,18 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("average", MethodsInterface::averageWeighted<double>);
 	boost::python::def("bincount", MethodsInterface::bincount<uint32>);
 	boost::python::def("bincount", MethodsInterface::bincountWeighted<uint32>);
+	boost::python::def("bitwise_and", MethodsInterface::bitwise_and<uint64>);
+	boost::python::def("bitwise_not", MethodsInterface::bitwise_not<uint64>);
+	boost::python::def("bitwise_or", MethodsInterface::bitwise_or<uint64>);
+	boost::python::def("bitwise_xor", MethodsInterface::bitwise_xor<uint64>);
+	boost::python::def("byteswap", MethodsInterface::byteswap<uint64>);
+	boost::python::def("cbrt", MethodsInterface::cbrtScalar<double>);
+	boost::python::def("cbrt", MethodsInterface::cbrtArray<double>);
+	boost::python::def("ceil", MethodsInterface::ceilScalar<double>);
+	boost::python::def("ceil", MethodsInterface::ceilArray<double>);
+	boost::python::def("clip", MethodsInterface::clipScalar<double>);
+	boost::python::def("clip", MethodsInterface::clipArray<double>);
+	boost::python::def("copy", MethodsInterface::copy<double>);
 
 	boost::python::def("num2str", NumC::num2str<double>);
 	boost::python::def("num2str", NumC::num2str<float>);
