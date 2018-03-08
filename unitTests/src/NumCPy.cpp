@@ -1290,6 +1290,15 @@ BOOST_PYTHON_MODULE(NumC)
 	bp::scope().attr("nan") = NumC::nan;
 	bp::scope().attr("version") = NumC::version;
 
+	typedef DtypeInfo<uint32> DtypeInfoUint32;
+	bp::class_<DtypeInfoUint32>
+		("DtypeIntoUint32", bp::init<>())
+		.def("bits", &DtypeInfoUint32::bits).staticmethod("bits")
+		.def("epsilon", &DtypeInfoUint32::epsilon).staticmethod("epsilon")
+		.def("isInteger", &DtypeInfoUint32::isInteger).staticmethod("isInteger")
+		.def("min", &DtypeInfoUint32::min).staticmethod("min")
+		.def("max", &DtypeInfoUint32::max).staticmethod("max");
+
 	bp::class_<Shape>
 		("Shape", bp::init<>())
 		.def(bp::init<uint32, uint32>())

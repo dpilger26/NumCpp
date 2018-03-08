@@ -27,14 +27,10 @@
 #include<cmath>
 #include<initializer_list>
 #include<stdexcept>
-//#include<iostream>
-//#include<fstream>
+#include<iostream>
 #include<string>
 #include<vector>
-//#include<set>
 #include<algorithm>
-#include<limits>
-//#include<numeric>
 #include<utility>
 
 namespace NumC
@@ -775,7 +771,7 @@ namespace NumC
 	NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
 	{
 		// only works with integer input types
-		static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: bincount: can only use with integer types.");
+		static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: bincount: can only use with integer types.");
 
 		dtype maxValue = inArray.max().item();
 		if (maxValue < 0)
@@ -784,7 +780,7 @@ namespace NumC
 			return std::move(NdArray<dtype>(0));
 		}
 
-		if (maxValue + 1 > std::numeric_limits<uint16>::max())
+		if (maxValue + 1 > DtypeInfo<dtype>::max())
 		{
 			throw std::runtime_error("Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...");
 		}
@@ -825,7 +821,7 @@ namespace NumC
 	NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
 	{
 		// only works with integer input types
-		static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: bincount: can only use with integer types.");
+		static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: bincount: can only use with integer types.");
 
 		if (inArray.shape() != inWeights.shape())
 		{
@@ -839,7 +835,7 @@ namespace NumC
 			return std::move(NdArray<dtype>(0));
 		}
 
-		if (maxValue + 1 > std::numeric_limits<uint16>::max())
+		if (maxValue + 1 > DtypeInfo<dtype>::max())
 		{
 			throw std::runtime_error("Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...");
 		}

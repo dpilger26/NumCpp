@@ -23,6 +23,7 @@
 #include"Shape.hpp"
 #include"Slice.hpp"
 #include"Utils.hpp"
+#include"DtypeInfo.hpp"
 
 #include<boost/filesystem.hpp>
 #include<boost/endian/conversion.hpp>
@@ -35,7 +36,6 @@
 #include<vector>
 #include<set>
 #include<algorithm>
-#include<limits>
 #include<numeric>
 #include<utility>
 
@@ -1785,7 +1785,7 @@ namespace NumC
 		NdArray<dtype> newbyteorder(Endian::Type inEndianess) const
 		{
 			// only works with integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "Type Error in newbyteorder: Can only compile newbyteorder method of NdArray<T> with integer types.");
+			static_assert(DtypeInfo<dtype>::isInteger(), "Type Error in newbyteorder: Can only compile newbyteorder method of NdArray<T> with integer types.");
 
 			switch (endianess_)
 			{
@@ -2698,7 +2698,7 @@ namespace NumC
 		//
 		NdArray<dtype> round(uint8 inNumDecimals = 0) const
 		{
-			if (std::numeric_limits<dtype>::is_integer)
+			if (DtypeInfo<dtype>::isInteger())
 			{
 				return NdArray<dtype>(*this);
 			}
@@ -3405,7 +3405,7 @@ namespace NumC
 		NdArray<dtype>& operator%=(const NdArray<dtype>& inOtherArray)
 		{
 			// can only be called on integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: % operator can only be compiled with integer types.");
+			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: % operator can only be compiled with integer types.");
 
 			if (shape_ != inOtherArray.shape_)
 			{
@@ -3432,7 +3432,7 @@ namespace NumC
 		NdArray<dtype>& operator%=(dtype inScalar)
 		{
 			// can only be called on integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: % operator can only be compiled with integer types.");
+			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: % operator can only be compiled with integer types.");
 
 			for (uint32 i = 0; i < size_; ++i)
 			{
@@ -3482,7 +3482,7 @@ namespace NumC
 		NdArray<dtype>& operator|=(const NdArray<dtype>& inOtherArray)
 		{
 			// can only be called on integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: | operator can only be compiled with integer types.");
+			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: | operator can only be compiled with integer types.");
 
 			if (shape_ != inOtherArray.shape_)
 			{
@@ -3509,7 +3509,7 @@ namespace NumC
 		NdArray<dtype>& operator|=(dtype inScalar)
 		{
 			// can only be called on integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: | operator can only be compiled with integer types.");
+			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: | operator can only be compiled with integer types.");
 
 			for (uint32 i = 0; i < size_; ++i)
 			{
@@ -3559,7 +3559,7 @@ namespace NumC
 		NdArray<dtype>& operator&=(const NdArray<dtype>& inOtherArray)
 		{
 			// can only be called on integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: & operator can only be compiled with integer types.");
+			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: & operator can only be compiled with integer types.");
 
 			if (shape_ != inOtherArray.shape_)
 			{
@@ -3586,7 +3586,7 @@ namespace NumC
 		NdArray<dtype>& operator&=(dtype inScalar)
 		{
 			// can only be called on integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: & operator can only be compiled with integer types.");
+			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: & operator can only be compiled with integer types.");
 
 			for (uint32 i = 0; i < size_; ++i)
 			{
@@ -3638,7 +3638,7 @@ namespace NumC
 		NdArray<dtype>& operator^=(const NdArray<dtype>& inOtherArray)
 		{
 			// can only be called on integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: ^ operator can only be compiled with integer types.");
+			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: ^ operator can only be compiled with integer types.");
 
 			if (shape_ != inOtherArray.shape_)
 			{
@@ -3665,7 +3665,7 @@ namespace NumC
 		NdArray<dtype>& operator^=(dtype inScalar)
 		{
 			// can only be called on integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: ^ operator can only be compiled with integer types.");
+			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: ^ operator can only be compiled with integer types.");
 
 			for (uint32 i = 0; i < size_; ++i)
 			{
@@ -3687,7 +3687,7 @@ namespace NumC
 		NdArray<dtype> operator~() const
 		{
 			// can only be called on integer types
-			static_assert(std::numeric_limits<dtype>::is_integer, "ERROR: ~ operator can only be compiled with integer types.");
+			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: ~ operator can only be compiled with integer types.");
 
 			NdArray<dtype> returnArray(shape_);
 			for (uint32 i = 0; i < size_; ++i)

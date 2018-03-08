@@ -7,6 +7,7 @@ import TestConstants
 import TestLinalg
 import TestRandom
 import TestUtils
+import TestDtypeInfo
 
 #################################################################################
 def doTest():
@@ -14,6 +15,7 @@ def doTest():
     TestSlice.doTest()
     TestTimer.doTest()
     TestUtils.doTest()
+    TestDtypeInfo.doTest()
     TestNdArray.doTest()
     TestMethods.doTest()
     TestConstants.doTest()

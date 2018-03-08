@@ -29,4 +29,6 @@
 #include"Random.hpp"
 #include"Timer.hpp"
 #include"Utils.hpp"
+#include"DtypeInfo.hpp"
+
 #include"BoostNumpyNdarrayHelper.hpp"
