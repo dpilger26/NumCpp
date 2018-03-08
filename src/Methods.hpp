@@ -331,7 +331,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<double> arccosh(const NdArray<dtype>& inArray)
+	NdArray<dtype> arccosh(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtype> returnArray(inArray.shape());
 		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::acosh(inValue); });
@@ -364,7 +364,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<double> arcsin(const NdArray<dtype>& inArray)
+	NdArray<dtype> arcsin(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtype> returnArray(inArray.shape());
 		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::asin(inValue); });
@@ -397,7 +397,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<double> arcsinh(const NdArray<dtype>& inArray)
+	NdArray<dtype> arcsinh(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtype> returnArray(inArray.shape());
 		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::asinh(inValue); });
@@ -430,7 +430,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<double> arctan(const NdArray<dtype>& inArray)
+	NdArray<dtype> arctan(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtype> returnArray(inArray.shape());
 		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::atan(inValue); });
@@ -463,7 +463,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<double> arctanh(const NdArray<dtype>& inArray)
+	NdArray<dtype> arctanh(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtype> returnArray(inArray.shape());
 		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::atanh(inValue); });
@@ -1019,7 +1019,7 @@ namespace NumC
 	template<typename dtype>
 	dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue)
 	{
-		NdArray<dtype> value = {inValue};
+		NdArray<dtype> value = { inValue };
 		return std::move(value.clip(inMinValue, inMaxValue).item());
 	}
 
@@ -1099,9 +1099,18 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> copysign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	NdArray<dtype> copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: copysign: input arrays are not consistant.");
+		}
 
+		NdArray<dtype> returnArray(inArray1.shape());
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, dtype inValue2) { return inValue2 < 0 ? std::abs(inValue1) * -1 : std::abs(inValue1); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -1117,7 +1126,7 @@ namespace NumC
 	template<typename dtype>
 	void copyto(NdArray<dtype>& inDestArray, const NdArray<dtype>& inSrcArray)
 	{
-
+		inDestArray = inSrcArray;
 	}
 
 	//============================================================================
@@ -1132,7 +1141,7 @@ namespace NumC
 	template<typename dtype>
 	dtype cos(dtype inValue)
 	{
-
+		return std::cos(inValue);
 	}
 
 	//============================================================================
@@ -1144,10 +1153,13 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> cos(const NdArray<dtype>& inArray)
+	template<typename dtype>
+	NdArray<dtype> cos(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::cos(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -1162,7 +1174,7 @@ namespace NumC
 	template<typename dtype>
 	dtype cosh(dtype inValue)
 	{
-
+		return std::cosh(inValue);
 	}
 
 	//============================================================================
@@ -1174,10 +1186,13 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> cosh(const NdArray<dtype>& inArray)
+	template<typename dtype>
+	NdArray<dtype> cosh(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::cosh(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -1198,7 +1213,7 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						Counts the number of non-zero values in the array.
+	//						Return the cross product of two (arrays of) vectors.
 	//		
 	// Inputs:
 	//				NdArray 1
@@ -1225,7 +1240,10 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> cube(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtypeOut> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return cube(static_cast<dtypeOut>(inValue)); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -1996,7 +2014,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue)
 	{
-		return std::move(NdArray<dtype>(inArray,shape()).fill(inFillValue));
+		return std::move(NdArray<dtype>(inArray, shape()).fill(inFillValue));
 	}
 
 	//============================================================================
@@ -3203,14 +3221,38 @@ namespace NumC
 	//		
 	// Inputs:
 	//				NdArray
-	//				power
+	//				exponent
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> power(const NdArray<dtype>& inArray, double inPower)
+	NdArray<dtypeOut> power(const NdArray<dtype>& inArray, uint8 inExponent)
 	{
+		NdArray<dtypeOut> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+			[inExponent](dtype inValue) { return power(static_cast<dtypeOut>(inValue), inExponent); });
 
+		return std::move(returnArray);
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Raises the elements of the array to the input powers
+	//		
+	// Inputs:
+	//				NdArray
+	//				NdArray
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype, typename dtypeOut>
+	NdArray<dtypeOut> power(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
+	{
+		NdArray<dtypeOut> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(), 
+			[](dtype inValue, uint8 inExponent) { return power(static_cast<dtypeOut>(inValue), inExponent); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -3899,6 +3941,24 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						squares the elements of the array
+	//		
+	// Inputs:
+	//				NdArray
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype, typename dtypeOut>
+	NdArray<dtypeOut> sqr(const NdArray<dtype>& inArray)
+	{
+		NdArray<dtypeOut> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sqr(static_cast<dtypeOut>(inValue)); });
+
+		return std::move(returnArray);
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return the positive square-root of a value.
 	//		
 	// Inputs:
@@ -4175,7 +4235,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> trace(const NdArray<dtype>& inArray, uint16 inOffset=0, Axis::Type inAxis = Axis::ROW)
+	NdArray<dtypeOut> trace(const NdArray<dtype>& inArray, uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW)
 	{
 		return std::move(inArray.trace<dtypeOut>(inOffset, inAxis));
 	}
@@ -4244,7 +4304,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> tri(uint16 inN, int16 inOffset=0)
+	NdArray<dtype> tri(uint16 inN, int16 inOffset = 0)
 	{
 
 	}

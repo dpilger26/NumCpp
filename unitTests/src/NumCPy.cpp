@@ -1190,6 +1190,87 @@ namespace MethodsInterface
 	{
 		return numCToBoost(NumC::copy(inArray));
 	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::copySign(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray copyto(NdArray<dtype>& inArrayDest, const NdArray<dtype>& inArraySrc)
+	{
+		NumC::copyto(inArrayDest, inArraySrc);
+		return numCToBoost(inArrayDest);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype cosScalar(dtype inValue)
+	{
+		return NumC::cos(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray cosArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::cos(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype coshScalar(dtype inValue)
+	{
+		return NumC::cosh(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray coshArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::cosh(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray cubeArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::cube<dtype, dtypeOut>(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray sqrArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::sqr<dtype, dtypeOut>(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray powerArrayScalar(const NdArray<dtype>& inArray, uint8 inExponent)
+	{
+		return numCToBoost(NumC::power<dtype, dtypeOut>(inArray, inExponent));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray powerArrayArray(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
+	{
+		return numCToBoost(NumC::power<dtype, dtypeOut>(inArray, inExponents));
+	}
 }
 
 //================================================================================
@@ -1375,6 +1456,18 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("endianess", &NdArrayInt64::endianess)
 		.def("setArray", &NdArrayInterface::setArray<uint64>);
 
+	typedef NdArray<uint8> NdArrayInt8;
+	bp::class_<NdArrayInt8>
+		("NdArrayInt8", bp::init<>())
+		.def(bp::init<uint32>())
+		.def(bp::init<uint32, uint32>())
+		.def(bp::init<Shape>())
+		.def("shape", &NdArrayInt8::shape)
+		.def("size", &NdArrayInt8::size)
+		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint8>)
+		.def("endianess", &NdArrayInt8::endianess)
+		.def("setArray", &NdArrayInterface::setArray<uint8>);
+
 	boost::python::def("abs", MethodsInterface::absScalar<double>);
 	boost::python::def("abs", MethodsInterface::absArray<double>);
 	boost::python::def("add", MethodsInterface::addArrays<double, double>);
@@ -1420,6 +1513,16 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("clip", MethodsInterface::clipScalar<double>);
 	boost::python::def("clip", MethodsInterface::clipArray<double>);
 	boost::python::def("copy", MethodsInterface::copy<double>);
+	boost::python::def("copysign", MethodsInterface::copySign<double>);
+	boost::python::def("copyto", MethodsInterface::copyto<double>);
+	boost::python::def("cos", MethodsInterface::cosScalar<double>);
+	boost::python::def("cos", MethodsInterface::cosArray<double>);
+	boost::python::def("cosh", MethodsInterface::coshScalar<double>);
+	boost::python::def("cosh", MethodsInterface::coshArray<double>);
+	boost::python::def("cube", MethodsInterface::cubeArray<double, double>);
+	boost::python::def("sqr", MethodsInterface::sqrArray<double, double>);
+	boost::python::def("power", MethodsInterface::powerArrayScalar<double, double>);
+	boost::python::def("power", MethodsInterface::powerArrayArray<double, double>);
 
 	boost::python::def("num2str", NumC::num2str<double>);
 	boost::python::def("num2str", NumC::num2str<float>);
