@@ -1271,6 +1271,22 @@ namespace MethodsInterface
 	{
 		return numCToBoost(NumC::power<dtype, dtypeOut>(inArray, inExponents));
 	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(cumprod<dtype, dtypeOut>(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(cumsum<dtype, dtypeOut>(inArray, inAxis));
+	}
 }
 
 //================================================================================
@@ -1475,105 +1491,107 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("size", &NdArrayInt8::size)
 		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint8>)
 		.def("endianess", &NdArrayInt8::endianess)
-		.def("setArray", &NdArrayInterface::setArray<uint8>);
+		.def("setArray", NdArrayInterface::setArray<uint8>);
 
-	boost::python::def("abs", MethodsInterface::absScalar<double>);
-	boost::python::def("abs", MethodsInterface::absArray<double>);
-	boost::python::def("add", MethodsInterface::addArrays<double, double>);
-	boost::python::def("alen", NumC::alen<double>);
-	boost::python::def("all", MethodsInterface::allArray<double>);
-	boost::python::def("allclose", NumC::allclose<double>);
-	boost::python::def("amin", MethodsInterface::aminArray<double>);
-	boost::python::def("amax", MethodsInterface::amaxArray<double>);
-	boost::python::def("any", MethodsInterface::anyArray<double>);
-	boost::python::def("arange", MethodsInterface::arangeArray<double>);
-	boost::python::def("argmax", MethodsInterface::argmaxArray<double>);
-	boost::python::def("argmin", MethodsInterface::argminArray<double>);
-	boost::python::def("argsort", MethodsInterface::argsortArray<double>);
-	boost::python::def("arccos", MethodsInterface::arccosScalar<double>);
-	boost::python::def("arccos", MethodsInterface::arccosArray<double>);
-	boost::python::def("arccosh", MethodsInterface::arccoshScalar<double>);
-	boost::python::def("arccosh", MethodsInterface::arccoshArray<double>);
-	boost::python::def("arcsin", MethodsInterface::arcsinScalar<double>);
-	boost::python::def("arcsin", MethodsInterface::arcsinArray<double>);
-	boost::python::def("arcsinh", MethodsInterface::arcsinhScalar<double>);
-	boost::python::def("arcsinh", MethodsInterface::arcsinhArray<double>);
-	boost::python::def("arctan", MethodsInterface::arctanScalar<double>);
-	boost::python::def("arctan", MethodsInterface::arctanArray<double>);
-	boost::python::def("arctanh", MethodsInterface::arctanhScalar<double>);
-	boost::python::def("arctanh", MethodsInterface::arctanhArray<double>);
-	boost::python::def("around", MethodsInterface::aroundScalar<double>);
-	boost::python::def("around", MethodsInterface::aroundArray<double>);
-	boost::python::def("array_equal", NumC::array_equal<double>);
-	boost::python::def("array_equiv", NumC::array_equiv<double>);
-	boost::python::def("average", MethodsInterface::average<double>);
-	boost::python::def("average", MethodsInterface::averageWeighted<double>);
-	boost::python::def("bincount", MethodsInterface::bincount<uint32>);
-	boost::python::def("bincount", MethodsInterface::bincountWeighted<uint32>);
-	boost::python::def("bitwise_and", MethodsInterface::bitwise_and<uint64>);
-	boost::python::def("bitwise_not", MethodsInterface::bitwise_not<uint64>);
-	boost::python::def("bitwise_or", MethodsInterface::bitwise_or<uint64>);
-	boost::python::def("bitwise_xor", MethodsInterface::bitwise_xor<uint64>);
-	boost::python::def("byteswap", MethodsInterface::byteswap<uint64>);
-	boost::python::def("cbrt", MethodsInterface::cbrtScalar<double>);
-	boost::python::def("cbrt", MethodsInterface::cbrtArray<double>);
-	boost::python::def("ceil", MethodsInterface::ceilScalar<double>);
-	boost::python::def("ceil", MethodsInterface::ceilArray<double>);
-	boost::python::def("clip", MethodsInterface::clipScalar<double>);
-	boost::python::def("clip", MethodsInterface::clipArray<double>);
-	boost::python::def("copy", MethodsInterface::copy<double>);
-	boost::python::def("copysign", MethodsInterface::copySign<double>);
-	boost::python::def("copyto", MethodsInterface::copyto<double>);
-	boost::python::def("cos", MethodsInterface::cosScalar<double>);
-	boost::python::def("cos", MethodsInterface::cosArray<double>);
-	boost::python::def("cosh", MethodsInterface::coshScalar<double>);
-	boost::python::def("cosh", MethodsInterface::coshArray<double>);
-	boost::python::def("cube", MethodsInterface::cubeArray<double, double>);
-	boost::python::def("sqr", MethodsInterface::sqrArray<double, double>);
-	boost::python::def("power", MethodsInterface::powerArrayScalar<double, double>);
-	boost::python::def("power", MethodsInterface::powerArrayArray<double, double>);
+	boost::python::def("abs", &MethodsInterface::absScalar<double>);
+	boost::python::def("abs", &MethodsInterface::absArray<double>);
+	boost::python::def("add", &MethodsInterface::addArrays<double, double>);
+	boost::python::def("alen", &NumC::alen<double>);
+	boost::python::def("all", &MethodsInterface::allArray<double>);
+	boost::python::def("allclose", &NumC::allclose<double>);
+	boost::python::def("amin", &MethodsInterface::aminArray<double>);
+	boost::python::def("amax", &MethodsInterface::amaxArray<double>);
+	boost::python::def("any", &MethodsInterface::anyArray<double>);
+	boost::python::def("arange", &MethodsInterface::arangeArray<double>);
+	boost::python::def("argmax", &MethodsInterface::argmaxArray<double>);
+	boost::python::def("argmin", &MethodsInterface::argminArray<double>);
+	boost::python::def("argsort", &MethodsInterface::argsortArray<double>);
+	boost::python::def("arccos", &MethodsInterface::arccosScalar<double>);
+	boost::python::def("arccos", &MethodsInterface::arccosArray<double>);
+	boost::python::def("arccosh", &MethodsInterface::arccoshScalar<double>);
+	boost::python::def("arccosh", &MethodsInterface::arccoshArray<double>);
+	boost::python::def("arcsin", &MethodsInterface::arcsinScalar<double>);
+	boost::python::def("arcsin", &MethodsInterface::arcsinArray<double>);
+	boost::python::def("arcsinh", &MethodsInterface::arcsinhScalar<double>);
+	boost::python::def("arcsinh", &MethodsInterface::arcsinhArray<double>);
+	boost::python::def("arctan", &MethodsInterface::arctanScalar<double>);
+	boost::python::def("arctan", &MethodsInterface::arctanArray<double>);
+	boost::python::def("arctanh", &MethodsInterface::arctanhScalar<double>);
+	boost::python::def("arctanh", &MethodsInterface::arctanhArray<double>);
+	boost::python::def("around", &MethodsInterface::aroundScalar<double>);
+	boost::python::def("around", &MethodsInterface::aroundArray<double>);
+	boost::python::def("array_equal", &NumC::array_equal<double>);
+	boost::python::def("array_equiv", &NumC::array_equiv<double>);
+	boost::python::def("average", &MethodsInterface::average<double>);
+	boost::python::def("average", &MethodsInterface::averageWeighted<double>);
+	boost::python::def("bincount", &MethodsInterface::bincount<uint32>);
+	boost::python::def("bincount", &MethodsInterface::bincountWeighted<uint32>);
+	boost::python::def("bitwise_and", &MethodsInterface::bitwise_and<uint64>);
+	boost::python::def("bitwise_not", &MethodsInterface::bitwise_not<uint64>);
+	boost::python::def("bitwise_or", &MethodsInterface::bitwise_or<uint64>);
+	boost::python::def("bitwise_xor", &MethodsInterface::bitwise_xor<uint64>);
+	boost::python::def("byteswap", &MethodsInterface::byteswap<uint64>);
+	boost::python::def("cbrt", &MethodsInterface::cbrtScalar<double>);
+	boost::python::def("cbrt", &MethodsInterface::cbrtArray<double>);
+	boost::python::def("ceil", &MethodsInterface::ceilScalar<double>);
+	boost::python::def("ceil", &MethodsInterface::ceilArray<double>);
+	boost::python::def("clip", &MethodsInterface::clipScalar<double>);
+	boost::python::def("clip", &MethodsInterface::clipArray<double>);
+	boost::python::def("copy", &MethodsInterface::copy<double>);
+	boost::python::def("copysign", &MethodsInterface::copySign<double>);
+	boost::python::def("copyto", &MethodsInterface::copyto<double>);
+	boost::python::def("cos", &MethodsInterface::cosScalar<double>);
+	boost::python::def("cos", &MethodsInterface::cosArray<double>);
+	boost::python::def("cosh", &MethodsInterface::coshScalar<double>);
+	boost::python::def("cosh", &MethodsInterface::coshArray<double>);
+	boost::python::def("cube", &MethodsInterface::cubeArray<double, double>);
+	boost::python::def("sqr", &MethodsInterface::sqrArray<double, double>);
+	boost::python::def("power", &MethodsInterface::powerArrayScalar<double, double>);
+	boost::python::def("power", &MethodsInterface::powerArrayArray<double, double>);
+	boost::python::def("cumprod", &MethodsInterface::cumprodArray<double, double>);
+	boost::python::def("cumsum", &MethodsInterface::cumsumArray<double, double>);
 
-	boost::python::def("num2str", NumC::num2str<double>);
-	boost::python::def("num2str", NumC::num2str<float>);
-	boost::python::def("num2str", NumC::num2str<int8>);
-	boost::python::def("num2str", NumC::num2str<int16>);
-	boost::python::def("num2str", NumC::num2str<int32>);
-	boost::python::def("num2str", NumC::num2str<int64>);
-	boost::python::def("num2str", NumC::num2str<uint8>);
-	boost::python::def("num2str", NumC::num2str<uint16>);
-	boost::python::def("num2str", NumC::num2str<uint32>);
-	boost::python::def("num2str", NumC::num2str<uint64>);
+	boost::python::def("num2str", &NumC::num2str<double>);
+	boost::python::def("num2str", &NumC::num2str<float>);
+	boost::python::def("num2str", &NumC::num2str<int8>);
+	boost::python::def("num2str", &NumC::num2str<int16>);
+	boost::python::def("num2str", &NumC::num2str<int32>);
+	boost::python::def("num2str", &NumC::num2str<int64>);
+	boost::python::def("num2str", &NumC::num2str<uint8>);
+	boost::python::def("num2str", &NumC::num2str<uint16>);
+	boost::python::def("num2str", &NumC::num2str<uint32>);
+	boost::python::def("num2str", &NumC::num2str<uint64>);
 
-	boost::python::def("sqr", NumC::sqr<double>);
-	boost::python::def("sqr", NumC::sqr<float>);
-	boost::python::def("sqr", NumC::sqr<int8>);
-	boost::python::def("sqr", NumC::sqr<int16>);
-	boost::python::def("sqr", NumC::sqr<int32>);
-	boost::python::def("sqr", NumC::sqr<int64>);
-	boost::python::def("sqr", NumC::sqr<uint8>);
-	boost::python::def("sqr", NumC::sqr<uint16>);
-	boost::python::def("sqr", NumC::sqr<uint32>);
-	boost::python::def("sqr", NumC::sqr<uint64>);
+	boost::python::def("sqr", &NumC::sqr<double>);
+	boost::python::def("sqr", &NumC::sqr<float>);
+	boost::python::def("sqr", &NumC::sqr<int8>);
+	boost::python::def("sqr", &NumC::sqr<int16>);
+	boost::python::def("sqr", &NumC::sqr<int32>);
+	boost::python::def("sqr", &NumC::sqr<int64>);
+	boost::python::def("sqr", &NumC::sqr<uint8>);
+	boost::python::def("sqr", &NumC::sqr<uint16>);
+	boost::python::def("sqr", &NumC::sqr<uint32>);
+	boost::python::def("sqr", &NumC::sqr<uint64>);
 
-	boost::python::def("cube", NumC::cube<double>);
-	boost::python::def("cube", NumC::cube<float>);
-	boost::python::def("cube", NumC::cube<int8>);
-	boost::python::def("cube", NumC::cube<int16>);
-	boost::python::def("cube", NumC::cube<int32>);
-	boost::python::def("cube", NumC::cube<int64>);
-	boost::python::def("cube", NumC::cube<uint8>);
-	boost::python::def("cube", NumC::cube<uint16>);
-	boost::python::def("cube", NumC::cube<uint32>);
-	boost::python::def("cube", NumC::cube<uint64>);
+	boost::python::def("cube", &NumC::cube<double>);
+	boost::python::def("cube", &NumC::cube<float>);
+	boost::python::def("cube", &NumC::cube<int8>);
+	boost::python::def("cube", &NumC::cube<int16>);
+	boost::python::def("cube", &NumC::cube<int32>);
+	boost::python::def("cube", &NumC::cube<int64>);
+	boost::python::def("cube", &NumC::cube<uint8>);
+	boost::python::def("cube", &NumC::cube<uint16>);
+	boost::python::def("cube", &NumC::cube<uint32>);
+	boost::python::def("cube", &NumC::cube<uint64>);
 
-	boost::python::def("power", NumC::power<double>);
-	boost::python::def("power", NumC::power<float>);
-	boost::python::def("power", NumC::power<int8>);
-	boost::python::def("power", NumC::power<int16>);
-	boost::python::def("power", NumC::power<int32>);
-	boost::python::def("power", NumC::power<int64>);
-	boost::python::def("power", NumC::power<uint8>);
-	boost::python::def("power", NumC::power<uint16>);
-	boost::python::def("power", NumC::power<uint32>);
-	boost::python::def("power", NumC::power<uint64>);
+	boost::python::def("power", &NumC::power<double>);
+	boost::python::def("power", &NumC::power<float>);
+	boost::python::def("power", &NumC::power<int8>);
+	boost::python::def("power", &NumC::power<int16>);
+	boost::python::def("power", &NumC::power<int32>);
+	boost::python::def("power", &NumC::power<int64>);
+	boost::python::def("power", &NumC::power<uint8>);
+	boost::python::def("power", &NumC::power<uint16>);
+	boost::python::def("power", &NumC::power<uint32>);
+	boost::python::def("power", &NumC::power<uint64>);
 }
