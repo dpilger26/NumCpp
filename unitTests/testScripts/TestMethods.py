@@ -787,6 +787,39 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing count_nonzero: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 3, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    if NumC.count_nonzero(cArray, NumC.Axis.NONE) == np.count_nonzero(data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing count_nonzero: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 3, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(NumC.count_nonzero(cArray, NumC.Axis.ROW).flatten(), np.count_nonzero(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing count_nonzero: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 3, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(NumC.count_nonzero(cArray, NumC.Axis.COL).flatten(), np.count_nonzero(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing cube array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -794,43 +827,6 @@ def doTest():
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
     if np.array_equal(np.round(NumC.cube(cArray), 10), np.round(data * data * data, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
-    print(colored('Testing sqr array', 'cyan'))
-    shapeInput = np.random.randint(1, 100, [2, ])
-    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumC.NdArray(shape)
-    data = np.random.rand(shape.rows, shape.cols)
-    cArray.setArray(data)
-    if np.array_equal(np.round(NumC.sqr(cArray), 10), np.round(data * data, 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
-    print(colored('Testing power array scalar', 'cyan'))
-    shapeInput = np.random.randint(1, 100, [2, ])
-    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumC.NdArray(shape)
-    data = np.random.randint(0, 100, [shape.rows, shape.cols])
-    exponent = np.random.randint(0, 5, [1,]).item()
-    cArray.setArray(data)
-    if np.array_equal(np.round(NumC.power(cArray, exponent), 10), np.round(np.power(data, exponent), 10)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
-    print(colored('Testing power array array', 'cyan'))
-    shapeInput = np.random.randint(1, 100, [2, ])
-    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray = NumC.NdArray(shape)
-    cExponents = NumC.NdArrayInt8(shape)
-    data = np.random.randint(0, 100, [shape.rows, shape.cols])
-    exponents = np.random.randint(0, 5, [shape.rows, shape.cols]).astype(np.uint8)
-    cArray.setArray(data)
-    cExponents.setArray(exponents)
-    if np.array_equal(np.round(NumC.power(cArray, cExponents), 10), np.round(np.power(data, exponents), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -897,6 +893,98 @@ def doTest():
     data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     if np.array_equal(NumC.cumsum(cArray, NumC.Axis.COL).astype(np.uint32), data.cumsum(axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing deg2rad scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item()) * 360
+    if np.round(NumC.deg2rad(value), 10) == np.round(np.deg2rad(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing deg2rad array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols) * 360
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.deg2rad(cArray), 10), np.round(np.deg2rad(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing diagflat array', 'cyan'))
+    numElements = np.random.randint(1, 25, [1, ]).item()
+    shape = NumC.Shape(1, numElements)
+    elements = np.random.randint(1, 100, [numElements,])
+    cElements = NumC.NdArray(shape)
+    cElements.setArray(elements)
+    if np.array_equal(NumC.diagflat(cElements), np.diagflat(elements)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing diagonal: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    offset = np.random.randint(0, min(shape.rows, shape.cols), [1, ]).item()
+    if np.array_equal(NumC.diagonal(cArray, offset, NumC.Axis.ROW).astype(np.uint32).flatten(),
+                      np.diagonal(data, offset, axis1=1, axis2=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing diagonal: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    offset = np.random.randint(0, min(shape.rows, shape.cols), [1, ]).item()
+    if np.array_equal(NumC.diagonal(cArray, offset, NumC.Axis.COL).astype(np.uint32).flatten(),
+                      np.diagonal(data, offset, axis1=0, axis2=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing sqr array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.sqr(cArray), 10), np.round(data * data, 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing power array scalar', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    exponent = np.random.randint(0, 5, [1, ]).item()
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.power(cArray, exponent), 10), np.round(np.power(data, exponent), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing power array array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    cExponents = NumC.NdArrayInt8(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    exponents = np.random.randint(0, 5, [shape.rows, shape.cols]).astype(np.uint8)
+    cArray.setArray(data)
+    cExponents.setArray(exponents)
+    if np.array_equal(np.round(NumC.power(cArray, cExponents), 10), np.round(np.power(data, exponents), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

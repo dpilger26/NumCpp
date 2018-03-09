@@ -1242,10 +1242,66 @@ namespace MethodsInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	np::ndarray count_nonzero(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
+	{
+		return numCToBoost(NumC::count_nonzero(inArray, inAxis));
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	np::ndarray cubeArray(const NdArray<dtype>& inArray)
 	{
 		return numCToBoost(NumC::cube<dtype, dtypeOut>(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(cumprod<dtype, dtypeOut>(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(cumsum<dtype, dtypeOut>(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype deg2radScalar(dtype inValue)
+	{
+		return NumC::deg2rad(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray deg2radArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::deg2rad(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray diagflat(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::diagflat(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+	{
+		return numCToBoost(NumC::diagonal(inArray, inOffset, inAxis));
 	}
 
 	//================================================================================
@@ -1270,22 +1326,6 @@ namespace MethodsInterface
 	np::ndarray powerArrayArray(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
 	{
 		return numCToBoost(NumC::power<dtype, dtypeOut>(inArray, inExponents));
-	}
-
-	//================================================================================
-
-	template<typename dtype, typename dtypeOut>
-	np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-	{
-		return numCToBoost(cumprod<dtype, dtypeOut>(inArray, inAxis));
-	}
-
-	//================================================================================
-
-	template<typename dtype, typename dtypeOut>
-	np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-	{
-		return numCToBoost(cumsum<dtype, dtypeOut>(inArray, inAxis));
 	}
 }
 
@@ -1544,12 +1584,18 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("cos", &MethodsInterface::cosArray<double>);
 	boost::python::def("cosh", &MethodsInterface::coshScalar<double>);
 	boost::python::def("cosh", &MethodsInterface::coshArray<double>);
+	boost::python::def("count_nonzero", &MethodsInterface::count_nonzero<double>);
 	boost::python::def("cube", &MethodsInterface::cubeArray<double, double>);
+	boost::python::def("cumprod", &MethodsInterface::cumprodArray<double, double>);
+	boost::python::def("cumsum", &MethodsInterface::cumsumArray<double, double>);
+	boost::python::def("deg2rad", &MethodsInterface::deg2radScalar<double>);
+	boost::python::def("deg2rad", &MethodsInterface::deg2radArray<double>);
+	boost::python::def("diagflat", &MethodsInterface::diagflat<double>);
+	boost::python::def("diagonal", &MethodsInterface::diagonal<double>);
+
 	boost::python::def("sqr", &MethodsInterface::sqrArray<double, double>);
 	boost::python::def("power", &MethodsInterface::powerArrayScalar<double, double>);
 	boost::python::def("power", &MethodsInterface::powerArrayArray<double, double>);
-	boost::python::def("cumprod", &MethodsInterface::cumprodArray<double, double>);
-	boost::python::def("cumsum", &MethodsInterface::cumsumArray<double, double>);
 
 	boost::python::def("num2str", &NumC::num2str<double>);
 	boost::python::def("num2str", &NumC::num2str<float>);
