@@ -1306,6 +1306,30 @@ namespace MethodsInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	np::ndarray diff(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
+	{
+		return numCToBoost(NumC::diff(inArray, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::divide<dtype, dtypeOut>(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::dot<dtype, dtypeOut>(inArray1, inArray2));
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	np::ndarray sqrArray(const NdArray<dtype>& inArray)
 	{
@@ -1592,6 +1616,10 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("deg2rad", &MethodsInterface::deg2radArray<double>);
 	boost::python::def("diagflat", &MethodsInterface::diagflat<double>);
 	boost::python::def("diagonal", &MethodsInterface::diagonal<double>);
+	boost::python::def("diff", &MethodsInterface::diff<double>);
+	boost::python::def("divide", &MethodsInterface::divide<double, double>);
+	boost::python::def("dot", &MethodsInterface::dot<double, double>);
+	boost::python::def("dump", &NumC::dump<double>);
 
 	boost::python::def("sqr", &MethodsInterface::sqrArray<double, double>);
 	boost::python::def("power", &MethodsInterface::powerArrayScalar<double, double>);

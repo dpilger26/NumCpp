@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from termcolor import colored
 import sys
@@ -951,6 +952,103 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing diff: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(NumC.diff(cArray, NumC.Axis.NONE).flatten().astype(np.uint32), np.diff(data.flatten())):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing diff: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(NumC.diff(cArray, NumC.Axis.ROW).astype(np.uint32), np.diff(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing diff: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray.setArray(data)
+    if np.array_equal(NumC.diff(cArray, NumC.Axis.COL).astype(np.uint32), np.diff(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing divide', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
+    data2 = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(np.round(NumC.divide(cArray1, cArray2), 10), np.round(np.divide(data1, data2), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing dot vector', 'cyan'))
+    size = np.random.randint(1, 100, [1,]).item()
+    shape = NumC.Shape(1, size)
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    data2 = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if NumC.dot(cArray1, cArray2).astype(np.uint32).item() == np.dot(data1, data2.T).item():
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing dot array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[1].item(), np.random.randint(1, 100, [1,]).item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    data1 = np.random.randint(1, 50, [shape1.rows, shape1.cols], dtype=np.uint32)
+    data2 = np.random.randint(1, 50, [shape2.rows, shape2.cols], dtype=np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.dot(cArray1, cArray2).astype(np.uint32), np.dot(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing dump', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    tempDir = r'C:\Temp'
+    if not os.path.exists(tempDir):
+        os.mkdir(tempDir)
+    tempFile = os.path.join(tempDir, 'NdArrayDump.bin')
+    NumC.dump(cArray, tempFile)
+    if os.path.exists(tempFile):
+        filesize = os.path.getsize(tempFile)
+        if filesize == data.size * 8:
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
+    else:
+        print(colored('\tFAIL', 'red'))
+    os.remove(tempFile)
 
     print(colored('Testing sqr array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])

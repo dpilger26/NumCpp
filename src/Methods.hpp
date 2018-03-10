@@ -1432,6 +1432,7 @@ namespace NumC
 	//============================================================================
 	// Method Description: 
 	//						Calculate the n-th discrete difference along given axis.
+	//						Unsigned dtypes will give you weird results...obviously.
 	//		
 	// Inputs:
 	//				NdArray
@@ -1440,9 +1441,66 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<uint32> diff(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		Shape inShape = inArray.shape();
 
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				if (inArray.size() < 2)
+				{
+					return std::move(NdArray<dtype>(0));
+				}
+
+				NdArray<dtype> returnArray(1, inArray.size() - 1);
+				std::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(), 
+					[](dtype inValue1, dtype inValue2) { return inValue2 - inValue1; });
+
+				return std::move(returnArray);
+			}
+			case Axis::COL:
+			{
+				if (inShape.cols < 2)
+				{
+					return std::move(NdArray<dtype>(0));
+				}
+
+				NdArray<dtype> returnArray(inShape.rows, inShape.cols - 1);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					std::transform(inArray.cbegin(row), inArray.cend(row) - 1, inArray.cbegin(row) + 1, returnArray.begin(row),
+						[](dtype inValue1, dtype inValue2) { return inValue2 - inValue1; });
+				}
+
+				return std::move(returnArray);
+			}
+			case Axis::ROW:
+			{
+				if (inShape.rows < 2)
+				{
+					return std::move(NdArray<dtype>(0));
+				}
+
+				NdArray<dtype> transArray = inArray.transpose();
+				Shape transShape = transArray.shape();
+				NdArray<dtype> returnArray(transShape.rows, transShape.cols - 1);
+				for (uint32 row = 0; row < transShape.rows; ++row)
+				{
+					std::transform(transArray.cbegin(row), transArray.cend(row) - 1, transArray.cbegin(row) + 1, returnArray.begin(row),
+						[](dtype inValue1, dtype inValue2) { return inValue2 - inValue1; });
+				}
+
+				return std::move(returnArray.transpose());
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<dtype>(0));
+			}
+		}
 	}
 
 	//============================================================================
@@ -1458,7 +1516,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1.astype<dtypeOut>() / inArray2.astype<dtypeOut>());
 	}
 
 	//============================================================================
