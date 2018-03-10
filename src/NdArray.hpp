@@ -130,9 +130,7 @@ namespace NumC
 			size_(inSquareSize * inSquareSize),
 			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
-		{
-			zeros();
-		}
+		{};
 
 		//============================================================================
 		// Method Description: 
@@ -149,9 +147,7 @@ namespace NumC
 			size_(inNumRows * inNumCols),
 			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
-		{
-			zeros();
-		}
+		{};
 
 		//============================================================================
 		// Method Description: 
@@ -167,9 +163,7 @@ namespace NumC
 			size_(shape_.size()),
 			endianess_(Endian::NATIVE),
 			array_(new dtype[size_])
-		{
-			zeros();
-		}
+		{};
 
 		//============================================================================
 		// Method Description: 
@@ -1486,7 +1480,7 @@ namespace NumC
 		// Outputs:
 		//				Endian::Type
 		//
-		Endian::Type endianess()
+		Endian::Type endianess() const
 		{
 			return endianess_;
 		}

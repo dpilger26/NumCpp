@@ -984,6 +984,8 @@ def doTest():
     if np.array_equal(NumC.diff(cArray, NumC.Axis.COL).astype(np.uint32), np.diff(data, axis=1)):
         print(colored('\tPASS', 'green'))
     else:
+        print(data)
+        print(NumC.diff(cArray, NumC.Axis.COL).astype(np.uint32))
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing divide', 'cyan'))
@@ -1049,6 +1051,144 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
     os.remove(tempFile)
+
+    print(colored('Testing empty rectangle', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    cArray = NumC.empty(shapeInput[0].item(), shapeInput[1].item())
+    if (cArray.shape[0] == shapeInput[0] and cArray.shape[1] == shapeInput[1] and
+            cArray.size == shapeInput.prod()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing empty Shape', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.empty(shape)
+    if (cArray.shape[0] == shape.rows and cArray.shape[1] == shape.cols and
+            cArray.size == shapeInput.prod()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing empty list', 'cyan'))
+    if NumC.testEmptyList():
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing empty_like', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.empty_like(cArray1)
+    if (cArray2.shape().rows == shape.rows and cArray2.shape().cols == shape.cols and
+            cArray2.size() == shapeInput.prod()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing endianess', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    if NumC.endianess(cArray) == NumC.Endian.NATIVE:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing equal', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(0, 10, [shape.rows, shape.cols])
+    data2 = np.random.randint(0, 10, [shape.rows, shape.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.equal(cArray1, cArray2), np.equal(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing exp scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item())
+    if np.round(NumC.exp(value), 10) == np.round(np.exp(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing exp array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.exp(cArray), 10), np.round(np.exp(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing exp2 scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item())
+    if np.round(NumC.exp2(value), 10) == np.round(np.exp2(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing exp2 array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.exp2(cArray), 10), np.round(np.exp2(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing expm1 scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item())
+    if np.round(NumC.expm1(value), 10) == np.round(np.expm1(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing expm1 array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.expm1(cArray), 10), np.round(np.expm1(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing eye 1D', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [1, ]).item()
+    randK = np.random.randint(0, shapeInput, [1, ]).item()
+    if np.array_equal(NumC.eye(shapeInput, randK), np.eye(shapeInput, k=randK)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing eye 2D', 'cyan'))
+    shapeInput = np.random.randint(10, 100, [2, ])
+    randK = np.random.randint(0, shapeInput.min(), [1, ]).item()
+    if np.array_equal(NumC.eye(shapeInput[0].item(), shapeInput[1].item(), randK), np.eye(shapeInput[0].item(), shapeInput[1].item(), k=randK)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing eye Shape', 'cyan'))
+    shapeInput = np.random.randint(10, 100, [2, ])
+    cShape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    randK = np.random.randint(0, shapeInput.min(), [1, ]).item()
+    if np.array_equal(NumC.eye(cShape, randK), np.eye(shapeInput[0].item(), shapeInput[1].item(), k=randK)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
     print(colored('Testing sqr array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])

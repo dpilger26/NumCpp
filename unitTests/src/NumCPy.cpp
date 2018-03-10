@@ -1330,6 +1330,121 @@ namespace MethodsInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	np::ndarray emptyRowCol(uint32 inNumRows, uint32 inNumCols)
+	{
+		return numCToBoost(NumC::empty<dtype>(inNumRows, inNumCols));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray emptyShape(const Shape& inShape)
+	{
+		return numCToBoost(NumC::empty<dtype>(inShape));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool testEmptyList()
+	{
+		uint32 numRows = 4;
+		uint32 numCols = 11;
+		
+		NdArray<dtype> theArray = NumC::empty<dtype>({ numRows, numCols });
+
+		Shape theShape = theArray.shape();
+		if (theShape.rows == numRows && theShape.cols == numCols && theArray.size() == numRows * numCols)
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::equal(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype expScalar(dtype inValue)
+	{
+		return NumC::exp(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray expArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::exp(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype exp2Scalar(dtype inValue)
+	{
+		return NumC::exp2(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray exp2Array(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::exp2(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype expm1Scalar(dtype inValue)
+	{
+		return NumC::expm1(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray expm1Array(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::expm1(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray eye1D(uint32 inN, int32 inK)
+	{
+		return numCToBoost(NumC::eye<dtype>(inN, inK));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray eye2D(uint32 inN, uint32 inM, int32 inK)
+	{
+		return numCToBoost(NumC::eye<dtype>(inN, inM, inK));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray eyeShape(const Shape& inShape, int32 inK)
+	{
+		return numCToBoost(NumC::eye<dtype>(inShape, inK));
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	np::ndarray sqrArray(const NdArray<dtype>& inArray)
 	{
@@ -1351,6 +1466,8 @@ namespace MethodsInterface
 	{
 		return numCToBoost(NumC::power<dtype, dtypeOut>(inArray, inExponents));
 	}
+
+
 }
 
 //================================================================================
@@ -1620,6 +1737,21 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("divide", &MethodsInterface::divide<double, double>);
 	boost::python::def("dot", &MethodsInterface::dot<double, double>);
 	boost::python::def("dump", &NumC::dump<double>);
+	boost::python::def("empty", &MethodsInterface::emptyRowCol<double>);
+	boost::python::def("empty", &MethodsInterface::emptyShape<double>);
+	boost::python::def("testEmptyList", &MethodsInterface::testEmptyList<double>);
+	boost::python::def("empty_like", &NumC::empty_like<double, double>);
+	boost::python::def("endianess", &NumC::endianess<double>);
+	boost::python::def("equal", &MethodsInterface::equal<double>);
+	boost::python::def("exp", &MethodsInterface::expScalar<double>);
+	boost::python::def("exp", &MethodsInterface::expArray<double>);
+	boost::python::def("exp2", &MethodsInterface::exp2Scalar<double>);
+	boost::python::def("exp2", &MethodsInterface::exp2Array<double>);
+	boost::python::def("expm1", &MethodsInterface::expm1Scalar<double>);
+	boost::python::def("expm1", &MethodsInterface::expm1Array<double>);
+	boost::python::def("eye", &MethodsInterface::eye1D<double>);
+	boost::python::def("eye", &MethodsInterface::eye2D<double>);
+	boost::python::def("eye", &MethodsInterface::eyeShape<double>);
 
 	boost::python::def("sqr", &MethodsInterface::sqrArray<double, double>);
 	boost::python::def("power", &MethodsInterface::powerArrayScalar<double, double>);

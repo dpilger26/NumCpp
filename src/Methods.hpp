@@ -789,6 +789,7 @@ namespace NumC
 		NdArray<dtype> clippedArray = inArray.clip(0, maxValue);
 
 		NdArray<dtype> outArray(1, outArraySize);
+		outArray.zeros();
 		for (uint32 i = 0; i < inArray.size(); ++i)
 		{
 			++outArray[clippedArray[i]];
@@ -844,6 +845,7 @@ namespace NumC
 		NdArray<dtype> clippedArray = inArray.clip(0, maxValue);
 
 		NdArray<dtype> outArray(1, outArraySize);
+		outArray.zeros();
 		for (uint32 i = 0; i < inArray.size(); ++i)
 		{
 			outArray[clippedArray[i]] += inWeights[i];
@@ -1641,7 +1643,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1 == inArray2);
 	}
 
 	//============================================================================
@@ -1656,7 +1658,7 @@ namespace NumC
 	template<typename dtype>
 	double exp(dtype inValue)
 	{
-
+		return std::exp(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -1671,7 +1673,12 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> exp(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
 
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+			[](dtype inValue) { return exp(inValue); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -1686,7 +1693,7 @@ namespace NumC
 	template<typename dtype>
 	double exp2(dtype inValue)
 	{
-
+		return std::exp2(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -1701,7 +1708,12 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> exp2(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
 
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+			[](dtype inValue) { return exp2(inValue); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -1716,7 +1728,7 @@ namespace NumC
 	template<typename dtype>
 	double expm1(dtype inValue)
 	{
-
+		return std::exp(static_cast<double>(inValue)) - 1.0;
 	}
 
 	//============================================================================
@@ -1731,7 +1743,12 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> expm1(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
 
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+			[](dtype inValue) { return expm1(inValue); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -1747,9 +1764,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> eye(uint16 inN, int32 inK = 0)
+	NdArray<dtype> eye(uint32 inN, int32 inK = 0)
 	{
-
+		return std::move(eye<dtype>(inN, inN, inK));
 	}
 
 	//============================================================================
@@ -1766,9 +1783,57 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> eye(uint16 inN, uint16 inM, int32 inK = 0)
+	NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0)
 	{
+		NdArray<dtype> returnArray(inN, inM);
+		returnArray.zeros();
 
+		if (inK < 0)
+		{
+			uint32 col = 0;
+			for (uint32 row = inK; row < inN; ++row)
+			{
+				if (col >= inM)
+				{
+					break;
+				}
+
+				returnArray(row, col++) = 1;
+			}
+		}
+		else
+		{
+			uint32 row = 0;
+			for (uint32 col = inK; col < inM; ++col)
+			{
+				if (row >= inN)
+				{
+					break;
+				}
+
+				returnArray(row++, col) = 1;
+			}
+		}
+
+		return std::move(returnArray);
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+	//		
+	// Inputs:
+	//				Shape
+	//				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
+	//				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
+	//				
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> eye(const Shape& inShape, int32 inK = 0)
+	{
+		return std::move(eye<dtype>(inShape.rows, inShape.cols, inK));
 	}
 
 	//============================================================================
