@@ -27,19 +27,6 @@ namespace NumC
 	//================================Linalg Namespace=============================
 	namespace Linalg
 	{
-		//============================================================================
-		// Method Description: 
-		//						Returns the norm of the array
-		//		
-		// Inputs:
-		//				(Optional) Axis
-		// Outputs:
-		//				norm
-		//
-		template<typename dtype, typename dtypeOut>
-		dtypeOut norm(NdArray<dtype> inArray, Axis::Type inAxis = Axis::NONE)
-		{
 
-		}
 	}
 }

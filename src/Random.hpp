@@ -23,11 +23,27 @@
 #include"Shape.hpp"
 #include"NdArray.hpp"
 
+#include"boost/random.hpp"
+
 namespace NumC
 {
 	//================================Random Namespace=============================
 	namespace Random
 	{
+		//============================================================================
+		// Method Description: 
+		//						Seeds the random number generator
+		//		
+		// Inputs:
+		//				seed
+		// Outputs:
+		//				None
+		//
+		void seed(uint32 inSeed)
+		{
+
+		}
+
 		//============================================================================
 		// Method Description: 
 		//						Create an array of the given shape and populate it with 
@@ -55,7 +71,7 @@ namespace NumC
 		//				None
 		//
 		template<typename dtype>
-		NdArray<dtype> randint(const Shape& inShape, dtype inLow, dtype inHigh)
+		NdArray<dtype> randint(dtype inLow, dtype inHigh, const Shape& inShape)
 		{
 
 		}

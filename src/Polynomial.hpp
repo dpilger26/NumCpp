@@ -21,16 +21,12 @@
 
 #include"Types.hpp"
 #include"NdArray.hpp"
-#include"Methods.hpp"
-#include"Constants.hpp"
-#include"Shape.hpp"
-#include"Slice.hpp"
-#include"Linalg.hpp"
-#include"Random.hpp"
-#include"Polynomial.hpp"
-#include"FFT.hpp"
-#include"Timer.hpp"
-#include"Utils.hpp"
-#include"DtypeInfo.hpp"
 
-#include"BoostNumpyNdarrayHelper.hpp"
+namespace NumC
+{
+	//================================Linalg Namespace=============================
+	namespace Polynomial
+	{
+
+	}
+}
