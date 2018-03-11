@@ -1848,7 +1848,7 @@ namespace NumC
 	template<typename dtype>
 	dtype fix(dtype inValue)
 	{
-
+		return inValue > 0 ? std::floor(inValue) : std::ceil(inValue);
 	}
 
 	//============================================================================
@@ -1863,7 +1863,12 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> fix(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
 
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+			[](dtype inValue) { return fix(inValue); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -1892,9 +1897,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<uint16> flatnonzero(const NdArray<dtype>& inArray)
+	NdArray<uint32> flatnonzero(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(inArray.flatten().nonzero());
 	}
 
 	//============================================================================
@@ -1908,9 +1913,39 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> flip(const NdArray<dtype>& inArray, Axis::Type)
+	NdArray<dtype> flip(const NdArray<dtype>& inArray, Axis::Type inAxis)
 	{
-
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				NdArray<dtype> returnArray(inArray);
+				std::reverse(returnArray.begin(), returnArray.end());
+				return std::move(returnArray);
+			}
+			case Axis::COL:
+			{
+				NdArray<dtype> returnArray(inArray);
+				for (uint32 row = 0; row < inArray.shape().rows; ++row)
+				{
+					std::reverse(returnArray.begin(row), returnArray.end(row));
+				}
+				return std::move(returnArray);
+			}
+			case Axis::ROW:
+			{
+				NdArray<dtype> returnArray = inArray.transpose();
+				for (uint32 row = 0; row < returnArray.shape().rows; ++row)
+				{
+					std::reverse(returnArray.begin(row), returnArray.end(row));
+				}
+				return std::move(returnArray.transpose());
+			}
+			default:
+			{
+				return std::move(NdArray<dtype>(0));
+			}
+		}
 	}
 
 	//============================================================================
@@ -1925,7 +1960,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> fliplr(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(flip(inArray, Axis::COL));
 	}
 
 	//============================================================================
@@ -1940,7 +1975,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> flipud(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(flip(inArray, Axis::ROW));
 	}
 
 	//============================================================================
@@ -1955,7 +1990,7 @@ namespace NumC
 	template<typename dtype>
 	dtype floor(dtype inValue)
 	{
-
+		return std::floor(inValue);
 	}
 
 	//============================================================================
@@ -1970,7 +2005,12 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> floor(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
 
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+			[](dtype inValue) { return floor(inValue); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -3874,7 +3914,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK)
 	{
-
+		// 180 = flip(inArray, Axis::NONE);
 	}
 
 	//============================================================================

@@ -1445,6 +1445,38 @@ namespace MethodsInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	dtype fixScalar(dtype inValue)
+	{
+		return NumC::fix(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray fixArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::fix(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype floorScalar(dtype inValue)
+	{
+		return NumC::floor(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray floorArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::floor(inArray));
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	np::ndarray sqrArray(const NdArray<dtype>& inArray)
 	{
@@ -1752,6 +1784,15 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("eye", &MethodsInterface::eye1D<double>);
 	boost::python::def("eye", &MethodsInterface::eye2D<double>);
 	boost::python::def("eye", &MethodsInterface::eyeShape<double>);
+	boost::python::def("fix", &MethodsInterface::fixScalar<double>);
+	boost::python::def("fix", &MethodsInterface::fixArray<double>);
+	boost::python::def("flatten", &NumC::flatten<double>);
+	boost::python::def("flatnonzero", &NumC::flatnonzero<double>);
+	boost::python::def("flip", &NumC::flip<double>);
+	boost::python::def("fliplr", &NumC::fliplr<double>);
+	boost::python::def("flipud", &NumC::flipud<double>);
+	boost::python::def("floor", &MethodsInterface::floorScalar<double>);
+	boost::python::def("floor", &MethodsInterface::floorArray<double>);
 
 	boost::python::def("sqr", &MethodsInterface::sqrArray<double, double>);
 	boost::python::def("power", &MethodsInterface::powerArrayScalar<double, double>);
