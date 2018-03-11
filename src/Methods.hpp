@@ -2026,7 +2026,7 @@ namespace NumC
 	template<typename dtype>
 	dtype floor_divide(dtype inValue1, dtype inValue2)
 	{
-
+		return std::floor(inValue1 / inValue2);
 	}
 
 	//============================================================================
@@ -2042,7 +2042,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> floor_divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(floor(inArray1 / inArray2));
 	}
 
 	//============================================================================
@@ -2061,7 +2061,7 @@ namespace NumC
 	template<typename dtype>
 	dtype fmax(dtype inValue1, dtype inValue2)
 	{
-
+		return std::max(inValue1, inValue2);
 	}
 
 	//============================================================================
@@ -2080,7 +2080,17 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> fmax(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: fmax: input array shapes are not consistant.");
+		}
 
+		NdArray<double> returnArray(inArray1.shape());
+
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, dtype inValue2) { return std::max(inValue1, inValue2); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2099,7 +2109,7 @@ namespace NumC
 	template<typename dtype>
 	dtype fmin(dtype inValue1, dtype inValue2)
 	{
-
+		return std::min(inValue1, inValue2);
 	}
 
 	//============================================================================
@@ -2118,7 +2128,17 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> fmin(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: fmax: input array shapes are not consistant.");
+		}
 
+		NdArray<double> returnArray(inArray1.shape());
+
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, dtype inValue2) { return std::min(inValue1, inValue2); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2133,9 +2153,12 @@ namespace NumC
 	//				value
 	//
 	template<typename dtype>
-	dtype fmod(dtype iValue1, dtype inValue2)
+	dtype fmod(dtype inValue1, dtype inValue2)
 	{
+		// can only be called on integer types
+		static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: % operator can only be compiled with integer types.");
 
+		return inValue1 % inValue2;
 	}
 
 	//============================================================================
@@ -2152,7 +2175,20 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		// can only be called on integer types
+		static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: % operator can only be compiled with integer types.");
 
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: fmax: input array shapes are not consistant.");
+		}
+
+		NdArray<dtype> returnArray(inArray1.shape());
+
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, dtype inValue2) { return inValue1 % inValue2; });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2186,7 +2222,9 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue)
 	{
-		return std::move(NdArray<dtype>(inNumRows, inNumCols).fill(inFillValue));
+		NdArray<dtype> returnArray(inNumRows, inNumCols);
+		returnArray.fill(inFillValue);
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2202,7 +2240,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> full(const Shape& inShape, dtype inFillValue)
 	{
-		return std::move(NdArray<dtype>(inShape).fill(inFillValue));
+		return std::move(full(inShape.rows, inShape.cols, inFillValue));
 	}
 
 	//============================================================================
@@ -2218,7 +2256,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> full(std::initializer_list<uint32>& inShapeList, dtype inFillValue)
 	{
-		return std::move(NdArray<dtype>(inShapeList).fill(inFillValue));
+		return std::move(full(Shape(inShapeList), inFillValue));
 	}
 
 	//============================================================================
@@ -2234,7 +2272,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue)
 	{
-		return std::move(NdArray<dtype>(inArray, shape()).fill(inFillValue));
+		return std::move(full(inArray.shape(), inFillValue));
 	}
 
 	//============================================================================

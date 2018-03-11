@@ -3702,6 +3702,27 @@ namespace NumC
 		// Outputs:
 		//				NdArray
 		//
+		NdArray<bool> operator==(dtype inValue) const
+		{
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray[i] = array_[i] == inValue;
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array of booleans of element wise comparison
+		//						of two arrays
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
 		NdArray<bool> operator==(const NdArray<dtype>& inOtherArray) const
 		{
 			if (shape_ != inOtherArray.shape_)
@@ -3713,6 +3734,27 @@ namespace NumC
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				returnArray[i] = array_[i] == inOtherArray.array_[i];
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array of booleans of element wise comparison
+		//						of two arrays
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<bool> operator!=(dtype inValue) const
+		{
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray[i] = array_[i] != inValue;
 			}
 
 			return std::move(returnArray);

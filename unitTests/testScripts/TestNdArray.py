@@ -1557,7 +1557,19 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator ==', 'cyan'))
+    print(colored('Testing operator == scalar', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorEquality(value), data == value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator == array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray1 = NumC.NdArray(shape)
@@ -1571,7 +1583,19 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator !=', 'cyan'))
+    print(colored('Testing operator != scalar', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorNotEquality(value), data != value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator != array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray1 = NumC.NdArray(shape)

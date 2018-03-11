@@ -1281,6 +1281,134 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing floor_divide scalar', 'cyan'))
+    value1 = np.random.randn(1).item() * 100 + 1000
+    value2 = np.random.randn(1).item() * 100 + 1000
+    if NumC.floor_divide(value1, value2) == np.floor_divide(value1, value2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing floor_divide array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data2 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.floor_divide(cArray1, cArray2), np.floor_divide(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing fmax scalar', 'cyan'))
+    value1 = np.random.randn(1).item() * 100 + 1000
+    value2 = np.random.randn(1).item() * 100 + 1000
+    if NumC.fmax(value1, value2) == np.fmax(value1, value2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing fmax array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data2 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.fmax(cArray1, cArray2), np.fmax(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing fmin scalar', 'cyan'))
+    value1 = np.random.randn(1).item() * 100 + 1000
+    value2 = np.random.randn(1).item() * 100 + 1000
+    if NumC.fmin(value1, value2) == np.fmin(value1, value2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing fmin array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data2 = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.fmin(cArray1, cArray2), np.fmin(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing fmod scalar', 'cyan'))
+    value1 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000
+    value2 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000
+    if NumC.fmod(value1, value2) == np.fmod(value1, value2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing fmod array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArrayInt(shape)
+    cArray2 = NumC.NdArrayInt(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols]) * 100 + 1000
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols]) * 100 + 1000
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.fmod(cArray1, cArray2), np.fmod(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing full rectangle', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    value = np.random.randint(1, 100, [1, ]).item()
+    cArray = NumC.full(shapeInput[0].item(), shapeInput[1].item(), value)
+    if (cArray.shape[0] == shapeInput[0] and cArray.shape[1] == shapeInput[1] and
+            cArray.size == shapeInput.prod() and np.all(cArray == value)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing full Shape', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    value = np.random.randint(1, 100, [1, ]).item()
+    cArray = NumC.full(shape, value)
+    if (cArray.shape[0] == shape.rows and cArray.shape[1] == shape.cols and
+            cArray.size == shapeInput.prod() and np.all(cArray == value)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing full list', 'cyan'))
+    value = np.random.randint(1, 100, [1, ]).item()
+    if NumC.testFullList(value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing full_like', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    value = np.random.randint(1, 100, [1, ]).item()
+    cArray2 = NumC.full_like(cArray1, value)
+    if (cArray2.shape().rows == shape.rows and cArray2.shape().cols == shape.cols and
+            cArray2.size() == shapeInput.prod() and np.all(cArray2.getNumpyArray() == value)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing sqr array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())

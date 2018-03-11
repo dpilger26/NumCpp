@@ -799,7 +799,15 @@ namespace NdArrayInterface
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray operatorEquality(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	np::ndarray operatorEqualityScalar(NdArray<dtype>& self, dtype inValue)
+	{
+		return numCToBoost(self == inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorEqualityArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
 	{
 		return numCToBoost(self == inOtherArray);
 	}
@@ -807,7 +815,15 @@ namespace NdArrayInterface
 	//================================================================================
 
 	template<typename dtype>
-	np::ndarray operatorNotEquality(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	np::ndarray operatorNotEqualityScalar(NdArray<dtype>& self, dtype inValue)
+	{
+		return numCToBoost(self != inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorNotEqualityArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
 	{
 		return numCToBoost(self != inOtherArray);
 	}
@@ -1477,6 +1493,103 @@ namespace MethodsInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	dtype floor_divideScalar(dtype inValue1, dtype inValue2)
+	{
+		return NumC::floor_divide(inValue1, inValue2);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray floor_divideArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::floor_divide(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype fmaxScalar(dtype inValue1, dtype inValue2)
+	{
+		return NumC::fmax(inValue1, inValue2);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray fmaxArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::fmax(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype fminScalar(dtype inValue1, dtype inValue2)
+	{
+		return NumC::fmin(inValue1, inValue2);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray fminArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::fmin(inArray1, inArray2));
+	}
+
+	template<typename dtype>
+	dtype fmodScalar(dtype inValue1, dtype inValue2)
+	{
+		return NumC::fmod(inValue1, inValue2);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray fmodArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::fmod(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray fullRowCol(uint32 inNumRows, uint32 inNumCols, dtype inValue)
+	{
+		return numCToBoost(NumC::full(inNumRows, inNumCols, inValue));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray fullShape(const Shape& inShape, dtype inValue)
+	{
+		return numCToBoost(NumC::full(inShape, inValue));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool testFullList(dtype inValue)
+	{
+		uint32 numRows = 4;
+		uint32 numCols = 11;
+
+		NdArray<dtype> theArray = NumC::full({ numRows, numCols }, inValue);
+
+		Shape theShape = theArray.shape();
+		if (theShape.rows == numRows && theShape.cols == numCols && theArray.size() == numRows * numCols && all(theArray == inValue).item())
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	np::ndarray sqrArray(const NdArray<dtype>& inArray)
 	{
@@ -1650,8 +1763,10 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("operatorMultiplyArray", &NdArrayInterface::operatorMultiplyArray<double>)
 		.def("operatorDivideScalar", &NdArrayInterface::operatorDivideScalar<double>)
 		.def("operatorDivideArray", &NdArrayInterface::operatorDivideArray<double>)
-		.def("operatorEquality", &NdArrayInterface::operatorEquality<double>)
-		.def("operatorNotEquality", &NdArrayInterface::operatorNotEquality<double>)
+		.def("operatorEquality", &NdArrayInterface::operatorEqualityScalar<double>)
+		.def("operatorEquality", &NdArrayInterface::operatorEqualityArray<double>)
+		.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalar<double>)
+		.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<double>)
 		.def("operatorPrePlusPlus", &NdArrayInterface::operatorPrePlusPlus<double>)
 		.def("operatorPostPlusPlus", &NdArrayInterface::operatorPostPlusPlus<double>)
 		.def("operatorPreMinusMinus", &NdArrayInterface::operatorPreMinusMinus<double>)
@@ -1793,6 +1908,18 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("flipud", &NumC::flipud<double>);
 	boost::python::def("floor", &MethodsInterface::floorScalar<double>);
 	boost::python::def("floor", &MethodsInterface::floorArray<double>);
+	boost::python::def("floor_divide", &MethodsInterface::floor_divideScalar<double>);
+	boost::python::def("floor_divide", &MethodsInterface::floor_divideArray<double>);
+	boost::python::def("fmax", &MethodsInterface::fmaxScalar<double>);
+	boost::python::def("fmax", &MethodsInterface::fmaxArray<double>);
+	boost::python::def("fmin", &MethodsInterface::fminScalar<double>);
+	boost::python::def("fmin", &MethodsInterface::fminArray<double>);
+	boost::python::def("fmod", &MethodsInterface::fmodScalar<uint32>);
+	boost::python::def("fmod", &MethodsInterface::fmodArray<uint32>);
+	boost::python::def("full", &MethodsInterface::fullRowCol<double>);
+	boost::python::def("full", &MethodsInterface::fullShape<double>);
+	boost::python::def("testFullList", &MethodsInterface::testFullList<double>);
+	boost::python::def("full_like", &NumC::full_like<double, double>);
 
 	boost::python::def("sqr", &MethodsInterface::sqrArray<double, double>);
 	boost::python::def("power", &MethodsInterface::powerArrayScalar<double, double>);
