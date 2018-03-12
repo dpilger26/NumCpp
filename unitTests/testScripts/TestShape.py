@@ -15,7 +15,15 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing Constructor', 'cyan'))
+    print(colored('Testing Square Constructor', 'cyan'))
+    shapeInput = np.random.randint(0, 100, [1,]).item()
+    shape = NumC.Shape(shapeInput)
+    if shape.rows == shapeInput and shape.cols == shapeInput:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing Rectangle Constructor', 'cyan'))
     shapeInput = np.random.randint(0, 100, [2,])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     if shape.rows == shapeInput[0] and shape.cols == shapeInput[1]:

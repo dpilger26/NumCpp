@@ -6,6 +6,8 @@ import TestMethods
 import TestConstants
 import TestLinalg
 import TestRandom
+import TestPolynomial
+import TestFFT
 import TestUtils
 import TestDtypeInfo
 
@@ -21,6 +23,8 @@ def doTest():
     TestConstants.doTest()
     TestLinalg.doTest()
     TestRandom.doTest()
+    TestPolynomial.doTest()
+    TestFFT.doTest()
 
 #################################################################################
 if __name__ == '__main__':

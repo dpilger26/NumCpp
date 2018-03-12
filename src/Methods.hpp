@@ -1339,7 +1339,7 @@ namespace NumC
 	template<typename dtype>
 	double deg2rad(dtype inValue)
 	{
-		return inValue * pi / 180.0;
+		return inValue * Constants::pi / 180.0;
 	}
 
 	//============================================================================
@@ -3611,7 +3611,7 @@ namespace NumC
 	template<typename dtype>
 	double rad2deg(dtype inValue)
 	{
-		return inValue * 180.0 / pi;
+		return inValue * 180.0 / Constants::pi;
 	}
 
 	//============================================================================

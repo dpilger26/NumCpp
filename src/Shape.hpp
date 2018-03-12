@@ -58,6 +58,20 @@ namespace NumC
 		//						Constructor
 		//		
 		// Inputs:
+		//				number of rows and cols
+		// Outputs:
+		//				None
+		//
+		Shape(uint32 inSquareSize) :
+			rows(inSquareSize),
+			cols(inSquareSize)
+		{};
+
+		//============================================================================
+		// Method Description: 
+		//						Constructor
+		//		
+		// Inputs:
 		//				number of rows,
 		//				number of cols
 		// Outputs:

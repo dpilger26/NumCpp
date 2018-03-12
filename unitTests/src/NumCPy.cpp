@@ -1627,11 +1627,13 @@ BOOST_PYTHON_MODULE(NumC)
 	bp::class_<std::vector<double> >("double_vector")
 		.def(bp::vector_indexing_suite<std::vector<double> >());
 
-	bp::scope().attr("e") = NumC::e;
-	bp::scope().attr("pi") = NumC::pi;
-	bp::scope().attr("nan") = NumC::nan;
-	bp::scope().attr("version") = NumC::version;
+	// Constants.hpp
+	bp::scope().attr("e") = NumC::Constants::e;
+	bp::scope().attr("pi") = NumC::Constants::pi;
+	bp::scope().attr("nan") = NumC::Constants::nan;
+	bp::scope().attr("version") = NumC::Constants::version;
 
+	// DtypeInfo.hpp
 	typedef DtypeInfo<uint32> DtypeInfoUint32;
 	bp::class_<DtypeInfoUint32>
 		("DtypeIntoUint32", bp::init<>())
@@ -1641,8 +1643,10 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("min", &DtypeInfoUint32::min).staticmethod("min")
 		.def("max", &DtypeInfoUint32::max).staticmethod("max");
 
+	// Shape.hpp
 	bp::class_<Shape>
 		("Shape", bp::init<>())
+		.def(bp::init<uint32>())
 		.def(bp::init<uint32, uint32>())
 		.def(bp::init<Shape>())
 		.def("testListContructor", &ShapeInterface::testListContructor).staticmethod("testListContructor")
@@ -1651,6 +1655,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("size", &Shape::size)
 		.def("print", &Shape::print);
 
+	// Slice.hpp
 	bp::class_<Slice>
 		("Slice", bp::init<>())
 		.def(bp::init<int32>())
@@ -1664,6 +1669,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("numElements", &Slice::numElements)
 		.def("print", &Slice::print);
 
+	// Timer.hpp
 	typedef Timer<std::chrono::microseconds> MicroTimer;
 	bp::class_<MicroTimer>
 		("Timer", bp::init<>())
@@ -1671,6 +1677,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("tic", &MicroTimer::tic)
 		.def("toc", &MicroTimer::toc);
 
+	// Types.hpp
 	bp::enum_<Axis::Type>("Axis")
 		.value("NONE", Axis::NONE)
 		.value("ROW", Axis::ROW)
@@ -1681,6 +1688,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.value("BIG", Endian::BIG)
 		.value("LITTLE", Endian::LITTLE);
 
+	// NdArray.hpp
 	typedef NdArray<double> NdArrayDouble;
 	bp::class_<NdArrayDouble>
 		("NdArray", bp::init<>())
@@ -1797,6 +1805,18 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>)
 		.def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
 
+	typedef NdArray<int32> NdArrayInt32;
+	bp::class_<NdArrayInt32>
+		("NdArrayInt32", bp::init<>())
+		.def(bp::init<uint32>())
+		.def(bp::init<uint32, uint32>())
+		.def(bp::init<Shape>())
+		.def("shape", &NdArrayInt32::shape)
+		.def("size", &NdArrayInt32::size)
+		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<int32>)
+		.def("endianess", &NdArrayInt32::endianess)
+		.def("setArray", &NdArrayInterface::setArray<int32>);
+
 	typedef NdArray<uint64> NdArrayInt64;
 	bp::class_<NdArrayInt64>
 		("NdArrayInt64", bp::init<>())
@@ -1821,6 +1841,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("endianess", &NdArrayInt8::endianess)
 		.def("setArray", NdArrayInterface::setArray<uint8>);
 
+	// Methods.hpp
 	boost::python::def("abs", &MethodsInterface::absScalar<double>);
 	boost::python::def("abs", &MethodsInterface::absArray<double>);
 	boost::python::def("add", &MethodsInterface::addArrays<double, double>);
@@ -1925,6 +1946,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("power", &MethodsInterface::powerArrayScalar<double, double>);
 	boost::python::def("power", &MethodsInterface::powerArrayArray<double, double>);
 
+	// Utils.hpp
 	boost::python::def("num2str", &NumC::num2str<double>);
 	boost::python::def("num2str", &NumC::num2str<float>);
 	boost::python::def("num2str", &NumC::num2str<int8>);
@@ -1968,4 +1990,17 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("power", &NumC::power<uint16>);
 	boost::python::def("power", &NumC::power<uint32>);
 	boost::python::def("power", &NumC::power<uint64>);
+
+	// Random.hpp
+	boost::python::def("beta", &NumC::Random::beta<double>);
+	boost::python::def("binomial", &NumC::Random::binomial<int32>);
+	boost::python::def("chisquare", &NumC::Random::chisquare<double>);
+	boost::python::def("choice", &NumC::Random::choice<double>);
+	boost::python::def("exponential", &NumC::Random::exponential<double>);
+	boost::python::def("f", &NumC::Random::f<double>);
+	boost::python::def("gamma", &NumC::Random::gamma<double>);
+	boost::python::def("rand", &NumC::Random::rand<double>);
+	boost::python::def("randn", &NumC::Random::randn<double>);
+	boost::python::def("randint", &NumC::Random::randint<int32>);
+	boost::python::def("seed", &NumC::Random::seed);
 }
