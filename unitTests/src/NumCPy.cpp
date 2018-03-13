@@ -1992,15 +1992,31 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("power", &NumC::power<uint64>);
 
 	// Random.hpp
+	boost::python::def("bernoulli", &NumC::Random::bernoulli<double>);
 	boost::python::def("beta", &NumC::Random::beta<double>);
 	boost::python::def("binomial", &NumC::Random::binomial<int32>);
-	boost::python::def("chisquare", &NumC::Random::chisquare<double>);
+	boost::python::def("chiSquare", &NumC::Random::chiSquare<double>);
 	boost::python::def("choice", &NumC::Random::choice<double>);
+	boost::python::def("cauchy", &NumC::Random::cauchy<double>);
+	boost::python::def("discrete", &NumC::Random::discrete<int32>);
 	boost::python::def("exponential", &NumC::Random::exponential<double>);
+	boost::python::def("extremeValue", &NumC::Random::extremeValue<double>);
 	boost::python::def("f", &NumC::Random::f<double>);
 	boost::python::def("gamma", &NumC::Random::gamma<double>);
+	boost::python::def("geometric", &NumC::Random::geometric<int32>);
+	boost::python::def("laplace", &NumC::Random::laplace<double>);
+	boost::python::def("lognormal", &NumC::Random::lognormal<double>);
+	boost::python::def("negativeBinomial", &NumC::Random::negativeBinomial<int32>);
+	boost::python::def("nonCentralChiSquared", &NumC::Random::nonCentralChiSquared<double>);
+	boost::python::def("normal", &NumC::Random::normal<double>);
+	boost::python::def("poisson", &NumC::Random::poisson<int32>);
 	boost::python::def("rand", &NumC::Random::rand<double>);
-	boost::python::def("randn", &NumC::Random::randn<double>);
-	boost::python::def("randint", &NumC::Random::randint<int32>);
+	boost::python::def("randN", &NumC::Random::randN<double>);
+	boost::python::def("randFloat", &NumC::Random::randFloat<double>);
+	boost::python::def("randInt", &NumC::Random::randInt<int32>);
 	boost::python::def("seed", &NumC::Random::seed);
+	boost::python::def("studentT", &NumC::Random::studentT<double>);
+	boost::python::def("triangle", &NumC::Random::triangle<double>);
+	boost::python::def("uniformOnSphere", &NumC::Random::uniformOnSphere<double>);
+	boost::python::def("weibull", &NumC::Random::weibull<double>);
 }
