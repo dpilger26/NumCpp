@@ -575,6 +575,44 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						Randomly permute a sequence, or return a permuted range.
+		//						If x is an integer, randomly permute np.arange(x). 
+		//						If x is an array, make a copy and shuffle the elements randomly.
+		//		
+		// Inputs:
+		//				value
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype>
+		NdArray<dtype> permutation(dtype inValue)
+		{
+			NdArray<dtype> returnArray = arange(inValue);
+			std::random_shuffle(returnArray.begin(), returnArray.end());
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Randomly permute a sequence, or return a permuted range.
+		//						If x is an integer, randomly permute np.arange(x). 
+		//						If x is an array, make a copy and shuffle the elements randomly.
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype>
+		NdArray<dtype> permutation(const NdArray<dtype>& inArray)
+		{
+			NdArray<dtype> returnArray(inArray);
+			std::random_shuffle(returnArray.begin(), returnArray.end());
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Create an array of the given shape and populate it with 
 		//						random samples from the “poisson” distribution.
 		//		
@@ -743,6 +781,38 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						Modify a sequence in-place by shuffling its contents.
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				None
+		//
+		template<typename dtype>
+		void shuffle(NdArray<dtype>& inArray)
+		{
+			std::random_shuffle(inArray.begin(), inArray.end());
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Create an array of the given shape and populate it with 
+		//						random samples from a "standard normal" distrubution with 
+		//						mean = 0 and std = 1
+		//		
+		// Inputs:
+		//				inShape
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype>
+		NdArray<dtype> standardNormal(const Shape& inShape)
+		{
+			return std::move(normal<dtype>(inShape, 0, 1));
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Create an array of the given shape and populate it with 
 		//						random samples from the “student-T” distribution.
 		//		
@@ -818,6 +888,26 @@ namespace NumC
 			}
 
 			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Draw samples from a uniform distribution.
+		//
+		//						Samples are uniformly distributed over the half - 
+		//						open interval[low, high) (includes low, but excludes high)
+		//		
+		// Inputs:
+		//				Shape
+		//				low value
+		//				high value
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype>
+		NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)
+		{
+			return std::move(randFloat(inShape, inLow, inHigh));
 		}
 
 		//============================================================================

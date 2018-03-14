@@ -271,6 +271,34 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Return evenly spaced values within a given interval.
+	//
+	//						Values are generated within the half - open interval[start, stop)
+	//						(in other words, the interval including start but excluding stop).
+	//						For integer arguments the function is equivalent to the Python built - in
+	//						range function, but returns an ndarray rather than a list.
+	//
+	//						When using a non - integer step, such as 0.1, the results will often 
+	//						not be consistent.It is better to use linspace for these cases.
+	//		
+	// Inputs:
+	//				stop value, start is 0 and step is 1
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> arange(dtype inStop)
+	{
+		if (inStop <= 0)
+		{
+			throw std::invalid_argument("ERROR: arange: stop value must ge greater than 0.");
+		}
+
+		return std::move(arange<dtype>(0, inStop, 1));
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Trigonometric inverse cosine
 	//		
 	// Inputs:
@@ -430,6 +458,47 @@ namespace NumC
 	{
 		NdArray<double> returnArray(inArray.shape());
 		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::atan(static_cast<double>(inValue)); });
+
+		return std::move(returnArray);
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Trigonometric inverse tangent.
+	//		
+	// Inputs:
+	//				Y
+	//				x
+	// Outputs:
+	//				value
+	//
+	template<typename dtype>
+	double arctan2(dtype inY, dtype inX)
+	{
+		return std::atan2(static_cast<double>(inY), static_cast<double>(inX));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Trigonometric inverse tangent, element-wise.
+	//		
+	// Inputs:
+	//				NdArray y
+	//				NdArray x
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<double> arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
+	{
+		if (inX.shape() != inY.shape())
+		{
+			throw std::invalid_argument("Error: arctan2: input array shapes are not consistant.");
+		}
+
+		NdArray<double> returnArray(inY.shape());
+		std::transform(inY.cbegin(), inY.cend(), inX.cbegin(), returnArray.begin(), 
+			[](dtype y, dtype x) { return std::atan2(static_cast<double>(y), static_cast<double>(x)); });
 
 		return std::move(returnArray);
 	}

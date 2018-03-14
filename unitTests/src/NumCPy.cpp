@@ -1050,6 +1050,22 @@ namespace MethodsInterface
 	//================================================================================
 
 	template<typename dtype>
+	dtype arctan2Scalar(dtype inY, dtype inX)
+	{
+		return arctan2(inY, inX);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray arctan2Array(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
+	{
+		return numCToBoost(arctan2(inY, inX));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	dtype arctanhScalar(dtype inValue)
 	{
 		return arctanh(inValue);
@@ -1615,6 +1631,23 @@ namespace MethodsInterface
 
 }
 
+namespace RandomInterface
+{
+	template<typename dtype>
+	np::ndarray permutationScalar(dtype inValue)
+	{
+		return numCToBoost(Random::permutation<dtype>(inValue));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray permutationArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(Random::permutation<dtype>(inArray));
+	}
+}
+
 //================================================================================
 
 BOOST_PYTHON_MODULE(NumC)
@@ -1865,6 +1898,8 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("arcsinh", &MethodsInterface::arcsinhArray<double>);
 	boost::python::def("arctan", &MethodsInterface::arctanScalar<double>);
 	boost::python::def("arctan", &MethodsInterface::arctanArray<double>);
+	boost::python::def("arctan2", &MethodsInterface::arctan2Scalar<double>);
+	boost::python::def("arctan2", &MethodsInterface::arctan2Array<double>);
 	boost::python::def("arctanh", &MethodsInterface::arctanhScalar<double>);
 	boost::python::def("arctanh", &MethodsInterface::arctanhArray<double>);
 	boost::python::def("around", &MethodsInterface::aroundScalar<double>);
@@ -2009,14 +2044,19 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("negativeBinomial", &NumC::Random::negativeBinomial<int32>);
 	boost::python::def("nonCentralChiSquared", &NumC::Random::nonCentralChiSquared<double>);
 	boost::python::def("normal", &NumC::Random::normal<double>);
+	boost::python::def("permutation", &RandomInterface::permutationScalar<double>);
+	boost::python::def("permutation", &RandomInterface::permutationArray<double>);
 	boost::python::def("poisson", &NumC::Random::poisson<int32>);
 	boost::python::def("rand", &NumC::Random::rand<double>);
 	boost::python::def("randN", &NumC::Random::randN<double>);
 	boost::python::def("randFloat", &NumC::Random::randFloat<double>);
 	boost::python::def("randInt", &NumC::Random::randInt<int32>);
 	boost::python::def("seed", &NumC::Random::seed);
+	boost::python::def("shuffle", &NumC::Random::shuffle<double>);
 	boost::python::def("studentT", &NumC::Random::studentT<double>);
+	boost::python::def("standardNormal", &NumC::Random::standardNormal<double>);
 	boost::python::def("triangle", &NumC::Random::triangle<double>);
+	boost::python::def("uniform", &NumC::Random::uniform<double>);
 	boost::python::def("uniformOnSphere", &NumC::Random::uniformOnSphere<double>);
 	boost::python::def("weibull", &NumC::Random::weibull<double>);
 }

@@ -304,6 +304,28 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing arctan2 scalar', 'cyan'))
+    xy = NumC.uniformOnSphere(1, 2).getNumpyArray().flatten()
+    if np.round(NumC.arctan2(xy[1], xy[0]), 10) == np.round(np.arctan2(xy[1], xy[0]), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arctan2 array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArrayX = NumC.NdArray(shape)
+    cArrayY = NumC.NdArray(shape)
+    xy = NumC.uniformOnSphere(np.prod(shapeInput).item(), 2).getNumpyArray()
+    xData = xy[:, 0].reshape(shapeInput)
+    yData = xy[:, 1].reshape(shapeInput)
+    cArrayX.setArray(xData)
+    cArrayY.setArray(yData)
+    if np.array_equal(np.round(NumC.arctan2(cArrayY, cArrayX), 10), np.round(np.arctan2(yData, xData), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing arctanh scalar', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumC.arctanh(value), 10) == np.round(np.arctanh(value), 10):
