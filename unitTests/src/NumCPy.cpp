@@ -815,6 +815,70 @@ namespace NdArrayInterface
 	//================================================================================
 
 	template<typename dtype>
+	np::ndarray operatorLessScalar(NdArray<dtype>& self, dtype inValue)
+	{
+		return numCToBoost(self < inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorLessArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self < inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorGreaterScalar(NdArray<dtype>& self, dtype inValue)
+	{
+		return numCToBoost(self > inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorGreaterArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self > inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorLessEqualScalar(NdArray<dtype>& self, dtype inValue)
+	{
+		return numCToBoost(self <= inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorLessEqualArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self <= inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorGreaterEqualScalar(NdArray<dtype>& self, dtype inValue)
+	{
+		return numCToBoost(self >= inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray operatorGreaterEqualArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+	{
+		return numCToBoost(self >= inOtherArray);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	np::ndarray operatorNotEqualityScalar(NdArray<dtype>& self, dtype inValue)
 	{
 		return numCToBoost(self != inValue);
@@ -1587,6 +1651,62 @@ namespace MethodsInterface
 
 	//================================================================================
 
+	template<typename dtype, typename dtypeOut>
+	dtype hypotScalar(dtype inValue1, dtype inValue2)
+	{
+		return NumC::hypot<dtype, dtypeOut>(inValue1, inValue2);
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray hypotArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::hypot<dtype, dtypeOut>(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool isnanScalar(dtype inValue)
+	{
+		return NumC::isnan(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray isnanArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::isnan(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype ldexpScalar(dtype inValue1, uint8 inValue2)
+	{
+		return NumC::ldexp(inValue1, inValue2);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray ldexpArray(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
+	{
+		return numCToBoost(NumC::ldexp(inArray1, inArray2));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray negative(const NdArray<dtypeOut> inArray)
+	{
+		return numCToBoost(NumC::negative<dtype, dtypeOut>(inArray));
+	}
+
+	//================================================================================
+
 	template<typename dtype>
 	bool testFullList(dtype inValue)
 	{
@@ -1806,6 +1926,14 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("operatorDivideArray", &NdArrayInterface::operatorDivideArray<double>)
 		.def("operatorEquality", &NdArrayInterface::operatorEqualityScalar<double>)
 		.def("operatorEquality", &NdArrayInterface::operatorEqualityArray<double>)
+		.def("operatorLess", &NdArrayInterface::operatorLessScalar<double>)
+		.def("operatorLess", &NdArrayInterface::operatorLessArray<double>)
+		.def("operatorGreater", &NdArrayInterface::operatorGreaterScalar<double>)
+		.def("operatorGreater", &NdArrayInterface::operatorGreaterArray<double>)
+		.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalar<double>)
+		.def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<double>)
+		.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalar<double>)
+		.def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<double>)
 		.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalar<double>)
 		.def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<double>)
 		.def("operatorPrePlusPlus", &NdArrayInterface::operatorPrePlusPlus<double>)
@@ -1873,6 +2001,18 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint8>)
 		.def("endianess", &NdArrayInt8::endianess)
 		.def("setArray", NdArrayInterface::setArray<uint8>);
+
+	typedef NdArray<bool> NdArrayBool;
+	bp::class_<NdArrayBool>
+		("NdArrayBool", bp::init<>())
+		.def(bp::init<uint32>())
+		.def(bp::init<uint32, uint32>())
+		.def(bp::init<Shape>())
+		.def("shape", &NdArrayBool::shape)
+		.def("size", &NdArrayBool::size)
+		.def("getNumpyArray", &NdArrayInterface::getNumpyArray<bool>)
+		.def("endianess", &NdArrayBool::endianess)
+		.def("setArray", NdArrayInterface::setArray<bool>);
 
 	// Methods.hpp
 	boost::python::def("abs", &MethodsInterface::absScalar<double>);
@@ -1976,10 +2116,34 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("full", &MethodsInterface::fullShape<double>);
 	boost::python::def("testFullList", &MethodsInterface::testFullList<double>);
 	boost::python::def("full_like", &NumC::full_like<double, double>);
+	boost::python::def("full", &MethodsInterface::fullShape<double>);
+	boost::python::def("greater", &NumC::greater<double>);
+	boost::python::def("greater_equal", &NumC::greater_equal<double>);
+	boost::python::def("hypot", &MethodsInterface::hypotScalar<double, double>);
+	boost::python::def("hypot", &MethodsInterface::hypotArray<double, double>);
+	boost::python::def("identity", &NumC::identity<double>);
+	boost::python::def("intersect1d", &NumC::intersect1d<uint32>);
+	boost::python::def("invert", &NumC::invert<uint32>);
+	boost::python::def("isnan", &MethodsInterface::isnanScalar<double>);
+	boost::python::def("isnan", &MethodsInterface::isnanArray<double>);
+	boost::python::def("ldexp", &MethodsInterface::ldexpScalar<double>);
+	boost::python::def("ldexp", &MethodsInterface::ldexpArray<double>);
+	boost::python::def("left_shift", &NumC::left_shift<uint32>);
+	boost::python::def("less", &NumC::less<double>);
+	boost::python::def("less_equal", &NumC::less_equal<double>);
 
-	boost::python::def("sqr", &MethodsInterface::sqrArray<double, double>);
+	boost::python::def("negative", &NumC::negative<double, double>);
+
 	boost::python::def("power", &MethodsInterface::powerArrayScalar<double, double>);
 	boost::python::def("power", &MethodsInterface::powerArrayArray<double, double>);
+
+	boost::python::def("right_shift", &NumC::right_shift<uint32>);
+	boost::python::def("setdiff1d", &NumC::setdiff1d<uint32>);
+	boost::python::def("sqr", &MethodsInterface::sqrArray<double, double>);
+
+	boost::python::def("union1d", &NumC::union1d<uint32>);
+	boost::python::def("unique", &NumC::unique<double>);
+
 
 	// Utils.hpp
 	boost::python::def("num2str", &NumC::num2str<double>);

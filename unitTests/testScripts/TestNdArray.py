@@ -1609,6 +1609,110 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing operator < scalar', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorLess(value), data < value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator < array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(cArray1.operatorLess(cArray2), data1 < data2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator > scalar', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorGreater(value), data > value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator > array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(cArray1.operatorGreater(cArray2), data1 > data2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator <= scalar', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorLessEqual(value), data <= value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator <= array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(cArray1.operatorLessEqual(cArray2), data1 <= data2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator >= scalar', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    value = np.random.randint(1, 100, [1, ]).astype(np.uint32).item()
+    cArray.setArray(data)
+    if np.array_equal(cArray.operatorGreaterEqual(value), data >= value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator >= array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(cArray1.operatorGreaterEqual(cArray2), data1 >= data2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing operator << scalar', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())

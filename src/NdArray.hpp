@@ -3788,6 +3788,194 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						Returns an array of booleans of element wise comparison
+		//						the array and a scalar
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<bool> operator<(dtype inScalar) const
+		{
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray[i] = array_[i] < inScalar;
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array of booleans of element wise comparison
+		//						of two arrays
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<bool> operator<(const NdArray<dtype>& inOtherArray) const
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: operator==: Array dimensions do not match.");
+			}
+
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray[i] = array_[i] < inOtherArray.array_[i];
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array of booleans of element wise comparison
+		//						the array and a scalar
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<bool> operator>(dtype inScalar) const
+		{
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray[i] = array_[i] > inScalar;
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array of booleans of element wise comparison
+		//						of two arrays
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<bool> operator>(const NdArray<dtype>& inOtherArray) const
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: operator==: Array dimensions do not match.");
+			}
+
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray[i] = array_[i] > inOtherArray.array_[i];
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array of booleans of element wise comparison
+		//						the array and a scalar
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<bool> operator<=(dtype inScalar) const
+		{
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray[i] = array_[i] <= inScalar;
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array of booleans of element wise comparison
+		//						of two arrays
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<bool> operator<=(const NdArray<dtype>& inOtherArray) const
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: operator==: Array dimensions do not match.");
+			}
+
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray[i] = array_[i] <= inOtherArray.array_[i];
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array of booleans of element wise comparison
+		//						the array and a scalar
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<bool> operator>=(dtype inScalar) const
+		{
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray[i] = array_[i] >= inScalar;
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Returns an array of booleans of element wise comparison
+		//						of two arrays
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<bool> operator>=(const NdArray<dtype>& inOtherArray) const
+		{
+			if (shape_ != inOtherArray.shape_)
+			{
+				throw std::invalid_argument("ERROR: operator==: Array dimensions do not match.");
+			}
+
+			NdArray<bool> returnArray(shape_);
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				returnArray[i] = array_[i] >= inOtherArray.array_[i];
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Bitshifts left the elements of the array
 		//		
 		// Inputs:

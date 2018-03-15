@@ -30,6 +30,7 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<set>
 #include<algorithm>
 #include<utility>
 
@@ -2356,9 +2357,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> greater(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	NdArray<bool> greater(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1 > inArray2);
 	}
 
 	//============================================================================
@@ -2373,9 +2374,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> greater_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	NdArray<bool> greater_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1 >= inArray2);
 	}
 
 	//============================================================================
@@ -2428,10 +2429,10 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype>
-	dtype hypot(dtype inValue1, dtype inValue2)
+	template<typename dtype, typename dtypeOut>
+	dtypeOut hypot(dtype inValue1, dtype inValue2)
 	{
-
+		return std::sqrt(sqr(static_cast<dtypeOut>(inValue1)) + sqr(static_cast<dtypeOut>(inValue2)));
 	}
 
 	//============================================================================
@@ -2448,10 +2449,20 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype>
-	NdArray<dtype> hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	template<typename dtype, typename dtypeOut>
+	NdArray<dtypeOut> hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: hypot: input array shapes are not consistant.");
+		}
 
+		NdArray<dtypeOut> returnArray(inArray1.shape());
+
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(), 
+			[](dtype inValue1, dtype inValue2) { return hypot<dtype, dtypeOut>(inValue1, inValue2); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2468,9 +2479,16 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> identity(uint16 inSquareSize)
+	NdArray<dtype> identity(uint32 inSquareSize)
 	{
+		NdArray<dtype> returnArray(inSquareSize);
+		returnArray.zeros();
+		for (uint32 i = 0; i < inSquareSize; ++i)
+		{
+			returnArray(i, i) = 1;
+		}
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2490,7 +2508,14 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> intersect1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		std::vector<dtype> res(inArray1.size() + inArray2.size());
+		std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
+		std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
+		std::vector<dtype>::iterator iter = std::set_intersection(in1.begin(), in1.end(),
+			in2.begin(), in2.end(), res.begin());
+		res.resize(iter - res.begin());
+		return std::move(NdArray<dtype>(res));
 	}
 
 	//============================================================================
@@ -2507,14 +2532,13 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> invert(const NdArray<dtype>& inArray)
 	{
-
+		return std::move(~inArray);
 	}
 
 	//============================================================================
 	// Method Description: 
-	//						Find the intersection of two arrays.
-	//
-	//						Return the sorted, unique values that are in both of the input arrays.
+	//						Returns a boolean array where two arrays are element-wise 
+	//						equal within a tolerance.
 	//
 	//		
 	// Inputs:
@@ -2546,7 +2570,7 @@ namespace NumC
 	template<typename dtype>
 	bool isnan(dtype inValue)
 	{
-
+		return std::isnan(inValue);
 	}
 
 	//============================================================================
@@ -2563,7 +2587,11 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> isnan(const NdArray<dtype>& inArray)
 	{
+		NdArray<bool> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+			[](dtype inValue) { return std::isnan(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2579,9 +2607,9 @@ namespace NumC
 	//				value
 	//
 	template<typename dtype>
-	dtype ldexp(dtype inValue1, dtype inValue2)
+	dtype ldexp(dtype inValue1, uint8 inValue2)
 	{
-
+		return inValue1 * static_cast<dtype>(power(2, inValue2));
 	}
 
 	//============================================================================
@@ -2596,10 +2624,19 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> ldexp(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	template<typename dtype>
+	NdArray<dtype> ldexp(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: ldexp: input array shapes are not consistant.");
+		}
 
+		NdArray<dtype> returnArray(inArray1.shape());
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, uint8 inValue2) { return ldexp<dtype>(inValue1, inValue2); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2617,7 +2654,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> left_shift(const NdArray<dtype>& inArray, uint8 inNumBits)
 	{
-
+		return std::move(inArray << inNumBits);
 	}
 
 	//============================================================================
@@ -2635,7 +2672,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> less(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1 < inArray2);
 	}
 
 	//============================================================================
@@ -2653,7 +2690,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> less_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1 <= inArray2);
 	}
 
 	//============================================================================
@@ -3366,7 +3403,8 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> negative(const NdArray<dtype>& inArray)
 	{
-
+		NdArray<dtypeOut> returnArray = inArray.astype<dtypeOut>();
+		return std::move(returnArray *= -1);
 	}
 
 	//============================================================================
@@ -3959,6 +3997,24 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Shift the bits of an integer to the right.
+	//
+	//		
+	// Inputs:
+	//				NdArray 
+	//				number of bits to sift
+	//				
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> right_shift(const NdArray<dtype>& inArray, uint8 inNumBits)
+	{
+		return std::move(inArray >> inNumBits);
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Round value to the nearest integer.
 	//		
 	// Inputs:
@@ -4088,9 +4144,16 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> setdiff1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArra2)
+	NdArray<dtype> setdiff1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		std::vector<dtype> res(inArray1.size() + inArray2.size());
+		std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
+		std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
+		std::vector<dtype>::iterator iter = std::set_difference(in1.begin(), in1.end(),
+			in2.begin(), in2.end(), res.begin());
+		res.resize(iter - res.begin());
+		return std::move(NdArray<dtype>(res));
 	}
 
 	//============================================================================
@@ -4815,7 +4878,14 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> union1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: hypot: input array shapes are not consistant.");
+		}
 
+		std::set<dtype> theSet(inArray1.cbegin(), inArray1.cend());
+		theSet.insert(inArray2.cbegin(), inArray2.cend());
+		return std::move(NdArray<dtype>(theSet));
 	}
 
 	//============================================================================
@@ -4833,7 +4903,8 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> unique(const NdArray<dtype>& inArray)
 	{
-
+		std::set<dtype> theSet(inArray.cbegin(), inArray.cend());
+		return std::move(NdArray<dtype>(theSet));
 	}
 
 	//============================================================================
