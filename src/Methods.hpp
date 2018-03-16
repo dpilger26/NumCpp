@@ -1019,7 +1019,7 @@ namespace NumC
 	template<typename dtype>
 	double cbrt(dtype inValue)
 	{
-		return static_cast<double>(std::pow(static_cast<double>(inValue), 1. / 3.));
+		return std::cbrt(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -1035,7 +1035,7 @@ namespace NumC
 	NdArray<double> cbrt(const NdArray<dtype>& inArray)
 	{
 		NdArray<double> returnArray(inArray.shape());
-		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return cbrt(static_cast<double>(inValue)); });
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::cbrt(static_cast<double>(inValue)); });
 
 		return std::move(returnArray);
 	}
@@ -2432,7 +2432,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	dtypeOut hypot(dtype inValue1, dtype inValue2)
 	{
-		return std::sqrt(sqr(static_cast<dtypeOut>(inValue1)) + sqr(static_cast<dtypeOut>(inValue2)));
+		return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2));
 	}
 
 	//============================================================================
@@ -2460,7 +2460,7 @@ namespace NumC
 		NdArray<dtypeOut> returnArray(inArray1.shape());
 
 		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(), 
-			[](dtype inValue1, dtype inValue2) { return hypot<dtype, dtypeOut>(inValue1, inValue2); });
+			[](dtype inValue1, dtype inValue2) { return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2)); });
 
 		return std::move(returnArray);
 	}
@@ -2609,7 +2609,7 @@ namespace NumC
 	template<typename dtype>
 	dtype ldexp(dtype inValue1, uint8 inValue2)
 	{
-		return inValue1 * static_cast<dtype>(power(2, inValue2));
+		return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2));
 	}
 
 	//============================================================================
@@ -2634,7 +2634,7 @@ namespace NumC
 
 		NdArray<dtype> returnArray(inArray1.shape());
 		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-			[](dtype inValue1, uint8 inValue2) { return ldexp<dtype>(inValue1, inValue2); });
+			[](dtype inValue1, uint8 inValue2) { return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2)); });
 
 		return std::move(returnArray);
 	}
@@ -2749,7 +2749,7 @@ namespace NumC
 	template<typename dtype>
 	double log(dtype inValue)
 	{
-
+		return std::log(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -2766,7 +2766,11 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> log(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+			[](dtype inValue) { return std::log(static_cast<double>(inValue)); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2783,7 +2787,7 @@ namespace NumC
 	template<typename dtype>
 	double log10(dtype inValue)
 	{
-
+		return std::log10(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -2800,7 +2804,11 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> log10(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+			[](dtype inValue) { return std::log10(static_cast<double>(inValue)); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2819,7 +2827,7 @@ namespace NumC
 	template<typename dtype>
 	double log1p(dtype inValue)
 	{
-
+		return std::log1p(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -2838,7 +2846,11 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> log1p(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+			[](dtype inValue) { return std::log1p(static_cast<double>(inValue)); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2855,7 +2867,7 @@ namespace NumC
 	template<typename dtype>
 	double log2(dtype inValue)
 	{
-
+		return std::log2(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -2872,7 +2884,11 @@ namespace NumC
 	template<typename dtype>
 	NdArray<double> log2(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+			[](dtype inValue) { return std::log2(static_cast<double>(inValue)); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2890,7 +2906,17 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> logical_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: logical_and: input array shapes are not consistant.");
 
+		}
+
+		NdArray<bool> returnArray(inArray1.shape());
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, dtype inValue2) { return (inValue1 != 0) && (inValue2 != 0); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2907,7 +2933,11 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> logical_not(const NdArray<dtype>& inArray)
 	{
+		NdArray<bool> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+			[](dtype inValue) { return inValue == 0; });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2925,7 +2955,17 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> logical_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: logical_or: input array shapes are not consistant.");
 
+		}
+
+		NdArray<bool> returnArray(inArray1.shape());
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, dtype inValue2) { return (inValue1 != 0) || (inValue2 != 0); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2943,7 +2983,17 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> logical_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: logical_xor: input array shapes are not consistant.");
 
+		}
+
+		NdArray<bool> returnArray(inArray1.shape());
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, dtype inValue2) { return (inValue1 != 0) != (inValue2 != 0); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2959,9 +3009,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> matmult(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	NdArray<dtypeOut> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1.dot<dtypeOut>(inArray2));
 	}
 
 	//============================================================================
@@ -2997,7 +3047,17 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> maximum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: maximum: input array shapes are not consistant.");
 
+		}
+
+		NdArray<dtype> returnArray(inArray1.shape());
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, dtype inValue2) { return std::max(inValue1, inValue2); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -3069,7 +3129,17 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> minimum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: minimum: input array shapes are not consistant.");
 
+		}
+
+		NdArray<dtype> returnArray(inArray1.shape());
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, dtype inValue2) { return std::min(inValue1, inValue2); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -3087,7 +3157,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> mod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1 % inArray2);
 	}
 
 	//============================================================================
@@ -3105,7 +3175,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> multiply(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
-
+		return std::move(inArray1 * inArray2);
 	}
 
 	//============================================================================
@@ -3363,9 +3433,10 @@ namespace NumC
 	//				inValue
 	//
 	template<typename dtype>
-	dtype newbyteorder(dtype inValue, Endian::Type inEndiness)
+	dtype newbyteorder(dtype inValue, Endian::Type inEndianess)
 	{
-
+		NdArray<dtype> valueArray = { inValue };
+		return valueArray.newbyteorder(inEndianess).item();
 	}
 
 	//============================================================================
@@ -3384,9 +3455,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian::Type inEndiness)
+	NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian::Type inEndianess)
 	{
-		return std::move(inArray.newbyteorder(inEndiness));
+		return std::move(inArray.newbyteorder(inEndianess));
 	}
 
 	//============================================================================

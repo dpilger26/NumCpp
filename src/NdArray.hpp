@@ -3334,6 +3334,11 @@ namespace NumC
 
 			for (uint32 i = 0; i < size_; ++i)
 			{
+				if (inOtherArray.array_[i] == 0)
+				{
+					throw std::runtime_error("ERROR: operator/=: divide by zero.");
+				}
+
 				array_[i] /= inOtherArray.array_[i];
 			}
 
@@ -3351,6 +3356,11 @@ namespace NumC
 		//
 		NdArray<dtype>& operator/=(dtype inScalar)
 		{
+			if (inScalar == 0)
+			{
+				throw std::runtime_error("ERROR: operator/=: divide by zero.");
+			}
+
 			for (uint32 i = 0; i < size_; ++i)
 			{
 				array_[i] /= inScalar;
@@ -3408,6 +3418,11 @@ namespace NumC
 
 			for (uint32 i = 0; i < size_; ++i)
 			{
+				if (inOtherArray.array_[i] == 0)
+				{
+					throw std::runtime_error("ERROR: operator%=: modulus by zero.");
+				}
+
 				array_[i] %= inOtherArray.array_[i];
 			}
 
@@ -3427,6 +3442,11 @@ namespace NumC
 		{
 			// can only be called on integer types
 			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: % operator can only be compiled with integer types.");
+
+			if (inScalar == 0)
+			{
+				throw std::runtime_error("ERROR: operator%=: modulus by zero.");
+			}
 
 			for (uint32 i = 0; i < size_; ++i)
 			{

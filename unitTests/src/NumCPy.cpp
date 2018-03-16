@@ -1651,6 +1651,25 @@ namespace MethodsInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	bool testFullList(dtype inValue)
+	{
+		uint32 numRows = 4;
+		uint32 numCols = 11;
+
+		NdArray<dtype> theArray = NumC::full({ numRows, numCols }, inValue);
+
+		Shape theShape = theArray.shape();
+		if (theShape.rows == numRows && theShape.cols == numCols && theArray.size() == numRows * numCols && all(theArray == inValue).item())
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	dtype hypotScalar(dtype inValue1, dtype inValue2)
 	{
@@ -1708,20 +1727,79 @@ namespace MethodsInterface
 	//================================================================================
 
 	template<typename dtype>
-	bool testFullList(dtype inValue)
+	dtype logScalar(dtype inValue)
 	{
-		uint32 numRows = 4;
-		uint32 numCols = 11;
+		return NumC::log(inValue);
+	}
 
-		NdArray<dtype> theArray = NumC::full({ numRows, numCols }, inValue);
+	//================================================================================
 
-		Shape theShape = theArray.shape();
-		if (theShape.rows == numRows && theShape.cols == numCols && theArray.size() == numRows * numCols && all(theArray == inValue).item())
-		{
-			return true;
-		}
+	template<typename dtype>
+	np::ndarray logArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::log(inArray));
+	}
 
-		return false;
+	//================================================================================
+
+	template<typename dtype>
+	dtype log10Scalar(dtype inValue)
+	{
+		return NumC::log10(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray log10Array(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::log10(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype log1pScalar(dtype inValue)
+	{
+		return NumC::log1p(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray log1pArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::log1p(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype log2Scalar(dtype inValue)
+	{
+		return NumC::log2(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray log2Array(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::log2(inArray));
+	}
+
+	template<typename dtype>
+	dtype newbyteorderScalar(dtype inValue, Endian::Type inEndianess)
+	{
+		return NumC::newbyteorder(inValue, inEndianess);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray newbyteorderArray(const NdArray<dtype>& inArray, Endian::Type inEndianess)
+	{
+		return numCToBoost(NumC::newbyteorder(inArray, inEndianess));
 	}
 
 	//================================================================================
@@ -2131,6 +2209,30 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("left_shift", &NumC::left_shift<uint32>);
 	boost::python::def("less", &NumC::less<double>);
 	boost::python::def("less_equal", &NumC::less_equal<double>);
+	boost::python::def("log", &MethodsInterface::logScalar<double>);
+	boost::python::def("log", &MethodsInterface::logArray<double>);
+	boost::python::def("log10", &MethodsInterface::log10Scalar<double>);
+	boost::python::def("log10", &MethodsInterface::log10Array<double>);
+	boost::python::def("log1p", &MethodsInterface::log1pScalar<double>);
+	boost::python::def("log1p", &MethodsInterface::log1pArray<double>);
+	boost::python::def("log2", &MethodsInterface::log2Scalar<double>);
+	boost::python::def("log2", &MethodsInterface::log2Array<double>);
+	boost::python::def("logical_and", &NumC::logical_and<double>);
+	boost::python::def("logical_not", &NumC::logical_not<double>);
+	boost::python::def("logical_or", &NumC::logical_or<double>);
+	boost::python::def("logical_xor", &NumC::logical_xor<double>);
+	boost::python::def("matmul", &NumC::matmul<double, double>);
+	boost::python::def("max", &NumC::max<double>);
+	boost::python::def("maximum", &NumC::maximum<double>);
+	boost::python::def("mean", &NumC::mean<double>);
+	boost::python::def("median", &NumC::median<double>);
+	boost::python::def("min", &NumC::min<double>);
+	boost::python::def("minimum", &NumC::minimum<double>);
+	boost::python::def("mod", &NumC::mod<uint32>);
+	boost::python::def("multiply", &NumC::multiply<double>);
+	boost::python::def("nbytes", &NumC::nbytes<double>);
+	boost::python::def("newbyteorder", &MethodsInterface::newbyteorderScalar<uint32>);
+	boost::python::def("newbyteorder", &MethodsInterface::newbyteorderArray<uint32>);
 
 	boost::python::def("negative", &NumC::negative<double, double>);
 
