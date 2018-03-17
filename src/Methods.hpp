@@ -2283,6 +2283,24 @@ namespace NumC
 	//						Return a new array of given shape and type, filled with inFillValue
 	//		
 	// Inputs:
+	//				square size
+	//				fill value
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> full(uint32 inSquareSize, dtype inFillValue)
+	{
+		NdArray<dtype> returnArray(inSquareSize, inSquareSize);
+		returnArray.fill(inFillValue);
+		return std::move(returnArray);
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, filled with inFillValue
+	//		
+	// Inputs:
 	//				numRows
 	//				numCols
 	//				fill value
@@ -3511,7 +3529,7 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> norm(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-		return std::move(inArray.norm(inAxis));
+		return std::move(inArray.norm<dtypeOut>(inAxis));
 	}
 
 	//============================================================================
@@ -3529,7 +3547,22 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> not_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		return std::move(inArray1 != inArray2);
+	}
 
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, filled with ones.
+	//		
+	// Inputs:
+	//				square size
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> ones(uint32 inSquareSize)
+	{
+		return std::move(full(inSquareSize, static_cast<dtype>(1)));
 	}
 
 	//============================================================================
@@ -3590,7 +3623,9 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray)
 	{
-		return std::move(NdArray<dtype>(inArray.shape()).ones());
+		NdArray<dtypeOut> returnArray(inArray.shape());
+		returnArray.ones();
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -3607,7 +3642,16 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> pad(const NdArray<dtype>& inArray, uint16 inPadWidth, dtype inPadValue)
 	{
+		Shape inShape = inArray.shape();
+		Shape outShape(inShape);
+		outShape.rows += 2 * inPadWidth;
+		outShape.cols += 2 * inPadWidth;
 
+		NdArray<dtype> returnArray(outShape);
+		returnArray.fill(inPadValue);
+		returnArray.put(Slice(inPadWidth, inPadWidth + inShape.rows), Slice(inPadWidth, inPadWidth + inShape.cols), inArray);
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -3635,7 +3679,7 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						Pads an array.
+	//						Compute the qth percentile of the data along the specified axis.
 	//		
 	// Inputs:
 	//				NdArray
@@ -3750,9 +3794,9 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> put(const NdArray<dtype>& inArray, const NdArray<dtype>& inIndices, const NdArray<dtype>& inValues)
+	void put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
 	{
-
+		inArray.put(inIndices, inValues);
 	}
 
 	//============================================================================
@@ -3760,7 +3804,7 @@ namespace NumC
 	//						Changes elements of an array based on conditional and input values.
 	//
 	//						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
-
+	//
 	//						If values is not the same size as a and mask then it will repeat.
 	//		
 	// Inputs:
@@ -3826,7 +3870,13 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtypeOut> returnArray(inArray.shape());
+		for (uint32 i = 0; i < returnArray.size(); ++i)
+		{
+			returnArray[i] = static_cast<dtypeOut>(1) / inArray[i];
+		}
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================

@@ -1636,6 +1636,14 @@ namespace MethodsInterface
 	//================================================================================
 
 	template<typename dtype>
+	np::ndarray fullSquare(uint32 inSquareSize, dtype inValue)
+	{
+		return numCToBoost(NumC::full(inSquareSize, inValue));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	np::ndarray fullRowCol(uint32 inNumRows, uint32 inNumCols, dtype inValue)
 	{
 		return numCToBoost(NumC::full(inNumRows, inNumCols, inValue));
@@ -1804,6 +1812,49 @@ namespace MethodsInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	np::ndarray onesSquare(uint32 inSquareSize)
+	{
+		return numCToBoost(NumC::ones<dtype>(inSquareSize));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray onesRowCol(uint32 inNumRows, uint32 inNumCols)
+	{
+		return numCToBoost(NumC::ones<dtype>(inNumRows, inNumCols));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray onesShape(const Shape& inShape)
+	{
+		return numCToBoost(NumC::ones<dtype>(inShape));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool testOnesList()
+	{
+		uint32 numRows = 4;
+		uint32 numCols = 11;
+
+		NdArray<dtype> theArray = NumC::ones<dtype>({ numRows, numCols });
+
+		Shape theShape = theArray.shape();
+		if (theShape.rows == numRows && theShape.cols == numCols && theArray.size() == numRows * numCols && all(theArray == 1).item())
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	np::ndarray sqrArray(const NdArray<dtype>& inArray)
 	{
@@ -1826,7 +1877,69 @@ namespace MethodsInterface
 		return numCToBoost(NumC::power<dtype, dtypeOut>(inArray, inExponents));
 	}
 
+	//================================================================================
 
+	template<typename dtype>
+	dtype rad2degScalar(dtype inValue)
+	{
+		return NumC::rad2deg(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray rad2degArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::rad2deg(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	void reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
+	{
+		inArray.reshape(inNewShape);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	void reshapeList(NdArray<dtype>& inArray, const Shape& inNewShape)
+	{
+		inArray.reshape({ inNewShape.rows, inNewShape.cols });
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	void resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
+	{
+		inArray.resizeFast(inNewShape);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	void resizeFastList(NdArray<dtype>& inArray, const Shape& inNewShape)
+	{
+		inArray.resizeFast({ inNewShape.rows, inNewShape.cols });
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	void resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
+	{
+		inArray.resizeSlow(inNewShape);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	void resizeSlowList(NdArray<dtype>& inArray, const Shape& inNewShape)
+	{
+		inArray.resizeSlow({ inNewShape.rows, inNewShape.cols });
+	}
 }
 
 namespace RandomInterface
@@ -2190,11 +2303,11 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("fmin", &MethodsInterface::fminArray<double>);
 	boost::python::def("fmod", &MethodsInterface::fmodScalar<uint32>);
 	boost::python::def("fmod", &MethodsInterface::fmodArray<uint32>);
+	boost::python::def("full", &MethodsInterface::fullSquare<double>);
 	boost::python::def("full", &MethodsInterface::fullRowCol<double>);
 	boost::python::def("full", &MethodsInterface::fullShape<double>);
 	boost::python::def("testFullList", &MethodsInterface::testFullList<double>);
 	boost::python::def("full_like", &NumC::full_like<double, double>);
-	boost::python::def("full", &MethodsInterface::fullShape<double>);
 	boost::python::def("greater", &NumC::greater<double>);
 	boost::python::def("greater_equal", &NumC::greater_equal<double>);
 	boost::python::def("hypot", &MethodsInterface::hypotScalar<double, double>);
@@ -2233,11 +2346,31 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("nbytes", &NumC::nbytes<double>);
 	boost::python::def("newbyteorder", &MethodsInterface::newbyteorderScalar<uint32>);
 	boost::python::def("newbyteorder", &MethodsInterface::newbyteorderArray<uint32>);
-
 	boost::python::def("negative", &NumC::negative<double, double>);
-
+	boost::python::def("nonzero", &NumC::nonzero<double>);
+	boost::python::def("norm", &NumC::norm<double, double>);
+	boost::python::def("not_equal", &NumC::not_equal<double>);
+	boost::python::def("ones", &MethodsInterface::onesSquare<double>);
+	boost::python::def("ones", &MethodsInterface::onesRowCol<double>);
+	boost::python::def("ones", &MethodsInterface::onesShape<double>);
+	boost::python::def("testOnesList", &MethodsInterface::testOnesList<double>);
+	boost::python::def("ones_like", &NumC::ones_like<double, double>);
+	boost::python::def("pad", &NumC::pad<double>);
+	boost::python::def("partition", &NumC::partition<double>);
 	boost::python::def("power", &MethodsInterface::powerArrayScalar<double, double>);
 	boost::python::def("power", &MethodsInterface::powerArrayArray<double, double>);
+	boost::python::def("prod", &NumC::prod<double, double>);
+	boost::python::def("ptp", &NumC::ptp<double>);
+	boost::python::def("put", &NumC::put<double>);
+	boost::python::def("rad2deg", &MethodsInterface::rad2degScalar<double>);
+	boost::python::def("rad2deg", &MethodsInterface::rad2degArray<double>);
+	boost::python::def("reciprocal", &NumC::reciprocal<double, double>);
+	boost::python::def("reshape", &MethodsInterface::reshape<double>);
+	boost::python::def("reshapeList", &MethodsInterface::reshapeList<double>);
+	boost::python::def("resizeFast", &MethodsInterface::resizeFast<double>);
+	boost::python::def("resizeFastList", &MethodsInterface::resizeFastList<double>);
+	boost::python::def("resizeSlow", &MethodsInterface::resizeSlow<double>);
+	boost::python::def("resizeSlowList", &MethodsInterface::resizeSlowList<double>);
 
 	boost::python::def("right_shift", &NumC::right_shift<uint32>);
 	boost::python::def("setdiff1d", &NumC::setdiff1d<uint32>);
