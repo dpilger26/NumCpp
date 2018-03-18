@@ -547,7 +547,7 @@ namespace NumC
 		}
 
 		NdArray<double> returnArray(inY.shape());
-		std::transform(inY.cbegin(), inY.cend(), inX.cbegin(), returnArray.begin(), 
+		std::transform(inY.cbegin(), inY.cend(), inX.cbegin(), returnArray.begin(),
 			[](dtype y, dtype x) { return std::atan2(static_cast<double>(y), static_cast<double>(x)); });
 
 		return std::move(returnArray);
@@ -1162,15 +1162,49 @@ namespace NumC
 	//						Stack 1-D arrays as columns into a 2-D array.
 	//		
 	// Inputs:
-	//				NdArray 1
-	//				NdArray 2
+	//				{list} of arrays to stack
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> column_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
 	{
+		// first loop through to calculate the final size of the array
+		typename std::initializer_list<NdArray<dtype> >::iterator iter;
+		Shape finalShape;
+		for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+		{
+			if (finalShape.isnull())
+			{
+				finalShape = iter->shape();
+			}
+			else if (iter->shape().rows != finalShape.rows)
+			{
+				throw std::invalid_argument("ERROR: column_stack: input arrays must have the same number of rows.");
+			}
+			else
+			{
+				finalShape.cols += iter->shape().cols;
+			}
+		}
 
+		// now that we know the final size, contruct the output array
+		NdArray<dtype> returnArray(finalShape);
+		uint32 colStart = 0;
+		for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+		{
+			Shape theShape = iter->shape();
+			for (uint32 row = 0; row < theShape.rows; ++row)
+			{
+				for (uint32 col = 0; col < theShape.cols; ++col)
+				{
+					returnArray(row, colStart + col) = iter->operator()(row, col);
+				}
+			}
+			colStart += theShape.cols;
+		}
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -1576,7 +1610,7 @@ namespace NumC
 				}
 
 				NdArray<dtype> returnArray(1, inArray.size() - 1);
-				std::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(), 
+				std::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(),
 					[](dtype inValue1, dtype inValue2) { return inValue2 - inValue1; });
 
 				return std::move(returnArray);
@@ -2470,16 +2504,15 @@ namespace NumC
 	//
 	//		
 	// Inputs:
-	//				NdArray 1
-	//				NdArray 2
+	//				{list} of arrays to stack
 	//				
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> hstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	NdArray<dtype> hstack(const std::initializer_list<NdArray<dtype> >& inArrayList)
 	{
-
+		return std::move(column_stack(inArrayList));
 	}
 
 	//============================================================================
@@ -2526,7 +2559,7 @@ namespace NumC
 
 		NdArray<dtypeOut> returnArray(inArray1.shape());
 
-		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(), 
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
 			[](dtype inValue1, dtype inValue2) { return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2)); });
 
 		return std::move(returnArray);
@@ -2655,7 +2688,7 @@ namespace NumC
 	NdArray<bool> isnan(const NdArray<dtype>& inArray)
 	{
 		NdArray<bool> returnArray(inArray.shape());
-		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
 			[](dtype inValue) { return std::isnan(inValue); });
 
 		return std::move(returnArray);
@@ -3757,7 +3790,7 @@ namespace NumC
 	NdArray<dtypeOut> power(const NdArray<dtype>& inArray, uint8 inExponent)
 	{
 		NdArray<dtypeOut> returnArray(inArray.shape());
-		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
 			[inExponent](dtype inValue) { return power(static_cast<dtypeOut>(inValue), inExponent); });
 
 		return std::move(returnArray);
@@ -3782,7 +3815,7 @@ namespace NumC
 		}
 
 		NdArray<dtypeOut> returnArray(inArray.shape());
-		std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(), 
+		std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
 			[](dtype inValue, uint8 inExponent) { return power(static_cast<dtypeOut>(inValue), inExponent); });
 
 		return std::move(returnArray);
@@ -4298,7 +4331,7 @@ namespace NumC
 	template<typename dtype>
 	dtype round(dtype inValue, uint8 inDecimals)
 	{
-		NdArray<dtype> input = {inValue};
+		NdArray<dtype> input = { inValue };
 		return input.round(inDecimals).item();
 	}
 
@@ -4324,16 +4357,50 @@ namespace NumC
 	//						Stack arrays in sequence vertically (row wise).
 	//
 	// Inputs:
-	//				NdArray 1
-	//				NdArray 2
+	//				{list} of arrays to stack
 	//
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> row_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
 	{
+		// first loop through to calculate the final size of the array
+		typename std::initializer_list<NdArray<dtype> >::iterator iter;
+		Shape finalShape;
+		for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+		{
+			if (finalShape.isnull())
+			{
+				finalShape = iter->shape();
+			}
+			else if (iter->shape().cols != finalShape.cols)
+			{
+				throw std::invalid_argument("ERROR: row_stack: input arrays must have the same number of columns.");
+			}
+			else
+			{
+				finalShape.rows += iter->shape().rows;
+			}
+		}
 
+		// now that we know the final size, contruct the output array
+		NdArray<dtype> returnArray(finalShape);
+		uint32 rowStart = 0;
+		for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+		{
+			Shape theShape = iter->shape();
+			for (uint32 row = 0; row < theShape.rows; ++row)
+			{
+				for (uint32 col = 0; col < theShape.cols; ++col)
+				{
+					returnArray(rowStart + row, col) = iter->operator()(row, col);
+				}
+			}
+			rowStart += theShape.rows;
+		}
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -5206,16 +5273,15 @@ namespace NumC
 	//						Compute the variance along the specified axis.
 	//		
 	// Inputs:
-	//				NdArray 1
-	//				NdArray 2
+	//				{list} of arrays to stack
 	//
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> vstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	NdArray<dtype> vstack(const std::initializer_list<NdArray<dtype> >& inArrayList)
 	{
-
+		return std::move(row_stack(inArrayList));
 	}
 
 	//============================================================================

@@ -761,6 +761,30 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing col_stack', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    shape3 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    shape4 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    cArray3 = NumC.NdArray(shape3)
+    cArray4 = NumC.NdArray(shape4)
+    data1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    data2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    data3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    data4 = np.random.randint(1, 100, [shape4.rows, shape4.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    if np.array_equal(NumC.column_stack(cArray1, cArray2, cArray3, cArray4),
+                      np.column_stack([data1, data2, data3, data4])):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing clip scalar', 'cyan'))
     value = np.random.randint(0, 100, [1, ]).item()
     minValue = np.random.randint(0, 10, [1, ]).item()
@@ -1511,6 +1535,30 @@ def doTest():
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     if np.array_equal(NumC.greater_equal(cArray1, cArray2).getNumpyArray(), np.greater_equal(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing hstack', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    shape3 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    shape4 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    cArray3 = NumC.NdArray(shape3)
+    cArray4 = NumC.NdArray(shape4)
+    data1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    data2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    data3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    data4 = np.random.randint(1, 100, [shape4.rows, shape4.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    if np.array_equal(NumC.hstack(cArray1, cArray2, cArray3, cArray4),
+                      np.hstack([data1, data2, data3, data4])):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2456,6 +2504,38 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing row_stack', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[0].item() + np.random.randint(1, 10, [1,]).item(), shapeInput[1].item())
+    shape3 = NumC.Shape(shapeInput[0].item() + np.random.randint(1, 10, [1,]).item(), shapeInput[1].item())
+    shape4 = NumC.Shape(shapeInput[0].item() + np.random.randint(1, 10, [1,]).item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    cArray3 = NumC.NdArray(shape3)
+    cArray4 = NumC.NdArray(shape4)
+    data1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    data2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    data3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    data4 = np.random.randint(1, 100, [shape4.rows, shape4.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    if np.array_equal(NumC.row_stack(cArray1, cArray2, cArray3, cArray4),
+                      np.row_stack([data1, data2, data3, data4])):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing hypot scalar', 'cyan'))
+    value1 = np.random.randn(1).item() * 100 + 1000
+    value2 = np.random.randn(1).item() * 100 + 1000
+    if NumC.hypot(value1, value2) == np.hypot(value1, value2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing setdiff1d', 'cyan'))
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2952,6 +3032,30 @@ def doTest():
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if np.array_equal(np.round(NumC.var(cArray, NumC.Axis.COL).getNumpyArray().flatten(), 9), np.round(np.var(data, axis=1), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing vstack', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[0].item() + np.random.randint(1, 10, [1,]).item(), shapeInput[1].item())
+    shape3 = NumC.Shape(shapeInput[0].item() + np.random.randint(1, 10, [1,]).item(), shapeInput[1].item())
+    shape4 = NumC.Shape(shapeInput[0].item() + np.random.randint(1, 10, [1,]).item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    cArray3 = NumC.NdArray(shape3)
+    cArray4 = NumC.NdArray(shape4)
+    data1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    data2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    data3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    data4 = np.random.randint(1, 100, [shape4.rows, shape4.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    if np.array_equal(NumC.vstack(cArray1, cArray2, cArray3, cArray4),
+                      np.vstack([data1, data2, data3, data4])):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

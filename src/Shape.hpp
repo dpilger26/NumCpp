@@ -148,6 +148,21 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						returns whether the shape is null (constructed with the 
+		//						default constructor).
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				bool
+		//
+		bool isnull ()
+		{
+			return rows == 0 && cols == 0;
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						prints the shape to the console
 		//		
 		// Inputs:

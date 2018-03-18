@@ -1298,6 +1298,15 @@ namespace MethodsInterface
 	//================================================================================
 
 	template<typename dtype>
+	np::ndarray column_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+		const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+	{
+		return numCToBoost(NumC::column_stack({ inArray1, inArray2, inArray3, inArray4 }));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	np::ndarray copy(const NdArray<dtype>& inArray)
 	{
 		return numCToBoost(NumC::copy(inArray));
@@ -1694,6 +1703,15 @@ namespace MethodsInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	np::ndarray hstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+		const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+	{
+		return numCToBoost(NumC::hstack({ inArray1, inArray2, inArray3, inArray4 }));
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	dtype hypotScalar(dtype inValue1, dtype inValue2)
 	{
@@ -2008,6 +2026,15 @@ namespace MethodsInterface
 	//================================================================================
 
 	template<typename dtype>
+	np::ndarray row_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+		const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+	{
+		return numCToBoost(NumC::row_stack({ inArray1, inArray2, inArray3, inArray4 }));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	int8 signScalar(dtype inValue)
 	{
 		return NumC::sign(inValue);
@@ -2187,6 +2214,15 @@ namespace MethodsInterface
 	np::ndarray truncArray(const NdArray<dtype>& inArray)
 	{
 		return numCToBoost(NumC::trunc(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray vstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+		const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+	{
+		return numCToBoost(NumC::vstack({ inArray1, inArray2, inArray3, inArray4 }));
 	}
 
 	//================================================================================
@@ -2536,6 +2572,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("ceil", &MethodsInterface::ceilArray<double>);
 	boost::python::def("clip", &MethodsInterface::clipScalar<double>);
 	boost::python::def("clip", &MethodsInterface::clipArray<double>);
+	boost::python::def("column_stack", &MethodsInterface::column_stack<double>);
 	boost::python::def("copy", &MethodsInterface::copy<double>);
 	boost::python::def("copysign", &MethodsInterface::copySign<double>);
 	boost::python::def("copyto", &MethodsInterface::copyto<double>);
@@ -2594,6 +2631,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("full_like", &NumC::full_like<double, double>);
 	boost::python::def("greater", &NumC::greater<double>);
 	boost::python::def("greater_equal", &NumC::greater_equal<double>);
+	boost::python::def("hstack", &MethodsInterface::hstack<double>);
 	boost::python::def("hypot", &MethodsInterface::hypotScalar<double, double>);
 	boost::python::def("hypot", &MethodsInterface::hypotArray<double, double>);
 	boost::python::def("identity", &NumC::identity<double>);
@@ -2662,6 +2700,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("rint", &MethodsInterface::rintArray<double>);
 	boost::python::def("round", &MethodsInterface::roundScalar<double>);
 	boost::python::def("round", &MethodsInterface::roundArray<double>);
+	boost::python::def("row_stack", &MethodsInterface::row_stack<double>);
 	boost::python::def("setdiff1d", &NumC::setdiff1d<uint32>);
 	boost::python::def("sign", &MethodsInterface::signScalar<double>);
 	boost::python::def("sign", &MethodsInterface::signArray<double>);
@@ -2698,11 +2737,11 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("union1d", &NumC::union1d<uint32>);
 	boost::python::def("unique", &NumC::unique<double>);
 	boost::python::def("var", &NumC::var<double>);
+	boost::python::def("vstack", &MethodsInterface::vstack<double>);
 	boost::python::def("zeros", &MethodsInterface::zerosSquare<double>);
 	boost::python::def("zeros", &MethodsInterface::zerosRowCol<double>);
 	boost::python::def("zeros", &MethodsInterface::zerosShape<double>);
 	boost::python::def("zerosList", &MethodsInterface::zerosList<double>);
-
 
 	// Utils.hpp
 	boost::python::def("num2str", &NumC::num2str<double>);
