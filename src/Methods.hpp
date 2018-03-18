@@ -3727,6 +3727,11 @@ namespace NumC
 	template<typename dtype, typename dtypeOut>
 	NdArray<dtypeOut> power(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
 	{
+		if (inArray.shape() != inExponents.shape())
+		{
+			throw std::invalid_argument("ERROR: power: input array shapes are not consistant.");
+		}
+
 		NdArray<dtypeOut> returnArray(inArray.shape());
 		std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(), 
 			[](dtype inValue, uint8 inExponent) { return power(static_cast<dtypeOut>(inValue), inExponent); });
@@ -3881,6 +3886,23 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						Return remainder of division.
+	//		
+	// Inputs:
+	//				value 1
+	//				value 2
+	//
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype, typename dtypeOut>
+	dtypeOut remainder(dtype inValue1, dtype inValue2)
+	{
+		return std::remainder(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2));
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return element-wise remainder of division.
 	//		
 	// Inputs:
@@ -3890,10 +3912,19 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype>
-	NdArray<dtype> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	template<typename dtype, typename dtypeOut>
+	NdArray<dtypeOut> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: remainder: input array shapes are not consistant.");
+		}
 
+		NdArray<dtypeOut> returnArray(inArray1.shape());
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[](dtype inValue1, dtype inValue2) { return std::remainder(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2)); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -4147,7 +4178,7 @@ namespace NumC
 	template<typename dtype>
 	dtype rint(dtype inValue)
 	{
-
+		return std::rint(inValue);
 	}
 
 	//============================================================================
@@ -4163,7 +4194,10 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> rint(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::rint(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -4215,7 +4249,8 @@ namespace NumC
 	template<typename dtype>
 	dtype round(dtype inValue, uint8 inDecimals)
 	{
-
+		NdArray<dtype> input = {inValue};
+		return input.round(inDecimals).item();
 	}
 
 	//============================================================================
@@ -4305,9 +4340,41 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> sign(const NdArray<dtype>& inArray)
+	int8 sign(dtype inValue)
 	{
+		if (inValue < 0)
+		{
+			return -1;
+		}
+		else if (inValue > 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
 
+	//============================================================================
+	// Method Description: 
+	//						Returns an element-wise indication of the sign of a number.
+	//
+	//						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0. 
+	//						nan is returned for nan inputs.
+	//		
+	// Inputs:
+	//				NdArray 
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<int8> sign(const NdArray<dtype>& inArray)
+	{
+		NdArray<int8> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sign(inValue); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -4320,9 +4387,27 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> signbit(const NdArray<dtype>& inArray)
+	bool signbit(dtype inValue)
 	{
+		return inValue < 0 ? true : false;
+	}
 
+	//============================================================================
+	// Method Description: 
+	//						Returns element-wise True where signbit is set (less than zero).
+	//		
+	// Inputs:
+	//				NdArray 
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<bool> signbit(const NdArray<dtype>& inArray)
+	{
+		NdArray<bool> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return signbit(inValue); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -4337,7 +4422,7 @@ namespace NumC
 	template<typename dtype>
 	double sin(dtype inValue)
 	{
-
+		return std::sin(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -4349,10 +4434,13 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype>
 	NdArray<double> sin(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sin(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -4369,7 +4457,8 @@ namespace NumC
 	template<typename dtype>
 	double sinc(dtype inValue)
 	{
-
+		double input = static_cast<double>(inValue);
+		return std::sin(Constants::pi * input) / (Constants::pi * input);
 	}
 
 	//============================================================================
@@ -4383,10 +4472,13 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype>
 	NdArray<double> sinc(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sinc(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -4401,7 +4493,7 @@ namespace NumC
 	template<typename dtype>
 	double sinh(dtype inValue)
 	{
-
+		return std::sinh(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -4413,10 +4505,13 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype>
 	NdArray<double> sinh(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sinh(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -4454,24 +4549,6 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						squares the elements of the array
-	//		
-	// Inputs:
-	//				NdArray
-	// Outputs:
-	//				NdArray
-	//
-	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> sqr(const NdArray<dtype>& inArray)
-	{
-		NdArray<dtypeOut> returnArray(inArray.shape());
-		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sqr(static_cast<dtypeOut>(inValue)); });
-
-		return std::move(returnArray);
-	}
-
-	//============================================================================
-	// Method Description: 
 	//						Return the positive square-root of a value.
 	//		
 	// Inputs:
@@ -4482,7 +4559,7 @@ namespace NumC
 	template<typename dtype>
 	double sqrt(dtype inValue)
 	{
-
+		return std::sqrt(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -4494,10 +4571,13 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype>
 	NdArray<double> sqrt(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sqrt(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -4509,10 +4589,10 @@ namespace NumC
 	// Outputs:
 	//				value
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype>
 	dtype square(dtype inValue)
 	{
-
+		return sqr(inValue);
 	}
 
 	//============================================================================
@@ -4524,10 +4604,13 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> square(const NdArray<dtype>& inArray)
+	template<typename dtype>
+	NdArray<dtype> square(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sqr(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -4605,7 +4688,7 @@ namespace NumC
 	template<typename dtype>
 	double tan(dtype inValue)
 	{
-
+		return std::tan(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -4617,10 +4700,13 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype>
 	NdArray<double> tan(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return tan(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -4635,7 +4721,7 @@ namespace NumC
 	template<typename dtype>
 	double tanh(dtype inValue)
 	{
-
+		return std::tanh(static_cast<double>(inValue));
 	}
 
 	//============================================================================
@@ -4647,10 +4733,13 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype>
 	NdArray<double> tanh(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return tanh(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -5001,7 +5090,7 @@ namespace NumC
 	{
 		if (inArray1.shape() != inArray2.shape())
 		{
-			throw std::invalid_argument("ERROR: hypot: input array shapes are not consistant.");
+			throw std::invalid_argument("ERROR: union1d: input array shapes are not consistant.");
 		}
 
 		std::set<dtype> theSet(inArray1.cbegin(), inArray1.cend());

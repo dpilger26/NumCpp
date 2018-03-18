@@ -1855,10 +1855,10 @@ namespace MethodsInterface
 
 	//================================================================================
 
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype>
 	np::ndarray sqrArray(const NdArray<dtype>& inArray)
 	{
-		return numCToBoost(NumC::sqr<dtype, dtypeOut>(inArray));
+		return numCToBoost(NumC::sqr<dtype>(inArray));
 	}
 
 	//================================================================================
@@ -1891,6 +1891,22 @@ namespace MethodsInterface
 	np::ndarray rad2degArray(const NdArray<dtype>& inArray)
 	{
 		return numCToBoost(NumC::rad2deg(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	dtype remainderScalar(dtype inValue1, dtype inValue2)
+	{
+		return NumC::remainder<dtype, dtypeOut>(inValue1, inValue2);
+	}
+
+	//================================================================================
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray remainderArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+	{
+		return numCToBoost(NumC::remainder<dtype, dtypeOut>(inArray1, inArray2));
 	}
 
 	//================================================================================
@@ -1939,6 +1955,182 @@ namespace MethodsInterface
 	void resizeSlowList(NdArray<dtype>& inArray, const Shape& inNewShape)
 	{
 		inArray.resizeSlow({ inNewShape.rows, inNewShape.cols });
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype rintScalar(dtype inValue)
+	{
+		return NumC::rint(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray rintArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::rint(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	dtype roundScalar(dtype inValue, uint8 inDecimals)
+	{
+		return NumC::round(inValue, inDecimals);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray roundArray(const NdArray<dtype>& inArray, uint8 inDecimals)
+	{
+		return numCToBoost(NumC::round(inArray, inDecimals));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	int8 signScalar(dtype inValue)
+	{
+		return NumC::sign(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray signArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::sign(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	bool signbitScalar(dtype inValue)
+	{
+		return NumC::signbit(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray signbitArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::signbit(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	double sinScalar(dtype inValue)
+	{
+		return NumC::sin(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray sinArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::sin(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	double sincScalar(dtype inValue)
+	{
+		return NumC::sinc(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray sincArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::sinc(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	double sinhScalar(dtype inValue)
+	{
+		return NumC::sinh(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray sinhArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::sinh(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	double sqrtScalar(dtype inValue)
+	{
+		return NumC::sqrt(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray sqrtArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::sqrt(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	double squareScalar(dtype inValue)
+	{
+		return NumC::square(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray squareArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::square(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	double tanScalar(dtype inValue)
+	{
+		return NumC::tan(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray tanArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::tan(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	double tanhScalar(dtype inValue)
+	{
+		return NumC::tanh(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray tanhArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::tanh(inArray));
 	}
 }
 
@@ -2365,16 +2557,43 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("rad2deg", &MethodsInterface::rad2degScalar<double>);
 	boost::python::def("rad2deg", &MethodsInterface::rad2degArray<double>);
 	boost::python::def("reciprocal", &NumC::reciprocal<double, double>);
+	boost::python::def("remainder", &MethodsInterface::remainderScalar<double, double>);
+	boost::python::def("remainder", &MethodsInterface::remainderArray<double, double>);
 	boost::python::def("reshape", &MethodsInterface::reshape<double>);
 	boost::python::def("reshapeList", &MethodsInterface::reshapeList<double>);
 	boost::python::def("resizeFast", &MethodsInterface::resizeFast<double>);
 	boost::python::def("resizeFastList", &MethodsInterface::resizeFastList<double>);
 	boost::python::def("resizeSlow", &MethodsInterface::resizeSlow<double>);
 	boost::python::def("resizeSlowList", &MethodsInterface::resizeSlowList<double>);
-
 	boost::python::def("right_shift", &NumC::right_shift<uint32>);
+	boost::python::def("rint", &MethodsInterface::rintScalar<double>);
+	boost::python::def("rint", &MethodsInterface::rintArray<double>);
+	boost::python::def("round", &MethodsInterface::roundScalar<double>);
+	boost::python::def("round", &MethodsInterface::roundArray<double>);
 	boost::python::def("setdiff1d", &NumC::setdiff1d<uint32>);
-	boost::python::def("sqr", &MethodsInterface::sqrArray<double, double>);
+	boost::python::def("sign", &MethodsInterface::signScalar<double>);
+	boost::python::def("sign", &MethodsInterface::signArray<double>);
+	boost::python::def("signbit", &MethodsInterface::signbitScalar<double>);
+	boost::python::def("signbit", &MethodsInterface::signbitArray<double>);
+	boost::python::def("sin", &MethodsInterface::sinScalar<double>);
+	boost::python::def("sin", &MethodsInterface::sinArray<double>);
+	boost::python::def("sinc", &MethodsInterface::sincScalar<double>);
+	boost::python::def("sinc", &MethodsInterface::sincArray<double>);
+	boost::python::def("sinh", &MethodsInterface::sinhScalar<double>);
+	boost::python::def("sinh", &MethodsInterface::sinhArray<double>);
+	boost::python::def("size", &NumC::size<double>);
+	boost::python::def("sort", &NumC::sort<double>);
+	boost::python::def("sqrt", &MethodsInterface::sqrtScalar<double>);
+	boost::python::def("sqrt", &MethodsInterface::sqrtArray<double>);
+	boost::python::def("square", &MethodsInterface::squareScalar<double>);
+	boost::python::def("square", &MethodsInterface::squareArray<double>);
+	boost::python::def("std", &NumC::std<double>);
+	boost::python::def("sum", &NumC::sum<double, double>);
+	boost::python::def("swapaxes", &NumC::swapaxes<double>);
+	boost::python::def("tan", &MethodsInterface::tanScalar<double>);
+	boost::python::def("tan", &MethodsInterface::tanArray<double>);
+	boost::python::def("tanh", &MethodsInterface::tanhScalar<double>);
+	boost::python::def("tanh", &MethodsInterface::tanhArray<double>);
 
 	boost::python::def("union1d", &NumC::union1d<uint32>);
 	boost::python::def("unique", &NumC::unique<double>);
