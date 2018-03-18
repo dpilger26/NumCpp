@@ -1162,6 +1162,22 @@ namespace MethodsInterface
 	//================================================================================
 
 	template<typename dtype>
+	np::ndarray asarrayVector(const std::vector<double>& inVec)
+	{
+		return numCToBoost(asarray(inVec));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray asarrayList(dtype inValue1, dtype inValue2)
+	{
+		return numCToBoost(asarray<dtype>({inValue1, inValue2}));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	np::ndarray average(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return numCToBoost(inArray.mean(inAxis));
@@ -2479,6 +2495,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("amin", &MethodsInterface::aminArray<double>);
 	boost::python::def("amax", &MethodsInterface::amaxArray<double>);
 	boost::python::def("any", &MethodsInterface::anyArray<double>);
+	boost::python::def("append", &NumC::append<double>);
 	boost::python::def("arange", &MethodsInterface::arangeArray<double>);
 	boost::python::def("argmax", &MethodsInterface::argmaxArray<double>);
 	boost::python::def("argmin", &MethodsInterface::argminArray<double>);
@@ -2501,6 +2518,9 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("around", &MethodsInterface::aroundArray<double>);
 	boost::python::def("array_equal", &NumC::array_equal<double>);
 	boost::python::def("array_equiv", &NumC::array_equiv<double>);
+	boost::python::def("asarray", &MethodsInterface::asarrayVector<double>);
+	boost::python::def("asarray", &MethodsInterface::asarrayList<double>);
+	boost::python::def("astype", &NumC::astype<uint32, double>);
 	boost::python::def("average", &MethodsInterface::average<double>);
 	boost::python::def("average", &MethodsInterface::averageWeighted<double>);
 	boost::python::def("bincount", &MethodsInterface::bincount<uint32>);

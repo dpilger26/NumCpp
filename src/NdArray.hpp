@@ -901,7 +901,7 @@ namespace NumC
 				{
 					// this isn't actually possible, just putting this here to get rid
 					// of the compiler warning.
-					return std::move(NdArray<bool>(false));
+					return std::move(NdArray<bool>(0));
 				}
 			}
 		}
@@ -947,7 +947,7 @@ namespace NumC
 				{
 					// this isn't actually possible, just putting this here to get rid
 					// of the compiler warning.
-					return std::move(NdArray<bool>(false));
+					return std::move(NdArray<bool>(0));
 				}
 			}
 		}
@@ -1123,7 +1123,7 @@ namespace NumC
 			NdArray<dtypeOut> outArray(shape_);
 			for (uint32 i = 0; i < size_; ++i)
 			{
-				outArray.array_[i] = static_cast<dtypeOut>(array_[i]);
+				outArray[i] = static_cast<dtypeOut>(array_[i]);
 			}
 			return std::move(outArray);
 		}

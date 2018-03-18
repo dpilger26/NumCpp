@@ -202,6 +202,52 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing append: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(0, 100, [shape.rows, shape.cols])
+    data2 = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.append(cArray1, cArray2, NumC.Axis.NONE).getNumpyArray().flatten(), np.append(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing append: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    numRows = np.random.randint(1, 100, [1, ]).item()
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[0].item() + numRows, shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    data1 = np.random.randint(0, 100, [shape1.rows, shape1.cols])
+    data2 = np.random.randint(0, 100, [shape2.rows, shape2.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.append(cArray1, cArray2, NumC.Axis.ROW).getNumpyArray(), np.append(data1, data2, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing append: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    numCols = np.random.randint(1, 100, [1, ]).item()
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + numCols)
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    data1 = np.random.randint(0, 100, [shape1.rows, shape1.cols])
+    data2 = np.random.randint(0, 100, [shape2.rows, shape2.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.append(cArray1, cArray2, NumC.Axis.COL).getNumpyArray(), np.append(data1, data2, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing arange', 'cyan'))
     start = np.random.randn(1).item()
     stop = np.random.randn(1).item() * 100

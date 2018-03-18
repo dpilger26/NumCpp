@@ -211,7 +211,56 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis::Type inAxis = Axis::NONE)
 	{
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				NdArray<dtype> returnArray(1, inArray.size() + inAppendValues.size());
+				std::copy(inArray.cbegin(), inArray.cend(), returnArray.begin());
+				std::copy(inAppendValues.cbegin(), inAppendValues.cend(), returnArray.begin() + inArray.size());
 
+				return std::move(returnArray);
+			}
+			case Axis::ROW:
+			{
+				Shape inShape = inArray.shape();
+				Shape appendShape = inAppendValues.shape();
+				if (inShape.cols != appendShape.cols)
+				{
+					throw std::invalid_argument("ERROR: append: all the input array dimensions except for the concatenation axis must match exactly");
+				}
+
+				NdArray<dtype> returnArray(inShape.rows + appendShape.rows, inShape.cols);
+				std::copy(inArray.cbegin(), inArray.cend(), returnArray.begin());
+				std::copy(inAppendValues.cbegin(), inAppendValues.cend(), returnArray.begin() + inArray.size());
+
+				return std::move(returnArray);
+			}
+			case Axis::COL:
+			{
+				Shape inShape = inArray.shape();
+				Shape appendShape = inAppendValues.shape();
+				if (inShape.rows != appendShape.rows)
+				{
+					throw std::invalid_argument("ERROR: append: all the input array dimensions except for the concatenation axis must match exactly");
+				}
+
+				NdArray<dtype> returnArray(inShape.rows, inShape.cols + appendShape.cols);
+				for (uint32 row = 0; row < returnArray.shape().rows; ++row)
+				{
+					std::copy(inArray.cbegin(row), inArray.cend(row), returnArray.begin(row));
+					std::copy(inAppendValues.cbegin(row), inAppendValues.cend(row), returnArray.begin(row) + inShape.cols);
+				}
+
+				return std::move(returnArray);
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<dtype>(0));
+			}
+		}
 	}
 
 	//============================================================================
