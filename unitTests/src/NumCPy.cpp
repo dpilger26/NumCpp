@@ -2132,6 +2132,78 @@ namespace MethodsInterface
 	{
 		return numCToBoost(NumC::tanh(inArray));
 	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray tileRectangle(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+	{
+		return numCToBoost(NumC::tile(inArray, inNumRows, inNumCols));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray tileShape(const NdArray<dtype>& inArray, const Shape& inRepShape)
+	{
+		return numCToBoost(NumC::tile(inArray, inRepShape));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray tileList(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+	{
+		return numCToBoost(NumC::tile(inArray, { inNumRows, inNumCols }));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	double truncScalar(dtype inValue)
+	{
+		return NumC::trunc(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray truncArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::trunc(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray zerosSquare(uint32 inSquareSize)
+	{
+		return numCToBoost(NumC::zeros<dtype>(inSquareSize));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray zerosRowCol(uint32 inNumRows, uint32 inNumCols)
+	{
+		return numCToBoost(NumC::zeros<dtype>(inNumRows, inNumCols));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray zerosShape(const Shape& inShape)
+	{
+		return numCToBoost(NumC::zeros<dtype>(inShape));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray zerosList(uint32 inNumRows, uint32 inNumCols)
+	{
+		return numCToBoost(NumC::zeros<dtype>({ inNumRows, inNumCols }));
+	}
 }
 
 namespace RandomInterface
@@ -2594,9 +2666,22 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("tan", &MethodsInterface::tanArray<double>);
 	boost::python::def("tanh", &MethodsInterface::tanhScalar<double>);
 	boost::python::def("tanh", &MethodsInterface::tanhArray<double>);
-
+	boost::python::def("tile", &MethodsInterface::tileRectangle<double>);
+	boost::python::def("tile", &MethodsInterface::tileShape<double>);
+	boost::python::def("tileList", &MethodsInterface::tileList<double>);
+	boost::python::def("tofile", &NumC::tofile<double>);
+	boost::python::def("toStlVector", &NumC::toStlVector<double>);
+	boost::python::def("trace", &NumC::trace<double, double>);
+	boost::python::def("transpose", &NumC::transpose<double>);
+	boost::python::def("trunc", &MethodsInterface::truncScalar<double>);
+	boost::python::def("trunc", &MethodsInterface::truncArray<double>);
 	boost::python::def("union1d", &NumC::union1d<uint32>);
 	boost::python::def("unique", &NumC::unique<double>);
+	boost::python::def("var", &NumC::var<double>);
+	boost::python::def("zeros", &MethodsInterface::zerosSquare<double>);
+	boost::python::def("zeros", &MethodsInterface::zerosRowCol<double>);
+	boost::python::def("zeros", &MethodsInterface::zerosShape<double>);
+	boost::python::def("zerosList", &MethodsInterface::zerosList<double>);
 
 
 	// Utils.hpp

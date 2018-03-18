@@ -4837,7 +4837,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> trace(const NdArray<dtype>& inArray, uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+	dtypeOut trace(const NdArray<dtype>& inArray, uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW)
 	{
 		return std::move(inArray.trace<dtypeOut>(inOffset, inAxis));
 	}
@@ -4853,7 +4853,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> tranpose(const NdArray<dtype>& inArray)
+	NdArray<dtype> transpose(const NdArray<dtype>& inArray)
 	{
 		return std::move(inArray.transpose());
 	}
@@ -5007,23 +5007,6 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						Trim the leading and/or trailing zeros from a value.
-	//		
-	// Inputs:
-	//				value
-	//				string, "f" = front, "b" = back, "fb" = front and back
-	//
-	// Outputs:
-	//				value
-	//
-	template<typename dtype>
-	dtype trimZeros(dtype inValue, const std::string inTrim)
-	{
-
-	}
-
-	//============================================================================
-	// Method Description: 
 	//						Trim the leading and/or trailing zeros from a 1-D array or sequence.
 	//		
 	// Inputs:
@@ -5034,7 +5017,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> trimZeros(const NdArray<dtype>& inArray1, const std::string inTrim)
+	NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray1, const std::string inTrim)
 	{
 
 	}
@@ -5052,9 +5035,9 @@ namespace NumC
 	template<typename dtype>
 	dtype trunc(dtype inValue)
 	{
-
-
+		return std::trunc(inValue);
 	}
+
 	//============================================================================
 	// Method Description: 
 	//						Return the truncated value of the input, element-wise.
@@ -5068,7 +5051,10 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> trunc(const NdArray<dtype>& inArray)
 	{
+		NdArray<double> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::trunc(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -5181,6 +5167,21 @@ namespace NumC
 	NdArray<dtype> vstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
 
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array of given shape and type, filled with zeros.
+	//		
+	// Inputs:
+	//				square size
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> zeros(uint32 inSquareSize)
+	{
+		return std::move(full(inSquareSize, static_cast<dtype>(0)));
 	}
 
 	//============================================================================
