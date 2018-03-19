@@ -1214,14 +1214,49 @@ namespace NumC
 	// Inputs:
 	//				NdArray 1
 	//				NdArray 2
-	//				(Optional) Axis (Default row)
+	//				(Optional) Axis (Default NONE)
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> concatenate(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis::Type inAxis = Axis::ROW)
+	NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis::Type inAxis = Axis::NONE)
 	{
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				uint32 finalSize = 0;
+				std::initializer_list<NdArray<dtype> >::iterator iter;
+				for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+				{
+					finalSize += iter->size();
+				}
 
+				NdArray<dtype> returnArray(1, finalSize);
+				uint32 offset = 0;
+				for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+				{
+					std::copy(iter->cbegin(), iter->cend(), returnArray.begin() + offset);
+					offset += iter->size();
+				}
+
+				return std::move(returnArray);
+			}
+			case Axis::ROW:
+			{
+				return std::move(row_stack(inArrayList));
+			}
+			case Axis::COL:
+			{
+				return std::move(column_stack(inArrayList));
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<dtype>(0));
+			}
+		}
 	}
 
 	//============================================================================

@@ -1307,6 +1307,15 @@ namespace MethodsInterface
 	//================================================================================
 
 	template<typename dtype>
+	np::ndarray concatenate(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+		const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, Axis::Type inAxis)
+	{
+		return numCToBoost(NumC::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	np::ndarray copy(const NdArray<dtype>& inArray)
 	{
 		return numCToBoost(NumC::copy(inArray));
@@ -2573,6 +2582,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("clip", &MethodsInterface::clipScalar<double>);
 	boost::python::def("clip", &MethodsInterface::clipArray<double>);
 	boost::python::def("column_stack", &MethodsInterface::column_stack<double>);
+	boost::python::def("concatenate", &MethodsInterface::concatenate<double>);
 	boost::python::def("copy", &MethodsInterface::copy<double>);
 	boost::python::def("copysign", &MethodsInterface::copySign<double>);
 	boost::python::def("copyto", &MethodsInterface::copyto<double>);

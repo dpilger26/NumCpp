@@ -761,7 +761,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing col_stack', 'cyan'))
+    print(colored('Testing column_stack', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     shape2 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
@@ -781,6 +781,78 @@ def doTest():
     cArray4.setArray(data4)
     if np.array_equal(NumC.column_stack(cArray1, cArray2, cArray3, cArray4),
                       np.column_stack([data1, data2, data3, data4])):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing concatenate: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    shape3 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    shape4 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    cArray3 = NumC.NdArray(shape3)
+    cArray4 = NumC.NdArray(shape4)
+    data1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    data2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    data3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    data4 = np.random.randint(1, 100, [shape4.rows, shape4.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    if np.array_equal(NumC.concatenate(cArray1, cArray2, cArray3, cArray4, NumC.Axis.NONE).flatten(),
+                      np.concatenate([data1.flatten(), data2.flatten(), data3.flatten(), data4.flatten()])):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing concatenate: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[0].item() + np.random.randint(1, 10, [1,]).item(), shapeInput[1].item())
+    shape3 = NumC.Shape(shapeInput[0].item() + np.random.randint(1, 10, [1,]).item(), shapeInput[1].item())
+    shape4 = NumC.Shape(shapeInput[0].item() + np.random.randint(1, 10, [1,]).item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    cArray3 = NumC.NdArray(shape3)
+    cArray4 = NumC.NdArray(shape4)
+    data1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    data2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    data3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    data4 = np.random.randint(1, 100, [shape4.rows, shape4.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    if np.array_equal(NumC.concatenate(cArray1, cArray2, cArray3, cArray4, NumC.Axis.ROW),
+                      np.concatenate([data1, data2, data3, data4], axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing concatenate: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    shape3 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    shape4 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item() + np.random.randint(1, 10, [1,]).item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    cArray3 = NumC.NdArray(shape3)
+    cArray4 = NumC.NdArray(shape4)
+    data1 = np.random.randint(1, 100, [shape1.rows, shape1.cols])
+    data2 = np.random.randint(1, 100, [shape2.rows, shape2.cols])
+    data3 = np.random.randint(1, 100, [shape3.rows, shape3.cols])
+    data4 = np.random.randint(1, 100, [shape4.rows, shape4.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    if np.array_equal(NumC.concatenate(cArray1, cArray2, cArray3, cArray4, NumC.Axis.COL),
+                      np.concatenate([data1, data2, data3, data4], axis=1)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
