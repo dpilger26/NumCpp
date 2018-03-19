@@ -1460,9 +1460,123 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut>
-	NdArray<dtypeOut> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis::Type inAxis = Axis::ROW)
+	NdArray<dtypeOut> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis::Type inAxis = Axis::NONE)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: cross: the input array dimensions are not consistant.");
+		}
 
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				uint32 arraySize = inArray1.size();
+				if (arraySize != inArray2.size() || arraySize < 2 || arraySize > 3)
+				{
+					throw std::invalid_argument("ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)");
+				}
+
+				NdArray<dtype> in1 = inArray1.flatten();
+				NdArray<dtype> in2 = inArray2.flatten();
+
+				switch (arraySize)
+				{
+					case 2:
+					{
+						NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(in1[0]) * static_cast<dtypeOut>(in2[1])
+							- static_cast<dtypeOut>(in1[1]) * static_cast<dtypeOut>(in2[0]) };
+						return std::move(returnArray);
+					}
+					case 3:
+					{
+						dtypeOut i = static_cast<dtypeOut>(in1[1]) * static_cast<dtypeOut>(in2[2])
+							- static_cast<dtypeOut>(in1[2]) * static_cast<dtypeOut>(in2[1]);
+						dtypeOut j = -(static_cast<dtypeOut>(in1[0]) * static_cast<dtypeOut>(in2[2])
+							- static_cast<dtypeOut>(in1[2]) * static_cast<dtypeOut>(in2[0]));
+						dtypeOut k = (static_cast<dtypeOut>(in1[0]) * static_cast<dtypeOut>(in2[1])
+							- static_cast<dtypeOut>(in1[1]) * static_cast<dtypeOut>(in2[0]));
+
+						NdArray<dtypeOut> returnArray = {i, j, k};
+						return std::move(returnArray);
+					}
+					default:
+					{
+						// this isn't actually possible, just putting this here to get rid
+						// of the compiler warning.
+						return std::move(NdArray<dtypeOut>(0));
+					}
+				}
+			}
+			case Axis::ROW:
+			{
+				Shape arrayShape = inArray1.shape();
+				if (arrayShape != inArray2.shape() || arrayShape.rows < 2 || arrayShape.rows > 3)
+				{
+					throw std::invalid_argument("ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)");
+				}
+
+				Shape returnArrayShape;
+				if (arrayShape.rows == 2)
+				{
+					returnArrayShape = Shape(1, arrayShape.cols);
+				}
+				else
+				{
+					returnArrayShape = Shape(3, arrayShape.cols);
+				}
+
+				NdArray<dtypeOut> returnArray(returnArrayShape);
+				for (uint32 col = 0; col < arrayShape.cols; ++col)
+				{
+					int32 theCol = static_cast<int32>(col);
+					NdArray<dtype> vec1 = inArray1({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
+					NdArray<dtype> vec2 = inArray2({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
+					NdArray<dtypeOut> vecCross = cross<dtype, dtypeOut>(vec1, vec2, Axis::NONE);
+
+					returnArray.put({ 0, static_cast<int32>(returnArrayShape.rows) }, { theCol, theCol + 1 }, vecCross);
+				}
+
+				return std::move(returnArray);
+			}
+			case Axis::COL:
+			{
+				Shape arrayShape = inArray1.shape();
+				if (arrayShape != inArray2.shape() || arrayShape.cols < 2 || arrayShape.cols > 3)
+				{
+					throw std::invalid_argument("ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)");
+				}
+
+				Shape returnArrayShape;
+				if (arrayShape.cols == 2)
+				{
+					returnArrayShape = Shape(arrayShape.rows, 1);
+				}
+				else
+				{
+					returnArrayShape = Shape(arrayShape.rows, 3);
+				}
+
+				NdArray<dtypeOut> returnArray(returnArrayShape);
+				for (uint32 row = 0; row < arrayShape.rows; ++row)
+				{
+					int32 theRow = static_cast<int32>(row);
+					NdArray<dtype> vec1 = inArray1({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
+					NdArray<dtype> vec2 = inArray2({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
+					NdArray<dtypeOut> vecCross = cross<dtype, dtypeOut>(vec1, vec2, Axis::NONE);
+
+					returnArray.put({ theRow, theRow + 1 }, { 0, static_cast<int32>(returnArrayShape.cols) }, vecCross);
+				}
+
+				return std::move(returnArray);
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<dtype>(0));
+			}
+		}
 	}
 
 	//============================================================================

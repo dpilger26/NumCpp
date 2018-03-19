@@ -985,6 +985,86 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing cross 2D: Axis = None', 'cyan'))
+    shape = NumC.Shape(1, 2)
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    data2 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if NumC.cross(cArray1, cArray2, NumC.Axis.NONE).item() == np.cross(data1, data2).item():
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing cross 2D: Axis = ROW', 'cyan'))
+    shape = NumC.Shape(2, np.random.randint(1,100, [1, ]).item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    data2 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.cross(cArray1, cArray2, NumC.Axis.ROW).getNumpyArray().flatten(), np.cross(data1, data2, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing cross 2D: Axis = COL', 'cyan'))
+    shape = NumC.Shape(np.random.randint(1,100, [1, ]).item(), 2)
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    data2 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.cross(cArray1, cArray2, NumC.Axis.COL).getNumpyArray().flatten(), np.cross(data1, data2, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing cross 3D: Axis = None', 'cyan'))
+    shape = NumC.Shape(1, 3)
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    data2 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.cross(cArray1, cArray2, NumC.Axis.NONE).getNumpyArray().flatten(), np.cross(data1, data2).flatten()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing cross 3D: Axis = ROW', 'cyan'))
+    shape = NumC.Shape(3, np.random.randint(1,100, [1, ]).item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    data2 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.cross(cArray1, cArray2, NumC.Axis.ROW).getNumpyArray(), np.cross(data1, data2, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing cross 3D: Axis = COL', 'cyan'))
+    shape = NumC.Shape(np.random.randint(1,100, [1, ]).item(), 3)
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    data2 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumC.cross(cArray1, cArray2, NumC.Axis.COL).getNumpyArray(), np.cross(data1, data2, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    return
+
     print(colored('Testing cube array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())

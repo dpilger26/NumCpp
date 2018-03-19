@@ -2591,6 +2591,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("cosh", &MethodsInterface::coshScalar<double>);
 	boost::python::def("cosh", &MethodsInterface::coshArray<double>);
 	boost::python::def("count_nonzero", &MethodsInterface::count_nonzero<double>);
+	boost::python::def("cross", &NumC::cross<double, double>);
 	boost::python::def("cube", &MethodsInterface::cubeArray<double, double>);
 	boost::python::def("cumprod", &MethodsInterface::cumprodArray<double, double>);
 	boost::python::def("cumsum", &MethodsInterface::cumsumArray<double, double>);
