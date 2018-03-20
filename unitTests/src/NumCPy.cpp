@@ -2648,6 +2648,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("identity", &NumC::identity<double>);
 	boost::python::def("intersect1d", &NumC::intersect1d<uint32>);
 	boost::python::def("invert", &NumC::invert<uint32>);
+	boost::python::def("isclose", &NumC::isclose<double>);
 	boost::python::def("isnan", &MethodsInterface::isnanScalar<double>);
 	boost::python::def("isnan", &MethodsInterface::isnanArray<double>);
 	boost::python::def("ldexp", &MethodsInterface::ldexpScalar<double>);

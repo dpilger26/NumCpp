@@ -1767,6 +1767,22 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing isclose', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumC.NdArray(shape)
+    cArray2 = NumC.NdArray(shape)
+    data1 = np.random.rand(shape.rows, shape.cols)
+    data2 = data1 + np.random.randn(shape.rows, shape.cols) * 1e-5
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    rtol = 1e-5
+    atol = 1e-8
+    if np.array_equal(NumC.isclose(cArray1, cArray2, rtol, atol).getNumpyArray(), np.isclose(data1, data2, rtol=rtol, atol=atol)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing isnan scalar', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
     if NumC.isnan(value) == np.isnan(value):

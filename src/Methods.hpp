@@ -1497,7 +1497,7 @@ namespace NumC
 						dtypeOut k = (static_cast<dtypeOut>(in1[0]) * static_cast<dtypeOut>(in2[1])
 							- static_cast<dtypeOut>(in1[1]) * static_cast<dtypeOut>(in2[0]));
 
-						NdArray<dtypeOut> returnArray = {i, j, k};
+						NdArray<dtypeOut> returnArray = { i, j, k };
 						return std::move(returnArray);
 					}
 					default:
@@ -2805,7 +2805,8 @@ namespace NumC
 	//						Returns a boolean array where two arrays are element-wise 
 	//						equal within a tolerance.
 	//
-	//		
+	//						For finite values, isclose uses the following equation to test whether two floating point values are equivalent.
+	//						absolute(a - b) <= (atol + rtol * absolute(b))
 	// Inputs:
 	//				NdArray 1
 	//				NdArray 2
@@ -2818,7 +2819,16 @@ namespace NumC
 	template<typename dtype>
 	NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08)
 	{
+		if (inArray1.shape() != inArray2.shape())
+		{
+			throw std::invalid_argument("ERROR: isclose: input array shapes are not consistant.");
+		}
 
+		NdArray<bool> returnArray(inArray1.shape());
+		std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+			[inRtol, inAtol](dtype inValueA, dtype inValueB) { return std::abs(inValueA - inValueB) <= (inAtol + inRtol * std::abs(inValueB)); });
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -2987,7 +2997,7 @@ namespace NumC
 		}
 		else if (inNum == 1)
 		{
-			NdArray<dtype> returnArray = {inStart};
+			NdArray<dtype> returnArray = { inStart };
 			return std::move(returnArray);
 		}
 
@@ -3023,7 +3033,7 @@ namespace NumC
 			if (inNum == 2)
 			{
 				dtype step = (inStop - inStart) / (inNum);
-				NdArray<dtype> returnArray = {inStart, inStart + step};
+				NdArray<dtype> returnArray = { inStart, inStart + step };
 				return std::move(returnArray);
 			}
 			else
