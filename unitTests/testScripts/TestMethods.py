@@ -1063,8 +1063,6 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    return
-
     print(colored('Testing cube array', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -1845,6 +1843,26 @@ def doTest():
     cArray1.setArray(data1)
     cArray2.setArray(data2)
     if np.array_equal(NumC.less_equal(cArray1, cArray2).getNumpyArray(), np.less_equal(data1, data2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing linspace: include endPoint True', 'cyan'))
+    start = np.random.randint(1, 10, [1, ]).item()
+    end = np.random.randint(start + 10, 100, [1, ]).item()
+    numPoints = np.random.randint(1, 100, [1, ]).item()
+    if np.array_equal(np.round(NumC.linspace(start, end, numPoints, True).getNumpyArray().flatten(), 10),
+                      np.round(np.linspace(start, end, numPoints, endpoint=True), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing linspace: include endPoint False', 'cyan'))
+    start = np.random.randint(1, 10, [1, ]).item()
+    end = np.random.randint(start + 10, 100, [1, ]).item()
+    numPoints = np.random.randint(1, 100, [1, ]).item()
+    if np.array_equal(np.round(NumC.linspace(start, end, numPoints, False).getNumpyArray().flatten(), 10),
+                      np.round(np.linspace(start, end, numPoints, endpoint=False), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

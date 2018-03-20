@@ -2655,6 +2655,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("left_shift", &NumC::left_shift<uint32>);
 	boost::python::def("less", &NumC::less<double>);
 	boost::python::def("less_equal", &NumC::less_equal<double>);
+	boost::python::def("linspace", &NumC::linspace<double>);
 	boost::python::def("log", &MethodsInterface::logScalar<double>);
 	boost::python::def("log", &MethodsInterface::logArray<double>);
 	boost::python::def("log10", &MethodsInterface::log10Scalar<double>);

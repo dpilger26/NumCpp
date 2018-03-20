@@ -2639,10 +2639,10 @@ namespace NumC
 	//				number of bins, default 10
 	//				
 	// Outputs:
-	//				NdArray
+	//				pair of NdArrays; first is histogram counts, seconds is the bin edges
 	//
 	template<typename dtype>
-	NdArray<dtype> histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
+	std::pair<NdArray<dtype>, NdArray<dtype> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
 	{
 
 	}
@@ -2738,6 +2738,22 @@ namespace NumC
 		}
 
 		return std::move(returnArray);
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Insert values along the given axis before the given indices.
+	//	
+	// Inputs:
+	//				
+	//				
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> insert(const NdArray<dtype>& inArray)
+	{
+
 	}
 
 	//============================================================================
@@ -2951,7 +2967,8 @@ namespace NumC
 	//
 	//						The endpoint of the interval can optionally be excluded.
 	//
-	//		
+	//						Mostly only usefull if called with a floating point type 
+	//						for the template argument.
 	// Inputs:
 	//				start point
 	//				end point
@@ -2962,9 +2979,67 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> linspace(dtype inStart, dtype inStop, uint16 inNum = 50, bool endPoint = true)
+	NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)
 	{
+		if (inNum == 0)
+		{
+			return std::move(NdArray<dtype>(0));
+		}
+		else if (inNum == 1)
+		{
+			NdArray<dtype> returnArray = {inStart};
+			return std::move(returnArray);
+		}
 
+		if (inStop <= inStart)
+		{
+			throw std::invalid_argument("ERROR: linspace: stop value must be greater than the start value.");
+		}
+
+		if (endPoint)
+		{
+			if (inNum == 2)
+			{
+				NdArray<dtype> returnArray = { inStart, inStop };
+				return std::move(returnArray);
+			}
+			else
+			{
+				NdArray<dtype> returnArray(1, inNum);
+				returnArray[0] = inStart;
+				returnArray[inNum - 1] = inStop;
+
+				dtype step = (inStop - inStart) / (inNum - 1);
+				for (uint32 i = 1; i < inNum - 1; ++i)
+				{
+					returnArray[i] = returnArray[i - 1] + step;
+				}
+
+				return std::move(returnArray);
+			}
+		}
+		else
+		{
+			if (inNum == 2)
+			{
+				dtype step = (inStop - inStart) / (inNum);
+				NdArray<dtype> returnArray = {inStart, inStart + step};
+				return std::move(returnArray);
+			}
+			else
+			{
+				NdArray<dtype> returnArray(1, inNum);
+				returnArray[0] = inStart;
+
+				dtype step = (inStop - inStart) / inNum;
+				for (uint32 i = 1; i < inNum; ++i)
+				{
+					returnArray[i] = returnArray[i - 1] + step;
+				}
+
+				return std::move(returnArray);
+			}
+		}
 	}
 
 	//============================================================================

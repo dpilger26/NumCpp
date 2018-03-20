@@ -1473,6 +1473,21 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						Return if the NdArray is empty. ie the default construtor
+		//						was used.
+		//		
+		// Inputs:
+		//				None
+		// Outputs:
+		//				boolean
+		//
+		bool isempty() const
+		{
+			return size_ == 0;
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Return the NdArrays endianess
 		//		
 		// Inputs:
