@@ -19,18 +19,28 @@
 
 #pragma once
 
-#include"BoostNumpyNdarrayHelper.hpp"
-#include"Constants.hpp"
-#include"DtypeInfo.hpp"
-#include"FFT.hpp"
-#include"Linalg.hpp"
-#include"Methods.hpp"
-#include"NdArray.hpp"
-#include"Polynomial.hpp"
-#include"Random.hpp"
-#include"Rotations.hpp"
-#include"Shape.hpp"
-#include"Slice.hpp"
-#include"Timer.hpp"
-#include"Types.hpp"
-#include"Utils.hpp"
+namespace NumC
+{
+	//================================Rotations Namespace=============================
+	namespace Rotations
+	{
+		//================================================================================
+		// Class Description:
+		//						holds a unit quaternion
+		//
+		class Quaternion
+		{
+		private:
+			//====================================Attributes==============================
+
+		public:
+
+		};
+
+		//================================================================================
+		// Factory methods for generating direction cosine matrices and vectors
+		//
+
+
+	}
+}

@@ -529,6 +529,58 @@ namespace NumC
 		//						returned array is of the range [start, stop).
 		//		
 		// Inputs:
+		//				Row Slice
+		//				Col index
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator()(const Slice& inRowSlice, int32 inColIndex) const
+		{
+			Slice inRowSliceCopy(inRowSlice);
+
+			NdArray<dtype> returnArray(inRowSliceCopy.numElements(shape_.rows), 1);
+
+			uint32 rowCounter = 0;
+			for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
+			{
+				returnArray(rowCounter++, 0) = this->at(row, inColIndex);
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						2D Slicing access operator with no bounds checking.
+		//						returned array is of the range [start, stop).
+		//		
+		// Inputs:
+		//				Row index
+		//				Col Slice
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator()(int32 inRowIndex, const Slice& inColSlice) const
+		{
+			Slice inColSliceCopy(inColSlice);
+
+			NdArray<dtype> returnArray(1, inColSliceCopy.numElements(shape_.cols));
+
+			uint32 colCounter = 0;
+			for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
+			{
+				returnArray(0, colCounter++) = this->at(inRowIndex, col);
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						2D Slicing access operator with no bounds checking.
+		//						returned array is of the range [start, stop).
+		//		
+		// Inputs:
 		//				Row initializer list
 		//				Col initializer list
 		// Outputs:
@@ -551,6 +603,58 @@ namespace NumC
 				}
 				colCounter = 0;
 				++rowCounter;
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						2D Slicing access operator with no bounds checking.
+		//						returned array is of the range [start, stop).
+		//		
+		// Inputs:
+		//				Row initializer list
+		//				Col index
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator()(const std::initializer_list<int32>& inRowList, int32 inColIndex) const
+		{
+			Slice inRowSlice(inRowList);
+
+			NdArray<dtype> returnArray(inRowSlice.numElements(shape_.rows), 1);
+
+			uint32 rowCounter = 0;
+			for (int32 row = inRowSlice.start; row < inRowSlice.stop; row += inRowSlice.step)
+			{
+				returnArray(rowCounter++, 0) = this->at(row, inColIndex);
+			}
+
+			return std::move(returnArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						2D Slicing access operator with no bounds checking.
+		//						returned array is of the range [start, stop).
+		//		
+		// Inputs:
+		//				Row index
+		//				Col initializer list
+		// Outputs:
+		//				NdArray
+		//
+		NdArray<dtype> operator()(int32 inRowIndex, const std::initializer_list<int32>& inColList) const
+		{
+			Slice inColSlice(inColList);
+
+			NdArray<dtype> returnArray(1, inColSlice.numElements(shape_.cols));
+
+			uint32 colCounter = 0;
+			for (int32 col = inColSlice.start; col < inColSlice.stop; col += inColSlice.step)
+			{
+				returnArray(0, colCounter++) = this->at(inRowIndex, col);
 			}
 
 			return std::move(returnArray);
@@ -717,6 +821,40 @@ namespace NumC
 		//		
 		// Inputs:
 		//				Row Slice,
+		//				Column index
+		// Outputs:
+		//				Ndarray
+		//
+		NdArray<dtype> at(const Slice& inRowSlice, int32 inColIndex) const
+		{
+			// the slice operator already provides bounds checking. just including
+			// the at method for completeness
+			return std::move(this->operator()(inRowSlice, inColIndex));
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						const 2D access method with bounds checking
+		//		
+		// Inputs:
+		//				Row index
+		//				Column Slice
+		// Outputs:
+		//				Ndarray
+		//
+		NdArray<dtype> at(int32 inRowIndex, const Slice& inColSlice) const
+		{
+			// the slice operator already provides bounds checking. just including
+			// the at method for completeness
+			return std::move(this->operator()(inRowIndex, inColSlice));
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						const 2D access method with bounds checking
+		//		
+		// Inputs:
+		//				Row Slice,
 		//				Column Slice
 		// Outputs:
 		//				Ndarray
@@ -726,6 +864,40 @@ namespace NumC
 			// the slice operator already provides bounds checking. just including
 			// the at method for completeness
 			return std::move(this->operator()(inRowList, inColList));
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						const 2D access method with bounds checking
+		//		
+		// Inputs:
+		//				Row Slice,
+		//				Column index
+		// Outputs:
+		//				Ndarray
+		//
+		NdArray<dtype> at(const std::initializer_list<int32>& inRowList, int32 inColIndex) const
+		{
+			// the slice operator already provides bounds checking. just including
+			// the at method for completeness
+			return std::move(this->operator()(inRowList, inColIndex));
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						const 2D access method with bounds checking
+		//		
+		// Inputs:
+		//				Row index
+		//				Column Slice
+		// Outputs:
+		//				Ndarray
+		//
+		NdArray<dtype> at(int32 inRowIndex, const std::initializer_list<int32>& inColList) const
+		{
+			// the slice operator already provides bounds checking. just including
+			// the at method for completeness
+			return std::move(this->operator()(inRowIndex, inColList));
 		}
 
 		//============================================================================
@@ -2398,6 +2570,52 @@ namespace NumC
 		//						Set the slice indices to the input values.
 		//		
 		// Inputs:
+		//				Slice rows
+		//				col index
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(const Slice& inRowSlice, int32 inColIndex, dtype inValue)
+		{
+			Slice inRowSliceCopy(inRowSlice);
+			inRowSliceCopy.makePositiveAndValidate(shape_.rows);
+
+			std::vector<uint32> indices;
+			for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
+			{
+				put(row, inColIndex, inValue);
+			}
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				row index
+		//				Slice cols
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(int32 inRowIndex, const Slice& inColSlice, dtype inValue)
+		{
+			Slice inColSliceCopy(inColSlice);
+			inColSliceCopy.makePositiveAndValidate(shape_.cols);
+
+			std::vector<uint32> indices;
+			for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
+			{
+				put(inRowIndex, col, inValue);
+			}
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
 		//				initializer_list<int32> row slice
 		//				initializer_list<int32> col slice
 		//				value
@@ -2407,6 +2625,38 @@ namespace NumC
 		void put(const std::initializer_list<int32>& inRowSliceList, const std::initializer_list<int32>& inColSliceList, dtype inValue)
 		{
 			put(Slice(inRowSliceList), Slice(inColSliceList), inValue);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				initializer_list<int32> row slice
+		//				col index
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(const std::initializer_list<int32>& inRowSliceList, uint32 inColIndex, dtype inValue)
+		{
+			put(Slice(inRowSliceList), inColIndex, inValue);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				row index
+		//				initializer_list<int32> col slice
+		//				value
+		// Outputs:
+		//				None
+		//
+		void put(int32 inRowIndex, const std::initializer_list<int32>& inColSliceList, dtype inValue)
+		{
+			put(inRowIndex, Slice(inColSliceList), inValue);
 		}
 
 		//============================================================================
@@ -2446,6 +2696,58 @@ namespace NumC
 		//						Set the slice indices to the input values.
 		//		
 		// Inputs:
+		//				Slice rows
+		//				col index
+		//				NdArray of values
+		// Outputs:
+		//				None
+		//
+		void put(const Slice& inRowSlice, int32 inColIndex, const NdArray<dtype>& inValues)
+		{
+			Slice inRowSliceCopy(inRowSlice);
+			inRowSliceCopy.makePositiveAndValidate(shape_.rows);
+
+			std::vector<uint32> indices;
+			for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
+			{
+				uint32 index = row * shape_.cols + inColIndex;
+				indices.push_back(index);
+			}
+
+			put(NdArray<uint32>(indices), inValues);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				row index
+		//				Slice cols
+		//				NdArray of values
+		// Outputs:
+		//				None
+		//
+		void put(int32 inRowIndex, const Slice& inColSlice, const NdArray<dtype>& inValues)
+		{
+			Slice inColSliceCopy(inColSlice);
+			inColSliceCopy.makePositiveAndValidate(shape_.cols);
+
+			std::vector<uint32> indices;
+			for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
+			{
+				uint32 index = inRowIndex * shape_.cols + col;
+				indices.push_back(index);
+			}
+
+			put(NdArray<uint32>(indices), inValues);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
 		//				initializer_list<int32> row slice
 		//				initializer_list<int32> col slice
 		//				NdArray of values
@@ -2455,6 +2757,38 @@ namespace NumC
 		void put(const std::initializer_list<int32>& inRowSliceList, const std::initializer_list<int32>& inColSliceList, const NdArray<dtype>& inValues)
 		{
 			put(Slice(inRowSliceList), Slice(inColSliceList), inValues);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				initializer_list<int32> row slice
+		//				col index
+		//				NdArray of values
+		// Outputs:
+		//				None
+		//
+		void put(const std::initializer_list<int32>& inRowSliceList, int32 inColIndex, const NdArray<dtype>& inValues)
+		{
+			put(Slice(inRowSliceList), inColIndex, inValues);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Set the slice indices to the input values.
+		//		
+		// Inputs:
+		//				row index
+		//				initializer_list<int32> col slice
+		//				NdArray of values
+		// Outputs:
+		//				None
+		//
+		void put(int32 inRowIndex, const std::initializer_list<int32>& inColSliceList, const NdArray<dtype>& inValues)
+		{
+			put(inRowIndex, Slice(inColSliceList), inValues);
 		}
 
 		//============================================================================
