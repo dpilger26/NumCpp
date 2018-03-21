@@ -61,7 +61,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		Shape(uint32 inSquareSize) :
+		explicit Shape(uint32 inSquareSize) :
 			rows(inSquareSize),
 			cols(inSquareSize)
 		{};

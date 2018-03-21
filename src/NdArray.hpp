@@ -125,7 +125,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		NdArray(uint32 inSquareSize) :
+		explicit NdArray(uint32 inSquareSize) :
 			shape_(inSquareSize, inSquareSize),
 			size_(inSquareSize * inSquareSize),
 			endianess_(Endian::NATIVE),
@@ -158,7 +158,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		NdArray(const Shape& inShape) :
+		explicit NdArray(const Shape& inShape) :
 			shape_(inShape),
 			size_(shape_.size()),
 			endianess_(Endian::NATIVE),
@@ -231,7 +231,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		NdArray(const std::vector<dtype>& inVector) :
+		explicit NdArray(const std::vector<dtype>& inVector) :
 			shape_(1, static_cast<uint32>(inVector.size())),
 			size_(shape_.size()),
 			endianess_(Endian::NATIVE),
@@ -249,7 +249,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		NdArray(const std::set<dtype>& inSet) :
+		explicit NdArray(const std::set<dtype>& inSet) :
 			shape_(1, static_cast<uint32>(inSet.size())),
 			size_(shape_.size()),
 			endianess_(Endian::NATIVE),
@@ -267,7 +267,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		NdArray(const NdArray<dtype>& inOtherArray) :
+		 NdArray(const NdArray<dtype>& inOtherArray) :
 			shape_(inOtherArray.shape_),
 			size_(inOtherArray.size_),
 			endianess_(inOtherArray.endianess_),

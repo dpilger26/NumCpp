@@ -63,7 +63,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		Slice(int32 inStop) :
+		explicit Slice(int32 inStop) :
 			start(0),
 			stop(inStop),
 			step(1)
