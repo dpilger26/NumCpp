@@ -21,7 +21,6 @@
 
 #include"Types.hpp"
 
-#include<initializer_list>
 #include<stdexcept>
 #include<iostream>
 
@@ -81,28 +80,6 @@ namespace NumC
 			rows(inRows),
 			cols(inCols)
 		{};
-
-		//============================================================================
-		// Method Description: 
-		//						Constructor
-		//		
-		// Inputs:
-		//				initializer list. ie. {3, 4}
-		// Outputs:
-		//				None
-		//
-		Shape(const std::initializer_list<uint32>& inList) :
-			rows(0),
-			cols(0)
-		{
-			if (inList.size() != 2)
-			{
-				throw std::invalid_argument("ERROR: Shape initializer list must contain 2 elements.");
-			}
-
-			rows = *inList.begin();
-			cols = *(inList.begin() + 1);
-		}
 
 		//============================================================================
 		// Method Description: 

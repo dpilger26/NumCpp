@@ -42,12 +42,6 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing List Constructor', 'cyan'))
-    if NumC.Slice.testListContructor():
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
     print(colored('Testing Copy Constructor', 'cyan'))
     cSlice2 = NumC.Slice(cSlice)
     if cSlice2.start == cSlice.start and cSlice2.stop == cSlice.stop and cSlice2.step == cSlice.step:

@@ -22,7 +22,6 @@
 #include"Types.hpp"
 #include"Utils.hpp"
 
-#include<initializer_list>
 #include<stdexcept>
 #include<iostream>
 
@@ -102,51 +101,6 @@ namespace NumC
 			stop(inStop),
 			step(inStep)
 		{};
-
-		//============================================================================
-		// Method Description: 
-		//						Constructor
-		//		
-		// Inputs:
-		//				initializer list. ie. {3, 4}
-		// Outputs:
-		//				None
-		//
-		Slice(const std::initializer_list<int32>& inList) :
-			start(0),
-			stop(0),
-			step(0)
-		{
-			if (inList.size() > 3)
-			{
-				throw std::invalid_argument("ERROR: Slice initializer list must contain no more than 3 elements.");
-			}
-
-			switch (inList.size())
-			{
-				case 1:
-				{
-					start = 0;
-					stop = *inList.begin();
-					step = 1;
-					break;
-				}
-				case 2:
-				{
-					start = *inList.begin();
-					stop = *(inList.begin() + 1);
-					step = 1;
-					break;
-				}
-				case 3:
-				{
-					start = *inList.begin();
-					stop = *(inList.begin() + 1);
-					step = *(inList.begin() + 2);
-					break;
-				}
-			}
-		}
 
 		//============================================================================
 		// Method Description: 
