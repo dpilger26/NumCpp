@@ -2055,6 +2055,22 @@ namespace MethodsInterface
 	//================================================================================
 
 	template<typename dtype>
+	np::ndarray triSquare(uint32 inSquareSize, int32 inOffset)
+	{
+		return numCToBoost(NumC::tri<dtype>(inSquareSize, inOffset));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray triRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
+	{
+		return numCToBoost(NumC::tri<dtype>(inNumRows, inNumCols, inOffset));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	double truncScalar(dtype inValue)
 	{
 		return NumC::trunc(inValue);
@@ -2584,6 +2600,9 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("toStlVector", &NumC::toStlVector<double>);
 	boost::python::def("trace", &NumC::trace<double, double>);
 	boost::python::def("transpose", &NumC::transpose<double>);
+	boost::python::def("tri", &MethodsInterface::triSquare<double>);
+	boost::python::def("tri", &MethodsInterface::triRect<double>);
+	//boost::python::def("tril", &NumC::tril<double>);
 	boost::python::def("trunc", &MethodsInterface::truncScalar<double>);
 	boost::python::def("trunc", &MethodsInterface::truncArray<double>);
 	boost::python::def("union1d", &NumC::union1d<uint32>);

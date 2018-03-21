@@ -4847,22 +4847,6 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
-	//						Join a sequence of arrays along a new axis.
-	//		
-	// Inputs:
-	//				NdArray
-	//				Axis
-	// Outputs:
-	//				NdArray
-	//
-	template<typename dtype>
-	NdArray<dtype> stack(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
-	{
-
-	}
-
-	//============================================================================
-	// Method Description: 
 	//						Compute the standard deviation along the specified axis.
 	//		
 	// Inputs:
@@ -5115,16 +5099,44 @@ namespace NumC
 	//		
 	// Inputs:
 	//				N, number of rows and cols
-	//				Offset from main diaganol, default = 0, negaive=above, positve=below
+	//				Offset, the sub-diagonal at and below which the array is filled. 
+	//						k = 0 is the main diagonal, while k < 0 is below it, 
+	//						and k > 0 is above. The default is 0.
 	//				
 	//
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> tri(uint16 inN, int16 inOffset = 0)
+	NdArray<dtype> tri(uint32 inN, int32 inOffset = 0)
 	{
+		uint32 rowStart = 0;
+		uint32 colStart = 0;
+		if (inOffset > 0)
+		{
+			colStart = inOffset;
+		}
+		else
+		{
+			rowStart = inOffset * -1;
+		}
 
+		NdArray<dtype> returnArray(inN);
+		returnArray.zeros();
+		for (uint32 row = rowStart; row < inN; ++row)
+		{
+			for (uint32 col = 0; col < row + colStart + 1 - rowStart; ++col)
+			{
+				if (col == inN)
+				{
+					break;
+				}
+
+				returnArray(row, col) = static_cast<dtype>(1);
+			}
+		}
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
@@ -5134,51 +5146,64 @@ namespace NumC
 	// Inputs:
 	//				N, number of rows
 	//				M, number of columns
-	//				Offset from main diaganol, default = 0, negative=above, positve=below
+	//				Offset, the sub-diagonal at and below which the array is filled. 
+	//						k = 0 is the main diagonal, while k < 0 is below it, 
+	//						and k > 0 is above. The default is 0.
 	//				
 	//
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> tri(uint16 inN, uint16 inM, int16 inOffset = 0)
+	NdArray<dtype> tri(uint32 inN, uint32 inM, int32 inOffset = 0)
 	{
+		uint32 rowStart = 0;
+		uint32 colStart = 0;
+		if (inOffset > 0)
+		{
+			colStart = inOffset;
+		}
+		else if (inOffset < 0)
+		{
+			rowStart = inOffset * -1;
+		}
 
+		NdArray<dtype> returnArray(inN, inM);
+		returnArray.zeros();
+		for (uint32 row = rowStart; row < inN; ++row)
+		{
+			for (uint32 col = 0; col < row + colStart + 1 - rowStart; ++col)
+			{
+				if (col == inM)
+				{
+					break;
+				}
+
+				returnArray(row, col) = static_cast<dtype>(1);
+			}
+		}
+
+		return std::move(returnArray);
 	}
 
 	//============================================================================
 	// Method Description: 
 	//						Lower triangle of an array.
+	//
+	//						Return a copy of an array with elements above the k-th diagonal zeroed.
 	//		
 	// Inputs:
-	//				N, number of rows and cols
-	//				Offset from main diaganol, default = 0, negative=above, positve=below
+	//				NdArray
+	//				Offset, the sub-diagonal at and below which the array is filled. 
+	//						k = 0 is the main diagonal, while k < 0 is below it, 
+	//						and k > 0 is above. The default is 0.
 	//				
 	//
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> tril(uint16 inN, int16 inOffset = 0)
-	{
-
-	}
-
-	//============================================================================
-	// Method Description: 
-	//						Lower triangle of an array.
-	//		
-	// Inputs:
-	//				N, number of rows
-	//				M, number of columns
-	//				Offset from main diaganol, default = 0, negative=above, positve=below
-	//				
-	//
-	// Outputs:
-	//				NdArray
-	//
-	template<typename dtype>
-	NdArray<dtype> tril(uint16 inN, uint16 inM, int16 inOffset = 0)
+	NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0)
 	{
 
 	}
@@ -5186,38 +5211,23 @@ namespace NumC
 	//============================================================================
 	// Method Description: 
 	//						Upper triangle of an array.
+	//
+	//						Return a copy of an array with elements below the k-th diagonal zeroed.
 	//		
 	// Inputs:
-	//				N, number of rows and cols
-	//				Offset from main diaganol, default = 0, negative=above, positve=below
+	//				NdArray
+	//				Offset, the sub-diagonal at and below which the array is filled. 
+	//						k = 0 is the main diagonal, while k < 0 is below it, 
+	//						and k > 0 is above. The default is 0.
 	//				
 	//
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> triu(uint16 inN, int16 inOffset = 0)
+	NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0)
 	{
 
-
-	}
-
-	//============================================================================
-	// Method Description: 
-	//						Upper triangle of an array.
-	//		
-	// Inputs:
-	//				N, number of rows
-	//				M, number of columns
-	//				Offset from main diaganol, default = 0, negative=above, positve=below
-	//				
-	//
-	// Outputs:
-	//				NdArray
-	//
-	template<typename dtype>
-	NdArray<dtype> triu(uint16 inN, uint16 inM, int16 inOffset = 0)
-	{
 
 	}
 

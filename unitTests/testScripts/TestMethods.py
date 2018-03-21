@@ -3073,6 +3073,23 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing tri: square', 'cyan'))
+    squareSize = np.random.randint(10, 100, [1, ]).item()
+    offset = np.random.randint(0, squareSize, [1, ]).item()
+    if np.array_equal(NumC.tri(squareSize, offset), np.tri(squareSize, k=offset)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing tri: rectangle', 'cyan'))
+    shapeInput = np.random.randint(10, 100, [2, ])
+    offset = np.random.randint(0, squareSize, [1, ]).item()
+    if np.array_equal(NumC.tri(shapeInput[0].item(), shapeInput[1].item(), offset),
+                      np.tri(shapeInput[0].item(), shapeInput[1].item(), k=offset)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing trunc scalar', 'cyan'))
     value = np.random.rand(1).item() * np.pi
     if NumC.trunc(value) == np.trunc(value):
