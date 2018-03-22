@@ -267,7 +267,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		 NdArray(const NdArray<dtype>& inOtherArray) :
+		NdArray(const NdArray<dtype>& inOtherArray) :
 			shape_(inOtherArray.shape_),
 			size_(inOtherArray.size_),
 			endianess_(inOtherArray.endianess_),
@@ -1188,6 +1188,55 @@ namespace NumC
 				}
 			}
 			return std::move(outArray);
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						returns whether or not a value is included the array
+		//		
+		// Inputs:
+		//				value
+		//				(Optional) axis
+		// Outputs:
+		//				bool
+		//
+		NdArray<bool> contains(dtype inValue, Axis::Type inAxis = Axis::NONE) const
+		{
+			switch (inAxis)
+			{
+				case Axis::NONE:
+				{
+					NdArray<bool> returnArray = { std::find(cbegin(), cend(), inValue) != cend() };
+					return std::move(returnArray);
+				}
+				case Axis::COL:
+				{
+					NdArray<bool> returnArray(1, shape_.rows);
+					for (uint32 row = 0; row < shape_.rows; ++row)
+					{
+						returnArray(0, row) = std::find(cbegin(row), cend(row), inValue) != cend(row);
+					}
+
+					return std::move(returnArray);
+				}
+				case Axis::ROW:
+				{
+					NdArray<dtype> transArray = transpose();
+					NdArray<bool> returnArray(1, transArray.shape_.rows);
+					for (uint32 row = 0; row < transArray.shape_.rows; ++row)
+					{
+						returnArray(0, row) = std::find(transArray.cbegin(row), transArray.cend(row), inValue) != transArray.cend(row);
+					}
+
+					return std::move(returnArray);
+				}
+				default:
+				{
+					// this isn't actually possible, just putting this here to get rid
+					// of the compiler warning.
+					return std::move(NdArray<bool>(0));
+				}
+			}
 		}
 
 		//============================================================================
@@ -2785,7 +2834,7 @@ namespace NumC
 					{
 						sum += sqr(static_cast<double>(array_[i]) - meanValue);
 					}
-					NdArray<double> returnArray = {std::sqrt(sum / size_)};
+					NdArray<double> returnArray = { std::sqrt(sum / size_) };
 					return std::move(returnArray);
 				}
 				case Axis::COL:
@@ -2794,7 +2843,7 @@ namespace NumC
 					NdArray<double> returnArray(1, shape_.rows);
 					for (uint32 row = 0; row < shape_.rows; ++row)
 					{
-						double sum = 0; 
+						double sum = 0;
 						for (uint32 col = 0; col < shape_.cols; ++col)
 						{
 							sum += sqr(static_cast<double>(this->operator()(row, col)) - meanValue[row]);

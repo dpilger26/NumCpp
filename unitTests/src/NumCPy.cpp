@@ -162,6 +162,14 @@ namespace NdArrayInterface
 
 	//================================================================================
 
+	template<typename dtype>
+	np::ndarray contains(NdArray<dtype>& self, dtype inValue, Axis::Type inAxis = Axis::NONE)
+	{
+		return numCToBoost(self.contains(inValue, inAxis));
+	}
+
+	//================================================================================
+
 	template<typename dtype, typename dtypeOut>
 	np::ndarray cumprod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
 	{
@@ -1321,6 +1329,22 @@ namespace MethodsInterface
 	//================================================================================
 
 	template<typename dtype>
+	np::ndarray deleteIndicesScalar(const NdArray<dtype>& inArray, uint32 inIndex, Axis::Type inAxis)
+	{
+		return numCToBoost(NumC::deleteIndices(inArray, inIndex, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray deleteIndicesSlice(const NdArray<dtype>& inArray, const Slice& inIndices, Axis::Type inAxis)
+	{
+		return numCToBoost(NumC::deleteIndices(inArray, inIndices, inAxis));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	np::ndarray diagflat(const NdArray<dtype>& inArray)
 	{
 		return numCToBoost(NumC::diagflat(inArray));
@@ -2071,6 +2095,22 @@ namespace MethodsInterface
 	//================================================================================
 
 	template<typename dtype>
+	dtype unwrapScalar(dtype inValue)
+	{
+		return NumC::unwrap(inValue);
+	}
+
+	//================================================================================
+
+	template<typename dtype>
+	np::ndarray unwrapArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(NumC::unwrap(inArray));
+	}
+
+	//================================================================================
+
+	template<typename dtype>
 	double truncScalar(dtype inValue)
 	{
 		return NumC::trunc(inValue);
@@ -2234,6 +2274,7 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("argsort", &NdArrayInterface::argsort<double>)
 		.def("clip", &NdArrayInterface::clip<double>)
 		.def("copy", &NdArrayInterface::copy<double>)
+		.def("contains", &NdArrayInterface::contains<double>)
 		.def("cumprod", &NdArrayInterface::cumprod<double, double>)
 		.def("cumsum", &NdArrayInterface::cumsum<double, double>)
 		.def("diagonal", &NdArrayInterface::diagonal<double>)
@@ -2441,6 +2482,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("clip", &MethodsInterface::clipArray<double>);
 	boost::python::def("column_stack", &MethodsInterface::column_stack<double>);
 	boost::python::def("concatenate", &MethodsInterface::concatenate<double>);
+	boost::python::def("contains", &NumC::contains<double>);
 	boost::python::def("copy", &MethodsInterface::copy<double>);
 	boost::python::def("copysign", &MethodsInterface::copySign<double>);
 	boost::python::def("copyto", &MethodsInterface::copyto<double>);
@@ -2455,6 +2497,8 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("cumsum", &MethodsInterface::cumsumArray<double, double>);
 	boost::python::def("deg2rad", &MethodsInterface::deg2radScalar<double>);
 	boost::python::def("deg2rad", &MethodsInterface::deg2radArray<double>);
+	boost::python::def("delete", &MethodsInterface::deleteIndicesScalar<double>);
+	boost::python::def("delete", &MethodsInterface::deleteIndicesSlice<double>);
 	boost::python::def("diagflat", &MethodsInterface::diagflat<double>);
 	boost::python::def("diagonal", &MethodsInterface::diagonal<double>);
 	boost::python::def("diff", &MethodsInterface::diff<double>);
@@ -2603,10 +2647,14 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("tri", &MethodsInterface::triSquare<double>);
 	boost::python::def("tri", &MethodsInterface::triRect<double>);
 	//boost::python::def("tril", &NumC::tril<double>);
+	//boost::python::def("triu", &NumC::triu<double>);
+	boost::python::def("trim_zeros", &NumC::trim_zeros<double>);
 	boost::python::def("trunc", &MethodsInterface::truncScalar<double>);
 	boost::python::def("trunc", &MethodsInterface::truncArray<double>);
 	boost::python::def("union1d", &NumC::union1d<uint32>);
 	boost::python::def("unique", &NumC::unique<double>);
+	boost::python::def("unwrap", &MethodsInterface::unwrapScalar<double>);
+	boost::python::def("unwrap", &MethodsInterface::unwrapArray<double>);
 	boost::python::def("var", &NumC::var<double>);
 	boost::python::def("vstack", &MethodsInterface::vstack<double>);
 	boost::python::def("zeros", &MethodsInterface::zerosSquare<double>);

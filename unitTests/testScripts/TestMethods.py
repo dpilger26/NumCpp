@@ -879,6 +879,48 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing contains: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    value = np.random.randint(0, 100, [1, ]).item()
+    cArray.setArray(data)
+    if NumC.contains(cArray, value, NumC.Axis.NONE).getNumpyArray().item() == (value in data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing contains: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    value = np.random.randint(0, 100, [1, ]).item()
+    cArray.setArray(data)
+    truth = list()
+    for row in data:
+        truth.append(value in row)
+    if np.array_equal(NumC.contains(cArray, value, NumC.Axis.COL).getNumpyArray().flatten(), np.asarray(truth)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing contains: Axis = ROW', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    value = np.random.randint(0, 100, [1, ]).item()
+    cArray.setArray(data)
+    truth = list()
+    for row in data.T:
+        truth.append(value in row)
+    if np.array_equal(NumC.contains(cArray, value, NumC.Axis.ROW).getNumpyArray().flatten(), np.asarray(truth)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing copy', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -1157,6 +1199,21 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing deleteIndices Slice: Axis = NONE', 'cyan'))
+    shapeInput = np.asarray([100,100])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    indices = NumC.Slice(0, 100, 4)
+    indicesPy = np.s_[0, 100, 4]
+    cArray.setArray(data)
+    if np.array_equal(NumC.delete(cArray, indices, NumC.Axis.NONE), np.delete(data, indicesPy, axis=None)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    return
 
     print(colored('Testing diagflat array', 'cyan'))
     numElements = np.random.randint(1, 25, [1, ]).item()
@@ -3090,6 +3147,54 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing trim_zeros: "f"', 'cyan'))
+    numElements = np.random.randint(50, 100, [1, ]).item()
+    offsetBeg = np.random.randint(0, 10, [1, ]).item()
+    offsetEnd = np.random.randint(10, numElements, [1, ]).item()
+    shape = NumC.Shape(1, numElements)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data[0, :offsetBeg] = 0
+    data[0, -offsetEnd:] = 0
+    cArray.setArray(data)
+    if np.array_equal(NumC.trim_zeros(cArray, 'f').getNumpyArray().flatten(),
+                      np.trim_zeros(data.flatten(), 'f')):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing trim_zeros: "b"', 'cyan'))
+    numElements = np.random.randint(50, 100, [1, ]).item()
+    offsetBeg = np.random.randint(0, 10, [1, ]).item()
+    offsetEnd = np.random.randint(10, numElements, [1, ]).item()
+    shape = NumC.Shape(1, numElements)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data[0, :offsetBeg] = 0
+    data[0, -offsetEnd:] = 0
+    cArray.setArray(data)
+    if np.array_equal(NumC.trim_zeros(cArray, 'b').getNumpyArray().flatten(),
+                      np.trim_zeros(data.flatten(), 'b')):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing trim_zeros: "fb"', 'cyan'))
+    numElements = np.random.randint(50, 100, [1, ]).item()
+    offsetBeg = np.random.randint(0, 10, [1, ]).item()
+    offsetEnd = np.random.randint(10, numElements, [1, ]).item()
+    shape = NumC.Shape(1, numElements)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data[0, :offsetBeg] = 0
+    data[0, -offsetEnd:] = 0
+    cArray.setArray(data)
+    if np.array_equal(NumC.trim_zeros(cArray, 'fb').getNumpyArray().flatten(),
+                      np.trim_zeros(data.flatten(), 'fb')):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing trunc scalar', 'cyan'))
     value = np.random.rand(1).item() * np.pi
     if NumC.trunc(value) == np.trunc(value):
@@ -3129,6 +3234,32 @@ def doTest():
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
     if np.array_equal(NumC.unique(cArray).getNumpyArray().flatten(), np.unique(data)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing unwrap scalar', 'cyan'))
+    value = np.random.randn(1).item() * 3 * np.pi
+    if value < 0:
+        pValue = value + 2 * np.pi
+    elif value >= 2 * np.pi:
+        pValue = value - 2 * np.pi
+    else:
+        pValue = value
+    if np.round(NumC.unwrap(value), 10) == np.round(pValue, 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing unwrap array', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    data[data < 0] = data[data < 0] + 2 * np.pi
+    data[data > 2 * np.pi] = data[data > 2 * np.pi] - 2 * np.pi
+    if np.array_equal(np.round(NumC.unwrap(cArray), 10), np.round(data, 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

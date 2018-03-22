@@ -1261,6 +1261,23 @@ namespace NumC
 
 	//============================================================================
 	// Method Description: 
+	//						returns whether or not a value is included the array
+	//		
+	// Inputs:
+	//				NdArray 
+	//				value
+	//				(Optional) axis
+	// Outputs:
+	//				bool
+	//
+	template<typename dtype>
+	NdArray<bool> contains(const NdArray<dtype>& inArray, dtype inValue, Axis::Type inAxis = Axis::NONE)
+	{
+		return inArray.contains(inValue, inAxis);
+	}
+
+	//============================================================================
+	// Method Description: 
 	//						Return an array copy of the given object.
 	//		
 	// Inputs:
@@ -1676,22 +1693,150 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis::Type inAxis = Axis::NONE)
 	{
+		// make sure that the indices are unique first
+		NdArray<uint32> indices = unique(inArrayIdxs);
 
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				std::vector<dtype> values;
+				for (uint32 i = 0; i < indices.size(); ++i)
+				{
+					uint32 index = indices[i];
+					if (index > inArray.size() - 1)
+					{
+						throw std::runtime_error("ERROR: deleteIndices: input index value is greater than the number of elements in the array.");
+					}
+
+					values.push_back(inArray[index]);
+				}
+
+				return std::move(NdArray<dtype>(values));
+			}
+			case Axis::ROW:
+			{
+				Shape inShape = inArray.shape();
+				if (indices.max().item() >= inShape.rows)
+				{
+					throw std::runtime_error("ERROR: deleteIndices: input index value is greater than the number of rows in the array.");
+				}
+
+				uint32 numNewRows = inShape.rows - indices.size();
+				NdArray<dtype> returnArray(numNewRows, inShape.cols);
+
+				uint32 rowCounter = 0;
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					if (indices.contains(row).item())
+					{
+						continue;
+					}
+
+					for (uint32 col = 0; col < inShape.cols; ++col)
+					{
+						returnArray(rowCounter, col) = inArray(row, col);
+					}
+					++rowCounter;
+				}
+
+				return std::move(returnArray);
+			}
+			case Axis::COL:
+			{
+				Shape inShape = inArray.shape();
+				if (indices.max().item() >= inShape.cols)
+				{
+					throw std::runtime_error("ERROR: deleteIndices: input index value is greater than the number of cols in the array.");
+				}
+
+				uint32 numNewCols = inShape.cols - indices.size();
+				NdArray<dtype> returnArray(inShape.rows, numNewCols);
+
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					uint32 colCounter = 0;
+					for (uint32 col = 0; col < inShape.cols; ++col)
+					{
+						if (indices.contains(col).item())
+						{
+							continue;
+						}
+
+						returnArray(row, colCounter++) = inArray(row, col);
+					}
+				}
+
+				return std::move(returnArray);
+
+
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<dtype>(0));
+			}
+		}
 	}
 
 	//============================================================================
 	// Method Description: 
-	//						Return the indices to access the main diagonal of an array.
+	//						Return a new array with sub-arrays along an axis deleted.
 	//		
 	// Inputs:
 	//				NdArray
+	//				inIndex to delete
+	//				(Optional) Axis, if none the indices will be applied to the flattened array
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<uint32> diag_indices(const NdArray<dtype>& inArray)
+	NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Slice& inIndicesSlice, Axis::Type inAxis = Axis::NONE)
 	{
+		Slice sliceCopy(inIndicesSlice);
 
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				sliceCopy.makePositiveAndValidate(inArray.size());
+			}
+			case Axis::ROW:
+			{
+				sliceCopy.makePositiveAndValidate(inArray.shape().cols);
+			}
+			case Axis::COL:
+			{
+				sliceCopy.makePositiveAndValidate(inArray.shape().rows);
+			}
+		}
+
+		std::vector<uint32> indices;
+		for (uint32 i = static_cast<uint32>(sliceCopy.start); i < static_cast<uint32>(sliceCopy.stop); i += sliceCopy.step)
+		{
+			indices.push_back(i);
+		}
+
+		return std::move(deleteIndices(inArray, NdArray<uint32>(indices), inAxis));
+	}
+
+	//============================================================================
+	// Method Description: 
+	//						Return a new array with sub-arrays along an axis deleted.
+	//		
+	// Inputs:
+	//				NdArray
+	//				inIndex to delete
+	//				(Optional) Axis, if none the indices will be applied to the flattened array
+	// Outputs:
+	//				NdArray
+	//
+	template<typename dtype>
+	NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, uint32 inIndex, Axis::Type inAxis = Axis::NONE)
+	{
+		NdArray<uint32> inIndices = {inIndex};
+		return std::move(deleteIndices(inArray, inIndices, inAxis));
 	}
 
 	//============================================================================
@@ -5243,9 +5388,105 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray1, const std::string inTrim)
+	NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim = "fb")
 	{
+		if (inTrim == "f")
+		{
+			uint32 place = 0;
+			for (uint32 i = 0; i < inArray.size(); ++i)
+			{
+				if (inArray[i] != static_cast<dtype>(0))
+				{
+					break;
+				}
+				else
+				{
+					++place;
+				}
+			}
 
+			if (place == inArray.size())
+			{
+				return std::move(NdArray<dtype>(0));
+			}
+
+			NdArray<dtype> returnArray(1, inArray.size() - place);
+			std::copy(inArray.cbegin() + place, inArray.cend(), returnArray.begin());
+
+			return std::move(returnArray);
+		}
+		else if (inTrim == "b")
+		{
+			uint32 place = inArray.size();
+			for (uint32 i = inArray.size() - 1; i > 0; --i)
+			{
+				if (inArray[i] != static_cast<dtype>(0))
+				{
+					break;
+				}
+				else
+				{
+					--place;
+				}
+			}
+
+			if (place == 0 || (place == 1 && inArray[0] == 0))
+			{
+				return std::move(NdArray<dtype>(0));
+			}
+
+			NdArray<dtype> returnArray(1, place);
+			std::copy(inArray.cbegin(), inArray.cbegin() + place, returnArray.begin());
+
+			return std::move(returnArray);
+		}
+		else if (inTrim == "fb")
+		{
+			uint32 placeBegin = 0;
+			for (uint32 i = 0; i < inArray.size(); ++i)
+			{
+				if (inArray[i] != static_cast<dtype>(0))
+				{
+					break;
+				}
+				else
+				{
+					++placeBegin;
+				}
+			}
+
+			if (placeBegin == inArray.size())
+			{
+				return std::move(NdArray<dtype>(0));
+			}
+
+			uint32 placeEnd = inArray.size();
+			for (uint32 i = inArray.size() - 1; i > 0; --i)
+			{
+				if (inArray[i] != static_cast<dtype>(0))
+				{
+					break;
+				}
+				else
+				{
+					--placeEnd;
+				}
+			}
+
+			if (placeEnd == 0 || (placeEnd == 1 && inArray[0] == 0))
+			{
+				return std::move(NdArray<dtype>(0));
+			}
+
+			NdArray<dtype> returnArray(1, placeEnd - placeBegin);
+			std::copy(inArray.cbegin() + placeBegin, inArray.cbegin() + placeEnd, returnArray.begin());
+
+			return std::move(returnArray);
+		}
+		else
+		{
+			throw std::invalid_argument("ERROR: trim_zeros: trim options are 'f' = front, 'b' = back, 'fb' = front and back.");
+		}
 	}
 
 	//============================================================================
@@ -5342,7 +5583,18 @@ namespace NumC
 	template<typename dtype>
 	dtype unwrap(dtype inValue)
 	{
-
+		if (inValue < 0)
+		{
+			return inValue + 2 * Constants::pi;
+		}
+		else if (inValue >= 2 * Constants::pi)
+		{
+			return inValue - 2 * Constants::pi;
+		}
+		else
+		{
+			return inValue;
+		}
 	}
 
 	//============================================================================
@@ -5358,7 +5610,11 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> unwrap(const NdArray<dtype>& inArray)
 	{
+		NdArray<dtype> returnArray(inArray.shape());
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+			[](dtype inValue) { return unwrap(inValue); });
 
+		return std::move(returnArray);
 	}
 
 	//============================================================================

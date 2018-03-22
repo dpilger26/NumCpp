@@ -19,6 +19,8 @@
 
 #pragma once
 
+#include<string>
+
 namespace NumC
 {
 	//============================================================================
@@ -33,9 +35,7 @@ namespace NumC
 	template<typename dtype>
 	std::string num2str(dtype inNumber)
 	{
-		std::ostringstream ss;
-		ss << inNumber;
-		return ss.str();
+		return std::to_string(inNumber);
 	}
 
 	//============================================================================

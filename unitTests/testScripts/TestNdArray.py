@@ -324,6 +324,48 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing contains: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    value = np.random.randint(0, 100, [1, ]).item()
+    cArray.setArray(data)
+    if cArray.contains(value, NumC.Axis.NONE) == (value in data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing contains: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    value = np.random.randint(0, 100, [1, ]).item()
+    cArray.setArray(data)
+    truth = list()
+    for row in data:
+        truth.append(value in row)
+    if np.array_equal(cArray.contains(value, NumC.Axis.COL).flatten(), np.asarray(truth)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing contains: Axis = ROW', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    value = np.random.randint(0, 100, [1, ]).item()
+    cArray.setArray(data)
+    truth = list()
+    for row in data.T:
+        truth.append(value in row)
+    if np.array_equal(cArray.contains(value, NumC.Axis.ROW).flatten(), np.asarray(truth)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing copy', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
