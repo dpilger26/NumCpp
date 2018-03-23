@@ -1206,9 +1206,71 @@ def doTest():
     cArray = NumC.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     indices = NumC.Slice(0, 100, 4)
-    indicesPy = np.s_[0, 100, 4]
+    indicesPy = slice(0, 99, 4)
     cArray.setArray(data)
-    if np.array_equal(NumC.delete(cArray, indices, NumC.Axis.NONE), np.delete(data, indicesPy, axis=None)):
+    if np.array_equal(NumC.delete(cArray, indices, NumC.Axis.NONE).flatten(), np.delete(data, indicesPy, axis=None)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing deleteIndices Slice: Axis = Row', 'cyan'))
+    shapeInput = np.asarray([100,100])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    indices = NumC.Slice(0, 100, 4)
+    indicesPy = slice(0, 99, 4)
+    cArray.setArray(data)
+    if np.array_equal(NumC.delete(cArray, indices, NumC.Axis.ROW), np.delete(data, indicesPy, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing deleteIndices Slice: Axis = Col', 'cyan'))
+    shapeInput = np.asarray([100,100])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    indices = NumC.Slice(0, 100, 4)
+    indicesPy = slice(0, 99, 4)
+    cArray.setArray(data)
+    if np.array_equal(NumC.delete(cArray, indices, NumC.Axis.COL), np.delete(data, indicesPy, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing deleteIndices Scalar: Axis = NONE', 'cyan'))
+    shapeInput = np.asarray([100,100])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    index = np.random.randint(0, shape.size(), [1, ]).item()
+    cArray.setArray(data)
+    if np.array_equal(NumC.delete(cArray, index, NumC.Axis.NONE).flatten(), np.delete(data, index, axis=None)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing deleteIndices Slice: Axis = Row', 'cyan'))
+    shapeInput = np.asarray([100,100])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    index = np.random.randint(0, 100, [1, ]).item()
+    cArray.setArray(data)
+    if np.array_equal(NumC.delete(cArray, index, NumC.Axis.ROW), np.delete(data, index, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing deleteIndices Slice: Axis = Col', 'cyan'))
+    shapeInput = np.asarray([100,100])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    index = np.random.randint(0, 100, [1, ]).item()
+    cArray.setArray(data)
+    if np.array_equal(NumC.delete(cArray, index, NumC.Axis.COL), np.delete(data, index, axis=1)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

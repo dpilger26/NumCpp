@@ -1701,15 +1701,14 @@ namespace NumC
 			case Axis::NONE:
 			{
 				std::vector<dtype> values;
-				for (uint32 i = 0; i < indices.size(); ++i)
+				for (uint32 i = 0; i < inArray.size(); ++i)
 				{
-					uint32 index = indices[i];
-					if (index > inArray.size() - 1)
+					if (indices.contains(i).item())
 					{
-						throw std::runtime_error("ERROR: deleteIndices: input index value is greater than the number of elements in the array.");
+						continue;
 					}
 
-					values.push_back(inArray[index]);
+					values.push_back(inArray[i]);
 				}
 
 				return std::move(NdArray<dtype>(values));
@@ -1801,14 +1800,17 @@ namespace NumC
 			case Axis::NONE:
 			{
 				sliceCopy.makePositiveAndValidate(inArray.size());
+				break;
 			}
 			case Axis::ROW:
 			{
 				sliceCopy.makePositiveAndValidate(inArray.shape().cols);
+				break;
 			}
 			case Axis::COL:
 			{
 				sliceCopy.makePositiveAndValidate(inArray.shape().rows);
+				break;
 			}
 		}
 
