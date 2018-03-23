@@ -1275,8 +1275,6 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    return
-
     print(colored('Testing diagflat array', 'cyan'))
     numElements = np.random.randint(1, 25, [1, ]).item()
     shape = NumC.Shape(1, numElements)
@@ -2727,6 +2725,54 @@ def doTest():
     data = np.random.rand(shape.rows, shape.cols) * 2 * np.pi
     cArray.setArray(data)
     if np.array_equal(NumC.rint(cArray), np.rint(data)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing roll: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    amount = np.random.randint(0, data.size, [1,]).item()
+    cArray.setArray(data)
+    if np.array_equal(NumC.roll(cArray, amount, NumC.Axis.NONE).getNumpyArray(), np.roll(data, amount, axis=None)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing roll: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    amount = np.random.randint(0, shape.cols, [1,]).item()
+    cArray.setArray(data)
+    if np.array_equal(NumC.roll(cArray, amount, NumC.Axis.ROW).getNumpyArray(), np.roll(data, amount, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing roll: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    amount = np.random.randint(0, shape.rows, [1,]).item()
+    cArray.setArray(data)
+    if np.array_equal(NumC.roll(cArray, amount, NumC.Axis.COL).getNumpyArray(), np.roll(data, amount, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing rot90', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    amount = np.random.randint(1, 4, [1,]).item()
+    cArray.setArray(data)
+    if np.array_equal(NumC.rot90(cArray, amount).getNumpyArray(), np.rot90(data, amount)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

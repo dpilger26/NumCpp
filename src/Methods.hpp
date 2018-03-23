@@ -1837,7 +1837,7 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, uint32 inIndex, Axis::Type inAxis = Axis::NONE)
 	{
-		NdArray<uint32> inIndices = {inIndex};
+		NdArray<uint32> inIndices = { inIndex };
 		return std::move(deleteIndices(inArray, inIndices, inAxis));
 	}
 
@@ -2867,9 +2867,85 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<dtype> insert(const NdArray<dtype>& inArray)
+	NdArray<dtype> insert(const NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues, Axis::Type inAxis = Axis::ROW)
 	{
+		//NdArray<uint32>& indices = np.unique(inIndices);
 
+		//switch (inAxis)
+		//{
+		//	case Axis::NONE:
+		//	{
+		//		if (indices.size() != inValues.size())
+		//		{
+		//			throw std::invalid_argument("ERROR: insert: input indices and value arrays size are not consistant.");
+		//		}
+
+		//		if (indices.max() > inArray.size())
+		//		{
+		//			throw std::invalid_argument("ERROR: insert: input index in greater than the size of the array.");
+		//		}
+
+		//		NdArray<dtype> returnArray(1, inArray.size(), inIndices.size());
+		//		uint32 doneCounter = 0;
+		//		for (uint32 i = 0; i < returnArray.size(); ++i)
+		//		{
+		//			if (indices.contains(i))
+		//			{
+		//				returnArray[i] = inValues[doneCounter++];
+		//			}
+		//			else
+		//			{
+		//				returnArray[i] = inArray[i];
+		//			}
+		//		}
+		//			
+		//		return std::move(returnArray);
+		//	}
+		//	case Axis::COL:
+		//	{
+		//		Shape inShape = inArray.shape();
+		//		Shape valuesShape = inValues.shape();
+
+		//		if (indices.size() != inValues.size() && indices.size() != valuesShape.cols)
+		//		{
+		//			throw std::invalid_argument("ERROR: insert: input indices and value array sizes are not consistant.");
+		//		}
+
+		//		if (indices.max() > inShape.cols)
+		//		{
+		//			throw std::invalid_argument("ERROR: insert: input index in greater than the size of the array.");
+		//		}
+
+		//		if (indices.size() == inValues.size())
+		//		{
+		//			NdArray<dtype> returnArray(inShape.rows, inShape.cols + indices.size());
+
+		//			for (uint32 i)
+		//			{
+
+		//			}
+		//		}
+		//		else if (indices.size() == valuesShape.cols)
+		//		{
+
+		//		}
+		//		else
+		//		{
+		//			throw std::runtime_error("ERROR: insert: I've made a mistake somewhere in my logic, please investigate this!");
+		//		}
+
+		//	}
+		//	case Axis::ROW:
+		//	{
+
+		//	}
+		//	default:
+		//	{
+		//		// this isn't actually possible, just putting this here to get rid
+		//		// of the compiler warning.
+		//		return std::move(NdArray<dtype>(0));
+		//	}
+		//}
 	}
 
 	//============================================================================
@@ -4560,12 +4636,69 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis::Type inAxis = Axis::NONE)
 	{
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				uint32 shift = std::abs(inShift) % inArray.size();
+				if (inShift > 0)
+				{
+					shift = inArray.size() - shift;
+				}
 
+				NdArray<dtype> returnArray(inArray);
+				std::rotate(returnArray.begin(), returnArray.begin() + shift, returnArray.end());
+
+				return std::move(returnArray);
+			}
+			case Axis::COL:
+			{
+				Shape inShape = inArray.shape();
+
+				uint32 shift = std::abs(inShift) % inShape.cols;
+				if (inShift > 0)
+				{
+					shift = inShape.cols - shift;
+				}
+
+				NdArray<dtype> returnArray(inArray);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					std::rotate(returnArray.begin(row), returnArray.begin(row) + shift, returnArray.end(row));
+				}
+
+				return std::move(returnArray);
+			}
+			case Axis::ROW:
+			{
+				Shape inShape = inArray.shape();
+
+				uint32 shift = std::abs(inShift) % inShape.rows;
+				if (inShift > 0)
+				{
+					shift = inShape.rows - shift;
+				}
+
+				NdArray<dtype> returnArray = inArray.transpose();
+				for (uint32 row = 0; row < inShape.cols; ++row)
+				{
+					std::rotate(returnArray.begin(row), returnArray.begin(row) + shift, returnArray.end(row));
+				}
+
+				return std::move(returnArray.transpose());
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<dtype>(0));
+			}
+		}
 	}
 
 	//============================================================================
 	// Method Description: 
-	//						Rotate an array by 90 degrees in the plane.
+	//						Rotate an array by 90 degrees counter clockwise in the plane.
 	//		
 	// Inputs:
 	//				NdArray 
@@ -4577,7 +4710,28 @@ namespace NumC
 	template<typename dtype>
 	NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK)
 	{
-		// 180 = flip(inArray, Axis::NONE);
+		inK %= 4;
+		switch (inK)
+		{
+			case 1:
+			{
+				return std::move(flipud(inArray.transpose()));
+			}
+			case 2:
+			{
+				return std::move(flip(inArray, Axis::NONE));
+			}
+			case 3:
+			{
+				return std::move(fliplr(inArray.transpose()));
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<dtype>(0));
+			}
+		}
 	}
 
 	//============================================================================
@@ -5613,7 +5767,7 @@ namespace NumC
 	NdArray<dtype> unwrap(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtype> returnArray(inArray.shape());
-		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
 			[](dtype inValue) { return unwrap(inValue); });
 
 		return std::move(returnArray);

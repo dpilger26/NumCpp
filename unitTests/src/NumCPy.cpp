@@ -2610,6 +2610,8 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("right_shift", &NumC::right_shift<uint32>);
 	boost::python::def("rint", &MethodsInterface::rintScalar<double>);
 	boost::python::def("rint", &MethodsInterface::rintArray<double>);
+	boost::python::def("roll", &NumC::roll<double>);
+	boost::python::def("rot90", &NumC::rot90<double>);
 	boost::python::def("round", &MethodsInterface::roundScalar<double>);
 	boost::python::def("round", &MethodsInterface::roundArray<double>);
 	boost::python::def("row_stack", &MethodsInterface::row_stack<double>);
