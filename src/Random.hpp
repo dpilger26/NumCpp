@@ -48,7 +48,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> bernoulli(const Shape& inShape, dtype inP)
+		inline NdArray<dtype> bernoulli(const Shape& inShape, dtype inP)
 		{
 			if (inP < 0 || inP > 1)
 			{
@@ -79,7 +79,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> beta(const Shape& inShape, dtype inAlpha, dtype inBeta)
+		inline NdArray<dtype> beta(const Shape& inShape, dtype inAlpha, dtype inBeta)
 		{
 			if (inAlpha < 0)
 			{
@@ -115,7 +115,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> binomial(const Shape& inShape, dtype inN, double inP=0.5)
+		inline NdArray<dtype> binomial(const Shape& inShape, dtype inN, double inP=0.5)
 		{
 			// only works with integer input types
 			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: binomial: can only use with integer types.");
@@ -153,7 +153,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> chiSquare(const Shape& inShape, dtype inDof)
+		inline NdArray<dtype> chiSquare(const Shape& inShape, dtype inDof)
 		{
 			if (inDof <= 0)
 			{
@@ -181,7 +181,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		dtype choice(const NdArray<dtype>& inArray)
+		inline dtype choice(const NdArray<dtype>& inArray)
 		{
 			uint32 randIdx = randInt<uint32>(Shape(1), 0, inArray.size()).item();
 			return inArray[randIdx];
@@ -199,7 +199,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> cauchy(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
+		inline NdArray<dtype> cauchy(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
 		{
 			if (inSigma <= 0)
 			{
@@ -231,7 +231,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> discrete(const Shape& inShape, const NdArray<double>& inWeights)
+		inline NdArray<dtype> discrete(const Shape& inShape, const NdArray<double>& inWeights)
 		{
 			// only works with integer input types
 			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: discrete: can only use with integer types.");
@@ -259,7 +259,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue=1)
+		inline NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue=1)
 		{
 			NdArray<dtype> returnArray(inShape);
 
@@ -285,7 +285,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> extremeValue(const Shape& inShape, dtype inA = 1, dtype inB = 1)
+		inline NdArray<dtype> extremeValue(const Shape& inShape, dtype inA = 1, dtype inB = 1)
 		{
 			if (inA <= 0)
 			{
@@ -321,7 +321,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> f(const Shape& inShape, dtype inDofN, dtype inDofD)
+		inline NdArray<dtype> f(const Shape& inShape, dtype inDofN, dtype inDofD)
 		{
 			if (inDofN <= 0)
 			{
@@ -357,7 +357,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue=1)
+		inline NdArray<dtype> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue=1)
 		{
 			if (inGammaShape <= 0)
 			{
@@ -392,7 +392,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> geometric(const Shape& inShape, double inP=0.5)
+		inline NdArray<dtype> geometric(const Shape& inShape, double inP=0.5)
 		{
 			// only works with integer input types
 			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: geometric: can only use with integer types.");
@@ -425,7 +425,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> laplace(const Shape& inShape, dtype inLoc=0, dtype inScale=1)
+		inline NdArray<dtype> laplace(const Shape& inShape, dtype inLoc=0, dtype inScale=1)
 		{
 			NdArray<dtype> returnArray(inShape);
 
@@ -450,7 +450,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> lognormal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
+		inline NdArray<dtype> lognormal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
 		{
 			if (inSigma <= 0)
 			{
@@ -481,7 +481,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> negativeBinomial(const Shape& inShape, dtype inN, double inP = 0.5)
+		inline NdArray<dtype> negativeBinomial(const Shape& inShape, dtype inN, double inP = 0.5)
 		{
 			// only works with integer input types
 			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: binomial: can only use with integer types.");
@@ -520,7 +520,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)
+		inline NdArray<dtype> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)
 		{
 			if (inK <= 0)
 			{
@@ -555,7 +555,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> normal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
+		inline NdArray<dtype> normal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
 		{
 			if (inSigma <= 0)
 			{
@@ -585,7 +585,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> permutation(dtype inValue)
+		inline NdArray<dtype> permutation(dtype inValue)
 		{
 			NdArray<dtype> returnArray = arange(inValue);
 			std::random_shuffle(returnArray.begin(), returnArray.end());
@@ -604,7 +604,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> permutation(const NdArray<dtype>& inArray)
+		inline NdArray<dtype> permutation(const NdArray<dtype>& inArray)
 		{
 			NdArray<dtype> returnArray(inArray);
 			std::random_shuffle(returnArray.begin(), returnArray.end());
@@ -623,7 +623,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> poisson(const Shape& inShape, double inMean=1)
+		inline NdArray<dtype> poisson(const Shape& inShape, double inMean=1)
 		{
 			// only works with integer input types
 			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: poisson: can only use with integer types.");
@@ -655,7 +655,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> rand(const Shape& inShape)
+		inline NdArray<dtype> rand(const Shape& inShape)
 		{
 			NdArray<dtype> returnArray(inShape);
 
@@ -681,7 +681,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh)
+		inline NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh)
 		{
 			if (inLow == inHigh)
 			{
@@ -716,7 +716,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh)
+		inline NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh)
 		{
 			// only works with integer input types
 			static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: randint: can only use with integer types.");
@@ -752,7 +752,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> randN(const Shape& inShape)
+		inline NdArray<dtype> randN(const Shape& inShape)
 		{
 			NdArray<dtype> returnArray(inShape);
 
@@ -774,7 +774,7 @@ namespace NumC
 		// Outputs:
 		//				None
 		//
-		void seed(uint32 inSeed)
+		inline void seed(uint32 inSeed)
 		{
 			generator.seed(inSeed);
 		}
@@ -789,7 +789,7 @@ namespace NumC
 		//				None
 		//
 		template<typename dtype>
-		void shuffle(NdArray<dtype>& inArray)
+		inline void shuffle(NdArray<dtype>& inArray)
 		{
 			std::random_shuffle(inArray.begin(), inArray.end());
 		}
@@ -806,7 +806,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> standardNormal(const Shape& inShape)
+		inline NdArray<dtype> standardNormal(const Shape& inShape)
 		{
 			return std::move(normal<dtype>(inShape, 0, 1));
 		}
@@ -823,7 +823,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> studentT(const Shape& inShape, dtype inDof)
+		inline NdArray<dtype> studentT(const Shape& inShape, dtype inDof)
 		{
 			if (inDof <= 0)
 			{
@@ -855,7 +855,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> triangle(const Shape& inShape, dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
+		inline NdArray<dtype> triangle(const Shape& inShape, dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
 		{
 			if (inA < 0)
 			{
@@ -905,7 +905,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)
+		inline NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)
 		{
 			return std::move(randFloat(inShape, inLow, inHigh));
 		}
@@ -922,7 +922,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)
+		inline NdArray<dtype> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)
 		{
 			if (inDims < 0)
 			{
@@ -957,7 +957,7 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> weibull(const Shape& inShape, dtype inA=1, dtype inB=1)
+		inline NdArray<dtype> weibull(const Shape& inShape, dtype inA=1, dtype inB=1)
 		{
 			if (inA <= 0)
 			{

@@ -39,7 +39,7 @@ namespace NumC
 		//				3x3 NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
+		inline NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
 		{
 			NdArray<dtype> returnArray(3);
 			returnArray(0, 0) = 0.0;
@@ -65,7 +65,7 @@ namespace NumC
 		//				3x3 NdArray
 		//
 		template<typename dtype>
-		NdArray<dtype> hat(const NdArray<dtype>& inVec)
+		inline NdArray<dtype> hat(const NdArray<dtype>& inVec)
 		{
 			if (inVec.size() != 3)
 			{

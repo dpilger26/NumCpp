@@ -33,7 +33,7 @@ namespace NumC
 	//				string
 	//
 	template<typename dtype>
-	std::string num2str(dtype inNumber)
+	inline std::string num2str(dtype inNumber)
 	{
 		return std::to_string(inNumber);
 	}
@@ -48,7 +48,7 @@ namespace NumC
 	//				T
 	//
 	template<typename T>
-	T sqr(T inValue)
+	inline T sqr(T inValue)
 	{
 		return inValue * inValue;
 	}
@@ -63,7 +63,7 @@ namespace NumC
 	//				T
 	//
 	template<typename T>
-	T cube(T inValue)
+	inline T cube(T inValue)
 	{
 		return inValue * inValue * inValue;
 	}
@@ -78,7 +78,7 @@ namespace NumC
 	//				T
 	//
 	template<typename T>
-	T power(T inValue, uint8 inPower)
+	inline T power(T inValue, uint8 inPower)
 	{
 		T returnVal = 1;
 		for (uint8 i = 0; i < inPower; ++i)

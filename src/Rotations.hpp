@@ -101,6 +101,29 @@ namespace NumC
 
 			//============================================================================
 			// Method Description: 
+			//						Constructor
+			//		
+			// Inputs:
+			//				NdArray, size = 4
+			// Outputs:
+			//				None
+			//
+			Quaternion(const NdArray<double>& inArray)
+			{
+				if (inArray.size() != 4)
+				{
+					throw std::invalid_argument("ERROR: Quaternion::Quaternion(NdArray): input array must be of size = 4;");
+				}
+
+				double norm = std::sqrt(sqr(inArray[0]) + sqr(inArray[1]) + sqr(inArray[2]) + sqr(inArray[3]));
+				data_[0] = inArray[0] / norm;
+				data_[1] = inArray[1] / norm;
+				data_[2] = inArray[2] / norm;
+				data_[3] = inArray[3] / norm;
+			}
+
+			//============================================================================
+			// Method Description: 
 			//						returns a quaternion to rotate about the input axis by the input angle
 			//		
 			// Inputs:
@@ -151,8 +174,13 @@ namespace NumC
 				eyeTimesScalar(2, 2) = inQuat2.s();
 
 				NdArray<double> epsilonHat = Linalg::hat(inQuat2.i(), inQuat2.j(), inQuat2.k());
+				NdArray<double> q = eyeTimesScalar + epsilonHat;
+				q(3, 0) = -inQuat2.i();
+				q(3, 1) = -inQuat2.j();
+				q(3, 2) = -inQuat2.k();
 
-
+				NdArray<double> omega = q.transpose().dot<double>(qDot);
+				return std::move(omega *= 2);
 			}
 
 			//============================================================================
@@ -429,7 +457,34 @@ namespace NumC
 			//
 			static Quaternion slerp(const Quaternion& inQuat1, const Quaternion& inQuat2, double inPercent)
 			{
+				double dotProduct = dot<double, double>(inQuat1.toNdArray(), inQuat2.toNdArray()).item();
 
+				// If the dot product is negative, the quaternions
+				// have opposite handed-ness and slerp won't take
+				// the shorter path. Fix by reversing one quaternion.
+				Quaternion quat1Copy(inQuat1);
+				if (dotProduct < 0.0)
+				{
+					quat1Copy *= -1;
+					dotProduct *= -1;
+				}
+
+				const double DOT_THRESHOLD = 0.9995;
+				if (dotProduct > DOT_THRESHOLD) {
+					// If the inputs are too close for comfort, linearly interpolate
+					// and normalize the result.
+					return nlerp(inQuat1, inQuat2, inPercent);
+				}
+
+				dotProduct = clip(dotProduct, -1.0, 1.0);	// Robustness: Stay within domain of acos()
+				double theta0 = std::acos(dotProduct);		// angle between input vectors
+				double theta = theta0 * inPercent;			// angle between v0 and result
+
+				double s0 = std::cos(theta) - dotProduct * std::sin(theta) / std::sin(theta0);  // == sin(theta_0 - theta) / sin(theta_0)
+				double s1 = std::sin(theta) / std::sin(theta0);
+
+				NdArray<double> interpQuat = (inQuat1.toNdArray() * s0) + (inQuat2.toNdArray() * s1);
+				return Quaternion(interpQuat);
 			}
 
 			//============================================================================
@@ -444,7 +499,7 @@ namespace NumC
 			//
 			Quaternion slerp(const Quaternion& inQuat2, double inPercent) const
 			{
-
+				return slerp(*this, inQuat2, inPercent);
 			}
 
 			//============================================================================
@@ -650,6 +705,21 @@ namespace NumC
 
 			//============================================================================
 			// Method Description: 
+			//						multiplication operator, only useful for multiplying
+			//						by negative 1, all others will be renormalized back out
+			//		
+			// Inputs:
+			//				scalar value
+			// Outputs:
+			//				Quaternion
+			//
+			Quaternion operator*(double inScalar) const
+			{
+				return Quaternion(*this) *= inScalar;
+			}
+
+			//============================================================================
+			// Method Description: 
 			//						multiplication operator
 			//		
 			// Inputs:
@@ -683,7 +753,27 @@ namespace NumC
 				data_[1] = inRhs.data_[3] * data_[1] + inRhs.data_[0] * data_[2] + inRhs.data_[1] * data_[3] + inRhs.data_[2] * data_[0];
 				data_[2] = inRhs.data_[3] * data_[2] + inRhs.data_[0] * data_[1] + inRhs.data_[1] * data_[0] + inRhs.data_[2] * data_[3];
 				data_[3] = inRhs.data_[3] * data_[3] + inRhs.data_[0] * data_[0] + inRhs.data_[1] * data_[1] + inRhs.data_[2] * data_[2];
+				normalize();
 
+				return *this;
+			}
+
+			//============================================================================
+			// Method Description: 
+			//						multiplication operator, only useful for multiplying
+			//						by negative 1, all others will be renormalized back out
+			//		
+			// Inputs:
+			//				scalar value
+			// Outputs:
+			//				Quaternion
+			//
+			Quaternion& operator*=(double inScalar)
+			{
+				data_[0] *= inScalar;
+				data_[1] *= inScalar;
+				data_[2] *= inScalar;
+				data_[3] *= inScalar;
 				normalize();
 
 				return *this;
@@ -722,6 +812,100 @@ namespace NumC
 		// Factory methods for generating direction cosine matrices and vectors
 		//
 
+		//============================================================================
+		// Method Description: 
+		//						division assignment operator
+		//		
+		// Inputs:
+		//						returns a direction cosine matrix that rotates about
+		//						the input axis by the input angle
+		// Outputs:
+		//				NdArray
+		//
+		inline NdArray<double> angleAxisRotationDcm(double inX, double inY, double inZ, double inAngle)
+		{
 
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						returns a direction cosine matrix that rotates about
+		//						the input axis by the input angle
+		//		
+		// Inputs:
+		//				NdArray, cartesian vector with x,y,z
+		//				rotation angle, in radians
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype>
+		inline NdArray<double> angleAxisRotationDcm(const NdArray<dtype>& inArray, double inAngle)
+		{
+
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						returns whether the input array is a direction cosine
+		//						matrix
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				bool
+		//
+		template<typename dtype>
+		inline bool isValidDcm(const NdArray<dtype>& inArray)
+		{
+
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						returns a direction cosine matrix that rotates about
+		//						the x axis by the input angle
+		//		
+		// Inputs:
+		//				rotation angle, in radians
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype>
+		inline NdArray<double> xRotationDcm(double inAngle)
+		{
+			return std::move(angleAxisRotationDcm({ 1.0, 0.0, 0.0 }, inAngle));
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						returns a direction cosine matrix that rotates about
+		//						the x axis by the input angle
+		//		
+		// Inputs:
+		//				rotation angle, in radians
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype>
+		inline NdArray<double> yRotationDcm(double inAngle)
+		{
+			return std::move(angleAxisRotationDcm({ 0.0, 1.0, 0.0 }, inAngle));
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						returns a direction cosine matrix that rotates about
+		//						the x axis by the input angle
+		//		
+		// Inputs:
+		//				rotation angle, in radians
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype>
+		inline NdArray<double> zRotationDcm(double inAngle)
+		{
+			return std::move(angleAxisRotationDcm({ 0.0, 0.0, 1.0 }, inAngle));
+		}
 	}
 }
