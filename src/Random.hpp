@@ -19,9 +19,9 @@
 
 #pragma once
 
-#include"Types.hpp"
-#include"Shape.hpp"
 #include"NdArray.hpp"
+#include"Shape.hpp"
+#include"Types.hpp"
 
 #include"boost/random.hpp"
 

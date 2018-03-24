@@ -19,20 +19,20 @@
 
 #pragma once
 
-#include"Types.hpp"
 #include"NdArray.hpp"
+#include"Types.hpp"
 
 #include<boost/filesystem.hpp>
 
+#include<algorithm>
 #include<cmath>
 #include<initializer_list>
-#include<stdexcept>
 #include<iostream>
-#include<string>
-#include<vector>
 #include<set>
-#include<algorithm>
+#include<stdexcept>
+#include<string>
 #include<utility>
+#include<vector>
 
 namespace NumC
 {
@@ -4178,12 +4178,52 @@ namespace NumC
 	//				NdArray
 	//				percentile, must be in the range [0, 100]
 	//				(Optional) axis
+	//				(Optional) interpolation method
+	//					linear: i + (j - i) * fraction, where fraction is the fractional part of the index surrounded by i and j.
+	//					lower : i.
+	//					higher : j.
+	//					nearest : i or j, whichever is nearest.
+	//					midpoint : (i + j) / 2.
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
-	NdArray<double> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis::Type inAxis = Axis::NONE)
+	NdArray<double> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis::Type inAxis = Axis::NONE, std::string inInterpMethod = "linear")
 	{
+		if (inPercentile < 0 || inPercentile > 100)
+		{
+			throw std::invalid_argument("ERROR: percentile: input percentile value must be of the range [0, 100].");
+		}
+
+		if (!inInterpMethod.compare("linear") &&
+			!inInterpMethod.compare("lower") && 
+			!inInterpMethod.compare("higher") && 
+			!inInterpMethod.compare("nearest") && 
+			!inInterpMethod.compare("midpoint"))
+		{
+			std::string errStr = "ERROR: percentile: input interpolation method is not a vaid option.\n";
+			errStr += "\tValid options are 'linear', 'lower', 'higher', 'nearest', 'midpoint'."
+			throw std::invalid_argument(errStr);
+		}
+
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				uint32 index = static_cast<uint32>(std::floor(static_cast<double>(inArray.size()) * inPercentile));
+
+
+
+			}
+			case Axis::NONE:
+			{
+
+			}
+			case Axis::NONE:
+			{
+
+			}
+		}
 
 	}
 

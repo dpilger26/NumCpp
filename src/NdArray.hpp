@@ -19,25 +19,26 @@
 
 #pragma once
 
-#include"Types.hpp"
+#include"DtypeInfo.hpp"
 #include"Shape.hpp"
 #include"Slice.hpp"
+#include"Types.hpp"
 #include"Utils.hpp"
-#include"DtypeInfo.hpp"
+
 
 #include<boost/filesystem.hpp>
 #include<boost/endian/conversion.hpp>
 
-#include<initializer_list>
-#include<stdexcept>
-#include<iostream>
-#include<fstream>
-#include<string>
-#include<vector>
-#include<set>
 #include<algorithm>
+#include<fstream>
+#include<initializer_list>
+#include<iostream>
 #include<numeric>
+#include<set>
+#include<stdexcept>
+#include<string>
 #include<utility>
+#include<vector>
 
 namespace NumC
 {

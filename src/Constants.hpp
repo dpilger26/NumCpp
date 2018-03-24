@@ -21,8 +21,8 @@
 
 #include"Types.hpp"
 
-#include<string>
 #include<cmath>
+#include<string>
 
 namespace NumC
 {

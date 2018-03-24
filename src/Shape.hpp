@@ -21,8 +21,8 @@
 
 #include"Types.hpp"
 
-#include<stdexcept>
 #include<iostream>
+#include<stdexcept>
 
 namespace NumC
 {
