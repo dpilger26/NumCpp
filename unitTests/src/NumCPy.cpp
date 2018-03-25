@@ -2209,9 +2209,28 @@ namespace RotationsInterface
 		return numCToBoost(inQuat1.slerp(inQuat2, inPercent).toNdArray());
 	}
 
-	np::ndarray toDcm(const Rotations::Quaternion& inQuat1)
+	np::ndarray toDcm(const Rotations::Quaternion& inQuat)
 	{
-		return numCToBoost(inQuat1.toDCM());
+		return numCToBoost(inQuat.toDCM());
+	}
+
+	np::ndarray multiplyScalar(const Rotations::Quaternion& inQuat, double inScalar)
+	{
+		Rotations::Quaternion returnQuat = inQuat * inScalar;
+		return numCToBoost(returnQuat.toNdArray());
+	}
+
+	template<typename dtype>
+	np::ndarray multiplyArray(const Rotations::Quaternion& inQuat, const NdArray<dtype>& inArray)
+	{
+		Rotations::Quaternion returnQuat = inQuat * inArray;
+		return numCToBoost(returnQuat.toNdArray());
+	}
+
+	np::ndarray multiplyQuaternion(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2)
+	{
+		Rotations::Quaternion returnQuat = inQuat1 * inQuat2;
+		return numCToBoost(returnQuat.toNdArray());
 	}
 }
 
@@ -2800,5 +2819,19 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("toDcm", &RotationsInterface::toDcm)
 		.def("xRotation", &Rotations::Quaternion::xRotation).staticmethod("xRotation")
 		.def("yRotation", &Rotations::Quaternion::yRotation).staticmethod("yRotation")
-		.def("zRotation", &Rotations::Quaternion::zRotation).staticmethod("zRotation");
+		.def("zRotation", &Rotations::Quaternion::zRotation).staticmethod("zRotation")
+		.def("equal", &Rotations::Quaternion::operator==)
+		.def("notEqual", &Rotations::Quaternion::operator!=)
+		.def("plus", &Rotations::Quaternion::operator+)
+		.def("minus", &Rotations::Quaternion::operator-)
+		.def("multiply", &RotationsInterface::multiplyScalar)
+		.def("multiply", &RotationsInterface::multiplyQuaternion)
+		.def("multiply", &RotationsInterface::multiplyArray<double>)
+		.def("divide", &Rotations::Quaternion::operator/);
+
+	boost::python::def("angleAxisRotationDCM", &Rotations::angleAxisRotationDCM<double>);
+	boost::python::def("isValidDCM", &Rotations::isValidDCM<double>);
+	boost::python::def("xRotationDCM", &Rotations::xRotationDCM<double>);
+	boost::python::def("yRotationDCM", &Rotations::yRotationDCM<double>);
+	boost::python::def("zRotationDCM", &Rotations::zRotationDCM<double>);
 }

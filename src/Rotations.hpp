@@ -857,14 +857,14 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		inline NdArray<double> angleAxisRotationDcm(const NdArray<dtype>& inArray, double inAngle)
+		inline NdArray<double> angleAxisRotationDCM(const NdArray<dtype>& inArray, double inAngle)
 		{
 			if (inArray.size() != 3)
 			{
 				throw std::invalid_argument("ERROR: angleAxisRotationDcm: input array must be of size = 3.");
 			}
 
-			return std::move(Quaternion::angleAxisRotation(inArray, inAngle).toDcm());
+			return std::move(Quaternion::angleAxisRotation(inArray, inAngle).toDCM());
 		}
 
 		//============================================================================
@@ -878,9 +878,9 @@ namespace NumC
 		//				bool
 		//
 		template<typename dtype>
-		inline bool isValidDcm(const NdArray<dtype>& inArray)
+		inline bool isValidDCM(const NdArray<dtype>& inArray)
 		{
-			if (inArray != inArray.transpose() || Linalg::determinant(inArray) != 1)
+			if (!array_equal(inArray, inArray.transpose()) || Linalg::det(inArray) != 1)
 			{
 				return false;
 			}
@@ -898,9 +898,9 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		inline NdArray<double> xRotationDcm(double inAngle)
+		inline NdArray<double> xRotationDCM(double inAngle)
 		{
-			return std::move(angleAxisRotationDcm({ 1.0, 0.0, 0.0 }, inAngle));
+			return std::move(angleAxisRotationDCM<double>({ 1.0, 0.0, 0.0 }, inAngle));
 		}
 
 		//============================================================================
@@ -914,9 +914,9 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		inline NdArray<double> yRotationDcm(double inAngle)
+		inline NdArray<double> yRotationDCM(double inAngle)
 		{
-			return std::move(angleAxisRotationDcm({ 0.0, 1.0, 0.0 }, inAngle));
+			return std::move(angleAxisRotationDCM<double>({ 0.0, 1.0, 0.0 }, inAngle));
 		}
 
 		//============================================================================
@@ -930,9 +930,9 @@ namespace NumC
 		//				NdArray
 		//
 		template<typename dtype>
-		inline NdArray<double> zRotationDcm(double inAngle)
+		inline NdArray<double> zRotationDCM(double inAngle)
 		{
-			return std::move(angleAxisRotationDcm({ 0.0, 0.0, 1.0 }, inAngle));
+			return std::move(angleAxisRotationDCM<double>({ 0.0, 0.0, 1.0 }, inAngle));
 		}
 	}
 }
