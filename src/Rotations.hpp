@@ -311,7 +311,7 @@ namespace NumC
 				checks[2] = dcm(0, 0) + dcm(1, 1) - dcm(2, 2);
 				checks[3] = dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
 
-				uint32 maxIdx = argmax(checks);
+				uint32 maxIdx = argmax(checks).item();
 
 				double q0 = 0;
 				double q1 = 0;
@@ -341,18 +341,18 @@ namespace NumC
 					case 2:
 					{
 						q0 = 0.5 * std::sqrt(1 + dcm(0, 0) - dcm(1, 1) - dcm(2, 2));
-						q1 = (dcm(0, 1) - dcm(1, 0)) / (4 * q2);
-						q2 = (dcm(0, 2) - dcm(2, 0)) / (4 * q2);
-						q3 = (dcm(1, 2) - dcm(2, 1)) / (4 * q2);
+						q1 = (dcm(0, 1) - dcm(1, 0)) / (4 * q0);
+						q2 = (dcm(0, 2) - dcm(2, 0)) / (4 * q0);
+						q3 = (dcm(1, 2) - dcm(2, 1)) / (4 * q0);
 
 						break;
 					}
 					case 3:
 					{
 						q1 = 0.5 * std::sqrt(1 - dcm(0, 0) + dcm(1, 1) - dcm(2, 2));
-						q0 = (dcm(0, 1) - dcm(1, 0)) / (4 * q2);
-						q2 = (dcm(1, 2) - dcm(2, 1)) / (4 * q2);
-						q3 = (dcm(2, 0) - dcm(0, 2)) / (4 * q2);
+						q0 = (dcm(0, 1) - dcm(1, 0)) / (4 * q1);
+						q2 = (dcm(1, 2) - dcm(2, 1)) / (4 * q1);
+						q3 = (dcm(2, 0) - dcm(0, 2)) / (4 * q1);
 
 						break;
 					}
@@ -436,7 +436,7 @@ namespace NumC
 			//				cartesian vector with x,y,z components
 			//
 			template<typename dtype>
-			NdArray<double> rotate(const Ndarray<dtype>& inVector) const
+			NdArray<double> rotate(const NdArray<dtype>& inVector) const
 			{
 				if (inVector.size() != 3)
 				{
@@ -835,9 +835,9 @@ namespace NumC
 			friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat)
 			{
 				std::string output = "[" + num2str(inQuat.i()) + ", " + num2str(inQuat.j()) +
-					", " + num2str(inQuat.k()) + ", " + num2str(inQuat.s()_ + "]";
-				inOstream << output << std::endl;
-				return inOstream;
+					", " + num2str(inQuat.k()) + ", " + num2str(inQuat.s()) + "]";
+				inOStream << output << std::endl;
+				return inOStream;
 			}
 		};
 

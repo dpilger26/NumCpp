@@ -40,7 +40,7 @@ namespace NumC
 		//				dtype
 		//
 		template<typename dtype>
-		inline dtype determinant(const NdArray<dtype>& inArray)
+		inline dtype det(const NdArray<dtype>& inArray)
 		{
 			Shape inShape = inArray.shape();
 			if (inShape.rows != inShape.cols)
@@ -50,11 +50,11 @@ namespace NumC
 
 			if (inShape.rows == 1)
 			{
-				return std::move(NdArray(inArray));
+				return inArray[0];
 			}
 			else if (inShape.rows == 2)
 			{
-				return = inArray(0, 0) * inArray(1, 1) - inArray(0, 1) * inArray(1, 0);
+				return inArray(0, 0) * inArray(1, 1) - inArray(0, 1) * inArray(1, 0);
 			}
 			else if (inShape.rows == 3)
 			{
@@ -65,7 +65,7 @@ namespace NumC
 				dtype bdi = inArray(0, 1) * inArray(1, 0) * inArray(2, 2);
 				dtype afh = inArray(0, 0) * inArray(1, 2) * inArray(2, 1);
 
-				return = aei + bfg + cdh - ceg - bdi - afh;
+				return aei + bfg + cdh - ceg - bdi - afh;
 			}
 			else
 			{
@@ -119,6 +119,21 @@ namespace NumC
 			}
 
 			return std::move(hat(inVec[0], inVec[1], inVec[2]));
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						matrix inverse
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype>
+		inline dtype inv(const NdArray<dtype>& inArray)
+		{
+
 		}
 	}
 }

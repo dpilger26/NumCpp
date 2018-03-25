@@ -2183,6 +2183,38 @@ namespace RandomInterface
 	}
 }
 
+namespace LinalgInterface
+{
+	template<typename dtype>
+	np::ndarray hatArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(Linalg::hat(inArray));
+	}
+}
+
+namespace RotationsInterface
+{
+	np::ndarray angularVelocity(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2, double inTime)
+	{
+		return numCToBoost(inQuat1.angularVelocity(inQuat2, inTime));
+	}
+
+	np::ndarray nlerp(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2, double inPercent)
+	{
+		return numCToBoost(inQuat1.nlerp(inQuat2, inPercent).toNdArray());
+	}
+
+	np::ndarray slerp(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2, double inPercent)
+	{
+		return numCToBoost(inQuat1.slerp(inQuat2, inPercent).toNdArray());
+	}
+
+	np::ndarray toDcm(const Rotations::Quaternion& inQuat1)
+	{
+		return numCToBoost(inQuat1.toDCM());
+	}
+}
+
 //================================================================================
 
 BOOST_PYTHON_MODULE(NumC)
@@ -2742,4 +2774,31 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("uniform", &NumC::Random::uniform<double>);
 	boost::python::def("uniformOnSphere", &NumC::Random::uniformOnSphere<double>);
 	boost::python::def("weibull", &NumC::Random::weibull<double>);
+
+	// Linalg.hpp
+	boost::python::def("det", &NumC::Linalg::det<double>);
+	boost::python::def("hat", &LinalgInterface::hatArray<double>);
+
+	// Rotations.hpp
+	bp::class_<Rotations::Quaternion>
+		("Quaternion", bp::init<>())
+		.def(bp::init<double, double, double, double>())
+		.def(bp::init<NdArray<double> >())
+		.def("angleAxisRotation", &Rotations::Quaternion::angleAxisRotation<double>).staticmethod("angleAxisRotation")
+		.def("angularVelocity", &RotationsInterface::angularVelocity)
+		.def("conjugate", &Rotations::Quaternion::conjugate)
+		.def("i", &Rotations::Quaternion::i)
+		.def("identity", &Rotations::Quaternion::identity)
+		.def("inverse", &Rotations::Quaternion::inverse)
+		.def("j", &Rotations::Quaternion::j)
+		.def("k", &Rotations::Quaternion::k)
+		.def("fromDcm", &Rotations::Quaternion::fromDcm<double>).staticmethod("fromDcm")
+		.def("nlerp", &RotationsInterface::nlerp)
+		.def("slerp", &RotationsInterface::slerp)
+		.def("print", &Rotations::Quaternion::print)
+		.def("rotate", &Rotations::Quaternion::rotate<double>)
+		.def("toDcm", &RotationsInterface::toDcm)
+		.def("xRotation", &Rotations::Quaternion::xRotation).staticmethod("xRotation")
+		.def("yRotation", &Rotations::Quaternion::yRotation).staticmethod("yRotation")
+		.def("zRotation", &Rotations::Quaternion::zRotation).staticmethod("zRotation");
 }
