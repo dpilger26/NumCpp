@@ -19,14 +19,60 @@
 
 #pragma once
 
+#include"Shape.hpp"
 #include"Types.hpp"
 #include"NdArray.hpp"
+
+#include<stdexcept>
 
 namespace NumC
 {
 	//================================Linalg Namespace=============================
 	namespace Linalg
 	{
+		//============================================================================
+		// Method Description: 
+		//						matrix determinant
+		//		
+		// Inputs:
+		//				NdArray
+		// Outputs:
+		//				dtype
+		//
+		template<typename dtype>
+		inline dtype determinant(const NdArray<dtype>& inArray)
+		{
+			Shape inShape = inArray.shape();
+			if (inShape.rows != inShape.cols)
+			{
+				throw std::runtime_error("ERROR: Linalg::determinant: input array must be square with size no larger than 3x3.");
+			}
+
+			if (inShape.rows == 1)
+			{
+				return std::move(NdArray(inArray));
+			}
+			else if (inShape.rows == 2)
+			{
+				return = inArray(0, 0) * inArray(1, 1) - inArray(0, 1) * inArray(1, 0);
+			}
+			else if (inShape.rows == 3)
+			{
+				dtype aei = inArray(0, 0) * inArray(1, 1) * inArray(2, 2);
+				dtype bfg = inArray(0, 1) * inArray(1, 2) * inArray(2, 0);
+				dtype cdh = inArray(0, 2) * inArray(1, 0) * inArray(2, 1);
+				dtype ceg = inArray(0, 2) * inArray(1, 1) * inArray(2, 0);
+				dtype bdi = inArray(0, 1) * inArray(1, 0) * inArray(2, 2);
+				dtype afh = inArray(0, 0) * inArray(1, 2) * inArray(2, 1);
+
+				return = aei + bfg + cdh - ceg - bdi - afh;
+			}
+			else
+			{
+				throw std::runtime_error("ERROR: Linalg::determinant: input array must be square with size no larger than 3x3.");
+			}
+		}
+
 		//============================================================================
 		// Method Description: 
 		//						vector hat operator

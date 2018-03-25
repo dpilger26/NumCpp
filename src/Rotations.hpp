@@ -26,6 +26,8 @@
 #include"Utils.hpp"
 
 #include<cmath>
+#include<iostream>
+#include<stdexcept>
 
 namespace NumC
 {
@@ -408,6 +410,20 @@ namespace NumC
 			Quaternion nlerp(const Quaternion& inQuat2, double inPercent) const
 			{
 				return nlerp(*this, inQuat2, inPercent);
+			}
+
+			//============================================================================
+			// Method Description: 
+			//						prints the Quaternion to the console
+			//		
+			// Inputs:
+			//				None
+			// Outputs:
+			//				None
+			//
+			void print()
+			{
+				std::cout << *this;
 			}
 
 			//============================================================================
@@ -806,26 +822,28 @@ namespace NumC
 			{
 				return *this *= inRhs.conjugate();
 			}
+
+			//============================================================================
+			// Method Description: 
+			//						io operator for the Shape class
+			//		
+			// Inputs:
+			//				None
+			// Outputs:
+			//				None
+			//
+			friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat)
+			{
+				std::string output = "[" + num2str(inQuat.i()) + ", " + num2str(inQuat.j()) +
+					", " + num2str(inQuat.k()) + ", " + num2str(inQuat.s()_ + "]";
+				inOstream << output << std::endl;
+				return inOstream;
+			}
 		};
 
 		//================================================================================
 		// Factory methods for generating direction cosine matrices and vectors
 		//
-
-		//============================================================================
-		// Method Description: 
-		//						division assignment operator
-		//		
-		// Inputs:
-		//						returns a direction cosine matrix that rotates about
-		//						the input axis by the input angle
-		// Outputs:
-		//				NdArray
-		//
-		inline NdArray<double> angleAxisRotationDcm(double inX, double inY, double inZ, double inAngle)
-		{
-
-		}
 
 		//============================================================================
 		// Method Description: 
@@ -841,7 +859,12 @@ namespace NumC
 		template<typename dtype>
 		inline NdArray<double> angleAxisRotationDcm(const NdArray<dtype>& inArray, double inAngle)
 		{
+			if (inArray.size() != 3)
+			{
+				throw std::invalid_argument("ERROR: angleAxisRotationDcm: input array must be of size = 3.");
+			}
 
+			return std::move(Quaternion::angleAxisRotation(inArray, inAngle).toDcm());
 		}
 
 		//============================================================================
@@ -857,7 +880,11 @@ namespace NumC
 		template<typename dtype>
 		inline bool isValidDcm(const NdArray<dtype>& inArray)
 		{
-
+			if (inArray != inArray.transpose() || Linalg::determinant(inArray) != 1)
+			{
+				return false;
+			}
+			return true;
 		}
 
 		//============================================================================
