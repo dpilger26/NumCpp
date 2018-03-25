@@ -62,6 +62,10 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing print', 'cyan'))
+    cSlice.print()
+    print(colored('\tPASS', 'green'))
+
 ####################################################################################
 if __name__ == '__main__':
     doTest()

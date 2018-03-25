@@ -50,6 +50,7 @@ def doTest():
 
     print(colored('Testing Print', 'cyan'))
     shape.print()
+    print(colored('\tPASS', 'green'))
 
 ####################################################################################
 if __name__ == '__main__':

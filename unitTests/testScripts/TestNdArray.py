@@ -58,7 +58,7 @@ def doTest():
 
     print(colored('Testing Copy Constructor', 'cyan'))
     cArray2 = NumC.NdArray(cArray)
-    if np.array_equal(cArray2.getNumpyArray(), cArray.getNumpyArray()):
+    if np.array_equal(np.round(cArray2.getNumpyArray(), 10), np.round(cArray.getNumpyArray(), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1265,7 +1265,7 @@ def doTest():
     cArray = NumC.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.round(cArray.var(NumC.Axis.NONE).item(), 10) == np.round(np.var(data), 10):
+    if np.round(cArray.var(NumC.Axis.NONE).item(), 9) == np.round(np.var(data), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1276,7 +1276,7 @@ def doTest():
     cArray = NumC.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(cArray.var(NumC.Axis.ROW).flatten(), 10), np.round(np.var(data, axis=0), 10)):
+    if np.array_equal(np.round(cArray.var(NumC.Axis.ROW).flatten(), 9), np.round(np.var(data, axis=0), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1287,7 +1287,7 @@ def doTest():
     cArray = NumC.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(cArray.var(NumC.Axis.COL).flatten(), 10), np.round(np.var(data, axis=1), 10)):
+    if np.array_equal(np.round(cArray.var(NumC.Axis.COL).flatten(), 9), np.round(np.var(data, axis=1), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

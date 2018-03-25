@@ -6,6 +6,7 @@ import TestMethods
 import TestConstants
 import TestLinalg
 import TestRandom
+import TestRotations
 import TestPolynomial
 import TestFFT
 import TestUtils
@@ -23,6 +24,7 @@ def doTest():
     TestConstants.doTest()
     TestLinalg.doTest()
     TestRandom.doTest()
+    TestRotations.doTest()
     TestPolynomial.doTest()
     TestFFT.doTest()
 
