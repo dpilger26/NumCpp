@@ -155,7 +155,8 @@ namespace NumC
 
 			//============================================================================
 			// Method Description: 
-			//						angular velocity between the two quaternions
+			//						angular velocity between the two quaternions. The norm
+			//						of the array is the magnitude
 			//		
 			// Inputs:
 			//				Quaternion 1
@@ -190,7 +191,8 @@ namespace NumC
 
 			//============================================================================
 			// Method Description: 
-			//						linearly interpolates between the two quaternions
+			//						angular velocity between the two quaternions. The norm
+			//						of the array is the magnitude
 			//		
 			// Inputs:
 			//				Quaternion 2
@@ -298,7 +300,7 @@ namespace NumC
 			//				Quaternion
 			//
 			template<typename dtype>
-			static Quaternion fromDcm(const NdArray<dtype>& inDcm)
+			static Quaternion fromDCM(const NdArray<dtype>& inDcm)
 			{
 				Shape inShape = inDcm.shape();
 				if (!(inShape.rows == 3 && inShape.cols == 3))

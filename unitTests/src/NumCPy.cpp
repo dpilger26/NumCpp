@@ -2209,7 +2209,7 @@ namespace RotationsInterface
 		return numCToBoost(inQuat1.slerp(inQuat2, inPercent).toNdArray());
 	}
 
-	np::ndarray toDcm(const Rotations::Quaternion& inQuat)
+	np::ndarray toDCM(const Rotations::Quaternion& inQuat)
 	{
 		return numCToBoost(inQuat.toDCM());
 	}
@@ -2807,17 +2807,19 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("angularVelocity", &RotationsInterface::angularVelocity)
 		.def("conjugate", &Rotations::Quaternion::conjugate)
 		.def("i", &Rotations::Quaternion::i)
-		.def("identity", &Rotations::Quaternion::identity)
+		.def("identity", &Rotations::Quaternion::identity).staticmethod("identity")
 		.def("inverse", &Rotations::Quaternion::inverse)
 		.def("j", &Rotations::Quaternion::j)
 		.def("k", &Rotations::Quaternion::k)
-		.def("fromDcm", &Rotations::Quaternion::fromDcm<double>).staticmethod("fromDcm")
+		.def("fromDCM", &Rotations::Quaternion::fromDCM<double>).staticmethod("fromDCM")
+		.def("nlerp", &RotationsInterface::nlerp)
+		.def("nlerp", &RotationsInterface::nlerp)
+		.def("print", &Rotations::Quaternion::print)
+		.def("rotate", &Rotations::Quaternion::rotate<double>)
 		.def("s", &Rotations::Quaternion::s)
 		.def("slerp", &RotationsInterface::slerp)
 		.def("slerp", &RotationsInterface::slerp)
-		.def("print", &Rotations::Quaternion::print)
-		.def("rotate", &Rotations::Quaternion::rotate<double>)
-		.def("toDcm", &RotationsInterface::toDcm)
+		.def("toDCM", &RotationsInterface::toDCM)
 		.def("toNdArray", &Rotations::Quaternion::toNdArray)
 		.def("xRotation", &Rotations::Quaternion::xRotation).staticmethod("xRotation")
 		.def("yRotation", &Rotations::Quaternion::yRotation).staticmethod("yRotation")
