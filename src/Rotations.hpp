@@ -114,7 +114,7 @@ namespace NumC
 			{
 				if (inArray.size() != 4)
 				{
-					throw std::invalid_argument("ERROR: Quaternion::Quaternion(NdArray): input array must be of size = 4;");
+					throw std::invalid_argument("ERROR: Rotations:::Quaternion::Quaternion(NdArray): input array must be of size = 4;");
 				}
 
 				double norm = std::sqrt(sqr(inArray[0]) + sqr(inArray[1]) + sqr(inArray[2]) + sqr(inArray[3]));
@@ -139,12 +139,15 @@ namespace NumC
 			{
 				if (inAxis.size() != 3)
 				{
-					throw std::invalid_argument("ERROR: Quaternion::angleAxisRotation: input axis must be a cartesion vector of length = 3.");
+					throw std::invalid_argument("ERROR: Rotations::Quaternion::angleAxisRotation: input axis must be a cartesion vector of length = 3.");
 				}
+				
+				// normalize the input vector
+				NdArray<double> normAxis = inAxis.astype<double>() / inAxis.norm<double>().item();
 
-				double i = static_cast<double>(inAxis[0]) * std::sin(inAngle / 2.0);
-				double j = static_cast<double>(inAxis[1]) * std::sin(inAngle / 2.0);
-				double k = static_cast<double>(inAxis[2]) * std::sin(inAngle / 2.0);
+				double i = static_cast<double>(normAxis[0]) * std::sin(inAngle / 2.0);
+				double j = static_cast<double>(normAxis[1]) * std::sin(inAngle / 2.0);
+				double k = static_cast<double>(normAxis[2]) * std::sin(inAngle / 2.0);
 				double s = std::cos(inAngle / 2.0);
 
 				return Quaternion(i, j, k, s);
@@ -300,7 +303,7 @@ namespace NumC
 				Shape inShape = inDcm.shape();
 				if (!(inShape.rows == 3 && inShape.cols == 3))
 				{
-					throw std::invalid_argument("ERROR: Quaternion::fromDcm: input direction cosine matrix must have shape = (3,3).");
+					throw std::invalid_argument("ERROR: Rotations::Quaternion::fromDcm: input direction cosine matrix must have shape = (3,3).");
 				}
 
 				NdArray<double> dcm = inDcm.astype<double>();
@@ -376,7 +379,7 @@ namespace NumC
 			{
 				if (inPercent < 0 || inPercent > 1)
 				{
-					throw std::invalid_argument("ERROR: nlerp: input percent must be of the range [0,1].");
+					throw std::invalid_argument("ERROR: Rotations::Quaternion::nlerp: input percent must be of the range [0,1].");
 				}
 
 				if (inPercent == 0)
@@ -440,7 +443,7 @@ namespace NumC
 			{
 				if (inVector.size() != 3)
 				{
-					throw std::invalid_argument("ERROR: Quaternion::rotate: input inVector must be a cartesion vector of length = 3.");
+					throw std::invalid_argument("ERROR: Rotations::Quaternion::rotate: input inVector must be a cartesion vector of length = 3.");
 				}
 
 				return *this * inVector;
@@ -473,6 +476,20 @@ namespace NumC
 			//
 			static Quaternion slerp(const Quaternion& inQuat1, const Quaternion& inQuat2, double inPercent)
 			{
+				if (inPercent < 0 || inPercent > 1)
+				{
+					throw std::invalid_argument("ERROR: Rotations::Quaternion::slerp: input percent must be of the range [0, 1]");
+				}
+
+				if (inPercent == 0)
+				{
+					return inQuat1;
+				}
+				else if (inPercent == 1)
+				{
+					return inQuat2;
+				}
+
 				double dotProduct = dot<double, double>(inQuat1.toNdArray(), inQuat2.toNdArray()).item();
 
 				// If the dot product is negative, the quaternions
@@ -748,7 +765,7 @@ namespace NumC
 			{
 				if (inVec.size() != 3)
 				{
-					throw std::invalid_argument("ERROR: Quaternion::operator*: input vector must be a cartesion vector of length = 3.");
+					throw std::invalid_argument("ERROR: Rotations::Quaternion::operator*: input vector must be a cartesion vector of length = 3.");
 				}
 
 				return toDCM().dot<double>(inVec.astype<double>());
@@ -861,7 +878,7 @@ namespace NumC
 		{
 			if (inArray.size() != 3)
 			{
-				throw std::invalid_argument("ERROR: angleAxisRotationDcm: input array must be of size = 3.");
+				throw std::invalid_argument("ERROR: Rotations::Quaternion::angleAxisRotationDcm: input array must be of size = 3.");
 			}
 
 			return std::move(Quaternion::angleAxisRotation(inArray, inAngle).toDCM());
