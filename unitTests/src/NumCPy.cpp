@@ -2223,8 +2223,8 @@ namespace RotationsInterface
 	template<typename dtype>
 	np::ndarray multiplyArray(const Rotations::Quaternion& inQuat, const NdArray<dtype>& inArray)
 	{
-		Rotations::Quaternion returnQuat = inQuat * inArray;
-		return numCToBoost(returnQuat.toNdArray());
+		NdArray<double> returnArray = inQuat * inArray;
+		return numCToBoost(returnArray);
 	}
 
 	np::ndarray multiplyQuaternion(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2)
@@ -2824,8 +2824,8 @@ BOOST_PYTHON_MODULE(NumC)
 		.def("xRotation", &Rotations::Quaternion::xRotation).staticmethod("xRotation")
 		.def("yRotation", &Rotations::Quaternion::yRotation).staticmethod("yRotation")
 		.def("zRotation", &Rotations::Quaternion::zRotation).staticmethod("zRotation")
-		.def("equal", &Rotations::Quaternion::operator==)
-		.def("notEqual", &Rotations::Quaternion::operator!=)
+		.def("__eq__", &Rotations::Quaternion::operator==)
+		.def("__neq__", &Rotations::Quaternion::operator!=)
 		.def("__add__", &Rotations::Quaternion::operator+)
 		.def("__sub__", &Rotations::Quaternion::operator-)
 		.def("__mul__", &RotationsInterface::multiplyScalar)

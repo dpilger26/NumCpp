@@ -180,12 +180,13 @@ namespace NumC
 				eyeTimesScalar(2, 2) = inQuat2.s();
 
 				NdArray<double> epsilonHat = Linalg::hat(inQuat2.i(), inQuat2.j(), inQuat2.k());
-				NdArray<double> q = eyeTimesScalar + epsilonHat;
+				NdArray<double> q(4, 3);
+				q.put(Slice(0, 3), Slice(0, 3), eyeTimesScalar + epsilonHat);
 				q(3, 0) = -inQuat2.i();
 				q(3, 1) = -inQuat2.j();
 				q(3, 2) = -inQuat2.k();
 
-				NdArray<double> omega = q.transpose().dot<double>(qDot);
+				NdArray<double> omega = q.transpose().dot<double>(qDot.transpose());
 				return std::move(omega *= 2);
 			}
 
@@ -313,8 +314,8 @@ namespace NumC
 				NdArray<double> checks(1, 4);
 				checks[0] = dcm(0, 0) + dcm(1, 1) + dcm(2, 2);
 				checks[1] = dcm(0, 0) - dcm(1, 1) + dcm(2, 2);
-				checks[2] = dcm(0, 0) + dcm(1, 1) - dcm(2, 2);
-				checks[3] = dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
+				checks[2] = dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
+				checks[3] = dcm(0, 0) + dcm(1, 1) - dcm(2, 2);
 
 				uint32 maxIdx = argmax(checks).item();
 
@@ -337,8 +338,8 @@ namespace NumC
 					case 1:
 					{
 						q2 = 0.5 * std::sqrt(1 - dcm(0, 0) - dcm(1, 1) + dcm(2, 2));
-						q0 = (dcm(0, 2) - dcm(2, 0)) / (4 * q2);
-						q1 = (dcm(1, 2) - dcm(2, 1)) / (4 * q2);
+						q0 = (dcm(0, 2) + dcm(2, 0)) / (4 * q2);
+						q1 = (dcm(1, 2) + dcm(2, 1)) / (4 * q2);
 						q3 = (dcm(0, 1) - dcm(1, 0)) / (4 * q2);
 
 						break;
@@ -346,8 +347,8 @@ namespace NumC
 					case 2:
 					{
 						q0 = 0.5 * std::sqrt(1 + dcm(0, 0) - dcm(1, 1) - dcm(2, 2));
-						q1 = (dcm(0, 1) - dcm(1, 0)) / (4 * q0);
-						q2 = (dcm(0, 2) - dcm(2, 0)) / (4 * q0);
+						q1 = (dcm(0, 1) + dcm(1, 0)) / (4 * q0);
+						q2 = (dcm(0, 2) + dcm(2, 0)) / (4 * q0);
 						q3 = (dcm(1, 2) - dcm(2, 1)) / (4 * q0);
 
 						break;
@@ -355,8 +356,8 @@ namespace NumC
 					case 3:
 					{
 						q1 = 0.5 * std::sqrt(1 - dcm(0, 0) + dcm(1, 1) - dcm(2, 2));
-						q0 = (dcm(0, 1) - dcm(1, 0)) / (4 * q1);
-						q2 = (dcm(1, 2) - dcm(2, 1)) / (4 * q1);
+						q0 = (dcm(0, 1) + dcm(1, 0)) / (4 * q1);
+						q2 = (dcm(1, 2) + dcm(2, 1)) / (4 * q1);
 						q3 = (dcm(2, 0) - dcm(0, 2)) / (4 * q1);
 
 						break;
@@ -784,10 +785,15 @@ namespace NumC
 			//
 			Quaternion& operator*=(const Quaternion& inRhs)
 			{
-				data_[0] = inRhs.data_[3] * data_[0] + inRhs.data_[0] * data_[3] + inRhs.data_[1] * data_[2] + inRhs.data_[2] * data_[1];
-				data_[1] = inRhs.data_[3] * data_[1] + inRhs.data_[0] * data_[2] + inRhs.data_[1] * data_[3] + inRhs.data_[2] * data_[0];
-				data_[2] = inRhs.data_[3] * data_[2] + inRhs.data_[0] * data_[1] + inRhs.data_[1] * data_[0] + inRhs.data_[2] * data_[3];
-				data_[3] = inRhs.data_[3] * data_[3] + inRhs.data_[0] * data_[0] + inRhs.data_[1] * data_[1] + inRhs.data_[2] * data_[2];
+				double q0 = inRhs.data_[3] * data_[0] + inRhs.data_[0] * data_[3] - inRhs.data_[1] * data_[2] + inRhs.data_[2] * data_[1];
+				double q1 = inRhs.data_[3] * data_[1] + inRhs.data_[0] * data_[2] + inRhs.data_[1] * data_[3] - inRhs.data_[2] * data_[0];
+				double q2 = inRhs.data_[3] * data_[2] - inRhs.data_[0] * data_[1] + inRhs.data_[1] * data_[0] + inRhs.data_[2] * data_[3];
+				double q3 = inRhs.data_[3] * data_[3] - inRhs.data_[0] * data_[0] - inRhs.data_[1] * data_[1] - inRhs.data_[2] * data_[2];
+
+				data_[0] = q0;
+				data_[1] = q1;
+				data_[2] = q2;
+				data_[3] = q3;
 				normalize();
 
 				return *this;
@@ -899,7 +905,10 @@ namespace NumC
 		template<typename dtype>
 		inline bool isValidDCM(const NdArray<dtype>& inArray)
 		{
-			if (!array_equal(inArray, inArray.transpose()) || Linalg::det(inArray) != 1)
+			Shape inShape = inArray.shape();
+			if (!(inShape.rows == inShape.cols && 
+				round(Linalg::det(inArray), 2) == 1 &&
+				round(Linalg::det(inArray.transpose()), 2) == 1))
 			{
 				return false;
 			}

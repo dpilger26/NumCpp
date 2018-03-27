@@ -153,7 +153,6 @@ namespace NumC
 
 		{
 			Py_intptr_t const * shapePtr = inArray->get_shape();
-
 			for (uint8 i = 0; i < numDimensions_; ++i)
 			{
 				strides_.push_back(static_cast<uint32>(theArray_.strides(i)));

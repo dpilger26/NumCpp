@@ -57,6 +57,10 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing Copy Constructor', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    cArray.setArray(np.random.randint(1, 100, [shape.rows, shape.cols]))
     cArray2 = NumC.NdArray(cArray)
     if np.array_equal(np.round(cArray2.getNumpyArray(), 10), np.round(cArray.getNumpyArray(), 10)):
         print(colored('\tPASS', 'green'))
