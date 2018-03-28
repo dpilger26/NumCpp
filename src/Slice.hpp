@@ -149,7 +149,7 @@ namespace NumC
 			}
 			if (start > static_cast<int32>(inArraySize - 1))
 			{
-				throw std::invalid_argument("ERROR: Invalid start value for array of size " + num2str(inArraySize) + ".");
+				throw std::invalid_argument("ERROR: Invalid start value for array of size " + Utils::num2str(inArraySize) + ".");
 			}
 
 			// convert the stop value
@@ -159,7 +159,7 @@ namespace NumC
 			}
 			if (stop > static_cast<int32>(inArraySize))
 			{
-				throw std::invalid_argument("ERROR: Invalid stop value for array of size " + num2str(inArraySize) + ".");
+				throw std::invalid_argument("ERROR: Invalid stop value for array of size " + Utils::num2str(inArraySize) + ".");
 			}
 
 			// do some error checking

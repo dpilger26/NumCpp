@@ -2274,6 +2274,50 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing nanargmax: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(10, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if NumC.nanargmax(cArray, NumC.Axis.NONE).item() == np.nanargmax(data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanargmax: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(10, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nanargmax(cArray, NumC.Axis.ROW).getNumpyArray().flatten(), np.nanargmax(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanargmax: Axis = Column', 'cyan'))
+    shapeInput = np.random.randint(10, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nanargmax(cArray, NumC.Axis.COL).getNumpyArray().flatten(), np.nanargmax(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    return
+
     print(colored('Testing nbytes', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2484,6 +2528,196 @@ def doTest():
             allPass = False
             break
     if allPass:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = None, method = lower', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if NumC.percentile(cArray, percentile, NumC.Axis.NONE, 'lower').item() == np.percentile(data, percentile, axis=None, interpolation='lower'):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = None, method = higher', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if NumC.percentile(cArray, percentile, NumC.Axis.NONE, 'higher').item() == np.percentile(data, percentile, axis=None, interpolation='higher'):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = None, method = nearest', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if NumC.percentile(cArray, percentile, NumC.Axis.NONE, 'nearest').item() == np.percentile(data, percentile, axis=None, interpolation='nearest'):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = None, method = midpoint', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if NumC.percentile(cArray, percentile, NumC.Axis.NONE, 'midpoint').item() == np.percentile(data, percentile, axis=None, interpolation='midpoint'):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = None, method = linear', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if NumC.percentile(cArray, percentile, NumC.Axis.NONE, 'linear').item() == np.percentile(data, percentile, axis=None, interpolation='linear'):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = Row, method = lower', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if np.array_equal(NumC.percentile(cArray, percentile, NumC.Axis.ROW, 'lower').getNumpyArray().flatten(),
+                      np.percentile(data, percentile, axis=0, interpolation='lower')):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = Row, method = higher', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if np.array_equal(NumC.percentile(cArray, percentile, NumC.Axis.ROW, 'higher').getNumpyArray().flatten(),
+                      np.percentile(data, percentile, axis=0, interpolation='higher')):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = Row, method = nearest', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if np.array_equal(NumC.percentile(cArray, percentile, NumC.Axis.ROW, 'nearest').getNumpyArray().flatten(),
+                      np.percentile(data, percentile, axis=0, interpolation='nearest')):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = Row, method = midpoint', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if np.array_equal(np.round(NumC.percentile(cArray, percentile, NumC.Axis.ROW, 'midpoint').getNumpyArray().flatten(), 10),
+                      np.round(np.percentile(data, percentile, axis=0, interpolation='midpoint'), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = Row, method = linear', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if np.array_equal(np.round(NumC.percentile(cArray, percentile, NumC.Axis.ROW, 'linear').getNumpyArray().flatten(), 10),
+                      np.round(np.percentile(data, percentile, axis=0, interpolation='linear'), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = Col, method = lower', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if np.array_equal(NumC.percentile(cArray, percentile, NumC.Axis.COL, 'lower').getNumpyArray().flatten(),
+                      np.percentile(data, percentile, axis=1, interpolation='lower')):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = Col, method = higher', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if np.array_equal(NumC.percentile(cArray, percentile, NumC.Axis.COL, 'higher').getNumpyArray().flatten(),
+                      np.percentile(data, percentile, axis=1, interpolation='higher')):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = Col, method = nearest', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if np.array_equal(NumC.percentile(cArray, percentile, NumC.Axis.COL, 'nearest').getNumpyArray().flatten(),
+                      np.percentile(data, percentile, axis=1, interpolation='nearest')):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = Col, method = midpoint', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if np.array_equal(np.round(NumC.percentile(cArray, percentile, NumC.Axis.COL, 'midpoint').getNumpyArray().flatten(), 10),
+                      np.round(np.percentile(data, percentile, axis=1, interpolation='midpoint'), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing percentile: Axis = Col, method = linear', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    percentile = np.random.rand(1).item() * 100
+    if np.array_equal(np.round(NumC.percentile(cArray, percentile, NumC.Axis.COL, 'linear').getNumpyArray().flatten(), 10),
+                      np.round(np.percentile(data, percentile, axis=1, interpolation='linear'), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

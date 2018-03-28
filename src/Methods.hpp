@@ -79,7 +79,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
 		return std::move(inArray1 + inArray2);
@@ -763,7 +763,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> astype(const NdArray<dtype> inArray)
 	{
 		return std::move(inArray.astype<dtypeOut>());
@@ -1476,7 +1476,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis::Type inAxis = Axis::NONE)
 	{
 		if (inArray1.shape() != inArray2.shape())
@@ -1605,11 +1605,11 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> cube(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtypeOut> returnArray(inArray.shape());
-		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return cube(static_cast<dtypeOut>(inValue)); });
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return Utils::cube(static_cast<dtypeOut>(inValue)); });
 
 		return std::move(returnArray);
 	}
@@ -1624,7 +1624,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> cumprod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return std::move(inArray.cumprod<dtypeOut>(inAxis));
@@ -1640,7 +1640,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> cumsum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return std::move(inArray.cumsum<dtypeOut>(inAxis));
@@ -1964,7 +1964,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
 		return std::move(inArray1.astype<dtypeOut>() / inArray2.astype<dtypeOut>());
@@ -1980,7 +1980,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
 		return std::move(inArray1.dot<dtypeOut>(inArray2));
@@ -2043,7 +2043,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> empty_like(const NdArray<dtype>& inArray)
 	{
 		return std::move(NdArray<dtypeOut>(inArray.shape()));
@@ -2705,7 +2705,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue)
 	{
 		return std::move(full(inArray.shape(), inFillValue));
@@ -2794,7 +2794,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline dtypeOut hypot(dtype inValue1, dtype inValue2)
 	{
 		return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2));
@@ -2814,7 +2814,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
 		if (inArray1.shape() != inArray2.shape())
@@ -3534,7 +3534,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
 		return std::move(inArray1.dot<dtypeOut>(inArray2));
@@ -3715,9 +3715,18 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	inline NdArray<uint16> nanargmax(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	inline NdArray<uint32> nanargmax(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		NdArray<dtype> arrayCopy(inArray);
+		for (uint32 i = 0; i < arrayCopy.size(); ++i)
+		{
+			if (std::isnan(arrayCopy[i]))
+			{
+				arrayCopy[i] = DtypeInfo<dtype>::min();
+			}
+		}
 
+		return std::move(argmax(arrayCopy, inAxis));
 	}
 
 	//============================================================================
@@ -3731,9 +3740,18 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	inline NdArray<uint16> nanargmin(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	inline NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		NdArray<dtype> arrayCopy(inArray);
+		for (uint32 i = 0; i < arrayCopy.size(); ++i)
+		{
+			if (std::isnan(arrayCopy[i]))
+			{
+				arrayCopy[i] = DtypeInfo<dtype>::max();
+			}
+		}
 
+		return std::move(argmin(arrayCopy, inAxis));
 	}
 
 	//============================================================================
@@ -3746,10 +3764,19 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> nancumprod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		NdArray<dtype> arrayCopy(inArray);
+		for (uint32 i = 0; i < arrayCopy.size(); ++i)
+		{
+			if (std::isnan(arrayCopy[i]))
+			{
+				arrayCopy[i] = 1;
+			}
+		}
 
+		return std::move(cumprod<dtype, dtypeOut>(arrayCopy, inAxis));
 	}
 
 	//============================================================================
@@ -3762,10 +3789,19 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> nancumsum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		NdArray<dtype> arrayCopy(inArray);
+		for (uint32 i = 0; i < arrayCopy.size(); ++i)
+		{
+			if (std::isnan(arrayCopy[i]))
+			{
+				arrayCopy[i] = 0;
+			}
+		}
 
+		return std::move(cumsum<dtype, dtypeOut>(arrayCopy, inAxis));
 	}
 
 	//============================================================================
@@ -3783,7 +3819,16 @@ namespace NumC
 	template<typename dtype>
 	inline NdArray<dtype> nanmax(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		NdArray<dtype> arrayCopy(inArray);
+		for (uint32 i = 0; i < arrayCopy.size(); ++i)
+		{
+			if (std::isnan(arrayCopy[i]))
+			{
+				arrayCopy[i] = DtypeInfo<dtype>::min();
+			}
+		}
 
+		return std::move(max(arrayCopy, inAxis));
 	}
 
 	//============================================================================
@@ -3837,7 +3882,16 @@ namespace NumC
 	template<typename dtype>
 	inline NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		NdArray<dtype> arrayCopy(inArray);
+		for (uint32 i = 0; i < arrayCopy.size(); ++i)
+		{
+			if (std::isnan(arrayCopy[i]))
+			{
+				arrayCopy[i] = DtypeInfo<dtype>::max();
+			}
+		}
 
+		return std::move(min(arrayCopy, inAxis));
 	}
 
 	//============================================================================
@@ -3850,7 +3904,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<double> nanpercentile(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 
@@ -3868,10 +3922,19 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> nanprod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		NdArray<dtype> arrayCopy(inArray);
+		for (uint32 i = 0; i < arrayCopy.size(); ++i)
+		{
+			if (std::isnan(arrayCopy[i]))
+			{
+				arrayCopy[i] = 1;
+			}
+		}
 
+		return std::move(prod<dtype, dtypeOut>(arrayCopy, inAxis));
 	}
 
 	//============================================================================
@@ -3904,10 +3967,19 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		NdArray<dtype> arrayCopy(inArray);
+		for (uint32 i = 0; i < arrayCopy.size(); ++i)
+		{
+			if (std::isnan(arrayCopy[i]))
+			{
+				arrayCopy[i] = 0;
+			}
+		}
 
+		return std::move(sum<dtype, dtypeOut>(arrayCopy, inAxis));
 	}
 
 	//============================================================================
@@ -3997,7 +4069,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> negative(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtypeOut> returnArray = inArray.astype<dtypeOut>();
@@ -4034,7 +4106,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> norm(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return std::move(inArray.norm<dtypeOut>(inAxis));
@@ -4113,7 +4185,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtypeOut> returnArray(inArray.shape());
@@ -4187,22 +4259,22 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype>
-	inline NdArray<double> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis::Type inAxis = Axis::NONE, std::string inInterpMethod = "linear")
+	template<typename dtype, typename dtypeOut=double>
+	inline NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis::Type inAxis = Axis::NONE, std::string inInterpMethod = "linear")
 	{
 		if (inPercentile < 0 || inPercentile > 100)
 		{
 			throw std::invalid_argument("ERROR: percentile: input percentile value must be of the range [0, 100].");
 		}
 
-		if (!inInterpMethod.compare("linear") &&
-			!inInterpMethod.compare("lower") && 
-			!inInterpMethod.compare("higher") && 
-			!inInterpMethod.compare("nearest") && 
-			!inInterpMethod.compare("midpoint"))
+		if (inInterpMethod.compare("linear") != 0 &&
+			inInterpMethod.compare("lower") != 0 &&
+			inInterpMethod.compare("higher") != 0 &&
+			inInterpMethod.compare("nearest") != 0 &&
+			inInterpMethod.compare("midpoint") != 0)
 		{
 			std::string errStr = "ERROR: percentile: input interpolation method is not a vaid option.\n";
-			errStr += "\tValid options are 'linear', 'lower', 'higher', 'nearest', 'midpoint'."
+			errStr += "\tValid options are 'linear', 'lower', 'higher', 'nearest', 'midpoint'.";
 			throw std::invalid_argument(errStr);
 		}
 
@@ -4210,21 +4282,105 @@ namespace NumC
 		{
 			case Axis::NONE:
 			{
-				uint32 index = static_cast<uint32>(std::floor(static_cast<double>(inArray.size()) * inPercentile));
+				if (inPercentile == 0)
+				{
+					NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(*inArray.cbegin()) };
+					return std::move(returnArray);
+				}
+				else if (inPercentile == 1)
+				{
+					NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(*inArray.cend()) };
+					return std::move(returnArray);
+				}
 
+				int32 i = static_cast<int32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
+				uint32 indexLower = static_cast<uint32>(clip<int32>(i, 0, inArray.size() - 2));
 
+				NdArray<double> arrayCopy = inArray.astype<double>();
+				std::sort(arrayCopy.begin(), arrayCopy.end());
 
+				if (inInterpMethod.compare("linear") == 0)
+				{
+					double percentI = static_cast<double>(indexLower) / static_cast<double>(inArray.size() - 1);
+					double fraction = (inPercentile / 100.0 - percentI) /
+						(static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1) - percentI);
+
+					double returnValue = arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction;
+					NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(returnValue) };
+					return std::move(returnArray);
+				}
+				else if (inInterpMethod.compare("lower") == 0)
+				{
+					NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(arrayCopy[indexLower]) };
+					return std::move(returnArray);
+				}
+				else if (inInterpMethod.compare("higher") == 0)
+				{
+					NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(arrayCopy[indexLower + 1]) };
+					return std::move(returnArray);
+				}
+				else if (inInterpMethod.compare("nearest") == 0)
+				{
+					double percent = inPercentile / 100.0;
+					double percent1 = static_cast<double>(indexLower) / static_cast<double>(inArray.size() - 1);
+					double percent2 = static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1);
+					double diff1 = percent - percent1;
+					double diff2 = percent2 - percent;
+
+					switch (argmin<double>({ diff1, diff2 }).item())
+					{
+						case 0:
+						{
+							NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(arrayCopy[indexLower]) };
+							return std::move(returnArray);
+						}
+						case 1:
+						{
+							NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(arrayCopy[indexLower + 1]) };
+							return std::move(returnArray);
+						}
+					}
+				}
+				else if (inInterpMethod.compare("midpoint") == 0)
+				{
+					NdArray<dtypeOut> returnArray = { (arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0 };
+					return std::move(returnArray);
+				}
 			}
-			case Axis::NONE:
+			case Axis::COL:
 			{
+				Shape inShape = inArray.shape();
 
+				NdArray<dtypeOut> returnArray(1, inShape.rows);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					returnArray[row] = percentile<dtype, dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)), 
+						inPercentile, Axis::NONE, inInterpMethod).item();
+				}
+
+				return std::move(returnArray);
 			}
-			case Axis::NONE:
+			case Axis::ROW:
 			{
+				NdArray<dtype> arrayTrans = inArray.transpose();
+				Shape inShape = arrayTrans.shape();
 
+				NdArray<dtypeOut> returnArray(1, inShape.rows);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					returnArray[row] = percentile<dtype, dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)), 
+						inPercentile, Axis::NONE, inInterpMethod).item();
+				}
+
+				return std::move(returnArray);
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<dtypeOut>(0));
 			}
 		}
-
 	}
 
 	//============================================================================
@@ -4237,12 +4393,12 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> power(const NdArray<dtype>& inArray, uint8 inExponent)
 	{
 		NdArray<dtypeOut> returnArray(inArray.shape());
 		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-			[inExponent](dtype inValue) { return power(static_cast<dtypeOut>(inValue), inExponent); });
+			[inExponent](dtype inValue) { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
 
 		return std::move(returnArray);
 	}
@@ -4257,7 +4413,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> power(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
 	{
 		if (inArray.shape() != inExponents.shape())
@@ -4267,7 +4423,7 @@ namespace NumC
 
 		NdArray<dtypeOut> returnArray(inArray.shape());
 		std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
-			[](dtype inValue, uint8 inExponent) { return power(static_cast<dtypeOut>(inValue), inExponent); });
+			[](dtype inValue, uint8 inExponent) { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
 
 		return std::move(returnArray);
 	}
@@ -4297,7 +4453,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> prod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return std::move(inArray.prod<dtypeOut>(inAxis));
@@ -4405,7 +4561,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtypeOut> returnArray(inArray.shape());
@@ -4428,7 +4584,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline dtypeOut remainder(dtype inValue1, dtype inValue2)
 	{
 		return std::remainder(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2));
@@ -4445,7 +4601,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
 	{
 		if (inArray1.shape() != inArray2.shape())
@@ -5165,7 +5321,7 @@ namespace NumC
 	template<typename dtype>
 	inline dtype square(dtype inValue)
 	{
-		return sqr(inValue);
+		return Utils::sqr(inValue);
 	}
 
 	//============================================================================
@@ -5181,7 +5337,7 @@ namespace NumC
 	inline NdArray<dtype> square(const NdArray<dtype>& inArray)
 	{
 		NdArray<dtype> returnArray(inArray.shape());
-		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sqr(inValue); });
+		std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return Utils::sqr(inValue); });
 
 		return std::move(returnArray);
 	}
@@ -5212,7 +5368,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		return std::move(inArray.sum<dtypeOut>(inAxis));
@@ -5377,7 +5533,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline dtypeOut trace(const NdArray<dtype>& inArray, uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW)
 	{
 		return std::move(inArray.trace<dtypeOut>(inOffset, inAxis));
@@ -5410,7 +5566,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> trapz(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 
@@ -5428,7 +5584,7 @@ namespace NumC
 	// Outputs:
 	//				NdArray
 	//
-	template<typename dtype, typename dtypeOut>
+	template<typename dtype, typename dtypeOut=double>
 	inline NdArray<dtypeOut> trapz(const NdArray<dtype>& inArrayX, const NdArray<dtype>& inArrayY, Axis::Type inAxis = Axis::NONE)
 	{
 
