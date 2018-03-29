@@ -2316,6 +2316,304 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing nanargmin: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(10, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if NumC.nanargmin(cArray, NumC.Axis.NONE).item() == np.nanargmin(data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanargmin: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(10, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nanargmin(cArray, NumC.Axis.ROW).getNumpyArray().flatten(), np.nanargmin(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanargmin: Axis = Column', 'cyan'))
+    shapeInput = np.random.randint(10, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nanargmin(cArray, NumC.Axis.COL).getNumpyArray().flatten(), np.nanargmin(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nancumprod: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 5, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 4, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nancumprod(cArray, NumC.Axis.NONE).getNumpyArray().flatten(), np.nancumprod(data, axis=None)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nancumprod: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 5, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 4, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nancumprod(cArray, NumC.Axis.ROW).getNumpyArray(), np.nancumprod(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nancumprod: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 5, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 4, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nancumprod(cArray, NumC.Axis.COL).getNumpyArray(), np.nancumprod(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nancumsum: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nancumsum(cArray, NumC.Axis.NONE).getNumpyArray().flatten(), np.nancumsum(data, axis=None)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nancumsum: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nancumsum(cArray, NumC.Axis.ROW).getNumpyArray(), np.nancumsum(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nancumsum: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 50, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nancumsum(cArray, NumC.Axis.COL).getNumpyArray(), np.nancumsum(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanmax: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if NumC.nanmax(cArray, NumC.Axis.NONE).item() == np.nanmax(data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanmax: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nanmax(cArray, NumC.Axis.ROW).getNumpyArray().flatten(),
+                      np.nanmax(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanmax: Axis = Column', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nanmax(cArray, NumC.Axis.COL).getNumpyArray().flatten(),
+                      np.nanmax(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanmin: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if NumC.nanmin(cArray, NumC.Axis.NONE).item() == np.nanmin(data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanmin: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nanmin(cArray, NumC.Axis.ROW).getNumpyArray().flatten(),
+                      np.nanmin(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanmin: Axis = Column', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nanmin(cArray, NumC.Axis.COL).getNumpyArray().flatten(),
+                      np.nanmin(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanprod: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 10, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if NumC.nanprod(cArray, NumC.Axis.NONE).item() == np.nanprod(data, axis=None):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanprod: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 10, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nanprod(cArray, NumC.Axis.ROW).getNumpyArray().flatten(), np.nanprod(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanprod: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 10, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nanprod(cArray, NumC.Axis.COL).getNumpyArray().flatten(), np.nanprod(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nansum: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if NumC.nansum(cArray, NumC.Axis.NONE).item() == np.nansum(data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nansum: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nansum(cArray, NumC.Axis.ROW).getNumpyArray().flatten(), np.nansum(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nansum: Axis = Column', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 4,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(NumC.nansum(cArray, NumC.Axis.COL).getNumpyArray().flatten(), np.nansum(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     return
 
     print(colored('Testing nbytes', 'cyan'))
@@ -2752,7 +3050,7 @@ def doTest():
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
-    data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32).astype(np.double)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if NumC.prod(cArray, NumC.Axis.NONE).item() == data.prod():
         print(colored('\tPASS', 'green'))
@@ -2763,7 +3061,7 @@ def doTest():
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
-    data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32).astype(np.double)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if np.array_equal(NumC.prod(cArray, NumC.Axis.ROW).getNumpyArray().flatten(), data.prod(axis=0)):
         print(colored('\tPASS', 'green'))
@@ -2774,7 +3072,7 @@ def doTest():
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumC.NdArray(shape)
-    data = np.random.randint(1, 15, [shape.rows, shape.cols], dtype=np.uint32).astype(np.double)
+    data = np.random.randint(1, 15, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if np.array_equal(NumC.prod(cArray, NumC.Axis.COL).getNumpyArray().flatten(), data.prod(axis=1)):
         print(colored('\tPASS', 'green'))
