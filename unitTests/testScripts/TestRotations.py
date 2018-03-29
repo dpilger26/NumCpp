@@ -27,7 +27,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing Array Constructor', 'cyan'))
-    quat = np.random.randint(1,10, [4,])
+    quat = np.random.randint(1,10, [4, ])
     unitQuat = quat / np.linalg.norm(quat)
     cArray = NumC.NdArray(1, 4)
     cArray.setArray(quat)
@@ -98,7 +98,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing fromDCM', 'cyan'))
-    quat = np.random.randint(1, 5, [4, ])
+    quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumC.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     dcm = cQuat.toDCM()
     cArray = NumC.NdArray(3)
@@ -132,8 +132,8 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing nlerp', 'cyan'))
-    myQuat1 = np.random.randint(1, 5, [4, ])
-    myQuat2 = np.random.randint(1, 5, [4, ])
+    myQuat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    myQuat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumC.Quaternion(myQuat1[0].item(), myQuat1[1].item(), myQuat1[2].item(), myQuat1[3].item())
     cQuat2 = NumC.Quaternion(myQuat2[0].item(), myQuat2[1].item(), myQuat2[2].item(), myQuat2[3].item())
     t = np.random.rand(1).item()
@@ -148,7 +148,7 @@ def doTest():
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing rotate', 'cyan'))
-    myQuat = np.random.randint(1, 5, [4, ])
+    myQuat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumC.Quaternion(myQuat[0].item(), myQuat[1].item(), myQuat[2].item(), myQuat[3].item())
     vec = np.random.rand(3, 1) * 10
     cVec = NumC.NdArray(3, 1)
@@ -161,8 +161,8 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing slerp', 'cyan'))
-    myQuat1 = np.random.randint(1, 5, [4, ])
-    myQuat2 = np.random.randint(1, 5, [4, ])
+    myQuat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    myQuat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumC.Quaternion(myQuat1[0].item(), myQuat1[1].item(), myQuat1[2].item(), myQuat1[3].item())
     cQuat2 = NumC.Quaternion(myQuat2[0].item(), myQuat2[1].item(), myQuat2[2].item(), myQuat2[3].item())
     t = np.random.rand(1).item()
@@ -174,7 +174,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing toDCM', 'cyan'))
-    quat = np.random.randint(1, 5, [4, ])
+    quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     unitQuat = quat / quatNorm(quat)
     cQuat = NumC.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     dcmPy = quat2dcm(unitQuat)
@@ -209,7 +209,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing ==', 'cyan'))
-    quat1 = np.random.randint(1, 5, [4, ])
+    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumC.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumC.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     if cQuat1 == cQuat2:
@@ -218,8 +218,8 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing !=', 'cyan'))
-    quat1 = np.random.randint(1, 5, [4, ])
-    quat2 = np.random.randint(1, 5, [4, ])
+    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumC.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumC.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     if cQuat1 != cQuat2:
@@ -228,8 +228,8 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing addition', 'cyan'))
-    quat1 = np.random.randint(1, 5, [4, ])
-    quat2 = np.random.randint(1, 5, [4, ])
+    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumC.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumC.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatAdd(quat1, quat2)
@@ -240,8 +240,8 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing subtraction', 'cyan'))
-    quat1 = np.random.randint(1, 5, [4, ])
-    quat2 = np.random.randint(1, 5, [4, ])
+    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumC.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumC.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatSub(quat1, quat2)
@@ -252,7 +252,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing muliplication: Scalar', 'cyan'))
-    quat = np.random.randint(1, 5, [4, ])
+    quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumC.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     res = cQuat * -1
     if np.array_equal(np.round(res.flatten(), 10), np.round(-quat / quatNorm(quat), 10)):
@@ -261,8 +261,8 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing muliplication: Quaternion', 'cyan'))
-    quat1 = np.random.randint(1, 5, [4, ])
-    quat2 = np.random.randint(1, 5, [4, ])
+    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumC.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumC.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatMult(quat1, quat2)
@@ -273,7 +273,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing muliplication: Array', 'cyan'))
-    quat = np.random.randint(1, 5, [4, ])
+    quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumC.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     array = np.random.randint(1, 5, [3, 1])
     cArray = NumC.NdArray(3, 1)
@@ -285,8 +285,8 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing division', 'cyan'))
-    quat1 = np.random.randint(1, 5, [4, ])
-    quat2 = np.random.randint(1, 5, [4, ])
+    quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
+    quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumC.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
     cQuat2 = NumC.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatDiv(quat1, quat2)

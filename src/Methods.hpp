@@ -1409,7 +1409,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype>
-	inline NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
+	inline NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
 		switch (inAxis)
 		{
@@ -3846,7 +3846,62 @@ namespace NumC
 	template<typename dtype>
 	inline NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				double sum = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
+					[](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
 
+				double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
+					[](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+
+				NdArray<double> returnArray = { sum /= numberNonNan };
+
+				return std::move(returnArray);
+			}
+			case Axis::COL:
+			{
+				Shape inShape = inArray.shape();
+				NdArray<double> returnArray(1, inShape.rows);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					double sum = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0, 
+						[](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+
+					double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
+						[](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+
+					returnArray(0, row) = sum / numberNonNan;
+				}
+
+				return std::move(returnArray);
+			}
+			case Axis::ROW:
+			{
+				NdArray<dtype> transposedArray = inArray.transpose();
+				Shape transShape = transposedArray.shape();
+				NdArray<double> returnArray(1, transShape.rows);
+				for (uint32 row = 0; row < transShape.rows; ++row)
+				{
+					double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
+						[](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+
+					double numberNonNan = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
+						[](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+
+					returnArray(0, row) = sum / numberNonNan;
+				}
+
+				return std::move(returnArray);
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<double>(0));
+			}
+		}
 	}
 
 	//============================================================================
@@ -3864,7 +3919,77 @@ namespace NumC
 	template<typename dtype>
 	inline NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				std::vector<dtype> values;
+				for (uint32 i = 0; i < inArray.size(); ++i)
+				{
+					if (!std::isnan(inArray[i]))
+					{
+						values.push_back(inArray[i]);
+					}
+				}
 
+				uint32 middle = static_cast<uint32>(values.size()) / 2;
+				std::nth_element(values.begin(), values.begin() + middle, values.end());
+				NdArray<dtype> returnArray = { values[middle] };
+
+				return std::move(returnArray);
+			}
+			case Axis::COL:
+			{
+				Shape inShape = inArray.shape();
+				NdArray<dtype> returnArray(1, inShape.rows);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					std::vector<dtype> values;
+					for (uint32 col = 0; col < inShape.cols; ++col)
+					{
+						if (!std::isnan(inArray(row, col)))
+						{
+							values.push_back(inArray(row, col));
+						}
+					}
+
+					uint32 middle = static_cast<uint32>(values.size()) / 2;
+					std::nth_element(values.begin(), values.begin() + middle, values.end());
+					returnArray(0, row) = values[middle];
+				}
+
+				return std::move(returnArray);
+			}
+			case Axis::ROW:
+			{
+				NdArray<dtype> transposedArray = inArray.transpose();
+				Shape inShape = transposedArray.shape();
+				NdArray<dtype> returnArray(1, inShape.rows);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					std::vector<dtype> values;
+					for (uint32 col = 0; col < inShape.cols; ++col)
+					{
+						if (!std::isnan(transposedArray(row, col)))
+						{
+							values.push_back(transposedArray(row, col));
+						}
+					}
+
+					uint32 middle = static_cast<uint32>(values.size()) / 2;
+					std::nth_element(values.begin(), values.begin() + middle, values.end());
+					returnArray(0, row) = values[middle];
+				}
+
+				return std::move(returnArray);
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<dtype>(0));
+			}
+		}
 	}
 
 	//============================================================================
@@ -3905,9 +4030,174 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut=double>
-	inline NdArray<double> nanpercentile(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+	inline NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis::Type inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
 	{
+		if (inPercentile < 0 || inPercentile > 100)
+		{
+			throw std::invalid_argument("ERROR: percentile: input percentile value must be of the range [0, 100].");
+		}
 
+		if (inInterpMethod.compare("linear") != 0 &&
+			inInterpMethod.compare("lower") != 0 &&
+			inInterpMethod.compare("higher") != 0 &&
+			inInterpMethod.compare("nearest") != 0 &&
+			inInterpMethod.compare("midpoint") != 0)
+		{
+			std::string errStr = "ERROR: percentile: input interpolation method is not a vaid option.\n";
+			errStr += "\tValid options are 'linear', 'lower', 'higher', 'nearest', 'midpoint'.";
+			throw std::invalid_argument(errStr);
+		}
+
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				if (inPercentile == 0)
+				{
+					for (uint32 i = 0; i < inArray.size(); ++i)
+					{
+						if (!isnan(inArray[i]))
+						{
+							NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(inArray[i]) };
+							return std::move(returnArray);
+						}
+					}
+					return std::move(NdArray<dtypeOut>(0));
+				}
+				else if (inPercentile == 1)
+				{
+					for (int32 i = static_cast<int32>(inArray.size()) - 1; i > -1; --i)
+					{
+						if (!isnan(inArray[i]))
+						{
+							NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(inArray[i]) };
+							return std::move(returnArray);
+						}
+					}
+					return std::move(NdArray<dtypeOut>(0));
+				}
+
+				std::vector<double> arrayCopy;
+				uint32 numNonNan = 0;
+				for (uint32 j = 0; j < inArray.size(); ++j)
+				{
+					if (!isnan(inArray[j]))
+					{
+						arrayCopy.push_back(inArray[j]);
+						++numNonNan;
+					}
+				}
+
+				if (arrayCopy.size() < 2)
+				{
+					return std::move(NdArray<dtypeOut>(0));
+				}
+
+				int32 i = static_cast<int32>(std::floor(static_cast<double>(numNonNan - 1) * inPercentile / 100.0));
+				uint32 indexLower = static_cast<uint32>(clip<int32>(i, 0, numNonNan - 2));
+
+				std::sort(arrayCopy.begin(), arrayCopy.end());
+
+				if (inInterpMethod.compare("linear") == 0)
+				{
+					double percentI = static_cast<double>(indexLower) / static_cast<double>(numNonNan - 1);
+					double fraction = (inPercentile / 100.0 - percentI) /
+						(static_cast<double>(indexLower + 1) / static_cast<double>(numNonNan - 1) - percentI);
+
+					double returnValue = arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction;
+					NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(returnValue) };
+					return std::move(returnArray);
+				}
+				else if (inInterpMethod.compare("lower") == 0)
+				{
+					NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(arrayCopy[indexLower]) };
+					return std::move(returnArray);
+				}
+				else if (inInterpMethod.compare("higher") == 0)
+				{
+					NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(arrayCopy[indexLower + 1]) };
+					return std::move(returnArray);
+				}
+				else if (inInterpMethod.compare("nearest") == 0)
+				{
+					double percent = inPercentile / 100.0;
+					double percent1 = static_cast<double>(indexLower) / static_cast<double>(numNonNan - 1);
+					double percent2 = static_cast<double>(indexLower + 1) / static_cast<double>(numNonNan - 1);
+					double diff1 = percent - percent1;
+					double diff2 = percent2 - percent;
+
+					switch (argmin<double>({ diff1, diff2 }).item())
+					{
+						case 0:
+						{
+							NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(arrayCopy[indexLower]) };
+							return std::move(returnArray);
+						}
+						case 1:
+						{
+							NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(arrayCopy[indexLower + 1]) };
+							return std::move(returnArray);
+						}
+					}
+				}
+				else if (inInterpMethod.compare("midpoint") == 0)
+				{
+					NdArray<dtypeOut> returnArray = { (arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0 };
+					return std::move(returnArray);
+				}
+			}
+			case Axis::COL:
+			{
+				Shape inShape = inArray.shape();
+
+				NdArray<dtypeOut> returnArray(1, inShape.rows);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					NdArray<dtypeOut> outValue = nanpercentile<dtype, dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
+						inPercentile, Axis::NONE, inInterpMethod);
+
+					if (outValue.size() == 1)
+					{
+						returnArray[row] = outValue.item();
+					}
+					else
+					{
+						returnArray[row] = Constants::nan;
+					}
+				}
+
+				return std::move(returnArray);
+			}
+			case Axis::ROW:
+			{
+				NdArray<dtype> arrayTrans = inArray.transpose();
+				Shape inShape = arrayTrans.shape();
+
+				NdArray<dtypeOut> returnArray(1, inShape.rows);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					NdArray<dtypeOut> outValue = nanpercentile<dtype, dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
+						inPercentile, Axis::NONE, inInterpMethod);
+
+					if (outValue.size() == 1)
+					{
+						returnArray[row] = outValue.item();
+					}
+					else
+					{
+						returnArray[row] = Constants::nan;
+					}
+				}
+
+				return std::move(returnArray);
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<dtypeOut>(0));
+			}
+		}
 	}
 
 	//============================================================================
@@ -4260,7 +4550,7 @@ namespace NumC
 	//				NdArray
 	//
 	template<typename dtype, typename dtypeOut=double>
-	inline NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis::Type inAxis = Axis::NONE, std::string inInterpMethod = "linear")
+	inline NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis::Type inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
 	{
 		if (inPercentile < 0 || inPercentile > 100)
 		{

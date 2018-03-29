@@ -117,7 +117,7 @@ namespace NumC
 					throw std::invalid_argument("ERROR: Rotations:::Quaternion::Quaternion(NdArray): input array must be of size = 4;");
 				}
 
-				double norm = std::sqrt(square(inArray).cumsum().item());
+				double norm = std::sqrt(square(inArray).sum().item());
 				data_[0] = inArray[0] / norm;
 				data_[1] = inArray[1] / norm;
 				data_[2] = inArray[2] / norm;

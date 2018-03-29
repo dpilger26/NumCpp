@@ -2634,21 +2634,19 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("minimum", &NumC::minimum<double>);
 	boost::python::def("mod", &NumC::mod<uint32>);
 	boost::python::def("multiply", &NumC::multiply<double>);
-
 	boost::python::def("nanargmax", &NumC::nanargmax<double>);
 	boost::python::def("nanargmin", &NumC::nanargmin<double>);
 	boost::python::def("nancumprod", &NumC::nancumprod<double, double>);
 	boost::python::def("nancumsum", &NumC::nancumsum<double, double>);
 	boost::python::def("nanmax", &NumC::nanmax<double>);
-	//boost::python::def("nanmean", &NumC::nanmean<double>);
-	//boost::python::def("nanmedian", &NumC::nanmedian<double>);
+	boost::python::def("nanmean", &NumC::nanmean<double>);
+	boost::python::def("nanmedian", &NumC::nanmedian<double>);
 	boost::python::def("nanmin", &NumC::nanmin<double>);
-	//boost::python::def("nanpercentile", &NumC::nanpercentile<double>);
+	boost::python::def("nanpercentile", &NumC::nanpercentile<double>);
 	boost::python::def("nanprod", &NumC::nanprod<double, double>);
 	//boost::python::def("nanstd", &NumC::nanstd<double>);
 	boost::python::def("nansum", &NumC::nansum<double, double>);
 	//boost::python::def("nanvar", &NumC::nanvar<double>);
-
 	boost::python::def("nbytes", &NumC::nbytes<double>);
 	boost::python::def("newbyteorder", &MethodsInterface::newbyteorderScalar<uint32>);
 	boost::python::def("newbyteorder", &MethodsInterface::newbyteorderArray<uint32>);
