@@ -280,6 +280,28 @@ namespace NumC
 
 		//============================================================================
 		// Method Description: 
+		//						Constructor
+		//		
+		// Inputs:
+		//				char* to beginning of buffer 
+		//				number of bytes
+		// Outputs:
+		//				None
+		//
+		NdArray(const dtype* inBeginning, uint32 inNumBytes) :
+			shape_(1, inNumBytes / sizeof(dtype)),
+			size_(shape_.size()),
+			endianess_(Endian::NATIVE),
+			array_(new dtype[size_])
+		{
+			for (uint32 i = 0; i < size_; ++i)
+			{
+				array_[i] = *(inBeginning + i);
+			}
+		}
+
+		//============================================================================
+		// Method Description: 
 		//						Copy Constructor
 		//		
 		// Inputs:

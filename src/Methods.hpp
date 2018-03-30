@@ -26,6 +26,7 @@
 
 #include<algorithm>
 #include<cmath>
+#include<fstream>
 #include<initializer_list>
 #include<iostream>
 #include<set>
@@ -2633,13 +2634,85 @@ namespace NumC
 	//				filename
 	//				seperator, Separator between items if file is a text file. Empty (“”) 
 	//							separator means the file should be treated as binary.
+	//							Right now the only supported seperators are " ", "\t", "\n"
 	// Outputs:
 	//				NdArray
 	//
 	template<typename dtype>
 	inline NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "")
 	{
+		boost::filesystem::path p(inFilename);
+		if (!boost::filesystem::exists(inFilename))
+		{
+			throw std::invalid_argument("ERROR: fromfile: input filename does not exist.\n\t" + inFilename);
+		}
+		
+		if (inSep.compare("") == 0)
+		{
+			// read in as binary file
+			std::ifstream in(inFilename.c_str(), std::ios::in | std::ios::binary);
+			in.seekg(0, in.end);
+			uint32 fileSize = static_cast<uint32>(in.tellg());
 
+			FILE* filePtr;
+			fopen_s(&filePtr, inFilename.c_str(), "rb");
+			if (filePtr == NULL)
+			{
+				throw std::runtime_error("ERROR: fromfile: unable to open the file.");
+			}
+
+			char* fileBuffer = new char[fileSize];
+			fread(fileBuffer, sizeof(char), fileSize, filePtr);
+			fclose(filePtr);
+
+			NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer), fileSize);
+			delete[] fileBuffer;
+
+			return std::move(returnArray);
+		}
+		else 
+		{
+			// read in as txt file
+			if (!(inSep.compare(" ") == 0 || inSep.compare("\t") == 0 || inSep.compare("\n") == 0))
+			{
+				throw std::invalid_argument("ERROR: fromfile: only [' ', '\\t', '\\n'] seperators are supported");
+			}
+
+			std::vector<dtype> values;
+
+			std::ifstream file(inFilename.c_str());
+			if (file.is_open()) 
+			{
+				while (!file.eof()) 
+				{
+					std::string line;
+					std::getline(file, line); 
+
+					std::istringstream iss(line);
+					do 
+					{
+						std::string sub;
+						iss >> sub;
+						
+						try
+						{
+							values.push_back(static_cast<dtype>(std::stod(sub)));
+						}
+						catch (const std::invalid_argument& /*ia*/)
+						{
+							//std::cout << "Warning: fromfile: " << ia.what() << std::endl;
+						}
+					} while (iss);
+				}
+				file.close();
+			}
+			else
+			{
+				throw std::runtime_error("ERROR: fromfile: unable to open file.");
+			}
+
+			return std::move(NdArray<dtype>(values));
+		}
 	}
 
 	//============================================================================
@@ -3258,7 +3331,7 @@ namespace NumC
 	template<typename dtype>
 	inline NdArray<dtype> load(const std::string& inFilename)
 	{
-
+		return std::move(fromfile<dtype>(inFilename, ""));
 	}
 
 	//============================================================================

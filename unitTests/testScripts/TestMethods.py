@@ -1402,8 +1402,8 @@ def doTest():
     tempFile = os.path.join(tempDir, 'NdArrayDump.bin')
     NumC.dump(cArray, tempFile)
     if os.path.exists(tempFile):
-        filesize = os.path.getsize(tempFile)
-        if filesize == data.size * 8:
+        data2 = np.fromfile(tempFile, dtype=np.double).reshape(shapeInput)
+        if np.array_equal(data, data2):
             print(colored('\tPASS', 'green'))
         else:
             print(colored('\tFAIL', 'red'))
@@ -1722,6 +1722,42 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing fromfile: bin', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
+    cArray.setArray(data)
+    tempDir = r'C:\Temp'
+    if not os.path.exists(tempDir):
+        os.mkdir(tempDir)
+    tempFile = os.path.join(tempDir, 'NdArrayDump.bin')
+    NumC.dump(cArray, tempFile)
+    data2 = NumC.fromfile(tempFile, '').reshape(shape)
+    if np.array_equal(data, data2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+    os.remove(tempFile)
+
+    print(colored('Testing fromfile: txt', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
+    cArray.setArray(data)
+    tempDir = r'C:\Temp'
+    if not os.path.exists(tempDir):
+        os.mkdir(tempDir)
+    tempFile = os.path.join(tempDir, 'NdArrayDump')
+    NumC.tofile(cArray, tempFile, '\n')
+    data2 = NumC.fromfile(tempFile + '.txt', '\n').reshape(shape)
+    if np.array_equal(data, data2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+    os.remove(tempFile + '.txt')
+
     print(colored('Testing full square', 'cyan'))
     shapeInput = np.random.randint(1, 100, [1,]).item()
     value = np.random.randint(1, 100, [1, ]).item()
@@ -1966,6 +2002,24 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing load', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
+    cArray.setArray(data)
+    tempDir = r'C:\Temp'
+    if not os.path.exists(tempDir):
+        os.mkdir(tempDir)
+    tempFile = os.path.join(tempDir, 'NdArrayDump.bin')
+    NumC.dump(cArray, tempFile)
+    data2 = NumC.load(tempFile).reshape(shape)
+    if np.array_equal(data, data2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+    os.remove(tempFile)
 
     print(colored('Testing linspace: include endPoint True', 'cyan'))
     start = np.random.randint(1, 10, [1, ]).item()
@@ -4183,7 +4237,11 @@ def doTest():
     filename = r'C:\Temp\temp'
     NumC.tofile(cArray, filename, '')
     if os.path.exists(filename + '.bin'):
-        print(colored('\tPASS', 'green'))
+        data2 = np.fromfile(filename + '.bin', np.double).reshape(shapeInput)
+        if np.array_equal(data, data2):
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
         os.remove(filename + '.bin')
     else:
         print(colored('\tFAIL', 'red'))
@@ -4197,7 +4255,11 @@ def doTest():
     filename = r'C:\Temp\temp'
     NumC.tofile(cArray, filename, '\n')
     if os.path.exists(filename + '.txt'):
-        print(colored('\tPASS', 'green'))
+        data2 = np.fromfile(filename + '.txt', dtype=np.double, sep='\n').reshape(shapeInput)
+        if np.array_equal(data, data2):
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
         os.remove(filename + '.txt')
     else:
         print(colored('\tFAIL', 'red'))

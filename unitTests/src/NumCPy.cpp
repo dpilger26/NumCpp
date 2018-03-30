@@ -2598,6 +2598,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("fmin", &MethodsInterface::fminArray<double>);
 	boost::python::def("fmod", &MethodsInterface::fmodScalar<uint32>);
 	boost::python::def("fmod", &MethodsInterface::fmodArray<uint32>);
+	boost::python::def("fromfile", &NumC::fromfile<double>);
 	boost::python::def("full", &MethodsInterface::fullSquare<double>);
 	boost::python::def("full", &MethodsInterface::fullRowCol<double>);
 	boost::python::def("full", &MethodsInterface::fullShape<double>);
@@ -2619,6 +2620,7 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("less", &NumC::less<double>);
 	boost::python::def("less_equal", &NumC::less_equal<double>);
 	boost::python::def("linspace", &NumC::linspace<double>);
+	boost::python::def("load", &NumC::load<double>);
 	boost::python::def("log", &MethodsInterface::logScalar<double>);
 	boost::python::def("log", &MethodsInterface::logArray<double>);
 	boost::python::def("log10", &MethodsInterface::log10Scalar<double>);
