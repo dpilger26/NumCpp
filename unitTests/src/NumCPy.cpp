@@ -2232,6 +2232,12 @@ namespace RotationsInterface
 		Rotations::Quaternion returnQuat = inQuat1 * inQuat2;
 		return numCToBoost(returnQuat.toNdArray());
 	}
+
+	template<typename dtype>
+	np::ndarray hatArray(const NdArray<dtype>& inArray)
+	{
+		return numCToBoost(Rotations::hat(inArray));
+	}
 }
 
 //================================================================================
@@ -2857,4 +2863,5 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("xRotationDCM", &Rotations::xRotationDCM<double>);
 	boost::python::def("yRotationDCM", &Rotations::yRotationDCM<double>);
 	boost::python::def("zRotationDCM", &Rotations::zRotationDCM<double>);
+	boost::python::def("hat", &RotationsInterface::hatArray<double>);
 }

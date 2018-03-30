@@ -343,6 +343,15 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing hat', 'cyan'))
+    xyz = np.random.randint(1, 5, [3,])
+    cArray = NumC.NdArray(1, 3)
+    cArray.setArray(xyz)
+    if np.array_equal(NumC.hat(cArray), hat(xyz)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
 ########################################################################################################################
 def quatNorm(quat):
     return np.linalg.norm(quat)
@@ -464,6 +473,10 @@ def rotateY(radians):
 ########################################################################################################################
 def rotateZ(radians):
     return np.matrix([[np.cos(radians), np.sin(radians), 0],[-np.sin(radians), np.cos(radians), 0],[0, 0, 1]])
+
+########################################################################################################################
+def hat(xyz):
+    return np.asarray([[0, -xyz[2], xyz[1]], [xyz[2], 0, -xyz[0]], [-xyz[1], xyz[0], 0]])
 
 ####################################################################################
 if __name__ == '__main__':

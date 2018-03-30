@@ -3094,7 +3094,7 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
-        
+
     print(colored('Testing nbytes', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
