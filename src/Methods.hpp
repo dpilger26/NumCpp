@@ -4242,7 +4242,82 @@ namespace NumC
 	template<typename dtype>
 	inline NdArray<double> nanstd(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
+		switch (inAxis)
+		{
+			case Axis::NONE:
+			{
+				double meanValue = nanmean(inArray, inAxis).item();
+				double sum = 0;
+				double counter = 0;
+				for (uint32 i = 0; i < inArray.size(); ++i)
+				{
+					if (std::isnan(inArray[i]))
+					{
+						continue;
+					}
 
+					sum += Utils::sqr(static_cast<double>(inArray[i]) - meanValue);
+					++counter;
+				}
+				NdArray<double> returnArray = { std::sqrt(sum / counter) };
+				return std::move(returnArray);
+			}
+			case Axis::COL:
+			{
+				Shape inShape = inArray.shape();
+				NdArray<double> meanValue = nanmean(inArray, inAxis);
+				NdArray<double> returnArray(1, inShape.rows);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					double sum = 0;
+					double counter = 0;
+					for (uint32 col = 0; col < inShape.cols; ++col)
+					{
+						if (std::isnan(inArray(row, col)))
+						{
+							continue;
+						}
+
+						sum += Utils::sqr(static_cast<double>(inArray(row, col)) - meanValue[row]);
+						++counter;
+					}
+					returnArray(0, row) = std::sqrt(sum / counter);
+				}
+
+				return std::move(returnArray);
+			}
+			case Axis::ROW:
+			{
+				NdArray<double> meanValue = nanmean(inArray, inAxis);
+				NdArray<dtype> transposedArray = inArray.transpose();
+				Shape inShape = transposedArray.shape();
+				NdArray<double> returnArray(1, inShape.rows);
+				for (uint32 row = 0; row < inShape.rows; ++row)
+				{
+					double sum = 0;
+					double counter = 0;
+					for (uint32 col = 0; col < inShape.cols; ++col)
+					{
+						if (std::isnan(transposedArray(row, col)))
+						{
+							continue;
+						}
+
+						sum += Utils::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
+						++counter;
+					}
+					returnArray(0, row) = std::sqrt(sum / counter);
+				}
+
+				return std::move(returnArray);
+			}
+			default:
+			{
+				// this isn't actually possible, just putting this here to get rid
+				// of the compiler warning.
+				return std::move(NdArray<double>(0));
+			}
+		}
 	}
 
 	//============================================================================
@@ -4287,7 +4362,12 @@ namespace NumC
 	template<typename dtype>
 	inline NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
 	{
-
+		NdArray<double> stdValues = nanstd(inArray, inAxis);
+		for (uint32 i = 0; i < stdValues.size(); ++i)
+		{
+			stdValues[i] *= stdValues[i];
+		}
+		return std::move(stdValues);
 	}
 
 	//============================================================================

@@ -2965,6 +2965,50 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing nanstd: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.round(NumC.nanstd(cArray, NumC.Axis.NONE).item(), 10) == np.round(np.nanstd(data), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanstd: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.nanstd(cArray, NumC.Axis.ROW).getNumpyArray().flatten(), 10),
+                      np.round(np.nanstd(data, axis=0), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanstd: Axis = Column', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.nanstd(cArray, NumC.Axis.COL).getNumpyArray().flatten(), 10),
+                      np.round(np.nanstd(data, axis=1), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing nansum: Axis = None', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -3007,6 +3051,50 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing nanvar: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.round(NumC.nanvar(cArray, NumC.Axis.NONE).item(), 9) == np.round(np.nanvar(data), 9):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanvar: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.nanvar(cArray, NumC.Axis.ROW).getNumpyArray().flatten(), 9),
+                      np.round(np.nanvar(data, axis=0), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nanvar: Axis = Column', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    data = data.flatten()
+    data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
+    data = data.reshape(shapeInput)
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.nanvar(cArray, NumC.Axis.COL).getNumpyArray().flatten(), 9),
+                      np.round(np.nanvar(data, axis=1), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+        
     print(colored('Testing nbytes', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
