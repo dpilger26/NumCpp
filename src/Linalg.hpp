@@ -19,11 +19,13 @@
 
 #pragma once
 
+#include"Methods.hpp"
 #include"NdArray.hpp"
 #include"Shape.hpp"
 #include"Types.hpp"
 
 #include<cmath>
+#include<initializer_list>
 #include<limits>
 #include<stdexcept>
 #include<utility>
@@ -895,6 +897,99 @@ namespace NumC
 			double threshold = inTolerance * svdSolver.s()[0];
 
 			return std::move(svdSolver.solve(inB, threshold));
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Raise a square matrix to the (integer) power n.
+		//
+		//						For positive integers n, the power is computed by repeated
+		//						matrix squarings and matrix multiplications.  If n == 0, 
+		//						the identity matrix of the same shape as M is returned.
+		//						If n < 0, the inverse is computed and then raised to the abs(n).
+		//		
+		// Inputs:
+		//				NdArray
+		//				power
+		//
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype, typename dtypeOut=double>
+		NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
+		{
+			Shape inShape = inArray.shape();
+			if (inShape.rows != inShape.cols)
+			{
+				throw std::invalid_argument("ERROR: Linalg::matrix_power: input matrix must be square.");
+			}
+
+			if (inPower == 0)
+			{
+				return std::move(identity<dtypeOut>(inShape.rows));
+			}
+			else if (inPower == 1)
+			{
+				return std::move(inArray.astype<dtypeOut>());
+			}
+			else if (inPower == -1)
+			{
+				return std::move(inv(inArray).astype<dtypeOut>());
+			}
+			else if (inPower > 1)
+			{
+				NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(inArray, inArray);
+				for (int16 i = 2; i < inPower; ++i)
+				{
+					returnArray = std::move(dot<dtype, dtypeOut>(returnArray, inArray));
+				}
+				return std::move(returnArray);
+			}
+			else
+			{
+				NdArray<double> inverse = inv(inArray);
+				NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(inverse, inverse);
+				for (int16 i = 2; i < std::abs(inPower); ++i)
+				{
+					returnArray = std::move(dot<dtype, dtypeOut>(returnArray, inverse));
+				}
+				return std::move(returnArray);
+			}
+		}
+
+		//============================================================================
+		// Method Description: 
+		//						Compute the dot product of two or more arrays in a single 
+		//						function call..
+		//		
+		// Inputs:
+		//				initializer_list<NdArray<dtype> >, list of arrays
+		//
+		// Outputs:
+		//				NdArray
+		//
+		template<typename dtype, typename dtypeOut=double>
+		NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
+		{
+			typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
+
+			if (inList.size() == 0)
+			{
+				throw std::invalid_argument("ERROR: Linalg::multi_dot: input empty list of arrays.");
+			}
+			else if (inList.size() == 1)
+			{
+				return std::move(iter->astype<dtypeOut>());
+			}
+
+			NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(*iter, *(iter + 1));
+			iter += 2;
+			for (; iter < inList.end(); ++iter)
+			{
+				returnArray = std::move(dot<dtype, dtypeOut>(returnArray, *(iter)));
+			}
+
+			return std::move(returnArray);
 		}
 
 		//============================================================================

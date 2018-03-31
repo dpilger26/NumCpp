@@ -2190,6 +2190,12 @@ namespace LinalgInterface
 	{
 		return numCToBoost(Linalg::hat(inArray));
 	}
+
+	template<typename dtype, typename dtypeOut>
+	np::ndarray multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+	{
+		return numCToBoost(Linalg::multi_dot<dtype, dtypeOut>({ inArray1 ,inArray2, inArray3, inArray4 }));
+	}
 }
 
 namespace RotationsInterface
@@ -2826,6 +2832,8 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("hat", &LinalgInterface::hatArray<double>);
 	boost::python::def("inv", &NumC::Linalg::inv<double>);
 	boost::python::def("lstsq", &NumC::Linalg::lstsq<double>);
+	boost::python::def("matrix_power", &NumC::Linalg::matrix_power<double, double>);
+	boost::python::def("multi_dot", &LinalgInterface::multi_dot<double, double>);
 	boost::python::def("svd", &NumC::Linalg::svd<double>);
 
 	// Rotations.hpp

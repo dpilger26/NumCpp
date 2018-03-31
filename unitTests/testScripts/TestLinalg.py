@@ -62,6 +62,86 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing matrix_power: power = 0', 'cyan'))
+    order = np.random.randint(5, 50, [1, ]).item()
+    shape = NumC.Shape(order)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumC.matrix_power(cArray, 0).getNumpyArray(), np.linalg.matrix_power(data, 0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing matrix_power: power = 1', 'cyan'))
+    order = np.random.randint(5, 50, [1, ]).item()
+    shape = NumC.Shape(order)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumC.matrix_power(cArray, 1).getNumpyArray(), np.linalg.matrix_power(data, 1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing matrix_power: power = -1', 'cyan'))
+    order = np.random.randint(5, 50, [1, ]).item()
+    shape = NumC.Shape(order)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.matrix_power(cArray, -1).getNumpyArray(), 9), np.round(np.linalg.matrix_power(data, -1), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing matrix_power: power > 1', 'cyan'))
+    order = np.random.randint(5, 50, [1, ]).item()
+    shape = NumC.Shape(order)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 5, [shape.rows, shape.cols]).astype(np.double)
+    cArray.setArray(data)
+    power = np.random.randint(2, 9, [1,]).item()
+    if np.array_equal(NumC.matrix_power(cArray, power).getNumpyArray(), np.linalg.matrix_power(data, power)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing matrix_power: power < -1', 'cyan'))
+    order = np.random.randint(5, 50, [1, ]).item()
+    shape = NumC.Shape(order)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 5, [shape.rows, shape.cols]).astype(np.double)
+    cArray.setArray(data)
+    power = np.random.randint(2, 9, [1,]).item() * -1
+    if np.array_equal(np.round(NumC.matrix_power(cArray, power).getNumpyArray(), 9), np.round(np.linalg.matrix_power(data, power), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing multi_dot', 'cyan'))
+    shapeInput = np.random.randint(5, 50, [2, ])
+    shape1 = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    shape2 = NumC.Shape(shape1.cols, np.random.randint(5, 50, [1, ]).item())
+    shape3 = NumC.Shape(shape2.cols, np.random.randint(5, 50, [1, ]).item())
+    shape4 = NumC.Shape(shape3.cols, np.random.randint(5, 50, [1, ]).item())
+    cArray1 = NumC.NdArray(shape1)
+    cArray2 = NumC.NdArray(shape2)
+    cArray3 = NumC.NdArray(shape3)
+    cArray4 = NumC.NdArray(shape4)
+    data1 = np.random.randint(1, 10, [shape1.rows, shape1.cols])
+    data2 = np.random.randint(1, 10, [shape2.rows, shape2.cols])
+    data3 = np.random.randint(1, 10, [shape3.rows, shape3.cols])
+    data4 = np.random.randint(1, 10, [shape4.rows, shape4.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    if np.array_equal(np.round(NumC.multi_dot(cArray1, cArray2, cArray3, cArray4), 9), np.round(np.linalg.multi_dot([data1, data2, data3, data4]), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing lstsq', 'cyan'))
     shapeInput = np.random.randint(5, 50, [2,])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
