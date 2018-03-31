@@ -9,9 +9,10 @@ def doTest():
     print(colored('Testing Linalg Module', 'magenta'))
 
     print(colored('Testing det: 2x2', 'cyan'))
-    shape = NumC.Shape(2, 2)
+    order = 2
+    shape = NumC.Shape(order)
     cArray = NumC.NdArray(shape)
-    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if round(NumC.det(cArray)) == round(np.linalg.det(data).item()):
         print(colored('\tPASS', 'green'))
@@ -19,9 +20,21 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing det: 3x3', 'cyan'))
-    shape = NumC.Shape(3, 3)
+    order = 3
+    shape = NumC.Shape(order)
     cArray = NumC.NdArray(shape)
-    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.double)
+    cArray.setArray(data)
+    if round(NumC.det(cArray)) == round(np.linalg.det(data).item()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing det: NxN', 'cyan'))
+    order = np.random.randint(4, 9, [1,]).item()
+    shape = NumC.Shape(order)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     if round(NumC.det(cArray)) == round(np.linalg.det(data).item()):
         print(colored('\tPASS', 'green'))
@@ -34,6 +47,48 @@ def doTest():
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).flatten()
     cArray.setArray(data)
     if np.array_equal(NumC.hat(cArray), hat(data)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing inv', 'cyan'))
+    order = np.random.randint(5, 50, [1,]).item()
+    shape = NumC.Shape(order)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumC.inv(cArray).getNumpyArray(), 9), np.round(np.linalg.inv(data), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing lstsq', 'cyan'))
+    shapeInput = np.random.randint(5, 50, [2,])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    aArray = NumC.NdArray(shape)
+    bArray = NumC.NdArray(1, shape.rows)
+    aData = np.random.randint(1, 100, [shape.rows, shape.cols])
+    bData = np.random.randint(1, 100, [shape.rows,])
+    aArray.setArray(aData)
+    bArray.setArray(bData)
+    x = NumC.lstsq(aArray, bArray, 1e-12).getNumpyArray().flatten()
+    if np.array_equal(np.round(x, 9), np.round(np.linalg.lstsq(aData, bData)[0], 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing svd', 'cyan'))
+    shapeInput = np.random.randint(5, 50, [2,])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    uArray = NumC.NdArray()
+    sArray = NumC.NdArray()
+    vArray = NumC.NdArray()
+    NumC.svd(cArray, uArray, sArray, vArray)
+    data2 = np.dot(uArray.getNumpyArray(), np.dot(sArray.getNumpyArray(), vArray.getNumpyArray().T))
+    if np.array_equal(np.round(data, 9), np.round(data2, 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

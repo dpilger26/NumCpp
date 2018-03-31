@@ -343,15 +343,6 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing hat', 'cyan'))
-    xyz = np.random.randint(1, 5, [3,])
-    cArray = NumC.NdArray(1, 3)
-    cArray.setArray(xyz)
-    if np.array_equal(NumC.hat(cArray), hat(xyz)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
 ########################################################################################################################
 def quatNorm(quat):
     return np.linalg.norm(quat)

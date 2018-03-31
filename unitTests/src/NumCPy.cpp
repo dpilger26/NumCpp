@@ -2824,6 +2824,9 @@ BOOST_PYTHON_MODULE(NumC)
 	// Linalg.hpp
 	boost::python::def("det", &NumC::Linalg::det<double>);
 	boost::python::def("hat", &LinalgInterface::hatArray<double>);
+	boost::python::def("inv", &NumC::Linalg::inv<double>);
+	boost::python::def("lstsq", &NumC::Linalg::lstsq<double>);
+	boost::python::def("svd", &NumC::Linalg::svd<double>);
 
 	// Rotations.hpp
 	bp::class_<Rotations::Quaternion>
@@ -2865,5 +2868,4 @@ BOOST_PYTHON_MODULE(NumC)
 	boost::python::def("xRotationDCM", &Rotations::xRotationDCM<double>);
 	boost::python::def("yRotationDCM", &Rotations::yRotationDCM<double>);
 	boost::python::def("zRotationDCM", &Rotations::zRotationDCM<double>);
-	boost::python::def("hat", &RotationsInterface::hatArray<double>);
 }

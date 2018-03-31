@@ -962,55 +962,5 @@ namespace NumC
 		{
 			return std::move(angleAxisRotationDCM<dtype>({ 0.0, 0.0, 1.0 }, inAngle));
 		}
-
-		//============================================================================
-		// Method Description: 
-		//						In statistics, the hat matrix H projects the observed values y of response variable to the predicted values yHat:
-		//						yHat = H*y
-		//		
-		// Inputs:
-		//				x
-		//				y
-		//				z
-		// Outputs:
-		//				NdArray
-		//
-		template<typename dtype>
-		inline NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
-		{
-			NdArray<dtype> returnArray(3);
-			returnArray(0, 0) = 0;
-			returnArray(0, 1) = -inZ;
-			returnArray(0, 2) = inY;
-			returnArray(1, 0) = inZ;
-			returnArray(1, 1) = 0;
-			returnArray(1, 2) = -inX;
-			returnArray(2, 0) = -inY;
-			returnArray(2, 1) = inX;
-			returnArray(2, 2) = 0;
-
-			return std::move(returnArray);
-		}
-
-		//============================================================================
-		// Method Description: 
-		//						In statistics, the hat matrix H projects the observed values y of response variable to the predicted values yHat:
-		//						yHat = H*y
-		//		
-		// Inputs:
-		//				NdArray of x,y,z vector
-		// Outputs:
-		//				NdArray
-		//
-		template<typename dtype>
-		inline NdArray<dtype> hat(const NdArray<dtype>& inVector)
-		{
-			if (inVector.size() != 3)
-			{
-				throw std::invalid_argument("ERROR: Rotations::hat: input vector should be of length 3.");
-			}
-
-			return std::move(hat(inVector[0], inVector[1], inVector[2]));
-		}
 	}
 }
