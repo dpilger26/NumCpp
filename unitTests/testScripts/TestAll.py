@@ -4,6 +4,7 @@ import TestTimer
 import TestNdArray
 import TestMethods
 import TestConstants
+import TestImageProcessing
 import TestLinalg
 import TestRandom
 import TestRotations
@@ -27,6 +28,7 @@ def doTest():
     TestRotations.doTest()
     TestPolynomial.doTest()
     TestFFT.doTest()
+    TestImageProcessing.doTest()
 
 #################################################################################
 if __name__ == '__main__':

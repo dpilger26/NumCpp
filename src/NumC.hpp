@@ -23,6 +23,7 @@
 #include"Constants.hpp"
 #include"DtypeInfo.hpp"
 #include"FFT.hpp"
+#include"ImageProcessing.hpp"
 #include"Linalg.hpp"
 #include"Methods.hpp"
 #include"NdArray.hpp"

@@ -19,13 +19,9 @@
 
 #pragma once
 
-#include"Types.hpp"
-#include"NdArray.hpp"
-
 namespace NumC
 {
-	//================================Linalg Namespace=============================
-	namespace Polynomial
+	namespace ImageProcessing
 	{
 
 	}
