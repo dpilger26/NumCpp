@@ -23,25 +23,25 @@
 
 namespace NumC
 {
-	//====================================Typedefs====================================
-	typedef int64_t		int64;
-	typedef int32_t		int32;
-	typedef int16_t		int16;
-	typedef int8_t		int8;
-	typedef uint64_t	uint64;
-	typedef uint32_t	uint32;
-	typedef uint16_t	uint16;
-	typedef uint8_t		uint8;
+    //====================================Typedefs====================================
+    typedef int64_t		int64;
+    typedef int32_t		int32;
+    typedef int16_t		int16;
+    typedef int8_t		int8;
+    typedef uint64_t	uint64;
+    typedef uint32_t	uint32;
+    typedef uint16_t	uint16;
+    typedef uint8_t		uint8;
 
-	//================================================================================
-	// Class Description:
-	//						Enum To describe an axis
-	//
-	struct Axis { enum Type { NONE = 0, ROW, COL }; };
+    //================================================================================
+    // Class Description:
+    //						Enum To describe an axis
+    //
+    struct Axis { enum Type { NONE = 0, ROW, COL }; };
 
-	//================================================================================
-	// Class Description:
-	//						Enum for endianess
-	//
-	struct Endian { enum Type { NATIVE = 0, BIG, LITTLE }; };
+    //================================================================================
+    // Class Description:
+    //						Enum for endianess
+    //
+    struct Endian { enum Type { NATIVE = 0, BIG, LITTLE }; };
 }

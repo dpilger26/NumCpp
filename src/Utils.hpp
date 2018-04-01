@@ -23,71 +23,71 @@
 
 namespace NumC
 {
-	namespace Utils
-	{
-		//============================================================================
-		// Method Description: 
-		//						Converts the number into a string
-		//		
-		// Inputs:
-		//				number
-		// Outputs:
-		//				string
-		//
-		template<typename dtype>
-		inline std::string num2str(dtype inNumber)
-		{
-			return std::to_string(inNumber);
-		}
+    namespace Utils
+    {
+        //============================================================================
+        // Method Description: 
+        //						Converts the number into a string
+        //		
+        // Inputs:
+        //				number
+        // Outputs:
+        //				string
+        //
+        template<typename dtype>
+        inline std::string num2str(dtype inNumber)
+        {
+            return std::to_string(inNumber);
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						Squares in input value
-		//		
-		// Inputs:
-		//				T
-		// Outputs:
-		//				T
-		//
-		template<typename T>
-		inline T sqr(T inValue)
-		{
-			return inValue * inValue;
-		}
+        //============================================================================
+        // Method Description: 
+        //						Squares in input value
+        //		
+        // Inputs:
+        //				T
+        // Outputs:
+        //				T
+        //
+        template<typename T>
+        inline T sqr(T inValue)
+        {
+            return inValue * inValue;
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						Cubes in input value
-		//		
-		// Inputs:
-		//				T
-		// Outputs:
-		//				T
-		//
-		template<typename T>
-		inline T cube(T inValue)
-		{
-			return inValue * inValue * inValue;
-		}
+        //============================================================================
+        // Method Description: 
+        //						Cubes in input value
+        //		
+        // Inputs:
+        //				T
+        // Outputs:
+        //				T
+        //
+        template<typename T>
+        inline T cube(T inValue)
+        {
+            return inValue * inValue * inValue;
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						raises the input value to a power
-		//		
-		// Inputs:
-		//				T
-		// Outputs:
-		//				T
-		//
-		template<typename T>
-		inline T power(T inValue, uint8 inPower)
-		{
-			T returnVal = 1;
-			for (uint8 i = 0; i < inPower; ++i)
-			{
-				returnVal *= inValue;
-			}
-			return returnVal;
-		}
-	}
+        //============================================================================
+        // Method Description: 
+        //						raises the input value to a power
+        //		
+        // Inputs:
+        //				T
+        // Outputs:
+        //				T
+        //
+        template<typename T>
+        inline T power(T inValue, uint8 inPower)
+        {
+            T returnVal = 1;
+            for (uint8 i = 0; i < inPower; ++i)
+            {
+                returnVal *= inValue;
+            }
+            return returnVal;
+        }
+    }
 }

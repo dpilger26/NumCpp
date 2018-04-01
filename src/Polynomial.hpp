@@ -24,9 +24,9 @@
 
 namespace NumC
 {
-	//================================Linalg Namespace=============================
-	namespace Polynomial
-	{
+    //================================Linalg Namespace=============================
+    namespace Polynomial
+    {
 
-	}
+    }
 }

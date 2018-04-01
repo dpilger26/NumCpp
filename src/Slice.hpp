@@ -27,184 +27,184 @@
 
 namespace NumC
 {
-	//================================================================================
-	// Class Description:
-	//						An object for slicing into NdArrays
-	//
-	class Slice
-	{
-	public:
-		//====================================Attributes==============================
-		int32	start;
-		int32	stop;
-		int32	step;
+    //================================================================================
+    // Class Description:
+    //						An object for slicing into NdArrays
+    //
+    class Slice
+    {
+    public:
+        //====================================Attributes==============================
+        int32	start;
+        int32	stop;
+        int32	step;
 
-		//============================================================================
-		// Method Description: 
-		//						Constructor
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		Slice() :
-			start(0),
-			stop(1),
-			step(1)
-		{};
+        //============================================================================
+        // Method Description: 
+        //						Constructor
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        Slice() :
+            start(0),
+            stop(1),
+            step(1)
+        {};
 
-		//============================================================================
-		// Method Description: 
-		//						Constructor
-		//		
-		// Inputs:
-		//				stop index (not included)
-		// Outputs:
-		//				None
-		//
-		explicit Slice(int32 inStop) :
-			start(0),
-			stop(inStop),
-			step(1)
-		{};
+        //============================================================================
+        // Method Description: 
+        //						Constructor
+        //		
+        // Inputs:
+        //				stop index (not included)
+        // Outputs:
+        //				None
+        //
+        explicit Slice(int32 inStop) :
+            start(0),
+            stop(inStop),
+            step(1)
+        {};
 
-		//============================================================================
-		// Method Description: 
-		//						Constructor
-		//		
-		// Inputs:
-		//				start index,
-		//				stop index (not included)
-		// Outputs:
-		//				None
-		//
-		Slice(int32 inStart, int32 inStop) :
-			start(inStart),
-			stop(inStop),
-			step(1)
-		{};
+        //============================================================================
+        // Method Description: 
+        //						Constructor
+        //		
+        // Inputs:
+        //				start index,
+        //				stop index (not included)
+        // Outputs:
+        //				None
+        //
+        Slice(int32 inStart, int32 inStop) :
+            start(inStart),
+            stop(inStop),
+            step(1)
+        {};
 
-		//============================================================================
-		// Method Description:
-		//						Constructor
-		//			
-		// Inputs:
-		//				start index,
-		//				stop index (not included)
-		//				step value
-		// Outputs:
-		//				None
-		//
-		Slice(int32 inStart, int32 inStop, int32 inStep) :
-			start(inStart),
-			stop(inStop),
-			step(inStep)
-		{};
+        //============================================================================
+        // Method Description:
+        //						Constructor
+        //			
+        // Inputs:
+        //				start index,
+        //				stop index (not included)
+        //				step value
+        // Outputs:
+        //				None
+        //
+        Slice(int32 inStart, int32 inStop, int32 inStep) :
+            start(inStart),
+            stop(inStop),
+            step(inStep)
+        {};
 
-		//============================================================================
-		// Method Description: 
-		//						prints the shape to the console
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		void print()
-		{
-			std::cout << *this;
-		}
+        //============================================================================
+        // Method Description: 
+        //						prints the shape to the console
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        void print()
+        {
+            std::cout << *this;
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						io operator for the Slice class
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
-		{
-			inOStream << "[" << inSlice.start << ":" << inSlice.stop << ":" << inSlice.step << "]" << std::endl;
-			return inOStream;
-		}
+        //============================================================================
+        // Method Description: 
+        //						io operator for the Slice class
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
+        {
+            inOStream << "[" << inSlice.start << ":" << inSlice.stop << ":" << inSlice.step << "]" << std::endl;
+            return inOStream;
+        }
 
-		//============================================================================
-		// Method Description:
-		//						Make the slice all positive and does some error checking
-		//			
-		// Inputs:
-		//				The calling array size
-		// Outputs:
-		//				None
-		//
-		void makePositiveAndValidate(uint32 inArraySize)
-		{
-			// convert the start value
-			if (start < 0)
-			{
-				start += inArraySize;
-			}
-			if (start > static_cast<int32>(inArraySize - 1))
-			{
-				throw std::invalid_argument("ERROR: Invalid start value for array of size " + Utils::num2str(inArraySize) + ".");
-			}
+        //============================================================================
+        // Method Description:
+        //						Make the slice all positive and does some error checking
+        //			
+        // Inputs:
+        //				The calling array size
+        // Outputs:
+        //				None
+        //
+        void makePositiveAndValidate(uint32 inArraySize)
+        {
+            // convert the start value
+            if (start < 0)
+            {
+                start += inArraySize;
+            }
+            if (start > static_cast<int32>(inArraySize - 1))
+            {
+                throw std::invalid_argument("ERROR: Invalid start value for array of size " + Utils::num2str(inArraySize) + ".");
+            }
 
-			// convert the stop value
-			if (stop < 0)
-			{
-				stop += inArraySize;
-			}
-			if (stop > static_cast<int32>(inArraySize))
-			{
-				throw std::invalid_argument("ERROR: Invalid stop value for array of size " + Utils::num2str(inArraySize) + ".");
-			}
+            // convert the stop value
+            if (stop < 0)
+            {
+                stop += inArraySize;
+            }
+            if (stop > static_cast<int32>(inArraySize))
+            {
+                throw std::invalid_argument("ERROR: Invalid stop value for array of size " + Utils::num2str(inArraySize) + ".");
+            }
 
-			// do some error checking
-			if (start < stop)
-			{
-				if (step < 0)
-				{
-					throw std::invalid_argument("ERROR: Invalid slice values.");
-				}
-			}
+            // do some error checking
+            if (start < stop)
+            {
+                if (step < 0)
+                {
+                    throw std::invalid_argument("ERROR: Invalid slice values.");
+                }
+            }
 
-			if (stop < start)
-			{
-				if (step > 0)
-				{
-					throw std::invalid_argument("ERROR: Invalid slice values.");
-				}
+            if (stop < start)
+            {
+                if (step > 0)
+                {
+                    throw std::invalid_argument("ERROR: Invalid slice values.");
+                }
 
-				// otherwise flip things around for my own sanity
-				std::swap(start, stop);
-				step *= -1;
-			}
-		}
+                // otherwise flip things around for my own sanity
+                std::swap(start, stop);
+                step *= -1;
+            }
+        }
 
-		//============================================================================
-		// Method Description:
-		//						returns the number of elements that the slice contains.
-		//						be aware that this method will also make the slice all 
-		//						positive!
-		//			
-		// Inputs:
-		//				The calling array size
-		// Outputs:
-		//				None
-		//
-		uint32 numElements(uint32 inArraySize)
-		{
-			makePositiveAndValidate(inArraySize);
+        //============================================================================
+        // Method Description:
+        //						returns the number of elements that the slice contains.
+        //						be aware that this method will also make the slice all 
+        //						positive!
+        //			
+        // Inputs:
+        //				The calling array size
+        // Outputs:
+        //				None
+        //
+        uint32 numElements(uint32 inArraySize)
+        {
+            makePositiveAndValidate(inArraySize);
 
-			uint32 num = 0;
-			for (int32 i = start; i < stop; i += step)
-			{
-				++num;
-			}
-			return num;
-		}
-	};
+            uint32 num = 0;
+            for (int32 i = start; i < stop; i += step)
+            {
+                ++num;
+            }
+            return num;
+        }
+    };
 }

@@ -26,12 +26,12 @@
 
 namespace NumC
 {
-	//================================Constants====================================
-	namespace Constants
-	{
-		const double e = 2.718281828459045;
-		const double pi = 3.14159265358979323846;
-		const double nan = std::nan("1");
-		const std::string version = "0.1";
-	}
+    //================================Constants====================================
+    namespace Constants
+    {
+        const double e = 2.718281828459045;
+        const double pi = 3.14159265358979323846;
+        const double nan = std::nan("1");
+        const std::string version = "0.1";
+    }
 }

@@ -24,117 +24,117 @@
 
 namespace NumC
 {
-	//================================================================================
-	// Class Description:
-	//						A timer class for timing code execution
-	//
-	template<typename TimeUnit = std::chrono::milliseconds>
-	class Timer
-	{
-	public:
-		//==============================Typedefs======================================
-		typedef std::chrono::high_resolution_clock		ChronoClock;
-		typedef std::chrono::time_point<ChronoClock>	TimePoint;
+    //================================================================================
+    // Class Description:
+    //						A timer class for timing code execution
+    //
+    template<typename TimeUnit = std::chrono::milliseconds>
+    class Timer
+    {
+    public:
+        //==============================Typedefs======================================
+        typedef std::chrono::high_resolution_clock		ChronoClock;
+        typedef std::chrono::time_point<ChronoClock>	TimePoint;
 
-	private:
-		//==============================Attributes====================================
-		std::string		name_;
-		std::string		unit_;
-		TimePoint		start_;
+    private:
+        //==============================Attributes====================================
+        std::string		name_;
+        std::string		unit_;
+        TimePoint		start_;
 
-		void setUnits()
-		{
-			if (std::is_same<TimeUnit, std::chrono::hours>::value)
-			{
-				unit_ = " hours";
-			}
-			else if (std::is_same<TimeUnit, std::chrono::minutes>::value)
-			{
-				unit_ = " minutes";
-			}
-			else if (std::is_same<TimeUnit, std::chrono::seconds>::value)
-			{
-				unit_ = " seconds";
-			}
-			else if (std::is_same<TimeUnit, std::chrono::milliseconds>::value)
-			{
-				unit_ = " milliseconds";
-			}
-			else if (std::is_same<TimeUnit, std::chrono::microseconds>::value)
-			{
-				unit_ = " microseconds";
-			}
-			else if (std::is_same<TimeUnit, std::chrono::nanoseconds>::value)
-			{
-				unit_ = " nanoseconds";
-			}
-			else
-			{
-				unit_ = " time units of some sort";
-			}
-		}
+        void setUnits()
+        {
+            if (std::is_same<TimeUnit, std::chrono::hours>::value)
+            {
+                unit_ = " hours";
+            }
+            else if (std::is_same<TimeUnit, std::chrono::minutes>::value)
+            {
+                unit_ = " minutes";
+            }
+            else if (std::is_same<TimeUnit, std::chrono::seconds>::value)
+            {
+                unit_ = " seconds";
+            }
+            else if (std::is_same<TimeUnit, std::chrono::milliseconds>::value)
+            {
+                unit_ = " milliseconds";
+            }
+            else if (std::is_same<TimeUnit, std::chrono::microseconds>::value)
+            {
+                unit_ = " microseconds";
+            }
+            else if (std::is_same<TimeUnit, std::chrono::nanoseconds>::value)
+            {
+                unit_ = " nanoseconds";
+            }
+            else
+            {
+                unit_ = " time units of some sort";
+            }
+        }
 
-	public:
-		//============================================================================
-		// Method Description: 
-		//						Constructor
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		Timer() :
-			name_(""),
-			unit_("")
-		{
-			setUnits();
-		}
+    public:
+        //============================================================================
+        // Method Description: 
+        //						Constructor
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        Timer() :
+            name_(""),
+            unit_("")
+        {
+            setUnits();
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						Constructor
-		//		
-		// Inputs:
-		//				Timer name
-		// Outputs:
-		//				None
-		//
-		Timer(const std::string& inName) :
-			name_(inName + " "),
-			unit_("")
-		{
-			setUnits();
-		}
+        //============================================================================
+        // Method Description: 
+        //						Constructor
+        //		
+        // Inputs:
+        //				Timer name
+        // Outputs:
+        //				None
+        //
+        Timer(const std::string& inName) :
+            name_(inName + " "),
+            unit_("")
+        {
+            setUnits();
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						Starts the timer
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		void tic()
-		{
-			start_ = ChronoClock::now();
-		}
+        //============================================================================
+        // Method Description: 
+        //						Starts the timer
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        void tic()
+        {
+            start_ = ChronoClock::now();
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						Stops the timer
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		int64 toc()
-		{
-			__int64 duration = std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count();
-			std::cout << name_ << "Elapsed Time = " << duration << unit_ << std::endl;
-			return static_cast<uint64>(duration);
-		}
-	};
+        //============================================================================
+        // Method Description: 
+        //						Stops the timer
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        int64 toc()
+        {
+            __int64 duration = std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count();
+            std::cout << name_ << "Elapsed Time = " << duration << unit_ << std::endl;
+            return static_cast<uint64>(duration);
+        }
+    };
 }

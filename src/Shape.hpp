@@ -26,145 +26,145 @@
 
 namespace NumC
 {
-	//================================================================================
-	// Class Description:
-	//						An object for slicing into NdArrays
-	//
-	class Shape
-	{
-	public:
-		//====================================Attributes==============================
-		uint32	rows;
-		uint32	cols;
+    //================================================================================
+    // Class Description:
+    //						An object for slicing into NdArrays
+    //
+    class Shape
+    {
+    public:
+        //====================================Attributes==============================
+        uint32	rows;
+        uint32	cols;
 
-		//============================================================================
-		// Method Description: 
-		//						Constructor
-		//		
-		// Inputs:
-		//				number of rows,
-		//				number of cols
-		// Outputs:
-		//				None
-		//
-		Shape() :
-			rows(0),
-			cols(0)
-		{};
+        //============================================================================
+        // Method Description: 
+        //						Constructor
+        //		
+        // Inputs:
+        //				number of rows,
+        //				number of cols
+        // Outputs:
+        //				None
+        //
+        Shape() :
+            rows(0),
+            cols(0)
+        {};
 
-		//============================================================================
-		// Method Description: 
-		//						Constructor
-		//		
-		// Inputs:
-		//				number of rows and cols
-		// Outputs:
-		//				None
-		//
-		explicit Shape(uint32 inSquareSize) :
-			rows(inSquareSize),
-			cols(inSquareSize)
-		{};
+        //============================================================================
+        // Method Description: 
+        //						Constructor
+        //		
+        // Inputs:
+        //				number of rows and cols
+        // Outputs:
+        //				None
+        //
+        explicit Shape(uint32 inSquareSize) :
+            rows(inSquareSize),
+            cols(inSquareSize)
+        {};
 
-		//============================================================================
-		// Method Description: 
-		//						Constructor
-		//		
-		// Inputs:
-		//				number of rows,
-		//				number of cols
-		// Outputs:
-		//				None
-		//
-		Shape(uint32 inRows, uint32 inCols) :
-			rows(inRows),
-			cols(inCols)
-		{};
+        //============================================================================
+        // Method Description: 
+        //						Constructor
+        //		
+        // Inputs:
+        //				number of rows,
+        //				number of cols
+        // Outputs:
+        //				None
+        //
+        Shape(uint32 inRows, uint32 inCols) :
+            rows(inRows),
+            cols(inCols)
+        {};
 
-		//============================================================================
-		// Method Description: 
-		//						equality operator
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		bool operator==(const Shape& inOtherShape) const
-		{
-			return rows == inOtherShape.rows && cols == inOtherShape.cols;
-		}
+        //============================================================================
+        // Method Description: 
+        //						equality operator
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        bool operator==(const Shape& inOtherShape) const
+        {
+            return rows == inOtherShape.rows && cols == inOtherShape.cols;
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						not equality operator
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		bool operator!=(const Shape& inOtherShape) const
-		{
-			return !(*this == inOtherShape);
-		}
+        //============================================================================
+        // Method Description: 
+        //						not equality operator
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        bool operator!=(const Shape& inOtherShape) const
+        {
+            return !(*this == inOtherShape);
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						returns the size of the shape
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				size
-		//
-		uint32 size() const
-		{
-			return rows * cols;
-		}
+        //============================================================================
+        // Method Description: 
+        //						returns the size of the shape
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				size
+        //
+        uint32 size() const
+        {
+            return rows * cols;
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						returns whether the shape is null (constructed with the 
-		//						default constructor).
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				bool
-		//
-		bool isnull ()
-		{
-			return rows == 0 && cols == 0;
-		}
+        //============================================================================
+        // Method Description: 
+        //						returns whether the shape is null (constructed with the 
+        //						default constructor).
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				bool
+        //
+        bool isnull()
+        {
+            return rows == 0 && cols == 0;
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						prints the shape to the console
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		void print()
-		{
-			std::cout << *this;
-		}
+        //============================================================================
+        // Method Description: 
+        //						prints the shape to the console
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        void print()
+        {
+            std::cout << *this;
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						io operator for the Shape class
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				None
-		//
-		friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape)
-		{
-			inOStream << "[" << inShape.rows << ", " << inShape.cols << "]" << std::endl;
-			return inOStream;
-		}
-	};
+        //============================================================================
+        // Method Description: 
+        //						io operator for the Shape class
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape)
+        {
+            inOStream << "[" << inShape.rows << ", " << inShape.cols << "]" << std::endl;
+            return inOStream;
+        }
+    };
 }

@@ -23,84 +23,84 @@
 
 namespace NumC
 {
-	//================================================================================
-	// Class Description:
-	//						holds info about the dtype
-	//
-	template<typename dtype>
-	class DtypeInfo
-	{
-	public:
-		//============================================================================
-		// Method Description: 
-		//						For integer types: number of non-sign bits in the representation.
-		//						For floating types : number of digits(in radix base) in the mantissa
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				number of bits
-		//
-		static constexpr dtype bits()
-		{
-			return std::numeric_limits<dtype>::digits;
-		}
+    //================================================================================
+    // Class Description:
+    //						holds info about the dtype
+    //
+    template<typename dtype>
+    class DtypeInfo
+    {
+    public:
+        //============================================================================
+        // Method Description: 
+        //						For integer types: number of non-sign bits in the representation.
+        //						For floating types : number of digits(in radix base) in the mantissa
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				number of bits
+        //
+        static constexpr dtype bits()
+        {
+            return std::numeric_limits<dtype>::digits;
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						Machine epsilon (the difference between 1 and the least 
-		//						value greater than 1 that is representable).
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				dtype
-		//
-		static constexpr dtype epsilon()
-		{
-			return std::numeric_limits<dtype>::epsilon();
-		}
+        //============================================================================
+        // Method Description: 
+        //						Machine epsilon (the difference between 1 and the least 
+        //						value greater than 1 that is representable).
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				dtype
+        //
+        static constexpr dtype epsilon()
+        {
+            return std::numeric_limits<dtype>::epsilon();
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						true if type is integer.
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				bool
-		//
-		static constexpr bool isInteger()
-		{
-			return std::numeric_limits<dtype>::is_integer;
-		}
+        //============================================================================
+        // Method Description: 
+        //						true if type is integer.
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				bool
+        //
+        static constexpr bool isInteger()
+        {
+            return std::numeric_limits<dtype>::is_integer;
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						Returns the minimum value of the dtype
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				min value
-		//
-		static constexpr dtype min()
-		{
-			return std::numeric_limits<dtype>::min();
-		}
+        //============================================================================
+        // Method Description: 
+        //						Returns the minimum value of the dtype
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				min value
+        //
+        static constexpr dtype min()
+        {
+            return std::numeric_limits<dtype>::min();
+        }
 
-		//============================================================================
-		// Method Description: 
-		//						Returns the maximum value of the dtype
-		//		
-		// Inputs:
-		//				None
-		// Outputs:
-		//				max value
-		//
-		static constexpr dtype max()
-		{
-			return std::numeric_limits<dtype>::max();
-		}
-	};
+        //============================================================================
+        // Method Description: 
+        //						Returns the maximum value of the dtype
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				max value
+        //
+        static constexpr dtype max()
+        {
+            return std::numeric_limits<dtype>::max();
+        }
+    };
 }

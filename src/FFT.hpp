@@ -24,9 +24,9 @@
 
 namespace NumC
 {
-	//================================Linalg Namespace=============================
-	namespace FFT
-	{
+    //================================Linalg Namespace=============================
+    namespace FFT
+    {
 
-	}
+    }
 }
