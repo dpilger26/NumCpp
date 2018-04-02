@@ -77,6 +77,20 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
+        //						true if type is signed.
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				bool
+        //
+        static constexpr bool isSigned()
+        {
+            return std::numeric_limits<dtype>::is_signed;
+        }
+
+        //============================================================================
+        // Method Description: 
         //						Returns the minimum value of the dtype
         //		
         // Inputs:

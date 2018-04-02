@@ -83,7 +83,7 @@ namespace NumC
     template<typename dtype, typename dtypeOut = double>
     inline NdArray<dtypeOut> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return std::move(inArray1 + inArray2);
+        return std::move(inArray1.astype<dtypeOut>() + inArray2.astype<dtypeOut>());
     }
 
     //============================================================================
@@ -1592,7 +1592,7 @@ namespace NumC
             {
                 // this isn't actually possible, just putting this here to get rid
                 // of the compiler warning.
-                return std::move(NdArray<dtype>(0));
+                return std::move(NdArray<dtypeOut>(0));
             }
         }
     }
@@ -2781,7 +2781,7 @@ namespace NumC
     template<typename dtype, typename dtypeOut = double>
     inline NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue)
     {
-        return std::move(full(inArray.shape(), inFillValue));
+        return std::move(full(inArray.shape(), static_cast<dtypeOut>(inFillValue)));
     }
 
     //============================================================================
@@ -4786,7 +4786,7 @@ namespace NumC
                 }
                 else if (inInterpMethod.compare("midpoint") == 0)
                 {
-                    NdArray<dtypeOut> returnArray = { (arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0 };
+                    NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>((arrayCopy[indexLower] + arrayCopy[indexLower + 1]) / 2.0) };
                     return std::move(returnArray);
                 }
             }
@@ -5010,7 +5010,7 @@ namespace NumC
         NdArray<dtypeOut> returnArray(inArray.shape());
         for (uint32 i = 0; i < returnArray.size(); ++i)
         {
-            returnArray[i] = static_cast<dtypeOut>(1) / inArray[i];
+            returnArray[i] = static_cast<dtypeOut>(1.0 / static_cast<double>(inArray[i]));
         }
 
         return std::move(returnArray);

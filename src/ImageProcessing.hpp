@@ -21,6 +21,10 @@
 #include<NdArray.hpp>
 #include<Types.hpp>
 
+#include<cmath>
+#include<limits>
+#include<set>
+#include<utility>
 #include<vector>
 
 namespace NumC
@@ -368,571 +372,1380 @@ namespace NumC
 
             }
         }
-    }
 
-    //================================================================================
-    // Class Description:
-    //						holds the information for a single pixel
-    //
-    template<typename dtype>
-    class Pixel
-    {
-    private:
-        //==================================Attributes================================//
-        int32	clusterId_;
-        uint32	row_;
-        uint32	col_;
-        dtype	intensity_;
-
-    public:
-        // =============================================================================
-        // Description:
-        //              defualt constructor needed by containers
-        // 
-        // Inputs:
-        //              None
-        // 
-        // Outputs:
-        //              None
+        //================================================================================
+        // Class Description:
+        //						holds the information for a single pixel
         //
-        Pixel() :
-            clusterId_(-1),
-            row_(0),
-            col_(0),
-            intensity_(0)
-        {};
-
-        // =============================================================================
-        // Description:
-        //              constructor
-        // 
-        // Inputs:
-        //              pixel row,
-        //              pixel column,
-        //              pixel intensity
-        // 
-        // Outputs:
-        //              None
-        //
-        Pixel(uint32 inRow, uint32 inCol, type inIntensity) :
-            clusterId_(-1),
-            row_(inRow),
-            col_(inCol),
-            intensity_(inIntensity)
-        {};
-
-        // =============================================================================
-        // Description:
-        //              returns the cluster id that this pixel belongs to
-        // 
-        // Inputs:
-        //              None
-        // 
-        // Outputs:
-        //              cluster id
-        //
-        int32 clusterId() const
+        template<typename dtype>
+        class Pixel
         {
-            return clusterId_;
-        }
+        private:
+            //==================================Attributes================================//
+            int32	clusterId_;
+            uint32	row_;
+            uint32	col_;
+            dtype	intensity_;
 
-        // =============================================================================
-        // Description:
-        //              sets the cluster id that this pixel belongs to
-        // 
-        // Inputs:
-        //              cluster id
-        // 
-        // Outputs:
-        //              None
-        //
-        void setClusterId(int32 inClusterId)
-        {
-            if (inClusterId < 0)
+        public:
+            // =============================================================================
+            // Description:
+            //              defualt constructor needed by containers
+            // 
+            // Inputs:
+            //              None
+            // 
+            // Outputs:
+            //              None
+            //
+            Pixel() :
+                clusterId_(-1),
+                row_(0),
+                col_(0),
+                intensity_(0)
+            {};
+
+            // =============================================================================
+            // Description:
+            //              constructor
+            // 
+            // Inputs:
+            //              pixel row,
+            //              pixel column,
+            //              pixel intensity
+            // 
+            // Outputs:
+            //              None
+            //
+            Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) :
+                clusterId_(-1),
+                row_(inRow),
+                col_(inCol),
+                intensity_(inIntensity)
+            {};
+
+            // =============================================================================
+            // Description:
+            //              equality operator
+            // 
+            // Inputs:
+            //              None
+            // 
+            // Outputs:
+            //              bool
+            //
+            bool operator==(const Pixel<dtype>& rhs) const
             {
-                throw std::invalid_argument("ERROR: ImageProcessing::Pixel::setClusterId: input cluster id must be greater than or equal to 0.");
+                return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_;
             }
 
-            clusterId_ = inClusterId;
-        }
+            // =============================================================================
+            // Description:
+            //              not equality operator
+            // 
+            // Inputs:
+            //              None
+            // 
+            // Outputs:
+            //              bool
+            //
+            bool operator!=(const Pixel<dtype>& rhs) const
+            {
+                return !(*this == rhs);
+            }
+
+            // =============================================================================
+            // Description:
+            //              less than operator for std::sort algorithm and std::set<>;
+            //              NOTE: std::sort sorts in ascending order. Since I want to sort 
+            //              the centroids in descensing order, I am purposefully defining
+            //              this operator backwards!
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              None
+            //
+            bool operator<(const Pixel<dtype>& rhs) const
+            {
+                if (row_ < rhs.row_)
+                {
+                    return true;
+                }
+                else if (row_ == rhs.row_)
+                {
+                    if (col_ < rhs.col_)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the cluster id that this pixel belongs to
+            // 
+            // Inputs:
+            //              None
+            // 
+            // Outputs:
+            //              cluster id
+            //
+            int32 clusterId() const
+            {
+                return clusterId_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              sets the cluster id that this pixel belongs to
+            // 
+            // Inputs:
+            //              cluster id
+            // 
+            // Outputs:
+            //              None
+            //
+            void setClusterId(int32 inClusterId)
+            {
+                if (inClusterId < 0)
+                {
+                    throw std::invalid_argument("ERROR: ImageProcessing::Pixel::setClusterId: input cluster id must be greater than or equal to 0.");
+                }
+
+                clusterId_ = inClusterId;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the pixel row
+            // 
+            // Inputs:
+            //              None
+            // 
+            // Outputs:
+            //              row
+            //
+            uint32 row() const
+            {
+                return row_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the pixel column
+            // 
+            // Inputs:
+            //              None
+            // 
+            // Outputs:
+            //              column
+            //
+            uint32 col() const
+            {
+                return col_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the pixel intensity
+            // 
+            // Inputs:
+            //              None
+            // 
+            // Outputs:
+            //              intensity
+            //
+            dtype intensity() const
+            {
+                return intensity_;
+            }
+        };
+
+        //================================================================================
+        // Class Description:
+        //						holds the information for a cluster of pixels
+        //
+        template<typename dtype>
+        class Cluster
+        {
+        public:
+            // ================================Typedefs===============================
+            typedef typename std::vector<Pixel<dtype> >::const_iterator    const_iterator;
+
+        private:
+            // ================================Attributes===============================
+            uint32                      clusterId_;
+            std::vector<Pixel<dtype> >  pixels_;
+
+            uint32				        rowMin_;
+            uint32				        rowMax_;
+            uint32				        colMin_;
+            uint32				        colMax_;
+
+            dtype				        intensity_;
+            dtype                       peakPixelIntensity_;
+
+            double                      eod_;
+
+        public:
+            // =============================================================================
+            // Description:
+            //              default constructor needed by containers
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              None
+            //
+            Cluster(uint32 inClusterId) :
+                clusterId_(inClusterId),
+                rowMin_(std::numeric_limits<uint32>::max()), // largest possible number
+                rowMax_(0),
+                colMin_(std::numeric_limits<uint32>::max()), // largest possible number
+                colMax_(0),
+                intensity_(0),
+                peakPixelIntensity_(0),
+                eod_(1.0)
+            {};
+
+            // =============================================================================
+            // Description:
+            //              equality operator
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              bool
+            //
+            bool operator==(const Cluster<dtype>& rhs) const
+            {
+                if (pixels_.size() != rhs.pixels_.size())
+                {
+                    return false;
+                }
+
+                for (uint32 i = 0; i < pixels_.size(); ++i)
+                {
+                    if (pixels_[i] != rhs.pixels_[i])
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            // =============================================================================
+            // Description:
+            //              not equality operator
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              bool
+            //
+            bool operator!=(const Cluster<dtype>& rhs) const
+            {
+                return !(*this == rhs);
+            }
+
+            // =============================================================================
+            // Description:
+            //              access operator, no bounds checking
+            // 
+            // Parameter(s): 
+            //              index
+            // 
+            // Return: 
+            //              Pixel
+            //
+            const Pixel<dtype>& operator[](uint32 inIndex) const
+            {
+                return pixels_[inIndex];
+            }
+
+            // =============================================================================
+            // Description:
+            //              access method with bounds checking
+            // 
+            // Parameter(s): 
+            //              index
+            // 
+            // Return: 
+            //              Pixel
+            //
+            const Pixel<dtype>& at(uint32 inIndex) const
+            {
+                if (inIndex >= pixels_.size())
+                {
+                    throw std::invalid_argument("ERROR: ImageProcessing::Cluster::at: index exceeds cluster size.");
+                }
+                return pixels_[inIndex];
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns in iterator to the beginning pixel of the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              const_iterator
+            //
+            const_iterator begin() const
+            {
+                return pixels_.cbegin();
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns in iterator to the 1 past the end pixel of the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              const_iterator
+            //
+            const_iterator end() const
+            {
+                return pixels_.cend();
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the number of pixels in the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              number of pixels in the cluster
+            //
+            uint32 size() const
+            {
+                return static_cast<uint32>(pixels_.size());
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the minimum row number of the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              minimum row number of the cluster
+            //
+            uint32 clusterId() const
+            {
+                return clusterId_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the minimum row number of the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              minimum row number of the cluster
+            //
+            uint32 rowMin() const
+            {
+                return rowMin_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the maximum row number of the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              maximum row number of the cluster
+            //
+            uint32 rowMax() const
+            {
+                return rowMax_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the minimum column number of the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              minimum column number of the cluster
+            //
+            uint32 colMin() const
+            {
+                return colMin_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the maximum column number of the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              maximum column number of the cluster
+            //
+            uint32 colMax() const
+            {
+                return colMax_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the number of rows the cluster spans
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              number of rows
+            //
+            uint32 height() const
+            {
+                return rowMax_ - rowMin_ + 1;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the number of columns the cluster spans
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              number of columns
+            //
+            uint32 width() const
+            {
+                return colMax_ - colMin_ + 1;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the summed intensity of the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              summed cluster intensity
+            //
+            dtype intensity() const
+            {
+                return intensity_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the intensity of the peak pixel in the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              peak pixel intensity
+            //
+            dtype peakPixelIntensity() const
+            {
+                return peakPixelIntensity_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the cluster estimated energy on detector (EOD)
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              eod
+            //
+            double eod() const
+            {
+                return eod_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              adds a pixel to the cluster
+            // 
+            // Parameter(s): 
+            //              pixel
+            // 
+            // Return: 
+            //              None
+            //
+            void addPixel(const Pixel<dtype>& inPixel)
+            {
+                pixels_.push_back(inPixel);
+                intensity_ += inPixel.intensity();
+
+                // adjust the cluster bounds
+                uint32 row = inPixel.row();
+                uint32 col = inPixel.col();
+                if (row < rowMin_)
+                {
+                    rowMin_ = row;
+                }
+                if (row > rowMax_)
+                {
+                    rowMax_ = row;
+                }
+                if (col < colMin_)
+                {
+                    colMin_ = col;
+                }
+                if (col > colMax_)
+                {
+                    colMax_ = col;
+                }
+
+                // adjust he peak pixel intensity
+                if (inPixel.intensity() > peakPixelIntensity_)
+                {
+                    peakPixelIntensity_ = inPixel.intensity();
+                }
+
+                // calculate the energy on detector estimate
+                eod_ = static_cast<double>(peakPixelIntensity_) / static_cast<double>(intensity_);
+            }
+        };
+
+        //================================================================================
+        // Class Description:
+        //						holds the information for a centroid
+        //
+        template<typename dtype>
+        class Centroid
+        {
+            //==================================Attributes================================//
+            double          row_;
+            double          col_;
+            dtype           intensity_;
+            double          eod_;
+
+            // =============================================================================
+            // Description:
+            //              center of mass algorithm;
+            //              WARNING: if both positive and negative values are present in the cluster,
+            //              it can lead to an undefined COM.
+            // 
+            // Parameter(s): 
+            //              cluster
+            // 
+            // Return: 
+            //              None
+            //
+            void centerOfMass(const Cluster<dtype>& inCluster)
+            {
+                Shape clusterShape(inCluster.height(), inCluster.width());
+                NdArray<dtype> clusterArray(clusterShape);
+                clusterArray.zeros();
+
+                uint32 rowMin = inCluster.rowMin();
+                uint32 colMin = inCluster.colMin();
+                dtype intensity = inCluster.intensity();
+
+                auto iter = inCluster.begin();
+                for (; iter < inCluster.end(); ++iter)
+                {
+                    clusterArray(iter->row() - rowMin, iter->col() - colMin) = iter->intensity();
+                }
+
+                // first get the row center
+                row_ = 0;
+                uint32 row = rowMin;
+                for (uint32 rowIdx = 0; rowIdx < clusterShape.rows; ++rowIdx)
+                {
+                    double rowSum = 0;
+                    for (uint32 colIdx = 0; colIdx < clusterShape.cols; ++colIdx)
+                    {
+                        rowSum += static_cast<double>(clusterArray(rowIdx, colIdx));
+                    }
+                    row_ += rowSum * static_cast<double>(row++);
+                }
+
+                row_ /= static_cast<double>(intensity);
+
+                // then get the column center
+                col_ = 0;
+                uint32 col = colMin;
+                for (uint32 colIdx = 0; colIdx < clusterShape.cols; ++colIdx)
+                {
+                    double colSum = 0;
+                    for (uint32 rowIdx = 0; rowIdx < clusterShape.rows; ++rowIdx)
+                    {
+                        colSum += static_cast<double>(clusterArray(rowIdx, colIdx));
+                    }
+                    col_ += colSum * static_cast<double>(col++);
+                }
+
+                col_ /= static_cast<double>(intensity);
+            }
+
+        public:
+            // =============================================================================
+            // Description:
+            //              defualt constructor needed by containers
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              None
+            //
+            Centroid() :
+                row_(0),
+                col_(0),
+                intensity_(0),
+                eod_(0)
+            {};
+
+            // =============================================================================
+            // Description:
+            //              constructor
+            // 
+            // Parameter(s): 
+            //              centroid id,
+            //              FP row,
+            //              FP column,
+            //              centroid intensity
+            //              cluster EOD
+            //              cluster number of pixels
+            // 
+            // Return: 
+            //              None
+            //
+            Centroid(const Cluster<dtype>& inCluster) :
+                intensity_(inCluster.intensity()),
+                eod_(inCluster.eod())
+            {
+                centerOfMass(inCluster);
+            }
+
+            // =============================================================================
+            // Description:
+            //              gets the centroid row
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              centroid row
+            //
+            double row() const
+            {
+                return row_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              gets the centroid col
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              centroid col
+            //
+            double col() const
+            {
+                return col_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              gets the centroid intensity
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              centroid intensity
+            //
+            dtype intensity() const
+            {
+                return intensity_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the estimated eod of the centroid
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              star id
+            //
+            double eod() const
+            {
+                return eod_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              equality operator
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              bool
+            //
+            bool operator==(const Centroid<dtype>& rhs) const
+            {
+                return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ && eod_ == rhs.eod_;
+            }
+
+            // =============================================================================
+            // Description:
+            //              not equality operator
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              bool
+            //
+            bool operator!=(const Centroid<dtype>& rhs) const
+            {
+                return !(*this == rhs);
+            }
+
+            // =============================================================================
+            // Description:
+            //              less than operator for std::sort algorithm;
+            //              NOTE: std::sort sorts in ascending order. Since I want to sort 
+            //              the centroids in descensing order, I am purposefully defining
+            //              this operator backwards!
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              None
+            //
+            bool operator<(const Centroid<dtype>& rhs) const
+            {
+                return intensity_ < rhs.intensity_ ? false : true;
+            }
+        };
 
         // =============================================================================
-        // Description:
-        //              returns the pixel row
-        // 
+        // Class Description:
+        //              Clusters exceedance data into contiguous groups
+        //
+        template<class dtype>
+        class ClusterMaker
+        {
+        private:
+            // ==================================Attributes=================================
+            const NdArray<bool>* const      xcds_;
+            const NdArray<dtype>* const     intensities_;
+            std::vector<Pixel<dtype> >      xcdsVec_;
+
+            Shape                           shape_;
+
+            std::vector<Cluster<dtype> >    clusters_;
+
+            // =============================================================================
+            // Description:
+            //              checks that the input row and column have not fallen off of the edge
+            // 
+            // Parameter(s): 
+            //              pixel row, pixel column
+            // 
+            // Return: 
+            //              returns a pixel object clipped to the image boundaries
+            //
+            Pixel<dtype> makePixel(int32 inRow, int32 inCol)
+            {
+                // Make sure that on the edges after i've added or subtracted 1 from the row and col that 
+                // i haven't gone over the edge
+                uint32 row = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows);
+                uint32 col = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols);
+                dtype intensity = intensities_->operator()(row, col);
+
+                return Pixel<dtype>(row, col, intensity);
+            }
+
+            // =============================================================================
+            // Description:
+            //              finds all of the neighboring pixels to the input pixel 
+            // 
+            // Parameter(s): 
+            //              pixel object
+            // 
+            // Return: 
+            //              set of pixels that neighbor the input pixel
+            //
+            void findNeighbors(const Pixel<dtype>& inPixel, std::set<Pixel<dtype> >& outNeighbors)
+            {
+                // using a set will auto take care of adding duplicate pixels on the edges
+
+                // the 8 surrounding neighbors
+                int32 row = static_cast<int32>(inPixel.row());
+                int32 col = static_cast<int32>(inPixel.col());
+
+                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col - 1));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col + 1));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row, col - 1));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row, col + 1));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row + 1, col - 1));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row + 1, col));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row + 1, col + 1));
+            }
+
+            // =============================================================================
+            // Description:
+            //              finds all of the neighboring pixels to the input pixel that are NOT exceedances
+            // 
+            // Parameter(s): 
+            //              pixel object
+            // 
+            // Return: 
+            //              vector of non exceedance neighboring pixels
+            //
+            void findNeighborNotXcds(const Pixel<dtype>& inPixel, std::vector<Pixel<dtype> >& outNeighbors)
+            {
+                std::set<Pixel<dtype> > neighbors;
+                findNeighbors(inPixel, neighbors);
+
+                // check if the neighboring pixels are exceedances and insert into the xcd vector
+                for (auto pixelIter = neighbors.begin(); pixelIter != neighbors.end(); ++pixelIter)
+                {
+                    if (!xcds_->operator()(pixelIter->row(), pixelIter->col()))
+                    {
+                        outNeighbors.push_back(*pixelIter);
+                    }
+                }
+            }
+
+            // =============================================================================
+            // Description:
+            //              finds the pixel index of neighboring pixels
+            // 
+            // Parameter(s): 
+            //              pixel object
+            // 
+            // Return: 
+            //              vector of neighboring pixel indices
+            //
+            void findNeighborXcds(const Pixel<dtype>& inPixel, std::vector<uint32>& outNeighbors)
+            {
+                std::set<Pixel<dtype> > neighbors;
+                findNeighbors(inPixel, neighbors);
+                std::vector<Pixel<dtype> > neighborXcds;
+
+                // check if the neighboring pixels are exceedances and insert into the xcd vector
+                for (auto pixelIter = neighbors.begin(); pixelIter != neighbors.end(); ++pixelIter)
+                {
+                    if (xcds_->operator()(pixelIter->row(), pixelIter->col()))
+                    {
+                        neighborXcds.push_back(*pixelIter);
+                    }
+                }
+
+                // loop through the neighbors and find the cooresponding index into exceedances_
+                for (auto pixelIter = neighborXcds.begin(); pixelIter < neighborXcds.end(); ++pixelIter)
+                {
+                    auto theExceedance = find(xcdsVec_.begin(), xcdsVec_.end(), *pixelIter);
+                    outNeighbors.push_back(static_cast<uint32>(theExceedance - xcdsVec_.begin()));
+                }
+            }
+
+            // =============================================================================
+            // Description:
+            //              workhorse method that performs the clustering algorithm
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              None
+            //
+            void runClusterMaker()
+            {
+                uint32 clusterId = 0;
+
+                for (uint32 xcdIdx = 0; xcdIdx < xcdsVec_.size(); ++xcdIdx)
+                {
+                    Pixel<dtype>& currentPixel = xcdsVec_[xcdIdx];
+
+                    // not already visited
+                    if (xcdsVec_[xcdIdx].clusterId() == -1)
+                    {
+                        Cluster<dtype> newCluster(clusterId);    // a new cluster
+                        currentPixel.setClusterId(clusterId);
+                        newCluster.addPixel(currentPixel);  // assign pixel to cluster
+
+                        // get the neighbors
+                        std::vector<uint32> neighborIds;
+                        findNeighborXcds(currentPixel, neighborIds);
+
+                        if (neighborIds.empty())
+                        {
+                            clusters_.push_back(newCluster);
+                            ++clusterId;
+                            continue;
+                        }
+
+                        // loop through the neighbors
+                        for (uint32 neighborsIdx = 0; neighborsIdx < neighborIds.size(); ++neighborsIdx)
+                        {
+                            Pixel<dtype>& currentNeighborPixel = xcdsVec_[neighborIds[neighborsIdx]];
+
+                            // go to neighbors
+                            std::vector<uint32> newNeighborIds;
+                            findNeighborXcds(currentNeighborPixel, newNeighborIds);
+
+                            // loop through the new neighbors and add them to neighbors
+                            for (uint32 newNeighborsIdx = 0; newNeighborsIdx < newNeighborIds.size(); ++newNeighborsIdx)
+                            {
+                                // not already in neighbors
+                                if (find(neighborIds.begin(), neighborIds.end(), newNeighborIds[newNeighborsIdx]) == neighborIds.end())
+                                {
+                                    neighborIds.push_back(newNeighborIds[newNeighborsIdx]);
+                                }
+                            }
+
+                            // not already assigned to a cluster
+                            if (currentNeighborPixel.clusterId() == -1)
+                            {
+                                currentNeighborPixel.setClusterId(clusterId);
+                                newCluster.addPixel(currentNeighborPixel);
+                            }
+                        }
+
+                        clusters_.push_back(newCluster);
+                        ++clusterId;
+                    }
+                }
+            }
+
+            // =============================================================================
+            // Description:
+            //              3x3 dialates the clusters
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              None
+            //
+            void expandClusters()
+            {
+                // loop through the clusters 
+                for (auto clusterIter = clusters_.begin(); clusterIter < clusters_.end(); ++clusterIter)
+                {
+                    // loop through the pixels of the cluster 
+                    Cluster<dtype>& theCluster = *clusterIter;
+                    uint32 clusterSize = static_cast<uint32>(theCluster.size());
+                    for (uint32 iPixel = 0; iPixel < clusterSize; ++iPixel)
+                    {
+                        const Pixel<dtype>& thePixel = theCluster[iPixel];
+                        std::vector<Pixel<dtype> > neighborsNotXcds;
+                        findNeighborNotXcds(thePixel, neighborsNotXcds);
+
+                        // loop through the neighbors and if they haven't already been added to the cluster, add them
+                        for (auto newPixelIter = neighborsNotXcds.begin(); newPixelIter < neighborsNotXcds.end(); ++newPixelIter)
+                        {
+                            if (find(theCluster.begin(), theCluster.end(), *newPixelIter) == theCluster.end())
+                            {
+                                theCluster.addPixel(*newPixelIter);
+                            }
+                        }
+                    }
+                }
+            }
+
+        public:
+            // ================================Typedefs=====================================
+            typedef typename std::vector<Cluster<dtype> >::const_iterator   const_iterator;
+
+            // =============================================================================
+            // Description:
+            //              constructor
+            // 
+            // Parameter(s): 
+            //              NdArray<bool>*, pointer to exceedance array
+            //              NdArray<dtype>*, pointer to intensity array
+            //				border to apply around exceedance pixels post clustering, default 0
+            // 
+            // Return: 
+            //              None
+            //
+            ClusterMaker(const NdArray<bool>* const inXcdArray, const NdArray<dtype>* const inIntensityArray, uint8 inBorderWidth = 0) :
+                xcds_(inXcdArray),
+                intensities_(inIntensityArray)
+            {
+                if (xcds_->shape() != intensities_->shape())
+                {
+                    throw std::invalid_argument("ERROR: ImageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.");
+                }
+
+                shape_ = xcds_->shape();
+
+                // convert the NdArray of booleans to a vector of exceedances
+                for (uint32 row = 0; row < shape_.rows; ++row)
+                {
+                    for (uint32 col = 0; col < shape_.cols; ++col)
+                    {
+                        if (xcds_->operator()(row, col))
+                        {
+                            Pixel<dtype> thePixel(row, col, intensities_->operator()(row, col));
+                            xcdsVec_.push_back(thePixel);
+                        }
+                    }
+                }
+
+                runClusterMaker();
+                for (uint8 i = 0; i < inBorderWidth; ++i)
+                {
+                    expandClusters();
+                }
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the number of clusters in the frame
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              number of clusters
+            //
+            uint32 size()
+            {
+                return static_cast<uint32>(clusters_.size());
+            }
+
+            // =============================================================================
+            // Description:
+            //              access operator, no bounds checking
+            // 
+            // Parameter(s): 
+            //              index
+            // 
+            // Return: 
+            //              None
+            //
+            const Cluster<dtype>& operator[](uint32 inIndex) const
+            {
+                return clusters_[inIndex];
+            }
+
+            // =============================================================================
+            // Description:
+            //              access method with bounds checking
+            // 
+            // Parameter(s): 
+            //              index
+            // 
+            // Return: 
+            //              None
+            //
+            const Cluster<dtype>& at(uint32 inIndex) const
+            {
+                if (inIndex >= clusters_.size())
+                {
+                    throw std::invalid_argument("ERROR: ImageProcessing::ClusterMaker::at: index exceeds cluster size.");
+                }
+                return clusters_[inIndex];
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns in iterator to the beginning cluster of the container
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              const_iterator
+            //
+            const_iterator begin() const
+            {
+                return clusters_.cbegin();
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns in iterator to the 1 past the end cluster of the container
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              const_iterator
+            //
+            const_iterator end() const
+            {
+                return clusters_.cend();
+            }
+        };
+
+        //============================================================================
+        // Method Description: 
+        //						Applies a threshold to an image
+        //		
         // Inputs:
-        //              None
-        // 
+        //				NdArray
+        //				threshold value
         // Outputs:
-        //              row
+        //				NdArray of booleans of pixels that exceeded the threshold
         //
-        uint32 row() const
+        template<typename dtype>
+        inline NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold)
         {
-            return row_;
+            return std::move(inImageArray > inThreshold);
         }
 
-        // =============================================================================
-        // Description:
-        //              returns the pixel column
-        // 
+        //============================================================================
+        // Method Description: 
+        //						Center of Mass centroids clusters
+        //		
         // Inputs:
-        //              None
-        // 
+        //				NdArray
+        //				threshold value
         // Outputs:
-        //              column
+        //				std::vector<Centroid>
         //
-        uint32 col() const
+        template<typename dtype>
+        inline std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters)
         {
-            return col_;
+            std::vector<Centroid<dtype> > centroids(inClusters.size());
+
+            for (uint32 i = 0; i < inClusters.size(); ++i)
+            {
+                centroids[i] = std::move(Centroid<dtype>(inClusters[i]));
+            }
+
+            return std::move(centroids);
         }
 
-        // =============================================================================
-        // Description:
-        //              returns the pixel intensity
-        // 
+        //============================================================================
+        // Method Description: 
+        //						Clusters exceedance pixels from an image
+        //		
         // Inputs:
-        //              None
-        // 
+        //				NdArray
+        //				NdArray of exceedances
+        //				border to apply around exceedance pixels post clustering, default 0
         // Outputs:
-        //              intensity
+        //				std::vector<Cluster>
         //
-        dtype intensity() const
+        template<typename dtype>
+        inline std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
         {
-            return intensity_;
-        }
-    };
-
-    //================================================================================
-    // Class Description:
-    //						holds the information for a cluster of pixels
-    //
-    template<typename dtype>
-    class Cluster
-    {
-    private:
-        // ================================Attributes===============================
-        uint16				id_;
-        std::vector<Pixel>  pixels_;
-
-        uint16				rowMin_;
-        uint16				rowMax_;
-        uint16				colMin_;
-        uint16				colMax_;
-
-        uint16              peakPixelIntensity_;
-        uint32				intensity_;
-
-        double              eod_;
-
-        uint16              streakScalar_;
-        double              streakRatio_;
-
-    public:
-        // =============================================================================
-        // Description:
-        //              default constructor needed by containers
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              None
-        //
-        Cluster() {};
-
-        // =============================================================================
-        // Description:
-        //              constructor
-        // 
-        // Parameter(s): 
-        //              cluster id
-        // 
-        // Return: 
-        //              None
-        //
-        Cluster(uint16 inClusterId);
-        {
-
+            ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
+            return std::move(std::vector<Cluster<dtype> >(clusterMaker.begin(), clusterMaker.end()));
         }
 
-        // =============================================================================
-        // Description:
-        //              equality operator
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              None
+        //============================================================================
+        // Method Description: 
+        //						Generates a list of centroids givin an input exceedance
+        //						rate
+        //		
+        // Inputs:
+        //				NdArray
+        //				exceedance rate
+        //              string "pre", or "post" for where to apply the exceedance windowing
+        //				border to apply, default 0
+        // Outputs:
+        //				std::vector<Centroid>
         //
-        bool operator==(const Cluster& rhs) const
+        template<typename dtype>
+        inline std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
         {
+            uint8 borderWidthPre = 0;
+            uint8 borderWidthPost = 0;
+            if (inWindowType.compare("pre") == 0)
+            {
+                borderWidthPre = inBorderWidth;
+            }
+            else if (inWindowType.compare("post") == 0)
+            {
+                borderWidthPost = inBorderWidth;
+            }
+            else
+            {
+                throw std::invalid_argument("ERROR ImageProcessing::generateCentroids: input window type options are ['pre', 'post']");
+            }
 
+            // generate the threshold
+            dtype threshold = generateThreshold(inImageArray, inRate);
+
+            // apply the threshold to get xcds
+            NdArray<bool> xcds = applyThreshold(inImageArray, threshold);
+
+            // window around the xcds
+            if (borderWidthPre > 0)
+            {
+                xcds = windowExceedances(xcds, borderWidthPre);
+            }
+
+            // cluster the exceedances
+            std::vector<Cluster<dtype> > clusters = clusterPixels(inImageArray, xcds, borderWidthPost);
+
+            // centroid the clusters
+            return std::move(centroidClusters(clusters));
         }
 
-        // =============================================================================
-        // Description:
-        //              sets the streak scalar value
-        // 
-        // Parameter(s): 
-        //              scalar value
-        // 
-        // Return: 
-        //              None
+        //============================================================================
+        // Method Description: 
+        //						Calculates a threshold such that the input rate of pixels
+        //						exceeds the threshold. Really should only be used for integer
+        //                      input array values. If using floating point data, user beware...
+        //		
+        // Inputs:
+        //				NdArray
+        //				exceedance rate
+        // Outputs:
+        //				dtype
         //
-        void setStreakScalar(uint16 inScalar);
+        template<typename dtype>
+        inline dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
         {
+            if (inRate < 0 || inRate > 1)
+            {
+                throw std::invalid_argument("ERROR: ImageProcessing::generateThreshold: input rate must be of the range [0, 1]");
+            }
 
+            // first build a histogram
+            int32 minValue = static_cast<int32>(std::floor(inImageArray.min().item()));
+            int32 maxValue = static_cast<int32>(std::floor(inImageArray.max().item()));
+
+            if (inRate == 0)
+            {
+                return static_cast<dtype>(maxValue);
+            }
+            else if (inRate == 1)
+            {
+                if (DtypeInfo<dtype>::isSigned())
+                {
+                    return static_cast<dtype>(0); // as close as it can get
+                }
+                else
+                {
+                    return static_cast<dtype>(minValue - 1);
+                }
+            }
+
+            int32 histSize = maxValue - minValue + 1;
+
+            NdArray<int32> histogram(1, histSize);
+            double sum = 0;
+            for (uint32 i = 0; i < inImageArray.size(); ++i)
+            {
+                int32 bin = static_cast<int32>(std::floor(inImageArray[i]));
+                ++histogram[bin];
+                sum += bin;
+            }
+
+            // integrate the histogram from right to left to make a survival function
+            NdArray<double> survivalFunction = fliplr(cumsum(histogram)) / sum;
+
+            // binary search through the survival function to find the rate
+            uint32 indexLow = 0;
+            uint32 indexHigh = histSize - 1;
+            uint32 index = indexHigh / 2; // integer division
+
+            bool keepGoing = true;
+            while (keepGoing)
+            {
+                double value = survivalFunction[index];
+                if (value < inRate)
+                {
+                    indexLow = index;
+                }
+                else if (value > inRate)
+                {
+                    indexHigh = index;
+                }
+                else
+                {
+                    return static_cast<dtype>(index);
+                }
+
+                if (indexHigh - indexLow < 2)
+                {
+                    return static_cast<dtype>(indexHigh);
+                }
+            }
+
+            // shouldn't ever get here but stop the compiler from throwing a warning
+            return static_cast<dtype>(histSize - 1);
         }
 
-        // =============================================================================
-        // Description:
-        //              sets the streak ratio value
-        // 
-        // Parameter(s): 
-        //              ratio value
-        // 
-        // Return: 
-        //              None
+        //============================================================================
+        // Method Description: 
+        //						Window expand around exceedance pixels
+        //		
+        // Inputs:
+        //				NdArray<bool>
+        //				border width
+        // Outputs:
+        //				NdArray<bool>
         //
-        void setStreakRatio(double inRatio);
+        inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth)
         {
+            // not the most efficient way to do things, but the easist...
+            NdArray<bool> xcds(inExceedances);
+            Shape inShape = xcds.shape();
+            for (uint8 border = 0; border < inBorderWidth; ++border)
+            {
+                for (int32 row = 0; row < static_cast<int32>(inShape.rows); ++row)
+                {
+                    for (int32 col = 0; col < static_cast<int32>(inShape.cols); ++col)
+                    {
+                        if (xcds(row, col))
+                        {
+                            xcds(std::max(row - 1, 0), std::max(col - 1, 0)) = true;
+                            xcds(std::max(row - 1, 0), col) = true;
+                            xcds(std::max(row - 1, 0), std::min<int32>(col + 1, inShape.cols)) = true;
 
+                            xcds(row, std::max<int32>(col - 1, 0)) = true;
+                            xcds(row, std::min<int32>(col + 1, inShape.cols)) = true;
+
+                            xcds(std::min<int32>(row + 1, inShape.rows), std::max(col - 1, 0)) = true;
+                            xcds(std::min<int32>(row + 1, inShape.rows), col) = true;
+                            xcds(std::min<int32>(row + 1, inShape.rows), std::min<int32>(col + 1, inShape.cols)) = true;
+                        }
+                    }
+                }
+            }
+
+            return std::move(xcds);
         }
-
-        // =============================================================================
-        // Description:
-        //              return the cluster id
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              cluster id
-        //
-        uint16 id() const;
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns the number of pixels in the cluster
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              number of pixels in the cluster
-        //
-        uint16 numPixels() const;
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns the number of columns the cluster spans
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              number of columns
-        //
-        uint16 width() const;
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns the number of rows the cluster spans
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              number of rows
-        //
-        uint16 height() const;
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns the intensity of the peak pixel in the cluster
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              peak pixel intensity
-        //
-        uint16 peakPixelIntensity() const;
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns the summed intensity of the cluster
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              summed cluster intensity
-        //
-        uint32 intensity() const;
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns the cluster estimated energy on detector (EOD)
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              eod
-        //
-        double eod() const;
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns the minimum row number of the cluster
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              minimum row number of the cluster
-        //
-        uint16 rowMin();
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns the maximum row number of the cluster
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              maximum row number of the cluster
-        //
-        uint16 rowMax();
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns the minimum column number of the cluster
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              minimum column number of the cluster
-        //
-        uint16 colMin();
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns the maximum column number of the cluster
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              maximum column number of the cluster
-        //
-        uint16 colMax();
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns whether or not the cluster is a streak
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              bool
-        //
-        bool isStreak();
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              returns a vector of the pixels in the cluster
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              vector of the pixels in the cluster
-        //
-        std::vector<Pixel>& pixels();
-        {
-
-        }
-
-        // =============================================================================
-        // Description:
-        //              adds a pixel to the cluster
-        // 
-        // Parameter(s): 
-        //              pixel
-        // 
-        // Return: 
-        //              None
-        //
-        void addPixel(Pixel& inPixel)
-        {
-
-        }
-    };
-
-    //================================================================================
-    // Class Description:
-    //						holds the information for a centroid
-    //
-    template<typename dtype>
-    class Centroid
-    {
-
-    };
-
-    //============================================================================
-    // Method Description: 
-    //						Applies a threshold to an image
-    //		
-    // Inputs:
-    //				NdArray
-    //				threshold value
-    // Outputs:
-    //				NdArray of booleans of pixels that exceeded the threshold
-    //
-    template<typename dtype>
-    inline NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold)
-    {
-
-    }
-
-    //============================================================================
-    // Method Description: 
-    //						Center of Mass centroids clusters
-    //		
-    // Inputs:
-    //				NdArray
-    //				threshold value
-    // Outputs:
-    //				std::vector<Centroid>
-    //
-    inline std::vector<Centroid> centroidClusters(const std::vector<Cluster>& inClusters)
-    {
-
-    }
-
-    //============================================================================
-    // Method Description: 
-    //						Clusters exceedance pixels from an image
-    //		
-    // Inputs:
-    //				NdArray
-    //				NdArray of exceedances
-    //				border to apply around exceedance pixels prior to clustering, default 0
-    // Outputs:
-    //				NdArray of booleans of pixels that exceeded the threshold
-    //
-    template<typename dtype>
-    inline std::vector<Cluster> clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
-    {
-
-    }
-
-    //============================================================================
-    // Method Description: 
-    //						Calculates a threshold such that the input rate of pixels
-    //						exceeds the threshold
-    //		
-    // Inputs:
-    //				NdArray
-    //				exceedance rate
-    // Outputs:
-    //				NdArray
-    //
-    template<typename dtype>
-    inline dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
-    {
-
-    }
-
-    //============================================================================
-    // Method Description: 
-    //						Generates a list of centroids givin an input exceedance
-    //						rate
-    //		
-    // Inputs:
-    //				NdArray
-    //				exceedance rate
-    // Outputs:
-    //				std::vector<Centroid>
-    //
-    template<typename dtype>
-    inline std::vector<Centroid> generateCentroids(const NdArray<dtype>& inImageArray, double inRate)
-    {
-
-    }
-
-    //============================================================================
-    // Method Description: 
-    //						Window expand around clusters
-    //		
-    // Inputs:
-    //				NdArray
-    //				std::vector<Centroid>
-    //				border width
-    // Outputs:
-    //				std::vector<Centroid>
-    //
-    template<typename dtype>
-    inline std::vector<Cluster> windowClusters(const NdArray<dtype>& inImageArray, const std::vector<Cluster>& inClusters, uint8 inBorderWidth)
-    {
-
-    }
-
-    //============================================================================
-    // Method Description: 
-    //						Window expand around exceedance pixels
-    //		
-    // Inputs:
-    //				NdArray
-    //				border width
-    // Outputs:
-    //				std::vector<Centroid>
-    //
-    template<typename dtype>
-    inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth)
-    {
-
     }
 }

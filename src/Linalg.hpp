@@ -941,19 +941,19 @@ namespace NumC
                 NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(inArray, inArray);
                 for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = std::move(dot<dtype, dtypeOut>(returnArray, inArray));
+                    returnArray = std::move(dot<dtypeOut, dtypeOut>(returnArray, inArray.astype<dtypeOut>()));
                 }
                 return std::move(returnArray);
             }
             else
             {
                 NdArray<double> inverse = inv(inArray);
-                NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(inverse, inverse);
+                NdArray<double> returnArray = dot<double, double>(inverse, inverse);
                 for (int16 i = 2; i < std::abs(inPower); ++i)
                 {
-                    returnArray = std::move(dot<dtype, dtypeOut>(returnArray, inverse));
+                    returnArray = std::move(dot<double, double>(returnArray, inverse));
                 }
-                return std::move(returnArray);
+                return std::move(returnArray.astype<dtypeOut>());
             }
         }
 
@@ -986,7 +986,7 @@ namespace NumC
             iter += 2;
             for (; iter < inList.end(); ++iter)
             {
-                returnArray = std::move(dot<dtype, dtypeOut>(returnArray, *(iter)));
+                returnArray = std::move(dot<dtypeOut, dtypeOut>(returnArray, iter->astype<dtypeOut>()));
             }
 
             return std::move(returnArray);

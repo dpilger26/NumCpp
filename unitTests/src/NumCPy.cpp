@@ -2339,9 +2339,12 @@ BOOST_PYTHON_MODULE(NumC)
         .def("copy", &NdArrayInterface::copy<double>)
         .def("contains", &NdArrayInterface::contains<double>)
         .def("cumprod", &NdArrayInterface::cumprod<double, double>)
+        //.def("cumprod", &NdArrayInterface::cumprod<double, float>)
         .def("cumsum", &NdArrayInterface::cumsum<double, double>)
+        //.def("cumsum", &NdArrayInterface::cumsum<double, float>)
         .def("diagonal", &NdArrayInterface::diagonal<double>)
         .def("dot", &NdArrayInterface::dot<double, double>)
+        //.def("dot", &NdArrayInterface::dot<double, float>)
         .def("dump", &NdArrayDouble::dump)
         .def("fill", &NdArrayInterface::fill<double>)
         .def("flatten", &NdArrayInterface::flatten<double>)
@@ -2359,10 +2362,12 @@ BOOST_PYTHON_MODULE(NumC)
         .def("nbytes", &NdArrayDouble::nbytes)
         .def("nonzero", &NdArrayInterface::nonzero<double>)
         .def("norm", &NdArrayInterface::norm<double, double>)
+        //.def("norm", &NdArrayInterface::norm<double, float>)
         .def("ones", &NdArrayInterface::ones<double>)
         .def("partition", &NdArrayInterface::partition<double>)
         .def("print", &NdArrayDouble::print)
         .def("prod", &NdArrayInterface::prod<double, double>)
+        //.def("prod", &NdArrayInterface::prod<double, float>)
         .def("ptp", &NdArrayInterface::ptp<double>)
         .def("put", &NdArrayInterface::putFlat<double>)
         .def("put", &NdArrayInterface::putRowCol<double>)
@@ -2387,6 +2392,7 @@ BOOST_PYTHON_MODULE(NumC)
         .def("sort", &NdArrayInterface::sort<double>)
         .def("std", &NdArrayInterface::std<double>)
         .def("sum", &NdArrayInterface::sum<double, double>)
+        //.def("sum", &NdArrayInterface::sum<double, float>)
         .def("swapaxes", &NdArrayInterface::swapaxes<double>)
         .def("tofile", &NdArrayDouble::tofile)
         .def("toStlVector", &NdArrayDouble::toStlVector)
@@ -2501,6 +2507,7 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("abs", &MethodsInterface::absScalar<double>);
     boost::python::def("abs", &MethodsInterface::absArray<double>);
     boost::python::def("add", &MethodsInterface::addArrays<double, double>);
+    //boost::python::def("add", &MethodsInterface::addArrays<double, float>);
     boost::python::def("alen", &NumC::alen<double>);
     boost::python::def("all", &MethodsInterface::allArray<double>);
     boost::python::def("allclose", &NumC::allclose<double>);
@@ -2560,9 +2567,13 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("cosh", &MethodsInterface::coshArray<double>);
     boost::python::def("count_nonzero", &MethodsInterface::count_nonzero<double>);
     boost::python::def("cross", &NumC::cross<double, double>);
+    //boost::python::def("cross", &NumC::cross<double, float>);
     boost::python::def("cube", &MethodsInterface::cubeArray<double, double>);
+    //boost::python::def("cube", &MethodsInterface::cubeArray<double, float>);
     boost::python::def("cumprod", &MethodsInterface::cumprodArray<double, double>);
+    //boost::python::def("cumprod", &MethodsInterface::cumprodArray<double, float>);
     boost::python::def("cumsum", &MethodsInterface::cumsumArray<double, double>);
+    //boost::python::def("cumsum", &MethodsInterface::cumsumArray<double, float>);
     boost::python::def("deg2rad", &MethodsInterface::deg2radScalar<double>);
     boost::python::def("deg2rad", &MethodsInterface::deg2radArray<double>);
     boost::python::def("delete", &MethodsInterface::deleteIndicesScalar<double>);
@@ -2571,11 +2582,14 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("diagonal", &MethodsInterface::diagonal<double>);
     boost::python::def("diff", &MethodsInterface::diff<double>);
     boost::python::def("divide", &MethodsInterface::divide<double, double>);
+    //boost::python::def("divide", &MethodsInterface::divide<double, float>);
     boost::python::def("dot", &MethodsInterface::dot<double, double>);
+    //boost::python::def("dot", &MethodsInterface::dot<double, float>);
     boost::python::def("dump", &NumC::dump<double>);
     boost::python::def("empty", &MethodsInterface::emptyRowCol<double>);
     boost::python::def("empty", &MethodsInterface::emptyShape<double>);
     boost::python::def("empty_like", &NumC::empty_like<double, double>);
+    //boost::python::def("empty_like", &NumC::empty_like<double, float>);
     boost::python::def("endianess", &NumC::endianess<double>);
     boost::python::def("equal", &MethodsInterface::equal<double>);
     boost::python::def("exp", &MethodsInterface::expScalar<double>);
@@ -2609,11 +2623,14 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("full", &MethodsInterface::fullRowCol<double>);
     boost::python::def("full", &MethodsInterface::fullShape<double>);
     boost::python::def("full_like", &NumC::full_like<double, double>);
+    //boost::python::def("full_like", &NumC::full_like<double, float>);
     boost::python::def("greater", &NumC::greater<double>);
     boost::python::def("greater_equal", &NumC::greater_equal<double>);
     boost::python::def("hstack", &MethodsInterface::hstack<double>);
     boost::python::def("hypot", &MethodsInterface::hypotScalar<double, double>);
+    //boost::python::def("hypot", &MethodsInterface::hypotScalar<double, float>);
     boost::python::def("hypot", &MethodsInterface::hypotArray<double, double>);
+    //boost::python::def("hypot", &MethodsInterface::hypotArray<double, float>);
     boost::python::def("identity", &NumC::identity<double>);
     boost::python::def("intersect1d", &NumC::intersect1d<uint32>);
     boost::python::def("invert", &NumC::invert<uint32>);
@@ -2640,6 +2657,7 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("logical_or", &NumC::logical_or<double>);
     boost::python::def("logical_xor", &NumC::logical_xor<double>);
     boost::python::def("matmul", &NumC::matmul<double, double>);
+    //boost::python::def("matmul", &NumC::matmul<double, float>);
     boost::python::def("max", &NumC::max<double>);
     boost::python::def("maximum", &NumC::maximum<double>);
     boost::python::def("mean", &NumC::mean<double>);
@@ -2651,40 +2669,54 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("nanargmax", &NumC::nanargmax<double>);
     boost::python::def("nanargmin", &NumC::nanargmin<double>);
     boost::python::def("nancumprod", &NumC::nancumprod<double, double>);
+    //boost::python::def("nancumprod", &NumC::nancumprod<double, float>);
     boost::python::def("nancumsum", &NumC::nancumsum<double, double>);
+    //boost::python::def("nancumsum", &NumC::nancumsum<double, float>);
     boost::python::def("nanmax", &NumC::nanmax<double>);
     boost::python::def("nanmean", &NumC::nanmean<double>);
     boost::python::def("nanmedian", &NumC::nanmedian<double>);
     boost::python::def("nanmin", &NumC::nanmin<double>);
     boost::python::def("nanpercentile", &NumC::nanpercentile<double>);
     boost::python::def("nanprod", &NumC::nanprod<double, double>);
+    //boost::python::def("nanprod", &NumC::nanprod<double, float>);
     boost::python::def("nanstd", &NumC::nanstd<double>);
     boost::python::def("nansum", &NumC::nansum<double, double>);
+    //boost::python::def("nansum", &NumC::nansum<double, float>);
     boost::python::def("nanvar", &NumC::nanvar<double>);
     boost::python::def("nbytes", &NumC::nbytes<double>);
     boost::python::def("newbyteorder", &MethodsInterface::newbyteorderScalar<uint32>);
     boost::python::def("newbyteorder", &MethodsInterface::newbyteorderArray<uint32>);
     boost::python::def("negative", &NumC::negative<double, double>);
+    //boost::python::def("negative", &NumC::negative<double, float>);
     boost::python::def("nonzero", &NumC::nonzero<double>);
     boost::python::def("norm", &NumC::norm<double, double>);
+    //boost::python::def("norm", &NumC::norm<double, float>);
     boost::python::def("not_equal", &NumC::not_equal<double>);
     boost::python::def("ones", &MethodsInterface::onesSquare<double>);
     boost::python::def("ones", &MethodsInterface::onesRowCol<double>);
     boost::python::def("ones", &MethodsInterface::onesShape<double>);
     boost::python::def("ones_like", &NumC::ones_like<double, double>);
+    //boost::python::def("ones_like", &NumC::ones_like<double, float>);
     boost::python::def("pad", &NumC::pad<double>);
     boost::python::def("partition", &NumC::partition<double>);
     boost::python::def("percentile", &NumC::percentile<double, double>);
+    //boost::python::def("percentile", &NumC::percentile<double, float>);
     boost::python::def("power", &MethodsInterface::powerArrayScalar<double, double>);
+    //boost::python::def("power", &MethodsInterface::powerArrayScalar<double, float>);
     boost::python::def("power", &MethodsInterface::powerArrayArray<double, double>);
+    //boost::python::def("power", &MethodsInterface::powerArrayArray<double, float>);
     boost::python::def("prod", &NumC::prod<double, double>);
+    //boost::python::def("prod", &NumC::prod<double, float>);
     boost::python::def("ptp", &NumC::ptp<double>);
     boost::python::def("put", &NumC::put<double>);
     boost::python::def("rad2deg", &MethodsInterface::rad2degScalar<double>);
     boost::python::def("rad2deg", &MethodsInterface::rad2degArray<double>);
     boost::python::def("reciprocal", &NumC::reciprocal<double, double>);
+    //boost::python::def("reciprocal", &NumC::reciprocal<double, float>);
     boost::python::def("remainder", &MethodsInterface::remainderScalar<double, double>);
+    //boost::python::def("remainder", &MethodsInterface::remainderScalar<double, float>);
     boost::python::def("remainder", &MethodsInterface::remainderArray<double, double>);
+    //boost::python::def("remainder", &MethodsInterface::remainderArray<double, float>);
     boost::python::def("reshape", &MethodsInterface::reshape<double>);
     boost::python::def("reshapeList", &MethodsInterface::reshapeList<double>);
     boost::python::def("resizeFast", &MethodsInterface::resizeFast<double>);
@@ -2718,6 +2750,7 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("square", &MethodsInterface::squareArray<double>);
     boost::python::def("std", &NumC::std<double>);
     boost::python::def("sum", &NumC::sum<double, double>);
+    //boost::python::def("sum", &NumC::sum<double, float>);
     boost::python::def("swapaxes", &NumC::swapaxes<double>);
     boost::python::def("tan", &MethodsInterface::tanScalar<double>);
     boost::python::def("tan", &MethodsInterface::tanArray<double>);
@@ -2729,6 +2762,7 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("tofile", &NumC::tofile<double>);
     boost::python::def("toStlVector", &NumC::toStlVector<double>);
     boost::python::def("trace", &NumC::trace<double, double>);
+    //boost::python::def("trace", &NumC::trace<double, float>);
     boost::python::def("transpose", &NumC::transpose<double>);
     boost::python::def("tri", &MethodsInterface::triSquare<double>);
     boost::python::def("tri", &MethodsInterface::triRect<double>);
@@ -2833,7 +2867,9 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("inv", &NumC::Linalg::inv<double>);
     boost::python::def("lstsq", &NumC::Linalg::lstsq<double>);
     boost::python::def("matrix_power", &NumC::Linalg::matrix_power<double, double>);
+    //boost::python::def("matrix_power", &NumC::Linalg::matrix_power<double, float>);
     boost::python::def("multi_dot", &LinalgInterface::multi_dot<double, double>);
+    //boost::python::def("multi_dot", &LinalgInterface::multi_dot<double, float>);
     boost::python::def("svd", &NumC::Linalg::svd<double>);
 
     // Rotations.hpp
@@ -2876,4 +2912,59 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("xRotationDCM", &Rotations::xRotationDCM<double>);
     boost::python::def("yRotationDCM", &Rotations::yRotationDCM<double>);
     boost::python::def("zRotationDCM", &Rotations::zRotationDCM<double>);
+
+    // Image Processing
+    typedef ImageProcessing::Pixel<double> PixelDouble;
+    bp::class_<PixelDouble>
+        ("Pixel", bp::init<>())
+        .def(bp::init<uint32, uint32, double>())
+        .def("__eq__", &PixelDouble::operator==)
+        .def("__ne__", &PixelDouble::operator!=)
+        .def("__lt__", &PixelDouble::operator<)
+        .def("clusterId", &PixelDouble::clusterId)
+        .def("row", &PixelDouble::row)
+        .def("col", &PixelDouble::col)
+        .def("intensity", &PixelDouble::intensity);
+
+    typedef ImageProcessing::Cluster<double> ClusterDouble;
+    bp::class_<ClusterDouble>
+        ("Cluster", bp::init<uint32>())
+        .def("__eq__", &ClusterDouble::operator==)
+        .def("__ne__", &ClusterDouble::operator!=)
+        .def("__getitem__", &ClusterDouble::at, bp::return_internal_reference<>())
+        .def("size", &ClusterDouble::size)
+        .def("clusterId", &ClusterDouble::clusterId)
+        .def("rowMin", &ClusterDouble::rowMin)
+        .def("rowMax", &ClusterDouble::rowMax)
+        .def("colMin", &ClusterDouble::colMin)
+        .def("colMax", &ClusterDouble::colMax)
+        .def("height", &ClusterDouble::height)
+        .def("width", &ClusterDouble::width)
+        .def("intensity", &ClusterDouble::intensity)
+        .def("peakPixelIntensity", &ClusterDouble::peakPixelIntensity)
+        .def("eod", &ClusterDouble::eod);
+
+    typedef ImageProcessing::Centroid<double> CentroidDouble;
+    bp::class_<CentroidDouble>
+        ("Centroid", bp::init<>())
+        .def("row", &CentroidDouble::row)
+        .def("col", &CentroidDouble::col)
+        .def("intensity", &CentroidDouble::intensity)
+        .def("eod", &CentroidDouble::eod)
+        .def("__eq__", &CentroidDouble::operator==)
+        .def("__ne__", &CentroidDouble::operator!=)
+        .def("__lt__", &CentroidDouble::operator<);
+
+    bp::class_<std::vector<ClusterDouble> >("centroid_vector")
+        .def(bp::vector_indexing_suite<std::vector<ClusterDouble> >());
+
+    bp::class_<std::vector<CentroidDouble> >("centroid_vector")
+        .def(bp::vector_indexing_suite<std::vector<CentroidDouble> >());
+
+    boost::python::def("applyThreshold", &ImageProcessing::applyThreshold<double>);
+    boost::python::def("centroidClusters", &ImageProcessing::centroidClusters<double>);
+    boost::python::def("clusterPixels", &ImageProcessing::clusterPixels<double>);
+    boost::python::def("generateThreshold", &ImageProcessing::generateThreshold<double>);
+    boost::python::def("generateCentroids", &ImageProcessing::generateCentroids<double>);
+    boost::python::def("windowExceedances", &ImageProcessing::windowExceedances);
 }

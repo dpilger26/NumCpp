@@ -1312,10 +1312,10 @@ namespace NumC
                 case Axis::NONE:
                 {
                     NdArray<dtypeOut> returnArray(1, size_);
-                    returnArray.array_[0] = array_[0];
+                    returnArray[0] = static_cast<dtypeOut>(array_[0]);
                     for (uint32 i = 1; i < size_; ++i)
                     {
-                        returnArray.array_[i] = returnArray.array_[i - 1] * static_cast<dtypeOut>(array_[i]);
+                        returnArray[i] = returnArray[i - 1] * static_cast<dtypeOut>(array_[i]);
                     }
 
                     return std::move(returnArray);
@@ -1325,7 +1325,7 @@ namespace NumC
                     NdArray<dtypeOut> returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(row, 0) = this->operator()(row, 0);
+                        returnArray(row, 0) = static_cast<dtypeOut>(this->operator()(row, 0));
                         for (uint32 col = 1; col < shape_.cols; ++col)
                         {
                             returnArray(row, col) = returnArray(row, col - 1) * static_cast<dtypeOut>(this->operator()(row, col));
@@ -1339,7 +1339,7 @@ namespace NumC
                     NdArray<dtypeOut> returnArray(shape_);
                     for (uint32 col = 0; col < shape_.cols; ++col)
                     {
-                        returnArray(0, col) = this->operator()(0, col);
+                        returnArray(0, col) = static_cast<dtypeOut>(this->operator()(0, col));
                         for (uint32 row = 1; row < shape_.rows; ++row)
                         {
                             returnArray(row, col) = returnArray(row - 1, col) * static_cast<dtypeOut>(this->operator()(row, col));
@@ -1374,10 +1374,10 @@ namespace NumC
                 case Axis::NONE:
                 {
                     NdArray<dtypeOut> returnArray(1, size_);
-                    returnArray.array_[0] = array_[0];
+                    returnArray[0] = static_cast<dtypeOut>(array_[0]);
                     for (uint32 i = 1; i < size_; ++i)
                     {
-                        returnArray.array_[i] = returnArray.array_[i - 1] + static_cast<dtypeOut>(array_[i]);
+                        returnArray[i] = returnArray[i - 1] + static_cast<dtypeOut>(array_[i]);
                     }
 
                     return std::move(returnArray);
@@ -1387,7 +1387,7 @@ namespace NumC
                     NdArray<dtypeOut> returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(row, 0) = this->operator()(row, 0);
+                        returnArray(row, 0) = static_cast<dtypeOut>(this->operator()(row, 0));
                         for (uint32 col = 1; col < shape_.cols; ++col)
                         {
                             returnArray(row, col) = returnArray(row, col - 1) + static_cast<dtypeOut>(this->operator()(row, col));
@@ -1401,7 +1401,7 @@ namespace NumC
                     NdArray<dtypeOut> returnArray(shape_);
                     for (uint32 col = 0; col < shape_.cols; ++col)
                     {
-                        returnArray(0, col) = this->operator()(0, col);
+                        returnArray(0, col) = static_cast<dtypeOut>(this->operator()(0, col));
                         for (uint32 row = 1; row < shape_.rows; ++row)
                         {
                             returnArray(row, col) = returnArray(row - 1, col) + static_cast<dtypeOut>(this->operator()(row, col));
@@ -2937,24 +2937,27 @@ namespace NumC
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtypeOut> returnArray = { std::accumulate(cbegin(), cend(), static_cast<dtypeOut>(0)) };
+                    NdArray<dtypeOut> arrayCopy = astype<dtypeOut>();
+                    NdArray<dtypeOut> returnArray = { std::accumulate(arrayCopy.cbegin(), arrayCopy.cend(), static_cast<dtypeOut>(0)) };
                     return std::move(returnArray);
                 }
                 case Axis::COL:
                 {
+                    NdArray<dtypeOut> arrayCopy = astype<dtypeOut>();
                     NdArray<dtypeOut> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::accumulate(cbegin(row), cend(row), static_cast<dtypeOut>(0));
+                        returnArray(0, row) = std::accumulate(arrayCopy.cbegin(row), arrayCopy.cend(row), static_cast<dtypeOut>(0));
                     }
 
                     return std::move(returnArray);
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtypeOut> returnArray(1, transposedArray.shape_.rows);
-                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+                    NdArray<dtypeOut> transposedArray = transpose().astype<dtypeOut>();
+                    Shape transShape = transposedArray.shape();
+                    NdArray<dtypeOut> returnArray(1, transShape.rows);
+                    for (uint32 row = 0; row < transShape.rows; ++row)
                     {
                         returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), static_cast<dtypeOut>(0));
                     }
@@ -3093,7 +3096,7 @@ namespace NumC
                 {
                     break;
                 }
-                sum += this->operator()(row, col++);
+                sum += static_cast<dtypeOut>(this->operator()(row, col++));
             }
 
             return sum;
