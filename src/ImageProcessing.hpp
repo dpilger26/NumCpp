@@ -937,6 +937,362 @@ namespace NumC
             }
         };
 
+        // =============================================================================
+        // Class Description:
+        //              Clusters exceedance data into contiguous groups
+        //
+        template<class dtype>
+        class ClusterMaker
+        {
+        private:
+            // ==================================Attributes=================================
+            const NdArray<bool>* const      xcds_;
+            const NdArray<dtype>* const     intensities_;
+            std::vector<Pixel<dtype> >      xcdsVec_;
+
+            Shape                           shape_;
+
+            std::vector<Cluster<dtype> >    clusters_;
+
+            // =============================================================================
+            // Description:
+            //              checks that the input row and column have not fallen off of the edge
+            // 
+            // Parameter(s): 
+            //              pixel row, pixel column
+            // 
+            // Return: 
+            //              returns a pixel object clipped to the image boundaries
+            //
+            Pixel<dtype> makePixel(int32 inRow, int32 inCol)
+            {
+                // Make sure that on the edges after i've added or subtracted 1 from the row and col that 
+                // i haven't gone over the edge
+                uint32 row = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows);
+                uint32 col = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols);
+                dtype intensity = intensities_->operator()(row, col);
+
+                return Pixel<dtype>(row, col, intensity);
+            }
+
+            // =============================================================================
+            // Description:
+            //              finds all of the neighboring pixels to the input pixel 
+            // 
+            // Parameter(s): 
+            //              pixel object
+            // 
+            // Return: 
+            //              set of pixels that neighbor the input pixel
+            //
+            void findNeighbors(const Pixel<dtype>& inPixel, std::set<Pixel<dtype> >& outNeighbors)
+            {
+                // using a set will auto take care of adding duplicate pixels on the edges
+
+                // the 8 surrounding neighbors
+                int32 row = static_cast<int32>(inPixel.row());
+                int32 col = static_cast<int32>(inPixel.col());
+
+                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col - 1));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col + 1));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row, col - 1));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row, col + 1));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row + 1, col - 1));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row + 1, col));
+                outNeighbors.insert(outNeighbors.end(), makePixel(row + 1, col + 1));
+            }
+
+            // =============================================================================
+            // Description:
+            //              finds all of the neighboring pixels to the input pixel that are NOT exceedances
+            // 
+            // Parameter(s): 
+            //              pixel object
+            // 
+            // Return: 
+            //              vector of non exceedance neighboring pixels
+            //
+            void findNeighborNotXcds(const Pixel<dtype>& inPixel, std::vector<Pixel<dtype> >& outNeighbors)
+            {
+                std::set<Pixel<dtype> > neighbors;
+                findNeighbors(inPixel, neighbors);
+
+                // check if the neighboring pixels are exceedances and insert into the xcd vector
+                for (auto pixelIter = neighbors.begin(); pixelIter != neighbors.end(); ++pixelIter)
+                {
+                    if (!xcds_->operator()(pixelIter->row(), pixelIter->col()))
+                    {
+                        outNeighbors.push_back(*pixelIter);
+                    }
+                }
+            }
+
+            // =============================================================================
+            // Description:
+            //              finds the pixel index of neighboring pixels
+            // 
+            // Parameter(s): 
+            //              pixel object
+            // 
+            // Return: 
+            //              vector of neighboring pixel indices
+            //
+            void findNeighborXcds(const Pixel<dtype>& inPixel, std::vector<uint32>& outNeighbors)
+            {
+                std::set<Pixel<dtype> > neighbors;
+                findNeighbors(inPixel, neighbors);
+                std::vector<Pixel<dtype> > neighborXcds;
+
+                // check if the neighboring pixels are exceedances and insert into the xcd vector
+                for (auto pixelIter = neighbors.begin(); pixelIter != neighbors.end(); ++pixelIter)
+                {
+                    if (xcds_->operator()(pixelIter->row(), pixelIter->col()))
+                    {
+                        neighborXcds.push_back(*pixelIter);
+                    }
+                }
+
+                // loop through the neighbors and find the cooresponding index into exceedances_
+                for (auto pixelIter = neighborXcds.begin(); pixelIter < neighborXcds.end(); ++pixelIter)
+                {
+                    auto theExceedance = find(xcdsVec_.begin(), xcdsVec_.end(), *pixelIter);
+                    outNeighbors.push_back(static_cast<uint32>(theExceedance - xcdsVec_.begin()));
+                }
+            }
+
+            // =============================================================================
+            // Description:
+            //              workhorse method that performs the clustering algorithm
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              None
+            //
+            void runClusterMaker()
+            {
+                uint32 clusterId = 0;
+
+                for (uint32 xcdIdx = 0; xcdIdx < xcdsVec_.size(); ++xcdIdx)
+                {
+                    Pixel<dtype>& currentPixel = xcdsVec_[xcdIdx];
+
+                    // not already visited
+                    if (xcdsVec_[xcdIdx].clusterId() == -1)
+                    {
+                        Cluster<dtype> newCluster(clusterId);    // a new cluster
+                        currentPixel.setClusterId(clusterId);
+                        newCluster.addPixel(currentPixel);  // assign pixel to cluster
+
+                                                            // get the neighbors
+                        std::vector<uint32> neighborIds;
+                        findNeighborXcds(currentPixel, neighborIds);
+
+                        if (neighborIds.empty())
+                        {
+                            clusters_.push_back(newCluster);
+                            ++clusterId;
+                            continue;
+                        }
+
+                        // loop through the neighbors
+                        for (uint32 neighborsIdx = 0; neighborsIdx < neighborIds.size(); ++neighborsIdx)
+                        {
+                            Pixel<dtype>& currentNeighborPixel = xcdsVec_[neighborIds[neighborsIdx]];
+
+                            // go to neighbors
+                            std::vector<uint32> newNeighborIds;
+                            findNeighborXcds(currentNeighborPixel, newNeighborIds);
+
+                            // loop through the new neighbors and add them to neighbors
+                            for (uint32 newNeighborsIdx = 0; newNeighborsIdx < newNeighborIds.size(); ++newNeighborsIdx)
+                            {
+                                // not already in neighbors
+                                if (find(neighborIds.begin(), neighborIds.end(), newNeighborIds[newNeighborsIdx]) == neighborIds.end())
+                                {
+                                    neighborIds.push_back(newNeighborIds[newNeighborsIdx]);
+                                }
+                            }
+
+                            // not already assigned to a cluster
+                            if (currentNeighborPixel.clusterId() == -1)
+                            {
+                                currentNeighborPixel.setClusterId(clusterId);
+                                newCluster.addPixel(currentNeighborPixel);
+                            }
+                        }
+
+                        clusters_.push_back(newCluster);
+                        ++clusterId;
+                    }
+                }
+            }
+
+            // =============================================================================
+            // Description:
+            //              3x3 dialates the clusters
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              None
+            //
+            void expandClusters()
+            {
+                // loop through the clusters 
+                for (auto clusterIter = clusters_.begin(); clusterIter < clusters_.end(); ++clusterIter)
+                {
+                    // loop through the pixels of the cluster 
+                    Cluster<dtype>& theCluster = *clusterIter;
+                    uint32 clusterSize = static_cast<uint32>(theCluster.size());
+                    for (uint32 iPixel = 0; iPixel < clusterSize; ++iPixel)
+                    {
+                        const Pixel<dtype>& thePixel = theCluster[iPixel];
+                        std::vector<Pixel<dtype> > neighborsNotXcds;
+                        findNeighborNotXcds(thePixel, neighborsNotXcds);
+
+                        // loop through the neighbors and if they haven't already been added to the cluster, add them
+                        for (auto newPixelIter = neighborsNotXcds.begin(); newPixelIter < neighborsNotXcds.end(); ++newPixelIter)
+                        {
+                            if (find(theCluster.begin(), theCluster.end(), *newPixelIter) == theCluster.end())
+                            {
+                                theCluster.addPixel(*newPixelIter);
+                            }
+                        }
+                    }
+                }
+            }
+
+        public:
+            // ================================Typedefs=====================================
+            typedef typename std::vector<Cluster<dtype> >::const_iterator   const_iterator;
+
+            // =============================================================================
+            // Description:
+            //              constructor
+            // 
+            // Parameter(s): 
+            //              NdArray<bool>*, pointer to exceedance array
+            //              NdArray<dtype>*, pointer to intensity array
+            //				border to apply around exceedance pixels post clustering, default 0
+            // 
+            // Return: 
+            //              None
+            //
+            ClusterMaker(const NdArray<bool>* const inXcdArray, const NdArray<dtype>* const inIntensityArray, uint8 inBorderWidth = 0) :
+                xcds_(inXcdArray),
+                intensities_(inIntensityArray)
+            {
+                if (xcds_->shape() != intensities_->shape())
+                {
+                    throw std::invalid_argument("ERROR: ImageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.");
+                }
+
+                shape_ = xcds_->shape();
+
+                // convert the NdArray of booleans to a vector of exceedances
+                for (uint32 row = 0; row < shape_.rows; ++row)
+                {
+                    for (uint32 col = 0; col < shape_.cols; ++col)
+                    {
+                        if (xcds_->operator()(row, col))
+                        {
+                            Pixel<dtype> thePixel(row, col, intensities_->operator()(row, col));
+                            xcdsVec_.push_back(thePixel);
+                        }
+                    }
+                }
+
+                runClusterMaker();
+                for (uint8 i = 0; i < inBorderWidth; ++i)
+                {
+                    expandClusters();
+                }
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns the number of clusters in the frame
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              number of clusters
+            //
+            uint32 size()
+            {
+                return static_cast<uint32>(clusters_.size());
+            }
+
+            // =============================================================================
+            // Description:
+            //              access operator, no bounds checking
+            // 
+            // Parameter(s): 
+            //              index
+            // 
+            // Return: 
+            //              None
+            //
+            const Cluster<dtype>& operator[](uint32 inIndex) const
+            {
+                return clusters_[inIndex];
+            }
+
+            // =============================================================================
+            // Description:
+            //              access method with bounds checking
+            // 
+            // Parameter(s): 
+            //              index
+            // 
+            // Return: 
+            //              None
+            //
+            const Cluster<dtype>& at(uint32 inIndex) const
+            {
+                if (inIndex >= clusters_.size())
+                {
+                    throw std::invalid_argument("ERROR: ImageProcessing::ClusterMaker::at: index exceeds cluster size.");
+                }
+                return clusters_[inIndex];
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns in iterator to the beginning cluster of the container
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              const_iterator
+            //
+            const_iterator begin() const
+            {
+                return clusters_.cbegin();
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns in iterator to the 1 past the end cluster of the container
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              const_iterator
+            //
+            const_iterator end() const
+            {
+                return clusters_.cend();
+            }
+        };
+
         //================================================================================
         // Class Description:
         //						holds the information for a centroid
@@ -1155,362 +1511,6 @@ namespace NumC
             bool operator<(const Centroid<dtype>& rhs) const
             {
                 return intensity_ < rhs.intensity_ ? false : true;
-            }
-        };
-
-        // =============================================================================
-        // Class Description:
-        //              Clusters exceedance data into contiguous groups
-        //
-        template<class dtype>
-        class ClusterMaker
-        {
-        private:
-            // ==================================Attributes=================================
-            const NdArray<bool>* const      xcds_;
-            const NdArray<dtype>* const     intensities_;
-            std::vector<Pixel<dtype> >      xcdsVec_;
-
-            Shape                           shape_;
-
-            std::vector<Cluster<dtype> >    clusters_;
-
-            // =============================================================================
-            // Description:
-            //              checks that the input row and column have not fallen off of the edge
-            // 
-            // Parameter(s): 
-            //              pixel row, pixel column
-            // 
-            // Return: 
-            //              returns a pixel object clipped to the image boundaries
-            //
-            Pixel<dtype> makePixel(int32 inRow, int32 inCol)
-            {
-                // Make sure that on the edges after i've added or subtracted 1 from the row and col that 
-                // i haven't gone over the edge
-                uint32 row = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows);
-                uint32 col = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols);
-                dtype intensity = intensities_->operator()(row, col);
-
-                return Pixel<dtype>(row, col, intensity);
-            }
-
-            // =============================================================================
-            // Description:
-            //              finds all of the neighboring pixels to the input pixel 
-            // 
-            // Parameter(s): 
-            //              pixel object
-            // 
-            // Return: 
-            //              set of pixels that neighbor the input pixel
-            //
-            void findNeighbors(const Pixel<dtype>& inPixel, std::set<Pixel<dtype> >& outNeighbors)
-            {
-                // using a set will auto take care of adding duplicate pixels on the edges
-
-                // the 8 surrounding neighbors
-                int32 row = static_cast<int32>(inPixel.row());
-                int32 col = static_cast<int32>(inPixel.col());
-
-                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col - 1));
-                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col));
-                outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col + 1));
-                outNeighbors.insert(outNeighbors.end(), makePixel(row, col - 1));
-                outNeighbors.insert(outNeighbors.end(), makePixel(row, col + 1));
-                outNeighbors.insert(outNeighbors.end(), makePixel(row + 1, col - 1));
-                outNeighbors.insert(outNeighbors.end(), makePixel(row + 1, col));
-                outNeighbors.insert(outNeighbors.end(), makePixel(row + 1, col + 1));
-            }
-
-            // =============================================================================
-            // Description:
-            //              finds all of the neighboring pixels to the input pixel that are NOT exceedances
-            // 
-            // Parameter(s): 
-            //              pixel object
-            // 
-            // Return: 
-            //              vector of non exceedance neighboring pixels
-            //
-            void findNeighborNotXcds(const Pixel<dtype>& inPixel, std::vector<Pixel<dtype> >& outNeighbors)
-            {
-                std::set<Pixel<dtype> > neighbors;
-                findNeighbors(inPixel, neighbors);
-
-                // check if the neighboring pixels are exceedances and insert into the xcd vector
-                for (auto pixelIter = neighbors.begin(); pixelIter != neighbors.end(); ++pixelIter)
-                {
-                    if (!xcds_->operator()(pixelIter->row(), pixelIter->col()))
-                    {
-                        outNeighbors.push_back(*pixelIter);
-                    }
-                }
-            }
-
-            // =============================================================================
-            // Description:
-            //              finds the pixel index of neighboring pixels
-            // 
-            // Parameter(s): 
-            //              pixel object
-            // 
-            // Return: 
-            //              vector of neighboring pixel indices
-            //
-            void findNeighborXcds(const Pixel<dtype>& inPixel, std::vector<uint32>& outNeighbors)
-            {
-                std::set<Pixel<dtype> > neighbors;
-                findNeighbors(inPixel, neighbors);
-                std::vector<Pixel<dtype> > neighborXcds;
-
-                // check if the neighboring pixels are exceedances and insert into the xcd vector
-                for (auto pixelIter = neighbors.begin(); pixelIter != neighbors.end(); ++pixelIter)
-                {
-                    if (xcds_->operator()(pixelIter->row(), pixelIter->col()))
-                    {
-                        neighborXcds.push_back(*pixelIter);
-                    }
-                }
-
-                // loop through the neighbors and find the cooresponding index into exceedances_
-                for (auto pixelIter = neighborXcds.begin(); pixelIter < neighborXcds.end(); ++pixelIter)
-                {
-                    auto theExceedance = find(xcdsVec_.begin(), xcdsVec_.end(), *pixelIter);
-                    outNeighbors.push_back(static_cast<uint32>(theExceedance - xcdsVec_.begin()));
-                }
-            }
-
-            // =============================================================================
-            // Description:
-            //              workhorse method that performs the clustering algorithm
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              None
-            //
-            void runClusterMaker()
-            {
-                uint32 clusterId = 0;
-
-                for (uint32 xcdIdx = 0; xcdIdx < xcdsVec_.size(); ++xcdIdx)
-                {
-                    Pixel<dtype>& currentPixel = xcdsVec_[xcdIdx];
-
-                    // not already visited
-                    if (xcdsVec_[xcdIdx].clusterId() == -1)
-                    {
-                        Cluster<dtype> newCluster(clusterId);    // a new cluster
-                        currentPixel.setClusterId(clusterId);
-                        newCluster.addPixel(currentPixel);  // assign pixel to cluster
-
-                        // get the neighbors
-                        std::vector<uint32> neighborIds;
-                        findNeighborXcds(currentPixel, neighborIds);
-
-                        if (neighborIds.empty())
-                        {
-                            clusters_.push_back(newCluster);
-                            ++clusterId;
-                            continue;
-                        }
-
-                        // loop through the neighbors
-                        for (uint32 neighborsIdx = 0; neighborsIdx < neighborIds.size(); ++neighborsIdx)
-                        {
-                            Pixel<dtype>& currentNeighborPixel = xcdsVec_[neighborIds[neighborsIdx]];
-
-                            // go to neighbors
-                            std::vector<uint32> newNeighborIds;
-                            findNeighborXcds(currentNeighborPixel, newNeighborIds);
-
-                            // loop through the new neighbors and add them to neighbors
-                            for (uint32 newNeighborsIdx = 0; newNeighborsIdx < newNeighborIds.size(); ++newNeighborsIdx)
-                            {
-                                // not already in neighbors
-                                if (find(neighborIds.begin(), neighborIds.end(), newNeighborIds[newNeighborsIdx]) == neighborIds.end())
-                                {
-                                    neighborIds.push_back(newNeighborIds[newNeighborsIdx]);
-                                }
-                            }
-
-                            // not already assigned to a cluster
-                            if (currentNeighborPixel.clusterId() == -1)
-                            {
-                                currentNeighborPixel.setClusterId(clusterId);
-                                newCluster.addPixel(currentNeighborPixel);
-                            }
-                        }
-
-                        clusters_.push_back(newCluster);
-                        ++clusterId;
-                    }
-                }
-            }
-
-            // =============================================================================
-            // Description:
-            //              3x3 dialates the clusters
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              None
-            //
-            void expandClusters()
-            {
-                // loop through the clusters 
-                for (auto clusterIter = clusters_.begin(); clusterIter < clusters_.end(); ++clusterIter)
-                {
-                    // loop through the pixels of the cluster 
-                    Cluster<dtype>& theCluster = *clusterIter;
-                    uint32 clusterSize = static_cast<uint32>(theCluster.size());
-                    for (uint32 iPixel = 0; iPixel < clusterSize; ++iPixel)
-                    {
-                        const Pixel<dtype>& thePixel = theCluster[iPixel];
-                        std::vector<Pixel<dtype> > neighborsNotXcds;
-                        findNeighborNotXcds(thePixel, neighborsNotXcds);
-
-                        // loop through the neighbors and if they haven't already been added to the cluster, add them
-                        for (auto newPixelIter = neighborsNotXcds.begin(); newPixelIter < neighborsNotXcds.end(); ++newPixelIter)
-                        {
-                            if (find(theCluster.begin(), theCluster.end(), *newPixelIter) == theCluster.end())
-                            {
-                                theCluster.addPixel(*newPixelIter);
-                            }
-                        }
-                    }
-                }
-            }
-
-        public:
-            // ================================Typedefs=====================================
-            typedef typename std::vector<Cluster<dtype> >::const_iterator   const_iterator;
-
-            // =============================================================================
-            // Description:
-            //              constructor
-            // 
-            // Parameter(s): 
-            //              NdArray<bool>*, pointer to exceedance array
-            //              NdArray<dtype>*, pointer to intensity array
-            //				border to apply around exceedance pixels post clustering, default 0
-            // 
-            // Return: 
-            //              None
-            //
-            ClusterMaker(const NdArray<bool>* const inXcdArray, const NdArray<dtype>* const inIntensityArray, uint8 inBorderWidth = 0) :
-                xcds_(inXcdArray),
-                intensities_(inIntensityArray)
-            {
-                if (xcds_->shape() != intensities_->shape())
-                {
-                    throw std::invalid_argument("ERROR: ImageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.");
-                }
-
-                shape_ = xcds_->shape();
-
-                // convert the NdArray of booleans to a vector of exceedances
-                for (uint32 row = 0; row < shape_.rows; ++row)
-                {
-                    for (uint32 col = 0; col < shape_.cols; ++col)
-                    {
-                        if (xcds_->operator()(row, col))
-                        {
-                            Pixel<dtype> thePixel(row, col, intensities_->operator()(row, col));
-                            xcdsVec_.push_back(thePixel);
-                        }
-                    }
-                }
-
-                runClusterMaker();
-                for (uint8 i = 0; i < inBorderWidth; ++i)
-                {
-                    expandClusters();
-                }
-            }
-
-            // =============================================================================
-            // Description:
-            //              returns the number of clusters in the frame
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              number of clusters
-            //
-            uint32 size()
-            {
-                return static_cast<uint32>(clusters_.size());
-            }
-
-            // =============================================================================
-            // Description:
-            //              access operator, no bounds checking
-            // 
-            // Parameter(s): 
-            //              index
-            // 
-            // Return: 
-            //              None
-            //
-            const Cluster<dtype>& operator[](uint32 inIndex) const
-            {
-                return clusters_[inIndex];
-            }
-
-            // =============================================================================
-            // Description:
-            //              access method with bounds checking
-            // 
-            // Parameter(s): 
-            //              index
-            // 
-            // Return: 
-            //              None
-            //
-            const Cluster<dtype>& at(uint32 inIndex) const
-            {
-                if (inIndex >= clusters_.size())
-                {
-                    throw std::invalid_argument("ERROR: ImageProcessing::ClusterMaker::at: index exceeds cluster size.");
-                }
-                return clusters_[inIndex];
-            }
-
-            // =============================================================================
-            // Description:
-            //              returns in iterator to the beginning cluster of the container
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              const_iterator
-            //
-            const_iterator begin() const
-            {
-                return clusters_.cbegin();
-            }
-
-            // =============================================================================
-            // Description:
-            //              returns in iterator to the 1 past the end cluster of the container
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              const_iterator
-            //
-            const_iterator end() const
-            {
-                return clusters_.cend();
             }
         };
 
