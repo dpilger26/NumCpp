@@ -2922,6 +2922,7 @@ BOOST_PYTHON_MODULE(NumC)
         .def("__ne__", &PixelDouble::operator!=)
         .def("__lt__", &PixelDouble::operator<)
         .def("clusterId", &PixelDouble::clusterId)
+        .def("setClusterId", &PixelDouble::setClusterId)
         .def("row", &PixelDouble::row)
         .def("col", &PixelDouble::col)
         .def("intensity", &PixelDouble::intensity);
@@ -2947,6 +2948,7 @@ BOOST_PYTHON_MODULE(NumC)
     typedef ImageProcessing::Centroid<double> CentroidDouble;
     bp::class_<CentroidDouble>
         ("Centroid", bp::init<>())
+        .def(bp::init<ClusterDouble>())
         .def("row", &CentroidDouble::row)
         .def("col", &CentroidDouble::col)
         .def("intensity", &CentroidDouble::intensity)
@@ -2965,6 +2967,6 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("centroidClusters", &ImageProcessing::centroidClusters<double>);
     boost::python::def("clusterPixels", &ImageProcessing::clusterPixels<double>);
     boost::python::def("generateThreshold", &ImageProcessing::generateThreshold<double>);
-    boost::python::def("generateCentroids", &ImageProcessing::generateCentroids<double>);
+    //boost::python::def("generateCentroids", &ImageProcessing::generateCentroids<double>);
     boost::python::def("windowExceedances", &ImageProcessing::windowExceedances);
 }

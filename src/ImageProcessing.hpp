@@ -1634,7 +1634,8 @@ namespace NumC
         //				dtype
         //
         template<typename dtype>
-        inline dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
+        //inline dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
+        inline NdArray<double> generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
         {
             if (inRate < 0 || inRate > 1)
             {
@@ -1645,66 +1646,68 @@ namespace NumC
             int32 minValue = static_cast<int32>(std::floor(inImageArray.min().item()));
             int32 maxValue = static_cast<int32>(std::floor(inImageArray.max().item()));
 
-            if (inRate == 0)
-            {
-                return static_cast<dtype>(maxValue);
-            }
-            else if (inRate == 1)
-            {
-                if (DtypeInfo<dtype>::isSigned())
-                {
-                    return static_cast<dtype>(0); // as close as it can get
-                }
-                else
-                {
-                    return static_cast<dtype>(minValue - 1);
-                }
-            }
+            //if (inRate == 0)
+            //{
+            //    return static_cast<dtype>(maxValue);
+            //}
+            //else if (inRate == 1)
+            //{
+            //    if (DtypeInfo<dtype>::isSigned())
+            //    {
+            //        return static_cast<dtype>(minValue - 1);
+            //    }
+            //    else
+            //    {
+            //        return static_cast<dtype>(0);
+            //    }
+            //}
 
-            int32 histSize = maxValue - minValue + 1;
+            uint32 histSize = static_cast<uint32>(maxValue - minValue + 1);
 
             NdArray<int32> histogram(1, histSize);
-            double sum = 0;
+            histogram.zeros();
             for (uint32 i = 0; i < inImageArray.size(); ++i)
             {
-                int32 bin = static_cast<int32>(std::floor(inImageArray[i]));
+                uint32 bin = static_cast<uint32>(static_cast<int32>(std::floor(inImageArray[i])) - minValue);
                 ++histogram[bin];
-                sum += bin;
             }
 
-            // integrate the histogram from right to left to make a survival function
-            NdArray<double> survivalFunction = fliplr(cumsum(histogram)) / sum;
+            // integrate the histogram from right to left to make a survival function (1 - CDF)
+            NdArray<double> survivalFunction = fliplr(cumsum(histogram)) / static_cast<double>(inImageArray.size());
+            return std::move(survivalFunction);
 
-            // binary search through the survival function to find the rate
-            uint32 indexLow = 0;
-            uint32 indexHigh = histSize - 1;
-            uint32 index = indexHigh / 2; // integer division
+            //// binary search through the survival function to find the rate
+            //uint32 indexLow = 0;
+            //uint32 indexHigh = histSize - 1;
+            //uint32 index = indexHigh / 2; // integer division
 
-            bool keepGoing = true;
-            while (keepGoing)
-            {
-                double value = survivalFunction[index];
-                if (value < inRate)
-                {
-                    indexLow = index;
-                }
-                else if (value > inRate)
-                {
-                    indexHigh = index;
-                }
-                else
-                {
-                    return static_cast<dtype>(index);
-                }
+            //bool keepGoing = true;
+            //while (keepGoing)
+            //{
+            //    double value = survivalFunction[index];
+            //    if (value < inRate)
+            //    {
+            //        indexHigh = index;
+            //    }
+            //    else if (value > inRate)
+            //    {
+            //        indexLow = index;
+            //    }
+            //    else
+            //    {
+            //        return static_cast<dtype>(static_cast<int32>(index) + minValue);
+            //    }
 
-                if (indexHigh - indexLow < 2)
-                {
-                    return static_cast<dtype>(indexHigh);
-                }
-            }
+            //    if (indexHigh - indexLow < 2)
+            //    {
+            //        return static_cast<dtype>(static_cast<int32>(indexHigh) + minValue);
+            //    }
 
-            // shouldn't ever get here but stop the compiler from throwing a warning
-            return static_cast<dtype>(histSize - 1);
+            //    index = indexLow + (indexHigh - indexLow) / 2;
+            //}
+
+            //// shouldn't ever get here but stop the compiler from throwing a warning
+            //return static_cast<dtype>(histSize - 1);
         }
 
         //============================================================================
