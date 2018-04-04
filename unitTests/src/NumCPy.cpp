@@ -2967,6 +2967,6 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("centroidClusters", &ImageProcessing::centroidClusters<double>);
     boost::python::def("clusterPixels", &ImageProcessing::clusterPixels<double>);
     boost::python::def("generateThreshold", &ImageProcessing::generateThreshold<double>);
-    //boost::python::def("generateCentroids", &ImageProcessing::generateCentroids<double>);
+    boost::python::def("generateCentroids", &ImageProcessing::generateCentroids<double>);
     boost::python::def("windowExceedances", &ImageProcessing::windowExceedances);
 }

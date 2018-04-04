@@ -19,6 +19,7 @@
 
 #pragma once
 #include<NdArray.hpp>
+#include<Methods.hpp>
 #include<Types.hpp>
 
 #include<cmath>
@@ -1056,8 +1057,8 @@ namespace NumC
                 // loop through the neighbors and find the cooresponding index into exceedances_
                 for (auto pixelIter = neighborXcds.begin(); pixelIter < neighborXcds.end(); ++pixelIter)
                 {
-                    auto theExceedance = find(xcdsVec_.begin(), xcdsVec_.end(), *pixelIter);
-                    outNeighbors.push_back(static_cast<uint32>(theExceedance - xcdsVec_.begin()));
+                    auto theExceedanceIter = find(xcdsVec_.begin(), xcdsVec_.end(), *pixelIter);
+                    outNeighbors.push_back(static_cast<uint32>(theExceedanceIter - xcdsVec_.begin()));
                 }
             }
 
@@ -1080,26 +1081,29 @@ namespace NumC
                     Pixel<dtype>& currentPixel = xcdsVec_[xcdIdx];
 
                     // not already visited
-                    if (xcdsVec_[xcdIdx].clusterId() == -1)
+                    if (currentPixel.clusterId() == -1)
                     {
+                        std::cout << "clusterId = " << clusterId << std::endl;
                         Cluster<dtype> newCluster(clusterId);    // a new cluster
                         currentPixel.setClusterId(clusterId);
                         newCluster.addPixel(currentPixel);  // assign pixel to cluster
 
-                                                            // get the neighbors
+                        // get the neighbors
                         std::vector<uint32> neighborIds;
                         findNeighborXcds(currentPixel, neighborIds);
-
+                        std::cout << "Got the neighbors" << std::endl;
                         if (neighborIds.empty())
                         {
                             clusters_.push_back(newCluster);
                             ++clusterId;
+                            std::cout << "Completed the cluster1" << std::endl;
                             continue;
                         }
-
+                        std::cout << "Looping through neighbors; size = " << neighborIds.size() << std::endl;
                         // loop through the neighbors
                         for (uint32 neighborsIdx = 0; neighborsIdx < neighborIds.size(); ++neighborsIdx)
                         {
+                            std::cout << "neighborsIdx = " << neighborsIdx << std::endl;
                             Pixel<dtype>& currentNeighborPixel = xcdsVec_[neighborIds[neighborsIdx]];
 
                             // go to neighbors
@@ -1123,7 +1127,7 @@ namespace NumC
                                 newCluster.addPixel(currentNeighborPixel);
                             }
                         }
-
+                        std::cout << "Completed the cluster2" << std::endl;
                         clusters_.push_back(newCluster);
                         ++clusterId;
                     }
@@ -1182,10 +1186,11 @@ namespace NumC
             // Return: 
             //              None
             //
-            ClusterMaker(const NdArray<bool>* const inXcdArray, const NdArray<dtype>* const inIntensityArray, uint8 inBorderWidth = 0) :
-                xcds_(inXcdArray),
-                intensities_(inIntensityArray)
+            ClusterMaker(const NdArray<bool>* const inXcdArrayPtr, const NdArray<dtype>* const inIntensityArrayPtr, uint8 inBorderWidth = 0) :
+                xcds_(inXcdArrayPtr),
+                intensities_(inIntensityArrayPtr)
             {
+                std::cout << "start the clustermaker constructor" << std::endl;
                 if (xcds_->shape() != intensities_->shape())
                 {
                     throw std::invalid_argument("ERROR: ImageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.");
@@ -1205,12 +1210,14 @@ namespace NumC
                         }
                     }
                 }
-
+                std::cout << "before running" << std::endl;
                 runClusterMaker();
+                std::cout << "before expanding" << std::endl;
                 for (uint8 i = 0; i < inBorderWidth; ++i)
                 {
                     expandClusters();
                 }
+                std::cout << "done with constructor" << std::endl;
             }
 
             // =============================================================================
@@ -1568,6 +1575,7 @@ namespace NumC
         inline std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
         {
             ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
+            std::cout << "I am here in clusterMaker" << std::endl;
             return std::move(std::vector<Cluster<dtype> >(clusterMaker.begin(), clusterMaker.end()));
         }
 
@@ -1604,19 +1612,19 @@ namespace NumC
 
             // generate the threshold
             dtype threshold = generateThreshold(inImageArray, inRate);
-
+            std::cout << "I am here. Threshold = " << threshold << std::endl;
             // apply the threshold to get xcds
             NdArray<bool> xcds = applyThreshold(inImageArray, threshold);
-
+            std::cout << "I am here 2. Num xcds = " << count_nonzero(xcds).item() << std::endl;
             // window around the xcds
             if (borderWidthPre > 0)
             {
                 xcds = windowExceedances(xcds, borderWidthPre);
             }
-
+            std::cout << "I am here 3. Num windowed xcds = " << count_nonzero(xcds).item() << std::endl;
             // cluster the exceedances
             std::vector<Cluster<dtype> > clusters = clusterPixels(inImageArray, xcds, borderWidthPost);
-
+            std::cout << "I am here 4." << std::endl;
             // centroid the clusters
             return std::move(centroidClusters(clusters));
         }
@@ -1634,8 +1642,7 @@ namespace NumC
         //				dtype
         //
         template<typename dtype>
-        //inline dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
-        inline NdArray<double> generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
+        inline dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
         {
             if (inRate < 0 || inRate > 1)
             {
@@ -1646,68 +1653,83 @@ namespace NumC
             int32 minValue = static_cast<int32>(std::floor(inImageArray.min().item()));
             int32 maxValue = static_cast<int32>(std::floor(inImageArray.max().item()));
 
-            //if (inRate == 0)
-            //{
-            //    return static_cast<dtype>(maxValue);
-            //}
-            //else if (inRate == 1)
-            //{
-            //    if (DtypeInfo<dtype>::isSigned())
-            //    {
-            //        return static_cast<dtype>(minValue - 1);
-            //    }
-            //    else
-            //    {
-            //        return static_cast<dtype>(0);
-            //    }
-            //}
+            if (inRate == 0)
+            {
+                return static_cast<dtype>(maxValue);
+            }
+            else if (inRate == 1)
+            {
+                if (DtypeInfo<dtype>::isSigned())
+                {
+                    return static_cast<dtype>(minValue - 1);
+                }
+                else
+                {
+                    return static_cast<dtype>(0);
+                }
+            }
 
             uint32 histSize = static_cast<uint32>(maxValue - minValue + 1);
 
-            NdArray<int32> histogram(1, histSize);
+            NdArray<double> histogram(1, histSize);
             histogram.zeros();
-            for (uint32 i = 0; i < inImageArray.size(); ++i)
+            uint32 numPixels = inImageArray.size();
+            for (uint32 i = 0; i < numPixels; ++i)
             {
                 uint32 bin = static_cast<uint32>(static_cast<int32>(std::floor(inImageArray[i])) - minValue);
                 ++histogram[bin];
             }
 
-            // integrate the histogram from right to left to make a survival function (1 - CDF)
-            NdArray<double> survivalFunction = fliplr(cumsum(histogram)) / static_cast<double>(inImageArray.size());
-            return std::move(survivalFunction);
+            // integrate the normalized histogram from right to left to make a survival function (1 - CDF)
+            double dNumPixels = static_cast<double>(numPixels);
+            NdArray<double> survivalFunction(1, histSize + 1);
+            survivalFunction[-1] = 0;
+            for (int32 i = histSize - 1; i > -1; --i)
+            {
+                double histValue = histogram[i] / dNumPixels;
+                survivalFunction[i] = survivalFunction[i + 1] + histValue;
+            }
 
-            //// binary search through the survival function to find the rate
-            //uint32 indexLow = 0;
-            //uint32 indexHigh = histSize - 1;
-            //uint32 index = indexHigh / 2; // integer division
+            // binary search through the survival function to find the rate
+            uint32 indexLow = 0;
+            uint32 indexHigh = histSize - 1;
+            uint32 index = indexHigh / 2; // integer division
 
-            //bool keepGoing = true;
-            //while (keepGoing)
-            //{
-            //    double value = survivalFunction[index];
-            //    if (value < inRate)
-            //    {
-            //        indexHigh = index;
-            //    }
-            //    else if (value > inRate)
-            //    {
-            //        indexLow = index;
-            //    }
-            //    else
-            //    {
-            //        return static_cast<dtype>(static_cast<int32>(index) + minValue);
-            //    }
+            bool keepGoing = true;
+            while (keepGoing)
+            {
+                double value = survivalFunction[index];
+                if (value < inRate)
+                {
+                    indexHigh = index;
+                }
+                else if (value > inRate)
+                {
+                    indexLow = index;
+                }
+                else
+                {
+                    int32 thresh = static_cast<int32>(index) + minValue - 1;
+                    if (DtypeInfo<dtype>::isSigned())
+                    {
+                        return static_cast<dtype>(thresh);
+                    }
+                    else
+                    {
+                        return thresh < 0 ? 0 : static_cast<dtype>(thresh);
+                    }
+                }
 
-            //    if (indexHigh - indexLow < 2)
-            //    {
-            //        return static_cast<dtype>(static_cast<int32>(indexHigh) + minValue);
-            //    }
+                if (indexHigh - indexLow < 2)
+                {
+                    return static_cast<dtype>(static_cast<int32>(indexHigh) + minValue - 1);
+                }
 
-            //    index = indexLow + (indexHigh - indexLow) / 2;
-            //}
+                index = indexLow + (indexHigh - indexLow) / 2;
+            }
 
-            //// shouldn't ever get here but stop the compiler from throwing a warning
-            //return static_cast<dtype>(histSize - 1);
+            // shouldn't ever get here but stop the compiler from throwing a warning
+            return static_cast<dtype>(histSize - 1);
         }
 
         //============================================================================
@@ -1731,7 +1753,7 @@ namespace NumC
                 {
                     for (int32 col = 0; col < static_cast<int32>(inShape.cols); ++col)
                     {
-                        if (xcds(row, col))
+                        if (inExceedances(row, col))
                         {
                             xcds(std::max(row - 1, 0), std::max(col - 1, 0)) = true;
                             xcds(std::max(row - 1, 0), col) = true;

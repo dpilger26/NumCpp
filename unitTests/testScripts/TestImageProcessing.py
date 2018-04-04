@@ -11,12 +11,9 @@ def doTest():
 
     # generate a random noise
     imageSize = 1024
-    noiseStd = 4
-    noiseMean = 100
+    noiseStd = np.random.rand(1) * 4
+    noiseMean = np.random.randint(75, 100, [1, ]).item()
     noise = np.round(np.random.randn(imageSize, imageSize) * noiseStd + noiseMean)
-
-    # clip any negative values at zero
-    noise[noise < 0] = 0
 
     # scatter some point sources on it
     pointSize = 5
@@ -41,7 +38,12 @@ def doTest():
     cScene.setArray(scene)
 
     threshold = NumC.generateThreshold(cScene, thresholdRate)
+    print(f'Scene Min = {scene.min()}')
+    print(f'Scene Max = {scene.max()}')
     print(f'Threshold = {threshold}')
+    print(f'Desired Rate = {thresholdRate}')
+    print(f'Actual Rate(Threshold) = {np.count_nonzero(scene > threshold) / scene.size}')
+    print(f'Actual Rate(Threshold - 1) = {np.count_nonzero(scene > threshold - 1) / scene.size}')
 
     centroids = list(NumC.generateCentroids(cScene, thresholdRate, windowType, borderWidth))
 
@@ -55,21 +57,21 @@ def doTest():
     plt.title(f'Centroids\nNumber of Centroids = {len(centroids)}')
 
     for centroid in centroids:
-        plt.plot(centroid.col(), centroid.row(), 'og')
+        plt.plot(centroid.col(), centroid.row(), 'og', fillstyle='none')
 
     plt.show()
 
-    centroidInfo = [[centroid.intensity(), centroid.eod()] for centroid in centroids]
+    centroidInfo = np.asarray([[centroid.intensity(), centroid.eod()] for centroid in centroids])
 
     plt.figure()
-    plt.plot(sorted(centroidInfo[:,0]))
+    plt.plot(np.sort(centroidInfo[:,0].flatten()))
     plt.title('Centroid Intensities')
     plt.xlabel('Centroid #')
     plt.ylabel('Counts')
     plt.show()
 
     plt.figure()
-    plt.plot(sorted(centroidInfo[:,1] * 100))
+    plt.plot(np.sort(centroidInfo[:,1].flatten() * 100))
     plt.title('Centroid EOD')
     plt.xlabel('Centroid #')
     plt.ylabel('EOD (%)')
@@ -79,4 +81,4 @@ def doTest():
 
 ####################################################################################
 if __name__ == '__main__':
-    doTest()
+   doTest()
