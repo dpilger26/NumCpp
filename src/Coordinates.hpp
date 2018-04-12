@@ -85,7 +85,15 @@ namespace NumC
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::RA: constructor can only be called with floating point types.");
 
+                if (inDegrees < 0 || inDegrees >= 360)
+                {
+                    throw std::invalid_argument("ERROR: NumC::Coordinates::RA: input degrees must be of the range [0, 360)");
+                }
 
+                hours_ = static_cast<uint8>(std::floor(degrees_ / 15.0));
+                double decMinutes = (degrees_ - static_cast<double>(hours_) * 15.0) * 4.0;
+                minutes_ = static_cast<uint8>(std::floor(decMinutes));
+                seconds_ = static_cast<dtype>((decMinutes - static_cast<double>(minutes_)) * 60.0);
             }
 
             //============================================================================
@@ -107,7 +115,24 @@ namespace NumC
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::RA: constructor can only be called with floating point types.");
 
+                degrees_ = static_cast<dtype>(static_cast<double>(hours_) * 15.0 + static_cast<double>(minutes_) / 4.0 + static_cast<double>(seconds_) / 240.0);
+            }
 
+            //============================================================================
+            // Method Description: 
+            //						returns a copy of the RA object as a different type
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				RA
+            //
+            template<typename dtypeOut>
+            RA<dtypeOut> astype()
+            {
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::RA::astype: method can only be called with floating point types.");
+
+                return RA<dtypeOut>(hours_, minutes_, static_cast<dtypeOut>(seconds_));
             }
 
             //============================================================================
@@ -208,7 +233,7 @@ namespace NumC
                 std::string out = "RA = " + Utils::num2str(inRa.hours_) + " hours, " + Utils::num2str(inRa.minutes_) + " minutes, ";
                 out += Utils::num2str(inRa.seconds_) + " seconds\n\tdegrees = " + Utils::num2str(inRa.degrees_) + "\n";
                 inStream << out;
-                return out;
+                return inStream;
             }
         };
 
@@ -262,7 +287,15 @@ namespace NumC
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::Dec: constructor can only be called with floating point types.");
 
+                if (inDegrees < -90 || inDegrees > 90)
+                {
+                    throw std::invalid_argument("ERROR: NumC::Coordinates::Dec: input degrees must be of the range [-90, 90]");
+                }
 
+                degreesWhole_ = static_cast<uint16>(std::floor(degrees_));
+                double decMinutes = (degrees_ - static_cast<double>(degreesWhole_)) * 60.0;
+                minutes_ = static_cast<uint8>(std::floor(decMinutes));
+                seconds_ = static_cast<dtype>((decMinutes - static_cast<double>(minutes_)) * 60.0);
             }
 
             //============================================================================
@@ -276,15 +309,32 @@ namespace NumC
             // Outputs:
             //				None
             //
-            Dec(uint8 inHours, uint8 inMinutes, dtype inSeconds) :
-                degreesWhole_(inHours),
+            Dec(uint16 inDegrees, uint8 inMinutes, dtype inSeconds) :
+                degreesWhole_(inDegrees),
                 minutes_(inMinutes),
                 seconds_(inSeconds),
                 degrees_(0)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::Dec: constructor can only be called with floating point types.");
 
+                degrees_ = static_cast<dtype>(static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + static_cast<double>(seconds_) / 3600.0);
+            }
 
+            //============================================================================
+            // Method Description: 
+            //						returns a copy of the Dec object as a different type
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				Dec
+            //
+            template<typename dtypeOut>
+            Dec<dtypeOut> astype()
+            {
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::Dec::astype: method can only be called with floating point types.");
+
+                return Dec<dtypeOut>(degreesWhole_, minutes_, static_cast<dtypeOut>(seconds_));
             }
 
             //============================================================================
@@ -385,7 +435,7 @@ namespace NumC
                 std::string out = "Dec = " + Utils::num2str(inDec.degreesWhole_) + " degrees, " + Utils::num2str(inDec.minutes_) + " minutes, ";
                 out += Utils::num2str(inDec.seconds_) + " seconds\n\tdegrees = " + Utils::num2str(inDec.degrees_) + "\n";
                 inStream << out;
-                return out;
+                return inStream;
             }
         };
 
@@ -415,7 +465,12 @@ namespace NumC
             //
             void cartesianToPolar()
             {
+                dtype degreesRa = static_cast<dtype>(rad2deg(std::atan2(y_, x_)));
+                ra_ = RA<dtype>(degreesRa);
 
+                double r = std::sqrt(static_cast<double>(Utils::sqr(x_)) + static_cast<double>(Utils::sqr(y_)) + static_cast<double>(Utils::sqr(z_)));
+                dtype degreesDec = static_cast<dtype>(rad2deg(std::asin(static_cast<double>(z_) / r)));
+                dec_ = Dec<dtype>(degreesDec);
             }
 
             //============================================================================
@@ -429,7 +484,12 @@ namespace NumC
             //
             void polarToCartesian()
             {
+                double raRadians = deg2rad(static_cast<double>(ra_.degrees()));
+                double decRadians = deg2rad(static_cast<double>(dec_.degrees()));
 
+                x_ = static_cast<dtype>(std::cos(raRadians) * std::cos(decRadians));
+                y_ = static_cast<dtype>(std::sin(raRadians) * std::cos(decRadians));
+                z_ = static_cast<dtype>(std::sin(decRadians));
             }
 
         public:
@@ -508,8 +568,7 @@ namespace NumC
             // Outputs:
             //				None
             //
-            template<typename dtypeIn>
-            Coordinate(const RA<dtypeIn>& inRA, const Dec<dtypeIn>& inDec) :
+            Coordinate(const RA<dtype>& inRA, const Dec<dtype>& inDec) :
                 ra_(inRA),
                 dec_(inDec),
                 x_(0.0),
@@ -572,6 +631,21 @@ namespace NumC
                 z_ = inCartesianVector[2];
 
                 cartesianToPolar();
+            }
+
+            //============================================================================
+            // Method Description: 
+            //						returns the Dec object
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				Dec
+            //
+            template<typename dtypeOut>
+            Coordinate<dtypeOut> astype()
+            {
+                return Coordinate<dtypeOut>(static_cast<dtypeOut>(ra_.degrees()), static_cast<dtypeOut>(dec_.degrees()));
             }
 
             //============================================================================
@@ -653,7 +727,7 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            NdArray xyz() const
+            NdArray<dtype> xyz() const
             {
                 NdArray<dtype> out = {x_, y_, z_};
                 return std::move(out);
@@ -668,10 +742,9 @@ namespace NumC
             // Outputs:
             //				degrees
             //
-            template<typename dtypeIn>
-            dtype degreeSeperation(const Coordinate<dtypeIn>& inOtherCoordinate) const
+            dtype degreeSeperation(const Coordinate<dtype>& inOtherCoordinate) const
             {
-                return rad2deg(radianSeperation(inOtherCoordinate));
+                return static_cast<dtype>(rad2deg(radianSeperation(inOtherCoordinate)));
             }
 
             //============================================================================
@@ -684,10 +757,9 @@ namespace NumC
             // Outputs:
             //				degrees
             //
-            template<typename dtypeIn>
-            dtype degreeSeperation(const NdArray<dtypeIn>& inVector) const
+            dtype degreeSeperation(const NdArray<dtype>& inVector) const
             {
-                return rad2deg(radianSeperation(inVector));
+                return static_cast<dtype>(rad2deg(radianSeperation(inVector)));
             }
 
             //============================================================================
@@ -699,10 +771,9 @@ namespace NumC
             // Outputs:
             //				radian
             //
-            template<typename dtypeIn>
-            dtype radianSeperation(const Coordinate<dtypeIn>& inOtherCoordinate) const
+            dtype radianSeperation(const Coordinate<dtype>& inOtherCoordinate) const
             {
-
+                return static_cast<dtype>(std::acos(dot<dtype, double>(xyz(), inOtherCoordinate.xyz()).item()));
             }
 
             //============================================================================
@@ -715,10 +786,14 @@ namespace NumC
             // Outputs:
             //				radian
             //
-            template<typename dtypeIn>
-            dtype radianSeperation(const NdArray<dtypeIn>& inVector) const
+            dtype radianSeperation(const NdArray<dtype>& inVector) const
             {
+                if (inVector.size() != 3)
+                {
+                    throw std::invalid_argument("ERROR: NumC::Coordinates::Coordinate::radianSeperation: input vector must be of length 3.");
+                }
 
+                return static_cast<dtype>(std::acos(dot<dtype, double>(xyz(), inVector.flatten()).item()));
             }
 
             //============================================================================
@@ -760,10 +835,10 @@ namespace NumC
             //
             friend std::ostream& operator<<(std::ostream& inStream, const Coordinate<dtype>& inCoord)
             {
-                inStream << ra_;
-                inStream << dec_;
-                inStream << "Cartesian = " << xyz();
-                return out;
+                inStream << inCoord.ra_;
+                inStream << inCoord.dec_;
+                inStream << "Cartesian = " << inCoord.xyz();
+                return inStream;
             }
         };
 
@@ -778,7 +853,7 @@ namespace NumC
         //				degrees
         //
         template<typename dtype>
-        dtype degreeSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2) const
+        dtype degreeSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2)
         {
             return inCoordinate1.degreeSeperation(inCoordinate2);
         }
@@ -795,7 +870,7 @@ namespace NumC
         //				degrees
         //
         template<typename dtype>
-        dtype degreeSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2) const
+        dtype degreeSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2)
         {
             Coordinate<dtype> inCoord1(inVector1);
             return inCoord1.degreeSeperation(inVector1);
@@ -812,7 +887,7 @@ namespace NumC
         //				radian
         //
         template<typename dtype>
-        dtype radianSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2) const
+        dtype radianSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2)
         {
             return inCoordinate1.radianSeperation(inCoordinate2);
         }
@@ -829,7 +904,7 @@ namespace NumC
         //				radian
         //
         template<typename dtype>
-        dtype radianSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2) const
+        dtype radianSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2)
         {
             Coordinate<dtype> inCoord1(inVector1);
             return inCoord1.radianSeperation(inVector1);

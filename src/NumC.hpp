@@ -21,6 +21,7 @@
 
 #include"BoostNumpyNdarrayHelper.hpp"
 #include"Constants.hpp"
+#include"Coordinates.hpp"
 #include"DtypeInfo.hpp"
 #include"FFT.hpp"
 #include"ImageProcessing.hpp"
