@@ -637,6 +637,22 @@ namespace NumC
 
     //============================================================================
     // Method Description: 
+    //						Returns the indices that would sort an array.
+    //		
+    // Inputs:
+    //				NdArray
+    //				(Optional) axis
+    // Outputs:
+    //				NdArray
+    //
+    template<typename dtype>
+    inline NdArray<uint32> argwhere(const NdArray<dtype>& inArray)
+    {
+        return std::move(inArray.nonzero());
+    }
+
+    //============================================================================
+    // Method Description: 
     //						Evenly round to the given number of decimals.
     //		
     // Inputs:

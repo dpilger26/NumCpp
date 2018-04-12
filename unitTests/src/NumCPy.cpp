@@ -918,6 +918,14 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray argwhere(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(NumC::argwhere(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray amaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
     {
         return numCToBoost(amax(inArray, inAxis));
@@ -2583,6 +2591,7 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("argmax", &MethodsInterface::argmaxArray<double>);
     boost::python::def("argmin", &MethodsInterface::argminArray<double>);
     boost::python::def("argsort", &MethodsInterface::argsortArray<double>);
+    boost::python::def("argwhere", &MethodsInterface::argwhere<double>);
     boost::python::def("arccos", &MethodsInterface::arccosScalar<double>);
     boost::python::def("arccos", &MethodsInterface::arccosArray<double>);
     boost::python::def("arccosh", &MethodsInterface::arccoshScalar<double>);
