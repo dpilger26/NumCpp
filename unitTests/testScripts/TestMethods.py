@@ -504,6 +504,19 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing argwhere', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    randValue = np.random.randint(0,100, [1,]).item()
+    data2 = data > randValue
+    cArray.setArray(data2)
+    if np.array_equal(NumC.argwhere(cArray).flatten(), np.argwhere(data.flatten() > randValue).flatten()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing around scalar', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * np.random.randint(1, 10, [1,]).item()
     numDecimalsRound = np.random.randint(0, 10, [1,]).astype(np.uint8).item()

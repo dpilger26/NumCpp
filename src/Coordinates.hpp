@@ -230,12 +230,18 @@ namespace NumC
             //
             friend std::ostream& operator<<(std::ostream& inStream, const RA<dtype>& inRa)
             {
-                std::string out = "RA = " + Utils::num2str(inRa.hours_) + " hours, " + Utils::num2str(inRa.minutes_) + " minutes, ";
-                out += Utils::num2str(inRa.seconds_) + " seconds\n\tdegrees = " + Utils::num2str(inRa.degrees_) + "\n";
+                std::string out = "RA hms: " + Utils::num2str(inRa.hours_) + " hours, " + Utils::num2str(inRa.minutes_) + " minutes, ";
+                out += Utils::num2str(inRa.seconds_) + " seconds\nRA degrees: " + Utils::num2str(inRa.degrees_) + "\n";
                 inStream << out;
                 return inStream;
             }
         };
+
+        //================================================================================
+        // Enum Description:
+        //						pretty self explanatory
+        //
+        struct Sign { enum Type { NEGATIVE = 0, POSITIVE }; };
 
         //================================================================================
         // Class Description:
@@ -246,10 +252,11 @@ namespace NumC
         {
         private:
             //====================================Attributes==============================
-            uint16      degreesWhole_;
-            uint8       minutes_;
-            dtype       seconds_;
-            dtype       degrees_;
+            Sign::Type      sign_;
+            int8            degreesWhole_;
+            uint8           minutes_;
+            dtype           seconds_;
+            dtype           degrees_;
 
         public:
             //============================================================================
@@ -262,6 +269,7 @@ namespace NumC
             //				None
             //
             Dec() :
+                sign_(Sign::POSITIVE),
                 degreesWhole_(0),
                 minutes_(0),
                 seconds_(0.0),
@@ -292,8 +300,10 @@ namespace NumC
                     throw std::invalid_argument("ERROR: NumC::Coordinates::Dec: input degrees must be of the range [-90, 90]");
                 }
 
-                degreesWhole_ = static_cast<uint16>(std::floor(degrees_));
-                double decMinutes = (degrees_ - static_cast<double>(degreesWhole_)) * 60.0;
+                sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;
+                dtype absDegrees = std::abs(degrees_);
+                degreesWhole_ = static_cast<int8>(std::floor(absDegrees));
+                double decMinutes = (absDegrees - static_cast<double>(degreesWhole_)) * 60.0;
                 minutes_ = static_cast<uint8>(std::floor(decMinutes));
                 seconds_ = static_cast<dtype>((decMinutes - static_cast<double>(minutes_)) * 60.0);
             }
@@ -303,13 +313,15 @@ namespace NumC
             //						Constructor
             //		
             // Inputs:
+            //              Sign::Type
             //				hours,
             //              minutes,
             //              seconds
             // Outputs:
             //				None
             //
-            Dec(uint16 inDegrees, uint8 inMinutes, dtype inSeconds) :
+            Dec(Sign::Type inSign, int8 inDegrees, uint8 inMinutes, dtype inSeconds) :
+                sign_(inSign),
                 degreesWhole_(inDegrees),
                 minutes_(inMinutes),
                 seconds_(inSeconds),
@@ -318,6 +330,7 @@ namespace NumC
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::Dec: constructor can only be called with floating point types.");
 
                 degrees_ = static_cast<dtype>(static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + static_cast<double>(seconds_) / 3600.0);
+                degrees_ *= sign_ == Sign::NEGATIVE ? -1 : 1;
             }
 
             //============================================================================
@@ -334,7 +347,21 @@ namespace NumC
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::Dec::astype: method can only be called with floating point types.");
 
-                return Dec<dtypeOut>(degreesWhole_, minutes_, static_cast<dtypeOut>(seconds_));
+                return Dec<dtypeOut>(sign_, degreesWhole_, minutes_, static_cast<dtypeOut>(seconds_));
+            }
+
+            //============================================================================
+            // Method Description: 
+            //						get the sign of the degrees (positive or negative)
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				Sign::Type
+            //
+            Sign::Type sign() const
+            {
+                return sign_;
             }
 
             //============================================================================
@@ -360,7 +387,7 @@ namespace NumC
             // Outputs:
             //				uint8 minutes
             //
-            uint16 degreesWhole() const
+            int8 degreesWhole() const
             {
                 return degreesWhole_;
             }
@@ -432,8 +459,8 @@ namespace NumC
             //
             friend std::ostream& operator<<(std::ostream& inStream, const Dec<dtype>& inDec)
             {
-                std::string out = "Dec = " + Utils::num2str(inDec.degreesWhole_) + " degrees, " + Utils::num2str(inDec.minutes_) + " minutes, ";
-                out += Utils::num2str(inDec.seconds_) + " seconds\n\tdegrees = " + Utils::num2str(inDec.degrees_) + "\n";
+                std::string out = "Dec dms: " + Utils::num2str(inDec.degreesWhole_) + " degrees, " + Utils::num2str(inDec.minutes_) + " minutes, ";
+                out += Utils::num2str(inDec.seconds_) + " seconds\nDec degrees = " + Utils::num2str(inDec.degrees_) + "\n";
                 inStream << out;
                 return inStream;
             }
@@ -547,9 +574,9 @@ namespace NumC
             // Outputs:
             //				None
             //
-            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, uint16 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
+            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign::Type inSign, int8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
-                dec_(inDecDegreesWhole, inDecMinutes, inDecSeconds),
+                dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds),
                 x_(0.0),
                 y_(0.0),
                 z_(0.0)
