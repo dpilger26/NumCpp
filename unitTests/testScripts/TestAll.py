@@ -4,6 +4,7 @@ import TestTimer
 import TestNdArray
 import TestMethods
 import TestConstants
+import TestCoordinates
 import TestImageProcessing
 import TestLinalg
 import TestRandom
@@ -22,6 +23,7 @@ def doTest():
     TestDtypeInfo.doTest()
     TestNdArray.doTest()
     TestMethods.doTest()
+    TestCoordinates.doTest()
     TestConstants.doTest()
     TestLinalg.doTest()
     TestRandom.doTest()

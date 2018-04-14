@@ -44,10 +44,11 @@ namespace NumC
         {
         private:
             //====================================Attributes==============================
-            uint8      hours_;
-            uint8      minutes_;
-            dtype      seconds_;
-            dtype      degrees_;
+            uint8   hours_;
+            uint8   minutes_;
+            dtype   seconds_;
+            dtype   degrees_;
+            dtype   radians_;
 
         public:
             //============================================================================
@@ -63,7 +64,8 @@ namespace NumC
                 hours_(0),
                 minutes_(0),
                 seconds_(0.0),
-                degrees_(0.0)
+                degrees_(0.0),
+                radians_(0.0)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::RA: constructor can only be called with floating point types.");
             }
@@ -81,7 +83,8 @@ namespace NumC
                 hours_(0),
                 minutes_(0),
                 seconds_(0.0),
-                degrees_(inDegrees)
+                degrees_(inDegrees),
+                radians_(static_cast<dtype>(deg2rad(inDegrees)))
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::RA: constructor can only be called with floating point types.");
 
@@ -111,11 +114,13 @@ namespace NumC
                 hours_(inHours),
                 minutes_(inMinutes),
                 seconds_(inSeconds),
-                degrees_(0.0)
+                degrees_(0.0),
+                radians_(0.0)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::RA: constructor can only be called with floating point types.");
 
                 degrees_ = static_cast<dtype>(static_cast<double>(hours_) * 15.0 + static_cast<double>(minutes_) / 4.0 + static_cast<double>(seconds_) / 240.0);
+                radians_ = static_cast<dtype>(deg2rad(degrees_));
             }
 
             //============================================================================
@@ -133,6 +138,20 @@ namespace NumC
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::RA::astype: method can only be called with floating point types.");
 
                 return RA<dtypeOut>(hours_, minutes_, static_cast<dtypeOut>(seconds_));
+            }
+
+            //============================================================================
+            // Method Description: 
+            //						get the radians value
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				uint8 minutes
+            //
+            dtype radians() const
+            {
+                return radians_;
             }
 
             //============================================================================
@@ -253,10 +272,11 @@ namespace NumC
         private:
             //====================================Attributes==============================
             Sign::Type      sign_;
-            int8            degreesWhole_;
+            uint8           degreesWhole_;
             uint8           minutes_;
             dtype           seconds_;
             dtype           degrees_;
+            dtype           radians_;
 
         public:
             //============================================================================
@@ -273,7 +293,8 @@ namespace NumC
                 degreesWhole_(0),
                 minutes_(0),
                 seconds_(0.0),
-                degrees_(0.0)
+                degrees_(0.0),
+                radians_(0.0)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::Dec: constructor can only be called with floating point types.");
             }
@@ -291,7 +312,8 @@ namespace NumC
                 degreesWhole_(0),
                 minutes_(0),
                 seconds_(0.0),
-                degrees_(inDegrees)
+                degrees_(inDegrees),
+                radians_(static_cast<dtype>(deg2rad(inDegrees)))
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::Dec: constructor can only be called with floating point types.");
 
@@ -302,7 +324,8 @@ namespace NumC
 
                 sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;
                 dtype absDegrees = std::abs(degrees_);
-                degreesWhole_ = static_cast<int8>(std::floor(absDegrees));
+                degreesWhole_ = static_cast<uint8>(std::floor(absDegrees));
+
                 double decMinutes = (absDegrees - static_cast<double>(degreesWhole_)) * 60.0;
                 minutes_ = static_cast<uint8>(std::floor(decMinutes));
                 seconds_ = static_cast<dtype>((decMinutes - static_cast<double>(minutes_)) * 60.0);
@@ -320,17 +343,20 @@ namespace NumC
             // Outputs:
             //				None
             //
-            Dec(Sign::Type inSign, int8 inDegrees, uint8 inMinutes, dtype inSeconds) :
+            Dec(Sign::Type inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds) :
                 sign_(inSign),
                 degreesWhole_(inDegrees),
                 minutes_(inMinutes),
                 seconds_(inSeconds),
-                degrees_(0)
+                degrees_(0.0),
+                radians_(0.0)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumC::Coordinates::Dec: constructor can only be called with floating point types.");
 
                 degrees_ = static_cast<dtype>(static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + static_cast<double>(seconds_) / 3600.0);
                 degrees_ *= sign_ == Sign::NEGATIVE ? -1 : 1;
+                
+                radians_ = static_cast<dtype>(deg2rad(degrees_));
             }
 
             //============================================================================
@@ -380,6 +406,20 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
+            //						get the radians value
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				uint8 minutes
+            //
+            dtype radians() const
+            {
+                return radians_;
+            }
+
+            //============================================================================
+            // Method Description: 
             //						get the whole degrees value
             //		
             // Inputs:
@@ -387,7 +427,7 @@ namespace NumC
             // Outputs:
             //				uint8 minutes
             //
-            int8 degreesWhole() const
+            uint8 degreesWhole() const
             {
                 return degreesWhole_;
             }
@@ -459,7 +499,8 @@ namespace NumC
             //
             friend std::ostream& operator<<(std::ostream& inStream, const Dec<dtype>& inDec)
             {
-                std::string out = "Dec dms: " + Utils::num2str(inDec.degreesWhole_) + " degrees, " + Utils::num2str(inDec.minutes_) + " minutes, ";
+                std::string strSign = inDec.sign_ == Sign::NEGATIVE ? "-" : "+";
+                std::string out = "Dec dms: " + strSign + Utils::num2str(inDec.degreesWhole_) + " degrees, " + Utils::num2str(inDec.minutes_) + " minutes, ";
                 out += Utils::num2str(inDec.seconds_) + " seconds\nDec degrees = " + Utils::num2str(inDec.degrees_) + "\n";
                 inStream << out;
                 return inStream;
@@ -493,6 +534,10 @@ namespace NumC
             void cartesianToPolar()
             {
                 dtype degreesRa = static_cast<dtype>(rad2deg(std::atan2(y_, x_)));
+                if (degreesRa < 0)
+                {
+                    degreesRa += 360;
+                }
                 ra_ = RA<dtype>(degreesRa);
 
                 double r = std::sqrt(static_cast<double>(Utils::sqr(x_)) + static_cast<double>(Utils::sqr(y_)) + static_cast<double>(Utils::sqr(z_)));
@@ -574,7 +619,7 @@ namespace NumC
             // Outputs:
             //				None
             //
-            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign::Type inSign, int8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
+            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign::Type inSign, uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
                 dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds),
                 x_(0.0),
