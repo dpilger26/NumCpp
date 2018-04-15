@@ -1,3 +1,4 @@
+import TestDataCube
 import TestShape
 import TestSlice
 import TestTimer
@@ -16,6 +17,7 @@ import TestDtypeInfo
 
 #################################################################################
 def doTest():
+    TestDataCube.doTest()
     TestShape.doTest()
     TestSlice.doTest()
     TestTimer.doTest()

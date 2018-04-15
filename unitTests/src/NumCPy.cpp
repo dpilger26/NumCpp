@@ -3162,4 +3162,13 @@ BOOST_PYTHON_MODULE(NumC)
         .def("__eq__", &CoordinateFloat::operator==)
         .def("__ne__", &CoordinateFloat::operator!=)
         .def("print", &CoordinateInterface::print<float>);
+
+    // DataCube
+    //typedef DataCube<double> DataCubeDouble;
+
+    //bp::class_<DataCubeDouble>
+    //    ("DataCube", bp::init<>())
+    //    .def(bp::init<uint32>())
+    //    .def("at", &DataCubeDouble::at);
+
 }
