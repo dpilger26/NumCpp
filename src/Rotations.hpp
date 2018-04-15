@@ -28,6 +28,7 @@
 #include<cmath>
 #include<iostream>
 #include<stdexcept>
+#include<string>
 
 namespace NumC
 {
@@ -427,7 +428,7 @@ namespace NumC
             // Outputs:
             //				None
             //
-            void print()
+            void print() const
             {
                 std::cout << *this;
             }
@@ -536,6 +537,23 @@ namespace NumC
             Quaternion slerp(const Quaternion& inQuat2, double inPercent) const
             {
                 return slerp(*this, inQuat2, inPercent);
+            }
+
+            //============================================================================
+            // Method Description: 
+            //						returns the quaternion as a string representation
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				string
+            //
+            std::string str() const
+            {
+                std::string output = "[" + Utils::num2str(i()) + ", " + Utils::num2str(j()) +
+                    ", " + Utils::num2str(k()) + ", " + Utils::num2str(s()) + "]\n";
+
+                return output;
             }
 
             //============================================================================
@@ -850,7 +868,7 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						io operator for the Shape class
+            //						io operator for the Quaternion class
             //		
             // Inputs:
             //				None
@@ -859,9 +877,7 @@ namespace NumC
             //
             friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat)
             {
-                std::string output = "[" + Utils::num2str(inQuat.i()) + ", " + Utils::num2str(inQuat.j()) +
-                    ", " + Utils::num2str(inQuat.k()) + ", " + Utils::num2str(inQuat.s()) + "]";
-                inOStream << output << std::endl;
+                inOStream << inQuat.str();
                 return inOStream;
             }
         };

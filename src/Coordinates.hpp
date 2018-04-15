@@ -212,6 +212,36 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
+            //						return the ra object as a string representation
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				string
+            //
+            std::string str() const
+            {
+                std::string out = "RA hms: " + Utils::num2str(hours_) + " hours, " + Utils::num2str(minutes_) + " minutes, ";
+                out += Utils::num2str(seconds_) + " seconds\nRA degrees: " + Utils::num2str(degrees_) + "\n";
+                return out;
+            }
+
+            //============================================================================
+            // Method Description: 
+            //						prints the RA object to the console
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				None
+            //
+            void print() const
+            {
+                std::cout << *this;
+            }
+
+            //============================================================================
+            // Method Description: 
             //						equality operator
             //		
             // Inputs:
@@ -240,7 +270,7 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						prints the ra
+            //						ostream operator
             //		
             // Inputs:
             //				None
@@ -249,9 +279,7 @@ namespace NumC
             //
             friend std::ostream& operator<<(std::ostream& inStream, const RA<dtype>& inRa)
             {
-                std::string out = "RA hms: " + Utils::num2str(inRa.hours_) + " hours, " + Utils::num2str(inRa.minutes_) + " minutes, ";
-                out += Utils::num2str(inRa.seconds_) + " seconds\nRA degrees: " + Utils::num2str(inRa.degrees_) + "\n";
-                inStream << out;
+                inStream << inRa.str();
                 return inStream;
             }
         };
@@ -462,6 +490,37 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
+            //						return the dec object as a string representation
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				string
+            //
+            std::string str() const
+            {
+                std::string strSign = sign_ == Sign::NEGATIVE ? "-" : "+";
+                std::string out = "Dec dms: " + strSign + Utils::num2str(degreesWhole_) + " degrees, " + Utils::num2str(minutes_) + " minutes, ";
+                out += Utils::num2str(seconds_) + " seconds\nDec degrees = " + Utils::num2str(degrees_) + "\n";
+                return out;
+            }
+
+            //============================================================================
+            // Method Description: 
+            //						prints the Dec object to the console
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				None
+            //
+            void print() const
+            {
+                std::cout << *this;
+            }
+
+            //============================================================================
+            // Method Description: 
             //						equality operator
             //		
             // Inputs:
@@ -490,7 +549,7 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						prints the dec
+            //						ostream operator
             //		
             // Inputs:
             //				None
@@ -499,10 +558,7 @@ namespace NumC
             //
             friend std::ostream& operator<<(std::ostream& inStream, const Dec<dtype>& inDec)
             {
-                std::string strSign = inDec.sign_ == Sign::NEGATIVE ? "-" : "+";
-                std::string out = "Dec dms: " + strSign + Utils::num2str(inDec.degreesWhole_) + " degrees, " + Utils::num2str(inDec.minutes_) + " minutes, ";
-                out += Utils::num2str(inDec.seconds_) + " seconds\nDec degrees = " + Utils::num2str(inDec.degrees_) + "\n";
-                inStream << out;
+                inStream << inDec.str();
                 return inStream;
             }
         };
@@ -870,6 +926,38 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
+            //						returns coordinate as a string representation
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				string
+            //
+            std::string str() const
+            {
+                std::string returnStr;
+                returnStr = ra_.str();
+                returnStr += dec_.str();
+                returnStr += "Cartesian = " + xyz().str();
+                return returnStr;
+            }
+
+            //============================================================================
+            // Method Description: 
+            //						prints the Coordinate object to the console
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				None
+            //
+            void print() const
+            {
+                std::cout << *this;
+            }
+
+            //============================================================================
+            // Method Description: 
             //						equality operator
             //		
             // Inputs:
@@ -898,7 +986,7 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						prints the dec
+            //						ostream operator
             //		
             // Inputs:
             //				None
@@ -907,9 +995,7 @@ namespace NumC
             //
             friend std::ostream& operator<<(std::ostream& inStream, const Coordinate<dtype>& inCoord)
             {
-                inStream << inCoord.ra_;
-                inStream << inCoord.dec_;
-                inStream << "Cartesian = " << inCoord.xyz();
+                inStream << inCoord.str();
                 return inStream;
             }
         };

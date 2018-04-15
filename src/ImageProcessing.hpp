@@ -21,10 +21,13 @@
 #include<NdArray.hpp>
 #include<Methods.hpp>
 #include<Types.hpp>
+#include<Utils.hpp>
 
 #include<cmath>
+#include<iostream>
 #include<limits>
 #include<set>
+#include<string>
 #include<utility>
 #include<vector>
 
@@ -570,6 +573,52 @@ namespace NumC
             {
                 return intensity_;
             }
+
+            // =============================================================================
+            // Description:
+            //              returns the pixel intensity
+            // 
+            // Inputs:
+            //              None
+            // 
+            // Outputs:
+            //              intensity
+            //
+            std::string str() const
+            {
+                std::string out = "row = " + Utils::num2str(row_) + " col = " + Utils::num2str(col_) + "\n";
+                return out;
+            }
+
+            //============================================================================
+            // Method Description: 
+            //						prints the Pixel object to the console
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				None
+            //
+            void print() const
+            {
+                std::cout << *this;
+            }
+
+            // =============================================================================
+            // Description:
+            //              osstream operator
+            // 
+            // Inputs:
+            //              None
+            // 
+            // Outputs:
+            //              None
+            //
+            friend std::ostream& operator<<(std::ostream& inStream, const Pixel<dtype>& inPixel)
+            {
+                inStream << inPixel.str();
+                return inStream;
+            }
         };
 
         //================================================================================
@@ -935,6 +984,57 @@ namespace NumC
 
                 // calculate the energy on detector estimate
                 eod_ = static_cast<double>(peakPixelIntensity_) / static_cast<double>(intensity_);
+            }
+
+            // =============================================================================
+            // Description:
+            //              returns a string representation of the cluster
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              string
+            //
+            std::string str() const
+            {
+                std::string out;
+                for (uint32 i = 0; i < size(); ++i)
+                {
+                    out += "Pixel " + Utils::num2str(i) + ":" + pixels_[i].str();
+                }
+
+                return out;
+            }
+
+            //============================================================================
+            // Method Description: 
+            //						prints the Cluster object to the console
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				None
+            //
+            void print() const
+            {
+                std::cout << *this;
+            }
+
+            // =============================================================================
+            // Description:
+            //              osstream operator
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              None
+            //
+            friend std::ostream& operator<<(std::ostream& inStream, const Cluster<dtype>& inCluster)
+            {
+                inStream << inCluster.str();
+                return inStream;
             }
         };
 
@@ -1474,6 +1574,39 @@ namespace NumC
 
             // =============================================================================
             // Description:
+            //              returns the centroid as a string representation
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              string
+            //
+            std::string str() const
+            {
+                std::string out;
+                out += "row = " + Utils::num2str(row_) + " col = " + Utils::num2str(col_);
+                out += " intensity = " + Utils::num2str(intensity_) + " eod = " + Utils::num2str(eod_) + "\n";
+
+                return out;
+            }
+
+            //============================================================================
+            // Method Description: 
+            //						prints the Centroid object to the console
+            //		
+            // Inputs:
+            //				None
+            // Outputs:
+            //				None
+            //
+            void print() const
+            {
+                std::cout << *this;
+            }
+
+            // =============================================================================
+            // Description:
             //              equality operator
             // 
             // Parameter(s): 
@@ -1518,6 +1651,22 @@ namespace NumC
             bool operator<(const Centroid<dtype>& rhs) const
             {
                 return intensity_ < rhs.intensity_ ? false : true;
+            }
+
+            // =============================================================================
+            // Description:
+            //              ostream operator
+            // 
+            // Parameter(s): 
+            //              None
+            // 
+            // Return: 
+            //              None
+            //
+            friend std::ostream& operator<<(std::ostream& inStream, const Centroid<dtype>& inCentriod)
+            {
+                inStream << inCentriod.str();
+                return inStream;
             }
         };
 

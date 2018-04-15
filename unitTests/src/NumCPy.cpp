@@ -2305,6 +2305,21 @@ namespace CoordinateInterface
     }
 }
 
+namespace DataCubeInterface
+{
+    template<typename dtype>
+    NdArray<dtype>& at(DataCube<dtype>& self, uint32 inIndex)
+    {
+        return self.at(inIndex);
+    }
+
+    template<typename dtype>
+    NdArray<dtype>& getItem(DataCube<dtype>& self, uint32 inIndex)
+    {
+        return self[inIndex];
+    }
+}
+
 //================================================================================
 
 BOOST_PYTHON_MODULE(NumC)
@@ -2343,7 +2358,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def_readwrite("rows", &Shape::rows)
         .def_readwrite("cols", &Shape::cols)
         .def("size", &Shape::size)
-        .def("print", &Shape::print);
+        .def("print", &Shape::print)
+        .def("__str__", &Shape::str);
 
     // Slice.hpp
     bp::class_<Slice>
@@ -2356,7 +2372,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def_readwrite("stop", &Slice::stop)
         .def_readwrite("step", &Slice::step)
         .def("numElements", &Slice::numElements)
-        .def("print", &Slice::print);
+        .def("print", &Slice::print)
+        .def("__str__", &Shape::str);
 
     // Timer.hpp
     typedef Timer<std::chrono::microseconds> MicroTimer;
@@ -2978,7 +2995,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("__mul__", &RotationsInterface::multiplyScalar)
         .def("__mul__", &RotationsInterface::multiplyQuaternion)
         .def("__mul__", &RotationsInterface::multiplyArray<double>)
-        .def("__truediv__", &Rotations::Quaternion::operator/);
+        .def("__truediv__", &Rotations::Quaternion::operator/)
+        .def("__str__", &Rotations::Quaternion::str);
 
     boost::python::def("angleAxisRotationDCM", &Rotations::angleAxisRotationDCM<double>);
     boost::python::def("isValidDCM", &Rotations::isValidDCM<double>);
@@ -2998,7 +3016,9 @@ BOOST_PYTHON_MODULE(NumC)
         .def("setClusterId", &PixelDouble::setClusterId)
         .def("row", &PixelDouble::row)
         .def("col", &PixelDouble::col)
-        .def("intensity", &PixelDouble::intensity);
+        .def("intensity", &PixelDouble::intensity)
+        .def("__str__", &PixelDouble::str)
+        .def("print", &PixelDouble::print);
 
     typedef ImageProcessing::Cluster<double> ClusterDouble;
     bp::class_<ClusterDouble>
@@ -3016,7 +3036,9 @@ BOOST_PYTHON_MODULE(NumC)
         .def("width", &ClusterDouble::width)
         .def("intensity", &ClusterDouble::intensity)
         .def("peakPixelIntensity", &ClusterDouble::peakPixelIntensity)
-        .def("eod", &ClusterDouble::eod);
+        .def("eod", &ClusterDouble::eod)
+        .def("__str__", &ClusterDouble::str)
+        .def("print", &ClusterDouble::print);
 
     typedef ImageProcessing::Centroid<double> CentroidDouble;
     bp::class_<CentroidDouble>
@@ -3026,6 +3048,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("col", &CentroidDouble::col)
         .def("intensity", &CentroidDouble::intensity)
         .def("eod", &CentroidDouble::eod)
+        .def("__str__", &CentroidDouble::str)
+        .def("print", &CentroidDouble::print)
         .def("__eq__", &CentroidDouble::operator==)
         .def("__ne__", &CentroidDouble::operator!=)
         .def("__lt__", &CentroidDouble::operator<);
@@ -3062,6 +3086,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("hours", &RaDouble::hours)
         .def("minutes", &RaDouble::minutes)
         .def("seconds", &RaDouble::seconds)
+        .def("__str__", &RaDouble::str)
+        .def("print", &RaDouble::print)
         .def("__eq__", &RaDouble::operator==)
         .def("__ne__", &RaDouble::operator!=)
         .def("print", &RaInterface::print<double>);
@@ -3077,6 +3103,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("hours", &RaFloat::hours)
         .def("minutes", &RaFloat::minutes)
         .def("seconds", &RaFloat::seconds)
+        .def("__str__", &RaFloat::str)
+        .def("print", &RaFloat::print)
         .def("__eq__", &RaFloat::operator==)
         .def("__ne__", &RaFloat::operator!=)
         .def("print", &RaInterface::print<float>);
@@ -3097,6 +3125,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("degreesWhole", &DecDouble::degreesWhole)
         .def("minutes", &DecDouble::minutes)
         .def("seconds", &DecDouble::seconds)
+        .def("__str__", &DecDouble::str)
+        .def("print", &DecDouble::print)
         .def("__eq__", &DecDouble::operator==)
         .def("__ne__", &DecDouble::operator!=)
         .def("print", &DecInterface::print<double>);
@@ -3113,6 +3143,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("degreesWhole", &DecFloat::degreesWhole)
         .def("minutes", &DecFloat::minutes)
         .def("seconds", &DecFloat::seconds)
+        .def("__str__", &DecFloat::str)
+        .def("print", &DecFloat::print)
         .def("__eq__", &DecFloat::operator==)
         .def("__ne__", &DecFloat::operator!=)
         .def("print", &DecInterface::print<float>);
@@ -3136,6 +3168,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("degreeSeperation", &CoordinateInterface::degreeSeperationVector<double>)
         .def("radianSeperation", &CoordinateInterface::radianSeperationCoordinate<double>)
         .def("radianSeperation", &CoordinateInterface::radianSeperationVector<double>)
+        .def("__str__", &CoordinateDouble::str)
+        .def("print", &CoordinateDouble::print)
         .def("__eq__", &CoordinateDouble::operator==)
         .def("__ne__", &CoordinateDouble::operator!=)
         .def("print", &CoordinateInterface::print<double>);
@@ -3159,16 +3193,27 @@ BOOST_PYTHON_MODULE(NumC)
         .def("degreeSeperation", &CoordinateInterface::degreeSeperationVector<float>)
         .def("radianSeperation", &CoordinateInterface::radianSeperationCoordinate<float>)
         .def("radianSeperation", &CoordinateInterface::radianSeperationVector<float>)
+        .def("__str__", &CoordinateFloat::str)
+        .def("print", &CoordinateFloat::print)
         .def("__eq__", &CoordinateFloat::operator==)
         .def("__ne__", &CoordinateFloat::operator!=)
         .def("print", &CoordinateInterface::print<float>);
 
     // DataCube
-    //typedef DataCube<double> DataCubeDouble;
+    typedef DataCube<double> DataCubeDouble;
 
-    //bp::class_<DataCubeDouble>
-    //    ("DataCube", bp::init<>())
-    //    .def(bp::init<uint32>())
-    //    .def("at", &DataCubeDouble::at);
-
+    bp::class_<DataCubeDouble>
+        ("DataCube", bp::init<>())
+        .def(bp::init<uint32>())
+        .def("at", &DataCubeInterface::at<double>, bp::return_internal_reference<>())
+        .def("__getitem__", &DataCubeInterface::getItem<double>, bp::return_internal_reference<>())
+        .def("back", &DataCubeDouble::back, bp::return_internal_reference<>())
+        .def("front", &DataCubeDouble::front, bp::return_internal_reference<>())
+        .def("isempty", &DataCubeDouble::isempty)
+        .def("shape", &DataCubeDouble::shape, bp::return_internal_reference<>())
+        .def("size", &DataCubeDouble::size)
+        .def("pop_back", &DataCubeDouble::pop_back)
+        .def("pop_front", &DataCubeDouble::pop_front)
+        .def("push_back", &DataCubeDouble::push_back)
+        .def("push_front", &DataCubeDouble::push_front);
 }

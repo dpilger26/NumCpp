@@ -37,12 +37,12 @@ namespace NumC
     {
     public:
         //================================Typedefs==================================
-        typedef std::deque<NdArray<dtype> >::iterator       iterator;
-        typedef std::deque<NdArray<dtype> >::const_iterator const_iterator;
+        typedef typename std::deque<NdArray<dtype> >::iterator       iterator;
+        typedef typename std::deque<NdArray<dtype> >::const_iterator const_iterator;
 
     private:
         //================================Attributes==================================
-        std::deque<NdArry<dtype> >  cube_;
+        std::deque<NdArray<dtype> >  cube_;
         Shape                       elementShape_;
 
     public:
@@ -152,7 +152,7 @@ namespace NumC
         // Outputs:
         //				bool
         //
-        iterator isempty()
+        bool isempty()
         {
             return cube_.empty();
         }
@@ -210,7 +210,7 @@ namespace NumC
         //
         const Shape& shape() const
         {
-            elementShape_;
+            return elementShape_;
         }
 
         //============================================================================

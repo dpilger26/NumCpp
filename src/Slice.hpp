@@ -24,6 +24,7 @@
 
 #include<iostream>
 #include<stdexcept>
+#include<string>
 
 namespace NumC
 {
@@ -111,6 +112,21 @@ namespace NumC
         // Outputs:
         //				None
         //
+        std::string str() const
+        {
+            std::string out = "[" + Utils::num2str(start) + ":" + Utils::num2str(stop) + ":" + Utils::num2str(step) + "]\n";
+            return out;
+        }
+
+        //============================================================================
+        // Method Description: 
+        //						prints the shape to the console
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
         void print()
         {
             std::cout << *this;
@@ -127,7 +143,7 @@ namespace NumC
         //
         friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
         {
-            inOStream << "[" << inSlice.start << ":" << inSlice.stop << ":" << inSlice.step << "]" << std::endl;
+            inOStream << inSlice.str();
             return inOStream;
         }
 

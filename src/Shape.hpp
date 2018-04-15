@@ -20,9 +20,11 @@
 #pragma once
 
 #include"Types.hpp"
+#include"Utils.hpp"
 
 #include<iostream>
 #include<stdexcept>
+#include<string>
 
 namespace NumC
 {
@@ -140,6 +142,21 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
+        //						returns the shape as a string representation
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				string
+        //
+        std::string str() const
+        {
+            std::string out = "[" + Utils::num2str(rows) + ", " + Utils::num2str(cols) + "]\n";
+            return out;
+        }
+
+        //============================================================================
+        // Method Description: 
         //						prints the shape to the console
         //		
         // Inputs:
@@ -147,7 +164,7 @@ namespace NumC
         // Outputs:
         //				None
         //
-        void print()
+        void print() const
         {
             std::cout << *this;
         }
@@ -163,7 +180,7 @@ namespace NumC
         //
         friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape)
         {
-            inOStream << "[" << inShape.rows << ", " << inShape.cols << "]" << std::endl;
+            inOStream << inShape.str();
             return inOStream;
         }
     };

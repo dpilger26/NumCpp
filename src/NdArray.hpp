@@ -2923,6 +2923,40 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
+        //						returns the NdArray as a string representation
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				string
+        //
+        std::string str() const
+        {
+            std::string out;
+            out += "[";
+            for (uint16 row = 0; row < shape_.rows; ++row)
+            {
+                out += "[";
+                for (uint16 col = 0; col < shape_.cols; ++col)
+                {
+                    out += Utils::num2str(this->operator()(row, col)) + ", ";
+                }
+
+                if (row == shape_.rows - 1)
+                {
+                    out += "]";
+                }
+                else
+                {
+                    out += "]\n";
+                }
+            }
+            out += "]\n";
+            return out;
+        }
+
+        //============================================================================
+        // Method Description: 
         //						Return the sum of the array elements over the given axis.
         //		
         // Inputs:
@@ -4226,26 +4260,7 @@ namespace NumC
         //
         friend std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype>& inArray)
         {
-            Shape arrayShape = inArray.shape();
-            inOStream << "[";
-            for (uint16 row = 0; row < arrayShape.rows; ++row)
-            {
-                inOStream << "[";
-                for (uint16 col = 0; col < arrayShape.cols; ++col)
-                {
-                    inOStream << inArray(row, col) << ", ";
-                }
-
-                if (row == arrayShape.rows - 1)
-                {
-                    inOStream << "]";
-                }
-                else
-                {
-                    inOStream << "]" << std::endl;
-                }
-            }
-            inOStream << "]" << std::endl;
+            inOStream << inArray.str();
             return inOStream;
         }
     };
