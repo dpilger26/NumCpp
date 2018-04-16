@@ -22,6 +22,8 @@
 #include"NdArray.hpp"
 #include"Types.hpp"
 
+#include<boost/filesystem.hpp>
+
 #include<deque>
 #include<limits>
 #include<stdexcept>
@@ -141,6 +143,39 @@ namespace NumC
         const_iterator cbegin() const
         {
             return cube_.cbegin();
+        }
+
+        //============================================================================
+        // Method Description: 
+        //						outputs the DataCube as a .bin file
+        //		
+        // Inputs:
+        //				None
+        // Outputs:
+        //				None
+        //
+        void dump(const std::string& inFilename) const
+        {
+            boost::filesystem::path p(inFilename);
+            if (!boost::filesystem::exists(p.parent_path()))
+            {
+                std::string errStr = "ERROR: DataCube::dump: Input path does not exist:\n\t" + p.parent_path().string();
+                throw std::runtime_error(errStr);
+            }
+
+            std::string ext = "";
+            if (!p.has_extension())
+            {
+                ext += ".bin";
+            }
+
+            std::ofstream ofile((inFilename + ext).c_str(), std::ios::binary);
+            for (const_iterator it = cbegin(); it < cend(); ++it)
+            {
+                ofile.write(reinterpret_cast<const char*>(it->cbegin()), it->size() * sizeof(dtype));
+            }
+
+            ofile.close();
         }
 
         //============================================================================
