@@ -3009,10 +3009,35 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("zRotationDCM", &Rotations::zRotationDCM<double>);
 
     // Image Processing
+    typedef ImageProcessing::Filter<double> FilterDouble;
+    bp::class_<FilterDouble>
+        ("Filter", bp::init<>())
+        .def("complementaryMedianFilter", &FilterDouble::complementaryMedianFilter<double>).staticmethod("complementaryMedianFilter")
+        .def("complementaryMedianFilter1d", &FilterDouble::complementaryMedianFilter1d<double>).staticmethod("complementaryMedianFilter1d")
+        .def("convolve", &FilterDouble::convolve<double>).staticmethod("convolve")
+        .def("convolve1d", &FilterDouble::convolve1d<double>).staticmethod("convolve1d")
+        .def("gaussianFilter", &FilterDouble::gaussianFilter<double>).staticmethod("gaussianFilter")
+        .def("gaussianFilter1d", &FilterDouble::gaussianFilter1d<double>).staticmethod("gaussianFilter1d")
+        .def("linearFilter", &FilterDouble::linearFilter<double>).staticmethod("linearFilter")
+        .def("linearFilter1d", &FilterDouble::linearFilter1d<double>).staticmethod("linearFilter1d")
+        .def("maximumFilter", &FilterDouble::maximumFilter).staticmethod("maximumFilter")
+        .def("maximumFilter1d", &FilterDouble::maximumFilter1d).staticmethod("maximumFilter1d")
+        .def("medianFilter", &FilterDouble::medianFilter).staticmethod("medianFilter")
+        .def("medianFilter1d", &FilterDouble::medianFilter1d).staticmethod("medianFilter1d")
+        .def("minimumFilter", &FilterDouble::minimumFilter).staticmethod("minimumFilter")
+        .def("minumumFilter1d", &FilterDouble::minumumFilter1d).staticmethod("minumumFilter1d")
+        .def("percentileFilter", &FilterDouble::percentileFilter).staticmethod("percentileFilter")
+        .def("percentile1d", &FilterDouble::percentile1d).staticmethod("percentile1d")
+        .def("rankFilter", &FilterDouble::rankFilter).staticmethod("rankFilter")
+        .def("rankFilter1d", &FilterDouble::rankFilter1d).staticmethod("rankFilter1d")
+        .def("uniformFilter", &FilterDouble::uniformFilter<double>).staticmethod("uniformFilter")
+        .def("uniformFilter1d", &FilterDouble::uniformFilter1d<double>).staticmethod("uniformFilter1d");
+
     typedef ImageProcessing::Pixel<double> PixelDouble;
     bp::class_<PixelDouble>
         ("Pixel", bp::init<>())
         .def(bp::init<uint32, uint32, double>())
+        .def(bp::init<PixelDouble>())
         .def("__eq__", &PixelDouble::operator==)
         .def("__ne__", &PixelDouble::operator!=)
         .def("__lt__", &PixelDouble::operator<)
@@ -3027,6 +3052,7 @@ BOOST_PYTHON_MODULE(NumC)
     typedef ImageProcessing::Cluster<double> ClusterDouble;
     bp::class_<ClusterDouble>
         ("Cluster", bp::init<uint32>())
+        .def(bp::init<ClusterDouble>())
         .def("__eq__", &ClusterDouble::operator==)
         .def("__ne__", &ClusterDouble::operator!=)
         .def("__getitem__", &ClusterDouble::at, bp::return_internal_reference<>())
@@ -3048,6 +3074,7 @@ BOOST_PYTHON_MODULE(NumC)
     bp::class_<CentroidDouble>
         ("Centroid", bp::init<>())
         .def(bp::init<ClusterDouble>())
+        .def(bp::init<CentroidDouble>())
         .def("row", &CentroidDouble::row)
         .def("col", &CentroidDouble::col)
         .def("intensity", &CentroidDouble::intensity)
@@ -3058,7 +3085,7 @@ BOOST_PYTHON_MODULE(NumC)
         .def("__ne__", &CentroidDouble::operator!=)
         .def("__lt__", &CentroidDouble::operator<);
 
-    bp::class_<std::vector<ClusterDouble> >("centroid_vector")
+    bp::class_<std::vector<ClusterDouble> >("cluster_vector")
         .def(bp::vector_indexing_suite<std::vector<ClusterDouble> >());
 
     bp::class_<std::vector<CentroidDouble> >("centroid_vector")

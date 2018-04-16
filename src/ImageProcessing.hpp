@@ -36,8 +36,16 @@ namespace NumC
     //================================ImageProcessing Namespace=============================
     namespace ImageProcessing
     {
-        namespace Filters
+        //================================================================================
+        // Class Description:
+        //						class for performing many types of image filtering
+        //
+        template<typename dtype>
+        class Filter
         {
+        private:
+
+        public:
             //============================================================================
             // Method Description: 
             //						Calculates a multidimensional complemenatry median filter.
@@ -48,10 +56,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype, typename dtypeOut>
-            inline NdArray<dtypeOut> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize)
+            template<typename dtypeOut>
+            static NdArray<dtypeOut> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize)
             {
 
+
+                return std::move(NdArray<dtypeOut>(0));
             }
 
             //============================================================================
@@ -65,10 +75,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype, typename dtypeOut>
-            inline NdArray<dtypeOut> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, Axis::Type inAxis = Axis::ROW)
+            template<typename dtypeOut>
+            static NdArray<dtypeOut> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, Axis::Type inAxis = Axis::ROW)
             {
 
+
+                return std::move(NdArray<dtypeOut>(0));
             }
 
             //============================================================================
@@ -82,10 +94,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype, typename dtypeOut>
-            inline NdArray<dtypeOut> convolve(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights)
+            template<typename dtypeOut>
+            static NdArray<dtypeOut> convolve(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights)
             {
 
+
+                return std::move(NdArray<dtypeOut>(0));
             }
 
             //============================================================================
@@ -100,10 +114,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype, typename dtypeOut>
-            inline NdArray<dtypeOut> convolve1d(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::ROW)
+            template<typename dtypeOut>
+            static NdArray<dtypeOut> convolve1d(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::ROW)
             {
 
+
+                return std::move(NdArray<dtypeOut>(0));
             }
 
             //============================================================================
@@ -116,10 +132,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype, typename dtypeOut>
-            inline NdArray<dtypeOut> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma)
+            template<typename dtypeOut>
+            static NdArray<dtypeOut> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma)
             {
 
+
+                return std::move(NdArray<dtypeOut>(0));
             }
 
             //============================================================================
@@ -133,10 +151,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype, typename dtypeOut>
-            inline NdArray<dtypeOut> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma, Axis::Type inAxis = Axis::ROW)
+            template<typename dtypeOut>
+            static NdArray<dtypeOut> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma, Axis::Type inAxis = Axis::ROW)
             {
 
+
+                return std::move(NdArray<dtypeOut>(0));
             }
 
             //============================================================================
@@ -150,10 +170,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype, typename dtypeOut>
-            inline NdArray<dtypeOut> linearFilter(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights)
+            template<typename dtypeOut>
+            static NdArray<dtypeOut> linearFilter(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights)
             {
 
+
+                return std::move(NdArray<dtypeOut>(0));
             }
 
             //============================================================================
@@ -168,10 +190,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype, typename dtypeOut>
-            inline NdArray<dtypeOut> linearFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::ROW)
+            template<typename dtypeOut>
+            static NdArray<dtypeOut> linearFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::ROW)
             {
 
+
+                return std::move(NdArray<dtypeOut>(0));
             }
 
             //============================================================================
@@ -184,10 +208,11 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype>
-            inline NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray, uint32 inSize)
+            static NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray, uint32 inSize)
             {
 
+
+                return std::move(NdArray<dtype>(0));
             }
 
             //============================================================================
@@ -201,10 +226,11 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype>
-            inline NdArray<dtype> maximumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, Axis::Type inAxis = Axis::ROW)
+            static NdArray<dtype> maximumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, Axis::Type inAxis = Axis::ROW)
             {
 
+
+                return std::move(NdArray<dtype>(0));
             }
 
             //============================================================================
@@ -217,10 +243,11 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype>
-            inline NdArray<dtype> medianFilter(const NdArray<dtype>& inImageArray, uint32 inSize)
+            static NdArray<dtype> medianFilter(const NdArray<dtype>& inImageArray, uint32 inSize)
             {
 
+
+                return std::move(NdArray<dtype>(0));
             }
 
             //============================================================================
@@ -234,15 +261,16 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype>
-            inline NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, Axis::Type inAxis = Axis::ROW)
+            static NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, Axis::Type inAxis = Axis::ROW)
             {
 
+
+                return std::move(NdArray<dtype>(0));
             }
 
             //============================================================================
             // Method Description: 
-            //						Calculates a multidimensional minumum filter.
+            //						Calculates a multidimensional minimum filter.
             //		
             // Inputs:
             //				NdArray
@@ -250,10 +278,11 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype>
-            inline NdArray<dtype> minumumFilter(const NdArray<dtype>& inImageArray, uint32 inSize)
+            static NdArray<dtype> minimumFilter(const NdArray<dtype>& inImageArray, uint32 inSize)
             {
 
+
+                return std::move(NdArray<dtype>(0));
             }
 
             //============================================================================
@@ -267,10 +296,11 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype>
-            inline NdArray<dtype> minumumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, Axis::Type inAxis = Axis::ROW)
+            static NdArray<dtype> minumumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, Axis::Type inAxis = Axis::ROW)
             {
 
+
+                return std::move(NdArray<dtype>(0));
             }
 
             //============================================================================
@@ -284,10 +314,11 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype>
-            inline NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile)
+            static NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile)
             {
 
+
+                return std::move(NdArray<dtype>(0));
             }
 
             //============================================================================
@@ -302,10 +333,11 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype>
-            inline NdArray<dtype> percentile1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile, Axis::Type inAxis = Axis::ROW)
+            static NdArray<dtype> percentile1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile, Axis::Type inAxis = Axis::ROW)
             {
 
+
+                return std::move(NdArray<dtype>(0));
             }
 
             //============================================================================
@@ -319,10 +351,11 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype>
-            inline NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank)
+            static NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank)
             {
 
+
+                return std::move(NdArray<dtype>(0));
             }
 
             //============================================================================
@@ -337,10 +370,11 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype>
-            inline NdArray<dtype> rank1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank, Axis::Type inAxis = Axis::ROW)
+            static NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank, Axis::Type inAxis = Axis::ROW)
             {
 
+
+                return std::move(NdArray<dtype>(0));
             }
 
             //============================================================================
@@ -353,10 +387,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype, typename dtypeOut>
-            inline NdArray<dtypeOut> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize)
+            template<typename dtypeOut>
+            static NdArray<dtypeOut> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize)
             {
 
+
+                return std::move(NdArray<dtypeOut>(0));
             }
 
             //============================================================================
@@ -370,12 +406,14 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            template<typename dtype, typename dtypeOut>
-            inline NdArray<dtypeOut> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, Axis::Type inAxis = Axis::ROW)
+            template<typename dtypeOut>
+            static NdArray<dtypeOut> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, Axis::Type inAxis = Axis::ROW)
             {
 
+
+                return std::move(NdArray<dtypeOut>(0));
             }
-        }
+        };
 
         //================================================================================
         // Class Description:
@@ -586,7 +624,8 @@ namespace NumC
             //
             std::string str() const
             {
-                std::string out = "row = " + Utils::num2str(row_) + " col = " + Utils::num2str(col_) + "\n";
+                std::string out = "row = " + Utils::num2str(row_) + " col = " + Utils::num2str(col_);
+                out += " intensity = " + Utils::num2str(intensity_) + "\n";
                 return out;
             }
 
@@ -1069,8 +1108,8 @@ namespace NumC
             {
                 // Make sure that on the edges after i've added or subtracted 1 from the row and col that 
                 // i haven't gone over the edge
-                uint32 row = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows);
-                uint32 col = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols);
+                uint32 row = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows - 1);
+                uint32 col = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols - 1);
                 dtype intensity = intensities_->operator()(row, col);
 
                 return Pixel<dtype>(row, col, intensity);
@@ -1183,7 +1222,6 @@ namespace NumC
                     // not already visited
                     if (currentPixel.clusterId() == -1)
                     {
-                        std::cout << "clusterId = " << clusterId << std::endl;
                         Cluster<dtype> newCluster(clusterId);    // a new cluster
                         currentPixel.setClusterId(clusterId);
                         newCluster.addPixel(currentPixel);  // assign pixel to cluster
@@ -1191,19 +1229,16 @@ namespace NumC
                         // get the neighbors
                         std::vector<uint32> neighborIds;
                         findNeighborXcds(currentPixel, neighborIds);
-                        std::cout << "Got the neighbors" << std::endl;
                         if (neighborIds.empty())
                         {
                             clusters_.push_back(newCluster);
                             ++clusterId;
-                            std::cout << "Completed the cluster1" << std::endl;
                             continue;
                         }
-                        std::cout << "Looping through neighbors; size = " << neighborIds.size() << std::endl;
+
                         // loop through the neighbors
                         for (uint32 neighborsIdx = 0; neighborsIdx < neighborIds.size(); ++neighborsIdx)
                         {
-                            std::cout << "neighborsIdx = " << neighborsIdx << std::endl;
                             Pixel<dtype>& currentNeighborPixel = xcdsVec_[neighborIds[neighborsIdx]];
 
                             // go to neighbors
@@ -1227,7 +1262,7 @@ namespace NumC
                                 newCluster.addPixel(currentNeighborPixel);
                             }
                         }
-                        std::cout << "Completed the cluster2" << std::endl;
+
                         clusters_.push_back(newCluster);
                         ++clusterId;
                     }
@@ -1290,7 +1325,6 @@ namespace NumC
                 xcds_(inXcdArrayPtr),
                 intensities_(inIntensityArrayPtr)
             {
-                std::cout << "start the clustermaker constructor" << std::endl;
                 if (xcds_->shape() != intensities_->shape())
                 {
                     throw std::invalid_argument("ERROR: ImageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.");
@@ -1310,14 +1344,13 @@ namespace NumC
                         }
                     }
                 }
-                std::cout << "before running" << std::endl;
+
                 runClusterMaker();
-                std::cout << "before expanding" << std::endl;
+
                 for (uint8 i = 0; i < inBorderWidth; ++i)
                 {
                     expandClusters();
                 }
-                std::cout << "done with constructor" << std::endl;
             }
 
             // =============================================================================
@@ -1724,7 +1757,6 @@ namespace NumC
         inline std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
         {
             ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
-            std::cout << "I am here in clusterMaker" << std::endl;
             return std::move(std::vector<Cluster<dtype> >(clusterMaker.begin(), clusterMaker.end()));
         }
 
@@ -1761,19 +1793,19 @@ namespace NumC
 
             // generate the threshold
             dtype threshold = generateThreshold(inImageArray, inRate);
-            std::cout << "I am here. Threshold = " << threshold << std::endl;
+
             // apply the threshold to get xcds
             NdArray<bool> xcds = applyThreshold(inImageArray, threshold);
-            std::cout << "I am here 2. Num xcds = " << count_nonzero(xcds).item() << std::endl;
+
             // window around the xcds
             if (borderWidthPre > 0)
             {
                 xcds = windowExceedances(xcds, borderWidthPre);
             }
-            std::cout << "I am here 3. Num windowed xcds = " << count_nonzero(xcds).item() << std::endl;
+
             // cluster the exceedances
             std::vector<Cluster<dtype> > clusters = clusterPixels(inImageArray, xcds, borderWidthPost);
-            std::cout << "I am here 4." << std::endl;
+
             // centroid the clusters
             return std::move(centroidClusters(clusters));
         }
@@ -1906,14 +1938,14 @@ namespace NumC
                         {
                             xcds(std::max(row - 1, 0), std::max(col - 1, 0)) = true;
                             xcds(std::max(row - 1, 0), col) = true;
-                            xcds(std::max(row - 1, 0), std::min<int32>(col + 1, inShape.cols)) = true;
+                            xcds(std::max(row - 1, 0), std::min<int32>(col + 1, inShape.cols - 1)) = true;
 
                             xcds(row, std::max<int32>(col - 1, 0)) = true;
-                            xcds(row, std::min<int32>(col + 1, inShape.cols)) = true;
+                            xcds(row, std::min<int32>(col + 1, inShape.cols - 1)) = true;
 
-                            xcds(std::min<int32>(row + 1, inShape.rows), std::max(col - 1, 0)) = true;
-                            xcds(std::min<int32>(row + 1, inShape.rows), col) = true;
-                            xcds(std::min<int32>(row + 1, inShape.rows), std::min<int32>(col + 1, inShape.cols)) = true;
+                            xcds(std::min<int32>(row + 1, inShape.rows - 1), std::max(col - 1, 0)) = true;
+                            xcds(std::min<int32>(row + 1, inShape.rows - 1), col) = true;
+                            xcds(std::min<int32>(row + 1, inShape.rows - 1), std::min<int32>(col + 1, inShape.cols - 1)) = true;
                         }
                     }
                 }

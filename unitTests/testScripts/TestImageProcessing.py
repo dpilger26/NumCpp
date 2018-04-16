@@ -32,8 +32,7 @@ def doTest():
 
     # generate centroids from the image
     thresholdRate = 0.014
-    windowType = 'pre'
-    borderWidth = 1
+    borderWidth = np.random.randint(0, 4, [1,]).item()
     cScene = NumC.NdArray(imageSize)
     cScene.setArray(scene)
 
@@ -45,7 +44,8 @@ def doTest():
     print(f'Actual Rate(Threshold) = {np.count_nonzero(scene > threshold) / scene.size}')
     print(f'Actual Rate(Threshold - 1) = {np.count_nonzero(scene > threshold - 1) / scene.size}')
 
-    centroids = list(NumC.generateCentroids(cScene, thresholdRate, windowType, borderWidth))
+    centroids = list(NumC.generateCentroids(cScene, thresholdRate, 'pre', borderWidth))
+    print(f'Window Pre Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
 
     # plt the results
     plt.figure()
@@ -54,7 +54,7 @@ def doTest():
     plt.clim([threshold, threshold + 1])
     plt.xlabel('Rows')
     plt.ylabel('Cols')
-    plt.title(f'Centroids\nNumber of Centroids = {len(centroids)}')
+    plt.title(f'Window Pre Centroids\nNumber of Centroids = {len(centroids)}')
 
     for centroid in centroids:
         plt.plot(centroid.col(), centroid.row(), 'og', fillstyle='none')
@@ -65,14 +65,47 @@ def doTest():
 
     plt.figure()
     plt.plot(np.sort(centroidInfo[:,0].flatten()))
-    plt.title('Centroid Intensities')
+    plt.title('Window Pre Centroid Intensities')
     plt.xlabel('Centroid #')
     plt.ylabel('Counts')
     plt.show()
 
     plt.figure()
     plt.plot(np.sort(centroidInfo[:,1].flatten() * 100))
-    plt.title('Centroid EOD')
+    plt.title('Window Pre Centroid EOD')
+    plt.xlabel('Centroid #')
+    plt.ylabel('EOD (%)')
+    plt.show()
+
+    centroids = list(NumC.generateCentroids(cScene, thresholdRate, 'post', borderWidth))
+    print(f'Window Post Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
+
+    # plt the results
+    plt.figure()
+    plt.imshow(scene)
+    plt.colorbar()
+    plt.clim([threshold, threshold + 1])
+    plt.xlabel('Rows')
+    plt.ylabel('Cols')
+    plt.title(f'Window Post Centroids\nNumber of Centroids = {len(centroids)}')
+
+    for centroid in centroids:
+        plt.plot(centroid.col(), centroid.row(), 'og', fillstyle='none')
+
+    plt.show()
+
+    centroidInfo = np.asarray([[centroid.intensity(), centroid.eod()] for centroid in centroids])
+
+    plt.figure()
+    plt.plot(np.sort(centroidInfo[:,0].flatten()))
+    plt.title('Window Post Centroid Intensities')
+    plt.xlabel('Centroid #')
+    plt.ylabel('Counts')
+    plt.show()
+
+    plt.figure()
+    plt.plot(np.sort(centroidInfo[:,1].flatten() * 100))
+    plt.title('Window Post Centroid EOD')
     plt.xlabel('Centroid #')
     plt.ylabel('EOD (%)')
     plt.show()
