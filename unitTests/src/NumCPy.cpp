@@ -2359,7 +2359,9 @@ BOOST_PYTHON_MODULE(NumC)
         .def_readwrite("cols", &Shape::cols)
         .def("size", &Shape::size)
         .def("print", &Shape::print)
-        .def("__str__", &Shape::str);
+        .def("__str__", &Shape::str)
+        .def("__eq__", &Shape::operator==)
+        .def("__neq__", &Shape::operator!=);
 
     // Slice.hpp
     bp::class_<Slice>
@@ -2373,7 +2375,9 @@ BOOST_PYTHON_MODULE(NumC)
         .def_readwrite("step", &Slice::step)
         .def("numElements", &Slice::numElements)
         .def("print", &Slice::print)
-        .def("__str__", &Shape::str);
+        .def("__str__", &Shape::str)
+        .def("__eq__", &Shape::operator==)
+        .def("__neq__", &Shape::operator!=);
 
     // Timer.hpp
     typedef Timer<std::chrono::microseconds> MicroTimer;
