@@ -3012,14 +3012,14 @@ BOOST_PYTHON_MODULE(NumC)
     typedef ImageProcessing::Filter<double> FilterDouble;
     bp::class_<FilterDouble>
         ("Filter", bp::init<>())
-        .def("complementaryMedianFilter", &FilterDouble::complementaryMedianFilter<double>).staticmethod("complementaryMedianFilter")
-        .def("complementaryMedianFilter1d", &FilterDouble::complementaryMedianFilter1d<double>).staticmethod("complementaryMedianFilter1d")
-        .def("convolve", &FilterDouble::convolve<double>).staticmethod("convolve")
-        .def("convolve1d", &FilterDouble::convolve1d<double>).staticmethod("convolve1d")
-        .def("gaussianFilter", &FilterDouble::gaussianFilter<double>).staticmethod("gaussianFilter")
-        .def("gaussianFilter1d", &FilterDouble::gaussianFilter1d<double>).staticmethod("gaussianFilter1d")
-        .def("linearFilter", &FilterDouble::linearFilter<double>).staticmethod("linearFilter")
-        .def("linearFilter1d", &FilterDouble::linearFilter1d<double>).staticmethod("linearFilter1d")
+        .def("complementaryMedianFilter", &FilterDouble::complementaryMedianFilter).staticmethod("complementaryMedianFilter")
+        .def("complementaryMedianFilter1d", &FilterDouble::complementaryMedianFilter1d).staticmethod("complementaryMedianFilter1d")
+        .def("convolve", &FilterDouble::convolve).staticmethod("convolve")
+        .def("convolve1d", &FilterDouble::convolve1d).staticmethod("convolve1d")
+        .def("gaussianFilter", &FilterDouble::gaussianFilter).staticmethod("gaussianFilter")
+        .def("gaussianFilter1d", &FilterDouble::gaussianFilter1d).staticmethod("gaussianFilter1d")
+        .def("linearFilter", &FilterDouble::linearFilter).staticmethod("linearFilter")
+        .def("linearFilter1d", &FilterDouble::linearFilter1d).staticmethod("linearFilter1d")
         .def("maximumFilter", &FilterDouble::maximumFilter).staticmethod("maximumFilter")
         .def("maximumFilter1d", &FilterDouble::maximumFilter1d).staticmethod("maximumFilter1d")
         .def("medianFilter", &FilterDouble::medianFilter).staticmethod("medianFilter")
@@ -3030,8 +3030,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("percentile1d", &FilterDouble::percentile1d).staticmethod("percentile1d")
         .def("rankFilter", &FilterDouble::rankFilter).staticmethod("rankFilter")
         .def("rankFilter1d", &FilterDouble::rankFilter1d).staticmethod("rankFilter1d")
-        .def("uniformFilter", &FilterDouble::uniformFilter<double>).staticmethod("uniformFilter")
-        .def("uniformFilter1d", &FilterDouble::uniformFilter1d<double>).staticmethod("uniformFilter1d");
+        .def("uniformFilter", &FilterDouble::uniformFilter).staticmethod("uniformFilter")
+        .def("uniformFilter1d", &FilterDouble::uniformFilter1d).staticmethod("uniformFilter1d");
 
     typedef ImageProcessing::Pixel<double> PixelDouble;
     bp::class_<PixelDouble>
