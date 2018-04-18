@@ -19,14 +19,16 @@
 
 #pragma once
 
-#include"NdArray.hpp"
 #include"Types.hpp"
 
 namespace NumC
 {
-    //================================FFT Namespace=============================
-    namespace FFT
+    //================================================================================
+    // Class Description:
+    //						class for working with dates and times
+    //
+    class DateTime
     {
 
-    }
+    };
 }
