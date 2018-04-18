@@ -29,9 +29,22 @@ namespace NumC
     //================================Constants====================================
     namespace Constants
     {
-        const double e = 2.718281828459045;
-        const double pi = 3.14159265358979323846;
-        const double nan = std::nan("1");
-        const std::string version = "0.1";
+        const double        c = 3.0e8; // speed of light
+        const double        e = 2.718281828459045;
+        const double        pi = 3.14159265358979323846;
+        const double        nan = std::nan("1");
+
+        const double        DAYS_PER_WEEK = 7;
+        const double        MINUTES_PER_HOUR = 60;
+        const double        SECONDS_PER_MINUTE = 60;
+        const double        MILLISECONDS_PER_SECOND = 1000;
+        const double        SECONDS_PER_HOUR = MINUTES_PER_HOUR * SECONDS_PER_MINUTE;
+        const double        HOURS_PER_DAY = 24;
+        const double        MINUTES_PER_DAY = HOURS_PER_DAY * MINUTES_PER_HOUR;
+        const double        SECONDS_PER_DAY = MINUTES_PER_DAY * SECONDS_PER_MINUTE;
+        const double        MILLISECONDS_PER_DAY = SECONDS_PER_DAY * MILLISECONDS_PER_SECOND;
+        const double        SECONDS_PER_WEEK = SECONDS_PER_DAY * DAYS_PER_WEEK;
+
+        const std::string   VERSION = "0.1";
     }
 }

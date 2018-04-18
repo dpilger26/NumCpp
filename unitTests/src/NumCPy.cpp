@@ -2320,6 +2320,19 @@ namespace DataCubeInterface
     }
 }
 
+namespace DateTimeInterface
+{
+    uint32 diffSeconds(const DateTime& self, const DateTime& inOtherDateTime)
+    {
+        return self.diffSeconds(inOtherDateTime);
+    }
+
+    DateTime interpolate(const DateTime& self, const DateTime& inOtherDateTime, double inPercent)
+    {
+        return self.interpolate(inOtherDateTime, inPercent);
+    }
+}
+
 //================================================================================
 
 BOOST_PYTHON_MODULE(NumC)
@@ -2336,7 +2349,7 @@ BOOST_PYTHON_MODULE(NumC)
     bp::scope().attr("e") = NumC::Constants::e;
     bp::scope().attr("pi") = NumC::Constants::pi;
     bp::scope().attr("nan") = NumC::Constants::nan;
-    bp::scope().attr("version") = NumC::Constants::version;
+    bp::scope().attr("VERSION") = NumC::Constants::VERSION;
 
     // DtypeInfo.hpp
     typedef DtypeInfo<uint32> DtypeInfoUint32;
@@ -3248,4 +3261,30 @@ BOOST_PYTHON_MODULE(NumC)
         .def("pop_front", &DataCubeDouble::pop_front)
         .def("push_back", &DataCubeDouble::push_back)
         .def("push_front", &DataCubeDouble::push_front);
+
+    // DateTime
+    bp::class_<DateTime>
+        ("DateTime", bp::init<>())
+        .def(bp::init<uint16, uint8, uint8, uint8, uint8, uint8, uint16>())
+        .def("year", &DateTime::year)
+        .def("month", &DateTime::month)
+        .def("day", &DateTime::day)
+        .def("hour", &DateTime::hour)
+        .def("minute", &DateTime::minute)
+        .def("second", &DateTime::second)
+        .def("millisecond", &DateTime::millisecond)
+        .def("secondsPastMidnight", &DateTime::secondsPastMidnight)
+        .def("diffSeconds", &DateTimeInterface::diffSeconds)
+        .def("interpolate", &DateTimeInterface::interpolate)
+        .def("now", &DateTime::now).staticmethod("now")
+        .def("print", &DateTime::print)
+        .def("__str__", &DateTime::str)
+        .def("__add__", &DateTime::operator+)
+        .def("__sub__", &DateTime::operator-)
+        .def("__lt__", &DateTime::operator<)
+        .def("__le__", &DateTime::operator<=)
+        .def("__gt__", &DateTime::operator>)
+        .def("__ge__", &DateTime::operator>=)
+        .def("__eq__", &DateTime::operator==)
+        .def("__neq__", &DateTime::operator!=);
 }
