@@ -3266,6 +3266,7 @@ BOOST_PYTHON_MODULE(NumC)
     bp::class_<DateTime>
         ("DateTime", bp::init<>())
         .def(bp::init<uint16, uint8, uint8, uint8, uint8, uint8, uint16>())
+        .def("datetime", &DateTime::datetime)
         .def("year", &DateTime::year)
         .def("month", &DateTime::month)
         .def("day", &DateTime::day)

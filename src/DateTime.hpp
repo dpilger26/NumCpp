@@ -18,14 +18,17 @@
 // DEALINGS IN THE SOFTWARE.
 
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 
 #include"Constants.hpp"
 #include"Types.hpp"
 #include"Utils.hpp"
 
-#include<ctime>
+#include<time.h>
+#include<chrono>
 #include<iostream>
 #include<string>
+#include<stdexcept>
 
 namespace NumC
 {
@@ -37,69 +40,11 @@ namespace NumC
     {
     private:
         //==================================Attributes================================//
-        uint16      year_;
-        uint8       month_;
-        uint8       day_;
-        uint8       hour_;
-        uint8       minute_;
-        uint8       second_;
-        uint16      millisecond_;
-
-        double      dateTime_;
+        std::tm     datetime_;
 
         // ============================================================================= 
         // Description:
-        //              Constructor
-        // 
-        // Parameter(s): 
-        //              double
-        // 
-        // Return: 
-        //              None
-        //
-        DateTime(double inDateTime) :
-            dateTime_(inDateTime)
-        {
-            setDate();
-        }
-
-        // ============================================================================= 
-        // Description:
-        //              Converts a date and time to modified julian date.  Valid for 
-        //              Gregorian dates from 17-Nov-1858. Adapted from sci.astro FAQ.
-        // 
-        // Parameter(s): 
-        //              year
-        //              month
-        //              day
-        //              hour
-        //              minute
-        //              second
-        //              millisecond
-        // 
-        // Return: 
-        //              double
-        //
-        double getModifiedJulianDay(uint16 inYear, uint8 inMonth, uint8 inDay, uint8 inHour, uint8 inMinute, uint8 inSecond, uint16 inMillisecond = 0) 
-        {
-            return
-                367 * inYear
-                - 7 * (inYear + (inMonth + 9) / 12) / 4
-                - 3 * ((inYear + (inMonth - 9) / 7) / 100 + 1) / 4
-                + 275 * inMonth / 9
-                + inDay
-                + 1721028
-                - 2400000
-                + static_cast<double>(inHour) / Constants::HOURS_PER_DAY
-                + static_cast<double>(inMinute) / Constants::MINUTES_PER_DAY
-                + static_cast<double>(inSecond) / Constants::SECONDS_PER_DAY
-                + static_cast<double>(inMillisecond) / Constants::MILLISECONDS_PER_DAY;
-        }
-
-        // ============================================================================= 
-        // Description:
-        //              Converts from a modified julian date to a date.Assumes Gregorian calendar.  
-        //              Adapted from Fliegel / van Flandern ACM 11 / #10 p 657 Oct 1968.
+        //              Default Constructor, almost completely useless
         // 
         // Parameter(s): 
         //              None
@@ -107,40 +52,18 @@ namespace NumC
         // Return: 
         //              None
         //
-        void setDate()
+        DateTime(const std::time_t inTime)
         {
-            uint32 J, C, Y, M;
-
-            J = static_cast<uint32>(std::floor(dateTime_)) + 2400001 + 68569;
-            C = 4 * J / 146097;
-            J = J - (146097 * C + 3) / 4;
-            Y = 4000 * (J + 1) / 1461001;
-            J = J - 1461 * Y / 4 + 31;
-            M = 80 * J / 2447;
-            day_ = static_cast<uint8>(J - 2447 * M / 80);
-            J = M / 11;
-            month_ = static_cast<uint8>(M + 2 - (12 * J));
-            year_ = static_cast<uint16>(100 * (C - 49) + Y + J);
-
-            double fractionalDay = dateTime_ - std::floor(dateTime_);
-            hour_ = static_cast<uint8>(std::floor(fractionalDay * Constants::HOURS_PER_DAY));
-
-            double fractinalHour = fractionalDay - static_cast<double>(hour_) / Constants::HOURS_PER_DAY;
-            minute_ = static_cast<uint8>(std::floor(fractinalHour * Constants::MINUTES_PER_DAY));
-
-            double fractionalMinute = fractinalHour - static_cast<double>(minute_) / Constants::MINUTES_PER_DAY;
-            second_ = static_cast<uint8>(std::floor(fractionalMinute * Constants::SECONDS_PER_DAY));
-
-            double fractionalSecond = fractionalMinute - static_cast<double>(second_) / Constants::SECONDS_PER_DAY;
-            millisecond_ = static_cast<uint16>(std::floor(fractionalSecond * Constants::MILLISECONDS_PER_DAY));
+            localtime_s(&datetime_, &inTime);
         }
 
         // ============================================================================= 
         // Description:
-        //              Pads the input string with zeros
+        //              zero pads the input string
         // 
         // Parameter(s): 
-        //              None
+        //              string
+        //              width
         // 
         // Return: 
         //              None
@@ -165,15 +88,7 @@ namespace NumC
         // Return: 
         //              None
         //
-        DateTime() :
-            year_(0),
-            month_(0),
-            day_(0),
-            hour_(0),
-            minute_(0),
-            second_(0),
-            millisecond_(0),
-            dateTime_(0)
+        DateTime()
         {};
 
         // ============================================================================= 
@@ -192,10 +107,30 @@ namespace NumC
         // Return: 
         //              None
         //
-        DateTime(uint16 inYear, uint8 inMonth, uint8 inDay, uint8 inHour, uint8 inMinute, uint8 inSecond, uint16 inMillisecond = 0) 
+        DateTime(uint32 inYear, uint32 inMonth, uint32 inDay, uint32 inHour, uint32 inMinute, uint32 inSecond)
         {
-            dateTime_ = getModifiedJulianDay(inYear, inMonth, inDay, inHour, inMinute, inSecond, inMillisecond);
-            setDate();
+            datetime_.tm_year = inYear - 1900;
+            datetime_.tm_mon = inMonth - 1;
+            datetime_.tm_mday = inDay;
+            datetime_.tm_hour = inHour;
+            datetime_.tm_min = inMinute;
+            datetime_.tm_sec = inSecond;
+        }
+
+        // ============================================================================= 
+        // Description:
+        //              returns number of seconds since Jan 1, 1970 @ midnight
+        // 
+        // Parameter(s): 
+        //              None
+        // 
+        // Return: 
+        //              double
+        //
+        uint32 datetime() const
+        {
+            std::tm datetimeCopy = datetime_;
+            return static_cast<uint32>(std::mktime(&datetimeCopy));
         }
 
         // ============================================================================= 
@@ -206,11 +141,11 @@ namespace NumC
         //              None
         // 
         // Return: 
-        //              uint16 year
+        //              uint32 year
         //
-        uint16 year() const
+        uint32 year() const
         {
-            return year_;
+            return datetime_.tm_year + 1900;
         }
 
         // ============================================================================= 
@@ -221,11 +156,11 @@ namespace NumC
         //              None
         // 
         // Return: 
-        //              uint8 month
+        //              uint32 month
         //
-        uint8 month() const
+        uint32 month() const
         {
-            return month_;
+            return datetime_.tm_mon + 1;
         }
 
         // ============================================================================= 
@@ -236,11 +171,11 @@ namespace NumC
         //              None
         // 
         // Return: 
-        //              uint16 day of year
+        //              uint32 day of year
         //
-        uint8 day() const
+        uint32 day() const
         {
-            return day_;
+            return datetime_.tm_mday;
         }
 
         // ============================================================================= 
@@ -251,11 +186,11 @@ namespace NumC
         //              None
         // 
         // Return: 
-        //              uint16 hour
+        //              uint32 hour
         //
-        uint8 hour() const
+        uint32 hour() const
         {
-            return hour_;
+            return datetime_.tm_hour;
         }
 
         // ============================================================================= 
@@ -266,11 +201,11 @@ namespace NumC
         //              None
         // 
         // Return: 
-        //              uint16 minute
+        //              uint32 minute
         //
-        uint8 minute() const
+        uint32 minute() const
         {
-            return minute_;
+            return datetime_.tm_min;
         }
 
         // ============================================================================= 
@@ -281,26 +216,11 @@ namespace NumC
         //              None
         // 
         // Return: 
-        //              uint16 second
+        //              uint32 second
         //
-        uint8 second() const 
+        uint32 second() const
         {
-            return second_;
-        }
-
-        // ============================================================================= 
-        // Description:
-        //              returns the millisecond of the second [0, 999]
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              uint16 millisecond
-        //
-        uint16 millisecond() const
-        {
-            return millisecond_;
+            datetime_.tm_sec;
         }
 
         // ============================================================================= 
@@ -315,7 +235,27 @@ namespace NumC
         //
         uint32 secondsPastMidnight() const
         {
-            return static_cast<uint32>(hour_ * Constants::SECONDS_PER_HOUR + minute_ * Constants::SECONDS_PER_MINUTE + second_);;
+            return static_cast<uint32>(hour() * Constants::SECONDS_PER_HOUR + minute() * Constants::SECONDS_PER_MINUTE + second());
+        }
+
+        // ============================================================================= 
+        // Description:
+        //              returns a new DateTime object with GMT time
+        // 
+        // Parameter(s): 
+        //              None
+        // 
+        // Return: 
+        //              uint32 seconds
+        //
+        DateTime gmtTime() const
+        {
+            std::tm newDatetime;
+            std::tm datetimeCopy = datetime_;
+            std::time_t newTimeT = std::mktime(&datetimeCopy);
+            gmtime_s(&newDatetime, &newTimeT);
+
+            return DateTime(newDatetime);
         }
 
         // ============================================================================= 
@@ -332,9 +272,9 @@ namespace NumC
         //
         static uint32 diffSeconds(const DateTime& inDateTime1, const DateTime& inDateTime2)
         {
-            double dateDiff = std::abs(inDateTime2.dateTime_ - inDateTime1.dateTime_);
-            double fractionalDay = dateDiff - std::floor(dateDiff);
-            return static_cast<uint32>(fractionalDay * Constants::SECONDS_PER_DAY);
+            std::tm* dt1Ptr = const_cast<std::tm*>(&inDateTime1.datetime_);
+            std::tm* dt2Ptr = const_cast<std::tm*>(&inDateTime2.datetime_);
+            return std::difftime(std::mktime(dt1Ptr), std::mktime(dt2Ptr));
         }
 
         // ============================================================================= 
@@ -365,6 +305,18 @@ namespace NumC
         //
         static DateTime interpolate(const DateTime& inDateTime1, const DateTime& inDateTime2, double inPercent)
         {
+            if (inPercent < 0 || inPercent > 1)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime::interpolate: input percent value must be of the range [0, 1].");
+            }
+
+            std::tm* dt1Ptr = const_cast<std::tm*>(&inDateTime1.datetime_);
+            std::tm* dt2Ptr = const_cast<std::tm*>(&inDateTime2.datetime_);
+
+            std::time_t time1 = std::mktime(dt1Ptr);
+            std::time_t time2 = std::mktime(dt2Ptr);
+
+
             double dateTime = 0;
             if (inDateTime1 < inDateTime2)
             {
@@ -405,19 +357,19 @@ namespace NumC
         //
         static DateTime now()
         {
-            std::time_t now = std::time(0);
-            std::tm *ltm = std::localtime(&now);
+            std::chrono::system_clock::time_point today = std::chrono::system_clock::now();
+            std::time_t tt = std::chrono::system_clock::to_time_t(today); // seconds since 1/1/1970 @ midnight
+            std::tm ltm;
+            localtime_s(&ltm, &tt);
 
-            uint16 year = static_cast<uint16>(1970 + ltm->tm_year);
-            uint8 month = static_cast<uint8>(1 + ltm->tm_mon);
-            uint8 day = static_cast<uint8>(ltm->tm_mday);
-            uint8 hour = static_cast<uint8>(1 + ltm->tm_hour);
-            uint8 minute = static_cast<uint8>(1 + ltm->tm_min);
-            uint8 second = static_cast<uint8>(1 + ltm->tm_sec);
+            uint16 year = static_cast<uint16>(1900 + ltm.tm_year);
+            int8 month = static_cast<uint8>(ltm.tm_mon + 1);
+            int8 day = static_cast<uint8>(ltm.tm_mday);
+            int8 hour = static_cast<uint8>(ltm.tm_hour);
+            int8 minute = static_cast<uint8>(ltm.tm_min);
+            int8 second = static_cast<uint8>(ltm.tm_sec);
 
             return DateTime(year, month, day, hour, minute, second);
-            
-            //return DateTime(static_cast<double>(std::time(0)));
         }
 
         // ============================================================================= 
@@ -448,26 +400,23 @@ namespace NumC
         //
         std::string str() const
         {
-            std::string monthStr = Utils::num2str(static_cast<uint16>(month_));
+            std::string monthStr = Utils::num2str(static_cast<uint16>(month()));
             zeroPad(monthStr, 2);
-            std::string dayStr = Utils::num2str(static_cast<uint16>(day_));
+            std::string dayStr = Utils::num2str(static_cast<uint16>(day()));
             zeroPad(dayStr, 2);
-            std::string hourStr = Utils::num2str(static_cast<uint16>(hour_));
+            std::string hourStr = Utils::num2str(static_cast<uint16>(hour()));
             zeroPad(hourStr, 2);
-            std::string minuteStr = Utils::num2str(static_cast<uint16>(minute_));
+            std::string minuteStr = Utils::num2str(static_cast<uint16>(minute()));
             zeroPad(minuteStr, 2);
-            std::string secondStr = Utils::num2str(static_cast<uint16>(second_));
+            std::string secondStr = Utils::num2str(static_cast<uint16>(second()));
             zeroPad(secondStr, 2);
-            std::string millisecondStr = Utils::num2str(static_cast<uint16>(millisecond_));
-            zeroPad(millisecondStr, 3);
 
-            std::string str = Utils::num2str(year_);
+            std::string str = Utils::num2str(year());
             str += "_" + monthStr;
             str += "_" + dayStr;
             str += "_" + hourStr;
             str += "_" + minuteStr;
             str += "_" + secondStr;
-            str += "_" + millisecondStr;
             str += '\n';
 
             return str;
@@ -501,6 +450,7 @@ namespace NumC
         DateTime& operator+=(const DateTime& inOtherDateTime)
         {
             dateTime_ += inOtherDateTime.dateTime_;
+            setDate();
             return *this;
         }
 
@@ -536,6 +486,7 @@ namespace NumC
             {
                 throw std::runtime_error("ERROR: DateTime subtraction results in a negative date!");
             }
+            setDate();
             return *this;
         }
 
