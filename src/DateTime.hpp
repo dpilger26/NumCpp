@@ -38,9 +38,14 @@ namespace NumC
     //
     class DateTime
     {
+    public:
+        struct TimeZone { enum Zone { GMT = 0, LOCAL }; };
+
     private:
         //==================================Attributes================================//
-        std::tm     datetime_;
+        std::time_t     datenum_;
+        std::tm         datetime_;
+        TimeZone::Zone  timeZone_;
 
         // ============================================================================= 
         // Description:
@@ -52,9 +57,11 @@ namespace NumC
         // Return: 
         //              None
         //
-        DateTime(const std::time_t inTime)
+        DateTime(const std::time_t inTime, TimeZone::Zone inTimeZone):
+            datenum_(inTime),
+            timeZone_(inTimeZone)
         {
-            localtime_s(&datetime_, &inTime);
+            localtime_s(&datetime_, &datenum_);
         }
 
         // ============================================================================= 
@@ -88,8 +95,12 @@ namespace NumC
         // Return: 
         //              None
         //
-        DateTime()
-        {};
+        DateTime():
+            datenum_(0),
+            timeZone_(TimeZone::GMT)
+        {
+            localtime_s(&datetime_, &datenum_);
+        }
 
         // ============================================================================= 
         // Description:
@@ -102,19 +113,28 @@ namespace NumC
         //              hour
         //              minute
         //              second
-        //              millisecond
+        //              (Optional) TimeZone::Zone, default GMT
         // 
         // Return: 
         //              None
         //
-        DateTime(uint32 inYear, uint32 inMonth, uint32 inDay, uint32 inHour, uint32 inMinute, uint32 inSecond)
+        DateTime(uint32 inYear, uint32 inMonth, uint32 inDay, uint32 inHour, uint32 inMinute, uint32 inSecond, TimeZone::Zone inTimeZone = TimeZone::GMT):
+            timeZone_(inTimeZone)
         {
             datetime_.tm_year = inYear - 1900;
             datetime_.tm_mon = inMonth - 1;
             datetime_.tm_mday = inDay;
-            datetime_.tm_hour = inHour;
+            datetime_.tm_hour = inHour + 1;
             datetime_.tm_min = inMinute;
             datetime_.tm_sec = inSecond;
+
+            datenum_ = std::mktime(&datetime_);
+            if (datenum_ == -1)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime(): invalid date.");
+            }
+            
+            localtime_s(&datetime_, &datenum_);
         }
 
         // ============================================================================= 
@@ -127,10 +147,9 @@ namespace NumC
         // Return: 
         //              double
         //
-        uint32 datetime() const
+        std::time_t datetime() const
         {
-            std::tm datetimeCopy = datetime_;
-            return static_cast<uint32>(std::mktime(&datetimeCopy));
+            return datenum_;
         }
 
         // ============================================================================= 
@@ -165,7 +184,37 @@ namespace NumC
 
         // ============================================================================= 
         // Description:
-        //              returns the day of the year [0, 366]
+        //              returns the day of the month [1, 31]
+        // 
+        // Parameter(s): 
+        //              None
+        // 
+        // Return: 
+        //              uint32 day of month
+        //
+        uint32 day() const
+        {
+            return datetime_.tm_mday;
+        }
+
+        // ============================================================================= 
+        // Description:
+        //              returns the days since Sunday [0, 6]
+        // 
+        // Parameter(s): 
+        //              None
+        // 
+        // Return: 
+        //              uint32 day of week
+        //
+        uint32 dayOfWeek() const
+        {
+            return datetime_.tm_wday;
+        }
+
+        // ============================================================================= 
+        // Description:
+        //              returns the day of the year [0, 365]
         // 
         // Parameter(s): 
         //              None
@@ -173,9 +222,9 @@ namespace NumC
         // Return: 
         //              uint32 day of year
         //
-        uint32 day() const
+        uint32 dayOfYear() const
         {
-            return datetime_.tm_mday;
+            return datetime_.tm_yday;
         }
 
         // ============================================================================= 
@@ -220,7 +269,7 @@ namespace NumC
         //
         uint32 second() const
         {
-            datetime_.tm_sec;
+            return datetime_.tm_sec;
         }
 
         // ============================================================================= 
@@ -240,7 +289,22 @@ namespace NumC
 
         // ============================================================================= 
         // Description:
-        //              returns a new DateTime object with GMT time
+        //              returns the timezone
+        // 
+        // Parameter(s): 
+        //              None
+        // 
+        // Return: 
+        //              TimeZone::Zone
+        //
+        TimeZone::Zone timeZone() const
+        {
+            return timeZone_;
+        }
+
+        // ============================================================================= 
+        // Description:
+        //              returns a new DateTime object as the input timezone
         // 
         // Parameter(s): 
         //              None
@@ -248,33 +312,58 @@ namespace NumC
         // Return: 
         //              uint32 seconds
         //
-        DateTime gmtTime() const
+        DateTime toTimeZone(TimeZone::Zone inTimeZone) const
         {
-            std::tm newDatetime;
-            std::tm datetimeCopy = datetime_;
-            std::time_t newTimeT = std::mktime(&datetimeCopy);
-            gmtime_s(&newDatetime, &newTimeT);
+            if (inTimeZone == timeZone_)
+            {
+                return DateTime(*this);
+            }
+            else if (inTimeZone == TimeZone::GMT)
+            {
+                std::tm newDatetime;
+                gmtime_s(&newDatetime, &datenum_);
+                std::time_t newTimeGmtT = std::mktime(&newDatetime);
 
-            return DateTime(newDatetime);
+                return DateTime(newTimeGmtT, TimeZone::GMT);
+            }
+            else
+            {
+                std::tm newDatetime;
+                localtime_s(&newDatetime, &datenum_);
+                std::time_t newTimeGmtT = std::mktime(&newDatetime);
+
+                return DateTime(newTimeGmtT, TimeZone::LOCAL);
+            }
         }
 
         // ============================================================================= 
         // Description:
-        //              returns the difference of the two DateTime objects in seconds. The 
-        //              socond input DateTime must be larger than the first
+        //              returns the difference of the two DateTime objects in seconds.
         // 
         // Parameter(s): 
-        //              DateTime earlier
-        //              DateTime later
+        //              int64
         // 
         // Return: 
         //              uint32 seconds
         //
-        static uint32 diffSeconds(const DateTime& inDateTime1, const DateTime& inDateTime2)
+        static int64 diffSeconds(const DateTime& inDateTime1, const DateTime& inDateTime2)
         {
+            if (inDateTime1.timeZone_ != inDateTime2.timeZone_)
+            {
+                throw std::invalid_argument("ERROR: NumC::diffSeconds::interpolate: input DateTime objects need to be the same timezone.");
+            }
+
             std::tm* dt1Ptr = const_cast<std::tm*>(&inDateTime1.datetime_);
             std::tm* dt2Ptr = const_cast<std::tm*>(&inDateTime2.datetime_);
-            return std::difftime(std::mktime(dt1Ptr), std::mktime(dt2Ptr));
+
+            if (inDateTime1.datenum_ < inDateTime2.datenum_)
+            {
+                return static_cast<int64>(std::difftime(std::mktime(dt1Ptr), std::mktime(dt2Ptr)));
+            }
+            else
+            {
+                return -static_cast<int64>(std::difftime(std::mktime(dt2Ptr), std::mktime(dt1Ptr)));
+            }
         }
 
         // ============================================================================= 
@@ -288,7 +377,7 @@ namespace NumC
         // Return: 
         //              uint32 seconds
         //
-        uint32 diffSeconds(const DateTime& inOtherDateTime) const
+        int64 diffSeconds(const DateTime& inOtherDateTime) const
         {
             return diffSeconds(*this, inOtherDateTime);
         }
@@ -310,24 +399,28 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NumC::DateTime::interpolate: input percent value must be of the range [0, 1].");
             }
 
+            if (inDateTime1.timeZone_ != inDateTime2.timeZone_)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime::interpolate: input DateTime objects need to be the same timezone.");
+            }
+
             std::tm* dt1Ptr = const_cast<std::tm*>(&inDateTime1.datetime_);
             std::tm* dt2Ptr = const_cast<std::tm*>(&inDateTime2.datetime_);
 
             std::time_t time1 = std::mktime(dt1Ptr);
             std::time_t time2 = std::mktime(dt2Ptr);
 
-
-            double dateTime = 0;
-            if (inDateTime1 < inDateTime2)
+            std::time_t dateTime;
+            if (time1 < time2)
             {
-                dateTime = inDateTime1.dateTime_ * (1.0 - inPercent) + inDateTime2.dateTime_ * inPercent;
+                dateTime = static_cast<std::time_t>(time1 * (1.0 - inPercent) + time2 * inPercent);
             }
             else
             {
-                dateTime = inDateTime2.dateTime_ * (1.0 - inPercent) + inDateTime1.dateTime_ * inPercent;
+                dateTime = static_cast<std::time_t>(time2 * (1.0 - inPercent) + time1 * inPercent);
             }
 
-            return DateTime(dateTime);
+            return DateTime(dateTime, inDateTime1.timeZone_);
         }
 
         // ============================================================================= 
@@ -362,14 +455,14 @@ namespace NumC
             std::tm ltm;
             localtime_s(&ltm, &tt);
 
-            uint16 year = static_cast<uint16>(1900 + ltm.tm_year);
-            int8 month = static_cast<uint8>(ltm.tm_mon + 1);
-            int8 day = static_cast<uint8>(ltm.tm_mday);
-            int8 hour = static_cast<uint8>(ltm.tm_hour);
-            int8 minute = static_cast<uint8>(ltm.tm_min);
-            int8 second = static_cast<uint8>(ltm.tm_sec);
+            uint32 year = static_cast<uint32>(1900 + ltm.tm_year);
+            uint32 month = static_cast<uint32>(ltm.tm_mon + 1);
+            uint32 day = static_cast<uint32>(ltm.tm_mday);
+            uint32 hour = static_cast<uint32>(ltm.tm_hour);
+            uint32 minute = static_cast<uint32>(ltm.tm_min);
+            uint32 second = static_cast<uint32>(ltm.tm_sec);
 
-            return DateTime(year, month, day, hour, minute, second);
+            return DateTime(year, month, day, hour - 1, minute, second);
         }
 
         // ============================================================================= 
@@ -400,15 +493,15 @@ namespace NumC
         //
         std::string str() const
         {
-            std::string monthStr = Utils::num2str(static_cast<uint16>(month()));
+            std::string monthStr = Utils::num2str(month());
             zeroPad(monthStr, 2);
-            std::string dayStr = Utils::num2str(static_cast<uint16>(day()));
+            std::string dayStr = Utils::num2str(day());
             zeroPad(dayStr, 2);
-            std::string hourStr = Utils::num2str(static_cast<uint16>(hour()));
+            std::string hourStr = Utils::num2str(hour());
             zeroPad(hourStr, 2);
-            std::string minuteStr = Utils::num2str(static_cast<uint16>(minute()));
+            std::string minuteStr = Utils::num2str(minute());
             zeroPad(minuteStr, 2);
-            std::string secondStr = Utils::num2str(static_cast<uint16>(second()));
+            std::string secondStr = Utils::num2str(second());
             zeroPad(secondStr, 2);
 
             std::string str = Utils::num2str(year());
@@ -417,6 +510,15 @@ namespace NumC
             str += "_" + hourStr;
             str += "_" + minuteStr;
             str += "_" + secondStr;
+            
+            if (timeZone_ == TimeZone::GMT)
+            {
+                str += "_GMT";
+            }
+            else
+            {
+                str += "_Local";
+            }
             str += '\n';
 
             return str;
@@ -449,8 +551,8 @@ namespace NumC
         //
         DateTime& operator+=(const DateTime& inOtherDateTime)
         {
-            dateTime_ += inOtherDateTime.dateTime_;
-            setDate();
+            datenum_ += inOtherDateTime.datenum_;
+            localtime_s(&datetime_, &datenum_);
             return *this;
         }
 
@@ -481,12 +583,12 @@ namespace NumC
         //
         DateTime& operator-=(const DateTime& inOtherDateTime)
         {
-            dateTime_ -= inOtherDateTime.dateTime_;
-            if (dateTime_ < 0)
+            datenum_ -= inOtherDateTime.datenum_;
+            if (datenum_ < 0)
             {
                 throw std::runtime_error("ERROR: DateTime subtraction results in a negative date!");
             }
-            setDate();
+            localtime_s(&datetime_, &datenum_);
             return *this;
         }
 
@@ -502,7 +604,7 @@ namespace NumC
         //
         bool operator<(const DateTime& inOtherDateTime) const
         {
-            return dateTime_ < inOtherDateTime.dateTime_;
+            return datenum_ < inOtherDateTime.datenum_;
         }
 
         // ============================================================================= 
@@ -517,7 +619,7 @@ namespace NumC
         //
         bool operator<=(const DateTime& inOtherDateTime) const
         {
-            return dateTime_ < inOtherDateTime.dateTime_;
+            return datenum_ < inOtherDateTime.datenum_;
         }
 
         // ============================================================================= 
@@ -532,7 +634,7 @@ namespace NumC
         //
         bool operator>(const DateTime& inOtherDateTime) const 
         {
-            return dateTime_ > inOtherDateTime.dateTime_;
+            return datenum_ > inOtherDateTime.datenum_;
         }
 
         // ============================================================================= 
@@ -547,7 +649,7 @@ namespace NumC
         //
         bool operator>=(const DateTime& inOtherDateTime) const
         {
-            return dateTime_ >= inOtherDateTime.dateTime_;
+            return datenum_ >= inOtherDateTime.datenum_;
         }
 
         // ============================================================================= 
@@ -562,7 +664,7 @@ namespace NumC
         //
         bool operator==(const DateTime& inOtherDateTime) const
         {
-            return dateTime_ == inOtherDateTime.dateTime_;
+            return datenum_ == inOtherDateTime.datenum_;
         }
 
         // ============================================================================= 

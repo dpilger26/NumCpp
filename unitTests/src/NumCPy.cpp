@@ -2322,7 +2322,7 @@ namespace DataCubeInterface
 
 namespace DateTimeInterface
 {
-    uint32 diffSeconds(const DateTime& self, const DateTime& inOtherDateTime)
+    uint64 diffSeconds(const DateTime& self, const DateTime& inOtherDateTime)
     {
         return self.diffSeconds(inOtherDateTime);
     }
@@ -3263,18 +3263,25 @@ BOOST_PYTHON_MODULE(NumC)
         .def("push_front", &DataCubeDouble::push_front);
 
     // DateTime
+    bp::enum_<DateTime::TimeZone::Zone>("TimeZone")
+        .value("GMT", DateTime::TimeZone::GMT)
+        .value("LOCAL", DateTime::TimeZone::LOCAL);
+
     bp::class_<DateTime>
         ("DateTime", bp::init<>())
-        .def(bp::init<uint16, uint8, uint8, uint8, uint8, uint8, uint16>())
+        .def(bp::init<uint32, uint32, uint32, uint32, uint32, uint32>())
         .def("datetime", &DateTime::datetime)
         .def("year", &DateTime::year)
         .def("month", &DateTime::month)
         .def("day", &DateTime::day)
+        .def("dayOfWeek", &DateTime::dayOfWeek)
+        .def("dayOfYear", &DateTime::dayOfYear)
         .def("hour", &DateTime::hour)
         .def("minute", &DateTime::minute)
         .def("second", &DateTime::second)
-        .def("millisecond", &DateTime::millisecond)
         .def("secondsPastMidnight", &DateTime::secondsPastMidnight)
+        .def("timeZone", &DateTime::timeZone)
+        .def("toTimeZone", &DateTime::toTimeZone)
         .def("diffSeconds", &DateTimeInterface::diffSeconds)
         .def("interpolate", &DateTimeInterface::interpolate)
         .def("now", &DateTime::now).staticmethod("now")
