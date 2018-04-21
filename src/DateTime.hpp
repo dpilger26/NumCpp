@@ -97,7 +97,7 @@ namespace NumC
         //
         DateTime():
             datenum_(0),
-            timeZone_(TimeZone::GMT)
+            timeZone_(TimeZone::LOCAL)
         {
             localtime_s(&datetime_, &datenum_);
         }
@@ -118,7 +118,7 @@ namespace NumC
         // Return: 
         //              None
         //
-        DateTime(uint32 inYear, uint32 inMonth, uint32 inDay, uint32 inHour, uint32 inMinute, uint32 inSecond, TimeZone::Zone inTimeZone = TimeZone::GMT):
+        DateTime(uint32 inYear, uint32 inMonth, uint32 inDay, uint32 inHour, uint32 inMinute, uint32 inSecond, TimeZone::Zone inTimeZone = TimeZone::LOCAL):
             timeZone_(inTimeZone)
         {
             datetime_.tm_year = inYear - 1900;
@@ -134,7 +134,14 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NumC::DateTime(): invalid date.");
             }
             
-            localtime_s(&datetime_, &datenum_);
+            if (inTimeZone == TimeZone::LOCAL)
+            {
+                localtime_s(&datetime_, &datenum_);
+            }
+            else
+            {
+                gmtime_s(&datetime_, &datenum_);
+            }
         }
 
         // ============================================================================= 
@@ -448,12 +455,20 @@ namespace NumC
         // Return: 
         //              DateTime
         //
-        static DateTime now()
+        static DateTime now(TimeZone::Zone inTimeZone)
         {
             std::chrono::system_clock::time_point today = std::chrono::system_clock::now();
             std::time_t tt = std::chrono::system_clock::to_time_t(today); // seconds since 1/1/1970 @ midnight
             std::tm ltm;
-            localtime_s(&ltm, &tt);
+
+            if (inTimeZone == TimeZone::GMT)
+            {
+                gmtime_s(&ltm, &tt);
+            }
+            else
+            {
+                localtime_s(&ltm, &tt);
+            }
 
             uint32 year = static_cast<uint32>(1900 + ltm.tm_year);
             uint32 month = static_cast<uint32>(ltm.tm_mon + 1);
@@ -462,7 +477,7 @@ namespace NumC
             uint32 minute = static_cast<uint32>(ltm.tm_min);
             uint32 second = static_cast<uint32>(ltm.tm_sec);
 
-            return DateTime(year, month, day, hour - 1, minute, second);
+            return DateTime(year, month, day, hour - 1, minute, second, inTimeZone);
         }
 
         // ============================================================================= 
@@ -551,8 +566,22 @@ namespace NumC
         //
         DateTime& operator+=(const DateTime& inOtherDateTime)
         {
+            if (timeZone_ != inOtherDateTime.timeZone_)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime::addition: input DateTime objects need to be the same timezone.");
+            }
+
             datenum_ += inOtherDateTime.datenum_;
-            localtime_s(&datetime_, &datenum_);
+
+            if (timeZone_ == TimeZone::LOCAL)
+            {
+                localtime_s(&datetime_, &datenum_);
+            }
+            else
+            {
+                gmtime_s(&datetime_, &datenum_);
+            }
+
             return *this;
         }
 
@@ -583,12 +612,26 @@ namespace NumC
         //
         DateTime& operator-=(const DateTime& inOtherDateTime)
         {
+            if (timeZone_ != inOtherDateTime.timeZone_)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime::addition: input DateTime objects need to be the same timezone.");
+            }
+
             datenum_ -= inOtherDateTime.datenum_;
             if (datenum_ < 0)
             {
-                throw std::runtime_error("ERROR: DateTime subtraction results in a negative date!");
+                throw std::runtime_error("ERROR: NumC::DateTime subtraction results in a negative date!");
             }
-            localtime_s(&datetime_, &datenum_);
+
+            if (timeZone_ == TimeZone::LOCAL)
+            {
+                localtime_s(&datetime_, &datenum_);
+            }
+            else
+            {
+                gmtime_s(&datetime_, &datenum_);
+            }
+
             return *this;
         }
 
@@ -604,6 +647,11 @@ namespace NumC
         //
         bool operator<(const DateTime& inOtherDateTime) const
         {
+            if (timeZone_ != inOtherDateTime.timeZone_)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime::addition: input DateTime objects need to be the same timezone.");
+            }
+
             return datenum_ < inOtherDateTime.datenum_;
         }
 
@@ -619,6 +667,11 @@ namespace NumC
         //
         bool operator<=(const DateTime& inOtherDateTime) const
         {
+            if (timeZone_ != inOtherDateTime.timeZone_)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime::addition: input DateTime objects need to be the same timezone.");
+            }
+
             return datenum_ < inOtherDateTime.datenum_;
         }
 
@@ -634,6 +687,11 @@ namespace NumC
         //
         bool operator>(const DateTime& inOtherDateTime) const 
         {
+            if (timeZone_ != inOtherDateTime.timeZone_)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime::addition: input DateTime objects need to be the same timezone.");
+            }
+
             return datenum_ > inOtherDateTime.datenum_;
         }
 
@@ -649,6 +707,11 @@ namespace NumC
         //
         bool operator>=(const DateTime& inOtherDateTime) const
         {
+            if (timeZone_ != inOtherDateTime.timeZone_)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime::addition: input DateTime objects need to be the same timezone.");
+            }
+
             return datenum_ >= inOtherDateTime.datenum_;
         }
 
@@ -664,6 +727,11 @@ namespace NumC
         //
         bool operator==(const DateTime& inOtherDateTime) const
         {
+            if (timeZone_ != inOtherDateTime.timeZone_)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime::addition: input DateTime objects need to be the same timezone.");
+            }
+
             return datenum_ == inOtherDateTime.datenum_;
         }
 
@@ -679,6 +747,11 @@ namespace NumC
         //
         bool operator!=(const DateTime& inOtherDateTime) const
         {
+            if (timeZone_ != inOtherDateTime.timeZone_)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime::addition: input DateTime objects need to be the same timezone.");
+            }
+
             return !(*this == inOtherDateTime);
         }
 
