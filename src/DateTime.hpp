@@ -61,7 +61,19 @@ namespace NumC
             datenum_(inTime),
             timeZone_(inTimeZone)
         {
-            localtime_s(&datetime_, &datenum_);
+            if (inTimeZone == TimeZone::LOCAL)
+            {
+                localtime_s(&datetime_, &datenum_);
+            }
+            else
+            {
+                gmtime_s(&datetime_, &datenum_);
+                if (!datetime_.tm_isdst)
+                {
+                    datenum_ += 3600;
+                    gmtime_s(&datetime_, &datenum_);
+                }
+            }
         }
 
         // ============================================================================= 
@@ -134,14 +146,7 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NumC::DateTime(): invalid date.");
             }
             
-            if (inTimeZone == TimeZone::LOCAL)
-            {
-                localtime_s(&datetime_, &datenum_);
-            }
-            else
-            {
-                gmtime_s(&datetime_, &datenum_);
-            }
+            localtime_s(&datetime_, &datenum_);
         }
 
         // ============================================================================= 
@@ -321,26 +326,13 @@ namespace NumC
         //
         DateTime toTimeZone(TimeZone::Zone inTimeZone) const
         {
-            if (inTimeZone == timeZone_)
+            DateTime newDateTime(datenum_, inTimeZone);
+            if (inTimeZone == TimeZone::LOCAL && newDateTime.datetime_.tm_isdst)
             {
-                return DateTime(*this);
+                return DateTime(newDateTime.datenum_ - 3600, inTimeZone);
             }
-            else if (inTimeZone == TimeZone::GMT)
-            {
-                std::tm newDatetime;
-                gmtime_s(&newDatetime, &datenum_);
-                std::time_t newTimeGmtT = std::mktime(&newDatetime);
 
-                return DateTime(newTimeGmtT, TimeZone::GMT);
-            }
-            else
-            {
-                std::tm newDatetime;
-                localtime_s(&newDatetime, &datenum_);
-                std::time_t newTimeGmtT = std::mktime(&newDatetime);
-
-                return DateTime(newTimeGmtT, TimeZone::LOCAL);
-            }
+            return newDateTime;
         }
 
         // ============================================================================= 
@@ -459,25 +451,7 @@ namespace NumC
         {
             std::chrono::system_clock::time_point today = std::chrono::system_clock::now();
             std::time_t tt = std::chrono::system_clock::to_time_t(today); // seconds since 1/1/1970 @ midnight
-            std::tm ltm;
-
-            if (inTimeZone == TimeZone::GMT)
-            {
-                gmtime_s(&ltm, &tt);
-            }
-            else
-            {
-                localtime_s(&ltm, &tt);
-            }
-
-            uint32 year = static_cast<uint32>(1900 + ltm.tm_year);
-            uint32 month = static_cast<uint32>(ltm.tm_mon + 1);
-            uint32 day = static_cast<uint32>(ltm.tm_mday);
-            uint32 hour = static_cast<uint32>(ltm.tm_hour);
-            uint32 minute = static_cast<uint32>(ltm.tm_min);
-            uint32 second = static_cast<uint32>(ltm.tm_sec);
-
-            return DateTime(year, month, day, hour - 1, minute, second, inTimeZone);
+            return DateTime(tt, inTimeZone);
         }
 
         // ============================================================================= 

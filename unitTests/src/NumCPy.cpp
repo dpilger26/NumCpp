@@ -3269,7 +3269,7 @@ BOOST_PYTHON_MODULE(NumC)
 
     bp::class_<DateTime>
         ("DateTime", bp::init<>())
-        .def(bp::init<uint32, uint32, uint32, uint32, uint32, uint32>())
+        .def(bp::init<uint32, uint32, uint32, uint32, uint32, uint32, DateTime::TimeZone::Zone>())
         .def("datetime", &DateTime::datetime)
         .def("year", &DateTime::year)
         .def("month", &DateTime::month)
