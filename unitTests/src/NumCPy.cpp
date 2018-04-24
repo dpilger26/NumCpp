@@ -3263,13 +3263,9 @@ BOOST_PYTHON_MODULE(NumC)
         .def("push_front", &DataCubeDouble::push_front);
 
     // DateTime
-    bp::enum_<DateTime::TimeZone::Zone>("TimeZone")
-        .value("GMT", DateTime::TimeZone::GMT)
-        .value("LOCAL", DateTime::TimeZone::LOCAL);
-
     bp::class_<DateTime>
         ("DateTime", bp::init<>())
-        .def(bp::init<uint32, uint32, uint32, uint32, uint32, uint32, DateTime::TimeZone::Zone>())
+        .def(bp::init<uint32, uint32, uint32, uint32, uint32, uint32>())
         .def("datetime", &DateTime::datetime)
         .def("year", &DateTime::year)
         .def("month", &DateTime::month)
@@ -3279,9 +3275,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("hour", &DateTime::hour)
         .def("minute", &DateTime::minute)
         .def("second", &DateTime::second)
+        .def("isDaylightSavings", &DateTime::isDaylightSavings)
         .def("secondsPastMidnight", &DateTime::secondsPastMidnight)
-        .def("timeZone", &DateTime::timeZone)
-        .def("toTimeZone", &DateTime::toTimeZone)
         .def("diffSeconds", &DateTimeInterface::diffSeconds)
         .def("interpolate", &DateTimeInterface::interpolate)
         .def("now", &DateTime::now).staticmethod("now")
