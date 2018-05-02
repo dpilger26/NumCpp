@@ -3040,7 +3040,7 @@ BOOST_PYTHON_MODULE(NumC)
         .def("minimumFilter", &FilterDouble::minimumFilter).staticmethod("minimumFilter")
         .def("minumumFilter1d", &FilterDouble::minumumFilter1d).staticmethod("minumumFilter1d")
         .def("percentileFilter", &FilterDouble::percentileFilter).staticmethod("percentileFilter")
-        .def("percentile1d", &FilterDouble::percentile1d).staticmethod("percentile1d")
+        .def("percentileFilter1d", &FilterDouble::percentileFilter1d).staticmethod("percentileFilter1d")
         .def("rankFilter", &FilterDouble::rankFilter).staticmethod("rankFilter")
         .def("rankFilter1d", &FilterDouble::rankFilter1d).staticmethod("rankFilter1d")
         .def("uniformFilter", &FilterDouble::uniformFilter).staticmethod("uniformFilter")
@@ -3110,6 +3110,15 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("generateThreshold", &ImageProcessing::generateThreshold<double>);
     boost::python::def("generateCentroids", &ImageProcessing::generateCentroids<double>);
     boost::python::def("windowExceedances", &ImageProcessing::windowExceedances);
+
+    typedef ImageProcessing::Filter<double> FilterDouble;
+
+    bp::enum_<FilterDouble::Boundary::Mode>("Mode")
+        .value("REFLECT", FilterDouble::Boundary::REFLECT)
+        .value("CONSTANT", FilterDouble::Boundary::CONSTANT)
+        .value("NEAREST", FilterDouble::Boundary::NEAREST)
+        .value("MIRROR", FilterDouble::Boundary::MIRROR)
+        .value("WRAP", FilterDouble::Boundary::WRAP);
 
     // Coordinates
     typedef Coordinates::RA<double> RaDouble;

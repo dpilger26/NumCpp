@@ -53,6 +53,29 @@ namespace NumC
         private:
             //============================================================================
             // Method Description: 
+            //						extends the corner values
+            //		
+            // Inputs:
+            //				NdArray
+            //              boundary size
+            // Outputs:
+            //				None
+            //
+            static void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth)
+            {
+                Shape inShape = inArray.shape();
+                int32 numRows = static_cast<int32>(inShape.rows);
+                int32 numCols = static_cast<int32>(inShape.cols);
+
+                inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth), inArray(inBorderWidth, inBorderWidth));
+                inArray.put(Slice(0, inBorderWidth), Slice(numCols - inBorderWidth, numCols), inArray(inBorderWidth, numCols - inBorderWidth));
+
+                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(0, inBorderWidth), inArray(numRows - inBorderWidth, inBorderWidth));
+                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(numCols - inBorderWidth, numCols), inArray(numRows - inBorderWidth, numCols - inBorderWidth));
+            }
+
+            //============================================================================
+            // Method Description: 
             //						Reflects the boundaries
             //		
             // Inputs:
@@ -69,9 +92,16 @@ namespace NumC
                 outShape.cols += inBoundarySize * 2;
 
                 NdArray<dtype> outArray(outShape);
-                outArray(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols)) = inImage;
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
+                fillCorners(outArray, inBoundarySize);
 
+                // bottom
 
+                // top
+
+                // left
+
+                // right
 
                 return std::move(outArray);
             }
@@ -94,9 +124,13 @@ namespace NumC
                 outShape.cols += inBoundarySize * 2;
 
                 NdArray<dtype> outArray(outShape);
-                outArray(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols)) = inImage;
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
+                fillCorners(outArray, inBoundarySize);
 
-
+                outArray.put(Slice(0, inBoundarySize), Slice(inBoundarySize, inBoundarySize + inShape.cols), inConstantValue); // bottom
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inConstantValue); // top
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(0, inBoundarySize), inConstantValue); // left
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(outShape.cols - inBoundarySize, outShape.cols), inConstantValue); // right
 
                 return std::move(outArray);
             }
@@ -119,9 +153,16 @@ namespace NumC
                 outShape.cols += inBoundarySize * 2;
 
                 NdArray<dtype> outArray(outShape);
-                outArray(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols)) = inImage;
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
+                fillCorners(outArray, inBoundarySize);
 
+                // bottom
 
+                // top
+
+                // left
+
+                // right
 
                 return std::move(outArray);
             }
@@ -144,9 +185,16 @@ namespace NumC
                 outShape.cols += inBoundarySize * 2;
 
                 NdArray<dtype> outArray(outShape);
-                outArray(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols)) = inImage;
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
+                fillCorners(outArray, inBoundarySize);
 
+                // bottom
 
+                // top
+
+                // left
+
+                // right
 
                 return std::move(outArray);
             }
@@ -169,9 +217,16 @@ namespace NumC
                 outShape.cols += inBoundarySize * 2;
 
                 NdArray<dtype> outArray(outShape);
-                outArray(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols)) = inImage;
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
+                fillCorners(outArray, inBoundarySize);
 
+                // bottom
 
+                // top
+
+                // left
+
+                // right
 
                 return std::move(outArray);
             }
@@ -188,7 +243,7 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            static NdArray<dtype> addBoundary(const NdArray<dtype>& inImage, typename Boundary::Mode inMode, uint32 inKernalSize, dtype inConstantValue=0)
+            static NdArray<dtype> addBoundary(const NdArray<dtype>& inImage, typename Boundary::Mode inMode, uint32 inKernalSize, dtype inConstantValue = 0)
             {
                 if (inKernalSize % 2 == 0)
                 {
@@ -227,6 +282,27 @@ namespace NumC
                 }
             }
 
+            //============================================================================
+            // Method Description: 
+            //						trims the boundary off to make the image back to the original size
+            //		
+            // Inputs:
+            //				NdArray
+            //              boundary size
+            // Outputs:
+            //				NdArray
+            //
+            static NdArray<dtype> trimBoundary(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
+            {
+                Shape inShape = inImageWithBoundary.shape();
+                uint32 boundarySize = inSize / 2; // integer division
+
+                inShape.rows -= boundarySize * 2;
+                inShape.cols -= boundarySize * 2;
+
+                return std::move(inImageWithBoundary(Slice(boundarySize, boundarySize + inShape.rows), Slice(boundarySize, boundarySize + inShape.cols)));
+            }
+
         public:
             //============================================================================
             // Method Description: 
@@ -239,12 +315,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            static NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize, 
+            static NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -264,7 +340,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -284,7 +360,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -305,7 +381,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -325,7 +401,7 @@ namespace NumC
                 uint32 inSize = 7;
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -346,7 +422,7 @@ namespace NumC
                 uint32 inSize = 7;
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -366,7 +442,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -387,7 +463,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -406,7 +482,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -426,7 +502,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -445,7 +521,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -465,7 +541,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -484,7 +560,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -504,7 +580,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -524,7 +600,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -540,12 +616,12 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            static NdArray<dtype> percentile1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
+            static NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
                 typename Boundary::Mode inMode = Boundary::REFLECT, Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -565,7 +641,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -586,7 +662,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -605,7 +681,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
 
             //============================================================================
@@ -625,7 +701,7 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
 
-                return std::move(arrayWithBoundary);
+                return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
         };
 
