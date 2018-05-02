@@ -107,32 +107,66 @@ namespace NumC
         //              hour
         //              minute
         //              second
-        //              (Optional) TimeZone::Zone, default GMT
         // 
         // Return: 
         //              None
         //
         DateTime(uint32 inYear, uint32 inMonth, uint32 inDay, uint32 inHour, uint32 inMinute, uint32 inSecond)
         {
+            if (inYear < 1970)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime(): input year must be greater than or equal to 1970.");
+            }
+
+            if (inMonth < 1 || inMonth > 12)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime(): input month must be of the range [1, 12]");
+            }
+
+            if (inDay < 1 || inDay > 31)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime(): input day must be of the range [1, 31]");
+            }
+
+            if (inHour < 0 || inHour > 23)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime(): input hour must be of the range [0, 23]");
+            }
+
+            if (inMinute < 0 || inMinute > 59)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime(): input minute must be of the range [0, 59]");
+            }
+
+            if (inSecond < 0 || inSecond > 59)
+            {
+                throw std::invalid_argument("ERROR: NumC::DateTime(): input second must be of the range [0, 59]");
+            }
+
             datetime_.tm_year = inYear - 1900;
             datetime_.tm_mon = inMonth - 1;
             datetime_.tm_mday = inDay;
-            datetime_.tm_hour = inHour + 1;
+            datetime_.tm_hour = inHour;
             datetime_.tm_min = inMinute;
             datetime_.tm_sec = inSecond;
 
             datenum_ = std::mktime(&datetime_);
             if (datenum_ == -1)
             {
-                throw std::invalid_argument("ERROR: NumC::DateTime(): invalid date.");
+                throw std::invalid_argument("ERROR: NumC::DateTime(): invalid date. Must be on or after 1/1/1970 @00:00:00.");
             }
 
             localtime_s(&datetime_, &datenum_);
+            if (!datetime_.tm_isdst)
+            {
+                datenum_ += 3600;
+                localtime_s(&datetime_, &datenum_);
+            }
         }
 
         // ============================================================================= 
         // Description:
-        //              returns number of seconds since Jan 1, 1970 @ midnight
+        //              returns number of seconds since Jan 1, 1970 @ midnight GMT
         // 
         // Parameter(s): 
         //              None
@@ -217,7 +251,7 @@ namespace NumC
         //
         uint32 dayOfYear() const
         {
-            return datetime_.tm_yday;
+            return datetime_.tm_yday + 1; // since this returns days since Jan. 1, we need to add 1
         }
 
         // ============================================================================= 
@@ -267,15 +301,17 @@ namespace NumC
 
         // ============================================================================= 
         // Description:
-        //              returns whether or not it is daylight savings
+        //              The Daylight Saving Time flag (tm_isdst) is greater than zero if
+        //              Daylight Saving Time is in effect, zero if Daylight Saving Time 
+        //              is not in effect, and less than zero if the information is not available.
         // 
         // Parameter(s): 
         //              None
         // 
         // Return: 
-        //              bool
+        //              int32
         //
-        bool isDaylightSavings() const
+        int32 isDaylightSavings() const
         {
             return datetime_.tm_isdst;
         }
@@ -456,77 +492,6 @@ namespace NumC
 
         // ============================================================================= 
         // Description:
-        //              addition operator
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              DateTime
-        //
-        DateTime operator+(const DateTime& inOtherDateTime) const
-        {
-            return DateTime(*this) += inOtherDateTime;
-        }
-
-        // ============================================================================= 
-        // Description:
-        //              addition assignment operator
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              DateTime
-        //
-        DateTime& operator+=(const DateTime& inOtherDateTime)
-        {
-            datenum_ += inOtherDateTime.datenum_;
-            localtime_s(&datetime_, &datenum_);
-
-            return *this;
-        }
-
-        // ============================================================================= 
-        // Description:
-        //              subtraction operator
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              DateTime
-        //
-        DateTime operator-(const DateTime& inOtherDateTime) const
-        {
-            return DateTime(*this) -= inOtherDateTime;
-        }
-
-        // ============================================================================= 
-        // Description:
-        //              subtraction assignment operator
-        // 
-        // Parameter(s): 
-        //              None
-        // 
-        // Return: 
-        //              DateTime
-        //
-        DateTime& operator-=(const DateTime& inOtherDateTime)
-        {
-            datenum_ -= inOtherDateTime.datenum_;
-            if (datenum_ < 0)
-            {
-                throw std::runtime_error("ERROR: NumC::DateTime subtraction results in a negative date!");
-            }
-
-            localtime_s(&datetime_, &datenum_);
-
-            return *this;
-        }
-
-        // ============================================================================= 
-        // Description:
         //              less than operator
         // 
         // Parameter(s): 
@@ -552,7 +517,7 @@ namespace NumC
         //
         bool operator<=(const DateTime& inOtherDateTime) const
         {
-            return datenum_ < inOtherDateTime.datenum_;
+            return datenum_ <= inOtherDateTime.datenum_;
         }
 
         // ============================================================================= 
