@@ -34,7 +34,7 @@ def doTest():
     TestRotations.doTest()
     TestPolynomial.doTest()
     TestFFT.doTest()
-    TestImageProcessing.doTest()
+    #TestImageProcessing.doTest()
 
 #################################################################################
 if __name__ == '__main__':

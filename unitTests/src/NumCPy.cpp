@@ -16,7 +16,7 @@
 #include "boost/python/return_internal_reference.hpp" // needed for returning references and pointers
 #include "boost/python/numpy.hpp" // needed for working with numpy 
 // i don't know why, but google said these are needed to fix a linker error i was running into for numpy. 
-#define BOOST_LIB_NAME "boost_numpy"
+#define BOOST_LIB_NAME "boost_numpy3"
 #include "boost/config/auto_link.hpp"
 
 namespace bp = boost::python;
@@ -2346,6 +2346,7 @@ BOOST_PYTHON_MODULE(NumC)
         .def(bp::vector_indexing_suite<std::vector<double> >());
 
     // Constants.hpp
+	bp::scope().attr("c") = NumC::Constants::c;
     bp::scope().attr("e") = NumC::Constants::e;
     bp::scope().attr("pi") = NumC::Constants::pi;
     bp::scope().attr("nan") = NumC::Constants::nan;

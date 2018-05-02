@@ -10,6 +10,12 @@ def doTest():
 
     NUM_DECIMALS_ROUND = 10
 
+    print(colored('Testing c', 'cyan'))
+    if round(NumC.c, NUM_DECIMALS_ROUND) == round(3e8, 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing e', 'cyan'))
     if round(NumC.e, NUM_DECIMALS_ROUND) == round(np.e, 10):
         print(colored('\tPASS', 'green'))
@@ -28,8 +34,8 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing version', 'cyan'))
-    if NumC.version == '0.1':
+    print(colored('Testing VERSION', 'cyan'))
+    if NumC.VERSION == '0.1':
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
