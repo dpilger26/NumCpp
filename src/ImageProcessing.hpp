@@ -384,7 +384,7 @@ namespace NumC
             static NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -404,7 +404,7 @@ namespace NumC
             static NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
                 const NdArray<dtype>& inWeights, typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -425,7 +425,7 @@ namespace NumC
             static NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -445,7 +445,7 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
                 uint32 inSize = 7;
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -466,7 +466,7 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
                 uint32 inSize = 7;
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -486,7 +486,7 @@ namespace NumC
             static NdArray<dtype> linearFilter(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -508,7 +508,7 @@ namespace NumC
                 const NdArray<dtype>& inWeights, typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, 
 				Axis::Type inAxis = Axis::ROW)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -527,7 +527,7 @@ namespace NumC
             static NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -547,7 +547,7 @@ namespace NumC
             static NdArray<dtype> maximumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -566,7 +566,7 @@ namespace NumC
             static NdArray<dtype> medianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -586,7 +586,7 @@ namespace NumC
             static NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -605,7 +605,7 @@ namespace NumC
             static NdArray<dtype> minimumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -625,7 +625,7 @@ namespace NumC
             static NdArray<dtype> minumumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -645,7 +645,7 @@ namespace NumC
             static NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -666,7 +666,7 @@ namespace NumC
             static NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -686,7 +686,7 @@ namespace NumC
             static NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -707,7 +707,7 @@ namespace NumC
             static NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -726,7 +726,7 @@ namespace NumC
             static NdArray<dtype> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
@@ -746,7 +746,7 @@ namespace NumC
             static NdArray<dtype> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize);
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 return std::move(trimBoundary(arrayWithBoundary, inSize));
             }
