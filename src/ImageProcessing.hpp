@@ -422,10 +422,10 @@ namespace NumC
             static NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> inImageArrayCopy(inImageArray);
+                inImageArrayCopy -= medianFilter(inImageArray, inSize, inMode, inConstantValue);
 
-                //return std::move(trimBoundary(arrayWithBoundary, inSize));
-                return std::move(arrayWithBoundary);
+                return std::move(inImageArrayCopy);
             }
 
             //============================================================================
@@ -626,8 +626,25 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> arrayWithBoundaryCopy(arrayWithBoundary.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                Shape inShape = inImageArray.shape();
+                uint32 boundarySize = inSize / 2; // integer division
+                uint32 endPointRow = boundarySize + inShape.rows;
+                uint32 endPointCol = boundarySize + inShape.cols;
+
+                for (uint32 row = boundarySize; row < endPointRow; ++row)
+                {
+                    for (uint32 col = boundarySize; col < endPointCol; ++col)
+                    {
+                        NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize),
+                            Slice(col - boundarySize, col + boundarySize));
+
+                        arrayWithBoundaryCopy(row, col) = window.median().item();
+                    }
+                }
+
+                return std::move(trimBoundary(arrayWithBoundaryCopy, inSize));
             }
 
             //============================================================================
