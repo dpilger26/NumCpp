@@ -67,48 +67,48 @@ namespace NumC
                 int32 numRows = static_cast<int32>(inShape.rows);
                 int32 numCols = static_cast<int32>(inShape.cols);
 
-				// top left
+                // top left
                 inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth), inArray(inBorderWidth, inBorderWidth));
 
-				// top right
+                // top right
                 inArray.put(Slice(0, inBorderWidth), Slice(numCols - inBorderWidth, numCols), inArray(inBorderWidth, numCols - inBorderWidth - 1));
 
-				// bottom left
+                // bottom left
                 inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(0, inBorderWidth), inArray(numRows - inBorderWidth - 1, inBorderWidth));
 
-				// bottom right
+                // bottom right
                 inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(numCols - inBorderWidth, numCols), inArray(numRows - inBorderWidth - 1, numCols - inBorderWidth - 1));
             }
 
-			//============================================================================
-			// Method Description: 
-			//						extends the corner values
-			//		
-			// Inputs:
-			//				NdArray
-			//              boundary size
-			//				fill value
-			// Outputs:
-			//				None
-			//
-			static void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)
-			{
-				Shape inShape = inArray.shape();
-				int32 numRows = static_cast<int32>(inShape.rows);
-				int32 numCols = static_cast<int32>(inShape.cols);
+            //============================================================================
+            // Method Description: 
+            //						extends the corner values
+            //		
+            // Inputs:
+            //				NdArray
+            //              boundary size
+            //				fill value
+            // Outputs:
+            //				None
+            //
+            static void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)
+            {
+                Shape inShape = inArray.shape();
+                int32 numRows = static_cast<int32>(inShape.rows);
+                int32 numCols = static_cast<int32>(inShape.cols);
 
-				// top left
-				inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth), inFillValue);
+                // top left
+                inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth), inFillValue);
 
-				// top right
-				inArray.put(Slice(0, inBorderWidth), Slice(numCols - inBorderWidth, numCols), inFillValue);
+                // top right
+                inArray.put(Slice(0, inBorderWidth), Slice(numCols - inBorderWidth, numCols), inFillValue);
 
-				// bottom left
-				inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(0, inBorderWidth), inFillValue);
+                // bottom left
+                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(0, inBorderWidth), inFillValue);
 
-				// bottom right
-				inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(numCols - inBorderWidth, numCols), inFillValue);
-			}
+                // bottom right
+                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(numCols - inBorderWidth, numCols), inFillValue);
+            }
 
             //============================================================================
             // Method Description: 
@@ -128,21 +128,34 @@ namespace NumC
                 outShape.cols += inBoundarySize * 2;
 
                 NdArray<dtype> outArray(outShape);
-				outArray.zeros(); // DP NOTE: REMOVE AFTER DEBUGGING
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
                 fillCorners(outArray, inBoundarySize);
 
-                // bottom
-				for (uint32 row = 0; row < inBoundarySize; ++row)
-				{
-					outArray.put(row, Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage(inBoundarySize - row - 1, Slice(0, inShape.cols)));
-				}
+                for (uint32 row = 0; row < inBoundarySize; ++row)
+                {
+                    // bottom
+                    outArray.put(row,
+                        Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                        inImage(inBoundarySize - row - 1, Slice(0, inShape.cols)));
 
-                // top
+                    // top
+                    outArray.put(row + inBoundarySize + inShape.rows,
+                        Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                        inImage(inShape.rows - row - 1, Slice(0, inShape.cols)));
+                }
 
-                // left
+                for (uint32 col = 0; col < inBoundarySize; ++col)
+                {
+                    // left
+                    outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
+                        col,
+                        inImage(Slice(0, inShape.rows), inBoundarySize - col - 1));
 
-                // right
+                    // right
+                    outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
+                        col + inBoundarySize + inShape.cols,
+                        inImage(Slice(0, inShape.rows), inShape.cols - col - 1));
+                }
 
                 return std::move(outArray);
             }
@@ -197,13 +210,31 @@ namespace NumC
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
                 fillCorners(outArray, inBoundarySize);
 
-                // bottom
+                for (uint32 row = 0; row < inBoundarySize; ++row)
+                {
+                    // bottom
+                    outArray.put(row,
+                        Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                        inImage(0, Slice(0, inShape.cols)));
 
-                // top
+                    // top
+                    outArray.put(row + inBoundarySize + inShape.rows,
+                        Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                        inImage(inShape.rows - 1, Slice(0, inShape.cols)));
+                }
 
-                // left
+                for (uint32 col = 0; col < inBoundarySize; ++col)
+                {
+                    // left
+                    outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
+                        col,
+                        inImage(Slice(0, inShape.rows), 0));
 
-                // right
+                    // right
+                    outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
+                        col + inBoundarySize + inShape.cols,
+                        inImage(Slice(0, inShape.rows), inShape.cols - 1));
+                }
 
                 return std::move(outArray);
             }
@@ -226,20 +257,35 @@ namespace NumC
                 outShape.cols += inBoundarySize * 2;
 
                 NdArray<dtype> outArray(outShape);
+                outArray.zeros(); // DP NOTE: REMOVE AFTER DEBUGGING
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
                 fillCorners(outArray, inBoundarySize);
 
-                // bottom
-				for (uint32 row = 0; row < inBoundarySize; ++row)
-				{
-					outArray.put(row, Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage(inBoundarySize - row, Slice(0, inShape.cols)));
-				}
+                for (uint32 row = 0; row < inBoundarySize; ++row)
+                {
+                    // bottom
+                    outArray.put(row,
+                        Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                        inImage(inBoundarySize - row, Slice(0, inShape.cols)));
 
-                // top
+                    // top
+                    outArray.put(row + inBoundarySize + inShape.rows,
+                        Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                        inImage(inShape.rows - row - 2, Slice(0, inShape.cols)));
+                }
 
-                // left
+                for (uint32 col = 0; col < inBoundarySize; ++col)
+                {
+                    // left
+                    outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
+                        col,
+                        inImage(Slice(0, inShape.rows), inBoundarySize - col));
 
-                // right
+                    // right
+                    outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
+                        col + inBoundarySize + inShape.cols,
+                        inImage(Slice(0, inShape.rows), inShape.cols - col - 2));
+                }
 
                 return std::move(outArray);
             }
@@ -262,16 +308,29 @@ namespace NumC
                 outShape.cols += inBoundarySize * 2;
 
                 NdArray<dtype> outArray(outShape);
+                outArray.zeros(); // DP NOTE: REMOVE WHEN DONE DEBUGGING
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
                 fillCorners(outArray, inBoundarySize);
 
                 // bottom
+                outArray.put(Slice(0, inBoundarySize),
+                    Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                    inImage(Slice(inShape.rows - inBoundarySize, inShape.rows), Slice(0, inShape.cols)));
 
                 // top
+                outArray.put(Slice(inShape.rows + inBoundarySize, outShape.rows),
+                    Slice(inBoundarySize, inBoundarySize + inShape.cols),
+                    inImage(Slice(0, inBoundarySize), Slice(0, inShape.cols)));
 
                 // left
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), 
+                    Slice(0, inBoundarySize),
+                    inImage(Slice(0, inShape.rows), Slice(inShape.cols - inBoundarySize, inShape.cols)));
 
                 // right
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), 
+                    Slice(inShape.cols + inBoundarySize, outShape.cols),
+                    inImage(Slice(0, inShape.rows), Slice(0, inBoundarySize)));
 
                 return std::move(outArray);
             }
@@ -366,7 +425,7 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
                 //return std::move(trimBoundary(arrayWithBoundary, inSize));
-				return std::move(arrayWithBoundary);
+                return std::move(arrayWithBoundary);
             }
 
             //============================================================================
@@ -505,8 +564,8 @@ namespace NumC
             //				NdArray
             //
             static NdArray<dtype> linearFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-                const NdArray<dtype>& inWeights, typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, 
-				Axis::Type inAxis = Axis::ROW)
+                const NdArray<dtype>& inWeights, typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0,
+                Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
 
