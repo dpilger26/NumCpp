@@ -129,7 +129,6 @@ namespace NumC
 
                 NdArray<dtype> outArray(outShape);
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
-                fillCorners(outArray, inBoundarySize);
 
                 for (uint32 row = 0; row < inBoundarySize; ++row)
                 {
@@ -156,6 +155,19 @@ namespace NumC
                         col + inBoundarySize + inShape.cols,
                         inImage(Slice(0, inShape.rows), inShape.cols - col - 1));
                 }
+
+                // now fill in the corners
+                NdArray<dtype> lowerLeft = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(0, inBoundarySize)));
+                NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+
+                uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
+                NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize)));
+                NdArray<dtype> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+
+                outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), lowerLeft);
+                outArray.put(Slice(0, inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols), lowerRight);
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), Slice(0, inBoundarySize), upperLeft);
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), Slice(outShape.cols - inBoundarySize, outShape.cols), upperRight);
 
                 return std::move(outArray);
             }
@@ -259,7 +271,6 @@ namespace NumC
                 NdArray<dtype> outArray(outShape);
                 outArray.zeros(); // DP NOTE: REMOVE AFTER DEBUGGING
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
-                fillCorners(outArray, inBoundarySize);
 
                 for (uint32 row = 0; row < inBoundarySize; ++row)
                 {
@@ -287,6 +298,19 @@ namespace NumC
                         inImage(Slice(0, inShape.rows), inShape.cols - col - 2));
                 }
 
+                // now fill in the corners
+                NdArray<dtype> lowerLeft = flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1), Slice(0, inBoundarySize)));
+                NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+
+                uint32 upperRowStart = outShape.rows - 2 * inBoundarySize - 1;
+                NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize)));
+                NdArray<dtype> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+
+                outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), lowerLeft);
+                outArray.put(Slice(0, inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols), lowerRight);
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), Slice(0, inBoundarySize), upperLeft);
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), Slice(outShape.cols - inBoundarySize, outShape.cols), upperRight);
+
                 return std::move(outArray);
             }
 
@@ -310,7 +334,6 @@ namespace NumC
                 NdArray<dtype> outArray(outShape);
                 outArray.zeros(); // DP NOTE: REMOVE WHEN DONE DEBUGGING
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
-                fillCorners(outArray, inBoundarySize);
 
                 // bottom
                 outArray.put(Slice(0, inBoundarySize),
@@ -331,6 +354,19 @@ namespace NumC
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), 
                     Slice(inShape.cols + inBoundarySize, outShape.cols),
                     inImage(Slice(0, inShape.rows), Slice(0, inBoundarySize)));
+
+                // now fill in the corners
+                NdArray<dtype> lowerLeft = outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(0, inBoundarySize));
+                NdArray<dtype> lowerRight = outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols));
+
+                uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
+                NdArray<dtype> upperLeft = outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize));
+                NdArray<dtype> upperRight = outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols));
+
+                outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), upperLeft);
+                outArray.put(Slice(0, inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols), upperRight);
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), Slice(0, inBoundarySize), lowerLeft);
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), Slice(outShape.cols - inBoundarySize, outShape.cols), lowerRight);
 
                 return std::move(outArray);
             }
@@ -637,8 +673,8 @@ namespace NumC
                 {
                     for (uint32 col = boundarySize; col < endPointCol; ++col)
                     {
-                        NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize),
-                            Slice(col - boundarySize, col + boundarySize));
+                        NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                            Slice(col - boundarySize, col + boundarySize + 1));
 
                         arrayWithBoundaryCopy(row, col) = window.median().item();
                     }

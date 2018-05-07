@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from termcolor import colored
+import scipy.ndimage.filters as filters
 import sys
 sys.path.append(r'../build/x64/Release')
 import NumC
@@ -8,6 +9,57 @@ import NumC
 ####################################################################################
 def doTest():
     print(colored('Testing Image Processing Module', 'magenta'))
+    doFilters()
+    doCentroiding()
+
+####################################################################################
+def doFilters():
+    print(colored('Testing Filters', 'magenta'))
+
+    modes = {'reflect' : NumC.Mode.REFLECT,
+             'constant': NumC.Mode.CONSTANT,
+             'nearest': NumC.Mode.NEAREST,
+             'mirror': NumC.Mode.MIRROR,
+             'wrap': NumC.Mode.WRAP}
+
+    for mode in modes.keys():
+        print(colored(f'Testing complementaryMedianFilter: mode = {mode}', 'cyan'))
+        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        cShape = NumC.Shape(shape[0], shape[1])
+        cArray = NumC.NdArray(cShape)
+        data = np.random.randint(100, 1000, shape)
+        cArray.setArray(data)
+        kernalSize = 0
+        while kernalSize % 2 == 0:
+            kernalSize = np.random.randint(5, 15)
+        constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
+        dataOutC = NumC.Filter.complementaryMedianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutPy = data - filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
+        if np.array_equal(dataOutC, dataOutPy):
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
+
+        print(colored(f'Testing medianFilter: mode = {mode}', 'cyan'))
+        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        cShape = NumC.Shape(shape[0], shape[1])
+        cArray = NumC.NdArray(cShape)
+        data = np.random.randint(100, 1000, shape)
+        cArray.setArray(data)
+        kernalSize = 0
+        while kernalSize % 2 == 0:
+            kernalSize = np.random.randint(5, 15)
+        constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
+        dataOutC = NumC.Filter.medianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutPy = filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
+        if np.array_equal(dataOutC, dataOutPy):
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
+
+####################################################################################
+def doCentroiding():
+    print(colored('Testing Centroiding', 'magenta'))
 
     # generate a random noise
     imageSize = 1024
@@ -114,4 +166,5 @@ def doTest():
 
 ####################################################################################
 if __name__ == '__main__':
-   doTest()
+    # doCentroiding()
+    doFilters()
