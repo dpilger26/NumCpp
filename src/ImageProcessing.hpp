@@ -499,9 +499,31 @@ namespace NumC
             static NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
                 const NdArray<dtype>& inWeights, typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                if (inWeights.size() != Utils::sqr(inSize))
+                {
+                    throw std::invalid_argument("ERROR: NumC::ImageProcessing::Filter::convolve: input weights do no match input kernal size.");
+                }
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> arrayWithBoundaryCopy(arrayWithBoundary.shape());
+
+                Shape inShape = inImageArray.shape();
+                uint32 boundarySize = inSize / 2; // integer division
+                uint32 endPointRow = boundarySize + inShape.rows;
+                uint32 endPointCol = boundarySize + inShape.cols;
+
+                for (uint32 row = boundarySize; row < endPointRow; ++row)
+                {
+                    for (uint32 col = boundarySize; col < endPointCol; ++col)
+                    {
+                        NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                            Slice(col - boundarySize, col + boundarySize + 1));
+
+                        arrayWithBoundaryCopy(row, col) = (window * inWeights).sum().item();
+                    }
+                }
+
+                return std::move(trimBoundary(arrayWithBoundaryCopy, inSize));
             }
 
             //============================================================================

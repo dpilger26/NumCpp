@@ -23,39 +23,59 @@ def doFilters():
              'wrap': NumC.Mode.WRAP}
 
     for mode in modes.keys():
-        print(colored(f'Testing complementaryMedianFilter: mode = {mode}', 'cyan'))
+        # print(colored(f'Testing complementaryMedianFilter: mode = {mode}', 'cyan'))
+        # shape = np.random.randint(1000, 2000, [2,]).tolist()
+        # cShape = NumC.Shape(shape[0], shape[1])
+        # cArray = NumC.NdArray(cShape)
+        # data = np.random.randint(100, 1000, shape)
+        # cArray.setArray(data)
+        # kernalSize = 0
+        # while kernalSize % 2 == 0:
+        #     kernalSize = np.random.randint(5, 15)
+        # constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
+        # dataOutC = NumC.Filter.complementaryMedianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        # dataOutPy = data - filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
+        # if np.array_equal(dataOutC, dataOutPy):
+        #     print(colored('\tPASS', 'green'))
+        # else:
+        #     print(colored('\tFAIL', 'red'))
+
+        print(colored(f'Testing convolve: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
         cShape = NumC.Shape(shape[0], shape[1])
         cArray = NumC.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape)
+        data = np.random.randint(100, 1000, shape).astype(np.double)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filter.complementaryMedianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = data - filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
+        weights = np.random.randint(-2, 3, [kernalSize, kernalSize])
+        cWeights = NumC.NdArray(1, weights.size)
+        cWeights.setArray(weights)
+        dataOutC = NumC.Filter.convolve(cArray, kernalSize, cWeights, modes[mode], constantValue).getNumpyArray()
+        dataOutPy = filters.convolve(data, weights, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
         else:
             print(colored('\tFAIL', 'red'))
 
-        print(colored(f'Testing medianFilter: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
-        cShape = NumC.Shape(shape[0], shape[1])
-        cArray = NumC.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape)
-        cArray.setArray(data)
-        kernalSize = 0
-        while kernalSize % 2 == 0:
-            kernalSize = np.random.randint(5, 15)
-        constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filter.medianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
-        dataOutPy = filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
-        if np.array_equal(dataOutC, dataOutPy):
-            print(colored('\tPASS', 'green'))
-        else:
-            print(colored('\tFAIL', 'red'))
+        # print(colored(f'Testing medianFilter: mode = {mode}', 'cyan'))
+        # shape = np.random.randint(1000, 2000, [2,]).tolist()
+        # cShape = NumC.Shape(shape[0], shape[1])
+        # cArray = NumC.NdArray(cShape)
+        # data = np.random.randint(100, 1000, shape)
+        # cArray.setArray(data)
+        # kernalSize = 0
+        # while kernalSize % 2 == 0:
+        #     kernalSize = np.random.randint(5, 15)
+        # constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
+        # dataOutC = NumC.Filter.medianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        # dataOutPy = filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
+        # if np.array_equal(dataOutC, dataOutPy):
+        #     print(colored('\tPASS', 'green'))
+        # else:
+        #     print(colored('\tFAIL', 'red'))
 
 ####################################################################################
 def doCentroiding():
