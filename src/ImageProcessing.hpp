@@ -507,6 +507,7 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> arrayWithBoundaryCopy(arrayWithBoundary.shape());
 
+				NdArray<dtype> weightsFlat = inWeights.flatten();
                 Shape inShape = inImageArray.shape();
                 uint32 boundarySize = inSize / 2; // integer division
                 uint32 endPointRow = boundarySize + inShape.rows;
@@ -517,9 +518,9 @@ namespace NumC
                     for (uint32 col = boundarySize; col < endPointCol; ++col)
                     {
                         NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
-                            Slice(col - boundarySize, col + boundarySize + 1));
+                            Slice(col - boundarySize, col + boundarySize + 1)).flatten();
 
-                        arrayWithBoundaryCopy(row, col) = (window * inWeights).sum().item();
+                        arrayWithBoundaryCopy(row, col) = dot(window, weightsFlat).item();
                     }
                 }
 
