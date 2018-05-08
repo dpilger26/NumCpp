@@ -482,6 +482,8 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
 
+                // TODO: FINISH THIS!
+
                 return std::move(output);
             }
 
@@ -547,6 +549,8 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
 
+                // TODO: FINISH THIS!
+
                 return std::move(output);
             }
 
@@ -567,6 +571,8 @@ namespace NumC
                 uint32 inSize = 7;
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
+
+                // TODO: FINISH THIS!
 
                 return std::move(output);
             }
@@ -590,49 +596,7 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(output);
-            }
-
-            //============================================================================
-            // Method Description: 
-            //						Calculates a multidimensional linear filter.
-            //		
-            // Inputs:
-            //				NdArray
-            //				square size of the kernel to apply
-            //				NdArray, weights
-            //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-            // Outputs:
-            //				NdArray
-            //
-            static NdArray<dtype> linearFilter(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights,
-                typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
-            {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-                NdArray<dtype> output(inImageArray.shape());
-
-                return std::move(output);
-            }
-
-            //============================================================================
-            // Method Description: 
-            //						Calculates a one-dimensional linear filter along the given axis.
-            //		
-            // Inputs:
-            //				NdArray
-            //				square size of the kernel to apply
-            //				NdArray, weights
-            //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-            //				axis, default row
-            // Outputs:
-            //				NdArray
-            //
-            static NdArray<dtype> linearFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-                const NdArray<dtype>& inWeights, typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0,
-                Axis::Type inAxis = Axis::ROW)
-            {
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-                NdArray<dtype> output(inImageArray.shape());
+                // TODO: FINISH THIS!
 
                 return std::move(output);
             }
@@ -654,6 +618,22 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
 
+                Shape inShape = inImageArray.shape();
+                uint32 boundarySize = inSize / 2; // integer division
+                uint32 endPointRow = boundarySize + inShape.rows;
+                uint32 endPointCol = boundarySize + inShape.cols;
+
+                for (uint32 row = boundarySize; row < endPointRow; ++row)
+                {
+                    for (uint32 col = boundarySize; col < endPointCol; ++col)
+                    {
+                        NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                            Slice(col - boundarySize, col + boundarySize + 1));
+
+                        output(row - boundarySize, col - boundarySize) = window.max().item();
+                    }
+                }
+
                 return std::move(output);
             }
 
@@ -674,6 +654,8 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
+
+                // TODO: FINISH THIS!
 
                 return std::move(output);
             }
@@ -732,6 +714,8 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
 
+                // TODO: FINISH THIS!
+
                 return std::move(output);
             }
 
@@ -751,6 +735,22 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
+
+                Shape inShape = inImageArray.shape();
+                uint32 boundarySize = inSize / 2; // integer division
+                uint32 endPointRow = boundarySize + inShape.rows;
+                uint32 endPointCol = boundarySize + inShape.cols;
+
+                for (uint32 row = boundarySize; row < endPointRow; ++row)
+                {
+                    for (uint32 col = boundarySize; col < endPointCol; ++col)
+                    {
+                        NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                            Slice(col - boundarySize, col + boundarySize + 1));
+
+                        output(row - boundarySize, col - boundarySize) = window.min().item();
+                    }
+                }
 
                 return std::move(output);
             }
@@ -773,6 +773,8 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
 
+                // TODO: FINISH THIS!
+
                 return std::move(output);
             }
 
@@ -793,6 +795,22 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
+
+                Shape inShape = inImageArray.shape();
+                uint32 boundarySize = inSize / 2; // integer division
+                uint32 endPointRow = boundarySize + inShape.rows;
+                uint32 endPointCol = boundarySize + inShape.cols;
+
+                for (uint32 row = boundarySize; row < endPointRow; ++row)
+                {
+                    for (uint32 col = boundarySize; col < endPointCol; ++col)
+                    {
+                        NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                            Slice(col - boundarySize, col + boundarySize + 1));
+
+                        output(row - boundarySize, col - boundarySize) = percentile(window, inPercentile, Axis::NONE, "nearest").item();
+                    }
+                }
 
                 return std::move(output);
             }
@@ -816,6 +834,8 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
 
+                // TODO: FINISH THIS!
+
                 return std::move(output);
             }
 
@@ -826,16 +846,37 @@ namespace NumC
             // Inputs:
             //				NdArray
             //				square size of the kernel to apply
-            //				rank [0, 100]
+            //				rank [0, inSize^2 - 1]
             //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
             // Outputs:
             //				NdArray
             //
-            static NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
+            static NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
+                if (inRank < 0 || inRank >= Utils::sqr(inSize))
+                {
+                    std::invalid_argument("ERROR: NumC::ImageProcessing::Filter::rankFilter: rank not within filter footprint size.");
+                }
+
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
+
+                Shape inShape = inImageArray.shape();
+                uint32 boundarySize = inSize / 2; // integer division
+                uint32 endPointRow = boundarySize + inShape.rows;
+                uint32 endPointCol = boundarySize + inShape.cols;
+
+                for (uint32 row = boundarySize; row < endPointRow; ++row)
+                {
+                    for (uint32 col = boundarySize; col < endPointCol; ++col)
+                    {
+                        NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                            Slice(col - boundarySize, col + boundarySize + 1));
+
+                        output(row - boundarySize, col - boundarySize) = sort(window)[inRank];
+                    }
+                }
 
                 return std::move(output);
             }
@@ -859,6 +900,8 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
 
+                // TODO: FINISH THIS!
+
                 return std::move(output);
             }
 
@@ -878,6 +921,8 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
+
+                // TODO: FINISH THIS!
 
                 return std::move(output);
             }
@@ -899,6 +944,8 @@ namespace NumC
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
+
+                // TODO: FINISH THIS!
 
                 return std::move(output);
             }
