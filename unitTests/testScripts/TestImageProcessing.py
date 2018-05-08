@@ -44,14 +44,14 @@ def doFilters():
         shape = np.random.randint(1000, 2000, [2,]).tolist()
         cShape = NumC.Shape(shape[0], shape[1])
         cArray = NumC.NdArray(cShape)
-        data = np.random.randint(100, 1000, shape).astype(np.double)
+        data = np.random.randint(10, 20, shape).astype(np.double)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        weights = np.random.randint(-2, 3, [kernalSize, kernalSize])
-        cWeights = NumC.NdArray(1, weights.size)
+        weights = np.random.randint(-2, 3, [kernalSize, kernalSize]).astype(np.double)
+        cWeights = NumC.NdArray(kernalSize)
         cWeights.setArray(weights)
         dataOutC = NumC.Filter.convolve(cArray, kernalSize, cWeights, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.convolve(data, weights, mode=mode, cval=constantValue)

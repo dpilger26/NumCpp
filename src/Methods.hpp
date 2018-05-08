@@ -5363,7 +5363,7 @@ namespace NumC
     //				NdArray
     //
     template<typename dtype>
-    inline NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK)
+    inline NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK=1)
     {
         inK %= 4;
         switch (inK)

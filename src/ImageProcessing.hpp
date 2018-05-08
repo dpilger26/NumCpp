@@ -480,8 +480,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -505,9 +506,9 @@ namespace NumC
                 }
 
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-                NdArray<dtype> arrayWithBoundaryCopy(arrayWithBoundary.shape());
+                NdArray<dtype> output(inImageArray.shape());
 
-				NdArray<dtype> weightsFlat = inWeights.flatten();
+				NdArray<dtype> weightsFlat = rot90(inWeights, 2).flatten();
                 Shape inShape = inImageArray.shape();
                 uint32 boundarySize = inSize / 2; // integer division
                 uint32 endPointRow = boundarySize + inShape.rows;
@@ -520,11 +521,11 @@ namespace NumC
                         NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                             Slice(col - boundarySize, col + boundarySize + 1)).flatten();
 
-                        arrayWithBoundaryCopy(row, col) = dot(window, weightsFlat).item();
+                        output(row - boundarySize, col - boundarySize) = dot(window, weightsFlat).item();
                     }
                 }
 
-                return std::move(trimBoundary(arrayWithBoundaryCopy, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -544,8 +545,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -564,8 +566,9 @@ namespace NumC
             {
                 uint32 inSize = 7;
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -585,8 +588,9 @@ namespace NumC
             {
                 uint32 inSize = 7;
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -605,8 +609,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -627,8 +632,9 @@ namespace NumC
                 Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -646,8 +652,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -666,8 +673,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -685,7 +693,7 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-                NdArray<dtype> arrayWithBoundaryCopy(arrayWithBoundary.shape());
+                NdArray<dtype> output(inImageArray.shape());
 
                 Shape inShape = inImageArray.shape();
                 uint32 boundarySize = inSize / 2; // integer division
@@ -699,11 +707,11 @@ namespace NumC
                         NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                             Slice(col - boundarySize, col + boundarySize + 1));
 
-                        arrayWithBoundaryCopy(row, col) = window.median().item();
+                        output(row - boundarySize, col - boundarySize) = window.median().item();
                     }
                 }
 
-                return std::move(trimBoundary(arrayWithBoundaryCopy, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -722,8 +730,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -741,8 +750,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -761,8 +771,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -781,8 +792,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -802,8 +814,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -822,8 +835,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -843,8 +857,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -862,8 +877,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
 
             //============================================================================
@@ -882,8 +898,9 @@ namespace NumC
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0, Axis::Type inAxis = Axis::ROW)
             {
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+                NdArray<dtype> output(inImageArray.shape());
 
-                return std::move(trimBoundary(arrayWithBoundary, inSize));
+                return std::move(output);
             }
         };
 
