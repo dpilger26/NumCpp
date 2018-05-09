@@ -70,7 +70,7 @@ def doFilters():
         sigma = np.random.rand(1).item() * 2
         dataOutC = NumC.Filter.gaussianFilter(cArray, sigma, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.gaussian_filter(data, sigma, mode=mode, cval=constantValue)
-        if np.count_nonzero(np.abs(np.round(dataOutC) - np.round(dataOutPy)) > 1) == 0:
+        if np.array_equal(np.round(dataOutC, 5), np.round(dataOutPy, 5)):
             print(colored('\tPASS', 'green'))
         else:
             print(colored('\tFAIL', 'red'))
