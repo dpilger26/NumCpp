@@ -60,6 +60,21 @@ def doFilters():
         else:
             print(colored('\tFAIL', 'red'))
 
+        print(colored(f'Testing gaussianFilter: mode = {mode}', 'cyan'))
+        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        cShape = NumC.Shape(shape[0], shape[1])
+        cArray = NumC.NdArray(cShape)
+        data = np.random.randint(100, 1000, shape).astype(np.double)
+        cArray.setArray(data)
+        constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
+        sigma = np.random.rand(1).item() * 2
+        dataOutC = NumC.Filter.gaussianFilter(cArray, sigma, modes[mode], constantValue).getNumpyArray()
+        dataOutPy = filters.gaussian_filter(data, sigma, mode=mode, cval=constantValue)
+        if np.count_nonzero(np.abs(np.round(dataOutC) - np.round(dataOutPy)) > 1) == 0:
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
+
         print(colored(f'Testing maximumFilter: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
         cShape = NumC.Shape(shape[0], shape[1])
@@ -143,6 +158,23 @@ def doFilters():
         dataOutC = NumC.Filter.rankFilter(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.rank_filter(data, rank, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
+
+        print(colored(f'Testing uniformFilter: mode = {mode}', 'cyan'))
+        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        cShape = NumC.Shape(shape[0], shape[1])
+        cArray = NumC.NdArray(cShape)
+        data = np.random.randint(100, 1000, shape).astype(np.double)
+        cArray.setArray(data)
+        kernalSize = 0
+        while kernalSize % 2 == 0:
+            kernalSize = np.random.randint(5, 15)
+        constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
+        dataOutC = NumC.Filter.uniformFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutPy = filters.uniform_filter(data, size=kernalSize, mode=mode, cval=constantValue)
+        if np.array_equal(np.round(dataOutC, 9), np.round(dataOutPy, 9)):
             print(colored('\tPASS', 'green'))
         else:
             print(colored('\tFAIL', 'red'))

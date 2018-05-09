@@ -53,6 +53,24 @@ namespace NumC
         private:
             //============================================================================
             // Method Description: 
+            //						samples a gaussian of mean zero and input STD sigma
+            //		
+            // Inputs:
+            //				x value,
+            //              y value,
+            //              sigma value
+            //              
+            // Outputs:
+            //				dtype
+            //
+            static dtype gaussian(dtype inX, dtype inY, dtype inSigma)
+            {
+                double exponent = -(Utils::sqr(inX) + Utils::sqr(inY)) / (2 * Utils::sqr(inSigma));
+                return static_cast<dtype>(std::exp(exponent));
+            }
+
+            //============================================================================
+            // Method Description: 
             //						extends the corner values
             //		
             // Inputs:
@@ -568,11 +586,36 @@ namespace NumC
             static NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma,
                 typename Boundary::Mode inMode = Boundary::REFLECT, dtype inConstantValue = 0)
             {
-                uint32 inSize = 7;
-                NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-                NdArray<dtype> output(inImageArray.shape());
+                if (inSigma <= 0)
+                {
+                    throw std::invalid_argument("ERROR: NumC::ImageProcessing::Filter::gaussianFilter: input sigma value must be greater than zero.");
+                }
 
-                // TODO: FINISH THIS!
+                // calculate the kernel size based off of the input sigma value
+                const uint32 MIN_KERNEL_SIZE = 5;
+                uint32 kernelSize = std::max(static_cast<uint32>(std::ceil(inSigma * 2.0 * 3.0)), MIN_KERNEL_SIZE); // 3 standard deviations
+                if (kernelSize % 2 == 0)
+                {
+                    ++kernelSize; // make sure the kernel is an odd size
+                }
+
+                double kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
+
+                // calculate the gaussian kernel
+                NdArray<double> kernel(kernelSize);
+                for (double row = 0; row < kernelSize; ++row)
+                {
+                    for (double col = 0; col < kernelSize; ++col)
+                    {
+                        kernel(row, col) = gaussian(row - kernalHalfSize, col - kernalHalfSize, inSigma);
+                    }
+                }
+
+                // normalize the kernel
+                kernel /= kernel.sum().item();
+
+                // perform the convolution
+                NdArray<dtype> output = convolve(inImageArray.astype<double>(), kernelSize, kernel, inMode, inConstantValue).astype<dtype>();
 
                 return std::move(output);
             }
@@ -922,7 +965,21 @@ namespace NumC
                 NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
                 NdArray<dtype> output(inImageArray.shape());
 
-                // TODO: FINISH THIS!
+                Shape inShape = inImageArray.shape();
+                uint32 boundarySize = inSize / 2; // integer division
+                uint32 endPointRow = boundarySize + inShape.rows;
+                uint32 endPointCol = boundarySize + inShape.cols;
+
+                for (uint32 row = boundarySize; row < endPointRow; ++row)
+                {
+                    for (uint32 col = boundarySize; col < endPointCol; ++col)
+                    {
+                        NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
+                            Slice(col - boundarySize, col + boundarySize + 1));
+
+                        output(row - boundarySize, col - boundarySize) = window.mean().item();
+                    }
+                }
 
                 return std::move(output);
             }
