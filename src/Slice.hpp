@@ -171,7 +171,7 @@ namespace NumC
             // convert the stop value
             if (stop < 0)
             {
-                stop += inArraySize;
+                stop += inArraySize + 1; // +1 because stop isn't included
             }
             if (stop > static_cast<int32>(inArraySize))
             {

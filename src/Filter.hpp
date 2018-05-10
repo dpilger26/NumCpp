@@ -493,10 +493,30 @@ namespace NumC
         static NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
             Axis::Type inAxis = Axis::ROW, Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            Shape inShape = inImageArray.shape();
+            NdArray<dtype> output(inShape);
 
-            // TODO: FINISH THIS!
+            uint32 boudarySize = inSize / 2; // integer division
+            switch (inAxis)
+            {
+                case Axis::ROW:
+                {
+                    uint32 endPoint = boudarySize + inShape.cols;
+                    for (uint32 col = boudarySize; col < endPoint; ++col)
+                    {
+                        NdArray<dtype> column = inImageArray(Slice(0, -1), col);
+                        output.put(Slice(0, -1), col, complementaryMedianFilter(column, inSize, inMode, inConstantValue));
+                    }
+                }
+                case Axis::COL:
+                {
+
+                }
+                default:
+                {
+                    throw std::invalid_argument("ERROR: NumC::Filters::complementaryMedianFilter1d: input axis must be either ROW or COL.");
+                }
+            }
 
             return std::move(output);
         }
@@ -519,7 +539,7 @@ namespace NumC
         {
             if (inWeights.size() != Utils::sqr(inSize))
             {
-                throw std::invalid_argument("ERROR: NumC::ImageProcessing::Filter::convolve: input weights do no match input kernal size.");
+                throw std::invalid_argument("ERROR: NumC::Filters::convolve: input weights do no match input kernal size.");
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
@@ -587,7 +607,7 @@ namespace NumC
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("ERROR: NumC::ImageProcessing::Filter::gaussianFilter: input sigma value must be greater than zero.");
+                throw std::invalid_argument("ERROR: NumC::Filters::gaussianFilter: input sigma value must be greater than zero.");
             }
 
             // calculate the kernel size based off of the input sigma value
@@ -909,7 +929,7 @@ namespace NumC
         {
             if (inRank < 0 || inRank >= Utils::sqr(inSize))
             {
-                std::invalid_argument("ERROR: NumC::ImageProcessing::Filter::rankFilter: rank not within filter footprint size.");
+                std::invalid_argument("ERROR: NumC::Filters::rankFilter: rank not within filter footprint size.");
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
