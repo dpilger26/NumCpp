@@ -7,7 +7,7 @@ import TestNdArray
 import TestMethods
 import TestConstants
 import TestCoordinates
-import TestFilter
+import TestFilters
 import TestImageProcessing
 import TestLinalg
 import TestRandom
@@ -33,7 +33,7 @@ def doTest():
     TestLinalg.doTest()
     TestRandom.doTest()
     TestRotations.doTest()
-    TestFilter.doTest()
+    TestFilters.doTest()
     TestPolynomial.doTest()
     TestFFT.doTest()
     #TestImageProcessing.doTest()
