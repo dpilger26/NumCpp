@@ -26,6 +26,7 @@
 #include"DateTime.hpp"
 #include"DtypeInfo.hpp"
 #include"FFT.hpp"
+#include"Filter.hpp"
 #include"ImageProcessing.hpp"
 #include"Linalg.hpp"
 #include"Methods.hpp"

@@ -3023,7 +3023,15 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("zRotationDCM", &Rotations::zRotationDCM<double>);
 
     // Image Processing
-    typedef ImageProcessing::Filter<double> FilterDouble;
+    typedef Filter<double> FilterDouble;
+
+    bp::enum_<FilterDouble::Boundary::Mode>("Mode")
+        .value("REFLECT", FilterDouble::Boundary::REFLECT)
+        .value("CONSTANT", FilterDouble::Boundary::CONSTANT)
+        .value("NEAREST", FilterDouble::Boundary::NEAREST)
+        .value("MIRROR", FilterDouble::Boundary::MIRROR)
+        .value("WRAP", FilterDouble::Boundary::WRAP);
+
     bp::class_<FilterDouble>
         ("Filter", bp::init<>())
         .def("complementaryMedianFilter", &FilterDouble::complementaryMedianFilter).staticmethod("complementaryMedianFilter")
@@ -3109,15 +3117,6 @@ BOOST_PYTHON_MODULE(NumC)
     boost::python::def("generateThreshold", &ImageProcessing::generateThreshold<double>);
     boost::python::def("generateCentroids", &ImageProcessing::generateCentroids<double>);
     boost::python::def("windowExceedances", &ImageProcessing::windowExceedances);
-
-    typedef ImageProcessing::Filter<double> FilterDouble;
-
-    bp::enum_<FilterDouble::Boundary::Mode>("Mode")
-        .value("REFLECT", FilterDouble::Boundary::REFLECT)
-        .value("CONSTANT", FilterDouble::Boundary::CONSTANT)
-        .value("NEAREST", FilterDouble::Boundary::NEAREST)
-        .value("MIRROR", FilterDouble::Boundary::MIRROR)
-        .value("WRAP", FilterDouble::Boundary::WRAP);
 
     // Coordinates
     typedef Coordinates::RA<double> RaDouble;
