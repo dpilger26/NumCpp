@@ -6502,7 +6502,7 @@ namespace NumC
     //				NdArray
     //
     template<typename dtype>
-    inline NdArray<dtype> zeros(const Shape& inShape)
+    inline NumC::NdArray<dtype> zeros(const NumC::Shape& inShape)
     {
         return std::move(full(inShape, static_cast<dtype>(0)));
     }

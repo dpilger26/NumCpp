@@ -57,7 +57,7 @@ namespace NumC
         //====================================Attributes==============================
         Shape			shape_;
         uint32			size_;
-        Endian::Type	endianess_;
+        Endian::Type		endianess_;
         dtype*			array_;
 
         //============================================================================
