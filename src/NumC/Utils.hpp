@@ -23,8 +23,10 @@
 
 namespace NumC
 {
-    namespace Utils
+    template<typename dtype>
+    class Utils
     {
+    public:
         //============================================================================
         // Method Description: 
         //						Converts the number into a string
@@ -34,8 +36,7 @@ namespace NumC
         // Outputs:
         //				string
         //
-        template<typename dtype>
-        inline std::string num2str(dtype inNumber)
+        static std::string num2str(dtype inNumber)
         {
             return std::to_string(inNumber);
         }
@@ -49,8 +50,7 @@ namespace NumC
         // Outputs:
         //				T
         //
-        template<typename T>
-        inline T sqr(T inValue)
+        static T sqr(T inValue)
         {
             return inValue * inValue;
         }
@@ -64,8 +64,7 @@ namespace NumC
         // Outputs:
         //				T
         //
-        template<typename T>
-        inline T cube(T inValue)
+        static T cube(T inValue)
         {
             return inValue * inValue * inValue;
         }
@@ -79,8 +78,7 @@ namespace NumC
         // Outputs:
         //				T
         //
-        template<typename T>
-        inline T power(T inValue, uint8 inPower)
+        static T power(T inValue, uint8 inPower)
         {
             T returnVal = 1;
             for (uint8 i = 0; i < inPower; ++i)
@@ -89,5 +87,5 @@ namespace NumC
             }
             return returnVal;
         }
-    }
+    };
 }

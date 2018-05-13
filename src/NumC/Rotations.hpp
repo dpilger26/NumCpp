@@ -180,7 +180,7 @@ namespace NumC
                 eyeTimesScalar(1, 1) = inQuat2.s();
                 eyeTimesScalar(2, 2) = inQuat2.s();
 
-                NdArray<double> epsilonHat = Linalg::hat(inQuat2.i(), inQuat2.j(), inQuat2.k());
+                NdArray<double> epsilonHat = Linalg<double>::hat(inQuat2.i(), inQuat2.j(), inQuat2.k());
                 NdArray<double> q(4, 3);
                 q.put(Slice(0, 3), Slice(0, 3), eyeTimesScalar + epsilonHat);
                 q(3, 0) = -inQuat2.i();
@@ -885,98 +885,97 @@ namespace NumC
         //================================================================================
         // Factory methods for generating direction cosine matrices and vectors
         //
-
-        //============================================================================
-        // Method Description: 
-        //						returns a direction cosine matrix that rotates about
-        //						the input axis by the input angle
-        //		
-        // Inputs:
-        //				NdArray, cartesian vector with x,y,z
-        //				rotation angle, in radians
-        // Outputs:
-        //				NdArray
-        //
         template<typename dtype>
-        inline NdArray<double> angleAxisRotationDCM(const NdArray<dtype>& inArray, double inAngle)
+        class DCM
         {
-            if (inArray.size() != 3)
+        public:
+            //============================================================================
+            // Method Description: 
+            //						returns a direction cosine matrix that rotates about
+            //						the input axis by the input angle
+            //		
+            // Inputs:
+            //				NdArray, cartesian vector with x,y,z
+            //				rotation angle, in radians
+            // Outputs:
+            //				NdArray
+            //
+            static NdArray<double> angleAxisRotationDCM(const NdArray<dtype>& inArray, double inAngle)
             {
-                throw std::invalid_argument("ERROR: Rotations::Quaternion::angleAxisRotationDcm: input array must be of size = 3.");
+                if (inArray.size() != 3)
+                {
+                    throw std::invalid_argument("ERROR: Rotations::Quaternion::angleAxisRotationDcm: input array must be of size = 3.");
+                }
+
+                return std::move(Quaternion::angleAxisRotation(inArray, inAngle).toDCM());
             }
 
-            return std::move(Quaternion::angleAxisRotation(inArray, inAngle).toDCM());
-        }
-
-        //============================================================================
-        // Method Description: 
-        //						returns whether the input array is a direction cosine
-        //						matrix
-        //		
-        // Inputs:
-        //				NdArray
-        // Outputs:
-        //				bool
-        //
-        template<typename dtype>
-        inline bool isValidDCM(const NdArray<dtype>& inArray)
-        {
-            Shape inShape = inArray.shape();
-            if (!(inShape.rows == inShape.cols &&
-                round(Linalg::det(inArray), 2) == 1 &&
-                round(Linalg::det(inArray.transpose()), 2) == 1))
+            //============================================================================
+            // Method Description: 
+            //						returns whether the input array is a direction cosine
+            //						matrix
+            //		
+            // Inputs:
+            //				NdArray
+            // Outputs:
+            //				bool
+            //
+            static bool isValidDCM(const NdArray<dtype>& inArray)
             {
-                return false;
+                Shape inShape = inArray.shape();
+                if (!(inShape.rows == inShape.cols &&
+                    round(Linalg::det(inArray), 2) == 1 &&
+                    round(Linalg::det(inArray.transpose()), 2) == 1))
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
-        }
 
-        //============================================================================
-        // Method Description: 
-        //						returns a direction cosine matrix that rotates about
-        //						the x axis by the input angle
-        //		
-        // Inputs:
-        //				rotation angle, in radians
-        // Outputs:
-        //				NdArray
-        //
-        template<typename dtype>
-        inline NdArray<double> xRotationDCM(double inAngle)
-        {
-            return std::move(angleAxisRotationDCM<dtype>({ 1.0, 0.0, 0.0 }, inAngle));
-        }
+            //============================================================================
+            // Method Description: 
+            //						returns a direction cosine matrix that rotates about
+            //						the x axis by the input angle
+            //		
+            // Inputs:
+            //				rotation angle, in radians
+            // Outputs:
+            //				NdArray
+            //
+            static NdArray<double> xRotationDCM(double inAngle)
+            {
+                return std::move(angleAxisRotationDCM<dtype>({ 1.0, 0.0, 0.0 }, inAngle));
+            }
 
-        //============================================================================
-        // Method Description: 
-        //						returns a direction cosine matrix that rotates about
-        //						the x axis by the input angle
-        //		
-        // Inputs:
-        //				rotation angle, in radians
-        // Outputs:
-        //				NdArray
-        //
-        template<typename dtype>
-        inline NdArray<double> yRotationDCM(double inAngle)
-        {
-            return std::move(angleAxisRotationDCM<dtype>({ 0.0, 1.0, 0.0 }, inAngle));
-        }
+            //============================================================================
+            // Method Description: 
+            //						returns a direction cosine matrix that rotates about
+            //						the x axis by the input angle
+            //		
+            // Inputs:
+            //				rotation angle, in radians
+            // Outputs:
+            //				NdArray
+            //
+            static NdArray<double> yRotationDCM(double inAngle)
+            {
+                return std::move(angleAxisRotationDCM<dtype>({ 0.0, 1.0, 0.0 }, inAngle));
+            }
 
-        //============================================================================
-        // Method Description: 
-        //						returns a direction cosine matrix that rotates about
-        //						the x axis by the input angle
-        //		
-        // Inputs:
-        //				rotation angle, in radians
-        // Outputs:
-        //				NdArray
-        //
-        template<typename dtype>
-        inline NdArray<double> zRotationDCM(double inAngle)
-        {
-            return std::move(angleAxisRotationDCM<dtype>({ 0.0, 0.0, 1.0 }, inAngle));
-        }
+            //============================================================================
+            // Method Description: 
+            //						returns a direction cosine matrix that rotates about
+            //						the x axis by the input angle
+            //		
+            // Inputs:
+            //				rotation angle, in radians
+            // Outputs:
+            //				NdArray
+            //
+            static NdArray<double> zRotationDCM(double inAngle)
+            {
+                return std::move(angleAxisRotationDCM<dtype>({ 0.0, 0.0, 1.0 }, inAngle));
+            }
+        };
     }
 }

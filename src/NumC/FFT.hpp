@@ -25,8 +25,9 @@
 namespace NumC
 {
     //================================FFT Namespace=============================
-    namespace FFT
+    template<typename dtype>
+    class FFT
     {
 
-    }
+    };
 }

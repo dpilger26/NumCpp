@@ -33,8 +33,10 @@
 namespace NumC
 {
     //================================Linalg Namespace=============================
-    namespace Linalg
+    template<typename dtype>
+    class Linalg
     {
+    public:
         //============================================================================
         // Method Description: 
         //						matrix determinant.
@@ -45,8 +47,7 @@ namespace NumC
         // Outputs:
         //				dtype
         //
-        template<typename dtype>
-        inline dtype det(const NdArray<dtype>& inArray)
+        static dtype det(const NdArray<dtype>& inArray)
         {
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
@@ -113,8 +114,7 @@ namespace NumC
         // Outputs:
         //				3x3 NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
+        static NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
         {
             NdArray<dtype> returnArray(3);
             returnArray(0, 0) = 0.0;
@@ -139,8 +139,7 @@ namespace NumC
         // Outputs:
         //				3x3 NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> hat(const NdArray<dtype>& inVec)
+        static NdArray<dtype> hat(const NdArray<dtype>& inVec)
         {
             if (inVec.size() != 3)
             {
@@ -159,8 +158,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<double> inv(const NdArray<dtype>& inArray)
+        static NdArray<double> inv(const NdArray<dtype>& inArray)
         {
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
@@ -232,6 +230,149 @@ namespace NumC
             return std::move(returnArray);
         }
 
+        //============================================================================
+        // Method Description: 
+        //						Solves the equation a x = b by computing a vector x 
+        //						that minimizes the Euclidean 2-norm || b - a x ||^2. 
+        //						The equation may be under-, well-, or over- determined 
+        //						(i.e., the number of linearly independent rows of a can 
+        //						be less than, equal to, or greater than its number of 
+        //						linearly independent columns). If a is square and of 
+        //						full rank, then x (but for round-off error) is the 
+        //						“exact” solution of the equation.
+        //		
+        // Inputs:
+        //				NdArray, coefficient matrix
+        //				NdArray, Ordinate or “dependent variable” values
+        //				double, tolerance
+        //
+        // Outputs:
+        //				NdArray
+        //
+        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
+        {
+            SVD svdSolver(inA);
+            double threshold = inTolerance * svdSolver.s()[0];
+
+            return std::move(svdSolver.solve(inB, threshold));
+        }
+
+        //============================================================================
+        // Method Description: 
+        //						Raise a square matrix to the (integer) power n.
+        //
+        //						For positive integers n, the power is computed by repeated
+        //						matrix squarings and matrix multiplications.  If n == 0, 
+        //						the identity matrix of the same shape as M is returned.
+        //						If n < 0, the inverse is computed and then raised to the abs(n).
+        //		
+        // Inputs:
+        //				NdArray
+        //				power
+        //
+        // Outputs:
+        //				NdArray
+        //
+        template<typename dtypeOut = double>
+        NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
+        {
+            Shape inShape = inArray.shape();
+            if (inShape.rows != inShape.cols)
+            {
+                throw std::invalid_argument("ERROR: Linalg::matrix_power: input matrix must be square.");
+            }
+
+            if (inPower == 0)
+            {
+                return std::move(identity<dtypeOut>(inShape.rows));
+            }
+            else if (inPower == 1)
+            {
+                return std::move(inArray.astype<dtypeOut>());
+            }
+            else if (inPower == -1)
+            {
+                return std::move(inv(inArray).astype<dtypeOut>());
+            }
+            else if (inPower > 1)
+            {
+                NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(inArray, inArray);
+                for (int16 i = 2; i < inPower; ++i)
+                {
+                    returnArray = std::move(dot<dtypeOut, dtypeOut>(returnArray, inArray.astype<dtypeOut>()));
+                }
+                return std::move(returnArray);
+            }
+            else
+            {
+                NdArray<double> inverse = inv(inArray);
+                NdArray<double> returnArray = dot<double, double>(inverse, inverse);
+                for (int16 i = 2; i < std::abs(inPower); ++i)
+                {
+                    returnArray = std::move(dot<double, double>(returnArray, inverse));
+                }
+                return std::move(returnArray.astype<dtypeOut>());
+            }
+        }
+
+        //============================================================================
+        // Method Description: 
+        //						Compute the dot product of two or more arrays in a single 
+        //						function call..
+        //		
+        // Inputs:
+        //				initializer_list<NdArray<dtype> >, list of arrays
+        //
+        // Outputs:
+        //				NdArray
+        //
+        template<dtypeOut = double>
+        NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
+        {
+            typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
+
+            if (inList.size() == 0)
+            {
+                throw std::invalid_argument("ERROR: Linalg::multi_dot: input empty list of arrays.");
+            }
+            else if (inList.size() == 1)
+            {
+                return std::move(iter->astype<dtypeOut>());
+            }
+
+            NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(*iter, *(iter + 1));
+            iter += 2;
+            for (; iter < inList.end(); ++iter)
+            {
+                returnArray = std::move(dot<dtypeOut, dtypeOut>(returnArray, iter->astype<dtypeOut>()));
+            }
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        //						matrix svd
+        //		
+        // Inputs:
+        //				NdArray to be SVDed
+        //				NdArray output U
+        //				NdArray output S
+        //				NdArray output V transpose
+        // Outputs:
+        //				NdArray
+        //
+        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
+        {
+            SVD svdSolver(inArray);
+            outU = std::move(svdSolver.u());
+            outVt = std::move(svdSolver.v());
+
+            NdArray<double> s = diagflat(svdSolver.s());
+            outS = std::move(s);
+        }
+
+    private:
         // =============================================================================
         // Class Description:
         //              performs the singular value decomposition of a general matrix,
@@ -870,149 +1011,5 @@ namespace NumC
                 return (absa > absb ? absa * std::sqrt(1.0 + Utils::sqr(absb / absa)) : (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + Utils::sqr(absa / absb))));
             }
         };
-
-        //============================================================================
-        // Method Description: 
-        //						Solves the equation a x = b by computing a vector x 
-        //						that minimizes the Euclidean 2-norm || b - a x ||^2. 
-        //						The equation may be under-, well-, or over- determined 
-        //						(i.e., the number of linearly independent rows of a can 
-        //						be less than, equal to, or greater than its number of 
-        //						linearly independent columns). If a is square and of 
-        //						full rank, then x (but for round-off error) is the 
-        //						“exact” solution of the equation.
-        //		
-        // Inputs:
-        //				NdArray, coefficient matrix
-        //				NdArray, Ordinate or “dependent variable” values
-        //				double, tolerance
-        //
-        // Outputs:
-        //				NdArray
-        //
-        template<typename dtype>
-        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
-        {
-            SVD svdSolver(inA);
-            double threshold = inTolerance * svdSolver.s()[0];
-
-            return std::move(svdSolver.solve(inB, threshold));
-        }
-
-        //============================================================================
-        // Method Description: 
-        //						Raise a square matrix to the (integer) power n.
-        //
-        //						For positive integers n, the power is computed by repeated
-        //						matrix squarings and matrix multiplications.  If n == 0, 
-        //						the identity matrix of the same shape as M is returned.
-        //						If n < 0, the inverse is computed and then raised to the abs(n).
-        //		
-        // Inputs:
-        //				NdArray
-        //				power
-        //
-        // Outputs:
-        //				NdArray
-        //
-        template<typename dtype, typename dtypeOut = double>
-        NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
-        {
-            Shape inShape = inArray.shape();
-            if (inShape.rows != inShape.cols)
-            {
-                throw std::invalid_argument("ERROR: Linalg::matrix_power: input matrix must be square.");
-            }
-
-            if (inPower == 0)
-            {
-                return std::move(identity<dtypeOut>(inShape.rows));
-            }
-            else if (inPower == 1)
-            {
-                return std::move(inArray.astype<dtypeOut>());
-            }
-            else if (inPower == -1)
-            {
-                return std::move(inv(inArray).astype<dtypeOut>());
-            }
-            else if (inPower > 1)
-            {
-                NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(inArray, inArray);
-                for (int16 i = 2; i < inPower; ++i)
-                {
-                    returnArray = std::move(dot<dtypeOut, dtypeOut>(returnArray, inArray.astype<dtypeOut>()));
-                }
-                return std::move(returnArray);
-            }
-            else
-            {
-                NdArray<double> inverse = inv(inArray);
-                NdArray<double> returnArray = dot<double, double>(inverse, inverse);
-                for (int16 i = 2; i < std::abs(inPower); ++i)
-                {
-                    returnArray = std::move(dot<double, double>(returnArray, inverse));
-                }
-                return std::move(returnArray.astype<dtypeOut>());
-            }
-        }
-
-        //============================================================================
-        // Method Description: 
-        //						Compute the dot product of two or more arrays in a single 
-        //						function call..
-        //		
-        // Inputs:
-        //				initializer_list<NdArray<dtype> >, list of arrays
-        //
-        // Outputs:
-        //				NdArray
-        //
-        template<typename dtype, typename dtypeOut = double>
-        NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
-        {
-            typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
-
-            if (inList.size() == 0)
-            {
-                throw std::invalid_argument("ERROR: Linalg::multi_dot: input empty list of arrays.");
-            }
-            else if (inList.size() == 1)
-            {
-                return std::move(iter->astype<dtypeOut>());
-            }
-
-            NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(*iter, *(iter + 1));
-            iter += 2;
-            for (; iter < inList.end(); ++iter)
-            {
-                returnArray = std::move(dot<dtypeOut, dtypeOut>(returnArray, iter->astype<dtypeOut>()));
-            }
-
-            return std::move(returnArray);
-        }
-
-        //============================================================================
-        // Method Description: 
-        //						matrix svd
-        //		
-        // Inputs:
-        //				NdArray to be SVDed
-        //				NdArray output U
-        //				NdArray output S
-        //				NdArray output V transpose
-        // Outputs:
-        //				NdArray
-        //
-        template<typename dtype>
-        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
-        {
-            SVD svdSolver(inArray);
-            outU = std::move(svdSolver.u());
-            outVt = std::move(svdSolver.v());
-
-            NdArray<double> s = diagflat(svdSolver.s());
-            outS = std::move(s);
-        }
-    }
+    };
 }

@@ -71,8 +71,8 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.1871015042" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.80411850" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;C:\Users\pilgeda\Documents\GitHub\NumC\src&quot;"/>
-									<listOptionValue builtIn="false" value="${BOOST_INCLUDES}"/>
-									<listOptionValue builtIn="false" value="${PYTHON_INCLUDES}"/>
+									<listOptionValue builtIn="false" value="&quot;${BOOST_INCLUDES}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${PYTHON_INCLUDES}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.1213985523" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.2044154198" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
@@ -84,7 +84,7 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.base.291240792" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.base.358757548" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.base">
-								<option id="gnu.cpp.link.option.paths.1264666895" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
+								<option id="gnu.cpp.link.option.paths.1264666895" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;C:\libs\boost_1_63_0\stage\gnu\lib&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.549908979" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">

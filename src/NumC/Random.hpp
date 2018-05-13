@@ -31,11 +31,14 @@
 namespace NumC
 {
     //================================Random Namespace=============================
-    namespace Random
+    template<typename dtype>
+    class Random
     {
-        // global generator function
-        boost::random::mt19937 generator;
+    private:
+        // generator function
+        static boost::random::mt19937 generator_;
 
+    public:
         //============================================================================
         // Method Description: 
         //						Create an array of the given shape and populate it with 
@@ -47,8 +50,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> bernoulli(const Shape& inShape, dtype inP)
+        static NdArray<dtype> bernoulli(const Shape& inShape, dtype inP)
         {
             if (inP < 0 || inP > 1)
             {
@@ -60,7 +62,7 @@ namespace NumC
             boost::random::bernoulli_distribution<dtype> dist(inP);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -78,8 +80,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> beta(const Shape& inShape, dtype inAlpha, dtype inBeta)
+        static NdArray<dtype> beta(const Shape& inShape, dtype inAlpha, dtype inBeta)
         {
             if (inAlpha < 0)
             {
@@ -96,7 +97,7 @@ namespace NumC
             boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -114,8 +115,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> binomial(const Shape& inShape, dtype inN, double inP = 0.5)
+        static NdArray<dtype> binomial(const Shape& inShape, dtype inN, double inP = 0.5)
         {
             // only works with integer input types
             static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: binomial: can only use with integer types.");
@@ -135,7 +135,7 @@ namespace NumC
             boost::random::binomial_distribution<dtype, double> dist(inN, inP);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -152,8 +152,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> chiSquare(const Shape& inShape, dtype inDof)
+        static NdArray<dtype> chiSquare(const Shape& inShape, dtype inDof)
         {
             if (inDof <= 0)
             {
@@ -165,7 +164,7 @@ namespace NumC
             boost::random::chi_squared_distribution<dtype> dist(inDof);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -180,8 +179,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline dtype choice(const NdArray<dtype>& inArray)
+        static dtype choice(const NdArray<dtype>& inArray)
         {
             uint32 randIdx = randInt<uint32>(Shape(1), 0, inArray.size()).item();
             return inArray[randIdx];
@@ -198,8 +196,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> cauchy(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
+        static NdArray<dtype> cauchy(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
         {
             if (inSigma <= 0)
             {
@@ -211,7 +208,7 @@ namespace NumC
             boost::random::cauchy_distribution<dtype> dist(inMean, inSigma);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -230,8 +227,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> discrete(const Shape& inShape, const NdArray<double>& inWeights)
+        static NdArray<dtype> discrete(const Shape& inShape, const NdArray<double>& inWeights)
         {
             // only works with integer input types
             static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: discrete: can only use with integer types.");
@@ -241,7 +237,7 @@ namespace NumC
             boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -258,15 +254,14 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1)
+        static NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1)
         {
             NdArray<dtype> returnArray(inShape);
 
             boost::random::exponential_distribution<dtype> dist(inScaleValue);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -284,8 +279,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> extremeValue(const Shape& inShape, dtype inA = 1, dtype inB = 1)
+        static NdArray<dtype> extremeValue(const Shape& inShape, dtype inA = 1, dtype inB = 1)
         {
             if (inA <= 0)
             {
@@ -302,7 +296,7 @@ namespace NumC
             boost::random::extreme_value_distribution<dtype> dist(inA, inB);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -320,8 +314,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> f(const Shape& inShape, dtype inDofN, dtype inDofD)
+        static NdArray<dtype> f(const Shape& inShape, dtype inDofN, dtype inDofD)
         {
             if (inDofN <= 0)
             {
@@ -338,7 +331,7 @@ namespace NumC
             boost::random::fisher_f_distribution<dtype> dist(inDofN, inDofD);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -356,8 +349,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue = 1)
+        static NdArray<dtype> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue = 1)
         {
             if (inGammaShape <= 0)
             {
@@ -374,7 +366,7 @@ namespace NumC
             boost::random::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -391,8 +383,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> geometric(const Shape& inShape, double inP = 0.5)
+        static NdArray<dtype> geometric(const Shape& inShape, double inP = 0.5)
         {
             // only works with integer input types
             static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: geometric: can only use with integer types.");
@@ -407,7 +398,7 @@ namespace NumC
             boost::random::geometric_distribution<dtype, double> dist(inP);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -424,15 +415,14 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1)
+        static NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1)
         {
             NdArray<dtype> returnArray(inShape);
 
             boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -449,8 +439,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> lognormal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
+        static NdArray<dtype> lognormal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
         {
             if (inSigma <= 0)
             {
@@ -462,7 +451,7 @@ namespace NumC
             boost::random::lognormal_distribution<dtype> dist(inMean, inSigma);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -480,8 +469,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> negativeBinomial(const Shape& inShape, dtype inN, double inP = 0.5)
+        static NdArray<dtype> negativeBinomial(const Shape& inShape, dtype inN, double inP = 0.5)
         {
             // only works with integer input types
             static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: binomial: can only use with integer types.");
@@ -501,7 +489,7 @@ namespace NumC
             boost::random::negative_binomial_distribution<dtype, double> dist(inN, inP);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -519,8 +507,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)
+        static NdArray<dtype> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)
         {
             if (inK <= 0)
             {
@@ -537,7 +524,7 @@ namespace NumC
             boost::random::non_central_chi_squared_distribution<dtype> dist(inK, inLambda);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -554,8 +541,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> normal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
+        static NdArray<dtype> normal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
         {
             if (inSigma <= 0)
             {
@@ -567,7 +553,7 @@ namespace NumC
             boost::random::normal_distribution<dtype> dist(inMean, inSigma);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -584,8 +570,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> permutation(dtype inValue)
+        static NdArray<dtype> permutation(dtype inValue)
         {
             NdArray<dtype> returnArray = arange(inValue);
             std::random_shuffle(returnArray.begin(), returnArray.end());
@@ -603,8 +588,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> permutation(const NdArray<dtype>& inArray)
+        static NdArray<dtype> permutation(const NdArray<dtype>& inArray)
         {
             NdArray<dtype> returnArray(inArray);
             std::random_shuffle(returnArray.begin(), returnArray.end());
@@ -622,8 +606,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> poisson(const Shape& inShape, double inMean = 1)
+        static NdArray<dtype> poisson(const Shape& inShape, double inMean = 1)
         {
             // only works with integer input types
             static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: poisson: can only use with integer types.");
@@ -638,7 +621,7 @@ namespace NumC
             boost::random::poisson_distribution<dtype, double> dist(inMean);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -654,15 +637,14 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> rand(const Shape& inShape)
+        static NdArray<dtype> rand(const Shape& inShape)
         {
             NdArray<dtype> returnArray(inShape);
 
             boost::random::uniform_01<dtype> dist;
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -680,8 +662,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh)
+        static NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh)
         {
             if (inLow == inHigh)
             {
@@ -697,7 +678,7 @@ namespace NumC
             boost::random::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -715,8 +696,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh)
+        static NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh)
         {
             // only works with integer input types
             static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: randint: can only use with integer types.");
@@ -735,7 +715,7 @@ namespace NumC
             boost::random::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -751,15 +731,14 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> randN(const Shape& inShape)
+        static NdArray<dtype> randN(const Shape& inShape)
         {
             NdArray<dtype> returnArray(inShape);
 
             boost::random::normal_distribution<dtype> dist;
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -767,16 +746,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Seeds the random number generator
+        //						Seeds the random number generator_
         //		
         // Inputs:
         //				seed
         // Outputs:
         //				None
         //
-        inline void seed(uint32 inSeed)
+        static void seed(uint32 inSeed)
         {
-            generator.seed(inSeed);
+            generator_.seed(inSeed);
         }
 
         //============================================================================
@@ -788,8 +767,7 @@ namespace NumC
         // Outputs:
         //				None
         //
-        template<typename dtype>
-        inline void shuffle(NdArray<dtype>& inArray)
+        static void shuffle(NdArray<dtype>& inArray)
         {
             std::random_shuffle(inArray.begin(), inArray.end());
         }
@@ -805,8 +783,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> standardNormal(const Shape& inShape)
+        static NdArray<dtype> standardNormal(const Shape& inShape)
         {
             return std::move(normal<dtype>(inShape, 0, 1));
         }
@@ -822,8 +799,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> studentT(const Shape& inShape, dtype inDof)
+        static NdArray<dtype> studentT(const Shape& inShape, dtype inDof)
         {
             if (inDof <= 0)
             {
@@ -835,7 +811,7 @@ namespace NumC
             boost::random::student_t_distribution<dtype> dist(inDof);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -854,8 +830,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> triangle(const Shape& inShape, dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
+        static NdArray<dtype> triangle(const Shape& inShape, dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
         {
             if (inA < 0)
             {
@@ -884,7 +859,7 @@ namespace NumC
             boost::random::triangle_distribution<dtype> dist(inA, inB, inC);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
@@ -904,8 +879,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)
+        static NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)
         {
             return std::move(randFloat(inShape, inLow, inHigh));
         }
@@ -921,8 +895,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)
+        static NdArray<dtype> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)
         {
             if (inDims < 0)
             {
@@ -934,7 +907,7 @@ namespace NumC
             NdArray<dtype> returnArray(inNumPoints, inDims);
             for (uint32 i = 0; i < inNumPoints; ++i)
             {
-                std::vector<dtype> point = dist(generator);
+                std::vector<dtype> point = dist(generator_);
                 for (uint32 dim = 0; dim < inDims; ++dim)
                 {
                     returnArray(i, dim) = point[dim];
@@ -956,8 +929,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<typename dtype>
-        inline NdArray<dtype> weibull(const Shape& inShape, dtype inA = 1, dtype inB = 1)
+        static NdArray<dtype> weibull(const Shape& inShape, dtype inA = 1, dtype inB = 1)
         {
             if (inA <= 0)
             {
@@ -974,10 +946,10 @@ namespace NumC
             boost::random::weibull_distribution<dtype> dist(inA, inB);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
-                returnArray[i] = dist(generator);
+                returnArray[i] = dist(generator_);
             }
 
             return std::move(returnArray);
         }
-    }
+    };
 }
