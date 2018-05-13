@@ -46,11 +46,11 @@ namespace NumC
         //						Squares in input value
         //		
         // Inputs:
-        //				T
+        //				dtype
         // Outputs:
-        //				T
+        //				dtype
         //
-        static T sqr(T inValue)
+        static dtype sqr(dtype inValue)
         {
             return inValue * inValue;
         }
@@ -60,11 +60,11 @@ namespace NumC
         //						Cubes in input value
         //		
         // Inputs:
-        //				T
+        //				dtype
         // Outputs:
-        //				T
+        //				dtype
         //
-        static T cube(T inValue)
+        static dtype cube(dtype inValue)
         {
             return inValue * inValue * inValue;
         }
@@ -74,13 +74,13 @@ namespace NumC
         //						raises the input value to a power
         //		
         // Inputs:
-        //				T
+        //				dtype
         // Outputs:
-        //				T
+        //				dtype
         //
-        static T power(T inValue, uint8 inPower)
+        static dtype power(dtype inValue, uint8 inPower)
         {
-            T returnVal = 1;
+            dtype returnVal = 1;
             for (uint8 i = 0; i < inPower; ++i)
             {
                 returnVal *= inValue;
