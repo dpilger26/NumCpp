@@ -40,815 +40,815 @@ namespace ShapeInterface
     }
 }
 
-////================================================================================
-//
-//namespace NdArrayInterface
-//{
-//    template<typename dtype>
-//    bool test1DListContructor()
-//    {
-//        NdArray<dtype> test = { 1,2,3,4,666,357,314159 };
-//        if (test.size() != 7)
-//        {
-//            return false;
-//        }
-//
-//        if (test.shape().rows != 1 || test.shape().cols != test.size())
-//        {
-//            return false;
-//        }
-//
-//        return test[0] == 1 && test[1] == 2 && test[2] == 3 && test[3] == 4 && test[4] == 666 && test[5] == 357 && test[6] == 314159;
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    bool test2DListContructor()
-//    {
-//        NdArray<dtype> test = { {1,2}, {4,666}, {314159, 9}, {0, 8} };
-//        if (test.size() != 8)
-//        {
-//            return false;
-//        }
-//
-//        if (test.shape().rows != 4 || test.shape().cols != 2)
-//        {
-//            return false;
-//        }
-//
-//        return test[0] == 1 && test[1] == 2 && test[2] == 4 && test[3] == 666 && test[4] == 314159 && test[5] == 9 && test[6] == 0 && test[7] == 8;
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray getNumpyArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(inArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    void setArray(NdArray<dtype>& self, np::ndarray& inBoostArray)
-//    {
-//        BoostNdarrayHelper newNdArrayHelper(&inBoostArray);
-//        uint8 numDims = newNdArrayHelper.numDimensions();
-//        if (numDims > 2)
-//        {
-//            std::string errorString = "ERROR: Input array can only have up to 2 dimensions!";
-//            PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
-//        }
-//
-//        self = boostToNumC<dtype>(inBoostArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray all(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.all(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray any(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.any(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray argmax(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.argmax(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray argmin(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.argmin(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray argsort(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.argsort(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray clip(NdArray<dtype>& self, dtype inMin, dtype inMax)
-//    {
-//        return numCToBoost(self.clip(inMin, inMax));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray copy(NdArray<dtype>& self)
-//    {
-//        return numCToBoost(self.copy());
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray contains(NdArray<dtype>& self, dtype inValue, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.contains(inValue, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray cumprod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.cumprod<dtypeOut>(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray cumsum(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.cumsum<dtypeOut>(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray diagonal(NdArray<dtype>& self, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
-//    {
-//        return numCToBoost(self.diagonal(inOffset, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray dot(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self.dot<dtypeOut>(inOtherArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray fill(NdArray<dtype>& self, dtype inFillValue)
-//    {
-//        self.fill(inFillValue);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray flatten(NdArray<dtype>& self)
-//    {
-//        return numCToBoost(self.flatten());
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype getValueFlat(NdArray<dtype>& self, int32 inIndex)
-//    {
-//        return self.at(inIndex);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype getValueRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol)
-//    {
-//        return self.at(inRow, inCol);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray getSlice1D(NdArray<dtype>& self, const Slice& inSlice)
-//    {
-//        return numCToBoost(self.at(inSlice));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray getSlice2D(NdArray<dtype>& self, const Slice& inRowSlice, const Slice& inColSlice)
-//    {
-//        return numCToBoost(self.at(inRowSlice, inColSlice));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray getSlice2DCol(NdArray<dtype>& self, const Slice& inRowSlice, int32 inColIndex)
-//    {
-//        return numCToBoost(self.at(inRowSlice, inColIndex));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray getSlice2DRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inColSlice)
-//    {
-//        return numCToBoost(self.at(inRowIndex, inColSlice));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray max(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.max(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray min(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.min(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray mean(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.mean(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray median(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.median(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray newbyteorder(NdArray<dtype>& self, Endian::Type inEndiness = Endian::NATIVE)
-//    {
-//        return numCToBoost(self.newbyteorder(inEndiness));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray nonzero(NdArray<dtype>& self)
-//    {
-//        return numCToBoost(self.nonzero());
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray norm(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost<dtypeOut>(self.norm<dtypeOut>(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray ones(NdArray<dtype>& self)
-//    {
-//        self.ones();
-//        return numCToBoost<dtype>(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray partition(NdArray<dtype>& self, uint32 inKth, Axis::Type inAxis = Axis::NONE)
-//    {
-//        self.partition(inKth, inAxis);
-//        return numCToBoost<dtype>(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray prod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost<dtypeOut>(self.prod<dtypeOut>(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray ptp(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.ptp(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray putFlat(NdArray<dtype>& self, int32 inIndex, dtype inValue)
-//    {
-//        self.put(inIndex, inValue);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray putRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol, dtype inValue)
-//    {
-//        self.put(inRow, inCol, inValue);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray putSlice1DValue(NdArray<dtype>& self, const Slice& inSlice, dtype inValue)
-//    {
-//        self.put(inSlice, inValue);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray putSlice1DValues(NdArray<dtype>& self, const Slice& inSlice, np::ndarray& inArrayValues)
-//    {
-//        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
-//        self.put(inSlice, inValues);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray putSlice2DValue(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
-//    {
-//        self.put(inSliceRow, inSliceCol, inValue);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray putSlice2DValueRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inSliceCol, dtype inValue)
-//    {
-//        self.put(inRowIndex, inSliceCol, inValue);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray putSlice2DValueCol(NdArray<dtype>& self, const Slice& inSliceRow, int32 inColIndex, dtype inValue)
-//    {
-//        self.put(inSliceRow, inColIndex, inValue);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray putSlice2DValues(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, np::ndarray& inArrayValues)
-//    {
-//        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
-//        self.put(inSliceRow, inSliceCol, inValues);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray putSlice2DValuesRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inSliceCol, np::ndarray& inArrayValues)
-//    {
-//        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
-//        self.put(inRowIndex, inSliceCol, inValues);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray putSlice2DValuesCol(NdArray<dtype>& self, const Slice& inSliceRow, int32 inColIndex, np::ndarray& inArrayValues)
-//    {
-//        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
-//        self.put(inSliceRow, inColIndex, inValues);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray repeat(NdArray<dtype>& self, const Shape& inRepeatShape)
-//    {
-//        return numCToBoost(self.repeat(inRepeatShape));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray reshape(NdArray<dtype>& self, const Shape& inShape)
-//    {
-//        self.reshape(inShape);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray reshapeList(NdArray<dtype>& self, const Shape& inShape)
-//    {
-//        self.reshape({ inShape.rows, inShape.cols });
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray resizeFast(NdArray<dtype>& self, const Shape& inShape)
-//    {
-//        self.resizeFast(inShape);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray resizeFastList(NdArray<dtype>& self, const Shape& inShape)
-//    {
-//        self.resizeFast({ inShape.rows, inShape.cols });
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray resizeSlow(NdArray<dtype>& self, const Shape& inShape)
-//    {
-//        self.resizeSlow(inShape);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray resizeSlowList(NdArray<dtype>& self, const Shape& inShape)
-//    {
-//        self.resizeSlow({ inShape.rows, inShape.cols });
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray round(NdArray<dtype>& self, uint8 inNumDecimals)
-//    {
-//        return numCToBoost(self.round(inNumDecimals));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray sort(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        self.sort(inAxis);
-//        return numCToBoost(self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray std(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.std(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray sum(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.sum<dtypeOut>(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray swapaxes(NdArray<dtype>& self)
-//    {
-//        return numCToBoost(self.swapaxes());
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray transpose(NdArray<dtype>& self)
-//    {
-//        return numCToBoost(self.transpose());
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray var(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(self.var(inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorPlusScalar(NdArray<dtype>& self, dtype inScalar)
-//    {
-//        return numCToBoost(self + inScalar);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorPlusArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self + inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorMinusScalar(NdArray<dtype>& self, dtype inScalar)
-//    {
-//        return numCToBoost(self - inScalar);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorMinusArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self - inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorMultiplyScalar(NdArray<dtype>& self, dtype inScalar)
-//    {
-//        return numCToBoost(self * inScalar);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorMultiplyArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self * inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorDivideScalar(NdArray<dtype>& self, dtype inScalar)
-//    {
-//        return numCToBoost(self / inScalar);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorDivideArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self / inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorModulusScalar(NdArray<dtype>& self, dtype inScalar)
-//    {
-//        return numCToBoost(self % inScalar);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorModulusArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self % inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorBitwiseOrScalar(NdArray<dtype>& self, dtype inScalar)
-//    {
-//        return numCToBoost(self | inScalar);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorBitwiseOrArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self | inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorBitwiseAndScalar(NdArray<dtype>& self, dtype inScalar)
-//    {
-//        return numCToBoost(self & inScalar);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorBitwiseAndArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self & inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorBitwiseXorScalar(NdArray<dtype>& self, dtype inScalar)
-//    {
-//        return numCToBoost(self ^ inScalar);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorBitwiseXorArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self ^ inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorBitwiseNot(NdArray<dtype>& self)
-//    {
-//        return numCToBoost(~self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorEqualityScalar(NdArray<dtype>& self, dtype inValue)
-//    {
-//        return numCToBoost(self == inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorEqualityArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self == inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorLessScalar(NdArray<dtype>& self, dtype inValue)
-//    {
-//        return numCToBoost(self < inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorLessArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self < inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorGreaterScalar(NdArray<dtype>& self, dtype inValue)
-//    {
-//        return numCToBoost(self > inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorGreaterArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self > inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorLessEqualScalar(NdArray<dtype>& self, dtype inValue)
-//    {
-//        return numCToBoost(self <= inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorLessEqualArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self <= inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorGreaterEqualScalar(NdArray<dtype>& self, dtype inValue)
-//    {
-//        return numCToBoost(self >= inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorGreaterEqualArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self >= inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorNotEqualityScalar(NdArray<dtype>& self, dtype inValue)
-//    {
-//        return numCToBoost(self != inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorNotEqualityArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
-//    {
-//        return numCToBoost(self != inOtherArray);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorBitshiftLeft(NdArray<dtype>& self, uint8 inNumBits)
-//    {
-//        return numCToBoost(self << inNumBits);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorBitshiftRight(NdArray<dtype>& self, uint8 inNumBits)
-//    {
-//        return numCToBoost(self >> inNumBits);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorPrePlusPlus(NdArray<dtype>& self)
-//    {
-//        return numCToBoost(++self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorPostPlusPlus(NdArray<dtype>& self)
-//    {
-//        return numCToBoost(self++);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorPreMinusMinus(NdArray<dtype>& self)
-//    {
-//        return numCToBoost(--self);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray operatorPostMinusMinus(NdArray<dtype>& self)
-//    {
-//        return numCToBoost(self--);
-//    }
-//}
-//
+//================================================================================
+
+namespace NdArrayInterface
+{
+    template<typename dtype>
+    bool test1DListContructor()
+    {
+        NdArray<dtype> test = { 1,2,3,4,666,357,314159 };
+        if (test.size() != 7)
+        {
+            return false;
+        }
+
+        if (test.shape().rows != 1 || test.shape().cols != test.size())
+        {
+            return false;
+        }
+
+        return test[0] == 1 && test[1] == 2 && test[2] == 3 && test[3] == 4 && test[4] == 666 && test[5] == 357 && test[6] == 314159;
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    bool test2DListContructor()
+    {
+        NdArray<dtype> test = { {1,2}, {4,666}, {314159, 9}, {0, 8} };
+        if (test.size() != 8)
+        {
+            return false;
+        }
+
+        if (test.shape().rows != 4 || test.shape().cols != 2)
+        {
+            return false;
+        }
+
+        return test[0] == 1 && test[1] == 2 && test[2] == 4 && test[3] == 666 && test[4] == 314159 && test[5] == 9 && test[6] == 0 && test[7] == 8;
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray getNumpyArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    void setArray(NdArray<dtype>& self, np::ndarray& inBoostArray)
+    {
+        BoostNdarrayHelper newNdArrayHelper(&inBoostArray);
+        uint8 numDims = newNdArrayHelper.numDimensions();
+        if (numDims > 2)
+        {
+            std::string errorString = "ERROR: Input array can only have up to 2 dimensions!";
+            PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
+        }
+
+        self = boostToNumC<dtype>(inBoostArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray all(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.all(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray any(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.any(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray argmax(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.argmax(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray argmin(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.argmin(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray argsort(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.argsort(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray clip(NdArray<dtype>& self, dtype inMin, dtype inMax)
+    {
+        return numCToBoost(self.clip(inMin, inMax));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray copy(NdArray<dtype>& self)
+    {
+        return numCToBoost(self.copy());
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray contains(NdArray<dtype>& self, dtype inValue, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.contains(inValue, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray cumprod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.cumprod<dtypeOut>(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray cumsum(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.cumsum<dtypeOut>(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray diagonal(NdArray<dtype>& self, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+    {
+        return numCToBoost(self.diagonal(inOffset, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray dot(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self.dot<dtypeOut>(inOtherArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray fill(NdArray<dtype>& self, dtype inFillValue)
+    {
+        self.fill(inFillValue);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray flatten(NdArray<dtype>& self)
+    {
+        return numCToBoost(self.flatten());
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype getValueFlat(NdArray<dtype>& self, int32 inIndex)
+    {
+        return self.at(inIndex);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype getValueRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol)
+    {
+        return self.at(inRow, inCol);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray getSlice1D(NdArray<dtype>& self, const Slice& inSlice)
+    {
+        return numCToBoost(self.at(inSlice));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray getSlice2D(NdArray<dtype>& self, const Slice& inRowSlice, const Slice& inColSlice)
+    {
+        return numCToBoost(self.at(inRowSlice, inColSlice));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray getSlice2DCol(NdArray<dtype>& self, const Slice& inRowSlice, int32 inColIndex)
+    {
+        return numCToBoost(self.at(inRowSlice, inColIndex));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray getSlice2DRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inColSlice)
+    {
+        return numCToBoost(self.at(inRowIndex, inColSlice));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray max(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.max(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray min(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.min(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray mean(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.mean(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray median(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.median(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray newbyteorder(NdArray<dtype>& self, Endian::Type inEndiness = Endian::NATIVE)
+    {
+        return numCToBoost(self.newbyteorder(inEndiness));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray nonzero(NdArray<dtype>& self)
+    {
+        return numCToBoost(self.nonzero());
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray norm(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost<dtypeOut>(self.norm<dtypeOut>(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray ones(NdArray<dtype>& self)
+    {
+        self.ones();
+        return numCToBoost<dtype>(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray partition(NdArray<dtype>& self, uint32 inKth, Axis::Type inAxis = Axis::NONE)
+    {
+        self.partition(inKth, inAxis);
+        return numCToBoost<dtype>(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray prod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost<dtypeOut>(self.prod<dtypeOut>(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray ptp(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.ptp(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putFlat(NdArray<dtype>& self, int32 inIndex, dtype inValue)
+    {
+        self.put(inIndex, inValue);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol, dtype inValue)
+    {
+        self.put(inRow, inCol, inValue);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putSlice1DValue(NdArray<dtype>& self, const Slice& inSlice, dtype inValue)
+    {
+        self.put(inSlice, inValue);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putSlice1DValues(NdArray<dtype>& self, const Slice& inSlice, np::ndarray& inArrayValues)
+    {
+        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
+        self.put(inSlice, inValues);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putSlice2DValue(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
+    {
+        self.put(inSliceRow, inSliceCol, inValue);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putSlice2DValueRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inSliceCol, dtype inValue)
+    {
+        self.put(inRowIndex, inSliceCol, inValue);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putSlice2DValueCol(NdArray<dtype>& self, const Slice& inSliceRow, int32 inColIndex, dtype inValue)
+    {
+        self.put(inSliceRow, inColIndex, inValue);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putSlice2DValues(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, np::ndarray& inArrayValues)
+    {
+        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
+        self.put(inSliceRow, inSliceCol, inValues);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putSlice2DValuesRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inSliceCol, np::ndarray& inArrayValues)
+    {
+        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
+        self.put(inRowIndex, inSliceCol, inValues);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putSlice2DValuesCol(NdArray<dtype>& self, const Slice& inSliceRow, int32 inColIndex, np::ndarray& inArrayValues)
+    {
+        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
+        self.put(inSliceRow, inColIndex, inValues);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray repeat(NdArray<dtype>& self, const Shape& inRepeatShape)
+    {
+        return numCToBoost(self.repeat(inRepeatShape));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray reshape(NdArray<dtype>& self, const Shape& inShape)
+    {
+        self.reshape(inShape);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray reshapeList(NdArray<dtype>& self, const Shape& inShape)
+    {
+        self.reshape({ inShape.rows, inShape.cols });
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray resizeFast(NdArray<dtype>& self, const Shape& inShape)
+    {
+        self.resizeFast(inShape);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray resizeFastList(NdArray<dtype>& self, const Shape& inShape)
+    {
+        self.resizeFast({ inShape.rows, inShape.cols });
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray resizeSlow(NdArray<dtype>& self, const Shape& inShape)
+    {
+        self.resizeSlow(inShape);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray resizeSlowList(NdArray<dtype>& self, const Shape& inShape)
+    {
+        self.resizeSlow({ inShape.rows, inShape.cols });
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray round(NdArray<dtype>& self, uint8 inNumDecimals)
+    {
+        return numCToBoost(self.round(inNumDecimals));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray sort(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        self.sort(inAxis);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray std(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.std(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray sum(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.sum<dtypeOut>(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray swapaxes(NdArray<dtype>& self)
+    {
+        return numCToBoost(self.swapaxes());
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray transpose(NdArray<dtype>& self)
+    {
+        return numCToBoost(self.transpose());
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray var(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.var(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorPlusScalar(NdArray<dtype>& self, dtype inScalar)
+    {
+        return numCToBoost(self + inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorPlusArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self + inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorMinusScalar(NdArray<dtype>& self, dtype inScalar)
+    {
+        return numCToBoost(self - inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorMinusArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self - inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorMultiplyScalar(NdArray<dtype>& self, dtype inScalar)
+    {
+        return numCToBoost(self * inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorMultiplyArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self * inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorDivideScalar(NdArray<dtype>& self, dtype inScalar)
+    {
+        return numCToBoost(self / inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorDivideArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self / inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorModulusScalar(NdArray<dtype>& self, dtype inScalar)
+    {
+        return numCToBoost(self % inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorModulusArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self % inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorBitwiseOrScalar(NdArray<dtype>& self, dtype inScalar)
+    {
+        return numCToBoost(self | inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorBitwiseOrArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self | inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorBitwiseAndScalar(NdArray<dtype>& self, dtype inScalar)
+    {
+        return numCToBoost(self & inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorBitwiseAndArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self & inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorBitwiseXorScalar(NdArray<dtype>& self, dtype inScalar)
+    {
+        return numCToBoost(self ^ inScalar);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorBitwiseXorArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self ^ inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorBitwiseNot(NdArray<dtype>& self)
+    {
+        return numCToBoost(~self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorEqualityScalar(NdArray<dtype>& self, dtype inValue)
+    {
+        return numCToBoost(self == inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorEqualityArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self == inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLessScalar(NdArray<dtype>& self, dtype inValue)
+    {
+        return numCToBoost(self < inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLessArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self < inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorGreaterScalar(NdArray<dtype>& self, dtype inValue)
+    {
+        return numCToBoost(self > inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorGreaterArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self > inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLessEqualScalar(NdArray<dtype>& self, dtype inValue)
+    {
+        return numCToBoost(self <= inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorLessEqualArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self <= inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorGreaterEqualScalar(NdArray<dtype>& self, dtype inValue)
+    {
+        return numCToBoost(self >= inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorGreaterEqualArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self >= inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorNotEqualityScalar(NdArray<dtype>& self, dtype inValue)
+    {
+        return numCToBoost(self != inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorNotEqualityArray(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
+    {
+        return numCToBoost(self != inOtherArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorBitshiftLeft(NdArray<dtype>& self, uint8 inNumBits)
+    {
+        return numCToBoost(self << inNumBits);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorBitshiftRight(NdArray<dtype>& self, uint8 inNumBits)
+    {
+        return numCToBoost(self >> inNumBits);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorPrePlusPlus(NdArray<dtype>& self)
+    {
+        return numCToBoost(++self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorPostPlusPlus(NdArray<dtype>& self)
+    {
+        return numCToBoost(self++);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorPreMinusMinus(NdArray<dtype>& self)
+    {
+        return numCToBoost(--self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray operatorPostMinusMinus(NdArray<dtype>& self)
+    {
+        return numCToBoost(self--);
+    }
+}
+
 ////================================================================================
 //
 //namespace MethodsInterface
@@ -2399,203 +2399,203 @@ BOOST_PYTHON_MODULE(NumC)
         .value("BIG", Endian::BIG)
         .value("LITTLE", Endian::LITTLE);
 
-    //// NdArray.hpp
-    //typedef NdArray<double> NdArrayDouble;
-    //bp::class_<NdArrayDouble>
-    //    ("NdArray", bp::init<>())
-    //    .def(bp::init<uint32>())
-    //    .def(bp::init<uint32, uint32>())
-    //    .def(bp::init<Shape>())
-    //    .def(bp::init<NdArrayDouble>())
-    //    .def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>).staticmethod("test1DListContructor")
-    //    .def("test2DListContructor", &NdArrayInterface::test2DListContructor<double>).staticmethod("test2DListContructor")
-    //    .def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>)
-    //    .def("setArray", &NdArrayInterface::setArray<double>)
-    //    .def("all", &NdArrayInterface::all<double>)
-    //    .def("any", &NdArrayInterface::any<double>)
-    //    .def("argmax", &NdArrayInterface::argmax<double>)
-    //    .def("argmin", &NdArrayInterface::argmin<double>)
-    //    .def("argsort", &NdArrayInterface::argsort<double>)
-    //    .def("clip", &NdArrayInterface::clip<double>)
-    //    .def("copy", &NdArrayInterface::copy<double>)
-    //    .def("contains", &NdArrayInterface::contains<double>)
-    //    .def("cumprod", &NdArrayInterface::cumprod<double, double>)
-    //    //.def("cumprod", &NdArrayInterface::cumprod<double, float>)
-    //    .def("cumsum", &NdArrayInterface::cumsum<double, double>)
-    //    //.def("cumsum", &NdArrayInterface::cumsum<double, float>)
-    //    .def("diagonal", &NdArrayInterface::diagonal<double>)
-    //    .def("dot", &NdArrayInterface::dot<double, double>)
-    //    //.def("dot", &NdArrayInterface::dot<double, float>)
-    //    .def("dump", &NdArrayDouble::dump)
-    //    .def("fill", &NdArrayInterface::fill<double>)
-    //    .def("flatten", &NdArrayInterface::flatten<double>)
-    //    .def("get", &NdArrayInterface::getValueFlat<double>)
-    //    .def("get", &NdArrayInterface::getValueRowCol<double>)
-    //    .def("get", &NdArrayInterface::getSlice1D<double>)
-    //    .def("get", &NdArrayInterface::getSlice2D<double>)
-    //    .def("get", &NdArrayInterface::getSlice2DRow<double>)
-    //    .def("get", &NdArrayInterface::getSlice2DCol<double>)
-    //    .def("item", &NdArrayDouble::item)
-    //    .def("max", &NdArrayInterface::max<double>)
-    //    .def("min", &NdArrayInterface::min<double>)
-    //    .def("mean", &NdArrayInterface::mean<double>)
-    //    .def("median", &NdArrayInterface::median<double>)
-    //    .def("nbytes", &NdArrayDouble::nbytes)
-    //    .def("nonzero", &NdArrayInterface::nonzero<double>)
-    //    .def("norm", &NdArrayInterface::norm<double, double>)
-    //    //.def("norm", &NdArrayInterface::norm<double, float>)
-    //    .def("ones", &NdArrayInterface::ones<double>)
-    //    .def("partition", &NdArrayInterface::partition<double>)
-    //    .def("print", &NdArrayDouble::print)
-    //    .def("prod", &NdArrayInterface::prod<double, double>)
-    //    //.def("prod", &NdArrayInterface::prod<double, float>)
-    //    .def("ptp", &NdArrayInterface::ptp<double>)
-    //    .def("put", &NdArrayInterface::putFlat<double>)
-    //    .def("put", &NdArrayInterface::putRowCol<double>)
-    //    .def("put", &NdArrayInterface::putSlice1DValue<double>)
-    //    .def("put", &NdArrayInterface::putSlice1DValues<double>)
-    //    .def("put", &NdArrayInterface::putSlice2DValue<double>)
-    //    .def("put", &NdArrayInterface::putSlice2DValueRow<double>)
-    //    .def("put", &NdArrayInterface::putSlice2DValueCol<double>)
-    //    .def("put", &NdArrayInterface::putSlice2DValues<double>)
-    //    .def("put", &NdArrayInterface::putSlice2DValuesRow<double>)
-    //    .def("put", &NdArrayInterface::putSlice2DValuesCol<double>)
-    //    .def("repeat", &NdArrayInterface::repeat<double>)
-    //    .def("reshape", &NdArrayInterface::reshape<double>)
-    //    .def("reshapeList", &NdArrayInterface::reshapeList<double>)
-    //    .def("resizeFast", &NdArrayInterface::resizeFast<double>)
-    //    .def("resizeFastList", &NdArrayInterface::resizeFastList<double>)
-    //    .def("resizeSlow", &NdArrayInterface::resizeSlow<double>)
-    //    .def("resizeSlowList", &NdArrayInterface::resizeSlowList<double>)
-    //    .def("round", &NdArrayInterface::round<double>)
-    //    .def("shape", &NdArrayDouble::shape)
-    //    .def("size", &NdArrayDouble::size)
-    //    .def("sort", &NdArrayInterface::sort<double>)
-    //    .def("std", &NdArrayInterface::std<double>)
-    //    .def("sum", &NdArrayInterface::sum<double, double>)
-    //    //.def("sum", &NdArrayInterface::sum<double, float>)
-    //    .def("swapaxes", &NdArrayInterface::swapaxes<double>)
-    //    .def("tofile", &NdArrayDouble::tofile)
-    //    .def("toStlVector", &NdArrayDouble::toStlVector)
-    //    .def("trace", &NdArrayDouble::trace<double>)
-    //    .def("transpose", &NdArrayInterface::transpose<double>)
-    //    .def("var", &NdArrayInterface::var<double>)
-    //    .def("zeros", &NdArrayDouble::zeros)
-    //    .def("operatorPlusScalar", &NdArrayInterface::operatorPlusScalar<double>)
-    //    .def("operatorPlusArray", &NdArrayInterface::operatorPlusArray<double>)
-    //    .def("operatorMinusScalar", &NdArrayInterface::operatorMinusScalar<double>)
-    //    .def("operatorMinusArray", &NdArrayInterface::operatorMinusArray<double>)
-    //    .def("operatorMultiplyScalar", &NdArrayInterface::operatorMultiplyScalar<double>)
-    //    .def("operatorMultiplyArray", &NdArrayInterface::operatorMultiplyArray<double>)
-    //    .def("operatorDivideScalar", &NdArrayInterface::operatorDivideScalar<double>)
-    //    .def("operatorDivideArray", &NdArrayInterface::operatorDivideArray<double>)
-    //    .def("operatorEquality", &NdArrayInterface::operatorEqualityScalar<double>)
-    //    .def("operatorEquality", &NdArrayInterface::operatorEqualityArray<double>)
-    //    .def("operatorLess", &NdArrayInterface::operatorLessScalar<double>)
-    //    .def("operatorLess", &NdArrayInterface::operatorLessArray<double>)
-    //    .def("operatorGreater", &NdArrayInterface::operatorGreaterScalar<double>)
-    //    .def("operatorGreater", &NdArrayInterface::operatorGreaterArray<double>)
-    //    .def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalar<double>)
-    //    .def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<double>)
-    //    .def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalar<double>)
-    //    .def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<double>)
-    //    .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalar<double>)
-    //    .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<double>)
-    //    .def("operatorPrePlusPlus", &NdArrayInterface::operatorPrePlusPlus<double>)
-    //    .def("operatorPostPlusPlus", &NdArrayInterface::operatorPostPlusPlus<double>)
-    //    .def("operatorPreMinusMinus", &NdArrayInterface::operatorPreMinusMinus<double>)
-    //    .def("operatorPostMinusMinus", &NdArrayInterface::operatorPostMinusMinus<double>);
+    // NdArray.hpp
+    typedef NdArray<double> NdArrayDouble;
+    bp::class_<NdArrayDouble>
+        ("NdArray", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def(bp::init<NdArrayDouble>())
+        .def("test1DListContructor", &NdArrayInterface::test1DListContructor<double>).staticmethod("test1DListContructor")
+        .def("test2DListContructor", &NdArrayInterface::test2DListContructor<double>).staticmethod("test2DListContructor")
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>)
+        .def("setArray", &NdArrayInterface::setArray<double>)
+        .def("all", &NdArrayInterface::all<double>)
+        .def("any", &NdArrayInterface::any<double>)
+        .def("argmax", &NdArrayInterface::argmax<double>)
+        .def("argmin", &NdArrayInterface::argmin<double>)
+        .def("argsort", &NdArrayInterface::argsort<double>)
+        .def("clip", &NdArrayInterface::clip<double>)
+        .def("copy", &NdArrayInterface::copy<double>)
+        .def("contains", &NdArrayInterface::contains<double>)
+        .def("cumprod", &NdArrayInterface::cumprod<double, double>)
+        //.def("cumprod", &NdArrayInterface::cumprod<double, float>)
+        .def("cumsum", &NdArrayInterface::cumsum<double, double>)
+        //.def("cumsum", &NdArrayInterface::cumsum<double, float>)
+        .def("diagonal", &NdArrayInterface::diagonal<double>)
+        .def("dot", &NdArrayInterface::dot<double, double>)
+        //.def("dot", &NdArrayInterface::dot<double, float>)
+        .def("dump", &NdArrayDouble::dump)
+        .def("fill", &NdArrayInterface::fill<double>)
+        .def("flatten", &NdArrayInterface::flatten<double>)
+        .def("get", &NdArrayInterface::getValueFlat<double>)
+        .def("get", &NdArrayInterface::getValueRowCol<double>)
+        .def("get", &NdArrayInterface::getSlice1D<double>)
+        .def("get", &NdArrayInterface::getSlice2D<double>)
+        .def("get", &NdArrayInterface::getSlice2DRow<double>)
+        .def("get", &NdArrayInterface::getSlice2DCol<double>)
+        .def("item", &NdArrayDouble::item)
+        .def("max", &NdArrayInterface::max<double>)
+        .def("min", &NdArrayInterface::min<double>)
+        .def("mean", &NdArrayInterface::mean<double>)
+        .def("median", &NdArrayInterface::median<double>)
+        .def("nbytes", &NdArrayDouble::nbytes)
+        .def("nonzero", &NdArrayInterface::nonzero<double>)
+        .def("norm", &NdArrayInterface::norm<double, double>)
+        //.def("norm", &NdArrayInterface::norm<double, float>)
+        .def("ones", &NdArrayInterface::ones<double>)
+        .def("partition", &NdArrayInterface::partition<double>)
+        .def("print", &NdArrayDouble::print)
+        .def("prod", &NdArrayInterface::prod<double, double>)
+        //.def("prod", &NdArrayInterface::prod<double, float>)
+        .def("ptp", &NdArrayInterface::ptp<double>)
+        .def("put", &NdArrayInterface::putFlat<double>)
+        .def("put", &NdArrayInterface::putRowCol<double>)
+        .def("put", &NdArrayInterface::putSlice1DValue<double>)
+        .def("put", &NdArrayInterface::putSlice1DValues<double>)
+        .def("put", &NdArrayInterface::putSlice2DValue<double>)
+        .def("put", &NdArrayInterface::putSlice2DValueRow<double>)
+        .def("put", &NdArrayInterface::putSlice2DValueCol<double>)
+        .def("put", &NdArrayInterface::putSlice2DValues<double>)
+        .def("put", &NdArrayInterface::putSlice2DValuesRow<double>)
+        .def("put", &NdArrayInterface::putSlice2DValuesCol<double>)
+        .def("repeat", &NdArrayInterface::repeat<double>)
+        .def("reshape", &NdArrayInterface::reshape<double>)
+        .def("reshapeList", &NdArrayInterface::reshapeList<double>)
+        .def("resizeFast", &NdArrayInterface::resizeFast<double>)
+        .def("resizeFastList", &NdArrayInterface::resizeFastList<double>)
+        .def("resizeSlow", &NdArrayInterface::resizeSlow<double>)
+        .def("resizeSlowList", &NdArrayInterface::resizeSlowList<double>)
+        .def("round", &NdArrayInterface::round<double>)
+        .def("shape", &NdArrayDouble::shape)
+        .def("size", &NdArrayDouble::size)
+        .def("sort", &NdArrayInterface::sort<double>)
+        .def("std", &NdArrayInterface::std<double>)
+        .def("sum", &NdArrayInterface::sum<double, double>)
+        //.def("sum", &NdArrayInterface::sum<double, float>)
+        .def("swapaxes", &NdArrayInterface::swapaxes<double>)
+        .def("tofile", &NdArrayDouble::tofile)
+        .def("toStlVector", &NdArrayDouble::toStlVector)
+        .def("trace", &NdArrayDouble::trace<double>)
+        .def("transpose", &NdArrayInterface::transpose<double>)
+        .def("var", &NdArrayInterface::var<double>)
+        .def("zeros", &NdArrayDouble::zeros)
+        .def("operatorPlusScalar", &NdArrayInterface::operatorPlusScalar<double>)
+        .def("operatorPlusArray", &NdArrayInterface::operatorPlusArray<double>)
+        .def("operatorMinusScalar", &NdArrayInterface::operatorMinusScalar<double>)
+        .def("operatorMinusArray", &NdArrayInterface::operatorMinusArray<double>)
+        .def("operatorMultiplyScalar", &NdArrayInterface::operatorMultiplyScalar<double>)
+        .def("operatorMultiplyArray", &NdArrayInterface::operatorMultiplyArray<double>)
+        .def("operatorDivideScalar", &NdArrayInterface::operatorDivideScalar<double>)
+        .def("operatorDivideArray", &NdArrayInterface::operatorDivideArray<double>)
+        .def("operatorEquality", &NdArrayInterface::operatorEqualityScalar<double>)
+        .def("operatorEquality", &NdArrayInterface::operatorEqualityArray<double>)
+        .def("operatorLess", &NdArrayInterface::operatorLessScalar<double>)
+        .def("operatorLess", &NdArrayInterface::operatorLessArray<double>)
+        .def("operatorGreater", &NdArrayInterface::operatorGreaterScalar<double>)
+        .def("operatorGreater", &NdArrayInterface::operatorGreaterArray<double>)
+        .def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalar<double>)
+        .def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<double>)
+        .def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalar<double>)
+        .def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<double>)
+        .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalar<double>)
+        .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<double>)
+        .def("operatorPrePlusPlus", &NdArrayInterface::operatorPrePlusPlus<double>)
+        .def("operatorPostPlusPlus", &NdArrayInterface::operatorPostPlusPlus<double>)
+        .def("operatorPreMinusMinus", &NdArrayInterface::operatorPreMinusMinus<double>)
+        .def("operatorPostMinusMinus", &NdArrayInterface::operatorPostMinusMinus<double>);
 
-    //typedef NdArray<uint32> NdArrayInt;
-    //bp::class_<NdArrayInt>
-    //    ("NdArrayInt", bp::init<>())
-    //    .def(bp::init<uint32>())
-    //    .def(bp::init<uint32, uint32>())
-    //    .def(bp::init<Shape>())
-    //    .def("item", &NdArrayInt::item)
-    //    .def("shape", &NdArrayInt::shape)
-    //    .def("size", &NdArrayInt::size)
-    //    .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
-    //    .def("endianess", &NdArrayInt::endianess)
-    //    .def("setArray", &NdArrayInterface::setArray<uint32>)
-    //    .def("byteswap", &NdArrayInt::byteswap)
-    //    .def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>)
-    //    .def("operatorModulusScalar", &NdArrayInterface::operatorModulusScalar<uint32>)
-    //    .def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<uint32>)
-    //    .def("operatorBitwiseOrScalar", &NdArrayInterface::operatorBitwiseOrScalar<uint32>)
-    //    .def("operatorBitwiseOrArray", &NdArrayInterface::operatorBitwiseOrArray<uint32>)
-    //    .def("operatorBitwiseAndScalar", &NdArrayInterface::operatorBitwiseAndScalar<uint32>)
-    //    .def("operatorBitwiseAndArray", &NdArrayInterface::operatorBitwiseAndArray<uint32>)
-    //    .def("operatorBitwiseXorScalar", &NdArrayInterface::operatorBitwiseXorScalar<uint32>)
-    //    .def("operatorBitwiseXorArray", &NdArrayInterface::operatorBitwiseXorArray<uint32>)
-    //    .def("operatorBitwiseNot", &NdArrayInterface::operatorBitwiseNot<uint32>)
-    //    .def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>)
-    //    .def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
+    typedef NdArray<uint32> NdArrayInt;
+    bp::class_<NdArrayInt>
+        ("NdArrayInt", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayInt::item)
+        .def("shape", &NdArrayInt::shape)
+        .def("size", &NdArrayInt::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
+        .def("endianess", &NdArrayInt::endianess)
+        .def("setArray", &NdArrayInterface::setArray<uint32>)
+        .def("byteswap", &NdArrayInt::byteswap)
+        .def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>)
+        .def("operatorModulusScalar", &NdArrayInterface::operatorModulusScalar<uint32>)
+        .def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<uint32>)
+        .def("operatorBitwiseOrScalar", &NdArrayInterface::operatorBitwiseOrScalar<uint32>)
+        .def("operatorBitwiseOrArray", &NdArrayInterface::operatorBitwiseOrArray<uint32>)
+        .def("operatorBitwiseAndScalar", &NdArrayInterface::operatorBitwiseAndScalar<uint32>)
+        .def("operatorBitwiseAndArray", &NdArrayInterface::operatorBitwiseAndArray<uint32>)
+        .def("operatorBitwiseXorScalar", &NdArrayInterface::operatorBitwiseXorScalar<uint32>)
+        .def("operatorBitwiseXorArray", &NdArrayInterface::operatorBitwiseXorArray<uint32>)
+        .def("operatorBitwiseNot", &NdArrayInterface::operatorBitwiseNot<uint32>)
+        .def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>)
+        .def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
 
-    //typedef NdArray<int32> NdArrayInt32;
-    //bp::class_<NdArrayInt32>
-    //    ("NdArrayInt32", bp::init<>())
-    //    .def(bp::init<uint32>())
-    //    .def(bp::init<uint32, uint32>())
-    //    .def(bp::init<Shape>())
-    //    .def("item", &NdArrayInt32::item)
-    //    .def("shape", &NdArrayInt32::shape)
-    //    .def("size", &NdArrayInt32::size)
-    //    .def("getNumpyArray", &NdArrayInterface::getNumpyArray<int32>)
-    //    .def("endianess", &NdArrayInt32::endianess)
-    //    .def("setArray", &NdArrayInterface::setArray<int32>);
+    typedef NdArray<int32> NdArrayInt32;
+    bp::class_<NdArrayInt32>
+        ("NdArrayInt32", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayInt32::item)
+        .def("shape", &NdArrayInt32::shape)
+        .def("size", &NdArrayInt32::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<int32>)
+        .def("endianess", &NdArrayInt32::endianess)
+        .def("setArray", &NdArrayInterface::setArray<int32>);
 
-    //typedef NdArray<uint64> NdArrayInt64;
-    //bp::class_<NdArrayInt64>
-    //    ("NdArrayInt64", bp::init<>())
-    //    .def(bp::init<uint32>())
-    //    .def(bp::init<uint32, uint32>())
-    //    .def(bp::init<Shape>())
-    //    .def("item", &NdArrayInt64::item)
-    //    .def("shape", &NdArrayInt64::shape)
-    //    .def("size", &NdArrayInt64::size)
-    //    .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint64>)
-    //    .def("endianess", &NdArrayInt64::endianess)
-    //    .def("setArray", &NdArrayInterface::setArray<uint64>);
+    typedef NdArray<uint64> NdArrayInt64;
+    bp::class_<NdArrayInt64>
+        ("NdArrayInt64", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayInt64::item)
+        .def("shape", &NdArrayInt64::shape)
+        .def("size", &NdArrayInt64::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint64>)
+        .def("endianess", &NdArrayInt64::endianess)
+        .def("setArray", &NdArrayInterface::setArray<uint64>);
 
-    //typedef NdArray<uint8> NdArrayInt8;
-    //bp::class_<NdArrayInt8>
-    //    ("NdArrayInt8", bp::init<>())
-    //    .def(bp::init<uint32>())
-    //    .def(bp::init<uint32, uint32>())
-    //    .def(bp::init<Shape>())
-    //    .def("item", &NdArrayInt8::item)
-    //    .def("shape", &NdArrayInt8::shape)
-    //    .def("size", &NdArrayInt8::size)
-    //    .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint8>)
-    //    .def("endianess", &NdArrayInt8::endianess)
-    //    .def("setArray", NdArrayInterface::setArray<uint8>);
+    typedef NdArray<uint8> NdArrayInt8;
+    bp::class_<NdArrayInt8>
+        ("NdArrayInt8", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayInt8::item)
+        .def("shape", &NdArrayInt8::shape)
+        .def("size", &NdArrayInt8::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint8>)
+        .def("endianess", &NdArrayInt8::endianess)
+        .def("setArray", NdArrayInterface::setArray<uint8>);
 
-    //typedef NdArray<bool> NdArrayBool;
-    //bp::class_<NdArrayBool>
-    //    ("NdArrayBool", bp::init<>())
-    //    .def(bp::init<uint32>())
-    //    .def(bp::init<uint32, uint32>())
-    //    .def(bp::init<Shape>())
-    //    .def("item", &NdArrayBool::item)
-    //    .def("shape", &NdArrayBool::shape)
-    //    .def("size", &NdArrayBool::size)
-    //    .def("getNumpyArray", &NdArrayInterface::getNumpyArray<bool>)
-    //    .def("endianess", &NdArrayBool::endianess)
-    //    .def("setArray", NdArrayInterface::setArray<bool>);
+    typedef NdArray<bool> NdArrayBool;
+    bp::class_<NdArrayBool>
+        ("NdArrayBool", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayBool::item)
+        .def("shape", &NdArrayBool::shape)
+        .def("size", &NdArrayBool::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<bool>)
+        .def("endianess", &NdArrayBool::endianess)
+        .def("setArray", NdArrayInterface::setArray<bool>);
 
-    //typedef NdArray<float> NdArrayFloat;
-    //bp::class_<NdArrayFloat>
-    //    ("NdArrayFloat", bp::init<>())
-    //    .def(bp::init<uint32>())
-    //    .def(bp::init<uint32, uint32>())
-    //    .def(bp::init<Shape>())
-    //    .def("item", &NdArrayFloat::item)
-    //    .def("shape", &NdArrayFloat::shape)
-    //    .def("size", &NdArrayFloat::size)
-    //    .def("getNumpyArray", &NdArrayInterface::getNumpyArray<float>)
-    //    .def("endianess", &NdArrayFloat::endianess)
-    //    .def("setArray", &NdArrayInterface::setArray<float>);
+    typedef NdArray<float> NdArrayFloat;
+    bp::class_<NdArrayFloat>
+        ("NdArrayFloat", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayFloat::item)
+        .def("shape", &NdArrayFloat::shape)
+        .def("size", &NdArrayFloat::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<float>)
+        .def("endianess", &NdArrayFloat::endianess)
+        .def("setArray", &NdArrayInterface::setArray<float>);
 
     //// Methods.hpp
     //typedef Methods<double> MethodsDouble;

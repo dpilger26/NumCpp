@@ -24,9 +24,10 @@
 
 namespace NumC
 {
-    //================================Linalg Namespace=============================
-    namespace Polynomial
+    //================================Linalg Class=============================
+    template<typename dtype>
+    class Polynomial
     {
 
-    }
+    };
 }
