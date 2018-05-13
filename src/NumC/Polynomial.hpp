@@ -19,8 +19,8 @@
 
 #pragma once
 
-#include"Types.hpp"
-#include"NdArray.hpp"
+#include"NumC/Types.hpp"
+#include"NumC/NdArray.hpp"
 
 namespace NumC
 {

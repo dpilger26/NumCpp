@@ -18,10 +18,10 @@
 // DEALINGS IN THE SOFTWARE.
 #pragma once
 
-#include<NdArray.hpp>
-#include<Methods.hpp>
-#include<Types.hpp>
-#include<Utils.hpp>
+#include<NumC/NdArray.hpp>
+#include<NumC/Methods.hpp>
+#include<NumC/Types.hpp>
+#include<NumC/Utils.hpp>
 
 #include<cmath>
 #include<utility>
@@ -496,27 +496,27 @@ namespace NumC
             Shape inShape = inImageArray.shape();
             NdArray<dtype> output(inShape);
 
-            uint32 boudarySize = inSize / 2; // integer division
-            switch (inAxis)
-            {
-                case Axis::ROW:
-                {
-                    uint32 endPoint = boudarySize + inShape.cols;
-                    for (uint32 col = boudarySize; col < endPoint; ++col)
-                    {
-                        NdArray<dtype> column = inImageArray(Slice(0, -1), col);
-                        output.put(Slice(0, -1), col, complementaryMedianFilter(column, inSize, inMode, inConstantValue));
-                    }
-                }
-                case Axis::COL:
-                {
-
-                }
-                default:
-                {
-                    throw std::invalid_argument("ERROR: NumC::Filters::complementaryMedianFilter1d: input axis must be either ROW or COL.");
-                }
-            }
+//            uint32 boudarySize = inSize / 2; // integer division
+//            switch (inAxis)
+//            {
+//                case Axis::ROW:
+//                {
+//                    uint32 endPoint = boudarySize + inShape.cols;
+//                    for (uint32 col = boudarySize; col < endPoint; ++col)
+//                    {
+//                        NdArray<dtype> column = inImageArray(Slice(0, -1), col);
+//                        output.put(Slice(0, -1), col, complementaryMedianFilter(column, inSize, inMode, inConstantValue));
+//                    }
+//                }
+//                case Axis::COL:
+//                {
+//
+//                }
+//                default:
+//                {
+//                    throw std::invalid_argument("ERROR: NumC::Filters::complementaryMedianFilter1d: input axis must be either ROW or COL.");
+//                }
+//            }
 
             return std::move(output);
         }

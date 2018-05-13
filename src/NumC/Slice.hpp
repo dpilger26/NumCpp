@@ -19,8 +19,8 @@
 
 #pragma once
 
-#include"Types.hpp"
-#include"Utils.hpp"
+#include"NumC/Types.hpp"
+#include"NumC/Utils.hpp"
 
 #include<iostream>
 #include<stdexcept>

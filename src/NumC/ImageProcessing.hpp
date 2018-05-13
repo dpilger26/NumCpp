@@ -18,10 +18,10 @@
 // DEALINGS IN THE SOFTWARE.
 
 #pragma once
-#include<NdArray.hpp>
-#include<Methods.hpp>
-#include<Types.hpp>
-#include<Utils.hpp>
+#include<NumC/NdArray.hpp>
+#include<NumC/Methods.hpp>
+#include<NumC/Types.hpp>
+#include<NumC/Utils.hpp>
 
 #include<cmath>
 #include<iostream>
@@ -1160,6 +1160,8 @@ namespace NumC
             //              None
             //
             Centroid(const Cluster<dtype>& inCluster) :
+                row_(0),
+                col_(0),
                 intensity_(inCluster.intensity()),
                 eod_(inCluster.eod())
             {

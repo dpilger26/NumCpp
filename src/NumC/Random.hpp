@@ -19,9 +19,9 @@
 
 #pragma once
 
-#include"NdArray.hpp"
-#include"Shape.hpp"
-#include"Types.hpp"
+#include"NumC/NdArray.hpp"
+#include"NumC/Shape.hpp"
+#include"NumC/Types.hpp"
 
 #include"boost/random.hpp"
 
@@ -685,7 +685,7 @@ namespace NumC
         {
             if (inLow == inHigh)
             {
-                throw std::invalid_argument("Error: randint: input low value must be less than the input high value.");
+                throw std::invalid_argument("Error: randFloat: input low value must be less than the input high value.");
             }
             else if (inLow > inHigh - DtypeInfo<dtype>::epsilon())
             {

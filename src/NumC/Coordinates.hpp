@@ -19,11 +19,11 @@
 
 #pragma once
 
-#include"DtypeInfo.hpp"
-#include"NdArray.hpp"
-#include"Methods.hpp"
-#include"Types.hpp"
-#include"Utils.hpp"
+#include"NumC/DtypeInfo.hpp"
+#include"NumC/NdArray.hpp"
+#include"NumC/Methods.hpp"
+#include"NumC/Types.hpp"
+#include"NumC/Utils.hpp"
 
 #include<iostream>
 #include<stdexcept>

@@ -18,8 +18,8 @@
 // DEALINGS IN THE SOFTWARE.
 #pragma once
 
-#include<NdArray.hpp>
-#include<Types.hpp>
+#include<NumC/NdArray.hpp>
+#include<NumC/Types.hpp>
 
 #include<vector>
 #include<iostream>

@@ -19,16 +19,17 @@
 
 #pragma once
 
-#include"DtypeInfo.hpp"
-#include"Shape.hpp"
-#include"Slice.hpp"
-#include"Types.hpp"
-#include"Utils.hpp"
+#include"NumC/DtypeInfo.hpp"
+#include"NumC/Shape.hpp"
+#include"NumC/Slice.hpp"
+#include"NumC/Types.hpp"
+#include"NumC/Utils.hpp"
 
 #include<boost/filesystem.hpp>
 #include<boost/endian/conversion.hpp>
 
 #include<algorithm>
+#include<cmath>
 #include<fstream>
 #include<initializer_list>
 #include<iostream>
@@ -2348,7 +2349,7 @@ namespace NumC
         {
             for (uint32 i = 0; i < inIndices.size(); ++i)
             {
-                put(inIndices[i], value);
+                put(inIndices[i], inValue);
             }
         }
 
@@ -3724,7 +3725,6 @@ namespace NumC
         // Outputs:
         //				None
         //
-        template<typename dtype>
         NdArray<dtype> operator^(const NdArray<dtype>& inOtherArray) const
         {
             return std::move(NdArray<dtype>(*this) ^= inOtherArray);
@@ -3753,7 +3753,6 @@ namespace NumC
         // Outputs:
         //				None
         //
-        template<typename dtype>
         NdArray<dtype>& operator^=(const NdArray<dtype>& inOtherArray)
         {
             // can only be called on integer types

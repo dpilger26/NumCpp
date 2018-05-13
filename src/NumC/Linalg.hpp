@@ -19,10 +19,10 @@
 
 #pragma once
 
-#include"Methods.hpp"
-#include"NdArray.hpp"
-#include"Shape.hpp"
-#include"Types.hpp"
+#include"NumC/Methods.hpp"
+#include"NumC/NdArray.hpp"
+#include"NumC/Shape.hpp"
+#include"NumC/Types.hpp"
 
 #include<cmath>
 #include<initializer_list>

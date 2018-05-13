@@ -19,11 +19,11 @@
 
 #pragma once
 
-#include"Methods.hpp"
-#include"Linalg.hpp"
-#include"NdArray.hpp"
-#include"Types.hpp"
-#include"Utils.hpp"
+#include"NumC/Methods.hpp"
+#include"NumC/Linalg.hpp"
+#include"NumC/NdArray.hpp"
+#include"NumC/Types.hpp"
+#include"NumC/Utils.hpp"
 
 #include<cmath>
 #include<iostream>

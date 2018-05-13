@@ -19,8 +19,8 @@
 
 #pragma once
 
-#include"NdArray.hpp"
-#include"Types.hpp"
+#include"NumC/NdArray.hpp"
+#include"NumC/Types.hpp"
 
 #include<boost/filesystem.hpp>
 
