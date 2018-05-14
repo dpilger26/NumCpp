@@ -849,1331 +849,1331 @@ namespace NdArrayInterface
     }
 }
 
-////================================================================================
-//
-//namespace MethodsInterface
-//{
-//    template<typename dtype>
-//    dtype absScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::abs(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray absArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::abs(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray addArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::add<dtypeOut>(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray allArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(Methods<dtype>::all(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray anyArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(Methods<dtype>::any(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray argmaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(Methods<dtype>::argmax(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray argminArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(Methods<dtype>::argmin(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray argsortArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(Methods<dtype>::argsort(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray argwhere(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::argwhere(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray amaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(amax<dtype>(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray aminArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(Methods<dtype>::amin(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray arangeArray(dtype inStart, dtype inStop, dtype inStep)
-//    {
-//        return numCToBoost(Methods<dtype>::arange(inStart, inStop, inStep));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype arccosScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::arccos(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray arccosArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::arccos(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype arccoshScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::arccosh(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray arccoshArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::arccosh(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype arcsinScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::arcsin(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray arcsinArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::arcsin(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype arcsinhScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::arcsinh(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray arcsinhArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::arcsinh(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype arctanScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::arctan(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray arctanArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::arctan(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype arctan2Scalar(dtype inY, dtype inX)
-//    {
-//        return Methods<dtype>::arctan2(inY, inX);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray arctan2Array(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
-//    {
-//        return numCToBoost(Methods<dtype>::arctan2(inY, inX));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype arctanhScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::arctanh(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray arctanhArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::arctanh(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype aroundScalar(dtype inValue, uint8 inNumDecimals)
-//    {
-//        return Methods<dtype>::around(inValue, inNumDecimals);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray aroundArray(const NdArray<dtype>& inArray, uint8 inNumDecimals)
-//    {
-//        return numCToBoost(Methods<dtype>::around(inArray, inNumDecimals));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray asarrayVector(const std::vector<double>& inVec)
-//    {
-//        return numCToBoost(Methods<dtype>::asarray(inVec));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray asarrayList(dtype inValue1, dtype inValue2)
-//    {
-//        return numCToBoost(Methods<dtype>::asarray({ inValue1, inValue2 }));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray average(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(Methods<dtype>::average(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(Methods<dtype>::average(inArray, inWeights, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
-//    {
-//        return numCToBoost(Methods<dtype>::bincount(inArray, inMinLength));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray bincountWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
-//    {
-//        return numCToBoost(Methods<dtype>::bincount(inArray, inWeights, inMinLength));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::bitwise_and(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray bitwise_not(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::bitwise_not(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::bitwise_or(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::bitwise_xor(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray byteswap(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::byteswap(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype cbrtScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::cbrt(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray cbrtArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::cbrt(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype ceilScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::ceil(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray ceilArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::ceil(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype clipScalar(dtype inValue, dtype inMinValue, dtype inMaxValue)
-//    {
-//        return Methods<dtype>::clip(inValue, inMinValue, inMaxValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray clipArray(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue)
-//    {
-//        return numCToBoost(Methods<dtype>::clip(inArray, inMinValue, inMaxValue));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray column_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-//        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
-//    {
-//        return numCToBoost(Methods<dtype>::column_stack({ inArray1, inArray2, inArray3, inArray4 }));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray concatenate(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-//        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, Axis::Type inAxis)
-//    {
-//        return numCToBoost(Methods<dtype>::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray copy(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::copy(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::copySign(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray copyto(NdArray<dtype>& inArrayDest, const NdArray<dtype>& inArraySrc)
-//    {
-//        Methods<dtype>::copyto(inArrayDest, inArraySrc);
-//        return numCToBoost(inArrayDest);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype cosScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::cos(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray cosArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::cos(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype coshScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::cosh(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray coshArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::cosh(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray count_nonzero(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
-//    {
-//        return numCToBoost(Methods<dtype>::count_nonzero(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray cubeArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::cube<dtypeOut>(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(Methods<dtype>::cumprod<dtypeOut>(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
-//    {
-//        return numCToBoost(Methods<dtype>::cumsum<dtypeOut>(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype deg2radScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::deg2rad(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray deg2radArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::deg2rad(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray deleteIndicesScalar(const NdArray<dtype>& inArray, uint32 inIndex, Axis::Type inAxis)
-//    {
-//        return numCToBoost(Methods<dtype>::deleteIndices(inArray, inIndex, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray deleteIndicesSlice(const NdArray<dtype>& inArray, const Slice& inIndices, Axis::Type inAxis)
-//    {
-//        return numCToBoost(Methods<dtype>::deleteIndices(inArray, inIndices, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray diagflat(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::diagflat(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
-//    {
-//        return numCToBoost(Methods<dtype>::diagonal(inArray, inOffset, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray diff(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
-//    {
-//        return numCToBoost(Methods<dtype>::diff(inArray, inAxis));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::divide<dtypeOut>(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::dot<dtypeOut>(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray emptyRowCol(uint32 inNumRows, uint32 inNumCols)
-//    {
-//        return numCToBoost(Methods<dtype>::empty<dtype>(inNumRows, inNumCols));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray emptyShape(const Shape& inShape)
-//    {
-//        return numCToBoost(Methods<dtype>::empty<dtype>(inShape));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::equal(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype expScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::exp(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray expArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::exp(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype exp2Scalar(dtype inValue)
-//    {
-//        return Methods<dtype>::exp2(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray exp2Array(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::exp2(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype expm1Scalar(dtype inValue)
-//    {
-//        return Methods<dtype>::expm1(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray expm1Array(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::expm1(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray eye1D(uint32 inN, int32 inK)
-//    {
-//        return numCToBoost(Methods<dtype>::eye<dtype>(inN, inK));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray eye2D(uint32 inN, uint32 inM, int32 inK)
-//    {
-//        return numCToBoost(Methods<dtype>::eye<dtype>(inN, inM, inK));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray eyeShape(const Shape& inShape, int32 inK)
-//    {
-//        return numCToBoost(Methods<dtype>::eye<dtype>(inShape, inK));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype fixScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::fix(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray fixArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::fix(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype floorScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::floor(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray floorArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::floor(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype floor_divideScalar(dtype inValue1, dtype inValue2)
-//    {
-//        return Methods<dtype>::floor_divide(inValue1, inValue2);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray floor_divideArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::floor_divide(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype fmaxScalar(dtype inValue1, dtype inValue2)
-//    {
-//        return Methods<dtype>::fmax(inValue1, inValue2);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray fmaxArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::fmax(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype fminScalar(dtype inValue1, dtype inValue2)
-//    {
-//        return Methods<dtype>::fmin(inValue1, inValue2);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray fminArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::fmin(inArray1, inArray2));
-//    }
-//
-//    template<typename dtype>
-//    dtype fmodScalar(dtype inValue1, dtype inValue2)
-//    {
-//        return Methods<dtype>::fmod(inValue1, inValue2);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray fmodArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::fmod(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray fullSquare(uint32 inSquareSize, dtype inValue)
-//    {
-//        return numCToBoost(Methods<dtype>::full(inSquareSize, inValue));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray fullRowCol(uint32 inNumRows, uint32 inNumCols, dtype inValue)
-//    {
-//        return numCToBoost(Methods<dtype>::full(inNumRows, inNumCols, inValue));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray fullShape(const Shape& inShape, dtype inValue)
-//    {
-//        return numCToBoost(Methods<dtype>::full(inShape, inValue));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray hstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-//        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
-//    {
-//        return numCToBoost(Methods<dtype>::hstack({ inArray1, inArray2, inArray3, inArray4 }));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    dtype hypotScalar(dtype inValue1, dtype inValue2)
-//    {
-//        return Methods<dtype>::hypot<dtypeOut>(inValue1, inValue2);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray hypotArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::hypot<dtypeOut>(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    bool isnanScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::isnan(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray isnanArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::isnan(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype ldexpScalar(dtype inValue1, uint8 inValue2)
-//    {
-//        return Methods<dtype>::ldexp(inValue1, inValue2);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray ldexpArray(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::ldexp(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray negative(const NdArray<dtypeOut> inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::negative<dtypeOut>(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype logScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::log(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray logArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::log(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype log10Scalar(dtype inValue)
-//    {
-//        return Methods<dtype>::log10(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray log10Array(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::log10(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype log1pScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::log1p(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray log1pArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::log1p(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype log2Scalar(dtype inValue)
-//    {
-//        return Methods<dtype>::log2(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray log2Array(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::log2(inArray));
-//    }
-//
-//    template<typename dtype>
-//    dtype newbyteorderScalar(dtype inValue, Endian::Type inEndianess)
-//    {
-//        return Methods<dtype>::newbyteorder(inValue, inEndianess);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray newbyteorderArray(const NdArray<dtype>& inArray, Endian::Type inEndianess)
-//    {
-//        return numCToBoost(Methods<dtype>::newbyteorder(inArray, inEndianess));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray onesSquare(uint32 inSquareSize)
-//    {
-//        return numCToBoost(Methods<dtype>::ones<dtype>(inSquareSize));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray onesRowCol(uint32 inNumRows, uint32 inNumCols)
-//    {
-//        return numCToBoost(Methods<dtype>::ones<dtype>(inNumRows, inNumCols));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray onesShape(const Shape& inShape)
-//    {
-//        return numCToBoost(Methods<dtype>::ones<dtype>(inShape));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray sqrArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::sqr<dtype>(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray powerArrayScalar(const NdArray<dtype>& inArray, uint8 inExponent)
-//    {
-//        return numCToBoost(Methods<dtype>::power<dtypeOut>(inArray, inExponent));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray powerArrayArray(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
-//    {
-//        return numCToBoost(Methods<dtype>::power<dtypeOut>(inArray, inExponents));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype rad2degScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::rad2deg(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray rad2degArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::rad2deg(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    dtype remainderScalar(dtype inValue1, dtype inValue2)
-//    {
-//        return Methods<dtype>::remainder<dtypeOut>(inValue1, inValue2);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray remainderArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
-//    {
-//        return numCToBoost(Methods<dtype>::remainder<dtypeOut>(inArray1, inArray2));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    void reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
-//    {
-//        Methods<dtype>::reshape(inArray, inNewShape);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    void reshapeList(NdArray<dtype>& inArray, const Shape& inNewShape)
-//    {
-//        Methods<dtype>::reshape(inArray, inNewShape.rows, inNewShape.cols);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    void resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
-//    {
-//        Methods<dtype>::resizeFast(inArray, inNewShape);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    void resizeFastList(NdArray<dtype>& inArray, const Shape& inNewShape)
-//    {
-//        Methods<dtype>::resizeFast(resizeFast, inNewShape.rows, inNewShape.cols);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    void resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
-//    {
-//        Methods<dtype>::resizeFast(inArray, inNewShape);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    void resizeSlowList(NdArray<dtype>& inArray, const Shape& inNewShape)
-//    {
-//        Methods<dtype>::resizeSlowList(resizeFast, inNewShape.rows, inNewShape.cols);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype rintScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::rint(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray rintArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::rint(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype roundScalar(dtype inValue, uint8 inDecimals)
-//    {
-//        return Methods<dtype>::round(inValue, inDecimals);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray roundArray(const NdArray<dtype>& inArray, uint8 inDecimals)
-//    {
-//        return numCToBoost(Methods<dtype>::round(inArray, inDecimals));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray row_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-//        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
-//    {
-//        return numCToBoost(Methods<dtype>::row_stack({ inArray1, inArray2, inArray3, inArray4 }));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    int8 signScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::sign(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray signArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::sign(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    bool signbitScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::signbit(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray signbitArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::signbit(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    double sinScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::sin(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray sinArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::sin(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    double sincScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::sinc(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray sincArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::sinc(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    double sinhScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::sinh(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray sinhArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::sinh(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    double sqrtScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::sqrt(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray sqrtArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::sqrt(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    double squareScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::square(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray squareArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::square(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    double tanScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::tan(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray tanArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::tan(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    double tanhScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::tanh(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray tanhArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::tanh(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray tileRectangle(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
-//    {
-//        return numCToBoost(Methods<dtype>::tile(inArray, inNumRows, inNumCols));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray tileShape(const NdArray<dtype>& inArray, const Shape& inRepShape)
-//    {
-//        return numCToBoost(Methods<dtype>::tile(inArray, inRepShape));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray tileList(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
-//    {
-//        return numCToBoost(Methods<dtype>::tile(inArray, { inNumRows, inNumCols }));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray triSquare(uint32 inSquareSize, int32 inOffset)
-//    {
-//        return numCToBoost(Methods<dtype>::tri<dtype>(inSquareSize, inOffset));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray triRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
-//    {
-//        return numCToBoost(Methods<dtype>::tri<dtype>(inNumRows, inNumCols, inOffset));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    dtype unwrapScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::unwrap(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray unwrapArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::unwrap(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    double truncScalar(dtype inValue)
-//    {
-//        return Methods<dtype>::trunc(inValue);
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray truncArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Methods<dtype>::trunc(inArray));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray vstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-//        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
-//    {
-//        return numCToBoost(Methods<dtype>::vstack({ inArray1, inArray2, inArray3, inArray4 }));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray zerosSquare(uint32 inSquareSize)
-//    {
-//        return numCToBoost(Methods<dtype>::zeros<dtype>(inSquareSize));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray zerosRowCol(uint32 inNumRows, uint32 inNumCols)
-//    {
-//        return numCToBoost(Methods<dtype>::zeros<dtype>(inNumRows, inNumCols));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray zerosShape(const Shape& inShape)
-//    {
-//        return numCToBoost(Methods<dtype>::zeros<dtype>(inShape));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray zerosList(uint32 inNumRows, uint32 inNumCols)
-//    {
-//        return numCToBoost(Methods<dtype>::zeros<dtype>({ inNumRows, inNumCols }));
-//    }
-//}
-//
+//================================================================================
+
+namespace MethodsInterface
+{
+    template<typename dtype>
+    dtype absScalar(dtype inValue)
+    {
+        return Methods<dtype>::abs(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray absArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::abs(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray addArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::add<dtypeOut>(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray allArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::all(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray anyArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::any(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray argmaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::argmax(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray argminArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::argmin(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray argsortArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::argsort(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray argwhere(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::argwhere(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray amaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::amax(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray aminArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::amin(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray arangeArray(dtype inStart, dtype inStop, dtype inStep)
+    {
+        return numCToBoost(Methods<dtype>::arange(inStart, inStop, inStep));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype arccosScalar(dtype inValue)
+    {
+        return Methods<dtype>::arccos(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray arccosArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::arccos(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype arccoshScalar(dtype inValue)
+    {
+        return Methods<dtype>::arccosh(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray arccoshArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::arccosh(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype arcsinScalar(dtype inValue)
+    {
+        return Methods<dtype>::arcsin(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray arcsinArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::arcsin(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype arcsinhScalar(dtype inValue)
+    {
+        return Methods<dtype>::arcsinh(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray arcsinhArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::arcsinh(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype arctanScalar(dtype inValue)
+    {
+        return Methods<dtype>::arctan(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray arctanArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::arctan(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype arctan2Scalar(dtype inY, dtype inX)
+    {
+        return Methods<dtype>::arctan2(inY, inX);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray arctan2Array(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
+    {
+        return numCToBoost(Methods<dtype>::arctan2(inY, inX));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype arctanhScalar(dtype inValue)
+    {
+        return Methods<dtype>::arctanh(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray arctanhArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::arctanh(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype aroundScalar(dtype inValue, uint8 inNumDecimals)
+    {
+        return Methods<dtype>::around(inValue, inNumDecimals);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray aroundArray(const NdArray<dtype>& inArray, uint8 inNumDecimals)
+    {
+        return numCToBoost(Methods<dtype>::around(inArray, inNumDecimals));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayVector(const std::vector<double>& inVec)
+    {
+        return numCToBoost(Methods<dtype>::asarray(inVec));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray asarrayList(dtype inValue1, dtype inValue2)
+    {
+        return numCToBoost(Methods<dtype>::asarray({ inValue1, inValue2 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray average(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::average(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::average(inArray, inWeights, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
+    {
+        return numCToBoost(Methods<dtype>::bincount(inArray, inMinLength));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bincountWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+    {
+        return numCToBoost(Methods<dtype>::bincount(inArray, inWeights, inMinLength));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::bitwise_and(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bitwise_not(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::bitwise_not(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::bitwise_or(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::bitwise_xor(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray byteswap(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::byteswap(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype cbrtScalar(dtype inValue)
+    {
+        return Methods<dtype>::cbrt(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray cbrtArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::cbrt(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype ceilScalar(dtype inValue)
+    {
+        return Methods<dtype>::ceil(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray ceilArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::ceil(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype clipScalar(dtype inValue, dtype inMinValue, dtype inMaxValue)
+    {
+        return Methods<dtype>::clip(inValue, inMinValue, inMaxValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray clipArray(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue)
+    {
+        return numCToBoost(Methods<dtype>::clip(inArray, inMinValue, inMaxValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray column_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    {
+        return numCToBoost(Methods<dtype>::column_stack({ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray concatenate(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, Axis::Type inAxis)
+    {
+        return numCToBoost(Methods<dtype>::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray copy(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::copy(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::copySign(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray copyto(NdArray<dtype>& inArrayDest, const NdArray<dtype>& inArraySrc)
+    {
+        Methods<dtype>::copyto(inArrayDest, inArraySrc);
+        return numCToBoost(inArrayDest);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype cosScalar(dtype inValue)
+    {
+        return Methods<dtype>::cos(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray cosArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::cos(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype coshScalar(dtype inValue)
+    {
+        return Methods<dtype>::cosh(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray coshArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::cosh(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray count_nonzero(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
+    {
+        return numCToBoost(Methods<dtype>::count_nonzero(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray cubeArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::cube<dtypeOut>(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::cumprod<dtypeOut>(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::cumsum<dtypeOut>(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype deg2radScalar(dtype inValue)
+    {
+        return Methods<dtype>::deg2rad(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray deg2radArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::deg2rad(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray deleteIndicesScalar(const NdArray<dtype>& inArray, uint32 inIndex, Axis::Type inAxis)
+    {
+        return numCToBoost(Methods<dtype>::deleteIndices(inArray, inIndex, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray deleteIndicesSlice(const NdArray<dtype>& inArray, const Slice& inIndices, Axis::Type inAxis)
+    {
+        return numCToBoost(Methods<dtype>::deleteIndices(inArray, inIndices, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray diagflat(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::diagflat(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+    {
+        return numCToBoost(Methods<dtype>::diagonal(inArray, inOffset, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray diff(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
+    {
+        return numCToBoost(Methods<dtype>::diff(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::divide<dtypeOut>(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::dot<dtypeOut>(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray emptyRowCol(uint32 inNumRows, uint32 inNumCols)
+    {
+        return numCToBoost(Methods<dtype>::empty(inNumRows, inNumCols));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray emptyShape(const Shape& inShape)
+    {
+        return numCToBoost(Methods<dtype>::empty(inShape));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::equal(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype expScalar(dtype inValue)
+    {
+        return Methods<dtype>::exp(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray expArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::exp(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype exp2Scalar(dtype inValue)
+    {
+        return Methods<dtype>::exp2(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray exp2Array(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::exp2(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype expm1Scalar(dtype inValue)
+    {
+        return Methods<dtype>::expm1(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray expm1Array(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::expm1(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray eye1D(uint32 inN, int32 inK)
+    {
+        return numCToBoost(Methods<dtype>::eye(inN, inK));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray eye2D(uint32 inN, uint32 inM, int32 inK)
+    {
+        return numCToBoost(Methods<dtype>::eye(inN, inM, inK));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray eyeShape(const Shape& inShape, int32 inK)
+    {
+        return numCToBoost(Methods<dtype>::eye(inShape, inK));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype fixScalar(dtype inValue)
+    {
+        return Methods<dtype>::fix(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray fixArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::fix(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype floorScalar(dtype inValue)
+    {
+        return Methods<dtype>::floor(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray floorArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::floor(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype floor_divideScalar(dtype inValue1, dtype inValue2)
+    {
+        return Methods<dtype>::floor_divide(inValue1, inValue2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray floor_divideArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::floor_divide(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype fmaxScalar(dtype inValue1, dtype inValue2)
+    {
+        return Methods<dtype>::fmax(inValue1, inValue2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray fmaxArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::fmax(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype fminScalar(dtype inValue1, dtype inValue2)
+    {
+        return Methods<dtype>::fmin(inValue1, inValue2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray fminArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::fmin(inArray1, inArray2));
+    }
+
+    template<typename dtype>
+    dtype fmodScalar(dtype inValue1, dtype inValue2)
+    {
+        return Methods<dtype>::fmod(inValue1, inValue2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray fmodArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::fmod(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray fullSquare(uint32 inSquareSize, dtype inValue)
+    {
+        return numCToBoost(Methods<dtype>::full(inSquareSize, inValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray fullRowCol(uint32 inNumRows, uint32 inNumCols, dtype inValue)
+    {
+        return numCToBoost(Methods<dtype>::full(inNumRows, inNumCols, inValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray fullShape(const Shape& inShape, dtype inValue)
+    {
+        return numCToBoost(Methods<dtype>::full(inShape, inValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray hstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    {
+        return numCToBoost(Methods<dtype>::hstack({ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    dtype hypotScalar(dtype inValue1, dtype inValue2)
+    {
+        return Methods<dtype>::hypot<dtypeOut>(inValue1, inValue2);
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray hypotArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::hypot<dtypeOut>(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    bool isnanScalar(dtype inValue)
+    {
+        return Methods<dtype>::isnan(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray isnanArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::isnan(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype ldexpScalar(dtype inValue1, uint8 inValue2)
+    {
+        return Methods<dtype>::ldexp(inValue1, inValue2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray ldexpArray(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::ldexp(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray negative(const NdArray<dtypeOut> inArray)
+    {
+        return numCToBoost(Methods<dtype>::negative<dtypeOut>(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype logScalar(dtype inValue)
+    {
+        return Methods<dtype>::log(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray logArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::log(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype log10Scalar(dtype inValue)
+    {
+        return Methods<dtype>::log10(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray log10Array(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::log10(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype log1pScalar(dtype inValue)
+    {
+        return Methods<dtype>::log1p(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray log1pArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::log1p(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype log2Scalar(dtype inValue)
+    {
+        return Methods<dtype>::log2(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray log2Array(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::log2(inArray));
+    }
+
+    template<typename dtype>
+    dtype newbyteorderScalar(dtype inValue, Endian::Type inEndianess)
+    {
+        return Methods<dtype>::newbyteorder(inValue, inEndianess);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray newbyteorderArray(const NdArray<dtype>& inArray, Endian::Type inEndianess)
+    {
+        return numCToBoost(Methods<dtype>::newbyteorder(inArray, inEndianess));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray onesSquare(uint32 inSquareSize)
+    {
+        return numCToBoost(Methods<dtype>::ones(inSquareSize));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray onesRowCol(uint32 inNumRows, uint32 inNumCols)
+    {
+        return numCToBoost(Methods<dtype>::ones(inNumRows, inNumCols));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray onesShape(const Shape& inShape)
+    {
+        return numCToBoost(Methods<dtype>::ones(inShape));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray sqrArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::sqr(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray powerArrayScalar(const NdArray<dtype>& inArray, uint8 inExponent)
+    {
+        return numCToBoost(Methods<dtype>::power<dtypeOut>(inArray, inExponent));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray powerArrayArray(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
+    {
+        return numCToBoost(Methods<dtype>::power<dtypeOut>(inArray, inExponents));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype rad2degScalar(dtype inValue)
+    {
+        return Methods<dtype>::rad2deg(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray rad2degArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::rad2deg(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    dtype remainderScalar(dtype inValue1, dtype inValue2)
+    {
+        return Methods<dtype>::remainder<dtypeOut>(inValue1, inValue2);
+    }
+
+    //================================================================================
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray remainderArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(Methods<dtype>::remainder<dtypeOut>(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    void reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
+    {
+        Methods<dtype>::reshape(inArray, inNewShape);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    void reshapeList(NdArray<dtype>& inArray, const Shape& inNewShape)
+    {
+        Methods<dtype>::reshape(inArray, inNewShape.rows, inNewShape.cols);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    void resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
+    {
+        Methods<dtype>::resizeFast(inArray, inNewShape);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    void resizeFastList(NdArray<dtype>& inArray, const Shape& inNewShape)
+    {
+        Methods<dtype>::resizeFast(inArray, inNewShape.rows, inNewShape.cols);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    void resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
+    {
+        Methods<dtype>::resizeSlow(inArray, inNewShape);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    void resizeSlowList(NdArray<dtype>& inArray, const Shape& inNewShape)
+    {
+        Methods<dtype>::resizeSlow(inArray, inNewShape.rows, inNewShape.cols);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype rintScalar(dtype inValue)
+    {
+        return Methods<dtype>::rint(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray rintArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::rint(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype roundScalar(dtype inValue, uint8 inDecimals)
+    {
+        return Methods<dtype>::round(inValue, inDecimals);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray roundArray(const NdArray<dtype>& inArray, uint8 inDecimals)
+    {
+        return numCToBoost(Methods<dtype>::round(inArray, inDecimals));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray row_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    {
+        return numCToBoost(Methods<dtype>::row_stack({ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    int8 signScalar(dtype inValue)
+    {
+        return Methods<dtype>::sign(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray signArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::sign(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    bool signbitScalar(dtype inValue)
+    {
+        return Methods<dtype>::signbit(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray signbitArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::signbit(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    double sinScalar(dtype inValue)
+    {
+        return Methods<dtype>::sin(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray sinArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::sin(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    double sincScalar(dtype inValue)
+    {
+        return Methods<dtype>::sinc(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray sincArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::sinc(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    double sinhScalar(dtype inValue)
+    {
+        return Methods<dtype>::sinh(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray sinhArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::sinh(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    double sqrtScalar(dtype inValue)
+    {
+        return Methods<dtype>::sqrt(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray sqrtArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::sqrt(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    double squareScalar(dtype inValue)
+    {
+        return Methods<dtype>::square(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray squareArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::square(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    double tanScalar(dtype inValue)
+    {
+        return Methods<dtype>::tan(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray tanArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::tan(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    double tanhScalar(dtype inValue)
+    {
+        return Methods<dtype>::tanh(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray tanhArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::tanh(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray tileRectangle(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+    {
+        return numCToBoost(Methods<dtype>::tile(inArray, inNumRows, inNumCols));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray tileShape(const NdArray<dtype>& inArray, const Shape& inRepShape)
+    {
+        return numCToBoost(Methods<dtype>::tile(inArray, inRepShape));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray tileList(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+    {
+        return numCToBoost(Methods<dtype>::tile(inArray, { inNumRows, inNumCols }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray triSquare(uint32 inSquareSize, int32 inOffset)
+    {
+        return numCToBoost(Methods<dtype>::tri(inSquareSize, inOffset));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray triRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
+    {
+        return numCToBoost(Methods<dtype>::tri(inNumRows, inNumCols, inOffset));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype unwrapScalar(dtype inValue)
+    {
+        return Methods<dtype>::unwrap(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray unwrapArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::unwrap(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    double truncScalar(dtype inValue)
+    {
+        return Methods<dtype>::trunc(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray truncArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Methods<dtype>::trunc(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray vstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    {
+        return numCToBoost(Methods<dtype>::vstack({ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray zerosSquare(uint32 inSquareSize)
+    {
+        return numCToBoost(Methods<dtype>::zeros(inSquareSize));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray zerosRowCol(uint32 inNumRows, uint32 inNumCols)
+    {
+        return numCToBoost(Methods<dtype>::zeros(inNumRows, inNumCols));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray zerosShape(const Shape& inShape)
+    {
+        return numCToBoost(Methods<dtype>::zeros(inShape));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray zerosList(uint32 inNumRows, uint32 inNumCols)
+    {
+        return numCToBoost(Methods<dtype>::zeros({ inNumRows, inNumCols }));
+    }
+}
+
 //namespace RandomInterface
 //{
 //    template<typename dtype>
@@ -2190,7 +2190,7 @@ namespace NdArrayInterface
 //        return numCToBoost(Random<dtype>::permutation(inArray));
 //    }
 //}
-//
+
 //namespace LinalgInterface
 //{
 //    template<typename dtype>
@@ -2304,21 +2304,21 @@ namespace NdArrayInterface
 //        return self.radianSeperation(inVec);
 //    }
 //}
-//
-//namespace DataCubeInterface
-//{
-//    template<typename dtype>
-//    NdArray<dtype>& at(DataCube<dtype>& self, uint32 inIndex)
-//    {
-//        return self.at(inIndex);
-//    }
-//
-//    template<typename dtype>
-//    NdArray<dtype>& getItem(DataCube<dtype>& self, uint32 inIndex)
-//    {
-//        return self[inIndex];
-//    }
-//}
+
+namespace DataCubeInterface
+{
+    template<typename dtype>
+    NdArray<dtype>& at(DataCube<dtype>& self, uint32 inIndex)
+    {
+        return self.at(inIndex);
+    }
+
+    template<typename dtype>
+    NdArray<dtype>& getItem(DataCube<dtype>& self, uint32 inIndex)
+    {
+        return self[inIndex];
+    }
+}
 
 //================================================================================
 
@@ -2597,288 +2597,287 @@ BOOST_PYTHON_MODULE(NumC)
         .def("endianess", &NdArrayFloat::endianess)
         .def("setArray", &NdArrayInterface::setArray<float>);
 
-    //// Methods.hpp
-    //typedef Methods<double> MethodsDouble;
-    //bp::class_<MethodsDouble>
-    //    ("MethodsDouble", bp::init<>())
-    //    .def("abs", &MethodsInterface::absScalar<double>).staticmethod("abs")
-    //    .def("abs", &MethodsInterface::absArray<double>).staticmethod("abs")
-    //    .def("add", &MethodsInterface::addArrays<double, double>).staticmethod("add")
-    //    //.def("add", &MethodsInterface::addArrays<double, float>).staticmethod("add")
-    //    .def("alen", &MethodsDouble::alen).staticmethod("alen")
-    //    .def("all", &MethodsInterface::allArray<double>).staticmethod("all")
-    //    .def("allclose", &MethodsDouble::allclose).staticmethod("allclose")
-    //    .def("amin", &MethodsInterface::aminArray<double>).staticmethod("amin")
-    //    .def("amax", &MethodsInterface::amaxArray<double>).staticmethod("amax")
-    //    .def("any", &MethodsInterface::anyArray<double>).staticmethod("any")
-    //    .def("append", &MethodsDouble::append).staticmethod("append")
-    //    .def("arange", &MethodsInterface::arangeArray<double>).staticmethod("arange")
-    //    .def("argmax", &MethodsInterface::argmaxArray<double>).staticmethod("argmax")
-    //    .def("argmin", &MethodsInterface::argminArray<double>).staticmethod("argmin")
-    //    .def("argsort", &MethodsInterface::argsortArray<double>).staticmethod("argsort")
-    //    .def("argwhere", &MethodsInterface::argwhere<double>).staticmethod("argwhere")
-    //    .def("arccos", &MethodsInterface::arccosScalar<double>).staticmethod("arccos")
-    //    .def("arccos", &MethodsInterface::arccosArray<double>).staticmethod("arccos")
-    //    .def("arccosh", &MethodsInterface::arccoshScalar<double>).staticmethod("arccosh")
-    //    .def("arccosh", &MethodsInterface::arccoshArray<double>).staticmethod("arccosh")
-    //    .def("arcsin", &MethodsInterface::arcsinScalar<double>).staticmethod("arcsin")
-    //    .def("arcsin", &MethodsInterface::arcsinArray<double>).staticmethod("arcsin")
-    //    .def("arcsinh", &MethodsInterface::arcsinhScalar<double>).staticmethod("arcsinh")
-    //    .def("arcsinh", &MethodsInterface::arcsinhArray<double>).staticmethod("arcsinh")
-    //    .def("arctan", &MethodsInterface::arctanScalar<double>).staticmethod("arctan")
-    //    .def("arctan", &MethodsInterface::arctanArray<double>).staticmethod("arctan")
-    //    .def("arctan2", &MethodsInterface::arctan2Scalar<double>).staticmethod("arctan2")
-    //    .def("arctan2", &MethodsInterface::arctan2Array<double>).staticmethod("arctan2")
-    //    .def("arctanh", &MethodsInterface::arctanhScalar<double>).staticmethod("arctanh")
-    //    .def("arctanh", &MethodsInterface::arctanhArray<double>).staticmethod("arctanh")
-    //    .def("around", &MethodsInterface::aroundScalar<double>).staticmethod("around")
-    //    .def("around", &MethodsInterface::aroundArray<double>).staticmethod("around")
-    //    .def("array_equal", &MethodsDouble::array_equal).staticmethod("array_equal")
-    //    .def("array_equiv", &MethodsDouble::array_equiv).staticmethod("array_equiv")
-    //    .def("asarray", &MethodsInterface::asarrayVector<double>).staticmethod("asarray")
-    //    .def("asarray", &MethodsInterface::asarrayList<double>).staticmethod("asarray")
-    //    .def("astype", &Methods<uint32>::astype<double>).staticmethod("astype")
-    //    .def("average", &MethodsInterface::average<double>).staticmethod("average")
-    //    .def("average", &MethodsInterface::averageWeighted<double>).staticmethod("average")
-    //    .def("bincount", &MethodsInterface::bincount<uint32>).staticmethod("bincount")
-    //    .def("bincount", &MethodsInterface::bincountWeighted<uint32>).staticmethod("bincount")
-    //    .def("bitwise_and", &MethodsInterface::bitwise_and<uint64>).staticmethod("bitwise_and")
-    //    .def("bitwise_not", &MethodsInterface::bitwise_not<uint64>).staticmethod("bitwise_not")
-    //    .def("bitwise_or", &MethodsInterface::bitwise_or<uint64>).staticmethod("bitwise_or")
-    //    .def("bitwise_xor", &MethodsInterface::bitwise_xor<uint64>).staticmethod("bitwise_xor")
-    //    .def("byteswap", &MethodsInterface::byteswap<uint64>).staticmethod("byteswap")
-    //    .def("cbrt", &MethodsInterface::cbrtScalar<double>).staticmethod("cbrt")
-    //    .def("cbrt", &MethodsInterface::cbrtArray<double>).staticmethod("cbrt")
-    //    .def("ceil", &MethodsInterface::ceilScalar<double>).staticmethod("ceil")
-    //    .def("ceil", &MethodsInterface::ceilArray<double>).staticmethod("ceil")
-    //    .def("clip", &MethodsInterface::clipScalar<double>).staticmethod("clip")
-    //    .def("clip", &MethodsInterface::clipArray<double>).staticmethod("clip")
-    //    .def("column_stack", &MethodsInterface::column_stack<double>).staticmethod("column_stack")
-    //    .def("concatenate", &MethodsInterface::concatenate<double>).staticmethod("concatenate")
-    //    .def("contains", &MethodsDouble::contains).staticmethod("contains")
-    //    .def("copy", &MethodsInterface::copy<double>).staticmethod("copy")
-    //    .def("copysign", &MethodsInterface::copySign<double>).staticmethod("copysign")
-    //    .def("copyto", &MethodsInterface::copyto<double>).staticmethod("copyto")
-    //    .def("cos", &MethodsInterface::cosScalar<double>).staticmethod("cos")
-    //    .def("cos", &MethodsInterface::cosArray<double>).staticmethod("cos")
-    //    .def("cosh", &MethodsInterface::coshScalar<double>).staticmethod("cosh")
-    //    .def("cosh", &MethodsInterface::coshArray<double>).staticmethod("cosh")
-    //    .def("count_nonzero", &MethodsInterface::count_nonzero<double>).staticmethod("count_nonzero")
-    //    .def("cross", &MethodsDouble::cross<double>).staticmethod("cross")
-    //    //.def("cross", &MethodsDouble::cross<double>).staticmethod("cross")
-    //    .def("cube", &MethodsInterface::cubeArray<double, double>).staticmethod("cube")
-    //    //.def("cube", &MethodsInterface::cubeArray<double, float>).staticmethod("cube")
-    //    .def("cumprod", &MethodsInterface::cumprodArray<double, double>).staticmethod("cumprod")
-    //    //.def("cumprod", &MethodsInterface::cumprodArray<double, float>).staticmethod("cumprod")
-    //    .def("cumsum", &MethodsInterface::cumsumArray<double, double>).staticmethod("cumsum")
-    //    //.def("cumsum", &MethodsInterface::cumsumArray<double, float>).staticmethod("cumsum")
-    //    .def("deg2rad", &MethodsInterface::deg2radScalar<double>).staticmethod("deg2rad")
-    //    .def("deg2rad", &MethodsInterface::deg2radArray<double>).staticmethod("deg2rad")
-    //    .def("delete", &MethodsInterface::deleteIndicesScalar<double>).staticmethod("delete")
-    //    .def("delete", &MethodsInterface::deleteIndicesSlice<double>).staticmethod("delete")
-    //    .def("diagflat", &MethodsInterface::diagflat<double>).staticmethod("diagflat")
-    //    .def("diagonal", &MethodsInterface::diagonal<double>).staticmethod("diagonal")
-    //    .def("diff", &MethodsInterface::diff<double>).staticmethod("diff")
-    //    .def("divide", &MethodsInterface::divide<double, double>).staticmethod("divide")
-    //    //.def("divide", &MethodsInterface::divide<double, float>).staticmethod("divide")
-    //    .def("dot", &MethodsInterface::dot<double, double>).staticmethod("dot")
-    //    //.def("dot", &MethodsInterface::dot<double, float>).staticmethod("dot")
-    //    .def("dump", &MethodsDouble::dump).staticmethod("dump")
-    //    .def("empty", &MethodsInterface::emptyRowCol<double>).staticmethod("empty")
-    //    .def("empty", &MethodsInterface::emptyShape<double>).staticmethod("empty")
-    //    .def("empty_like", &MethodsDouble::empty_like<double>).staticmethod("empty_like")
-    //    //.def("empty_like", &MethodsDouble::empty_like<float>).staticmethod("empty_like")
-    //    .def("endianess", &MethodsDouble::endianess).staticmethod("endianess")
-    //    .def("equal", &MethodsInterface::equal<double>).staticmethod("equal")
-    //    .def("exp", &MethodsInterface::expScalar<double>).staticmethod("exp")
-    //    .def("exp", &MethodsInterface::expArray<double>).staticmethod("exp")
-    //    .def("exp2", &MethodsInterface::exp2Scalar<double>).staticmethod("exp2")
-    //    .def("exp2", &MethodsInterface::exp2Array<double>).staticmethod("exp2")
-    //    .def("expm1", &MethodsInterface::expm1Scalar<double>).staticmethod("expm1")
-    //    .def("expm1", &MethodsInterface::expm1Array<double>).staticmethod("expm1")
-    //    .def("eye", &MethodsInterface::eye1D<double>).staticmethod("eye")
-    //    .def("eye", &MethodsInterface::eye2D<double>).staticmethod("eye")
-    //    .def("eye", &MethodsInterface::eyeShape<double>).staticmethod("eye")
-    //    .def("fix", &MethodsInterface::fixScalar<double>).staticmethod("fix")
-    //    .def("fix", &MethodsInterface::fixArray<double>).staticmethod("fix")
-    //    .def("flatten", &MethodsDouble::flatten).staticmethod("flatten")
-    //    .def("flatnonzero", &MethodsDouble::flatnonzero).staticmethod("flatnonzero")
-    //    .def("flip", &MethodsDouble::flip).staticmethod("flip")
-    //    .def("fliplr", &MethodsDouble::fliplr).staticmethod("fliplr")
-    //    .def("flipud", &MethodsDouble::flipud).staticmethod("flipud")
-    //    .def("floor", &MethodsInterface::floorScalar<double>).staticmethod("floor")
-    //    .def("floor", &MethodsInterface::floorArray<double>).staticmethod("floor")
-    //    .def("floor_divide", &MethodsInterface::floor_divideScalar<double>).staticmethod("floor_divide")
-    //    .def("floor_divide", &MethodsInterface::floor_divideArray<double>).staticmethod("floor_divide")
-    //    .def("fmax", &MethodsInterface::fmaxScalar<double>).staticmethod("fmax")
-    //    .def("fmax", &MethodsInterface::fmaxArray<double>).staticmethod("fmax")
-    //    .def("fmin", &MethodsInterface::fminScalar<double>).staticmethod("fmin")
-    //    .def("fmin", &MethodsInterface::fminArray<double>).staticmethod("fmin")
-    //    .def("fmod", &MethodsInterface::fmodScalar<uint32>).staticmethod("fmod")
-    //    .def("fmod", &MethodsInterface::fmodArray<uint32>).staticmethod("fmod")
-    //    .def("fromfile", &MethodsDouble::fromfile).staticmethod("fromfile")
-    //    .def("full", &MethodsInterface::fullSquare<double>).staticmethod("full")
-    //    .def("full", &MethodsInterface::fullRowCol<double>).staticmethod("full")
-    //    .def("full", &MethodsInterface::fullShape<double>).staticmethod("full")
-    //    .def("full_like", &MethodsDouble::full_like<double>).staticmethod("full_like")
-    //    //.def("full_like", &MethodsDouble::full_like<float>).staticmethod("full_like")
-    //    .def("greater", &MethodsDouble::greater).staticmethod("greater")
-    //    .def("greater_equal", &MethodsDouble::greater_equal).staticmethod("greater_equal")
-    //    .def("hstack", &MethodsInterface::hstack<double>).staticmethod("hstack")
-    //    .def("hypot", &MethodsInterface::hypotScalar<double, double>).staticmethod("hypot")
-    //    //.def("hypot", &MethodsInterface::hypotScalar<double, float>).staticmethod("hypot")
-    //    .def("hypot", &MethodsInterface::hypotArray<double, double>).staticmethod("hypot")
-    //    //.def("hypot", &MethodsInterface::hypotArray<double, float>).staticmethod("hypot")
-    //    .def("identity", &MethodsDouble::identity).staticmethod("identity")
-    //    .def("intersect1d", &Methods<uint32>::intersect1d).staticmethod("intersect1d")
-    //    .def("invert", &Methods<uint32>::invert).staticmethod("invert")
-    //    .def("isclose", &MethodsDouble::isclose).staticmethod("isclose")
-    //    .def("isnan", &MethodsInterface::isnanScalar<double>).staticmethod("isnan")
-    //    .def("isnan", &MethodsInterface::isnanArray<double>).staticmethod("isnan")
-    //    .def("ldexp", &MethodsInterface::ldexpScalar<double>).staticmethod("ldexp")
-    //    .def("ldexp", &MethodsInterface::ldexpArray<double>).staticmethod("ldexp")
-    //    .def("left_shift", &Methods<uint32>::left_shift).staticmethod("left_shift")
-    //    .def("less", &MethodsDouble::less).staticmethod("less")
-    //    .def("less_equal", &MethodsDouble::less_equal).staticmethod("less_equal")
-    //    .def("linspace", &MethodsDouble::linspace).staticmethod("linspace")
-    //    .def("load", &MethodsDouble::load).staticmethod("load")
-    //    .def("log", &MethodsInterface::logScalar<double>).staticmethod("log")
-    //    .def("log", &MethodsInterface::logArray<double>).staticmethod("log")
-    //    .def("log10", &MethodsInterface::log10Scalar<double>).staticmethod("log10")
-    //    .def("log10", &MethodsInterface::log10Array<double>).staticmethod("log10")
-    //    .def("log1p", &MethodsInterface::log1pScalar<double>).staticmethod("log1p")
-    //    .def("log1p", &MethodsInterface::log1pArray<double>).staticmethod("log1p")
-    //    .def("log2", &MethodsInterface::log2Scalar<double>).staticmethod("log2")
-    //    .def("log2", &MethodsInterface::log2Array<double>).staticmethod("log2")
-    //    .def("logical_and", &MethodsDouble::logical_and).staticmethod("logical_and")
-    //    .def("logical_not", &MethodsDouble::logical_not).staticmethod("logical_not")
-    //    .def("logical_or", &MethodsDouble::logical_or).staticmethod("logical_or")
-    //    .def("logical_xor", &MethodsDouble::logical_xor).staticmethod("logical_xor")
-    //    .def("matmul", &MethodsDouble::matmul<double>).staticmethod("matmul")
-    //    //.def("matmul", &MethodsDouble::matmul<double, float>).staticmethod("matmul")
-    //    .def("max", &MethodsDouble::max).staticmethod("max")
-    //    .def("maximum", &MethodsDouble::maximum).staticmethod("maximum")
-    //    .def("mean", &MethodsDouble::mean).staticmethod("mean")
-    //    .def("median", &MethodsDouble::median).staticmethod("median")
-    //    .def("min", &MethodsDouble::min).staticmethod("min")
-    //    .def("minimum", &MethodsDouble::minimum).staticmethod("minimum")
-    //    .def("mod", &Methods<uint32>::mod).staticmethod("mod")
-    //    .def("multiply", &MethodsDouble::multiply).staticmethod("multiply")
-    //    .def("nanargmax", &MethodsDouble::nanargmax).staticmethod("nanargmax")
-    //    .def("nanargmin", &MethodsDouble::nanargmin).staticmethod("nanargmin")
-    //    .def("nancumprod", &MethodsDouble::nancumprod<double>).staticmethod("nancumprod")
-    //    //.def("nancumprod", &MethodsDouble::nancumprod<float>).staticmethod("nancumprod")
-    //    .def("nancumsum", &MethodsDouble::nancumsum<double>).staticmethod("nancumsum")
-    //    //.def("nancumsum", &MethodsDouble::nancumsum<float>).staticmethod("nancumsum")
-    //    .def("nanmax", &MethodsDouble::nanmax).staticmethod("nanmax")
-    //    .def("nanmean", &MethodsDouble::nanmean).staticmethod("nanmean")
-    //    .def("nanmedian", &MethodsDouble::nanmedian).staticmethod("nanmedian")
-    //    .def("nanmin", &MethodsDouble::nanmin).staticmethod("nanmin")
-    //    .def("nanpercentile", &MethodsDouble::nanpercentile<double>).staticmethod("nanpercentile")
-    //    .def("nanprod", &MethodsDouble::nanprod<double>).staticmethod("nanprod")
-    //    //.def("nanprod", &MethodsDouble::nanprod<float>).staticmethod("nanprod")
-    //    .def("nanstd", &MethodsDouble::nanstd).staticmethod("nanstd")
-    //    .def("nansum", &MethodsDouble::nansum<double>).staticmethod("nansum")
-    //    //.def("nansum", &MethodsDouble::nansum<double, float>).staticmethod("nansum")
-    //    .def("nanvar", &MethodsDouble::nanvar).staticmethod("nanvar")
-    //    .def("nbytes", &MethodsDouble::nbytes).staticmethod("nbytes")
-    //    .def("newbyteorder", &MethodsInterface::newbyteorderScalar<uint32>).staticmethod("newbyteorder")
-    //    .def("newbyteorder", &MethodsInterface::newbyteorderArray<uint32>).staticmethod("newbyteorder")
-    //    .def("negative", &MethodsDouble::negative<double>).staticmethod("negative")
-    //    //.def("negative", &MethodsDouble::negative<float>).staticmethod("negative")
-    //    .def("nonzero", &MethodsDouble::nonzero).staticmethod("nonzero")
-    //    .def("norm", &MethodsDouble::norm<double>).staticmethod("norm")
-    //    //.def("norm", &MethodsDouble::norm<double, float>).staticmethod("norm")
-    //    .def("not_equal", &MethodsDouble::not_equal).staticmethod("not_equal")
-    //    .def("ones", &MethodsInterface::onesSquare<double>).staticmethod("ones")
-    //    .def("ones", &MethodsInterface::onesRowCol<double>).staticmethod("ones")
-    //    .def("ones", &MethodsInterface::onesShape<double>).staticmethod("ones")
-    //    .def("ones_like", &MethodsDouble::ones_like<double>).staticmethod("ones_like")
-    //    //.def("ones_like", &MethodsDouble::ones_like<double, float>).staticmethod("ones_like")
-    //    .def("pad", &MethodsDouble::pad).staticmethod("pad")
-    //    .def("partition", &MethodsDouble::partition).staticmethod("partition")
-    //    .def("percentile", &MethodsDouble::percentile<double>).staticmethod("percentile")
-    //    //.def("percentile", &MethodsDouble::percentile<double, float>).staticmethod("percentile")
-    //    .def("power", &MethodsInterface::powerArrayScalar<double, double>).staticmethod("power")
-    //    //.def("power", &MethodsInterface::powerArrayScalar<double, float>).staticmethod("power")
-    //    .def("power", &MethodsInterface::powerArrayArray<double, double>).staticmethod("power")
-    //    //.def("power", &MethodsInterface::powerArrayArray<double, float>).staticmethod("power")
-    //    .def("prod", &MethodsDouble::prod<double>).staticmethod("prod")
-    //    //.def("prod", &MethodsDouble::prod<double, float>).staticmethod("prod")
-    //    .def("ptp", &MethodsDouble::ptp).staticmethod("ptp")
-    //    .def("put", &MethodsDouble::put).staticmethod("put")
-    //    .def("rad2deg", &MethodsInterface::rad2degScalar<double>).staticmethod("rad2deg")
-    //    .def("rad2deg", &MethodsInterface::rad2degArray<double>).staticmethod("rad2deg")
-    //    .def("reciprocal", &MethodsDouble::reciprocal<double>).staticmethod("reciprocal")
-    //    //.def("reciprocal", &MethodsDouble::reciprocal<double, float>).staticmethod("reciprocal")
-    //    .def("remainder", &MethodsInterface::remainderScalar<double, double>).staticmethod("remainder")
-    //    //.def("remainder", &MethodsInterface::remainderScalar<double, float>).staticmethod("remainder")
-    //    .def("remainder", &MethodsInterface::remainderArray<double, double>).staticmethod("remainder")
-    //    //.def("remainder", &MethodsInterface::remainderArray<double, float>).staticmethod("remainder")
-    //    .def("reshape", &MethodsInterface::reshape<double>).staticmethod("reshape")
-    //    .def("reshapeList", &MethodsInterface::reshapeList<double>).staticmethod("reshapeList")
-    //    .def("resizeFast", &MethodsInterface::resizeFast<double>).staticmethod("resizeFast")
-    //    .def("resizeFastList", &MethodsInterface::resizeFastList<double>).staticmethod("resizeFastList")
-    //    .def("resizeSlow", &MethodsInterface::resizeSlow<double>).staticmethod("resizeSlow")
-    //    .def("resizeSlowList", &MethodsInterface::resizeSlowList<double>).staticmethod("resizeSlowList")
-    //    .def("right_shift", &Methods<uint32>::right_shift).staticmethod("right_shift")
-    //    .def("rint", &MethodsInterface::rintScalar<double>).staticmethod("rint")
-    //    .def("rint", &MethodsInterface::rintArray<double>).staticmethod("rint")
-    //    .def("roll", &MethodsDouble::roll).staticmethod("roll")
-    //    .def("rot90", &MethodsDouble::rot90).staticmethod("rot90")
-    //    .def("round", &MethodsInterface::roundScalar<double>).staticmethod("round")
-    //    .def("round", &MethodsInterface::roundArray<double>).staticmethod("round")
-    //    .def("row_stack", &MethodsInterface::row_stack<double>).staticmethod("row_stack")
-    //    .def("setdiff1d", &Methods<uint32>::setdiff1d).staticmethod("setdiff1d")
-    //    .def("sign", &MethodsInterface::signScalar<double>).staticmethod("sign")
-    //    .def("sign", &MethodsInterface::signArray<double>).staticmethod("sign")
-    //    .def("signbit", &MethodsInterface::signbitScalar<double>).staticmethod("signbit")
-    //    .def("signbit", &MethodsInterface::signbitArray<double>).staticmethod("signbit")
-    //    .def("sin", &MethodsInterface::sinScalar<double>).staticmethod("sin")
-    //    .def("sin", &MethodsInterface::sinArray<double>).staticmethod("sin")
-    //    .def("sinc", &MethodsInterface::sincScalar<double>).staticmethod("sinc")
-    //    .def("sinc", &MethodsInterface::sincArray<double>).staticmethod("sinc")
-    //    .def("sinh", &MethodsInterface::sinhScalar<double>).staticmethod("sinh")
-    //    .def("sinh", &MethodsInterface::sinhArray<double>).staticmethod("sinh")
-    //    .def("size", &MethodsDouble::size).staticmethod("size")
-    //    .def("sort", &MethodsDouble::sort).staticmethod("sort")
-    //    .def("sqrt", &MethodsInterface::sqrtScalar<double>).staticmethod("sqrt")
-    //    .def("sqrt", &MethodsInterface::sqrtArray<double>).staticmethod("sqrt")
-    //    .def("square", &MethodsInterface::squareScalar<double>).staticmethod("square")
-    //    .def("square", &MethodsInterface::squareArray<double>).staticmethod("square")
-    //    .def("std", &MethodsDouble::std).staticmethod("std")
-    //    .def("sum", &MethodsDouble::sum<double>).staticmethod("sum")
-    //    //.def("sum", &MethodsDouble::sum<float>).staticmethod("sum")
-    //    .def("swapaxes", &MethodsDouble::swapaxes).staticmethod("swapaxes")
-    //    .def("tan", &MethodsInterface::tanScalar<double>).staticmethod("tan")
-    //    .def("tan", &MethodsInterface::tanArray<double>).staticmethod("tan")
-    //    .def("tanh", &MethodsInterface::tanhScalar<double>).staticmethod("tanh")
-    //    .def("tanh", &MethodsInterface::tanhArray<double>).staticmethod("tanh")
-    //    .def("tile", &MethodsInterface::tileRectangle<double>).staticmethod("tile")
-    //    .def("tile", &MethodsInterface::tileShape<double>).staticmethod("tile")
-    //    .def("tileList", &MethodsInterface::tileList<double>).staticmethod("tileList")
-    //    .def("tofile", &MethodsDouble::tofile).staticmethod("tofile")
-    //    .def("toStlVector", &MethodsDouble::toStlVector).staticmethod("toStlVector")
-    //    .def("trace", &MethodsDouble::trace<double>).staticmethod("trace")
-    //    //.def("trace", &MethodsDouble::trace<double, float>).staticmethod("trace")
-    //    .def("transpose", &MethodsDouble::transpose).staticmethod("transpose")
-    //    .def("tri", &MethodsInterface::triSquare<double>).staticmethod("tri")
-    //    .def("tri", &MethodsInterface::triRect<double>).staticmethod("tri")
-    //    //.def("tril", &MethodsDouble::tril).staticmethod("tril")
-    //    //.def("triu", &MethodsDouble::triu).staticmethod("triu")
-    //    .def("trim_zeros", &MethodsDouble::trim_zeros).staticmethod("trim_zeros")
-    //    .def("trunc", &MethodsInterface::truncScalar<double>).staticmethod("trunc")
-    //    .def("trunc", &MethodsInterface::truncArray<double>).staticmethod("trunc")
-    //    .def("union1d", &Methods<uint32>::union1d).staticmethod("union1d")
-    //    .def("unique", &MethodsDouble::unique).staticmethod("unique")
-    //    .def("unwrap", &MethodsInterface::unwrapScalar<double>).staticmethod("unwrap")
-    //    .def("unwrap", &MethodsInterface::unwrapArray<double>).staticmethod("unwrap")
-    //    .def("var", &MethodsDouble::var).staticmethod("var")
-    //    .def("vstack", &MethodsInterface::vstack<double>).staticmethod("vstack")
-    //    .def("zeros", &MethodsInterface::zerosSquare<double>).staticmethod("zeros")
-    //    .def("zeros", &MethodsInterface::zerosRowCol<double>).staticmethod("zeros")
-    //    .def("zeros", &MethodsInterface::zerosShape<double>).staticmethod("zeros")
-    //    .def("zerosList", &MethodsInterface::zerosList<double>).staticmethod("zerosList");
+    // Methods.hpp
+    typedef Methods<double> MethodsDouble;
+    bp::class_<MethodsDouble>
+        ("MethodsDouble", bp::init<>())
+        .def("absScalar", &MethodsInterface::absScalar<double>).staticmethod("absScalar")
+        .def("absArray", &MethodsInterface::absArray<double>).staticmethod("absArray")
+        .def("add", &MethodsInterface::addArrays<double, double>).staticmethod("add")
+        //.def("add", &MethodsInterface::addArrays<double, float>).staticmethod("add")
+        .def("alen", &MethodsDouble::alen).staticmethod("alen")
+        .def("all", &MethodsInterface::allArray<double>).staticmethod("all")
+        .def("allclose", &MethodsDouble::allclose).staticmethod("allclose")
+        .def("amin", &MethodsInterface::aminArray<double>).staticmethod("amin")
+        .def("amax", &MethodsInterface::amaxArray<double>).staticmethod("amax")
+        .def("any", &MethodsInterface::anyArray<double>).staticmethod("any")
+        .def("append", &MethodsDouble::append).staticmethod("append")
+        .def("arange", &MethodsInterface::arangeArray<double>).staticmethod("arange")
+        .def("arccosScalar", &MethodsInterface::arccosScalar<double>).staticmethod("arccosScalar")
+        .def("arccosArray", &MethodsInterface::arccosArray<double>).staticmethod("arccosArray")
+        .def("arccoshScalar", &MethodsInterface::arccoshScalar<double>).staticmethod("arccoshScalar")
+        .def("arccoshArray", &MethodsInterface::arccoshArray<double>).staticmethod("arccoshArray")
+        .def("arcsinScalar", &MethodsInterface::arcsinScalar<double>).staticmethod("arcsinScalar")
+        .def("arcsinArray", &MethodsInterface::arcsinArray<double>).staticmethod("arcsinArray")
+        .def("arcsinhScalar", &MethodsInterface::arcsinhScalar<double>).staticmethod("arcsinhScalar")
+        .def("arcsinhArray", &MethodsInterface::arcsinhArray<double>).staticmethod("arcsinhArray")
+        .def("arctanScalar", &MethodsInterface::arctanScalar<double>).staticmethod("arctanScalar")
+        .def("arctanArray", &MethodsInterface::arctanArray<double>).staticmethod("arctanArray")
+        .def("arctan2Scalar", &MethodsInterface::arctan2Scalar<double>).staticmethod("arctan2Scalar")
+        .def("arctan2Array", &MethodsInterface::arctan2Array<double>).staticmethod("arctan2Array")
+        .def("arctanhScalar", &MethodsInterface::arctanhScalar<double>).staticmethod("arctanhScalar")
+        .def("arctanhArray", &MethodsInterface::arctanhArray<double>).staticmethod("arctanhArray")
+        .def("argmax", &MethodsInterface::argmaxArray<double>).staticmethod("argmax")
+        .def("argmin", &MethodsInterface::argminArray<double>).staticmethod("argmin")
+        .def("argsort", &MethodsInterface::argsortArray<double>).staticmethod("argsort")
+        .def("argwhere", &MethodsInterface::argwhere<double>).staticmethod("argwhere")
+        .def("aroundScalar", &MethodsInterface::aroundScalar<double>).staticmethod("aroundScalar")
+        .def("aroundArray", &MethodsInterface::aroundArray<double>).staticmethod("aroundArray")
+        .def("array_equal", &MethodsDouble::array_equal).staticmethod("array_equal")
+        .def("array_equiv", &MethodsDouble::array_equiv).staticmethod("array_equiv")
+        .def("asarrayVector", &MethodsInterface::asarrayVector<double>).staticmethod("asarrayVector")
+        .def("asarrayList", &MethodsInterface::asarrayList<double>).staticmethod("asarrayList")
+        .def("astype", &Methods<uint32>::astype<double>).staticmethod("astype")
+        .def("average", &MethodsInterface::average<double>).staticmethod("average")
+        .def("averageWeighted", &MethodsInterface::averageWeighted<double>).staticmethod("averageWeighted")
+        .def("bincount", &MethodsInterface::bincount<uint32>).staticmethod("bincount")
+        .def("bincountWeighted", &MethodsInterface::bincountWeighted<uint32>).staticmethod("bincountWeighted")
+        .def("bitwise_and", &MethodsInterface::bitwise_and<uint64>).staticmethod("bitwise_and")
+        .def("bitwise_not", &MethodsInterface::bitwise_not<uint64>).staticmethod("bitwise_not")
+        .def("bitwise_or", &MethodsInterface::bitwise_or<uint64>).staticmethod("bitwise_or")
+        .def("bitwise_xor", &MethodsInterface::bitwise_xor<uint64>).staticmethod("bitwise_xor")
+        .def("byteswap", &MethodsInterface::byteswap<uint64>).staticmethod("byteswap")
+        .def("cbrtScalar", &MethodsInterface::cbrtScalar<double>).staticmethod("cbrtScalar")
+        .def("cbrtArray", &MethodsInterface::cbrtArray<double>).staticmethod("cbrtArray")
+        .def("ceilScalar", &MethodsInterface::ceilScalar<double>).staticmethod("ceilScalar")
+        .def("ceilArray", &MethodsInterface::ceilArray<double>).staticmethod("ceilArray")
+        .def("clipScalar", &MethodsInterface::clipScalar<double>).staticmethod("clipScalar")
+        .def("clipArray", &MethodsInterface::clipArray<double>).staticmethod("clipArray")
+        .def("column_stack", &MethodsInterface::column_stack<double>).staticmethod("column_stack")
+        .def("concatenate", &MethodsInterface::concatenate<double>).staticmethod("concatenate")
+        .def("contains", &MethodsDouble::contains).staticmethod("contains")
+        .def("copy", &MethodsInterface::copy<double>).staticmethod("copy")
+        .def("copysign", &MethodsInterface::copySign<double>).staticmethod("copysign")
+        .def("copyto", &MethodsInterface::copyto<double>).staticmethod("copyto")
+        .def("cosScalar", &MethodsInterface::cosScalar<double>).staticmethod("cosScalar")
+        .def("cosArray", &MethodsInterface::cosArray<double>).staticmethod("cosArray")
+        .def("coshScalar", &MethodsInterface::coshScalar<double>).staticmethod("coshScalar")
+        .def("coshArray", &MethodsInterface::coshArray<double>).staticmethod("coshArray")
+        .def("count_nonzero", &MethodsInterface::count_nonzero<double>).staticmethod("count_nonzero")
+        .def("cross", &MethodsDouble::cross<double>).staticmethod("cross")
+        .def("cube", &MethodsInterface::cubeArray<double, double>).staticmethod("cube")
+        //.def("cube", &MethodsInterface::cubeArray<double, float>).staticmethod("cube")
+        .def("cumprod", &MethodsInterface::cumprodArray<double, double>).staticmethod("cumprod")
+        //.def("cumprod", &MethodsInterface::cumprodArray<double, float>).staticmethod("cumprod")
+        .def("cumsum", &MethodsInterface::cumsumArray<double, double>).staticmethod("cumsum")
+        //.def("cumsum", &MethodsInterface::cumsumArray<double, float>).staticmethod("cumsum")
+        .def("deg2radScalar", &MethodsInterface::deg2radScalar<double>).staticmethod("deg2radScalar")
+        .def("deg2radArray", &MethodsInterface::deg2radArray<double>).staticmethod("deg2radArray")
+        .def("deleteIndicesScalar", &MethodsInterface::deleteIndicesScalar<double>).staticmethod("deleteIndicesScalar")
+        .def("deleteIndicesSlice", &MethodsInterface::deleteIndicesSlice<double>).staticmethod("deleteIndicesSlice")
+        .def("diagflat", &MethodsInterface::diagflat<double>).staticmethod("diagflat")
+        .def("diagonal", &MethodsInterface::diagonal<double>).staticmethod("diagonal")
+        .def("diff", &MethodsInterface::diff<double>).staticmethod("diff")
+        .def("divide", &MethodsInterface::divide<double, double>).staticmethod("divide")
+        //.def("divide", &MethodsInterface::divide<double, float>).staticmethod("divide")
+        .def("dot", &MethodsInterface::dot<double, double>).staticmethod("dot")
+        //.def("dot", &MethodsInterface::dot<double, float>).staticmethod("dot")
+        .def("dump", &MethodsDouble::dump).staticmethod("dump")
+        .def("emptyRowCol", &MethodsInterface::emptyRowCol<double>).staticmethod("emptyRowCol")
+        .def("emptyShape", &MethodsInterface::emptyShape<double>).staticmethod("emptyShape")
+        .def("empty_like", &MethodsDouble::empty_like<double>).staticmethod("empty_like")
+        //.def("empty_like", &MethodsDouble::empty_like<float>).staticmethod("empty_like")
+        .def("endianess", &MethodsDouble::endianess).staticmethod("endianess")
+        .def("equal", &MethodsInterface::equal<double>).staticmethod("equal")
+        .def("expScalar", &MethodsInterface::expScalar<double>).staticmethod("expScalar")
+        .def("expArray", &MethodsInterface::expArray<double>).staticmethod("expArray")
+        .def("exp2Scalar", &MethodsInterface::exp2Scalar<double>).staticmethod("exp2Scalar")
+        .def("exp2Array", &MethodsInterface::exp2Array<double>).staticmethod("exp2Array")
+        .def("expm1Scalar", &MethodsInterface::expm1Scalar<double>).staticmethod("expm1Scalar")
+        .def("expm1Array", &MethodsInterface::expm1Array<double>).staticmethod("expm1Array")
+        .def("eye1D", &MethodsInterface::eye1D<double>).staticmethod("eye1D")
+        .def("eye2D", &MethodsInterface::eye2D<double>).staticmethod("eye2D")
+        .def("eyeShape", &MethodsInterface::eyeShape<double>).staticmethod("eyeShape")
+        .def("fixScalar", &MethodsInterface::fixScalar<double>).staticmethod("fixScalar")
+        .def("fixArray", &MethodsInterface::fixArray<double>).staticmethod("fixArray")
+        .def("flatten", &MethodsDouble::flatten).staticmethod("flatten")
+        .def("flatnonzero", &MethodsDouble::flatnonzero).staticmethod("flatnonzero")
+        .def("flip", &MethodsDouble::flip).staticmethod("flip")
+        .def("fliplr", &MethodsDouble::fliplr).staticmethod("fliplr")
+        .def("flipud", &MethodsDouble::flipud).staticmethod("flipud")
+        .def("floorScalar", &MethodsInterface::floorScalar<double>).staticmethod("floorScalar")
+        .def("floorArray", &MethodsInterface::floorArray<double>).staticmethod("floorArray")
+        .def("floor_divideScalar", &MethodsInterface::floor_divideScalar<double>).staticmethod("floor_divideScalar")
+        .def("floor_divideArray", &MethodsInterface::floor_divideArray<double>).staticmethod("floor_divideArray")
+        .def("fmaxScalar", &MethodsInterface::fmaxScalar<double>).staticmethod("fmaxScalar")
+        .def("fmaxArray", &MethodsInterface::fmaxArray<double>).staticmethod("fmaxArray")
+        .def("fminScalar", &MethodsInterface::fminScalar<double>).staticmethod("fminScalar")
+        .def("fminArray", &MethodsInterface::fminArray<double>).staticmethod("fminArray")
+        .def("fmodScalar", &MethodsInterface::fmodScalar<uint32>).staticmethod("fmodScalar")
+        .def("fmodArray", &MethodsInterface::fmodArray<uint32>).staticmethod("fmodArray")
+        .def("fromfile", &MethodsDouble::fromfile).staticmethod("fromfile")
+        .def("fullSquare", &MethodsInterface::fullSquare<double>).staticmethod("fullSquare")
+        .def("fullRowCol", &MethodsInterface::fullRowCol<double>).staticmethod("fullRowCol")
+        .def("fullShape", &MethodsInterface::fullShape<double>).staticmethod("fullShape")
+        .def("full_like", &MethodsDouble::full_like<double>).staticmethod("full_like")
+        //.def("full_like", &MethodsDouble::full_like<float>).staticmethod("full_like")
+        .def("greater", &MethodsDouble::greater).staticmethod("greater")
+        .def("greater_equal", &MethodsDouble::greater_equal).staticmethod("greater_equal")
+        .def("hstack", &MethodsInterface::hstack<double>).staticmethod("hstack")
+        .def("hypotScalar", &MethodsInterface::hypotScalar<double, double>).staticmethod("hypotScalar")
+        //.def("hypotScalar", &MethodsInterface::hypotScalar<double, float>).staticmethod("hypot")
+        .def("hypotArray", &MethodsInterface::hypotArray<double, double>).staticmethod("hypotArray")
+        //.def("hypotArray", &MethodsInterface::hypotArray<double, float>).staticmethod("hypot")
+        .def("identity", &MethodsDouble::identity).staticmethod("identity")
+        .def("intersect1d", &Methods<uint32>::intersect1d).staticmethod("intersect1d")
+        .def("invert", &Methods<uint32>::invert).staticmethod("invert")
+        .def("isclose", &MethodsDouble::isclose).staticmethod("isclose")
+        .def("isnanScalar", &MethodsInterface::isnanScalar<double>).staticmethod("isnanScalar")
+        .def("isnanArray", &MethodsInterface::isnanArray<double>).staticmethod("isnanArray")
+        .def("ldexpScalar", &MethodsInterface::ldexpScalar<double>).staticmethod("ldexpScalar")
+        .def("ldexpArray", &MethodsInterface::ldexpArray<double>).staticmethod("ldexpArray")
+        .def("left_shift", &Methods<uint32>::left_shift).staticmethod("left_shift")
+        .def("less", &MethodsDouble::less).staticmethod("less")
+        .def("less_equal", &MethodsDouble::less_equal).staticmethod("less_equal")
+        .def("linspace", &MethodsDouble::linspace).staticmethod("linspace")
+        .def("load", &MethodsDouble::load).staticmethod("load")
+        .def("logScalar", &MethodsInterface::logScalar<double>).staticmethod("logScalar")
+        .def("logArray", &MethodsInterface::logArray<double>).staticmethod("logArray")
+        .def("log10Scalar", &MethodsInterface::log10Scalar<double>).staticmethod("log10Scalar")
+        .def("log10Array", &MethodsInterface::log10Array<double>).staticmethod("log10Array")
+        .def("log1pScalar", &MethodsInterface::log1pScalar<double>).staticmethod("log1pScalar")
+        .def("log1pArray", &MethodsInterface::log1pArray<double>).staticmethod("log1pArray")
+        .def("log2Scalar", &MethodsInterface::log2Scalar<double>).staticmethod("log2Scalar")
+        .def("log2Array", &MethodsInterface::log2Array<double>).staticmethod("log2Array")
+        .def("logical_and", &MethodsDouble::logical_and).staticmethod("logical_and")
+        .def("logical_not", &MethodsDouble::logical_not).staticmethod("logical_not")
+        .def("logical_or", &MethodsDouble::logical_or).staticmethod("logical_or")
+        .def("logical_xor", &MethodsDouble::logical_xor).staticmethod("logical_xor")
+        .def("matmul", &MethodsDouble::matmul<double>).staticmethod("matmul")
+        //.def("matmul", &MethodsDouble::matmul<float>).staticmethod("matmul")
+        .def("max", &MethodsDouble::max).staticmethod("max")
+        .def("maximum", &MethodsDouble::maximum).staticmethod("maximum")
+        .def("mean", &MethodsDouble::mean).staticmethod("mean")
+        .def("median", &MethodsDouble::median).staticmethod("median")
+        .def("min", &MethodsDouble::min).staticmethod("min")
+        .def("minimum", &MethodsDouble::minimum).staticmethod("minimum")
+        .def("mod", &Methods<uint32>::mod).staticmethod("mod")
+        .def("multiply", &MethodsDouble::multiply).staticmethod("multiply")
+        .def("nanargmax", &MethodsDouble::nanargmax).staticmethod("nanargmax")
+        .def("nanargmin", &MethodsDouble::nanargmin).staticmethod("nanargmin")
+        .def("nancumprod", &MethodsDouble::nancumprod<double>).staticmethod("nancumprod")
+        //.def("nancumprod", &MethodsDouble::nancumprod<float>).staticmethod("nancumprod")
+        .def("nancumsum", &MethodsDouble::nancumsum<double>).staticmethod("nancumsum")
+        //.def("nancumsum", &MethodsDouble::nancumsum<float>).staticmethod("nancumsum")
+        .def("nanmax", &MethodsDouble::nanmax).staticmethod("nanmax")
+        .def("nanmean", &MethodsDouble::nanmean).staticmethod("nanmean")
+        .def("nanmedian", &MethodsDouble::nanmedian).staticmethod("nanmedian")
+        .def("nanmin", &MethodsDouble::nanmin).staticmethod("nanmin")
+        .def("nanpercentile", &MethodsDouble::nanpercentile<double>).staticmethod("nanpercentile")
+        .def("nanprod", &MethodsDouble::nanprod<double>).staticmethod("nanprod")
+        //.def("nanprod", &MethodsDouble::nanprod<float>).staticmethod("nanprod")
+        .def("nanstd", &MethodsDouble::nanstd).staticmethod("nanstd")
+        .def("nansum", &MethodsDouble::nansum<double>).staticmethod("nansum")
+        //.def("nansum", &MethodsDouble::nansum<float>).staticmethod("nansum")
+        .def("nanvar", &MethodsDouble::nanvar).staticmethod("nanvar")
+        .def("nbytes", &MethodsDouble::nbytes).staticmethod("nbytes")
+        .def("newbyteorderScalar", &MethodsInterface::newbyteorderScalar<uint32>).staticmethod("newbyteorderScalar")
+        .def("newbyteorderArray", &MethodsInterface::newbyteorderArray<uint32>).staticmethod("newbyteorderArray")
+        .def("negative", &MethodsDouble::negative<double>).staticmethod("negative")
+        //.def("negative", &MethodsDouble::negative<float>).staticmethod("negative")
+        .def("nonzero", &MethodsDouble::nonzero).staticmethod("nonzero")
+        .def("norm", &MethodsDouble::norm<double>).staticmethod("norm")
+        //.def("norm", &MethodsDouble::norm<float>).staticmethod("norm")
+        .def("not_equal", &MethodsDouble::not_equal).staticmethod("not_equal")
+        .def("onesSquare", &MethodsInterface::onesSquare<double>).staticmethod("onesSquare")
+        .def("onesRowCol", &MethodsInterface::onesRowCol<double>).staticmethod("onesRowCol")
+        .def("onesShape", &MethodsInterface::onesShape<double>).staticmethod("onesShape")
+        .def("ones_like", &MethodsDouble::ones_like<double>).staticmethod("ones_like")
+        //.def("ones_like", &MethodsDouble::ones_like<float>).staticmethod("ones_like")
+        .def("pad", &MethodsDouble::pad).staticmethod("pad")
+        .def("partition", &MethodsDouble::partition).staticmethod("partition")
+        .def("percentile", &MethodsDouble::percentile<double>).staticmethod("percentile")
+        //.def("percentile", &MethodsDouble::percentile<float>).staticmethod("percentile")
+        .def("powerArrayScalar", &MethodsInterface::powerArrayScalar<double, double>).staticmethod("powerArrayScalar")
+        //.def("power", &MethodsInterface::powerArrayScalar<double, float>).staticmethod("power")
+        .def("powerArrayArray", &MethodsInterface::powerArrayArray<double, double>).staticmethod("powerArrayArray")
+        //.def("power", &MethodsInterface::powerArrayArray<double, float>).staticmethod("power")
+        .def("prod", &MethodsDouble::prod<double>).staticmethod("prod")
+        //.def("prod", &MethodsDouble::prod<float>).staticmethod("prod")
+        .def("ptp", &MethodsDouble::ptp).staticmethod("ptp")
+        .def("put", &MethodsDouble::put).staticmethod("put")
+        .def("rad2degScalar", &MethodsInterface::rad2degScalar<double>).staticmethod("rad2degScalar")
+        .def("rad2degArray", &MethodsInterface::rad2degArray<double>).staticmethod("rad2degArray")
+        .def("reciprocal", &MethodsDouble::reciprocal<double>).staticmethod("reciprocal")
+        //.def("reciprocal", &MethodsDouble::reciprocal<float>).staticmethod("reciprocal")
+        .def("remainderScalar", &MethodsInterface::remainderScalar<double, double>).staticmethod("remainderScalar")
+        //.def("remainder", &MethodsInterface::remainderScalar<double, float>).staticmethod("remainder")
+        .def("remainderArray", &MethodsInterface::remainderArray<double, double>).staticmethod("remainderArray")
+        //.def("remainder", &MethodsInterface::remainderArray<double, float>).staticmethod("remainder")
+        .def("reshape", &MethodsInterface::reshape<double>).staticmethod("reshape")
+        .def("reshapeList", &MethodsInterface::reshapeList<double>).staticmethod("reshapeList")
+        .def("resizeFast", &MethodsInterface::resizeFast<double>).staticmethod("resizeFast")
+        .def("resizeFastList", &MethodsInterface::resizeFastList<double>).staticmethod("resizeFastList")
+        .def("resizeSlow", &MethodsInterface::resizeSlow<double>).staticmethod("resizeSlow")
+        .def("resizeSlowList", &MethodsInterface::resizeSlowList<double>).staticmethod("resizeSlowList")
+        .def("right_shift", &Methods<uint32>::right_shift).staticmethod("right_shift")
+        .def("rintScalar", &MethodsInterface::rintScalar<double>).staticmethod("rintScalar")
+        .def("rintArray", &MethodsInterface::rintArray<double>).staticmethod("rintArray")
+        .def("roll", &MethodsDouble::roll).staticmethod("roll")
+        .def("rot90", &MethodsDouble::rot90).staticmethod("rot90")
+        .def("roundScalar", &MethodsInterface::roundScalar<double>).staticmethod("roundScalar")
+        .def("roundArray", &MethodsInterface::roundArray<double>).staticmethod("roundArray")
+        .def("row_stack", &MethodsInterface::row_stack<double>).staticmethod("row_stack")
+        .def("setdiff1d", &Methods<uint32>::setdiff1d).staticmethod("setdiff1d")
+        .def("signScalar", &MethodsInterface::signScalar<double>).staticmethod("signScalar")
+        .def("signArray", &MethodsInterface::signArray<double>).staticmethod("signArray")
+        .def("signbitScalar", &MethodsInterface::signbitScalar<double>).staticmethod("signbitScalar")
+        .def("signbitArray", &MethodsInterface::signbitArray<double>).staticmethod("signbitArray")
+        .def("sinScalar", &MethodsInterface::sinScalar<double>).staticmethod("sinScalar")
+        .def("sinArray", &MethodsInterface::sinArray<double>).staticmethod("sinArray")
+        .def("sincScalar", &MethodsInterface::sincScalar<double>).staticmethod("sincScalar")
+        .def("sincArray", &MethodsInterface::sincArray<double>).staticmethod("sincArray")
+        .def("sinhScalar", &MethodsInterface::sinhScalar<double>).staticmethod("sinhScalar")
+        .def("sinhArray", &MethodsInterface::sinhArray<double>).staticmethod("sinhArray")
+        .def("size", &MethodsDouble::size).staticmethod("size")
+        .def("sort", &MethodsDouble::sort).staticmethod("sort")
+        .def("sqrtScalar", &MethodsInterface::sqrtScalar<double>).staticmethod("sqrtScalar")
+        .def("sqrtArray", &MethodsInterface::sqrtArray<double>).staticmethod("sqrtArray")
+        .def("squareScalar", &MethodsInterface::squareScalar<double>).staticmethod("squareScalar")
+        .def("squareArray", &MethodsInterface::squareArray<double>).staticmethod("squareArray")
+        .def("std", &MethodsDouble::std).staticmethod("std")
+        .def("sum", &MethodsDouble::sum<double>).staticmethod("sum")
+        //.def("sum", &MethodsDouble::sum<float>).staticmethod("sum")
+        .def("swapaxes", &MethodsDouble::swapaxes).staticmethod("swapaxes")
+        .def("tanScalar", &MethodsInterface::tanScalar<double>).staticmethod("tanScalar")
+        .def("tanArray", &MethodsInterface::tanArray<double>).staticmethod("tanArray")
+        .def("tanhScalar", &MethodsInterface::tanhScalar<double>).staticmethod("tanhScalar")
+        .def("tanhArray", &MethodsInterface::tanhArray<double>).staticmethod("tanhArray")
+        .def("tileRectangle", &MethodsInterface::tileRectangle<double>).staticmethod("tileRectangle")
+        .def("tileShape", &MethodsInterface::tileShape<double>).staticmethod("tileShape")
+        .def("tileList", &MethodsInterface::tileList<double>).staticmethod("tileList")
+        .def("tofile", &MethodsDouble::tofile).staticmethod("tofile")
+        .def("toStlVector", &MethodsDouble::toStlVector).staticmethod("toStlVector")
+        .def("trace", &MethodsDouble::trace<double>).staticmethod("trace")
+        //.def("trace", &MethodsDouble::trace<float>).staticmethod("trace")
+        .def("transpose", &MethodsDouble::transpose).staticmethod("transpose")
+        .def("triSquare", &MethodsInterface::triSquare<double>).staticmethod("triSquare")
+        .def("triRect", &MethodsInterface::triRect<double>).staticmethod("triRect")
+        //.def("tril", &MethodsDouble::tril).staticmethod("tril")
+        //.def("triu", &MethodsDouble::triu).staticmethod("triu")
+        .def("trim_zeros", &MethodsDouble::trim_zeros).staticmethod("trim_zeros")
+        .def("truncScalar", &MethodsInterface::truncScalar<double>).staticmethod("truncScalar")
+        .def("truncArray", &MethodsInterface::truncArray<double>).staticmethod("truncArray")
+        .def("union1d", &Methods<uint32>::union1d).staticmethod("union1d")
+        .def("unique", &MethodsDouble::unique).staticmethod("unique")
+        .def("unwrapScalar", &MethodsInterface::unwrapScalar<double>).staticmethod("unwrapScalar")
+        .def("unwrapArray", &MethodsInterface::unwrapArray<double>).staticmethod("unwrapArray")
+        .def("var", &MethodsDouble::var).staticmethod("var")
+        .def("vstack", &MethodsInterface::vstack<double>).staticmethod("vstack")
+        .def("zerosSquare", &MethodsInterface::zerosSquare<double>).staticmethod("zerosSquare")
+        .def("zerosRowCol", &MethodsInterface::zerosRowCol<double>).staticmethod("zerosRowCol")
+        .def("zerosShape", &MethodsInterface::zerosShape<double>).staticmethod("zerosShape")
+        .def("zerosList", &MethodsInterface::zerosList<double>).staticmethod("zerosList");
 
     // Utils.hpp
     typedef Utils<double> UtilsDouble;
@@ -3290,21 +3289,21 @@ BOOST_PYTHON_MODULE(NumC)
     //    .def("__ne__", &CoordinateFloat::operator!=)
     //    .def("print", &CoordinateInterface::print<float>);
 
-    //// DataCube
-    //typedef DataCube<double> DataCubeDouble;
-    //bp::class_<DataCubeDouble>
-    //    ("DataCube", bp::init<>())
-    //    .def(bp::init<uint32>())
-    //    .def("at", &DataCubeInterface::at<double>, bp::return_internal_reference<>())
-    //    .def("__getitem__", &DataCubeInterface::getItem<double>, bp::return_internal_reference<>())
-    //    .def("back", &DataCubeDouble::back, bp::return_internal_reference<>())
-    //    .def("dump", &DataCubeDouble::dump)
-    //    .def("front", &DataCubeDouble::front, bp::return_internal_reference<>())
-    //    .def("isempty", &DataCubeDouble::isempty)
-    //    .def("shape", &DataCubeDouble::shape, bp::return_internal_reference<>())
-    //    .def("size", &DataCubeDouble::size)
-    //    .def("pop_back", &DataCubeDouble::pop_back)
-    //    .def("pop_front", &DataCubeDouble::pop_front)
-    //    .def("push_back", &DataCubeDouble::push_back)
-    //    .def("push_front", &DataCubeDouble::push_front);
+    // DataCube
+    typedef DataCube<double> DataCubeDouble;
+    bp::class_<DataCubeDouble>
+        ("DataCube", bp::init<>())
+        .def(bp::init<uint32>())
+        .def("at", &DataCubeInterface::at<double>, bp::return_internal_reference<>())
+        .def("__getitem__", &DataCubeInterface::getItem<double>, bp::return_internal_reference<>())
+        .def("back", &DataCubeDouble::back, bp::return_internal_reference<>())
+        .def("dump", &DataCubeDouble::dump)
+        .def("front", &DataCubeDouble::front, bp::return_internal_reference<>())
+        .def("isempty", &DataCubeDouble::isempty)
+        .def("shape", &DataCubeDouble::shape, bp::return_internal_reference<>())
+        .def("size", &DataCubeDouble::size)
+        .def("pop_back", &DataCubeDouble::pop_back)
+        .def("pop_front", &DataCubeDouble::pop_front)
+        .def("push_back", &DataCubeDouble::push_back)
+        .def("push_front", &DataCubeDouble::push_front);
 }

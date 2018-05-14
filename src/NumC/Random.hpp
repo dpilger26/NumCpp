@@ -19,6 +19,7 @@
 
 #pragma once
 
+#include"NumC/Methods.hpp"
 #include"NumC/NdArray.hpp"
 #include"NumC/Shape.hpp"
 #include"NumC/Types.hpp"
@@ -117,9 +118,6 @@ namespace NumC
         //
         static NdArray<dtype> binomial(const Shape& inShape, dtype inN, double inP = 0.5)
         {
-            // only works with integer input types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: binomial: can only use with integer types.");
-
             if (inN < 0)
             {
                 throw std::invalid_argument("Error: binomial: input number of trials must be greater than or equal to zero.");
@@ -181,7 +179,7 @@ namespace NumC
         //
         static dtype choice(const NdArray<dtype>& inArray)
         {
-            uint32 randIdx = randInt<uint32>(Shape(1), 0, inArray.size()).item();
+            uint32 randIdx = Random<uint32>::randInt(Shape(1), 0, inArray.size()).item();
             return inArray[randIdx];
         }
 
@@ -229,9 +227,6 @@ namespace NumC
         //
         static NdArray<dtype> discrete(const Shape& inShape, const NdArray<double>& inWeights)
         {
-            // only works with integer input types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: discrete: can only use with integer types.");
-
             NdArray<dtype> returnArray(inShape);
 
             boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
@@ -385,9 +380,6 @@ namespace NumC
         //
         static NdArray<dtype> geometric(const Shape& inShape, double inP = 0.5)
         {
-            // only works with integer input types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: geometric: can only use with integer types.");
-
             if (inP < 0 || inP > 1)
             {
                 throw std::invalid_argument("Error: geometric: input probability of sucess must be of the range [0, 1].");
@@ -471,9 +463,6 @@ namespace NumC
         //
         static NdArray<dtype> negativeBinomial(const Shape& inShape, dtype inN, double inP = 0.5)
         {
-            // only works with integer input types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: binomial: can only use with integer types.");
-
             if (inN < 0)
             {
                 throw std::invalid_argument("Error: negativeBinomial: input number of trials must be greater than or equal to zero.");
@@ -572,7 +561,7 @@ namespace NumC
         //
         static NdArray<dtype> permutation(dtype inValue)
         {
-            NdArray<dtype> returnArray = arange(inValue);
+            NdArray<dtype> returnArray = Methods<dtype>::arange(inValue);
             std::random_shuffle(returnArray.begin(), returnArray.end());
             return std::move(returnArray);
         }
@@ -608,9 +597,6 @@ namespace NumC
         //
         static NdArray<dtype> poisson(const Shape& inShape, double inMean = 1)
         {
-            // only works with integer input types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: poisson: can only use with integer types.");
-
             if (inMean <= 0)
             {
                 throw std::invalid_argument("Error: poisson: input mean must be greater than zero.");
@@ -698,9 +684,6 @@ namespace NumC
         //
         static NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh)
         {
-            // only works with integer input types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: randint: can only use with integer types.");
-
             if (inLow == inHigh)
             {
                 throw std::invalid_argument("Error: randint: input low value must be less than the input high value.");
@@ -785,7 +768,7 @@ namespace NumC
         //
         static NdArray<dtype> standardNormal(const Shape& inShape)
         {
-            return std::move(normal<dtype>(inShape, 0, 1));
+            return std::move(normal(inShape, 0, 1));
         }
 
         //============================================================================

@@ -1510,7 +1510,7 @@ namespace NumC
                         int32 theCol = static_cast<int32>(col);
                         NdArray<dtype> vec1 = inArray1({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
                         NdArray<dtype> vec2 = inArray2({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
-                        NdArray<dtypeOut> vecCross = cross<dtype, dtypeOut>(vec1, vec2, Axis::NONE);
+                        NdArray<dtypeOut> vecCross = cross<dtypeOut>(vec1, vec2, Axis::NONE);
 
                         returnArray.put({ 0, static_cast<int32>(returnArrayShape.rows) }, { theCol, theCol + 1 }, vecCross);
                     }
@@ -1541,7 +1541,7 @@ namespace NumC
                         int32 theRow = static_cast<int32>(row);
                         NdArray<dtype> vec1 = inArray1({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
                         NdArray<dtype> vec2 = inArray2({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
-                        NdArray<dtypeOut> vecCross = cross<dtype, dtypeOut>(vec1, vec2, Axis::NONE);
+                        NdArray<dtypeOut> vecCross = cross<dtypeOut>(vec1, vec2, Axis::NONE);
 
                         returnArray.put({ theRow, theRow + 1 }, { 0, static_cast<int32>(returnArrayShape.cols) }, vecCross);
                     }
@@ -1570,7 +1570,7 @@ namespace NumC
         static NdArray<dtypeOut> cube(const NdArray<dtype>& inArray)
         {
             NdArray<dtypeOut> returnArray(inArray.shape());
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return Utils::cube(static_cast<dtypeOut>(inValue)); });
+            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return Utils<dtypeOut>::cube(static_cast<dtypeOut>(inValue)); });
 
             return std::move(returnArray);
         }
@@ -1652,7 +1652,7 @@ namespace NumC
         static NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis::Type inAxis = Axis::NONE)
         {
             // make sure that the indices are unique first
-            NdArray<uint32> indices = unique(inArrayIdxs);
+            NdArray<uint32> indices = Methods<uint32>::unique(inArrayIdxs);
 
             switch (inAxis)
             {
@@ -2141,7 +2141,7 @@ namespace NumC
         //
         static NdArray<dtype> eye(uint32 inN, int32 inK = 0)
         {
-            return std::move(eye<dtype>(inN, inN, inK));
+            return std::move(eye(inN, inN, inK));
         }
 
         //============================================================================
@@ -2206,7 +2206,7 @@ namespace NumC
         //
         static NdArray<dtype> eye(const Shape& inShape, int32 inK = 0)
         {
-            return std::move(eye<dtype>(inShape.rows, inShape.cols, inK));
+            return std::move(eye(inShape.rows, inShape.cols, inK));
         }
 
         //============================================================================
@@ -3230,7 +3230,7 @@ namespace NumC
         //
         static NdArray<dtype> load(const std::string& inFilename)
         {
-            return std::move(fromfile<dtype>(inFilename, ""));
+            return std::move(fromfile(inFilename, ""));
         }
 
         //============================================================================
@@ -3726,7 +3726,7 @@ namespace NumC
                 }
             }
 
-            return std::move(cumprod<dtype, dtypeOut>(arrayCopy, inAxis));
+            return std::move(cumprod<dtypeOut>(arrayCopy, inAxis));
         }
 
         //============================================================================
@@ -3751,7 +3751,7 @@ namespace NumC
                 }
             }
 
-            return std::move(cumsum<dtype, dtypeOut>(arrayCopy, inAxis));
+            return std::move(cumsum<dtypeOut>(arrayCopy, inAxis));
         }
 
         //============================================================================
@@ -4040,7 +4040,7 @@ namespace NumC
                     }
 
                     int32 i = static_cast<int32>(std::floor(static_cast<double>(numNonNan - 1) * inPercentile / 100.0));
-                    uint32 indexLower = static_cast<uint32>(clip<int32>(i, 0, numNonNan - 2));
+                    uint32 indexLower = static_cast<uint32>(Methods<int32>::clip(i, 0, numNonNan - 2));
 
                     std::sort(arrayCopy.begin(), arrayCopy.end());
 
@@ -4072,7 +4072,7 @@ namespace NumC
                         double diff1 = percent - percent1;
                         double diff2 = percent2 - percent;
 
-                        switch (argmin<double>({ diff1, diff2 }).item())
+                        switch (Methods<double>::argmin({ diff1, diff2 }).item())
                         {
                             case 0:
                             {
@@ -4099,7 +4099,7 @@ namespace NumC
                     NdArray<dtypeOut> returnArray(1, inShape.rows);
                     for (uint32 row = 0; row < inShape.rows; ++row)
                     {
-                        NdArray<dtypeOut> outValue = nanpercentile<dtype, dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
+                        NdArray<dtypeOut> outValue = nanpercentile<dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
                             inPercentile, Axis::NONE, inInterpMethod);
 
                         if (outValue.size() == 1)
@@ -4122,7 +4122,7 @@ namespace NumC
                     NdArray<dtypeOut> returnArray(1, inShape.rows);
                     for (uint32 row = 0; row < inShape.rows; ++row)
                     {
-                        NdArray<dtypeOut> outValue = nanpercentile<dtype, dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
+                        NdArray<dtypeOut> outValue = nanpercentile<dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
                             inPercentile, Axis::NONE, inInterpMethod);
 
                         if (outValue.size() == 1)
@@ -4170,7 +4170,7 @@ namespace NumC
                 }
             }
 
-            return std::move(prod<dtype, dtypeOut>(arrayCopy, inAxis));
+            return std::move(prod<dtypeOut>(arrayCopy, inAxis));
         }
 
         //============================================================================
@@ -4201,7 +4201,7 @@ namespace NumC
                             continue;
                         }
 
-                        sum += Utils::sqr(static_cast<double>(inArray[i]) - meanValue);
+                        sum += Utils<double>::sqr(static_cast<double>(inArray[i]) - meanValue);
                         ++counter;
                     }
                     NdArray<double> returnArray = { std::sqrt(sum / counter) };
@@ -4223,7 +4223,7 @@ namespace NumC
                                 continue;
                             }
 
-                            sum += Utils::sqr(static_cast<double>(inArray(row, col)) - meanValue[row]);
+                            sum += Utils<double>::sqr(static_cast<double>(inArray(row, col)) - meanValue[row]);
                             ++counter;
                         }
                         returnArray(0, row) = std::sqrt(sum / counter);
@@ -4248,7 +4248,7 @@ namespace NumC
                                 continue;
                             }
 
-                            sum += Utils::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
+                            sum += Utils<double>::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
                             ++counter;
                         }
                         returnArray(0, row) = std::sqrt(sum / counter);
@@ -4289,7 +4289,7 @@ namespace NumC
                 }
             }
 
-            return std::move(sum<dtype, dtypeOut>(arrayCopy, inAxis));
+            return std::move(Methods<dtypeOut>::sum(arrayCopy, inAxis));
         }
 
         //============================================================================
@@ -4598,7 +4598,7 @@ namespace NumC
                     }
 
                     int32 i = static_cast<int32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
-                    uint32 indexLower = static_cast<uint32>(clip<int32>(i, 0, inArray.size() - 2));
+                    uint32 indexLower = static_cast<uint32>(Methods<int32>::clip(i, 0, inArray.size() - 2));
 
                     NdArray<double> arrayCopy = inArray.astype<double>();
                     std::sort(arrayCopy.begin(), arrayCopy.end());
@@ -4631,7 +4631,7 @@ namespace NumC
                         double diff1 = percent - percent1;
                         double diff2 = percent2 - percent;
 
-                        switch (argmin<double>({ diff1, diff2 }).item())
+                        switch (Methods<double>::argmin({ diff1, diff2 }).item())
                         {
                             case 0:
                             {
@@ -4658,7 +4658,7 @@ namespace NumC
                     NdArray<dtypeOut> returnArray(1, inShape.rows);
                     for (uint32 row = 0; row < inShape.rows; ++row)
                     {
-                        returnArray[row] = percentile<dtype, dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
+                        returnArray[row] = percentile<dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
                             inPercentile, Axis::NONE, inInterpMethod).item();
                     }
 
@@ -4672,7 +4672,7 @@ namespace NumC
                     NdArray<dtypeOut> returnArray(1, inShape.rows);
                     for (uint32 row = 0; row < inShape.rows; ++row)
                     {
-                        returnArray[row] = percentile<dtype, dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
+                        returnArray[row] = percentile<dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
                             inPercentile, Axis::NONE, inInterpMethod).item();
                     }
 
@@ -4702,7 +4702,7 @@ namespace NumC
         {
             NdArray<dtypeOut> returnArray(inArray.shape());
             std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [inExponent](dtype inValue) { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
+                [inExponent](dtype inValue) { return Utils<dtypeOut>::power(static_cast<dtypeOut>(inValue), inExponent); });
 
             return std::move(returnArray);
         }
@@ -4727,7 +4727,7 @@ namespace NumC
 
             NdArray<dtypeOut> returnArray(inArray.shape());
             std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
-                [](dtype inValue, uint8 inExponent) { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
+                [](dtype inValue, uint8 inExponent) { return Utils<dtypeOut>::power(static_cast<dtypeOut>(inValue), inExponent); });
 
             return std::move(returnArray);
         }
@@ -4959,7 +4959,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void reshape(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+        static void reshape(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             inArray.reshape(inNumRows, inNumCols);
         }
@@ -4975,7 +4975,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void reshape(const NdArray<dtype>& inArray, const Shape& inNewShape)
+        static void reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
         {
             inArray.reshape(inNewShape);
         }
@@ -4993,7 +4993,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void resizeFast(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+        static void resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             inArray.resizeFast(inNumRows, inNumCols);
         }
@@ -5010,7 +5010,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void resizeFast(const NdArray<dtype>& inArray, const Shape& inNewShape)
+        static void resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
         {
             inArray.resizeFast(inNewShape);
         }
@@ -5030,7 +5030,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void resizeSlow(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+        static void resizeSlow(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             inArray.resizeSlow(inNumRows, inNumCols);
         }
@@ -5049,7 +5049,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void resizeSlow(const NdArray<dtype>& inArray, const Shape& inNewShape)
+        static void resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
         {
             inArray.resizeSlow(inNewShape);
         }
@@ -5586,7 +5586,7 @@ namespace NumC
         //
         static dtype square(dtype inValue)
         {
-            return Utils::sqr(inValue);
+            return Utils<dtype>::sqr(inValue);
         }
 
         //============================================================================
@@ -5601,7 +5601,7 @@ namespace NumC
         static NdArray<dtype> square(const NdArray<dtype>& inArray)
         {
             NdArray<dtype> returnArray(inArray.shape());
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return Utils::sqr(inValue); });
+            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return square(inValue); });
 
             return std::move(returnArray);
         }
