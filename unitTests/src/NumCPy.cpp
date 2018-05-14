@@ -2174,38 +2174,38 @@ namespace MethodsInterface
     }
 }
 
-//namespace RandomInterface
-//{
-//    template<typename dtype>
-//    np::ndarray permutationScalar(dtype inValue)
-//    {
-//        return numCToBoost(Random<dtype>::permutation(inValue));
-//    }
-//
-//    //================================================================================
-//
-//    template<typename dtype>
-//    np::ndarray permutationArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Random<dtype>::permutation(inArray));
-//    }
-//}
+namespace RandomInterface
+{
+    template<typename dtype>
+    np::ndarray permutationScalar(dtype inValue)
+    {
+        return numCToBoost(Random<dtype>::permutation(inValue));
+    }
 
-//namespace LinalgInterface
-//{
-//    template<typename dtype>
-//    np::ndarray hatArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Linalg<dtype>::hat(inArray));
-//    }
-//
-//    template<typename dtype, typename dtypeOut>
-//    np::ndarray multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
-//    {
-//        return numCToBoost(Linalg<dtype>::multi_dot<dtypeOut>({ inArray1 ,inArray2, inArray3, inArray4 }));
-//    }
-//}
-//
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray permutationArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Random<dtype>::permutation(inArray));
+    }
+}
+
+namespace LinalgInterface
+{
+    template<typename dtype>
+    np::ndarray hatArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Linalg<dtype>::hat(inArray));
+    }
+
+    template<typename dtype, typename dtypeOut>
+    np::ndarray multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
+    {
+        return numCToBoost(Linalg<dtype>::multi_dot<dtypeOut>({ inArray1 ,inArray2, inArray3, inArray4 }));
+    }
+}
+
 //namespace RotationsInterface
 //{
 //    np::ndarray angularVelocity(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2, double inTime)
@@ -2253,57 +2253,57 @@ namespace MethodsInterface
 //        return numCToBoost(Rotations::hat(inArray));
 //    }
 //}
-//
-//namespace RaInterface
-//{
-//    template<typename dtype>
-//    void print(const Coordinates::RA<dtype>& inRa)
-//    {
-//        std::cout << inRa;
-//    }
-//}
-//
-//namespace DecInterface
-//{
-//    template<typename dtype>
-//    void print(const Coordinates::Dec<dtype>& self)
-//    {
-//        std::cout << self;
-//    }
-//}
-//
-//namespace CoordinateInterface
-//{
-//    template<typename dtype>
-//    void print(const Coordinates::Coordinate<dtype>& self)
-//    {
-//        std::cout << self;
-//    }
-//
-//    template<typename dtype>
-//    dtype degreeSeperationCoordinate(const Coordinates::Coordinate<dtype>& self, const Coordinates::Coordinate<dtype>& inOtherCoordinate)
-//    {
-//        return self.degreeSeperation(inOtherCoordinate);
-//    }
-//
-//    template<typename dtype>
-//    dtype degreeSeperationVector(const Coordinates::Coordinate<dtype>& self, const NdArray<dtype>& inVec)
-//    {
-//        return self.degreeSeperation(inVec);
-//    }
-//
-//    template<typename dtype>
-//    dtype radianSeperationCoordinate(const Coordinates::Coordinate<dtype>& self, const Coordinates::Coordinate<dtype>& inOtherCoordinate)
-//    {
-//        return self.radianSeperation(inOtherCoordinate);
-//    }
-//
-//    template<typename dtype>
-//    dtype radianSeperationVector(const Coordinates::Coordinate<dtype>& self, const NdArray<dtype>& inVec)
-//    {
-//        return self.radianSeperation(inVec);
-//    }
-//}
+
+namespace RaInterface
+{
+    template<typename dtype>
+    void print(const Coordinates::RA<dtype>& inRa)
+    {
+        std::cout << inRa;
+    }
+}
+
+namespace DecInterface
+{
+    template<typename dtype>
+    void print(const Coordinates::Dec<dtype>& self)
+    {
+        std::cout << self;
+    }
+}
+
+namespace CoordinateInterface
+{
+    template<typename dtype>
+    void print(const Coordinates::Coordinate<dtype>& self)
+    {
+        std::cout << self;
+    }
+
+    template<typename dtype>
+    dtype degreeSeperationCoordinate(const Coordinates::Coordinate<dtype>& self, const Coordinates::Coordinate<dtype>& inOtherCoordinate)
+    {
+        return self.degreeSeperation(inOtherCoordinate);
+    }
+
+    template<typename dtype>
+    dtype degreeSeperationVector(const Coordinates::Coordinate<dtype>& self, const NdArray<dtype>& inVec)
+    {
+        return self.degreeSeperation(inVec);
+    }
+
+    template<typename dtype>
+    dtype radianSeperationCoordinate(const Coordinates::Coordinate<dtype>& self, const Coordinates::Coordinate<dtype>& inOtherCoordinate)
+    {
+        return self.radianSeperation(inOtherCoordinate);
+    }
+
+    template<typename dtype>
+    dtype radianSeperationVector(const Coordinates::Coordinate<dtype>& self, const NdArray<dtype>& inVec)
+    {
+        return self.radianSeperation(inVec);
+    }
+}
 
 namespace DataCubeInterface
 {
@@ -2960,56 +2960,57 @@ BOOST_PYTHON_MODULE(NumC)
         .def("cube", &UtilsUint64::cube).staticmethod("cube")
         .def("power", &UtilsUint64::power).staticmethod("power");
 
-    //// Random.hpp
-    //typedef NumC::Random<double> RandomDouble;
-    //bp::class_<RandomDouble>
-    //    ("Random", bp::init<>())
-    //    .def("bernoulli", &RandomDouble::bernoulli).staticmethod("bernoulli")
-    //    .def("beta", &RandomDouble::beta).staticmethod("beta")
-    //    .def("binomial", &RandomDouble::binomial).staticmethod("binomial")
-    //    .def("chiSquare", &RandomDouble::chiSquare).staticmethod("chiSquare")
-    //    .def("choice", &RandomDouble::choice).staticmethod("choice")
-    //    .def("cauchy", &RandomDouble::cauchy).staticmethod("cauchy")
-    //    .def("discrete", &RandomDouble::discrete).staticmethod("discrete")
-    //    .def("exponential", &RandomDouble::exponential).staticmethod("exponential")
-    //    .def("extremeValue", &RandomDouble::extremeValue).staticmethod("extremeValue")
-    //    .def("f", &RandomDouble::f).staticmethod("f")
-    //    .def("gamma", &RandomDouble::gamma).staticmethod("gamma")
-    //    .def("geometric", &RandomDouble::geometric).staticmethod("geometric")
-    //    .def("laplace", &RandomDouble::laplace).staticmethod("laplace")
-    //    .def("lognormal", &RandomDouble::lognormal).staticmethod("lognormal")
-    //    .def("negativeBinomial", &RandomDouble::negativeBinomial).staticmethod("negativeBinomial")
-    //    .def("nonCentralChiSquared", &RandomDouble::nonCentralChiSquared).staticmethod("nonCentralChiSquared")
-    //    .def("normal", &RandomDouble::normal).staticmethod("normal")
-    //    .def("permutation", &RandomInterface::permutationScalar<double>).staticmethod("permutation")
-    //    .def("permutation", &RandomInterface::permutationArray<double>).staticmethod("permutation")
-    //    .def("poisson", &RandomDouble::poisson).staticmethod("poisson")
-    //    .def("rand", &RandomDouble::rand).staticmethod("rand")
-    //    .def("randN", &RandomDouble::randN).staticmethod("randN")
-    //    .def("randFloat", &RandomDouble::randFloat).staticmethod("randFloat")
-    //    .def("randInt", &RandomDouble::randInt).staticmethod("randInt")
-    //    .def("seed", &RandomDouble::seed).staticmethod("seed")
-    //    .def("shuffle", &RandomDouble::shuffle).staticmethod("shuffle")
-    //    .def("studentT", &RandomDouble::studentT).staticmethod("studentT")
-    //    .def("standardNormal", &RandomDouble::standardNormal).staticmethod("standardNormal")
-    //    .def("triangle", &RandomDouble::triangle).staticmethod("triangle")
-    //    .def("uniform", &RandomDouble::uniform).staticmethod("uniform")
-    //    .def("uniformOnSphere", &RandomDouble::uniformOnSphere).staticmethod("uniformOnSphere")
-    //    .def("weibull", &RandomDouble::weibull).staticmethod("weibull");
+    // Random.hpp
+    typedef NumC::Random<double> RandomDouble;
+    typedef NumC::Random<int32> RandomInt32;
+    bp::class_<RandomDouble>
+        ("Random", bp::init<>())
+        .def("bernoulli", &RandomDouble::bernoulli).staticmethod("bernoulli")
+        .def("beta", &RandomDouble::beta).staticmethod("beta")
+        .def("binomial", &RandomInt32::binomial).staticmethod("binomial")
+        .def("chiSquare", &RandomDouble::chiSquare).staticmethod("chiSquare")
+        .def("choice", &RandomDouble::choice).staticmethod("choice")
+        .def("cauchy", &RandomDouble::cauchy).staticmethod("cauchy")
+        .def("discrete", &RandomInt32::discrete).staticmethod("discrete")
+        .def("exponential", &RandomDouble::exponential).staticmethod("exponential")
+        .def("extremeValue", &RandomDouble::extremeValue).staticmethod("extremeValue")
+        .def("f", &RandomDouble::f).staticmethod("f")
+        .def("gamma", &RandomDouble::gamma).staticmethod("gamma")
+        .def("geometric", &RandomInt32::geometric).staticmethod("geometric")
+        .def("laplace", &RandomDouble::laplace).staticmethod("laplace")
+        .def("lognormal", &RandomDouble::lognormal).staticmethod("lognormal")
+        .def("negativeBinomial", &RandomInt32::negativeBinomial).staticmethod("negativeBinomial")
+        .def("nonCentralChiSquared", &RandomDouble::nonCentralChiSquared).staticmethod("nonCentralChiSquared")
+        .def("normal", &RandomDouble::normal).staticmethod("normal")
+        .def("permutationScalar", &RandomInterface::permutationScalar<double>).staticmethod("permutationScalar")
+        .def("permutationArray", &RandomInterface::permutationArray<double>).staticmethod("permutationArray")
+        .def("poisson", &RandomInt32::poisson).staticmethod("poisson")
+        .def("rand", &RandomDouble::rand).staticmethod("rand")
+        .def("randN", &RandomDouble::randN).staticmethod("randN")
+        .def("randFloat", &RandomDouble::randFloat).staticmethod("randFloat")
+        .def("randInt", &RandomInt32::randInt).staticmethod("randInt")
+        .def("seed", &RandomDouble::seed).staticmethod("seed")
+        .def("shuffle", &RandomDouble::shuffle).staticmethod("shuffle")
+        .def("studentT", &RandomDouble::studentT).staticmethod("studentT")
+        .def("standardNormal", &RandomDouble::standardNormal).staticmethod("standardNormal")
+        .def("triangle", &RandomDouble::triangle).staticmethod("triangle")
+        .def("uniform", &RandomDouble::uniform).staticmethod("uniform")
+        .def("uniformOnSphere", &RandomDouble::uniformOnSphere).staticmethod("uniformOnSphere")
+        .def("weibull", &RandomDouble::weibull).staticmethod("weibull");
 
-    //// Linalg.hpp
-    //typedef NumC::Linalg<double> LinalgDouble;
-    //bp::class_<LinalgDouble>
-    //    ("Linalg", bp::init<>())
-    //    .def("det", &LinalgDouble::det).staticmethod("det")
-    //    .def("hat", &LinalgInterface::hatArray<double>).staticmethod("hat")
-    //    .def("inv", &LinalgDouble::inv).staticmethod("inv")
-    //    .def("lstsq", &LinalgDouble::lstsq).staticmethod("lstsq")
-    //    .def("matrix_power", &LinalgDouble::matrix_power<double>).staticmethod("matrix_power")
-    //    //.def("matrix_power", &LinalgDouble::matrix_power<float>).staticmethod("matrix_power")
-    //    .def("multi_dot", &LinalgInterface::multi_dot<double, double>).staticmethod("multi_dot")
-    //    //.def("multi_dot", &LinalgInterface::multi_dot<float, float>).staticmethod("multi_dot")
-    //    .def("svd", &LinalgDouble::svd).staticmethod("svd");
+    // Linalg.hpp
+    typedef NumC::Linalg<double> LinalgDouble;
+    bp::class_<LinalgDouble>
+        ("Linalg", bp::init<>())
+        .def("det", &LinalgDouble::det).staticmethod("det")
+        .def("hat", &LinalgInterface::hatArray<double>).staticmethod("hat")
+        .def("inv", &LinalgDouble::inv).staticmethod("inv")
+        .def("lstsq", &LinalgDouble::lstsq).staticmethod("lstsq")
+        .def("matrix_power", &LinalgDouble::matrix_power<double>).staticmethod("matrix_power")
+        //.def("matrix_power", &LinalgDouble::matrix_power<float>).staticmethod("matrix_power")
+        .def("multi_dot", &LinalgInterface::multi_dot<double, double>).staticmethod("multi_dot")
+        //.def("multi_dot", &LinalgInterface::multi_dot<float, float>).staticmethod("multi_dot")
+        .def("svd", &LinalgDouble::svd).staticmethod("svd");
 
     //// Rotations.hpp
     //bp::class_<Rotations::Quaternion>
@@ -3157,137 +3158,137 @@ BOOST_PYTHON_MODULE(NumC)
     //    .def("generateCentroids", &ImageProcessingDouble::generateCentroids).staticmethod("generateCentroids")
     //    .def("windowExceedances", &ImageProcessingDouble::windowExceedances).staticmethod("windowExceedances");
 
-    //// Coordinates
-    //typedef Coordinates::RA<double> RaDouble;
-    //typedef Coordinates::RA<float> RaFloat;
-    //typedef Coordinates::Dec<double> DecDouble;
-    //typedef Coordinates::Dec<float> DecFloat;
-    //typedef Coordinates::Coordinate<double> CoordinateDouble;
-    //typedef Coordinates::Coordinate<float> CoordinateFloat;
+    // Coordinates.hpp
+    typedef Coordinates::RA<double> RaDouble;
+    typedef Coordinates::RA<float> RaFloat;
+    typedef Coordinates::Dec<double> DecDouble;
+    typedef Coordinates::Dec<float> DecFloat;
+    typedef Coordinates::Coordinate<double> CoordinateDouble;
+    typedef Coordinates::Coordinate<float> CoordinateFloat;
 
-    //bp::class_<RaDouble>
-    //    ("RaDouble", bp::init<>())
-    //    .def(bp::init<double>())
-    //    .def(bp::init<uint8, uint8, double>())
-    //    .def(bp::init<RaDouble>())
-    //    .def("asFloat", &RaDouble::astype<float>)
-    //    .def("degrees", &RaDouble::degrees)
-    //    .def("radians", &RaDouble::radians)
-    //    .def("hours", &RaDouble::hours)
-    //    .def("minutes", &RaDouble::minutes)
-    //    .def("seconds", &RaDouble::seconds)
-    //    .def("__str__", &RaDouble::str)
-    //    .def("print", &RaDouble::print)
-    //    .def("__eq__", &RaDouble::operator==)
-    //    .def("__ne__", &RaDouble::operator!=)
-    //    .def("print", &RaInterface::print<double>);
+    bp::class_<RaDouble>
+        ("RaDouble", bp::init<>())
+        .def(bp::init<double>())
+        .def(bp::init<uint8, uint8, double>())
+        .def(bp::init<RaDouble>())
+        .def("asFloat", &RaDouble::astype<float>)
+        .def("degrees", &RaDouble::degrees)
+        .def("radians", &RaDouble::radians)
+        .def("hours", &RaDouble::hours)
+        .def("minutes", &RaDouble::minutes)
+        .def("seconds", &RaDouble::seconds)
+        .def("__str__", &RaDouble::str)
+        .def("print", &RaDouble::print)
+        .def("__eq__", &RaDouble::operator==)
+        .def("__ne__", &RaDouble::operator!=)
+        .def("print", &RaInterface::print<double>);
 
-    //bp::class_<RaFloat>
-    //    ("RaFloat", bp::init<>())
-    //    .def(bp::init<double>())
-    //    .def(bp::init<uint8, uint8, double>())
-    //    .def(bp::init<RaFloat>())
-    //    .def("asDouble", &RaFloat::astype<double>)
-    //    .def("degrees", &RaFloat::degrees)
-    //    .def("radians", &RaFloat::radians)
-    //    .def("hours", &RaFloat::hours)
-    //    .def("minutes", &RaFloat::minutes)
-    //    .def("seconds", &RaFloat::seconds)
-    //    .def("__str__", &RaFloat::str)
-    //    .def("print", &RaFloat::print)
-    //    .def("__eq__", &RaFloat::operator==)
-    //    .def("__ne__", &RaFloat::operator!=)
-    //    .def("print", &RaInterface::print<float>);
+    bp::class_<RaFloat>
+        ("RaFloat", bp::init<>())
+        .def(bp::init<double>())
+        .def(bp::init<uint8, uint8, double>())
+        .def(bp::init<RaFloat>())
+        .def("asDouble", &RaFloat::astype<double>)
+        .def("degrees", &RaFloat::degrees)
+        .def("radians", &RaFloat::radians)
+        .def("hours", &RaFloat::hours)
+        .def("minutes", &RaFloat::minutes)
+        .def("seconds", &RaFloat::seconds)
+        .def("__str__", &RaFloat::str)
+        .def("print", &RaFloat::print)
+        .def("__eq__", &RaFloat::operator==)
+        .def("__ne__", &RaFloat::operator!=)
+        .def("print", &RaInterface::print<float>);
 
-    //bp::enum_<Coordinates::Sign::Type>("Sign")
-    //    .value("POSITIVE", Coordinates::Sign::POSITIVE)
-    //    .value("NEGATIVE", Coordinates::Sign::NEGATIVE);
+    bp::enum_<Coordinates::Sign::Type>("Sign")
+        .value("POSITIVE", Coordinates::Sign::POSITIVE)
+        .value("NEGATIVE", Coordinates::Sign::NEGATIVE);
 
-    //bp::class_<DecDouble>
-    //    ("DecDouble", bp::init<>())
-    //    .def(bp::init<double>())
-    //    .def(bp::init<Coordinates::Sign::Type, uint8, uint8, double>())
-    //    .def(bp::init<DecDouble>())
-    //    .def("asFloat", &DecDouble::astype<float>)
-    //    .def("sign", &DecDouble::sign)
-    //    .def("degrees", &DecDouble::degrees)
-    //    .def("radians", &DecDouble::radians)
-    //    .def("degreesWhole", &DecDouble::degreesWhole)
-    //    .def("minutes", &DecDouble::minutes)
-    //    .def("seconds", &DecDouble::seconds)
-    //    .def("__str__", &DecDouble::str)
-    //    .def("print", &DecDouble::print)
-    //    .def("__eq__", &DecDouble::operator==)
-    //    .def("__ne__", &DecDouble::operator!=)
-    //    .def("print", &DecInterface::print<double>);
+    bp::class_<DecDouble>
+        ("DecDouble", bp::init<>())
+        .def(bp::init<double>())
+        .def(bp::init<Coordinates::Sign::Type, uint8, uint8, double>())
+        .def(bp::init<DecDouble>())
+        .def("asFloat", &DecDouble::astype<float>)
+        .def("sign", &DecDouble::sign)
+        .def("degrees", &DecDouble::degrees)
+        .def("radians", &DecDouble::radians)
+        .def("degreesWhole", &DecDouble::degreesWhole)
+        .def("minutes", &DecDouble::minutes)
+        .def("seconds", &DecDouble::seconds)
+        .def("__str__", &DecDouble::str)
+        .def("print", &DecDouble::print)
+        .def("__eq__", &DecDouble::operator==)
+        .def("__ne__", &DecDouble::operator!=)
+        .def("print", &DecInterface::print<double>);
 
-    //bp::class_<DecFloat>
-    //    ("DecFloat", bp::init<>())
-    //    .def(bp::init<float>())
-    //    .def(bp::init<Coordinates::Sign::Type, uint8, uint8, float>())
-    //    .def(bp::init<DecFloat>())
-    //    .def("asDouble", &DecFloat::astype<double>)
-    //    .def("sign", &DecFloat::sign)
-    //    .def("degrees", &DecFloat::degrees)
-    //    .def("radians", &DecFloat::radians)
-    //    .def("degreesWhole", &DecFloat::degreesWhole)
-    //    .def("minutes", &DecFloat::minutes)
-    //    .def("seconds", &DecFloat::seconds)
-    //    .def("__str__", &DecFloat::str)
-    //    .def("print", &DecFloat::print)
-    //    .def("__eq__", &DecFloat::operator==)
-    //    .def("__ne__", &DecFloat::operator!=)
-    //    .def("print", &DecInterface::print<float>);
+    bp::class_<DecFloat>
+        ("DecFloat", bp::init<>())
+        .def(bp::init<float>())
+        .def(bp::init<Coordinates::Sign::Type, uint8, uint8, float>())
+        .def(bp::init<DecFloat>())
+        .def("asDouble", &DecFloat::astype<double>)
+        .def("sign", &DecFloat::sign)
+        .def("degrees", &DecFloat::degrees)
+        .def("radians", &DecFloat::radians)
+        .def("degreesWhole", &DecFloat::degreesWhole)
+        .def("minutes", &DecFloat::minutes)
+        .def("seconds", &DecFloat::seconds)
+        .def("__str__", &DecFloat::str)
+        .def("print", &DecFloat::print)
+        .def("__eq__", &DecFloat::operator==)
+        .def("__ne__", &DecFloat::operator!=)
+        .def("print", &DecInterface::print<float>);
 
-    //bp::class_<CoordinateDouble>
-    //    ("CoordinateDouble", bp::init<>())
-    //    .def(bp::init<double, double>())
-    //    .def(bp::init<uint8, uint8, double, Coordinates::Sign::Type, uint8, uint8, double>())
-    //    .def(bp::init<double, double, double>())
-    //    .def(bp::init<RaDouble, DecDouble>())
-    //    .def(bp::init<NdArrayDouble>())
-    //    .def(bp::init<CoordinateDouble>())
-    //    .def("asFloat", &CoordinateDouble::astype<float>)
-    //    .def("dec", &CoordinateDouble::dec, bp::return_internal_reference<>())
-    //    .def("ra", &CoordinateDouble::ra, bp::return_internal_reference<>())
-    //    .def("x", &CoordinateDouble::x)
-    //    .def("y", &CoordinateDouble::y)
-    //    .def("z", &CoordinateDouble::z)
-    //    .def("xyz", &CoordinateDouble::xyz)
-    //    .def("degreeSeperation", &CoordinateInterface::degreeSeperationCoordinate<double>)
-    //    .def("degreeSeperation", &CoordinateInterface::degreeSeperationVector<double>)
-    //    .def("radianSeperation", &CoordinateInterface::radianSeperationCoordinate<double>)
-    //    .def("radianSeperation", &CoordinateInterface::radianSeperationVector<double>)
-    //    .def("__str__", &CoordinateDouble::str)
-    //    .def("print", &CoordinateDouble::print)
-    //    .def("__eq__", &CoordinateDouble::operator==)
-    //    .def("__ne__", &CoordinateDouble::operator!=)
-    //    .def("print", &CoordinateInterface::print<double>);
+    bp::class_<CoordinateDouble>
+        ("CoordinateDouble", bp::init<>())
+        .def(bp::init<double, double>())
+        .def(bp::init<uint8, uint8, double, Coordinates::Sign::Type, uint8, uint8, double>())
+        .def(bp::init<double, double, double>())
+        .def(bp::init<RaDouble, DecDouble>())
+        .def(bp::init<NdArrayDouble>())
+        .def(bp::init<CoordinateDouble>())
+        .def("asFloat", &CoordinateDouble::astype<float>)
+        .def("dec", &CoordinateDouble::dec, bp::return_internal_reference<>())
+        .def("ra", &CoordinateDouble::ra, bp::return_internal_reference<>())
+        .def("x", &CoordinateDouble::x)
+        .def("y", &CoordinateDouble::y)
+        .def("z", &CoordinateDouble::z)
+        .def("xyz", &CoordinateDouble::xyz)
+        .def("degreeSeperation", &CoordinateInterface::degreeSeperationCoordinate<double>)
+        .def("degreeSeperation", &CoordinateInterface::degreeSeperationVector<double>)
+        .def("radianSeperation", &CoordinateInterface::radianSeperationCoordinate<double>)
+        .def("radianSeperation", &CoordinateInterface::radianSeperationVector<double>)
+        .def("__str__", &CoordinateDouble::str)
+        .def("print", &CoordinateDouble::print)
+        .def("__eq__", &CoordinateDouble::operator==)
+        .def("__ne__", &CoordinateDouble::operator!=)
+        .def("print", &CoordinateInterface::print<double>);
 
-    //bp::class_<CoordinateFloat>
-    //    ("CoordinateFloat", bp::init<>())
-    //    .def(bp::init<float, float>())
-    //    .def(bp::init<uint8, uint8, float, Coordinates::Sign::Type, uint8, uint8, float>())
-    //    .def(bp::init<float, float, float>())
-    //    .def(bp::init<RaFloat, DecFloat>())
-    //    .def(bp::init<NdArrayFloat>())
-    //    .def(bp::init<CoordinateFloat>())
-    //    .def("asDouble", &CoordinateFloat::astype<double>)
-    //    .def("dec", &CoordinateFloat::dec, bp::return_internal_reference<>())
-    //    .def("ra", &CoordinateFloat::ra, bp::return_internal_reference<>())
-    //    .def("x", &CoordinateFloat::x)
-    //    .def("y", &CoordinateFloat::y)
-    //    .def("z", &CoordinateFloat::z)
-    //    .def("xyz", &CoordinateFloat::xyz)
-    //    .def("degreeSeperation", &CoordinateInterface::degreeSeperationCoordinate<float>)
-    //    .def("degreeSeperation", &CoordinateInterface::degreeSeperationVector<float>)
-    //    .def("radianSeperation", &CoordinateInterface::radianSeperationCoordinate<float>)
-    //    .def("radianSeperation", &CoordinateInterface::radianSeperationVector<float>)
-    //    .def("__str__", &CoordinateFloat::str)
-    //    .def("print", &CoordinateFloat::print)
-    //    .def("__eq__", &CoordinateFloat::operator==)
-    //    .def("__ne__", &CoordinateFloat::operator!=)
-    //    .def("print", &CoordinateInterface::print<float>);
+    bp::class_<CoordinateFloat>
+        ("CoordinateFloat", bp::init<>())
+        .def(bp::init<float, float>())
+        .def(bp::init<uint8, uint8, float, Coordinates::Sign::Type, uint8, uint8, float>())
+        .def(bp::init<float, float, float>())
+        .def(bp::init<RaFloat, DecFloat>())
+        .def(bp::init<NdArrayFloat>())
+        .def(bp::init<CoordinateFloat>())
+        .def("asDouble", &CoordinateFloat::astype<double>)
+        .def("dec", &CoordinateFloat::dec, bp::return_internal_reference<>())
+        .def("ra", &CoordinateFloat::ra, bp::return_internal_reference<>())
+        .def("x", &CoordinateFloat::x)
+        .def("y", &CoordinateFloat::y)
+        .def("z", &CoordinateFloat::z)
+        .def("xyz", &CoordinateFloat::xyz)
+        .def("degreeSeperation", &CoordinateInterface::degreeSeperationCoordinate<float>)
+        .def("degreeSeperation", &CoordinateInterface::degreeSeperationVector<float>)
+        .def("radianSeperation", &CoordinateInterface::radianSeperationCoordinate<float>)
+        .def("radianSeperation", &CoordinateInterface::radianSeperationVector<float>)
+        .def("__str__", &CoordinateFloat::str)
+        .def("print", &CoordinateFloat::print)
+        .def("__eq__", &CoordinateFloat::operator==)
+        .def("__ne__", &CoordinateFloat::operator!=)
+        .def("print", &CoordinateInterface::print<float>);
 
     // DataCube
     typedef DataCube<double> DataCubeDouble;

@@ -339,7 +339,7 @@ namespace NumC
                 throw std::invalid_argument("ERROR: arange: stop value must ge greater than 0.");
             }
 
-            return std::move(arange<dtype>(0, inStop, 1));
+            return std::move(arange(0, inStop, 1));
         }
 
         //============================================================================

@@ -350,27 +350,27 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    # print(colored('Testing arctan2 scalar', 'cyan'))
-    # xy = NumC.Random.uniformOnSphere(1, 2).getNumpyArray().flatten()
-    # if np.round(NumC.MethodsDouble.arctan2Scalar(xy[1], xy[0]), 10) == np.round(np.arctan2(xy[1], xy[0]), 10):
-    #     print(colored('\tPASS', 'green'))
-    # else:
-    #     print(colored('\tFAIL', 'red'))
-    #
-    # print(colored('Testing arctan2 array', 'cyan'))
-    # shapeInput = np.random.randint(20, 100, [2, ])
-    # shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
-    # cArrayX = NumC.NdArray(shape)
-    # cArrayY = NumC.NdArray(shape)
-    # xy = NumC.Random.uniformOnSphere(np.prod(shapeInput).item(), 2).getNumpyArray()
-    # xData = xy[:, 0].reshape(shapeInput)
-    # yData = xy[:, 1].reshape(shapeInput)
-    # cArrayX.setArray(xData)
-    # cArrayY.setArray(yData)
-    # if np.array_equal(np.round(NumC.MethodsDouble.arctan2Array(cArrayY, cArrayX), 10), np.round(np.arctan2(yData, xData), 10)):
-    #     print(colored('\tPASS', 'green'))
-    # else:
-    #     print(colored('\tFAIL', 'red'))
+    print(colored('Testing arctan2 scalar', 'cyan'))
+    xy = NumC.Random.uniformOnSphere(1, 2).getNumpyArray().flatten()
+    if np.round(NumC.MethodsDouble.arctan2Scalar(xy[1], xy[0]), 10) == np.round(np.arctan2(xy[1], xy[0]), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing arctan2 array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArrayX = NumC.NdArray(shape)
+    cArrayY = NumC.NdArray(shape)
+    xy = NumC.Random.uniformOnSphere(np.prod(shapeInput).item(), 2).getNumpyArray()
+    xData = xy[:, 0].reshape(shapeInput)
+    yData = xy[:, 1].reshape(shapeInput)
+    cArrayX.setArray(xData)
+    cArrayY.setArray(yData)
+    if np.array_equal(np.round(NumC.MethodsDouble.arctan2Array(cArrayY, cArrayX), 10), np.round(np.arctan2(yData, xData), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
     print(colored('Testing arctanh scalar', 'cyan'))
     value = np.abs(np.random.rand(1).item())

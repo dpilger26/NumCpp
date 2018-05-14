@@ -249,7 +249,7 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
+        static NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
         {
             SVD svdSolver(inA);
             double threshold = inTolerance * svdSolver.s()[0];
@@ -274,7 +274,7 @@ namespace NumC
         //				NdArray
         //
         template<typename dtypeOut = double>
-        NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
+        static NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
@@ -284,7 +284,7 @@ namespace NumC
 
             if (inPower == 0)
             {
-                return std::move(identity<dtypeOut>(inShape.rows));
+                return std::move(Methods<dtypeOut>::identity(inShape.rows));
             }
             else if (inPower == 1)
             {
@@ -296,20 +296,20 @@ namespace NumC
             }
             else if (inPower > 1)
             {
-                NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(inArray, inArray);
+                NdArray<dtypeOut> returnArray = Methods<dtype>::dot<dtypeOut>(inArray, inArray);
                 for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = std::move(dot<dtypeOut, dtypeOut>(returnArray, inArray.astype<dtypeOut>()));
+                    returnArray = std::move(Methods<dtypeOut>::dot<dtypeOut>(returnArray, inArray.astype<dtypeOut>()));
                 }
                 return std::move(returnArray);
             }
             else
             {
                 NdArray<double> inverse = inv(inArray);
-                NdArray<double> returnArray = dot<double, double>(inverse, inverse);
+                NdArray<double> returnArray = Methods<double>::dot<double>(inverse, inverse);
                 for (int16 i = 2; i < std::abs(inPower); ++i)
                 {
-                    returnArray = std::move(dot<double, double>(returnArray, inverse));
+                    returnArray = std::move(Methods<double>::dot<double>(returnArray, inverse));
                 }
                 return std::move(returnArray.astype<dtypeOut>());
             }
@@ -326,8 +326,8 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        template<dtypeOut = double>
-        NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
+        template<typename dtypeOut = double>
+        static NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
         {
             typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
 
@@ -340,11 +340,11 @@ namespace NumC
                 return std::move(iter->astype<dtypeOut>());
             }
 
-            NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(*iter, *(iter + 1));
+            NdArray<dtypeOut> returnArray = Methods<dtype>::dot<dtypeOut>(*iter, *(iter + 1));
             iter += 2;
             for (; iter < inList.end(); ++iter)
             {
-                returnArray = std::move(dot<dtypeOut, dtypeOut>(returnArray, iter->astype<dtypeOut>()));
+                returnArray = std::move(Methods<dtypeOut>::dot<dtypeOut>(returnArray, iter->astype<dtypeOut>()));
             }
 
             return std::move(returnArray);
@@ -362,13 +362,13 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
+        static void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
         {
             SVD svdSolver(inArray);
             outU = std::move(svdSolver.u());
             outVt = std::move(svdSolver.v());
 
-            NdArray<double> s = diagflat(svdSolver.s());
+            NdArray<double> s = Methods<double>::diagflat(svdSolver.s());
             outS = std::move(s);
         }
 
@@ -1008,7 +1008,7 @@ namespace NumC
             {
                 double absa = std::abs(a);
                 double absb = std::abs(b);
-                return (absa > absb ? absa * std::sqrt(1.0 + Utils::sqr(absb / absa)) : (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + Utils::sqr(absa / absb))));
+                return (absa > absb ? absa * std::sqrt(1.0 + Utils<double>::sqr(absb / absa)) : (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + Utils<double>::sqr(absa / absb))));
             }
         };
     };
