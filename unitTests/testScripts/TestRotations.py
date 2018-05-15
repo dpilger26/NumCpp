@@ -303,7 +303,7 @@ def doTest():
     axis = np.random.rand(3)
     cAxis = NumC.NdArray(1, 3)
     cAxis.setArray(axis)
-    rot = NumC.angleAxisRotationDCM(cAxis, radians.item()).getNumpyArray()
+    rot = NumC.DCM.angleAxisRotation(cAxis, radians.item()).getNumpyArray()
     if np.all(np.round(rot, 10) == np.round(angleAxisRotation(axis, radians.item()), 10)):
         print(colored('\tPASS', 'green'))
     else:
@@ -311,17 +311,17 @@ def doTest():
 
     print(colored('Testing isValidDCM', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
-    rot = NumC.xRotationDCM(radians.item()).getNumpyArray()
+    rot = NumC.DCM.xRotation(radians.item()).getNumpyArray()
     cArray = NumC.NdArray(3)
     cArray.setArray(rot)
-    if NumC.isValidDCM(cArray):
+    if NumC.DCM.isValid(cArray):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing xRotationDCM', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
-    rot = NumC.xRotationDCM(radians.item()).getNumpyArray()
+    rot = NumC.DCM.xRotation(radians.item()).getNumpyArray()
     if np.all(np.round(rot, 10) == np.round(rotateX(radians.item()), 10)):
         print(colored('\tPASS', 'green'))
     else:
@@ -329,7 +329,7 @@ def doTest():
 
     print(colored('Testing yRotationDCM', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
-    rot = NumC.yRotationDCM(radians.item()).getNumpyArray()
+    rot = NumC.DCM.yRotation(radians.item()).getNumpyArray()
     if np.all(np.round(rot, 10) == np.round(rotateY(radians.item()), 10)):
         print(colored('\tPASS', 'green'))
     else:
@@ -337,7 +337,7 @@ def doTest():
 
     print(colored('Testing zRotationDCM', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
-    rot = NumC.zRotationDCM(radians.item()).getNumpyArray()
+    rot = NumC.DCM.zRotation(radians.item()).getNumpyArray()
     if np.all(np.round(rot, 10) == np.round(rotateZ(radians.item()), 10)):
         print(colored('\tPASS', 'green'))
     else:

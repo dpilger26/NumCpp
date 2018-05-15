@@ -56,7 +56,7 @@ namespace NumC
             //
             void normalize()
             {
-                double norm = std::sqrt(Utils::sqr(data_[0]) + Utils::sqr(data_[1]) + Utils::sqr(data_[2]) + Utils::sqr(data_[3]));
+                double norm = std::sqrt(Utils<double>::sqr(data_[0]) + Utils<double>::sqr(data_[1]) + Utils<double>::sqr(data_[2]) + Utils<double>::sqr(data_[3]));
                 data_[0] /= norm;
                 data_[1] /= norm;
                 data_[2] /= norm;
@@ -95,7 +95,7 @@ namespace NumC
             //
             Quaternion(double inI, double inJ, double inK, double inS)
             {
-                double norm = std::sqrt(Utils::sqr(inI) + Utils::sqr(inJ) + Utils::sqr(inK) + Utils::sqr(inS));
+                double norm = std::sqrt(Utils<double>::sqr(inI) + Utils<double>::sqr(inJ) + Utils<double>::sqr(inK) + Utils<double>::sqr(inS));
                 data_[0] = inI / norm;
                 data_[1] = inJ / norm;
                 data_[2] = inK / norm;
@@ -118,7 +118,7 @@ namespace NumC
                     throw std::invalid_argument("ERROR: Rotations:::Quaternion::Quaternion(NdArray): input array must be of size = 4;");
                 }
 
-                double norm = std::sqrt(square(inArray).sum().item());
+                double norm = std::sqrt(Methods<double>::square(inArray).sum().item());
                 data_[0] = inArray[0] / norm;
                 data_[1] = inArray[1] / norm;
                 data_[2] = inArray[2] / norm;
@@ -318,7 +318,7 @@ namespace NumC
                 checks[2] = dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
                 checks[3] = dcm(0, 0) + dcm(1, 1) - dcm(2, 2);
 
-                uint32 maxIdx = argmax(checks).item();
+                uint32 maxIdx = Methods<double>::argmax(checks).item();
 
                 double q0 = 0;
                 double q1 = 0;
@@ -494,7 +494,7 @@ namespace NumC
                     return inQuat2;
                 }
 
-                double dotProduct = dot<double, double>(inQuat1.toNdArray(), inQuat2.toNdArray()).item();
+                double dotProduct = Methods<double>::dot<double>(inQuat1.toNdArray(), inQuat2.toNdArray()).item();
 
                 // If the dot product is negative, the quaternions
                 // have opposite handed-ness and slerp won't take
@@ -513,7 +513,7 @@ namespace NumC
                     return nlerp(inQuat1, inQuat2, inPercent);
                 }
 
-                dotProduct = clip(dotProduct, -1.0, 1.0);	// Robustness: Stay within domain of acos()
+                dotProduct = Methods<double>::clip(dotProduct, -1.0, 1.0);	// Robustness: Stay within domain of acos()
                 double theta0 = std::acos(dotProduct);		// angle between input vectors
                 double theta = theta0 * inPercent;			// angle between v0 and result
 
@@ -550,8 +550,8 @@ namespace NumC
             //
             std::string str() const
             {
-                std::string output = "[" + Utils::num2str(i()) + ", " + Utils::num2str(j()) +
-                    ", " + Utils::num2str(k()) + ", " + Utils::num2str(s()) + "]\n";
+                std::string output = "[" + Utils<double>::num2str(i()) + ", " + Utils<double>::num2str(j()) +
+                    ", " + Utils<double>::num2str(k()) + ", " + Utils<double>::num2str(s()) + "]\n";
 
                 return output;
             }
@@ -574,15 +574,15 @@ namespace NumC
                 double q2 = k();
                 double q3 = s();
 
-                dcm(0, 0) = Utils::sqr(q3) + Utils::sqr(q0) - Utils::sqr(q1) - Utils::sqr(q2);
+                dcm(0, 0) = Utils<double>::sqr(q3) + Utils<double>::sqr(q0) - Utils<double>::sqr(q1) - Utils<double>::sqr(q2);
                 dcm(0, 1) = 2 * (q0 * q1 + q3 * q2);
                 dcm(0, 2) = 2 * (q0 * q2 - q3 * q1);
                 dcm(1, 0) = 2 * (q0 * q1 - q3 * q2);
-                dcm(1, 1) = Utils::sqr(q3) - Utils::sqr(q0) + Utils::sqr(q1) - Utils::sqr(q2);;
+                dcm(1, 1) = Utils<double>::sqr(q3) - Utils<double>::sqr(q0) + Utils<double>::sqr(q1) - Utils<double>::sqr(q2);;
                 dcm(1, 2) = 2 * (q1 * q2 + q3 * q0);
                 dcm(2, 0) = 2 * (q0 * q2 + q3 * q1);
                 dcm(2, 1) = 2 * (q1 * q2 - q3 * q0);
-                dcm(2, 2) = Utils::sqr(q3) - Utils::sqr(q0) - Utils::sqr(q1) + Utils::sqr(q2);;
+                dcm(2, 2) = Utils<double>::sqr(q3) - Utils<double>::sqr(q0) - Utils<double>::sqr(q1) + Utils<double>::sqr(q2);;
 
                 return std::move(dcm);
             }
@@ -900,7 +900,7 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            static NdArray<double> angleAxisRotationDCM(const NdArray<dtype>& inArray, double inAngle)
+            static NdArray<double> angleAxisRotation(const NdArray<dtype>& inArray, double inAngle)
             {
                 if (inArray.size() != 3)
                 {
@@ -920,12 +920,12 @@ namespace NumC
             // Outputs:
             //				bool
             //
-            static bool isValidDCM(const NdArray<dtype>& inArray)
+            static bool isValid(const NdArray<dtype>& inArray)
             {
                 Shape inShape = inArray.shape();
                 if (!(inShape.rows == inShape.cols &&
-                    round(Linalg::det(inArray), 2) == 1 &&
-                    round(Linalg::det(inArray.transpose()), 2) == 1))
+                    Methods<dtype>::round(Linalg<dtype>::det(inArray), 2) == 1 &&
+                    Methods<dtype>::round(Linalg<dtype>::det(inArray.transpose()), 2) == 1))
                 {
                     return false;
                 }
@@ -942,9 +942,9 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            static NdArray<double> xRotationDCM(double inAngle)
+            static NdArray<double> xRotation(double inAngle)
             {
-                return std::move(angleAxisRotationDCM<dtype>({ 1.0, 0.0, 0.0 }, inAngle));
+                return std::move(DCM<dtype>::angleAxisRotation({ 1.0, 0.0, 0.0 }, inAngle));
             }
 
             //============================================================================
@@ -957,9 +957,9 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            static NdArray<double> yRotationDCM(double inAngle)
+            static NdArray<double> yRotation(double inAngle)
             {
-                return std::move(angleAxisRotationDCM<dtype>({ 0.0, 1.0, 0.0 }, inAngle));
+                return std::move(DCM<dtype>::angleAxisRotation({ 0.0, 1.0, 0.0 }, inAngle));
             }
 
             //============================================================================
@@ -972,9 +972,9 @@ namespace NumC
             // Outputs:
             //				NdArray
             //
-            static NdArray<double> zRotationDCM(double inAngle)
+            static NdArray<double> zRotation(double inAngle)
             {
-                return std::move(angleAxisRotationDCM<dtype>({ 0.0, 0.0, 1.0 }, inAngle));
+                return std::move(DCM<dtype>::angleAxisRotation({ 0.0, 0.0, 1.0 }, inAngle));
             }
         };
     }

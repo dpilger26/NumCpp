@@ -1354,7 +1354,7 @@ namespace NumC
         // Outputs:
         //				std::vector<Centroid>
         //
-        std::vector<Centroid> centroidClusters(const std::vector<Cluster>& inClusters)
+        static std::vector<Centroid> centroidClusters(const std::vector<Cluster>& inClusters)
         {
             std::vector<Centroid> centroids(inClusters.size());
 

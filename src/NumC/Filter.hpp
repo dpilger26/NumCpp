@@ -59,7 +59,7 @@ namespace NumC
         //
         static dtype gaussian(dtype inX, dtype inY, dtype inSigma)
         {
-            double exponent = -(Utils::sqr(inX) + Utils::sqr(inY)) / (2 * Utils::sqr(inSigma));
+            double exponent = -(Utils<dtype>::sqr(inX) + Utils<dtype>::sqr(inY)) / (2 * Utils<dtype>::sqr(inSigma));
             return static_cast<dtype>(std::exp(exponent));
         }
 
@@ -169,12 +169,12 @@ namespace NumC
             }
 
             // now fill in the corners
-            NdArray<dtype> lowerLeft = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(0, inBoundarySize)));
-            NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+            NdArray<dtype> lowerLeft = Methods<dtype>::flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(0, inBoundarySize)));
+            NdArray<dtype> lowerRight = Methods<dtype>::flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
             uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
-            NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize)));
-            NdArray<dtype> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+            NdArray<dtype> upperLeft = Methods<dtype>::flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize)));
+            NdArray<dtype> upperRight = Methods<dtype>::flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
             outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), lowerLeft);
             outArray.put(Slice(0, inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols), lowerRight);
@@ -311,12 +311,12 @@ namespace NumC
             }
 
             // now fill in the corners
-            NdArray<dtype> lowerLeft = flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1), Slice(0, inBoundarySize)));
-            NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+            NdArray<dtype> lowerLeft = Methods<dtype>::flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1), Slice(0, inBoundarySize)));
+            NdArray<dtype> lowerRight = Methods<dtype>::flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1), Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
             uint32 upperRowStart = outShape.rows - 2 * inBoundarySize - 1;
-            NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize)));
-            NdArray<dtype> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+            NdArray<dtype> upperLeft = Methods<dtype>::flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize)));
+            NdArray<dtype> upperRight = Methods<dtype>::flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
             outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), lowerLeft);
             outArray.put(Slice(0, inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols), lowerRight);
@@ -537,7 +537,7 @@ namespace NumC
         static NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
             const NdArray<dtype>& inWeights, Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            if (inWeights.size() != Utils::sqr(inSize))
+            if (inWeights.size() != Utils<uint32>::sqr(inSize))
             {
                 throw std::invalid_argument("ERROR: NumC::Filters::convolve: input weights do no match input kernal size.");
             }
@@ -545,7 +545,7 @@ namespace NumC
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
-            NdArray<dtype> weightsFlat = rot90(inWeights, 2).flatten();
+            NdArray<dtype> weightsFlat = Methods<dtype>::rot90(inWeights, 2).flatten();
             Shape inShape = inImageArray.shape();
             uint32 boundarySize = inSize / 2; // integer division
             uint32 endPointRow = boundarySize + inShape.rows;
@@ -558,7 +558,7 @@ namespace NumC
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1)).flatten();
 
-                    output(row - boundarySize, col - boundarySize) = dot(window, weightsFlat).item();
+                    output(row - boundarySize, col - boundarySize) = Methods<dtype>::dot(window, weightsFlat).item();
                 }
             }
 
@@ -879,7 +879,7 @@ namespace NumC
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1));
 
-                    output(row - boundarySize, col - boundarySize) = percentile(window, inPercentile, Axis::NONE, "nearest").item();
+                    output(row - boundarySize, col - boundarySize) = Methods<dtype>::percentile(window, inPercentile, Axis::NONE, "nearest").item();
                 }
             }
 
@@ -927,7 +927,7 @@ namespace NumC
         static NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
             Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            if (inRank < 0 || inRank >= Utils::sqr(inSize))
+            if (inRank < 0 || inRank >= Utils<uint32>::sqr(inSize))
             {
                 std::invalid_argument("ERROR: NumC::Filters::rankFilter: rank not within filter footprint size.");
             }
@@ -947,7 +947,7 @@ namespace NumC
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1));
 
-                    output(row - boundarySize, col - boundarySize) = sort(window)[inRank];
+                    output(row - boundarySize, col - boundarySize) = Methods<dtype>::sort(window)[inRank];
                 }
             }
 

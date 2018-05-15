@@ -2206,53 +2206,53 @@ namespace LinalgInterface
     }
 }
 
-//namespace RotationsInterface
-//{
-//    np::ndarray angularVelocity(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2, double inTime)
-//    {
-//        return numCToBoost(inQuat1.angularVelocity(inQuat2, inTime));
-//    }
-//
-//    np::ndarray nlerp(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2, double inPercent)
-//    {
-//        return numCToBoost(inQuat1.nlerp(inQuat2, inPercent).toNdArray());
-//    }
-//
-//    np::ndarray slerp(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2, double inPercent)
-//    {
-//        return numCToBoost(inQuat1.slerp(inQuat2, inPercent).toNdArray());
-//    }
-//
-//    np::ndarray toDCM(const Rotations::Quaternion& inQuat)
-//    {
-//        return numCToBoost(inQuat.toDCM());
-//    }
-//
-//    np::ndarray multiplyScalar(const Rotations::Quaternion& inQuat, double inScalar)
-//    {
-//        Rotations::Quaternion returnQuat = inQuat * inScalar;
-//        return numCToBoost(returnQuat.toNdArray());
-//    }
-//
-//    template<typename dtype>
-//    np::ndarray multiplyArray(const Rotations::Quaternion& inQuat, const NdArray<dtype>& inArray)
-//    {
-//        NdArray<double> returnArray = inQuat * inArray;
-//        return numCToBoost(returnArray);
-//    }
-//
-//    np::ndarray multiplyQuaternion(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2)
-//    {
-//        Rotations::Quaternion returnQuat = inQuat1 * inQuat2;
-//        return numCToBoost(returnQuat.toNdArray());
-//    }
-//
-//    template<typename dtype>
-//    np::ndarray hatArray(const NdArray<dtype>& inArray)
-//    {
-//        return numCToBoost(Rotations::hat(inArray));
-//    }
-//}
+namespace RotationsInterface
+{
+    np::ndarray angularVelocity(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2, double inTime)
+    {
+        return numCToBoost(inQuat1.angularVelocity(inQuat2, inTime));
+    }
+
+    np::ndarray nlerp(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2, double inPercent)
+    {
+        return numCToBoost(inQuat1.nlerp(inQuat2, inPercent).toNdArray());
+    }
+
+    np::ndarray slerp(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2, double inPercent)
+    {
+        return numCToBoost(inQuat1.slerp(inQuat2, inPercent).toNdArray());
+    }
+
+    np::ndarray toDCM(const Rotations::Quaternion& inQuat)
+    {
+        return numCToBoost(inQuat.toDCM());
+    }
+
+    np::ndarray multiplyScalar(const Rotations::Quaternion& inQuat, double inScalar)
+    {
+        Rotations::Quaternion returnQuat = inQuat * inScalar;
+        return numCToBoost(returnQuat.toNdArray());
+    }
+
+    template<typename dtype>
+    np::ndarray multiplyArray(const Rotations::Quaternion& inQuat, const NdArray<dtype>& inArray)
+    {
+        NdArray<double> returnArray = inQuat * inArray;
+        return numCToBoost(returnArray);
+    }
+
+    np::ndarray multiplyQuaternion(const Rotations::Quaternion& inQuat1, const Rotations::Quaternion& inQuat2)
+    {
+        Rotations::Quaternion returnQuat = inQuat1 * inQuat2;
+        return numCToBoost(returnQuat.toNdArray());
+    }
+
+    template<typename dtype>
+    np::ndarray hatArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(Rotations::hat(inArray));
+    }
+}
 
 namespace RaInterface
 {
@@ -3012,151 +3012,151 @@ BOOST_PYTHON_MODULE(NumC)
         //.def("multi_dot", &LinalgInterface::multi_dot<float, float>).staticmethod("multi_dot")
         .def("svd", &LinalgDouble::svd).staticmethod("svd");
 
-    //// Rotations.hpp
-    //bp::class_<Rotations::Quaternion>
-    //    ("Quaternion", bp::init<>())
-    //    .def(bp::init<double, double, double, double>())
-    //    .def(bp::init<NdArray<double> >())
-    //    .def("angleAxisRotation", &Rotations::Quaternion::angleAxisRotation<double>).staticmethod("angleAxisRotation")
-    //    .def("angularVelocity", &RotationsInterface::angularVelocity)
-    //    .def("conjugate", &Rotations::Quaternion::conjugate)
-    //    .def("i", &Rotations::Quaternion::i)
-    //    .def("identity", &Rotations::Quaternion::identity).staticmethod("identity")
-    //    .def("inverse", &Rotations::Quaternion::inverse)
-    //    .def("j", &Rotations::Quaternion::j)
-    //    .def("k", &Rotations::Quaternion::k)
-    //    .def("fromDCM", &Rotations::Quaternion::fromDCM<double>).staticmethod("fromDCM")
-    //    .def("nlerp", &RotationsInterface::nlerp)
-    //    .def("nlerp", &RotationsInterface::nlerp)
-    //    .def("print", &Rotations::Quaternion::print)
-    //    .def("rotate", &Rotations::Quaternion::rotate<double>)
-    //    .def("s", &Rotations::Quaternion::s)
-    //    .def("slerp", &RotationsInterface::slerp)
-    //    .def("slerp", &RotationsInterface::slerp)
-    //    .def("toDCM", &RotationsInterface::toDCM)
-    //    .def("toNdArray", &Rotations::Quaternion::toNdArray)
-    //    .def("xRotation", &Rotations::Quaternion::xRotation).staticmethod("xRotation")
-    //    .def("yRotation", &Rotations::Quaternion::yRotation).staticmethod("yRotation")
-    //    .def("zRotation", &Rotations::Quaternion::zRotation).staticmethod("zRotation")
-    //    .def("__eq__", &Rotations::Quaternion::operator==)
-    //    .def("__neq__", &Rotations::Quaternion::operator!=)
-    //    .def("__add__", &Rotations::Quaternion::operator+)
-    //    .def("__sub__", &Rotations::Quaternion::operator-)
-    //    .def("__mul__", &RotationsInterface::multiplyScalar)
-    //    .def("__mul__", &RotationsInterface::multiplyQuaternion)
-    //    .def("__mul__", &RotationsInterface::multiplyArray<double>)
-    //    .def("__truediv__", &Rotations::Quaternion::operator/)
-    //    .def("__str__", &Rotations::Quaternion::str);
+    // Rotations.hpp
+    bp::class_<Rotations::Quaternion>
+        ("Quaternion", bp::init<>())
+        .def(bp::init<double, double, double, double>())
+        .def(bp::init<NdArray<double> >())
+        .def("angleAxisRotation", &Rotations::Quaternion::angleAxisRotation<double>).staticmethod("angleAxisRotation")
+        .def("angularVelocity", &RotationsInterface::angularVelocity)
+        .def("conjugate", &Rotations::Quaternion::conjugate)
+        .def("i", &Rotations::Quaternion::i)
+        .def("identity", &Rotations::Quaternion::identity).staticmethod("identity")
+        .def("inverse", &Rotations::Quaternion::inverse)
+        .def("j", &Rotations::Quaternion::j)
+        .def("k", &Rotations::Quaternion::k)
+        .def("fromDCM", &Rotations::Quaternion::fromDCM<double>).staticmethod("fromDCM")
+        .def("nlerp", &RotationsInterface::nlerp)
+        .def("nlerp", &RotationsInterface::nlerp)
+        .def("print", &Rotations::Quaternion::print)
+        .def("rotate", &Rotations::Quaternion::rotate<double>)
+        .def("s", &Rotations::Quaternion::s)
+        .def("slerp", &RotationsInterface::slerp)
+        .def("slerp", &RotationsInterface::slerp)
+        .def("toDCM", &RotationsInterface::toDCM)
+        .def("toNdArray", &Rotations::Quaternion::toNdArray)
+        .def("xRotation", &Rotations::Quaternion::xRotation).staticmethod("xRotation")
+        .def("yRotation", &Rotations::Quaternion::yRotation).staticmethod("yRotation")
+        .def("zRotation", &Rotations::Quaternion::zRotation).staticmethod("zRotation")
+        .def("__eq__", &Rotations::Quaternion::operator==)
+        .def("__neq__", &Rotations::Quaternion::operator!=)
+        .def("__add__", &Rotations::Quaternion::operator+)
+        .def("__sub__", &Rotations::Quaternion::operator-)
+        .def("__mul__", &RotationsInterface::multiplyScalar)
+        .def("__mul__", &RotationsInterface::multiplyQuaternion)
+        .def("__mul__", &RotationsInterface::multiplyArray<double>)
+        .def("__truediv__", &Rotations::Quaternion::operator/)
+        .def("__str__", &Rotations::Quaternion::str);
 
-    //typedef Rotations::DCM<double> DCMDouble;
-    //bp::class_<DCMDouble>
-    //    ("DCM", bp::init<>())
-    //    .def("angleAxisRotationDCM", &DCMDouble::angleAxisRotationDCM).staticmethod("angleAxisRotationDCM")
-    //    .def("isValidDCM", &DCMDouble::isValidDCM).staticmethod("isValidDCM")
-    //    .def("xRotationDCM", &DCMDouble::xRotationDCM).staticmethod("xRotationDCM")
-    //    .def("yRotationDCM", &DCMDouble::yRotationDCM).staticmethod("yRotationDCM")
-    //    .def("zRotationDCM", &DCMDouble::zRotationDCM).staticmethod("zRotationDCM");
+    typedef Rotations::DCM<double> DCMDouble;
+    bp::class_<DCMDouble>
+        ("DCM", bp::init<>())
+        .def("angleAxisRotation", &DCMDouble::angleAxisRotation).staticmethod("angleAxisRotation")
+        .def("isValid", &DCMDouble::isValid).staticmethod("isValid")
+        .def("xRotation", &DCMDouble::xRotation).staticmethod("xRotation")
+        .def("yRotation", &DCMDouble::yRotation).staticmethod("yRotation")
+        .def("zRotation", &DCMDouble::zRotation).staticmethod("zRotation");
 
-    //// Filters
-    //bp::enum_<Filter::Boundary::Mode>("Mode")
-    //    .value("REFLECT", Filter::Boundary::REFLECT)
-    //    .value("CONSTANT", Filter::Boundary::CONSTANT)
-    //    .value("NEAREST", Filter::Boundary::NEAREST)
-    //    .value("MIRROR", Filter::Boundary::MIRROR)
-    //    .value("WRAP", Filter::Boundary::WRAP);
+    // Filters
+    bp::enum_<Filter::Boundary::Mode>("Mode")
+        .value("REFLECT", Filter::Boundary::REFLECT)
+        .value("CONSTANT", Filter::Boundary::CONSTANT)
+        .value("NEAREST", Filter::Boundary::NEAREST)
+        .value("MIRROR", Filter::Boundary::MIRROR)
+        .value("WRAP", Filter::Boundary::WRAP);
 
-    //typedef Filters<double> FiltersDouble;
+    typedef Filters<double> FiltersDouble;
 
-    //bp::class_<FiltersDouble>
-    //    ("Filters", bp::init<>())
-    //    .def("complementaryMedianFilter", &FiltersDouble::complementaryMedianFilter).staticmethod("complementaryMedianFilter")
-    //    .def("complementaryMedianFilter1d", &FiltersDouble::complementaryMedianFilter1d).staticmethod("complementaryMedianFilter1d")
-    //    .def("convolve", &FiltersDouble::convolve).staticmethod("convolve")
-    //    .def("convolve1d", &FiltersDouble::convolve1d).staticmethod("convolve1d")
-    //    .def("gaussianFilter", &FiltersDouble::gaussianFilter).staticmethod("gaussianFilter")
-    //    .def("gaussianFilter1d", &FiltersDouble::gaussianFilter1d).staticmethod("gaussianFilter1d")
-    //    .def("maximumFilter", &FiltersDouble::maximumFilter).staticmethod("maximumFilter")
-    //    .def("maximumFilter1d", &FiltersDouble::maximumFilter1d).staticmethod("maximumFilter1d")
-    //    .def("medianFilter", &FiltersDouble::medianFilter).staticmethod("medianFilter")
-    //    .def("medianFilter1d", &FiltersDouble::medianFilter1d).staticmethod("medianFilter1d")
-    //    .def("minimumFilter", &FiltersDouble::minimumFilter).staticmethod("minimumFilter")
-    //    .def("minumumFilter1d", &FiltersDouble::minumumFilter1d).staticmethod("minumumFilter1d")
-    //    .def("percentileFilter", &FiltersDouble::percentileFilter).staticmethod("percentileFilter")
-    //    .def("percentileFilter1d", &FiltersDouble::percentileFilter1d).staticmethod("percentileFilter1d")
-    //    .def("rankFilter", &FiltersDouble::rankFilter).staticmethod("rankFilter")
-    //    .def("rankFilter1d", &FiltersDouble::rankFilter1d).staticmethod("rankFilter1d")
-    //    .def("uniformFilter", &FiltersDouble::uniformFilter).staticmethod("uniformFilter")
-    //    .def("uniformFilter1d", &FiltersDouble::uniformFilter1d).staticmethod("uniformFilter1d");
+    bp::class_<FiltersDouble>
+        ("Filters", bp::init<>())
+        .def("complementaryMedianFilter", &FiltersDouble::complementaryMedianFilter).staticmethod("complementaryMedianFilter")
+        .def("complementaryMedianFilter1d", &FiltersDouble::complementaryMedianFilter1d).staticmethod("complementaryMedianFilter1d")
+        .def("convolve", &FiltersDouble::convolve).staticmethod("convolve")
+        .def("convolve1d", &FiltersDouble::convolve1d).staticmethod("convolve1d")
+        .def("gaussianFilter", &FiltersDouble::gaussianFilter).staticmethod("gaussianFilter")
+        .def("gaussianFilter1d", &FiltersDouble::gaussianFilter1d).staticmethod("gaussianFilter1d")
+        .def("maximumFilter", &FiltersDouble::maximumFilter).staticmethod("maximumFilter")
+        .def("maximumFilter1d", &FiltersDouble::maximumFilter1d).staticmethod("maximumFilter1d")
+        .def("medianFilter", &FiltersDouble::medianFilter).staticmethod("medianFilter")
+        .def("medianFilter1d", &FiltersDouble::medianFilter1d).staticmethod("medianFilter1d")
+        .def("minimumFilter", &FiltersDouble::minimumFilter).staticmethod("minimumFilter")
+        .def("minumumFilter1d", &FiltersDouble::minumumFilter1d).staticmethod("minumumFilter1d")
+        .def("percentileFilter", &FiltersDouble::percentileFilter).staticmethod("percentileFilter")
+        .def("percentileFilter1d", &FiltersDouble::percentileFilter1d).staticmethod("percentileFilter1d")
+        .def("rankFilter", &FiltersDouble::rankFilter).staticmethod("rankFilter")
+        .def("rankFilter1d", &FiltersDouble::rankFilter1d).staticmethod("rankFilter1d")
+        .def("uniformFilter", &FiltersDouble::uniformFilter).staticmethod("uniformFilter")
+        .def("uniformFilter1d", &FiltersDouble::uniformFilter1d).staticmethod("uniformFilter1d");
 
-    //// Image Processing
-    //typedef ImageProcessing<double> ImageProcessingDouble;
+    // Image Processing
+    typedef ImageProcessing<double> ImageProcessingDouble;
 
-    //typedef ImageProcessingDouble::Pixel PixelDouble;
-    //bp::class_<PixelDouble>
-    //    ("Pixel", bp::init<>())
-    //    .def(bp::init<uint32, uint32, double>())
-    //    .def(bp::init<PixelDouble>())
-    //    .def("__eq__", &PixelDouble::operator==)
-    //    .def("__ne__", &PixelDouble::operator!=)
-    //    .def("__lt__", &PixelDouble::operator<)
-    //    .def("clusterId", &PixelDouble::clusterId)
-    //    .def("setClusterId", &PixelDouble::setClusterId)
-    //    .def("row", &PixelDouble::row)
-    //    .def("col", &PixelDouble::col)
-    //    .def("intensity", &PixelDouble::intensity)
-    //    .def("__str__", &PixelDouble::str)
-    //    .def("print", &PixelDouble::print);
+    typedef ImageProcessingDouble::Pixel PixelDouble;
+    bp::class_<PixelDouble>
+        ("Pixel", bp::init<>())
+        .def(bp::init<uint32, uint32, double>())
+        .def(bp::init<PixelDouble>())
+        .def("__eq__", &PixelDouble::operator==)
+        .def("__ne__", &PixelDouble::operator!=)
+        .def("__lt__", &PixelDouble::operator<)
+        .def("clusterId", &PixelDouble::clusterId)
+        .def("setClusterId", &PixelDouble::setClusterId)
+        .def("row", &PixelDouble::row)
+        .def("col", &PixelDouble::col)
+        .def("intensity", &PixelDouble::intensity)
+        .def("__str__", &PixelDouble::str)
+        .def("print", &PixelDouble::print);
 
-    //typedef ImageProcessingDouble::Cluster ClusterDouble;
-    //bp::class_<ClusterDouble>
-    //    ("Cluster", bp::init<uint32>())
-    //    .def(bp::init<ClusterDouble>())
-    //    .def("__eq__", &ClusterDouble::operator==)
-    //    .def("__ne__", &ClusterDouble::operator!=)
-    //    .def("__getitem__", &ClusterDouble::at, bp::return_internal_reference<>())
-    //    .def("size", &ClusterDouble::size)
-    //    .def("clusterId", &ClusterDouble::clusterId)
-    //    .def("rowMin", &ClusterDouble::rowMin)
-    //    .def("rowMax", &ClusterDouble::rowMax)
-    //    .def("colMin", &ClusterDouble::colMin)
-    //    .def("colMax", &ClusterDouble::colMax)
-    //    .def("height", &ClusterDouble::height)
-    //    .def("width", &ClusterDouble::width)
-    //    .def("intensity", &ClusterDouble::intensity)
-    //    .def("peakPixelIntensity", &ClusterDouble::peakPixelIntensity)
-    //    .def("eod", &ClusterDouble::eod)
-    //    .def("__str__", &ClusterDouble::str)
-    //    .def("print", &ClusterDouble::print);
+    typedef ImageProcessingDouble::Cluster ClusterDouble;
+    bp::class_<ClusterDouble>
+        ("Cluster", bp::init<uint32>())
+        .def(bp::init<ClusterDouble>())
+        .def("__eq__", &ClusterDouble::operator==)
+        .def("__ne__", &ClusterDouble::operator!=)
+        .def("__getitem__", &ClusterDouble::at, bp::return_internal_reference<>())
+        .def("size", &ClusterDouble::size)
+        .def("clusterId", &ClusterDouble::clusterId)
+        .def("rowMin", &ClusterDouble::rowMin)
+        .def("rowMax", &ClusterDouble::rowMax)
+        .def("colMin", &ClusterDouble::colMin)
+        .def("colMax", &ClusterDouble::colMax)
+        .def("height", &ClusterDouble::height)
+        .def("width", &ClusterDouble::width)
+        .def("intensity", &ClusterDouble::intensity)
+        .def("peakPixelIntensity", &ClusterDouble::peakPixelIntensity)
+        .def("eod", &ClusterDouble::eod)
+        .def("__str__", &ClusterDouble::str)
+        .def("print", &ClusterDouble::print);
 
-    //typedef ImageProcessingDouble::Centroid CentroidDouble;
-    //bp::class_<CentroidDouble>
-    //    ("Centroid", bp::init<>())
-    //    .def(bp::init<ClusterDouble>())
-    //    .def(bp::init<CentroidDouble>())
-    //    .def("row", &CentroidDouble::row)
-    //    .def("col", &CentroidDouble::col)
-    //    .def("intensity", &CentroidDouble::intensity)
-    //    .def("eod", &CentroidDouble::eod)
-    //    .def("__str__", &CentroidDouble::str)
-    //    .def("print", &CentroidDouble::print)
-    //    .def("__eq__", &CentroidDouble::operator==)
-    //    .def("__ne__", &CentroidDouble::operator!=)
-    //    .def("__lt__", &CentroidDouble::operator<);
+    typedef ImageProcessingDouble::Centroid CentroidDouble;
+    bp::class_<CentroidDouble>
+        ("Centroid", bp::init<>())
+        .def(bp::init<ClusterDouble>())
+        .def(bp::init<CentroidDouble>())
+        .def("row", &CentroidDouble::row)
+        .def("col", &CentroidDouble::col)
+        .def("intensity", &CentroidDouble::intensity)
+        .def("eod", &CentroidDouble::eod)
+        .def("__str__", &CentroidDouble::str)
+        .def("print", &CentroidDouble::print)
+        .def("__eq__", &CentroidDouble::operator==)
+        .def("__ne__", &CentroidDouble::operator!=)
+        .def("__lt__", &CentroidDouble::operator<);
 
-    //bp::class_<std::vector<ClusterDouble> >("cluster_vector")
-    //    .def(bp::vector_indexing_suite<std::vector<ClusterDouble> >());
+    bp::class_<std::vector<ClusterDouble> >("cluster_vector")
+        .def(bp::vector_indexing_suite<std::vector<ClusterDouble> >());
 
-    //bp::class_<std::vector<CentroidDouble> >("centroid_vector")
-    //    .def(bp::vector_indexing_suite<std::vector<CentroidDouble> >());
+    bp::class_<std::vector<CentroidDouble> >("centroid_vector")
+        .def(bp::vector_indexing_suite<std::vector<CentroidDouble> >());
 
-    //bp::class_<ImageProcessingDouble>
-    //    ("ImageProcessing", bp::init<>())
-    //    .def("applyThreshold", &ImageProcessingDouble::applyThreshold).staticmethod("applyThreshold")
-    //    .def("centroidClusters", &ImageProcessingDouble::centroidClusters).staticmethod("centroidClusters")
-    //    .def("clusterPixels", &ImageProcessingDouble::clusterPixels).staticmethod("clusterPixels")
-    //    .def("generateThreshold", &ImageProcessingDouble::generateThreshold).staticmethod("generateThreshold")
-    //    .def("generateCentroids", &ImageProcessingDouble::generateCentroids).staticmethod("generateCentroids")
-    //    .def("windowExceedances", &ImageProcessingDouble::windowExceedances).staticmethod("windowExceedances");
+    bp::class_<ImageProcessingDouble>
+        ("ImageProcessing", bp::init<>())
+        .def("applyThreshold", &ImageProcessingDouble::applyThreshold).staticmethod("applyThreshold")
+        .def("centroidClusters", &ImageProcessingDouble::centroidClusters).staticmethod("centroidClusters")
+        .def("clusterPixels", &ImageProcessingDouble::clusterPixels).staticmethod("clusterPixels")
+        .def("generateThreshold", &ImageProcessingDouble::generateThreshold).staticmethod("generateThreshold")
+        .def("generateCentroids", &ImageProcessingDouble::generateCentroids).staticmethod("generateCentroids")
+        .def("windowExceedances", &ImageProcessingDouble::windowExceedances).staticmethod("windowExceedances");
 
     // Coordinates.hpp
     typedef Coordinates::RA<double> RaDouble;
