@@ -380,7 +380,7 @@ namespace NumC
                 return;
             }
 
-            for (uint32 i = 0; i < shape_[0]; ++i)
+            for (int32 i = 0; i < shape_[0]; ++i)
             {
                 printf("\t%f\n", this->operator()(i));
             }
@@ -404,9 +404,9 @@ namespace NumC
                 return;
             }
 
-            for (uint32 index1 = 0; index1 < shape_[0]; ++index1)
+            for (int32 index1 = 0; index1 < shape_[0]; ++index1)
             {
-                for (uint32 index2 = 0; index2 < shape_[1]; ++index2)
+                for (int32 index2 = 0; index2 < shape_[1]; ++index2)
                 {
                     printf("\t%f", this->operator()(index1, index2));
                 }
@@ -432,11 +432,11 @@ namespace NumC
                 return;
             }
 
-            for (uint32 index1 = 0; index1 < shape_[0]; ++index1)
+            for (int32 index1 = 0; index1 < shape_[0]; ++index1)
             {
-                for (uint32 index2 = 0; index2 < shape_[1]; ++index2)
+                for (int32 index2 = 0; index2 < shape_[1]; ++index2)
                 {
-                    for (uint32 index3 = 0; index3 < shape_[2]; ++index3)
+                    for (int32 index3 = 0; index3 < shape_[2]; ++index3)
                     {
                         printf("\t%f", this->operator()(index1, index2, index3));
                     }
@@ -511,7 +511,7 @@ namespace NumC
     boost::python::numpy::ndarray numCToBoost(const NdArray<dtype>& inArray)
     {
         Shape inShape = inArray.shape();
-        bp::tuple shape = bp::make_tuple(inShape.rows, inShape.cols);
+        boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);
         BoostNdarrayHelper newNdArrayHelper(shape);
 
         for (uint32 row = 0; row < inShape.rows; ++row)
