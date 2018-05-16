@@ -634,7 +634,11 @@ namespace NumC
             kernel /= kernel.sum().item();
 
             // perform the convolution
-            NdArray<dtype> output = convolve(inImageArray.astype<double>(), kernelSize, kernel, inMode, inConstantValue).astype<dtype>();
+            NdArray<dtype> output = convolve(inImageArray.template astype<double>(),
+                                             kernelSize,
+                                             kernel,
+                                             inMode,
+                                             inConstantValue).template astype<dtype>();
 
             return std::move(output);
         }

@@ -31,6 +31,7 @@
 #include<initializer_list>
 #include<iostream>
 #include<set>
+#include<sstream>
 #include<stdexcept>
 #include<string>
 #include<utility>
@@ -797,7 +798,7 @@ namespace NumC
                     std::transform(inArray.cbegin(), inArray.cend(), inWeights.cbegin(), weightedArray.begin(), std::multiplies<double>());
 
                     double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
-                    NdArray<double> returnArray = { sum /= inWeights.sum<double>().item() };
+                    NdArray<double> returnArray = { sum /= inWeights.sum().item() };
 
                     return std::move(returnArray);
                 }
@@ -1196,7 +1197,7 @@ namespace NumC
                 case Axis::NONE:
                 {
                     uint32 finalSize = 0;
-                    std::initializer_list<NdArray<dtype> >::iterator iter;
+                    typename std::initializer_list<NdArray<dtype> >::iterator iter;
                     for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
                     {
                         finalSize += iter->size();
@@ -1936,7 +1937,7 @@ namespace NumC
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
-            return std::move(inArray1.dot<dtypeOut>(inArray2));
+            return std::move(inArray1.dot(inArray2));
         }
 
         //============================================================================
@@ -2574,8 +2575,7 @@ namespace NumC
                 in.seekg(0, in.end);
                 uint32 fileSize = static_cast<uint32>(in.tellg());
 
-                FILE* filePtr;
-                fopen_s(&filePtr, inFilename.c_str(), "rb");
+                FILE* filePtr = fopen(inFilename.c_str(), "rb");
                 if (filePtr == NULL)
                 {
                     throw std::runtime_error("ERROR: fromfile: unable to open the file.");
@@ -2611,12 +2611,9 @@ namespace NumC
                         std::istringstream iss(line);
                         do
                         {
-                            std::string sub;
-                            iss >> sub;
-
                             try
                             {
-                                values.push_back(static_cast<dtype>(std::stod(sub)));
+                                values.push_back(static_cast<dtype>(std::stod(iss.str())));
                             }
                             catch (const std::invalid_argument& /*ia*/)
                             {
@@ -2747,7 +2744,8 @@ namespace NumC
         //
         static std::pair<NdArray<dtype>, NdArray<dtype> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
         {
-
+            std::pair<NdArray<dtype>, NdArray<dtype> > bar = std::make_pair(NdArray<dtype>(0), NdArray<dtype>(0));
+            return bar; // TODO: FIX THIS!
         }
 
         //============================================================================
@@ -2930,6 +2928,8 @@ namespace NumC
             //		return std::move(NdArray<dtype>(0));
             //	}
             //}
+
+            return std::move(NdArray<dtype>(0));
         }
 
         //============================================================================
@@ -2952,7 +2952,7 @@ namespace NumC
             std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
             std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
-            std::vector<dtype>::iterator iter = std::set_intersection(in1.begin(), in1.end(),
+            typename std::vector<dtype>::iterator iter = std::set_intersection(in1.begin(), in1.end(),
                 in2.begin(), in2.end(), res.begin());
             res.resize(iter - res.begin());
             return std::move(NdArray<dtype>(res));
@@ -4811,7 +4811,7 @@ namespace NumC
         //
         static NdArray<dtype> put_mask(const NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
         {
-
+            return std::move(NdArray<dtype>()); // TODO: FIX THIS!
         }
 
         //============================================================================
@@ -5316,7 +5316,7 @@ namespace NumC
             std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
             std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
-            std::vector<dtype>::iterator iter = std::set_difference(in1.begin(), in1.end(),
+            typename std::vector<dtype>::iterator iter = std::set_difference(in1.begin(), in1.end(),
                 in2.begin(), in2.end(), res.begin());
             res.resize(iter - res.begin());
             return std::move(NdArray<dtype>(res));
@@ -5952,7 +5952,7 @@ namespace NumC
         //
         static NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0)
         {
-
+            return std::move(NdArray<dtype>(0)); // TODO: FIX THIS!
         }
 
         //============================================================================
@@ -5973,8 +5973,7 @@ namespace NumC
         //
         static NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0)
         {
-
-
+            return std::move(NdArray<dtype>(0)); // TODO: FIX THIS!
         }
 
         //============================================================================

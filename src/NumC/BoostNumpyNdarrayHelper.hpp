@@ -21,6 +21,7 @@
 #include<NumC/NdArray.hpp>
 #include<NumC/Types.hpp>
 
+#include<cmath>
 #include<vector>
 #include<iostream>
 #include<string>

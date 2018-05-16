@@ -144,7 +144,7 @@ namespace NumC
                 }
 
                 // normalize the input vector
-                NdArray<double> normAxis = inAxis.astype<double>() / inAxis.norm<double>().item();
+                NdArray<double> normAxis = inAxis.astype() / inAxis.norm().item();
 
                 double i = static_cast<double>(normAxis[0]) * std::sin(inAngle / 2.0);
                 double j = static_cast<double>(normAxis[1]) * std::sin(inAngle / 2.0);
@@ -310,7 +310,7 @@ namespace NumC
                     throw std::invalid_argument("ERROR: Rotations::Quaternion::fromDcm: input direction cosine matrix must have shape = (3,3).");
                 }
 
-                NdArray<double> dcm = inDcm.astype<double>();
+                NdArray<double> dcm = inDcm.astype();
 
                 NdArray<double> checks(1, 4);
                 checks[0] = dcm(0, 0) + dcm(1, 1) + dcm(2, 2);
@@ -789,7 +789,7 @@ namespace NumC
                     throw std::invalid_argument("ERROR: Rotations::Quaternion::operator*: input vector must be a cartesion vector of length = 3.");
                 }
 
-                return toDCM().dot<double>(inVec.astype<double>());
+                return toDCM().dot(inVec.astype());
             }
 
             //============================================================================

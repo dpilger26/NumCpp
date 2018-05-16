@@ -901,7 +901,7 @@ namespace NumC
             //
             dtype radianSeperation(const Coordinate<dtype>& inOtherCoordinate) const
             {
-                return static_cast<dtype>(std::acos(Methods<dtype>::dot<double>(xyz(), inOtherCoordinate.xyz()).item()));
+                return static_cast<dtype>(std::acos(Methods<dtype>::dot(xyz(), inOtherCoordinate.xyz()).item()));
             }
 
             //============================================================================
@@ -921,7 +921,7 @@ namespace NumC
                     throw std::invalid_argument("ERROR: NumC::Coordinates::Coordinate::radianSeperation: input vector must be of length 3.");
                 }
 
-                return static_cast<dtype>(std::acos(Methods<dtype>::dot<double>(xyz(), inVector.flatten()).item()));
+                return static_cast<dtype>(std::acos(Methods<dtype>::dot(xyz(), inVector.flatten()).item()));
             }
 
             //============================================================================

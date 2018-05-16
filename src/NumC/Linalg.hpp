@@ -288,18 +288,18 @@ namespace NumC
             }
             else if (inPower == 1)
             {
-                return std::move(inArray.astype<dtypeOut>());
+                return std::move(inArray.template astype<dtypeOut>());
             }
             else if (inPower == -1)
             {
-                return std::move(inv(inArray).astype<dtypeOut>());
+                return std::move(inv(inArray).template astype<dtypeOut>());
             }
             else if (inPower > 1)
             {
-                NdArray<dtypeOut> returnArray = Methods<dtype>::dot<dtypeOut>(inArray, inArray);
+                NdArray<dtypeOut> returnArray = Methods<dtype>::template dot<dtypeOut>(inArray, inArray);
                 for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = std::move(Methods<dtypeOut>::dot<dtypeOut>(returnArray, inArray.astype<dtypeOut>()));
+                    returnArray = std::move(Methods<dtypeOut>::template dot<dtypeOut>(returnArray, inArray.template astype<dtypeOut>()));
                 }
                 return std::move(returnArray);
             }
@@ -337,14 +337,14 @@ namespace NumC
             }
             else if (inList.size() == 1)
             {
-                return std::move(iter->astype<dtypeOut>());
+                return std::move(iter->template astype<dtypeOut>());
             }
 
-            NdArray<dtypeOut> returnArray = Methods<dtype>::dot<dtypeOut>(*iter, *(iter + 1));
+            NdArray<dtypeOut> returnArray = Methods<dtype>::template dot<dtypeOut>(*iter, *(iter + 1));
             iter += 2;
             for (; iter < inList.end(); ++iter)
             {
-                returnArray = std::move(Methods<dtypeOut>::dot<dtypeOut>(returnArray, iter->astype<dtypeOut>()));
+                returnArray = std::move(Methods<dtypeOut>::template dot<dtypeOut>(returnArray, iter->template astype<dtypeOut>()));
             }
 
             return std::move(returnArray);

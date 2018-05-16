@@ -75,9 +75,11 @@
 									<listOptionValue builtIn="false" value="&quot;${PYTHON_INCLUDES}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.1213985523" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.option.preprocessor.def.2019641572" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
-									<listOptionValue builtIn="false" value="&quot;BOOST_PYTHON_STATIC_LIB&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;BOOST_NUMPY_STATIC_LIB&quot;"/>
+								<option id="gnu.cpp.compiler.option.preprocessor.def.2019641572" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="&quot;MS_WIN64&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;Py_TRACE_DEFS&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;BOOST_PYTHON3_STATIC_LIB&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;BOOST_NUMPY3_STATIC_LIB&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;BOOST_FILESYSTEM_STATIC_LIB&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;BOOST_SYSTEM_STATIC_LIB&quot;"/>
 								</option>
@@ -92,11 +94,17 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.base.358757548" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.base">
 								<option id="gnu.cpp.link.option.paths.1264666895" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;C:\libs\boost_1_63_0\stage\gnu\lib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\pilgeda\Anaconda3\libs&quot;"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.1969373238" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
-									<listOptionValue builtIn="false" value="&quot;libboost_filesystem-mgw63-mt-1_63&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;libboost_system-mgw63-mt-1_63&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;python3&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;python36&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;boost_filesystem-mgw63-mt-1_63&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;boost_system-mgw63-mt-1_63&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;boost_python3-mgw63-mt-1_63&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;boost_numpy3-mgw63-mt-1_63&quot;"/>
 								</option>
+								<option id="gnu.cpp.link.option.flags.144102962" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-m64" valueType="string"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.549908979" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
