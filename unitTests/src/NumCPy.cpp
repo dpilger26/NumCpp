@@ -3057,7 +3057,7 @@ BOOST_PYTHON_MODULE(NumC)
         .def("yRotation", &DCMDouble::yRotation).staticmethod("yRotation")
         .def("zRotation", &DCMDouble::zRotation).staticmethod("zRotation");
 
-    // Filters
+    // Filters.hpp
     bp::enum_<Filter::Boundary::Mode>("Mode")
         .value("REFLECT", Filter::Boundary::REFLECT)
         .value("CONSTANT", Filter::Boundary::CONSTANT)

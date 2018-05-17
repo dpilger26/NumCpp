@@ -8,7 +8,22 @@ import NumC
 ####################################################################################
 def doTest():
     print(colored('Testing Filters', 'magenta'))
+    test1D()
+    test2D()
 
+####################################################################################
+def test1D():
+    modes = {'reflect' : NumC.Mode.REFLECT,
+             'constant': NumC.Mode.CONSTANT,
+             'nearest': NumC.Mode.NEAREST,
+             'mirror': NumC.Mode.MIRROR,
+             'wrap': NumC.Mode.WRAP}
+
+    for mode in modes.keys():
+        print(colored(f'Testing complementaryMedianFilter1d: mode = {mode}', 'cyan'))
+
+####################################################################################
+def test2D():
     modes = {'reflect' : NumC.Mode.REFLECT,
              'constant': NumC.Mode.CONSTANT,
              'nearest': NumC.Mode.NEAREST,
@@ -174,4 +189,6 @@ def doTest():
 
 ####################################################################################
 if __name__ == '__main__':
-    doTest()
+    test1D()
+    # test2D()
+    # doTest()
