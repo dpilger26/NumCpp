@@ -675,8 +675,7 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculate a one-dimensional complemenatry median filter 
-        //                      along the given axis.
+        //						Calculate a one-dimensional complemenatry median filter.
         //		
         // Inputs:
         //				NdArray
@@ -741,24 +740,33 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculates a one-dimensional kernel convolution along the given axis.
+        //						Calculates a one-dimensional kernel convolution.
         //		
         // Inputs:
         //				NdArray
-        //				size of the kernel to apply
         //				NdArray, weights
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
         // Outputs:
         //				NdArray
         //
-        static NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, uint32 inSize, const NdArray<dtype>& inWeights,
+        static NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
             Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            uint32 boundarySize = inWeights.size() / 2; // integer division
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, boundarySize, inConstantValue);
+            NdArray<dtype> output(1, inImageArray.size());
 
-            // TODO: FINISH THIS!
+            NdArray<dtype> weightsFlat = Methods<dtype>::fliplr(inWeights.flatten());
+
+            uint32 endPointRow = boundarySize + inWeights.size();
+
+            for (uint32 i = boundarySize; i < endPointRow; ++i)
+            {
+                NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)].flatten();
+
+                output[i - boundarySize] = Methods<dtype>::dot(window, weightsFlat).item();
+            }
 
             return std::move(output);
         }
@@ -818,8 +826,7 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculate a one-dimensional gaussian filter 
-        //                      along the given axis.
+        //						Calculate a one-dimensional gaussian filter.
         //		
         // Inputs:
         //				NdArray
@@ -832,11 +839,36 @@ namespace NumC
         static NdArray<dtype> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma,
             Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            uint32 inSize = 7;
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            if (inSigma <= 0)
+            {
+                throw std::invalid_argument("ERROR: NumC::Filters::gaussianFilter: input sigma value must be greater than zero.");
+            }
 
-            // TODO: FINISH THIS!
+            // calculate the kernel size based off of the input sigma value
+            const uint32 MIN_KERNEL_SIZE = 5;
+            uint32 kernelSize = std::max(static_cast<uint32>(std::ceil(inSigma * 2.0 * 4.0)), MIN_KERNEL_SIZE); // 4 standard deviations
+            if (kernelSize % 2 == 0)
+            {
+                ++kernelSize; // make sure the kernel is an odd size
+            }
+
+            double kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
+
+            // calculate the gaussian kernel
+            NdArray<double> kernel(1, kernelSize);
+            for (double i = 0; i < kernelSize; ++i)
+            {
+                kernel[static_cast<int32>(i)] = gaussian(i - kernalHalfSize, 0.0, inSigma);
+            }
+
+            // normalize the kernel
+            kernel /= kernel.sum().item();
+
+            // perform the convolution
+            NdArray<dtype> output = convolve1d(inImageArray.template astype<double>(),
+                kernel,
+                inMode,
+                inConstantValue).template astype<dtype>();
 
             return std::move(output);
         }
@@ -880,7 +912,7 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculates a one-dimensional maximum filter along the given axis.
+        //						Calculates a one-dimensional maximum filter.
         //		
         // Inputs:
         //				NdArray
@@ -893,10 +925,18 @@ namespace NumC
         static NdArray<dtype> maximumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
             Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> output(1, inImageArray.size());
 
-            // TODO: FINISH THIS!
+            uint32 boundarySize = inSize / 2; // integer division
+            uint32 endPoint = boundarySize + inImageArray.size();
+
+            for (uint32 i = boundarySize; i < endPoint; ++i)
+            {
+                NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
+
+                output[i - boundarySize] = window.max().item();
+            }
 
             return std::move(output);
         }
@@ -940,7 +980,7 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculates a one-dimensional median filter along the given axis.
+        //						Calculates a one-dimensional median filter.
         //		
         // Inputs:
         //				NdArray
@@ -954,20 +994,19 @@ namespace NumC
             Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
-            //NdArray<dtype> output(inImageArray.shape());
+            NdArray<dtype> output(1, inImageArray.size());
 
-            //uint32 boundarySize = inSize / 2; // integer division
-            //uint32 endPoint = boundarySize + inImageArray.size();
+            uint32 boundarySize = inSize / 2; // integer division
+            uint32 endPoint = boundarySize + inImageArray.size();
 
-            //for (uint32 i = boundarySize; i < endPoint; ++i)
-            //{
-            //    NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
+            for (uint32 i = boundarySize; i < endPoint; ++i)
+            {
+                NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
 
-            //    output[i - boundarySize] = window.median().item();
-            //}
+                output[i - boundarySize] = window.median().item();
+            }
 
-            //return std::move(output);
-            return std::move(arrayWithBoundary);
+            return std::move(output);
         }
 
         //============================================================================
@@ -1009,7 +1048,7 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculates a one-dimensional minumum filter along the given axis.
+        //						Calculates a one-dimensional minumum filter.
         //		
         // Inputs:
         //				NdArray
@@ -1020,12 +1059,20 @@ namespace NumC
         //				NdArray
         //
         static NdArray<dtype> minumumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Axis::Type inAxis = Axis::ROW, Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> output(1, inImageArray.size());
 
-            // TODO: FINISH THIS!
+            uint32 boundarySize = inSize / 2; // integer division
+            uint32 endPoint = boundarySize + inImageArray.size();
+
+            for (uint32 i = boundarySize; i < endPoint; ++i)
+            {
+                NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
+
+                output[i - boundarySize] = window.min().item();
+            }
 
             return std::move(output);
         }
@@ -1070,7 +1117,7 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculates a one-dimensional percentile filter along the given axis.
+        //						Calculates a one-dimensional percentile filter.
         //		
         // Inputs:
         //				NdArray
@@ -1084,10 +1131,18 @@ namespace NumC
         static NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
             Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> output(1, inImageArray.size());
 
-            // TODO: FINISH THIS!
+            uint32 boundarySize = inSize / 2; // integer division
+            uint32 endPoint = boundarySize + inImageArray.size();
+
+            for (uint32 i = boundarySize; i < endPoint; ++i)
+            {
+                NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
+
+                output[i - boundarySize] = Methods<dtype>::percentile(window, inPercentile).item();
+            }
 
             return std::move(output);
         }
@@ -1137,7 +1192,7 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculates a one-dimensional rank filter along the given axis.
+        //						Calculates a one-dimensional rank filter.
         //		
         // Inputs:
         //				NdArray
@@ -1151,10 +1206,18 @@ namespace NumC
         static NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
             Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> output(1, inImageArray.size());
 
-            // TODO: FINISH THIS!
+            uint32 boundarySize = inSize / 2; // integer division
+            uint32 endPoint = boundarySize + inImageArray.size();
+
+            for (uint32 i = boundarySize; i < endPoint; ++i)
+            {
+                NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
+
+                output[i - boundarySize] = Methods<dtype>::sort(window)[inRank];
+            }
 
             return std::move(output);
         }
@@ -1198,7 +1261,7 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculates a one-dimensional uniform filter along the given axis.
+        //						Calculates a one-dimensional uniform filter.
         //		
         // Inputs:
         //				NdArray
@@ -1211,10 +1274,18 @@ namespace NumC
         static NdArray<dtype> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
             Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> output(1, inImageArray.size());
 
-            // TODO: FINISH THIS!
+            uint32 boundarySize = inSize / 2; // integer division
+            uint32 endPoint = boundarySize + inImageArray.size();
+
+            for (uint32 i = boundarySize; i < endPoint; ++i)
+            {
+                NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
+
+                output[i - boundarySize] = window.mean().item();
+            }
 
             return std::move(output);
         }

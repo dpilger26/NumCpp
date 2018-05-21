@@ -20,7 +20,40 @@ def test1D():
              'wrap': NumC.Mode.WRAP}
 
     for mode in modes.keys():
-        print(colored(f'Testing complementaryMedianFilter1d: mode = {mode}', 'cyan'))
+        # print(colored(f'Testing complementaryMedianFilter1d: mode = {mode}', 'cyan'))
+        # size = np.random.randint(1000, 2000, [1,]).item()
+        # cShape = NumC.Shape(1, size)
+        # cArray = NumC.NdArray(cShape)
+        # data = np.random.randint(100, 1000, [1, size])
+        # cArray.setArray(data)
+        # kernalSize = 0
+        # while kernalSize % 2 == 0:
+        #     kernalSize = np.random.randint(5, 15)
+        # constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
+        # dataOutC = NumC.Filters.complementaryMedianFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        # dataOutPy = data - filters.generic_filter(data, np.median, footprint=[1, kernalSize], mode=mode, cval=constantValue)
+        # if np.array_equal(dataOutC, dataOutPy):
+        #     print(colored('\tPASS', 'green'))
+        # else:
+        #     print(colored('\tFAIL', 'red'))
+
+        print(colored(f'Testing medianFilter1d: mode = {mode}', 'cyan'))
+        size = np.random.randint(1000, 2000, [1,]).item()
+        cShape = NumC.Shape(1, size)
+        cArray = NumC.NdArray(cShape)
+        data = np.random.randint(100, 1000, [size, ])
+        cArray.setArray(data)
+        kernalSize = 0
+        while kernalSize % 2 == 0:
+            kernalSize = np.random.randint(5, 15)
+        constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
+        dataOutC = NumC.Filters.medianFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutPy = filters.generic_filter(data, np.median, footprint=[,kernalSize], mode=mode, cval=constantValue)
+        if np.array_equal(dataOutC, dataOutPy):
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
+
 
 ####################################################################################
 def test2D():
