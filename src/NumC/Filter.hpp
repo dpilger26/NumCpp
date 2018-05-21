@@ -578,7 +578,7 @@ namespace NumC
         {
             if (inKernalSize % 2 == 0)
             {
-                throw std::invalid_argument("ERROR: ImageProcessing::Filter::addBoundary: input kernal size must be an odd value.");
+                throw std::invalid_argument("ERROR: ImageProcessing::Filter::addBoundary1d: input kernal size must be an odd value.");
             }
 
             uint32 boundarySize = inKernalSize / 2; // integer division
@@ -754,12 +754,12 @@ namespace NumC
             Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             uint32 boundarySize = inWeights.size() / 2; // integer division
-            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, boundarySize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inWeights.size(), inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             NdArray<dtype> weightsFlat = Methods<dtype>::fliplr(inWeights.flatten());
 
-            uint32 endPointRow = boundarySize + inWeights.size();
+            uint32 endPointRow = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPointRow; ++i)
             {
