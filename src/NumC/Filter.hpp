@@ -196,8 +196,18 @@ namespace NumC
         //
         static NdArray<dtype> reflectBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            // TODO: add this
-            return std::move(NdArray<dtype>(0));
+            uint32 outSize = inImage.size() + inBoundarySize * 2;
+
+            NdArray<dtype> outArray(1, outSize);
+            outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
+
+            // left
+            outArray.put(Slice(0, inBoundarySize), Methods<dtype>::fliplr(inImage[Slice(0, inBoundarySize)]));
+
+            // right
+            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), Methods<dtype>::fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize), inImage.size())]));
+
+            return std::move(outArray);
         }
 
         //============================================================================
@@ -241,8 +251,18 @@ namespace NumC
         //
         static NdArray<dtype> constantBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
         {
-            // TODO: add this
-            return std::move(NdArray<dtype>(0));
+            uint32 outSize = inImage.size() + inBoundarySize * 2;
+
+            NdArray<dtype> outArray(1, outSize);
+            outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
+
+            // left
+            outArray.put(Slice(0, inBoundarySize), inConstantValue);
+
+            // right
+            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inConstantValue);
+
+            return std::move(outArray);
         }
 
         //============================================================================
@@ -307,8 +327,18 @@ namespace NumC
         //
         static NdArray<dtype> nearestBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            // TODO: add this
-            return std::move(NdArray<dtype>(0));
+            uint32 outSize = inImage.size() + inBoundarySize * 2;
+
+            NdArray<dtype> outArray(1, outSize);
+            outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
+
+            // left
+            outArray.put(Slice(0, inBoundarySize), inImage[0]);
+
+            // right
+            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inImage[-1]);
+
+            return std::move(outArray);
         }
 
         //============================================================================
@@ -385,8 +415,18 @@ namespace NumC
         //
         static NdArray<dtype> mirrorBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            // TODO: add this
-            return std::move(NdArray<dtype>(0));
+            uint32 outSize = inImage.size() + inBoundarySize * 2;
+
+            NdArray<dtype> outArray(1, outSize);
+            outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
+
+            // left
+            outArray.put(Slice(0, inBoundarySize), Methods<dtype>::fliplr(inImage[Slice(1, inBoundarySize + 1)]));
+
+            // right
+            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), Methods<dtype>::fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize) - 1, -1)]));
+
+            return std::move(outArray);
         }
 
         //============================================================================
@@ -466,7 +506,7 @@ namespace NumC
             outArray.put(Slice(0, inBoundarySize), inImage[Slice(inImage.size() - inBoundarySize, inImage.size())]);
 
             // right
-            outArray.put(Slice(inImage.size() - inBoundarySize, inImage.size()), inImage[Slice(0, inBoundarySize)]);
+            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inImage[Slice(0, inBoundarySize)]);
 
             return std::move(outArray);
         }
@@ -914,19 +954,20 @@ namespace NumC
             Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
-            NdArray<dtype> output(inImageArray.shape());
+            //NdArray<dtype> output(inImageArray.shape());
 
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPoint = boundarySize + inImageArray.size();
+            //uint32 boundarySize = inSize / 2; // integer division
+            //uint32 endPoint = boundarySize + inImageArray.size();
 
-            for (uint32 i = boundarySize; i < endPoint; ++i)
-            {
-                NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
+            //for (uint32 i = boundarySize; i < endPoint; ++i)
+            //{
+            //    NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
 
-                output[i - boundarySize] = window.median().item();
-            }
+            //    output[i - boundarySize] = window.median().item();
+            //}
 
-            return std::move(output);
+            //return std::move(output);
+            return std::move(arrayWithBoundary);
         }
 
         //============================================================================
