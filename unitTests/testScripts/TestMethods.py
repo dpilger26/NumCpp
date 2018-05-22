@@ -1764,6 +1764,7 @@ def doTest():
         os.mkdir(tempDir)
     tempFile = os.path.join(tempDir, 'NdArrayDump')
     NumC.MethodsDouble.tofile(cArray, tempFile, '\n')
+    print('Calling the C++')
     data2 = NumC.MethodsDouble.fromfile(tempFile + '.txt', '\n').reshape(shape)
     if np.array_equal(data, data2):
         print(colored('\tPASS', 'green'))

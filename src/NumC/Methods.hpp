@@ -791,7 +791,7 @@ namespace NumC
                 {
                     if (inWeights.shape() != inArray.shape())
                     {
-                        throw std::invalid_argument("ERROR: input array and weight values are not consistant.");
+                        throw std::invalid_argument("ERROR: average: input array and weight values are not consistant.");
                     }
 
                     NdArray<double> weightedArray(inArray.shape());
@@ -807,7 +807,7 @@ namespace NumC
                     Shape arrayShape = inArray.shape();
                     if (inWeights.size() != arrayShape.cols)
                     {
-                        throw std::invalid_argument("ERROR: input array and weights value are not consistant.");
+                        throw std::invalid_argument("ERROR: average: input array and weights value are not consistant.");
                     }
 
                     double weightSum = inWeights.sum<double>().item();
@@ -827,7 +827,7 @@ namespace NumC
                 {
                     if (inWeights.size() != inArray.shape().rows)
                     {
-                        throw std::invalid_argument("ERROR: input array and weight values are not consistant.");
+                        throw std::invalid_argument("ERROR: average: input array and weight values are not consistant.");
                     }
 
                     NdArray<dtype> transposedArray = inArray.transpose();
@@ -1294,9 +1294,10 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void copyto(NdArray<dtype>& inDestArray, const NdArray<dtype>& inSrcArray)
+        static NdArray<dtype>& copyto(NdArray<dtype>& inDestArray, const NdArray<dtype>& inSrcArray)
         {
             inDestArray = inSrcArray;
+            return inDestArray;
         }
 
         //============================================================================
@@ -2489,7 +2490,7 @@ namespace NumC
         {
             if (inArray1.shape() != inArray2.shape())
             {
-                throw std::invalid_argument("ERROR: fmax: input array shapes are not consistant.");
+                throw std::invalid_argument("ERROR: fmin: input array shapes are not consistant.");
             }
 
             NdArray<double> returnArray(inArray1.shape());
@@ -2514,7 +2515,7 @@ namespace NumC
         static dtype fmod(dtype inValue1, dtype inValue2)
         {
             // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: % operator can only be compiled with integer types.");
+            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: fmod can only be compiled with integer types.");
 
             return inValue1 % inValue2;
         }
@@ -2533,11 +2534,11 @@ namespace NumC
         static NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: % operator can only be compiled with integer types.");
+            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: fmod can only be compiled with integer types.");
 
             if (inArray1.shape() != inArray2.shape())
             {
-                throw std::invalid_argument("ERROR: fmax: input array shapes are not consistant.");
+                throw std::invalid_argument("ERROR: fmod: input array shapes are not consistant.");
             }
 
             NdArray<dtype> returnArray(inArray1.shape());
@@ -2609,17 +2610,15 @@ namespace NumC
                         std::getline(file, line);
 
                         std::istringstream iss(line);
-                        do
+                        try
                         {
-                            try
-                            {
-                                values.push_back(static_cast<dtype>(std::stod(iss.str())));
-                            }
-                            catch (const std::invalid_argument& /*ia*/)
-                            {
-                                //std::cout << "Warning: fromfile: " << ia.what() << std::endl;
-                            }
-                        } while (iss);
+                            values.push_back(static_cast<dtype>(std::stod(iss.str())));
+                        }
+                        catch (const std::invalid_argument& ia)
+                        {
+                            std::cout << "Warning: fromfile: " << ia.what() << std::endl;
+                            //throw;
+                        }
                     }
                     file.close();
                 }
@@ -4789,9 +4788,10 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
+        static NdArray<dtype>& put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
         {
             inArray.put(inIndices, inValues);
+            return inArray;
         }
 
         //============================================================================
@@ -4809,9 +4809,27 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static NdArray<dtype> put_mask(const NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
+        static NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
         {
-            return std::move(NdArray<dtype>()); // TODO: FIX THIS!
+            if (inArray.shape() != inMask.shape())
+            {
+                throw std::invalid_argument("ERROR: putmask: input mask array should be the same shape as the input array.");
+            }
+
+            uint32 valuesSize = inValues.size();
+            uint32 valueCounter = 0;
+            for (uint32 i = 0; i < inArray.size(); ++i)
+            {
+                if (inMask[i])
+                {
+                    std::cout << "In the if statement, valueCounter = " << valueCounter << " inArray[" << i << "] = " << inArray[i] << std::endl;
+                    inArray[i] = inValues[valueCounter % valuesSize];
+                    std::cout << "inArray[" << i << "] = " << inArray[i] << std::endl;
+                    ++valueCounter;
+                }
+            }
+
+            return inArray;
         }
 
         //============================================================================
@@ -4959,9 +4977,10 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void reshape(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+        static NdArray<dtype>& reshape(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             inArray.reshape(inNumRows, inNumCols);
+            return inArray;
         }
 
         //============================================================================
@@ -4975,9 +4994,10 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
+        static NdArray<dtype>& reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
         {
             inArray.reshape(inNewShape);
+            return inArray;
         }
 
         //============================================================================
@@ -4993,9 +5013,10 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+        static NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             inArray.resizeFast(inNumRows, inNumCols);
+            return inArray;
         }
 
         //============================================================================
@@ -5010,9 +5031,10 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
+        static NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
         {
             inArray.resizeFast(inNewShape);
+            return inArray;
         }
 
         //============================================================================
@@ -5030,9 +5052,10 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void resizeSlow(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
+        static NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             inArray.resizeSlow(inNumRows, inNumCols);
+            return inArray;
         }
 
         //============================================================================
@@ -5049,9 +5072,10 @@ namespace NumC
         // Outputs:
         //				NdArray
         //
-        static void resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
+        static NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
         {
             inArray.resizeSlow(inNewShape);
+            return inArray;
         }
 
         //============================================================================

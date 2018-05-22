@@ -1250,8 +1250,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray copyto(NdArray<dtype>& inArrayDest, const NdArray<dtype>& inArraySrc)
     {
-        Methods<dtype>::copyto(inArrayDest, inArraySrc);
-        return numCToBoost(inArrayDest);
+        return numCToBoost(Methods<dtype>::copyto(inArrayDest, inArraySrc));
     }
 
     //================================================================================
@@ -1830,49 +1829,49 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    void reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype>& reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        Methods<dtype>::reshape(inArray, inNewShape);
+        return Methods<dtype>::reshape(inArray, inNewShape);
     }
 
     //================================================================================
 
     template<typename dtype>
-    void reshapeList(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype>& reshapeList(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        Methods<dtype>::reshape(inArray, inNewShape.rows, inNewShape.cols);
+        return Methods<dtype>::reshape(inArray, inNewShape.rows, inNewShape.cols);
     }
 
     //================================================================================
 
     template<typename dtype>
-    void resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        Methods<dtype>::resizeFast(inArray, inNewShape);
+        return Methods<dtype>::resizeFast(inArray, inNewShape);
     }
 
     //================================================================================
 
     template<typename dtype>
-    void resizeFastList(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype>& resizeFastList(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        Methods<dtype>::resizeFast(inArray, inNewShape.rows, inNewShape.cols);
+        return Methods<dtype>::resizeFast(inArray, inNewShape.rows, inNewShape.cols);
     }
 
     //================================================================================
 
     template<typename dtype>
-    void resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        Methods<dtype>::resizeSlow(inArray, inNewShape);
+        return Methods<dtype>::resizeSlow(inArray, inNewShape);
     }
 
     //================================================================================
 
     template<typename dtype>
-    void resizeSlowList(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype>& resizeSlowList(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        Methods<dtype>::resizeSlow(inArray, inNewShape.rows, inNewShape.cols);
+        return Methods<dtype>::resizeSlow(inArray, inNewShape.rows, inNewShape.cols);
     }
 
     //================================================================================
@@ -2805,7 +2804,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("prod", &MethodsDouble::prod<double>).staticmethod("prod")
         //.def("prod", &MethodsDouble::prod<float>).staticmethod("prod")
         .def("ptp", &MethodsDouble::ptp).staticmethod("ptp")
-        .def("put", &MethodsDouble::put).staticmethod("put")
+        .def("put", &MethodsDouble::put, bp::return_internal_reference<>()).staticmethod("put")
+        .def("putmask", &MethodsDouble::putmask, bp::return_internal_reference<>()).staticmethod("putmask")
         .def("rad2degScalar", &MethodsInterface::rad2degScalar<double>).staticmethod("rad2degScalar")
         .def("rad2degArray", &MethodsInterface::rad2degArray<double>).staticmethod("rad2degArray")
         .def("reciprocal", &MethodsDouble::reciprocal<double>).staticmethod("reciprocal")
@@ -2814,12 +2814,12 @@ BOOST_PYTHON_MODULE(NumC)
         //.def("remainder", &MethodsInterface::remainderScalar<double, float>).staticmethod("remainder")
         .def("remainderArray", &MethodsInterface::remainderArray<double, double>).staticmethod("remainderArray")
         //.def("remainder", &MethodsInterface::remainderArray<double, float>).staticmethod("remainder")
-        .def("reshape", &MethodsInterface::reshape<double>).staticmethod("reshape")
-        .def("reshapeList", &MethodsInterface::reshapeList<double>).staticmethod("reshapeList")
-        .def("resizeFast", &MethodsInterface::resizeFast<double>).staticmethod("resizeFast")
-        .def("resizeFastList", &MethodsInterface::resizeFastList<double>).staticmethod("resizeFastList")
-        .def("resizeSlow", &MethodsInterface::resizeSlow<double>).staticmethod("resizeSlow")
-        .def("resizeSlowList", &MethodsInterface::resizeSlowList<double>).staticmethod("resizeSlowList")
+        .def("reshape", &MethodsInterface::reshape<double>, bp::return_internal_reference<>()).staticmethod("reshape")
+        .def("reshapeList", &MethodsInterface::reshapeList<double>, bp::return_internal_reference<>()).staticmethod("reshapeList")
+        .def("resizeFast", &MethodsInterface::resizeFast<double>, bp::return_internal_reference<>()).staticmethod("resizeFast")
+        .def("resizeFastList", &MethodsInterface::resizeFastList<double>, bp::return_internal_reference<>()).staticmethod("resizeFastList")
+        .def("resizeSlow", &MethodsInterface::resizeSlow<double>, bp::return_internal_reference<>()).staticmethod("resizeSlow")
+        .def("resizeSlowList", &MethodsInterface::resizeSlowList<double>, bp::return_internal_reference<>()).staticmethod("resizeSlowList")
         .def("right_shift", &Methods<uint32>::right_shift).staticmethod("right_shift")
         .def("rintScalar", &MethodsInterface::rintScalar<double>).staticmethod("rintScalar")
         .def("rintArray", &MethodsInterface::rintArray<double>).staticmethod("rintArray")
