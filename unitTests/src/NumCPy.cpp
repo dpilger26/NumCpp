@@ -1797,6 +1797,22 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
+    {
+        return numCToBoost(Methods<dtype>::putmask(inArray, inMask, inValues));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putmaskScalar(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
+    {
+        return numCToBoost(Methods<dtype>::putmask(inArray, inMask, inValue));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     dtype rad2degScalar(dtype inValue)
     {
         return Methods<dtype>::rad2deg(inValue);
@@ -2805,7 +2821,8 @@ BOOST_PYTHON_MODULE(NumC)
         //.def("prod", &MethodsDouble::prod<float>).staticmethod("prod")
         .def("ptp", &MethodsDouble::ptp).staticmethod("ptp")
         .def("put", &MethodsDouble::put, bp::return_internal_reference<>()).staticmethod("put")
-        .def("putmask", &MethodsDouble::putmask, bp::return_internal_reference<>()).staticmethod("putmask")
+        .def("putmask", &MethodsInterface::putmask<double>).staticmethod("putmask")
+        .def("putmaskScalar", &MethodsInterface::putmaskScalar<double>).staticmethod("putmaskScalar")
         .def("rad2degScalar", &MethodsInterface::rad2degScalar<double>).staticmethod("rad2degScalar")
         .def("rad2degArray", &MethodsInterface::rad2degArray<double>).staticmethod("rad2degArray")
         .def("reciprocal", &MethodsDouble::reciprocal<double>).staticmethod("reciprocal")

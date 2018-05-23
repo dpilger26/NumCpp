@@ -4805,6 +4805,39 @@ namespace NumC
         // Inputs:
         //				NdArray
         //				NdArray mask
+        //				scalar value to put
+        // Outputs:
+        //				NdArray
+        //
+        static NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
+        {
+            if (inArray.shape() != inMask.shape())
+            {
+                throw std::invalid_argument("ERROR: putmask: input mask array should be the same shape as the input array.");
+            }
+
+            for (uint32 i = 0; i < inArray.size(); ++i)
+            {
+                if (inMask[i])
+                {
+                    inArray[i] = inValue;
+                }
+            }
+
+            return inArray;
+        }
+
+        //============================================================================
+        // Method Description: 
+        //						Changes elements of an array based on conditional and input values.
+        //
+        //						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
+        //
+        //						If values is not the same size as a and mask then it will repeat.
+        //		
+        // Inputs:
+        //				NdArray
+        //				NdArray mask
         //				NdArray of values to put
         // Outputs:
         //				NdArray
@@ -4822,9 +4855,7 @@ namespace NumC
             {
                 if (inMask[i])
                 {
-                    std::cout << "In the if statement, valueCounter = " << valueCounter << " inArray[" << i << "] = " << inArray[i] << std::endl;
                     inArray[i] = inValues[valueCounter % valuesSize];
-                    std::cout << "inArray[" << i << "] = " << inArray[i] << std::endl;
                     ++valueCounter;
                 }
             }
