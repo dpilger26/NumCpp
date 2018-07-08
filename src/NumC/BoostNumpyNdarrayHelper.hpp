@@ -1,21 +1,29 @@
-// Copyright 2018 David Pilger
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-// software and associated documentation files(the "Software"), to deal in the Software 
-// without restriction, including without limitation the rights to use, copy, modify, 
-// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-// permit persons to whom the Software is furnished to do so, subject to the following 
-// conditions :
-//
-// The above copyright notice and this permission notice shall be included in all copies 
-// or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-// DEALINGS IN THE SOFTWARE.
+/// @author David Pilger <dpilger26@gmail.com>
+/// @version 1.0
+///
+/// @section LICENSE
+/// Copyright 2018 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software 
+/// without restriction, including without limitation the rights to use, copy, modify, 
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies 
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// DEALINGS IN THE SOFTWARE.
+///
+/// @section DESCRIPTION
+/// A module for interacting with the boost numpy arrays
+///
 #pragma once
 
 #include<NumC/NdArray.hpp>
@@ -42,15 +50,13 @@
 namespace NumC
 {
     //================================================================================
-    // Class Description:
-    //						C or Fortran ordering from python
-    //
+    ///						C or Fortran ordering from python
+    ///
     enum Order { F, C };
 
     //================================================================================
-    // Class Description:
-    //						Helper class for ndarray
-    //
+    ///						Helper class for ndarray
+    ///
     class BoostNdarrayHelper
     {
     private:
@@ -62,14 +68,12 @@ namespace NumC
         Order							order_;
 
         //============================================================================
-        // Method Description: 
-        //						Generic check of input indices
-        //		
-        /// @param
-        //				tuple of indices
-        /// @return
-        //				None
-        //
+        ///						Generic check of input indices
+        ///		
+        /// @param      tuple of indices
+        ///
+        /// @return     None
+        ///
         void checkIndicesGeneric(boost::python::tuple indices)
         {
             if (boost::python::len(indices) != numDimensions_)
@@ -90,14 +94,12 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						checks 1D input indices
-        //		
-        /// @param
-        //				index
-        /// @return
-        //				None
-        //
+        ///						Checks 1D input indices
+        ///		
+        /// @param      index
+        ///
+        /// @return     None
+        ///
         void checkIndices1D(uint32 index1)
         {
             boost::python::tuple indices = boost::python::make_tuple(index1);
@@ -105,15 +107,13 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						checks 2D input indices
-        //		
-        /// @param
-        //				index1
-        //				index2
-        /// @return
-        //				None
-        //
+        ///						Checks 2D input indices
+        ///		
+        /// @param      index1
+        /// @param		index2
+        ///
+        /// @return     None
+        ///
         void checkIndices2D(uint32 index1, uint32 index2)
         {
             boost::python::tuple indices = boost::python::make_tuple(index1, index2);
@@ -121,16 +121,14 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						checks 3D input indices
-        //		
-        /// @param
-        //				index1
-        //				index2
-        //				index3
-        /// @return
-        //				None
-        //
+        ///						Checks 3D input indices
+        ///		
+        /// @param      index1
+        /// @param      index2
+        /// @param      index3
+        ///
+        /// @return     None
+        ///
         void checkIndices3D(uint32 index1, uint32 index2, uint32 index3)
         {
             boost::python::tuple indices = boost::python::make_tuple(index1, index2, index3);
@@ -139,14 +137,12 @@ namespace NumC
 
     public:
         //============================================================================
-        // Method Description: 
-        //						Constructor
-        //		
-        /// @param
-        //				pointer to an ndarray
-        /// @return
-        //				None
-        //
+        ///						Constructor
+        ///		
+        /// @param      pointer to an ndarray
+        ///
+        /// @return     None
+        ///
         BoostNdarrayHelper(boost::python::numpy::ndarray* inArray) :
             theArray_(inArray->astype(boost::python::numpy::dtype::get_builtin<double>())),
             numDimensions_(static_cast<uint8>(inArray->get_nd())),
@@ -167,14 +163,12 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						Constructor
-        //		
-        /// @param
-        //				pointer to an ndarray
-        /// @return
-        //				None
-        //
+        ///						Constructor
+        ///		
+        /// @param      pointer to an ndarray
+        ///
+        /// @return     None
+        ///
         BoostNdarrayHelper(boost::python::tuple inShape) :
             theArray_(boost::python::numpy::zeros(inShape, boost::python::numpy::dtype::get_builtin<double>()))
         {
@@ -187,70 +181,60 @@ namespace NumC
 
 
         //============================================================================
-        // Method Description: 
-        //						Returns the internaly held ndarray
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				pointer to an ndarray
-        //
+        ///						Returns the internaly held ndarray
+        ///		
+        /// @param      None
+        ///
+        /// @return     pointer to an ndarray
+        ///
         const boost::python::numpy::ndarray* getArray()
         {
             return &theArray_;
         }
 
         //============================================================================
-        // Method Description: 
-        //						Returns the internaly held ndarray as a numpy matrix
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				matrix
-        //
+        ///						Returns the internaly held ndarray as a numpy matrix
+        ///		
+        /// @param      None
+        ///
+        /// @return     matrix
+        ///
         boost::python::numpy::matrix getArrayAsMatrix()
         {
             return boost::python::numpy::matrix(theArray_);
         }
 
         //============================================================================
-        // Method Description: 
-        //						Returns the number of dimensions of the array
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				num dimensions
-        //
+        ///						Returns the number of dimensions of the array
+        ///		
+        /// @param      None
+        ///
+        /// @return     num dimensions
+        ///
         uint8 numDimensions()
         {
             return numDimensions_;
         }
 
         //============================================================================
-        // Method Description: 
-        //						Returns the shape of the array
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				vector
-        //
+        ///						Returns the shape of the array
+        ///		
+        /// @param      None
+        ///
+        /// @return     vector
+        ///
         const std::vector<Py_intptr_t>& shape()
         {
             return shape_;
         }
 
         //============================================================================
-        // Method Description: 
-        //						Returns the size of the array
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				size
-        //
+        ///						Returns the size of the array
+        ///		
+        /// @param      None
+        ///
+        /// @return     size
+        ///
         uint32 size()
         {
             uint32 theSize = 1;
@@ -263,42 +247,36 @@ namespace NumC
 
 
         //============================================================================
-        // Method Description: 
-        //						Returns the strides of the array
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				vector
-        //
+        ///						Returns the strides of the array
+        ///		
+        /// @param      None
+        ///
+        /// @return     vector
+        ///
         const std::vector<uint32>& strides()
         {
             return strides_;
         }
 
         //============================================================================
-        // Method Description: 
-        //						Returns the memory order of the array (C or Fortran)
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				Order
-        //
+        ///						Returns the memory order of the array (C or Fortran)
+        ///		
+        /// @param      None
+        ///
+        /// @return     Order
+        ///
         Order order()
         {
             return order_;
         }
 
         //============================================================================
-        // Method Description: 
-        //						Returns if the shapes of the two array helpers are equal
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				boolean
-        //
+        ///						Returns if the shapes of the two array helpers are equal
+        ///		
+        /// @param      None
+        ///
+        /// @return     boolean
+        ///
         bool shapeEqual(BoostNdarrayHelper& otherNdarrayHelper)
         {
             if (shape_.size() != otherNdarrayHelper.shape().size())
@@ -317,14 +295,12 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						1D access operator
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				double
-        //
+        ///						1D access operator
+        ///		
+        /// @param      None
+        ///
+        /// @return     double
+        ///
         double& operator()(uint32 index)
         {
             checkIndices1D(index);
@@ -333,14 +309,12 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						2D access operator
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				double
-        //
+        ///						2D access operator
+        ///		
+        /// @param      None
+        ///
+        /// @return     double
+        ///
         double& operator()(uint32 index1, uint32 index2)
         {
             checkIndices2D(index1, index2);
@@ -348,14 +322,12 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						3D access operator
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				double
-        //
+        ///						3D access operator
+        ///		
+        /// @param      None
+        ///
+        /// @return     double
+        ///
         double& operator()(uint32 index1, uint32 index2, uint32 index3)
         {
             checkIndices3D(index1, index2, index3);
@@ -364,14 +336,12 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						prints a 1D array
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				None
-        //
+        ///						Prints a 1D array
+        ///		
+        /// @param      None
+        ///
+        /// @return     None
+        ///
         void printArray1D()
         {
             printf("array = \n");
@@ -388,14 +358,12 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						prints a 2D array
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				None
-        //
+        ///						Prints a 2D array
+        ///		
+        /// @param      None
+        ///
+        /// @return     None
+        ///
         void printArray2D()
         {
             printf("array = \n");
@@ -416,14 +384,12 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						prints a 3D array
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				None
-        //
+        ///						Prints a 3D array
+        ///		
+        /// @param      None
+        ///
+        /// @return     None
+        ///
         void printArray3D()
         {
             printf("array = \n");
@@ -449,14 +415,12 @@ namespace NumC
     }; // class ndarrayHelper
 
     //============================================================================
-    // Method Description: 
-    //						converts from a boost ndarray to a NumC NdArray<T>
-    //		
-    /// @param
-    //				ndarray
-    /// @return
-    //				NdArray<T>
-    //
+    ///						Converts from a boost ndarray to a NumC NdArray<T>
+    ///		
+    /// @param      ndarray
+    ///
+    /// @return     NdArray<T>
+    ///
     template<typename dtype>
     NdArray<dtype> boostToNumC(boost::python::numpy::ndarray& inArray)
     {
@@ -500,14 +464,12 @@ namespace NumC
     }
 
     //============================================================================
-    // Method Description: 
-    //						converts from a NumC NdArray<T> to a boost ndarray
-    //		
-    /// @param
-    //				NdArray<T>
-    /// @return
-    //				ndarray
-    //
+    ///						Converts from a NumC NdArray<T> to a boost ndarray
+    ///		
+    /// @param      NdArray<T>
+    ///
+    /// @return     ndarray
+    ///
     template<typename dtype>
     boost::python::numpy::ndarray numCToBoost(const NdArray<dtype>& inArray)
     {

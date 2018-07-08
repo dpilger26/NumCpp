@@ -1,4 +1,3 @@
-/// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// @version 1.0
 ///
@@ -14,7 +13,7 @@
 ///
 /// The above copyright notice and this permission notice shall be included in all copies 
 /// or substantial portions of the Software.
-
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
 /// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
 /// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
@@ -22,10 +21,9 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @ section DESCRIPTION
+/// @section DESCRIPTION
 /// A module for holding and working with coordinates in either Ra/Dec or cartesian formats
-
-
+///
 #pragma once
 
 #include"NumC/DtypeInfo.hpp"
@@ -42,6 +40,7 @@
 namespace NumC
 {
     //================================Coordinates Namespace=============================
+    ///A module for holding and working with coordinates in either Ra/Dec or cartesian formats
     namespace Coordinates
     {
         //================================================================================
@@ -79,7 +78,7 @@ namespace NumC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      fractional degrees
+            /// @param      degrees
             ///
             /// @return     None
             ///
@@ -126,7 +125,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns a copy of the RA object as a different type
+            ///						Returns a copy of the RA object as a different type
             ///		
             /// @param      None
             ///
@@ -141,7 +140,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the radians value
+            ///						Get the radians value
             ///		
             /// @param      None
             ///
@@ -153,7 +152,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the degrees value
+            ///						Get the degrees value
             ///		
             /// @param      None
             ///
@@ -165,11 +164,11 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the hour value
+            ///						Get the hour value
             ///		
             /// @param      None
             ///
-            /// @return     uint8 hours
+            /// @return     hours
             ///
             uint8 hours() const
             {
@@ -177,11 +176,11 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the minute value
+            ///						Get the minute value
             ///		
             /// @param      None   
             ///
-            /// @return     uint8 minutes
+            /// @return     minutes
             ///
             uint8 minutes() const
             {
@@ -189,11 +188,11 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the seconds value
+            ///						Get the seconds value
             ///		
             /// @param      None
             /// 
-            /// @return     fractional seconds
+            /// @return     seconds
             ///
             dtype seconds() const
             {
@@ -201,7 +200,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						return the ra object as a string representation
+            ///						Return the RA object as a string representation
             ///		
             /// @param      None
             ///
@@ -215,7 +214,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						prints the RA object to the console
+            ///						Prints the RA object to the console
             ///		
             /// @param      None
             ///
@@ -227,7 +226,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						equality operator
+            ///						Equality operator
             ///		
             /// @param      None
             ///
@@ -239,7 +238,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						not equality operator
+            ///						Not equality operator
             ///		
             /// @param      None
             ///
@@ -251,7 +250,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						ostream operator
+            ///						Ostream operator
             ///		
             /// @param      None
             ///
@@ -265,12 +264,12 @@ namespace NumC
         };
 
         //================================================================================
-        ///						pretty self explanatory
+        ///						Struct Enum for positive or negative Dec angle
         ///
         struct Sign { enum Type { NEGATIVE = 0, POSITIVE }; };
 
         //================================================================================
-        ///						holds a declination object
+        ///						Holds a Declination object
         ///
         template<typename dtype>
         class Dec
@@ -306,7 +305,7 @@ namespace NumC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      fractional degrees
+            /// @param      degrees
             ///
             /// @return     None
             ///
@@ -360,7 +359,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns a copy of the Dec object as a different type
+            ///						Returns a copy of the Dec object as a different type
             ///		
             /// @param      None
             ///
@@ -375,7 +374,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the sign of the degrees (positive or negative)
+            ///						Get the sign of the degrees (positive or negative)
             ///		
             /// @param      None
             ///
@@ -387,11 +386,11 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the degrees value
+            ///						Get the degrees value
             ///		
             /// @param      None
             ///
-            /// @return     uint8 minutes
+            /// @return     degrees
             ///
             dtype degrees() const
             {
@@ -399,11 +398,11 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the radians value
+            ///						Get the radians value
             ///		
             /// @param      None
             ///
-            /// @return     uint8 minutes
+            /// @return     minutes
             ///
             dtype radians() const
             {
@@ -411,11 +410,11 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the whole degrees value
+            ///						Get the whole degrees value
             ///		
             /// @param      None
             ///
-            /// @return     uint8 minutes
+            /// @return     whole degrees
             ///
             uint8 degreesWhole() const
             {
@@ -423,11 +422,11 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the minute value
+            ///						Get the minute value
             ///		
             /// @param      None
             ///
-            /// @return     uint8 minutes
+            /// @return     minutes
             ///
             uint8 minutes() const
             {
@@ -435,11 +434,11 @@ namespace NumC
             }
 
             //============================================================================
-            ///						get the seconds value
+            ///						Get the seconds value
             ///		
             /// @param      None
             ///
-            /// @return     fractional seconds
+            /// @return     seconds
             ///
             dtype seconds() const
             {
@@ -447,7 +446,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						return the dec object as a string representation
+            ///						Return the dec object as a string representation
             ///		
             /// @param      None
             ///
@@ -462,7 +461,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						prints the Dec object to the console
+            ///						Prints the Dec object to the console
             ///		
             /// @param      None
             ///
@@ -474,7 +473,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						equality operator
+            ///						Equality operator
             ///		
             /// @param      None
             ///
@@ -486,7 +485,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						not equality operator
+            ///						Not equality operator
             ///		
             /// @param      None
             ///
@@ -498,7 +497,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						ostream operator
+            ///						Ostream operator
             ///		
             /// @param      None
             ///
@@ -512,7 +511,7 @@ namespace NumC
         };
 
         //================================================================================
-        ///						holds a full coordinate object
+        ///						Holds a full coordinate object
         ///
         template<typename dtype>
         class Coordinate
@@ -526,7 +525,7 @@ namespace NumC
             dtype           z_;
 
             //============================================================================
-            ///						converts polar coordinates to cartesian coordinates
+            ///						Converts polar coordinates to cartesian coordinates
             ///		
             /// @param      None
             /// @return     None
@@ -546,7 +545,7 @@ namespace NumC
             }
 
             //============================================================================ 
-            ///						converts polar coordinates to cartesian coordinates
+            ///						Converts polar coordinates to cartesian coordinates
             ///		
             /// @param      None
             ///
@@ -583,8 +582,8 @@ namespace NumC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      RA fractional degrees
-            /// @param      Dec fractional degrees
+            /// @param      RA degrees
+            /// @param      Dec degrees
             ///
             /// @return     None
             ///
@@ -690,11 +689,11 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns the Dec object
+            ///						Returns a new Coordinate object with the specified type
             ///		
             /// @param      None
             ///
-            /// @return     Dec
+            /// @return     Coordinate
             ///
             template<typename dtypeOut>
             Coordinate<dtypeOut> astype()
@@ -703,7 +702,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns the Dec object
+            ///						Returns the Dec object
             ///		
             /// @param              None
             ///
@@ -715,7 +714,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns the RA object
+            ///						Returns the RA object
             ///		
             /// @param      None
             ///
@@ -727,7 +726,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns the cartesian x value
+            ///						Returns the cartesian x value
             ///		
             /// @param      None
             ///
@@ -739,7 +738,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns the cartesian y value
+            ///						Returns the cartesian y value
             ///		
             /// @param      None
             ///
@@ -751,7 +750,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns the cartesian z value
+            ///						Returns the cartesian z value
             ///		
             /// @param      None
             ///
@@ -763,7 +762,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns the cartesian xyz triplet as an NdArray
+            ///						Returns the cartesian xyz triplet as an NdArray
             ///		
             /// @param      None
             ///
@@ -776,7 +775,7 @@ namespace NumC
             }
 
             //============================================================================  
-            ///						returns the degree seperation between the two Coordinates
+            ///						Returns the degree seperation between the two Coordinates
             ///		
             /// @param      Coordinate
             ///
@@ -788,8 +787,8 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns the degree seperation between the Coordinate
-            ///                      and the input vector
+            ///						Returns the degree seperation between the Coordinate
+            ///                     and the input vector
             ///		
             /// @param      NdArray
             ///
@@ -801,11 +800,11 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns the radian seperation between the two Coordinates
+            ///						Returns the radian seperation between the two Coordinates
             ///		
             /// @param      Coordinate
             ///
-            /// @return     radian
+            /// @return     radians
             ///
             dtype radianSeperation(const Coordinate<dtype>& inOtherCoordinate) const
             {
@@ -813,12 +812,12 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns the radian seperation between the Coordinate
-            ///                      and the input vector
+            ///						Returns the radian seperation between the Coordinate
+            ///                     and the input vector
             ///		
             /// @param      NdArray
             ///
-            /// @return     radian
+            /// @return     radians
             ///
             dtype radianSeperation(const NdArray<dtype>& inVector) const
             {
@@ -831,7 +830,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						returns coordinate as a string representation
+            ///						Returns coordinate as a string representation
             ///		
             /// @param      None
             ///
@@ -847,7 +846,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						prints the Coordinate object to the console
+            ///						Prints the Coordinate object to the console
             ///		
             /// @param      None
             ///
@@ -859,7 +858,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						equality operator
+            ///						Equality operator
             ///		
             /// @param      None
             ///
@@ -871,7 +870,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						not equality operator
+            ///						Not equality operator
             ///		
             /// @param      None
             ///
@@ -883,7 +882,7 @@ namespace NumC
             }
 
             //============================================================================
-            ///						ostream operator
+            ///						Ostream operator
             ///		
             /// @param      None
             ///
@@ -897,12 +896,12 @@ namespace NumC
         };
 
         //============================================================================
-        ///						returns the degree seperation between the two Coordinates
+        ///						Returns the degree seperation between the two Coordinates
         ///		
         /// @param				Coordinate
         /// @param              Coordinate
         ///
-        /// @return     degrees
+        /// @return             degrees
         ///
         template<typename dtype>
         dtype degreeSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2)
@@ -911,13 +910,13 @@ namespace NumC
         }
 
         //============================================================================
-        ///						returns the degree seperation between the Coordinate
-        ///                      and the input vector
+        ///						Returns the degree seperation between the Coordinate
+        ///                     and the input vector
         ///		
         /// @param				NdArray
         /// @param              NdArray
         ///
-        /// @return     degrees
+        /// @return             degrees
         ///
         template<typename dtype>
         dtype degreeSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2)
@@ -927,12 +926,12 @@ namespace NumC
         }
 
         //============================================================================
-        ///						returns the radian seperation between the two Coordinates
+        ///						Returns the radian seperation between the two Coordinates
         ///		
         /// @param				Coordinate
         /// @param              Coordinate
         ///
-        /// @return     radian
+        /// @return             radians
         ///
         template<typename dtype>
         dtype radianSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2)
@@ -941,12 +940,12 @@ namespace NumC
         }
 
         //============================================================================
-        ///						returns the radian seperation between the Coordinate
-        ///                      and the input vector
+        ///						Returns the radian seperation between the Coordinate
+        ///                     and the input vector
         ///		
         /// @param				NdArray
         /// @param              NdArray
-        /// @return             radian
+        /// @return             radians
         ///
         template<typename dtype>
         dtype radianSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2)

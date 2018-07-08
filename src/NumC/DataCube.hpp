@@ -1,22 +1,29 @@
-// Copyright 2018 David Pilger
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-// software and associated documentation files(the "Software"), to deal in the Software 
-// without restriction, including without limitation the rights to use, copy, modify, 
-// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-// permit persons to whom the Software is furnished to do so, subject to the following 
-// conditions :
-//
-// The above copyright notice and this permission notice shall be included in all copies 
-// or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-// DEALINGS IN THE SOFTWARE.
-
+/// @author David Pilger <dpilger26@gmail.com>
+/// @version 1.0
+///
+/// @section LICENSE
+/// Copyright 2018 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software 
+/// without restriction, including without limitation the rights to use, copy, modify, 
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies 
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// DEALINGS IN THE SOFTWARE.
+///
+/// @section DESCRIPTION
+/// Convience container for holding a uniform array of NdArrays
+///
 #pragma once
 
 #include"NumC/NdArray.hpp"
@@ -31,9 +38,8 @@
 namespace NumC
 {
     //================================================================================
-    // Class Description:
-    //						convience container for holding a uniform array of NdArrays
-    //
+    ///						Convience container for holding a uniform array of NdArrays
+    ///
     template<typename dtype>
     class DataCube
     {
@@ -49,111 +55,95 @@ namespace NumC
 
     public:
         //============================================================================
-        // Method Description: 
-        //						Default Constructor
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				None
-        //
+        ///						Default Constructor
+        ///		
+        /// @param      None
+        ///
+        /// @return     None
+        ///
         DataCube() :
             elementShape_(0, 0)
         {};
 
         //============================================================================
-        // Method Description: 
-        //						Constructor, preallocates to the input size
-        //		
-        /// @param
-        //				size
-        /// @return
-        //				None
-        //
+        ///						Constructor, preallocates to the input size
+        ///		
+        /// @param      size
+        ///
+        /// @return     None
+        ///
         DataCube(uint32 inSize) :
             cube_(inSize),
             elementShape_(0, 0)
         {};
 
         //============================================================================
-        // Method Description: 
-        //						access method, with bounds checking
-        //		
-        /// @param
-        //				index
-        /// @return
-        //				NdArray
-        //
+        ///						Access method, with bounds checking
+        ///		
+        /// @param      index
+        ///
+        /// @return     NdArray
+        ///
         NdArray<dtype>& at(uint32 inIndex)
         {
             return cube_.at(inIndex);
         }
 
         //============================================================================
-        // Method Description: 
-        //						const access method, with bounds checking
-        //		
-        /// @param
-        //				index
-        /// @return
-        //				NdArray
-        //
+        ///						Const access method, with bounds checking
+        ///		
+        /// @param      index
+        ///
+        /// @return     NdArray
+        ///
         const NdArray<dtype>& at(uint32 inIndex) const
         {
             return cube_.at(inIndex);
         }
 
         //============================================================================
-        // Method Description: 
-        //						returns a reference to the last element of the array
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				NdArray&
-        //
+        ///						Returns a reference to the last element of the array
+        ///		
+        /// @param      None
+        ///
+        /// @return     NdArray&
+        ///
         NdArray<dtype>& back()
         {
             return cube_.back();
         }
 
         //============================================================================
-        // Method Description: 
-        //						returns an iterator to the beginning of the container
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				iterator
-        //
+        ///						Returns an iterator to the beginning of the container
+        ///		
+        /// @param      None
+        ///
+        /// @return     iterator
+        ///
         iterator begin()
         {
             return cube_.begin();
         }
 
         //============================================================================
-        // Method Description: 
-        //						returns a const_iterator to the beginning of the container
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				const_iterator
-        //
+        ///						Returns a const_iterator to the beginning of the container
+        ///		
+        /// @param      None
+        ///
+        /// @return     const_iterator
+        ///
         const_iterator cbegin() const
         {
             return cube_.cbegin();
         }
 
         //============================================================================
-        // Method Description: 
-        //						outputs the DataCube as a .bin file
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				None
-        //
+        ///						Outputs the DataCube as a .bin file
+        ///		
+        /// @param      None
+        ///
+        /// @return     None
+        ///
         void dump(const std::string& inFilename) const
         {
             boost::filesystem::path p(inFilename);
@@ -179,126 +169,108 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						tests whether or not the container is empty
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				bool
-        //
+        ///						Tests whether or not the container is empty
+        ///		
+        /// @param      None
+        ///
+        /// @return     bool
+        ///
         bool isempty()
         {
             return cube_.empty();
         }
 
         //============================================================================
-        // Method Description: 
-        //						returns an iterator to 1 past the end of the container
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				iterator
-        //
+        ///						Returns an iterator to 1 past the end of the container
+        ///		
+        /// @param      None
+        ///
+        /// @return     iterator
+        ///
         iterator end()
         {
             return cube_.end();
         }
 
         //============================================================================
-        // Method Description: 
-        //						returns a const_iterator to 1 past the end of the container
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				const_iterator
-        //
+        ///						Returns a const_iterator to 1 past the end of the container
+        ///		
+        /// @param      None
+        ///
+        /// @return     const_iterator
+        ///
         const_iterator cend() const
         {
             return cube_.cend();
         }
 
-        //============================================================================
-        // Method Description: 
-        //						returns a reference to the first element of the array
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				NdArray&
-        //
+        //============================================================================ 
+        ///						returns a reference to the first element of the array
+        ///		
+        /// @param      None
+        ///
+        /// @return     NdArray&
+        ///
         NdArray<dtype>& front()
         {
             return cube_.front();
         }
 
         //============================================================================
-        // Method Description: 
-        //						returns the number shape of the element arrays
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				Shape
-        //
+        ///						returns the number shape of the element arrays
+        ///		
+        /// @param      None
+        ///
+        /// @return     Shape
+        ///
         const Shape& shape() const
         {
             return elementShape_;
         }
 
         //============================================================================
-        // Method Description: 
-        //						returns the size of the container array
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				uint16 size
-        //
+        ///						Returns the size of the container array
+        ///		
+        /// @param      None
+        ///
+        /// @return     size
+        ///
         uint32 size() const
         {
             return static_cast<uint32>(cube_.size());
         }
 
         //============================================================================
-        // Method Description: 
-        //						Removes the last element in the container
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				None
-        //
+        ///						Removes the last element in the container
+        ///		
+        /// @param      None
+        ///
+        /// @return     None
+        ///
         void pop_back()
         {
             cube_.pop_back();
         }
 
         //============================================================================
-        // Method Description: 
-        //						Removes the first element in the container
-        //		
-        /// @param
-        //				None
-        /// @return
-        //				None
-        //
+        ///						Removes the first element in the container
+        ///		
+        /// @param      None
+        ///
+        /// @return     None
+        ///
         void pop_front()
         {
             cube_.pop_front();
         }
 
         //============================================================================
-        // Method Description: 
-        //						Adds a new element at the end of the container
-        //		
-        /// @param
-        //				NdArray
-        /// @return
-        //				None
-        //
+        ///						Adds a new element at the end of the container
+        ///		
+        /// @param      NdArray
+        ///
+        /// @return     None
+        ///
         void push_back(const NdArray<dtype>& inArray)
         {
             Shape inputShape = inArray.shape();
@@ -319,14 +291,12 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						Adds a new element at the beginning of the container
-        //		
-        /// @param
-        //				NdArray
-        /// @return
-        //				None
-        //
+        ///						Adds a new element at the beginning of the container
+        ///		
+        /// @param      NdArray
+        ///
+        /// @return     None
+        ///
         void push_front(const NdArray<dtype>& inArray)
         {
             Shape inputShape = inArray.shape();
@@ -347,28 +317,24 @@ namespace NumC
         }
 
         //============================================================================
-        // Method Description: 
-        //						access operator, no bounds checking
-        //		
-        /// @param
-        //				index
-        /// @return
-        //				NdArray
-        //
+        ///						Access operator, no bounds checking
+        ///		
+        /// @param      index
+        ///
+        /// @return     NdArray
+        ///
         NdArray<dtype>& operator[](uint32 inIndex)
         {
             return cube_[inIndex];
         }
 
         //============================================================================
-        // Method Description: 
-        //						const access operator, no bounds checking
-        //		
-        /// @param
-        //				index
-        /// @return
-        //				NdArray
-        //
+        ///						Const access operator, no bounds checking
+        ///		
+        /// @param      index
+        ///
+        /// @return     NdArray
+        ///
         const NdArray<dtype>& operator[](uint32 inIndex) const
         {
             return cube_[inIndex];

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['c',['c',['../namespace_num_c_1_1_constants.html#ac5efd1bc05e0c8ef494a4d31c785f3b4',1,'NumC::Constants']]],
   ['cauchy',['cauchy',['../class_num_c_1_1_random.html#a9d4ff66c98ef18b76dbcf533f7968209',1,'NumC::Random']]],
   ['cbegin',['cbegin',['../class_num_c_1_1_data_cube.html#a28a7d41b1be694f97b1af279b5afffad',1,'NumC::DataCube::cbegin()'],['../class_num_c_1_1_nd_array.html#ac80d7125ea62fcd159e40387c2389081',1,'NumC::NdArray::cbegin() const'],['../class_num_c_1_1_nd_array.html#a15d151b34c7fa94d5710f07fe2327663',1,'NumC::NdArray::cbegin(uint32 inRow) const']]],
   ['cbrt',['cbrt',['../class_num_c_1_1_methods.html#a1fd01d4ca1b6160a422a8ab751810f34',1,'NumC::Methods::cbrt(dtype inValue)'],['../class_num_c_1_1_methods.html#abf9c885af0b9d45e262c7a620250bd9f',1,'NumC::Methods::cbrt(const NdArray&lt; dtype &gt; &amp;inArray)']]],
@@ -23,7 +24,6 @@ var searchData=
   ['convolve',['convolve',['../class_num_c_1_1_filters.html#ac748e9ed1f97917ba619ef0978b85d95',1,'NumC::Filters']]],
   ['convolve1d',['convolve1d',['../class_num_c_1_1_filters.html#a5391f92f8fca1b1742ea4eb62261936c',1,'NumC::Filters']]],
   ['coordinate',['Coordinate',['../class_num_c_1_1_coordinates_1_1_coordinate.html',1,'NumC::Coordinates::Coordinate&lt; dtype &gt;'],['../class_num_c_1_1_coordinates_1_1_coordinate.html#ae32aea9949fa7f836660caeded649176',1,'NumC::Coordinates::Coordinate::Coordinate()'],['../class_num_c_1_1_coordinates_1_1_coordinate.html#a64de27c4f1b7713c17e0335d75ec92c3',1,'NumC::Coordinates::Coordinate::Coordinate(dtype inRaDegrees, dtype inDecDegrees)'],['../class_num_c_1_1_coordinates_1_1_coordinate.html#ac41f6813f65934fedb7f9a10b5ed90d6',1,'NumC::Coordinates::Coordinate::Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign::Type inSign, uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds)'],['../class_num_c_1_1_coordinates_1_1_coordinate.html#a5bd79340ba2617beed44f80392babd12',1,'NumC::Coordinates::Coordinate::Coordinate(const RA&lt; dtype &gt; &amp;inRA, const Dec&lt; dtype &gt; &amp;inDec)'],['../class_num_c_1_1_coordinates_1_1_coordinate.html#a5d53ed06a21ccce8c3851c36c1e5467e',1,'NumC::Coordinates::Coordinate::Coordinate(dtype inX, dtype inY, dtype inZ)'],['../class_num_c_1_1_coordinates_1_1_coordinate.html#a820e23a9ef07eef82321366e61cfb441',1,'NumC::Coordinates::Coordinate::Coordinate(const NdArray&lt; dtype &gt; inCartesianVector)']]],
-  ['coordinates_2ehpp',['Coordinates.hpp',['../_coordinates_8hpp.html',1,'']]],
   ['copy',['copy',['../class_num_c_1_1_methods.html#a537898e8cf727d89defc216b58b9af96',1,'NumC::Methods::copy()'],['../class_num_c_1_1_nd_array.html#a1cac8d729a4ea624fd4512fc51b331e9',1,'NumC::NdArray::copy()']]],
   ['copysign',['copySign',['../class_num_c_1_1_methods.html#a24f88ca209a845c662326eeb6f06e579',1,'NumC::Methods']]],
   ['copyto',['copyto',['../class_num_c_1_1_methods.html#aaa2d84dd0808463f20a24b4147f71c2a',1,'NumC::Methods']]],

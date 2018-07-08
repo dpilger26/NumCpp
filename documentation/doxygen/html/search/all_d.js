@@ -1,5 +1,8 @@
 var searchData=
 [
+  ['constants',['Constants',['../namespace_num_c_1_1_constants.html',1,'NumC']]],
+  ['coordinates',['Coordinates',['../namespace_num_c_1_1_coordinates.html',1,'NumC']]],
+  ['nan',['nan',['../namespace_num_c_1_1_constants.html#ad6d765bc43000564045c8bf410c88000',1,'NumC::Constants']]],
   ['nanargmax',['nanargmax',['../class_num_c_1_1_methods.html#aecb4a2081239e5f48d284a71c88b3e50',1,'NumC::Methods']]],
   ['nanargmin',['nanargmin',['../class_num_c_1_1_methods.html#aa209144a341b2da49b9b89b9529613bc',1,'NumC::Methods']]],
   ['nancumprod',['nancumprod',['../class_num_c_1_1_methods.html#a581de7caecdd2833a7c69854ac203bb2',1,'NumC::Methods']]],

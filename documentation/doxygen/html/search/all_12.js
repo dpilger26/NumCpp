@@ -2,6 +2,10 @@ var searchData=
 [
   ['s',['s',['../class_num_c_1_1_rotations_1_1_quaternion.html#a5d3d13ed55c5e08fd35e3d793eb62a70',1,'NumC::Rotations::Quaternion']]],
   ['seconds',['seconds',['../class_num_c_1_1_coordinates_1_1_r_a.html#aa6f63b4ebee9854019a42c523f7981f3',1,'NumC::Coordinates::RA::seconds()'],['../class_num_c_1_1_coordinates_1_1_dec.html#a5660a795f51d52d2dbf2578d92ef284b',1,'NumC::Coordinates::Dec::seconds()']]],
+  ['seconds_5fper_5fday',['SECONDS_PER_DAY',['../namespace_num_c_1_1_constants.html#a0679151e1b64bb3d5a0d005893a4fe3e',1,'NumC::Constants']]],
+  ['seconds_5fper_5fhour',['SECONDS_PER_HOUR',['../namespace_num_c_1_1_constants.html#a5090dc3b19761dcf8c008b1ee54d2936',1,'NumC::Constants']]],
+  ['seconds_5fper_5fminute',['SECONDS_PER_MINUTE',['../namespace_num_c_1_1_constants.html#af8489b57825b7d3355fd0e3da0e4ad62',1,'NumC::Constants']]],
+  ['seconds_5fper_5fweek',['SECONDS_PER_WEEK',['../namespace_num_c_1_1_constants.html#abb1ba6ca939e4a4872c904e9cb624300',1,'NumC::Constants']]],
   ['seed',['seed',['../class_num_c_1_1_random.html#a1c7d3afe8f86b767a2a1a2a0c8e42986',1,'NumC::Random']]],
   ['setclusterid',['setClusterId',['../class_num_c_1_1_image_processing_1_1_pixel.html#a87855b80b4b6daa9ee191b3b36d3070f',1,'NumC::ImageProcessing::Pixel']]],
   ['setdiff1d',['setdiff1d',['../class_num_c_1_1_methods.html#a133c0cdfd5a625cef8956b77f9bcac25',1,'NumC::Methods']]],

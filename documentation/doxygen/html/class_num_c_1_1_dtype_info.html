@@ -74,6 +74,8 @@ $(function() {
 <div class="title">NumC::DtypeInfo&lt; dtype &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_dtype_info_8hpp_source.html">DtypeInfo.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -85,12 +87,17 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a6409e79e849007fae15f9042ccc5ac6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9b12306c685ba2c50c896ed340668e2"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_dtype_info.html#ab9b12306c685ba2c50c896ed340668e2">isSigned</a> ()</td></tr>
 <tr class="separator:ab9b12306c685ba2c50c896ed340668e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0203027ae62ac389c1794cfe22e990a1"><td class="memItemLeft" align="right" valign="top">static constexpr dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_dtype_info.html#a0203027ae62ac389c1794cfe22e990a1">min</a> ()</td></tr>
-<tr class="separator:a0203027ae62ac389c1794cfe22e990a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac19287412d0d71988d09bba9a4e3a01c"><td class="memItemLeft" align="right" valign="top">static constexpr dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_dtype_info.html#ac19287412d0d71988d09bba9a4e3a01c">max</a> ()</td></tr>
 <tr class="separator:ac19287412d0d71988d09bba9a4e3a01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0203027ae62ac389c1794cfe22e990a1"><td class="memItemLeft" align="right" valign="top">static constexpr dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_dtype_info.html#a0203027ae62ac389c1794cfe22e990a1">min</a> ()</td></tr>
+<tr class="separator:a0203027ae62ac389c1794cfe22e990a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename dtype&gt;<br />
+class NumC::DtypeInfo&lt; dtype &gt;</h3>
+
+<p>Holds info about the dtype </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7e3340a565e65c5b11bed3600ccbad93"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7e3340a565e65c5b11bed3600ccbad93">&#9670;&nbsp;</a></span>bits()</h2>
 
@@ -115,12 +122,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>For integer types: number of non-sign bits in the representation. For floating types : number of digits(in radix base) in the mantissa</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>number of bits </dd></dl>
 
 </div>
 </div>
@@ -148,12 +157,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Machine epsilon (the difference between 1 and the least value greater than 1 that is representable).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>dtype </dd></dl>
 
 </div>
 </div>
@@ -181,12 +192,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>True if type is integer.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -214,12 +227,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>True if type is signed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -247,12 +262,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns the maximum value of the dtype</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>max value </dd></dl>
 
 </div>
 </div>
@@ -280,17 +297,19 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns the minimum value of the dtype</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>min value </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/pilgeda/Documents/GitHub/NumC/src/NumC/<a class="el" href="_dtype_info_8hpp_source.html">DtypeInfo.hpp</a></li>
+<li><a class="el" href="_dtype_info_8hpp_source.html">DtypeInfo.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
