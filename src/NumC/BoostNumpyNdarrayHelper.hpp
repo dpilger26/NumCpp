@@ -65,9 +65,9 @@ namespace NumC
         // Method Description: 
         //						Generic check of input indices
         //		
-        // Inputs:
+        /// @param
         //				tuple of indices
-        // Outputs:
+        /// @return
         //				None
         //
         void checkIndicesGeneric(boost::python::tuple indices)
@@ -93,9 +93,9 @@ namespace NumC
         // Method Description: 
         //						checks 1D input indices
         //		
-        // Inputs:
+        /// @param
         //				index
-        // Outputs:
+        /// @return
         //				None
         //
         void checkIndices1D(uint32 index1)
@@ -108,10 +108,10 @@ namespace NumC
         // Method Description: 
         //						checks 2D input indices
         //		
-        // Inputs:
+        /// @param
         //				index1
         //				index2
-        // Outputs:
+        /// @return
         //				None
         //
         void checkIndices2D(uint32 index1, uint32 index2)
@@ -124,11 +124,11 @@ namespace NumC
         // Method Description: 
         //						checks 3D input indices
         //		
-        // Inputs:
+        /// @param
         //				index1
         //				index2
         //				index3
-        // Outputs:
+        /// @return
         //				None
         //
         void checkIndices3D(uint32 index1, uint32 index2, uint32 index3)
@@ -142,9 +142,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				pointer to an ndarray
-        // Outputs:
+        /// @return
         //				None
         //
         BoostNdarrayHelper(boost::python::numpy::ndarray* inArray) :
@@ -170,9 +170,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				pointer to an ndarray
-        // Outputs:
+        /// @return
         //				None
         //
         BoostNdarrayHelper(boost::python::tuple inShape) :
@@ -190,9 +190,9 @@ namespace NumC
         // Method Description: 
         //						Returns the internaly held ndarray
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				pointer to an ndarray
         //
         const boost::python::numpy::ndarray* getArray()
@@ -204,9 +204,9 @@ namespace NumC
         // Method Description: 
         //						Returns the internaly held ndarray as a numpy matrix
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				matrix
         //
         boost::python::numpy::matrix getArrayAsMatrix()
@@ -218,9 +218,9 @@ namespace NumC
         // Method Description: 
         //						Returns the number of dimensions of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				num dimensions
         //
         uint8 numDimensions()
@@ -232,9 +232,9 @@ namespace NumC
         // Method Description: 
         //						Returns the shape of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				vector
         //
         const std::vector<Py_intptr_t>& shape()
@@ -246,9 +246,9 @@ namespace NumC
         // Method Description: 
         //						Returns the size of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				size
         //
         uint32 size()
@@ -266,9 +266,9 @@ namespace NumC
         // Method Description: 
         //						Returns the strides of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				vector
         //
         const std::vector<uint32>& strides()
@@ -280,9 +280,9 @@ namespace NumC
         // Method Description: 
         //						Returns the memory order of the array (C or Fortran)
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				Order
         //
         Order order()
@@ -294,9 +294,9 @@ namespace NumC
         // Method Description: 
         //						Returns if the shapes of the two array helpers are equal
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				boolean
         //
         bool shapeEqual(BoostNdarrayHelper& otherNdarrayHelper)
@@ -320,9 +320,9 @@ namespace NumC
         // Method Description: 
         //						1D access operator
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				double
         //
         double& operator()(uint32 index)
@@ -336,9 +336,9 @@ namespace NumC
         // Method Description: 
         //						2D access operator
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				double
         //
         double& operator()(uint32 index1, uint32 index2)
@@ -351,9 +351,9 @@ namespace NumC
         // Method Description: 
         //						3D access operator
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				double
         //
         double& operator()(uint32 index1, uint32 index2, uint32 index3)
@@ -367,9 +367,9 @@ namespace NumC
         // Method Description: 
         //						prints a 1D array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void printArray1D()
@@ -391,9 +391,9 @@ namespace NumC
         // Method Description: 
         //						prints a 2D array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void printArray2D()
@@ -419,9 +419,9 @@ namespace NumC
         // Method Description: 
         //						prints a 3D array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void printArray3D()
@@ -452,9 +452,9 @@ namespace NumC
     // Method Description: 
     //						converts from a boost ndarray to a NumC NdArray<T>
     //		
-    // Inputs:
+    /// @param
     //				ndarray
-    // Outputs:
+    /// @return
     //				NdArray<T>
     //
     template<typename dtype>
@@ -503,9 +503,9 @@ namespace NumC
     // Method Description: 
     //						converts from a NumC NdArray<T> to a boost ndarray
     //		
-    // Inputs:
+    /// @param
     //				NdArray<T>
-    // Outputs:
+    /// @return
     //				ndarray
     //
     template<typename dtype>

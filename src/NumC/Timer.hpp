@@ -79,9 +79,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         Timer() :
@@ -95,9 +95,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				Timer name
-        // Outputs:
+        /// @return
         //				None
         //
         Timer(const std::string& inName) :
@@ -111,9 +111,9 @@ namespace NumC
         // Method Description: 
         //						Starts the timer
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void tic()
@@ -125,9 +125,9 @@ namespace NumC
         // Method Description: 
         //						Stops the timer
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         int64 toc()

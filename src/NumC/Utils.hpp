@@ -31,9 +31,9 @@ namespace NumC
         // Method Description: 
         //						Converts the number into a string
         //		
-        // Inputs:
+        /// @param
         //				number
-        // Outputs:
+        /// @return
         //				string
         //
         static std::string num2str(dtype inNumber)
@@ -45,9 +45,9 @@ namespace NumC
         // Method Description: 
         //						Squares in input value
         //		
-        // Inputs:
+        /// @param
         //				dtype
-        // Outputs:
+        /// @return
         //				dtype
         //
         static dtype sqr(dtype inValue)
@@ -59,9 +59,9 @@ namespace NumC
         // Method Description: 
         //						Cubes in input value
         //		
-        // Inputs:
+        /// @param
         //				dtype
-        // Outputs:
+        /// @return
         //				dtype
         //
         static dtype cube(dtype inValue)
@@ -73,9 +73,9 @@ namespace NumC
         // Method Description: 
         //						raises the input value to a power
         //		
-        // Inputs:
+        /// @param
         //				dtype
-        // Outputs:
+        /// @return
         //				dtype
         //
         static dtype power(dtype inValue, uint8 inPower)

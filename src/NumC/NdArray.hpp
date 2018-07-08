@@ -65,9 +65,9 @@ namespace NumC
         // Method Description: 
         //						Deletes the internal array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void deleteArray()
@@ -85,9 +85,9 @@ namespace NumC
         // Method Description: 
         //						Creates a new internal array
         //		
-        // Inputs:
+        /// @param
         //				Shape
-        // Outputs:
+        /// @return
         //				None
         //
         void newArray(const Shape& inShape)
@@ -105,9 +105,9 @@ namespace NumC
         // Method Description: 
         //						Defualt Constructor, not very usefull...
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray() :
@@ -121,9 +121,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				square number or rows and columns
-        // Outputs:
+        /// @return
         //				None
         //
         explicit NdArray(uint32 inSquareSize) :
@@ -137,10 +137,10 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				number of rows,
         //				number of columns
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray(uint32 inNumRows, uint32 inNumCols) :
@@ -154,9 +154,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				Shape object
-        // Outputs:
+        /// @return
         //				None
         //
         explicit NdArray(const Shape& inShape) :
@@ -170,9 +170,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				1D initializer list
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray(const std::initializer_list<dtype>& inList) :
@@ -188,9 +188,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				2D initializer list
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
@@ -227,9 +227,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				vector
-        // Outputs:
+        /// @return
         //				None
         //
         explicit NdArray(const std::vector<dtype>& inVector) :
@@ -245,9 +245,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				set
-        // Outputs:
+        /// @return
         //				None
         //
         explicit NdArray(const std::set<dtype>& inSet) :
@@ -263,10 +263,10 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				const_iterator first
         //				const_iterator second
-        // Outputs:
+        /// @return
         //				None
         //
         explicit NdArray(const_iterator inFirst, const_iterator inLast) :
@@ -282,10 +282,10 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				char* to beginning of buffer 
         //				number of bytes
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray(const dtype* inBeginning, uint32 inNumBytes) :
@@ -304,9 +304,9 @@ namespace NumC
         // Method Description: 
         //						Copy Constructor
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray(const NdArray<dtype>& inOtherArray) :
@@ -322,9 +322,9 @@ namespace NumC
         // Method Description: 
         //						Move Constructor
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray(NdArray<dtype>&& inOtherArray) :
@@ -341,9 +341,9 @@ namespace NumC
         // Method Description: 
         //						Destructor
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         ~NdArray()
@@ -355,9 +355,9 @@ namespace NumC
         // Method Description: 
         //						Assignment operator, performs a deep copy
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray<dtype>& operator=(const NdArray<dtype>& inOtherArray)
@@ -374,9 +374,9 @@ namespace NumC
         // Method Description: 
         //						Move operator, performs a deep move
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray<dtype>& operator=(NdArray<dtype>&& inOtherArray)
@@ -400,9 +400,9 @@ namespace NumC
         // Method Description: 
         //						1D access operator with no bounds checking
         //		
-        // Inputs:
+        /// @param
         //				array index
-        // Outputs:
+        /// @return
         //				value
         //
         dtype& operator[](int32 inIndex)
@@ -419,9 +419,9 @@ namespace NumC
         // Method Description: 
         //						const 1D access operator with no bounds checking
         //		
-        // Inputs:
+        /// @param
         //				array index
-        // Outputs:
+        /// @return
         //				value
         //
         const dtype& operator[](int32 inIndex) const
@@ -438,10 +438,10 @@ namespace NumC
         // Method Description: 
         //						2D access operator with no bounds checking
         //		
-        // Inputs:
+        /// @param
         //				row index
         //				col index
-        // Outputs:
+        /// @return
         //				value
         //
         dtype& operator()(int32 inRowIndex, int32 inColIndex)
@@ -463,10 +463,10 @@ namespace NumC
         // Method Description: 
         //						const 2D access operator with no bounds checking
         //		
-        // Inputs:
+        /// @param
         //				row index
         //				col index
-        // Outputs:
+        /// @return
         //				value
         //
         const dtype& operator()(int32 inRowIndex, int32 inColIndex) const
@@ -489,9 +489,9 @@ namespace NumC
         //						1D Slicing access operator with no bounds checking. 
         //						returned array is of the range [start, stop).
         //		
-        // Inputs:
+        /// @param
         //				Slice
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator[](const Slice& inSlice) const
@@ -513,10 +513,10 @@ namespace NumC
         //						2D Slicing access operator with no bounds checking.
         //						returned array is of the range [start, stop).
         //		
-        // Inputs:
+        /// @param
         //				Row Slice
         //				Col Slice
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator()(const Slice& inRowSlice, const Slice& inColSlice) const
@@ -546,10 +546,10 @@ namespace NumC
         //						2D Slicing access operator with no bounds checking.
         //						returned array is of the range [start, stop).
         //		
-        // Inputs:
+        /// @param
         //				Row Slice
         //				Col index
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator()(const Slice& inRowSlice, int32 inColIndex) const
@@ -572,10 +572,10 @@ namespace NumC
         //						2D Slicing access operator with no bounds checking.
         //						returned array is of the range [start, stop).
         //		
-        // Inputs:
+        /// @param
         //				Row index
         //				Col Slice
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator()(int32 inRowIndex, const Slice& inColSlice) const
@@ -597,9 +597,9 @@ namespace NumC
         // Method Description: 
         //						1D access method with bounds checking
         //		
-        // Inputs:
+        /// @param
         //				array index
-        // Outputs:
+        /// @return
         //				value
         //
         dtype& at(int32 inIndex)
@@ -620,9 +620,9 @@ namespace NumC
         // Method Description: 
         //						const 1D access method with bounds checking
         //		
-        // Inputs:
+        /// @param
         //				array index
-        // Outputs:
+        /// @return
         //				value
         //
         const dtype& at(int32 inIndex) const
@@ -643,10 +643,10 @@ namespace NumC
         // Method Description: 
         //						2D access method with bounds checking
         //		
-        // Inputs:
+        /// @param
         //				row index
         //				col index
-        // Outputs:
+        /// @return
         //				value
         //
         dtype& at(int32 inRowIndex, int32 inColIndex)
@@ -676,10 +676,10 @@ namespace NumC
         // Method Description: 
         //						const 2D access method with bounds checking
         //		
-        // Inputs:
+        /// @param
         //				row index
         //				col index
-        // Outputs:
+        /// @return
         //				value
         //
         const dtype& at(int32 inRowIndex, int32 inColIndex) const
@@ -709,9 +709,9 @@ namespace NumC
         // Method Description: 
         //						const 1D access method with bounds checking
         //		
-        // Inputs:
+        /// @param
         //				Slice
-        // Outputs:
+        /// @return
         //				Ndarray
         //
         NdArray<dtype> at(const Slice& inSlice) const
@@ -725,10 +725,10 @@ namespace NumC
         // Method Description: 
         //						const 2D access method with bounds checking
         //		
-        // Inputs:
+        /// @param
         //				Row Slice,
         //				Column Slice
-        // Outputs:
+        /// @return
         //				Ndarray
         //
         NdArray<dtype> at(const Slice& inRowSlice, const Slice& inColSlice) const
@@ -742,10 +742,10 @@ namespace NumC
         // Method Description: 
         //						const 2D access method with bounds checking
         //		
-        // Inputs:
+        /// @param
         //				Row Slice,
         //				Column index
-        // Outputs:
+        /// @return
         //				Ndarray
         //
         NdArray<dtype> at(const Slice& inRowSlice, int32 inColIndex) const
@@ -759,10 +759,10 @@ namespace NumC
         // Method Description: 
         //						const 2D access method with bounds checking
         //		
-        // Inputs:
+        /// @param
         //				Row index
         //				Column Slice
-        // Outputs:
+        /// @return
         //				Ndarray
         //
         NdArray<dtype> at(int32 inRowIndex, const Slice& inColSlice) const
@@ -776,9 +776,9 @@ namespace NumC
         // Method Description: 
         //						iterator to the beginning of the flattened array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				iterator
         //
         iterator begin()
@@ -790,9 +790,9 @@ namespace NumC
         // Method Description: 
         //						iterator to the beginning of the input row
         //		
-        // Inputs:
+        /// @param
         //				row
-        // Outputs:
+        /// @return
         //				iterator
         //
         iterator begin(uint32 inRow)
@@ -809,9 +809,9 @@ namespace NumC
         // Method Description: 
         //						iterator to 1 past the end of the flattened array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				iterator
         //
         iterator end()
@@ -823,9 +823,9 @@ namespace NumC
         // Method Description: 
         //						iterator to the 1 past end of the row
         //		
-        // Inputs:
+        /// @param
         //				row
-        // Outputs:
+        /// @return
         //				iterator
         //
         iterator end(uint32 inRow)
@@ -842,9 +842,9 @@ namespace NumC
         // Method Description: 
         //						const iterator to the beginning of the flattened array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				const_iterator
         //
         const_iterator cbegin() const
@@ -856,9 +856,9 @@ namespace NumC
         // Method Description: 
         //						const iterator to the beginning of the input row
         //		
-        // Inputs:
+        /// @param
         //				row
-        // Outputs:
+        /// @return
         //				const_iterator
         //
         const_iterator cbegin(uint32 inRow) const
@@ -875,9 +875,9 @@ namespace NumC
         // Method Description: 
         //						const iterator to 1 past the end of the flattened array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				const_iterator
         //
         const_iterator cend() const
@@ -889,9 +889,9 @@ namespace NumC
         // Method Description: 
         //						const iterator to 1 past the end of the input row
         //		
-        // Inputs:
+        /// @param
         //				row
-        // Outputs:
+        /// @return
         //				const_iterator
         //
         const_iterator cend(uint32 inRow) const
@@ -908,9 +908,9 @@ namespace NumC
         // Method Description: 
         //						Returns True if all elements evaluate to True or non zero
         //		
-        // Inputs:
+        /// @param
         //				(Optional) axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> all(Axis::Type inAxis = Axis::NONE) const
@@ -954,9 +954,9 @@ namespace NumC
         // Method Description: 
         //						Returns True if any elements evaluate to True or non zero
         //		
-        // Inputs:
+        /// @param
         //				(Optional) axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> any(Axis::Type inAxis = Axis::NONE) const
@@ -1001,9 +1001,9 @@ namespace NumC
         //						Return indices of the maximum values along the given axis.
         //						Only the first index is returned.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<uint32> argmax(Axis::Type inAxis = Axis::NONE) const
@@ -1048,9 +1048,9 @@ namespace NumC
         //						Return indices of the minimum values along the given axis.
         //						Only the first index is returned.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<uint32> argmin(Axis::Type inAxis = Axis::NONE) const
@@ -1094,9 +1094,9 @@ namespace NumC
         // Method Description: 
         //						Returns the indices that would sort this array.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<uint32> argsort(Axis::Type inAxis = Axis::NONE) const
@@ -1156,9 +1156,9 @@ namespace NumC
         // Method Description: 
         //						Returns a copy of the array, cast to a specified type.
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				NdArray
         //
         template<typename dtypeOut = double>
@@ -1176,9 +1176,9 @@ namespace NumC
         // Method Description: 
         //						Swap the bytes of the array elements in place
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				NdArray
         //
         void byteswap()
@@ -1211,10 +1211,10 @@ namespace NumC
         // Method Description: 
         //						Returns an array whose values are limited to [min, max].
         //		
-        // Inputs:
+        /// @param
         //				min value to clip to
         //				max value to clip to
-        // Outputs:
+        /// @return
         //				clipped value
         //
         NdArray<dtype> clip(dtype inMin, dtype inMax) const
@@ -1242,10 +1242,10 @@ namespace NumC
         // Method Description: 
         //						returns whether or not a value is included the array
         //		
-        // Inputs:
+        /// @param
         //				value
         //				(Optional) axis
-        // Outputs:
+        /// @return
         //				bool
         //
         NdArray<bool> contains(dtype inValue, Axis::Type inAxis = Axis::NONE) const
@@ -1291,9 +1291,9 @@ namespace NumC
         // Method Description: 
         //						Return a copy of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> copy()
@@ -1305,9 +1305,9 @@ namespace NumC
         // Method Description: 
         //						Return the cumulative product of the elements along the given axis.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         template<typename dtypeOut = double>
@@ -1367,9 +1367,9 @@ namespace NumC
         // Method Description: 
         //						Return the cumulative sum of the elements along the given axis.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         template<typename dtypeOut = double>
@@ -1429,10 +1429,10 @@ namespace NumC
         // Method Description: 
         //						Return specified diagonals.
         //		
-        // Inputs:
+        /// @param
         //				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. 
         //				(Optional) axis the offset is applied to
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> diagonal(uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
@@ -1487,9 +1487,9 @@ namespace NumC
         //						For 2-D arrays it is equivalent to matrix multiplication, 
         //						and for 1-D arrays to inner product of vectors. 
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				dot product
         //
         template<typename dtypeOut = double>
@@ -1539,9 +1539,9 @@ namespace NumC
         //						Dump a binary file of the array to the specified file. 
         //						The array can be read back with or NumC::load.
         //		
-        // Inputs:
+        /// @param
         //				filename
-        // Outputs:
+        /// @return
         //				None
         //
         void dump(const std::string& inFilename) const
@@ -1569,9 +1569,9 @@ namespace NumC
         //						Return if the NdArray is empty. ie the default construtor
         //						was used.
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				boolean
         //
         bool isempty() const
@@ -1583,9 +1583,9 @@ namespace NumC
         // Method Description: 
         //						Return the NdArrays endianess
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				Endian::Type
         //
         Endian::Type endianess() const
@@ -1597,9 +1597,9 @@ namespace NumC
         // Method Description: 
         //						Fill the array with a scalar value.
         //		
-        // Inputs:
+        /// @param
         //				fill value
-        // Outputs:
+        /// @return
         //				None
         //
         void fill(dtype inFillValue)
@@ -1614,9 +1614,9 @@ namespace NumC
         // Method Description: 
         //						Return a copy of the array collapsed into one dimension.
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> flatten() const
@@ -1634,9 +1634,9 @@ namespace NumC
         // Method Description: 
         //						Copy an element of an array to a standard C++ scalar and return it.
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				array element
         //
         dtype item() const
@@ -1655,9 +1655,9 @@ namespace NumC
         // Method Description: 
         //						Return the maximum along a given axis.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> max(Axis::Type inAxis = Axis::NONE) const
@@ -1703,9 +1703,9 @@ namespace NumC
         // Method Description: 
         //						Return the minimum along a given axis.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> min(Axis::Type inAxis = Axis::NONE) const
@@ -1751,9 +1751,9 @@ namespace NumC
         // Method Description: 
         //						Return the mean along a given axis.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<double> mean(Axis::Type inAxis = Axis::NONE) const
@@ -1804,9 +1804,9 @@ namespace NumC
         //						Return the median along a given axis. Does NOT average
         //						if array has even number of elements!
         //		
-        // Inputs:
+        /// @param
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> median(Axis::Type inAxis = Axis::NONE) const
@@ -1862,9 +1862,9 @@ namespace NumC
         // Method Description: 
         //						Returns the number of bytes held by the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				number of bytes
         //
         uint64 nbytes() const
@@ -1879,9 +1879,9 @@ namespace NumC
         //						floating point types will not compile and you will
         //						be confused as to why...
         //		
-        // Inputs:
+        /// @param
         //				Endian::Type
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> newbyteorder(Endian::Type inEndianess) const
@@ -2022,9 +2022,9 @@ namespace NumC
         //						Return the indices of the flattened array of the 
         //						elements that are non-zero.
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<uint32> nonzero() const
@@ -2045,9 +2045,9 @@ namespace NumC
         // Method Description: 
         //						Returns the norm of the array
         //		
-        // Inputs:
+        /// @param
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				norm
         //
         template<typename dtypeOut = double>
@@ -2109,9 +2109,9 @@ namespace NumC
         // Method Description: 
         //						Fills the array with ones
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void ones()
@@ -2128,10 +2128,10 @@ namespace NumC
         //						are moved behind it. The ordering of the elements in the two 
         //						partitions is undefined.
         //		
-        // Inputs:
+        /// @param
         //				kth element
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				None
         //
         void partition(uint32 inKth, Axis::Type inAxis = Axis::NONE)
@@ -2188,9 +2188,9 @@ namespace NumC
         // Method Description: 
         //						Prints the array to the console.
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void print() const
@@ -2202,9 +2202,9 @@ namespace NumC
         // Method Description: 
         //						Return the product of the array elements over the given axis
         //		
-        // Inputs:
+        /// @param
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         template<typename dtypeOut = double>
@@ -2266,9 +2266,9 @@ namespace NumC
         // Method Description: 
         //						Peak to peak (maximum - minimum) value along a given axis.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> ptp(Axis::Type inAxis = Axis::NONE) const
@@ -2317,10 +2317,10 @@ namespace NumC
         // Method Description: 
         //						set the flat index element to the value
         //		
-        // Inputs:
+        /// @param
         //				index
         //				value
-        // Outputs:
+        /// @return
         //				None
         //
         void put(int32 inIndex, dtype inValue)
@@ -2332,11 +2332,11 @@ namespace NumC
         // Method Description: 
         //						set the 2D row/col index element to the value
         //		
-        // Inputs:
+        /// @param
         //				row index
         //				col index
         //				value
-        // Outputs:
+        /// @return
         //				None
         //
         void put(int32 inRow, int32 inCol, dtype inValue)
@@ -2348,10 +2348,10 @@ namespace NumC
         // Method Description: 
         //						Set a.flat[n] = values for all n in indices.
         //		
-        // Inputs:
+        /// @param
         //				NdArray of indices
         //				value
-        // Outputs:
+        /// @return
         //				None
         //
         void put(const NdArray<uint32>& inIndices, dtype inValue)
@@ -2366,10 +2366,10 @@ namespace NumC
         // Method Description: 
         //						Set a.flat[n] = values[n] for all n in indices.
         //		
-        // Inputs:
+        /// @param
         //				NdArray of indices
         //				NdArray of values
-        // Outputs:
+        /// @return
         //				None
         //
         void put(const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
@@ -2389,10 +2389,10 @@ namespace NumC
         // Method Description: 
         //						Set the slice indices to the input value.
         //		
-        // Inputs:
+        /// @param
         //				Slice 1D
         //				value
-        // Outputs:
+        /// @return
         //				None
         //
         void put(const Slice& inSlice, dtype inValue)
@@ -2410,10 +2410,10 @@ namespace NumC
         // Method Description: 
         //						Set the slice indices to the input values.
         //		
-        // Inputs:
+        /// @param
         //				Slice 1D
         //				NdArray of values
-        // Outputs:
+        /// @return
         //				None
         //
         void put(const Slice& inSlice, const NdArray<dtype>& inValues)
@@ -2434,11 +2434,11 @@ namespace NumC
         // Method Description: 
         //						Set the slice indices to the input values.
         //		
-        // Inputs:
+        /// @param
         //				Slice rows
         //				Slice cols
         //				value
-        // Outputs:
+        /// @return
         //				None
         //
         void put(const Slice& inRowSlice, const Slice& inColSlice, dtype inValue)
@@ -2463,11 +2463,11 @@ namespace NumC
         // Method Description: 
         //						Set the slice indices to the input values.
         //		
-        // Inputs:
+        /// @param
         //				Slice rows
         //				col index
         //				value
-        // Outputs:
+        /// @return
         //				None
         //
         void put(const Slice& inRowSlice, int32 inColIndex, dtype inValue)
@@ -2486,11 +2486,11 @@ namespace NumC
         // Method Description: 
         //						Set the slice indices to the input values.
         //		
-        // Inputs:
+        /// @param
         //				row index
         //				Slice cols
         //				value
-        // Outputs:
+        /// @return
         //				None
         //
         void put(int32 inRowIndex, const Slice& inColSlice, dtype inValue)
@@ -2509,11 +2509,11 @@ namespace NumC
         // Method Description: 
         //						Set the slice indices to the input values.
         //		
-        // Inputs:
+        /// @param
         //				Slice rows
         //				Slice cols
         //				NdArray of values
-        // Outputs:
+        /// @return
         //				None
         //
         void put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype>& inValues)
@@ -2541,11 +2541,11 @@ namespace NumC
         // Method Description: 
         //						Set the slice indices to the input values.
         //		
-        // Inputs:
+        /// @param
         //				Slice rows
         //				col index
         //				NdArray of values
-        // Outputs:
+        /// @return
         //				None
         //
         void put(const Slice& inRowSlice, int32 inColIndex, const NdArray<dtype>& inValues)
@@ -2567,11 +2567,11 @@ namespace NumC
         // Method Description: 
         //						Set the slice indices to the input values.
         //		
-        // Inputs:
+        /// @param
         //				row index
         //				Slice cols
         //				NdArray of values
-        // Outputs:
+        /// @return
         //				None
         //
         void put(int32 inRowIndex, const Slice& inColSlice, const NdArray<dtype>& inValues)
@@ -2593,10 +2593,10 @@ namespace NumC
         // Method Description: 
         //						Repeat elements of an array.
         //		
-        // Inputs:
+        /// @param
         //				numRows
         //				numCols
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> repeat(uint32 inNumRows, uint32 inNumCols) const
@@ -2635,9 +2635,9 @@ namespace NumC
         // Method Description: 
         //						Repeat elements of an array.
         //		
-        // Inputs:
+        /// @param
         //				Shape
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> repeat(const Shape& inRepeatShape) const
@@ -2649,9 +2649,9 @@ namespace NumC
         // Method Description: 
         //						Returns an array containing the same data with a new shape.
         //		
-        // Inputs:
+        /// @param
         //				Shape
-        // Outputs:
+        /// @return
         //				None
         //
         void reshape(uint32 inNumRows, uint32 inNumCols)
@@ -2671,9 +2671,9 @@ namespace NumC
         // Method Description: 
         //						Returns an array containing the same data with a new shape.
         //		
-        // Inputs:
+        /// @param
         //				Shape
-        // Outputs:
+        /// @return
         //				None
         //
         void reshape(const Shape& inShape)
@@ -2686,9 +2686,9 @@ namespace NumC
         //						Change shape and size of array in-place. All previous
         //						data of the array is lost.
         //		
-        // Inputs:
+        /// @param
         //				Shape
-        // Outputs:
+        /// @return
         //				None
         //
         void resizeFast(uint32 inNumRows, uint32 inNumCols)
@@ -2702,9 +2702,9 @@ namespace NumC
         //						Change shape and size of array in-place. All previous
         //						data of the array is lost.
         //		
-        // Inputs:
+        /// @param
         //				Shape
-        // Outputs:
+        /// @return
         //				None
         //
         void resizeFast(const Shape& inShape)
@@ -2719,10 +2719,10 @@ namespace NumC
         //						If new shape is smaller than the old shape then the data will
         //						be discarded.
         //		
-        // Inputs:
+        /// @param
         //				num Rows
         //				num Cols
-        // Outputs:
+        /// @return
         //				None
         //
         void resizeSlow(uint32 inNumRows, uint32 inNumCols)
@@ -2758,9 +2758,9 @@ namespace NumC
         //						If new shape is smaller than the old shape then the data will
         //						be discarded.
         //		
-        // Inputs:
+        /// @param
         //				Shape
-        // Outputs:
+        /// @return
         //				None
         //
         void resizeSlow(const Shape& inShape)
@@ -2773,9 +2773,9 @@ namespace NumC
         //						Return a with each element rounded to the given number
         //						of decimals.
         //		
-        // Inputs:
+        /// @param
         //				number of decimals to round to
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> round(uint8 inNumDecimals = 0) const
@@ -2801,9 +2801,9 @@ namespace NumC
         // Method Description: 
         //						Return the shape of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				Shape
         //
         Shape shape() const
@@ -2815,9 +2815,9 @@ namespace NumC
         // Method Description: 
         //						Return the size of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				size
         //
         uint32 size() const
@@ -2829,9 +2829,9 @@ namespace NumC
         // Method Description: 
         //						Sort an array, in-place.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				size
         //
         void sort(Axis::Type inAxis = Axis::NONE)
@@ -2868,9 +2868,9 @@ namespace NumC
         // Method Description: 
         //						Return the std along a given axis.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<double> std(Axis::Type inAxis = Axis::NONE) const
@@ -2934,9 +2934,9 @@ namespace NumC
         // Method Description: 
         //						returns the NdArray as a string representation
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				string
         //
         std::string str() const
@@ -2968,9 +2968,9 @@ namespace NumC
         // Method Description: 
         //						Return the sum of the array elements over the given axis.
         //		
-        // Inputs:
+        /// @param
         //				(Optional) Axis
-        // Outputs:
+        /// @return
         //				NdArray
         //
         template<typename dtypeOut = double>
@@ -3020,9 +3020,9 @@ namespace NumC
         // Method Description: 
         //						Interchange two axes of an array. Equivalent to transpose...
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> swapaxes() const
@@ -3036,10 +3036,10 @@ namespace NumC
         //						The data produced by this method can be recovered 
         //						using the function fromfile().
         //		
-        // Inputs:
+        /// @param
         //				filename
         //				Separator between array items for text output. If “” (empty), a binary file is written 
-        // Outputs:
+        /// @return
         //				None
         //
         void tofile(const std::string& inFilename, const std::string& inSep = "") const
@@ -3080,9 +3080,9 @@ namespace NumC
         // Method Description: 
         //						Write flattened array to an STL vector
         //		
-        // Inputs:
+        /// @param
         //				None 
-        // Outputs:
+        /// @return
         //				None
         //
         std::vector<dtype> toStlVector() const
@@ -3094,11 +3094,11 @@ namespace NumC
         // Method Description: 
         //						Return the sum along diagonals of the array.
         //		
-        // Inputs:
+        /// @param
         //				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.
         //				(Optional) Axis to offset from
         //				
-        // Outputs:
+        /// @return
         //				None
         //
         template<typename dtypeOut = double>
@@ -3149,9 +3149,9 @@ namespace NumC
         // Method Description: 
         //						Tranpose the rows and columns of an array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> transpose() const
@@ -3171,9 +3171,9 @@ namespace NumC
         // Method Description: 
         //						Returns the variance of the array elements, along given axis.
         //
-        // Inputs:
+        /// @param
         //				(Optional) Axes
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<double> var(Axis::Type inAxis = Axis::NONE) const
@@ -3190,9 +3190,9 @@ namespace NumC
         // Method Description: 
         //						Fills the array with zeros
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void zeros()
@@ -3204,9 +3204,9 @@ namespace NumC
         // Method Description: 
         //						Adds the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator+(const NdArray<dtype>& inOtherArray) const
@@ -3218,9 +3218,9 @@ namespace NumC
         // Method Description: 
         //						Adds the scalar to the array
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator+(dtype inScalar) const
@@ -3232,9 +3232,9 @@ namespace NumC
         // Method Description: 
         //						Adds the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator+=(const NdArray<dtype>& inOtherArray)
@@ -3256,9 +3256,9 @@ namespace NumC
         // Method Description: 
         //						Adds the scalar to the array
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator+=(dtype inScalar)
@@ -3275,9 +3275,9 @@ namespace NumC
         // Method Description: 
         //						Subtracts the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator-(const NdArray<dtype>& inOtherArray) const
@@ -3289,9 +3289,9 @@ namespace NumC
         // Method Description: 
         //						Subtracts the scalar from the array
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator-(dtype inScalar) const
@@ -3303,9 +3303,9 @@ namespace NumC
         // Method Description: 
         //						Subtracts the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator-=(const NdArray<dtype>& inOtherArray)
@@ -3327,9 +3327,9 @@ namespace NumC
         // Method Description: 
         //						Subtracts the scalar from the array
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator-=(dtype inScalar)
@@ -3346,9 +3346,9 @@ namespace NumC
         // Method Description: 
         //						Multiplies the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator*(const NdArray<dtype>& inOtherArray) const
@@ -3360,9 +3360,9 @@ namespace NumC
         // Method Description: 
         //						Muliplies the scalar to the array
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator*(dtype inScalar) const
@@ -3374,9 +3374,9 @@ namespace NumC
         // Method Description: 
         //						Multiplies the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator*=(const NdArray<dtype>& inOtherArray)
@@ -3398,9 +3398,9 @@ namespace NumC
         // Method Description: 
         //						Muliplies the scalar to the array
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator*=(dtype inScalar)
@@ -3417,9 +3417,9 @@ namespace NumC
         // Method Description: 
         //						Divides the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator/(const NdArray<dtype>& inOtherArray) const
@@ -3431,9 +3431,9 @@ namespace NumC
         // Method Description: 
         //						Divides the array by the scalar
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator/(dtype inScalar) const
@@ -3445,9 +3445,9 @@ namespace NumC
         // Method Description: 
         //						Divides the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator/=(const NdArray<dtype>& inOtherArray)
@@ -3469,9 +3469,9 @@ namespace NumC
         // Method Description: 
         //						Divides the array by the scalar
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator/=(dtype inScalar)
@@ -3488,9 +3488,9 @@ namespace NumC
         // Method Description: 
         //						Takes the modulus of the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator%(const NdArray<dtype>& inOtherArray) const
@@ -3502,9 +3502,9 @@ namespace NumC
         // Method Description: 
         //						Modulus of the array and the scalar
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator%(dtype inScalar) const
@@ -3516,9 +3516,9 @@ namespace NumC
         // Method Description: 
         //						Takes the modulus of the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator%=(const NdArray<dtype>& inOtherArray)
@@ -3548,9 +3548,9 @@ namespace NumC
         // Method Description: 
         //						Modulus of the array and the scalar
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator%=(dtype inScalar)
@@ -3575,9 +3575,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise or of the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator|(const NdArray<dtype>& inOtherArray) const
@@ -3589,9 +3589,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise or of the array and the scalar
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator|(dtype inScalar) const
@@ -3603,9 +3603,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise or of the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator|=(const NdArray<dtype>& inOtherArray)
@@ -3630,9 +3630,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise or of the array and the scalar
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator|=(dtype inScalar)
@@ -3652,9 +3652,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise and of the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator&(const NdArray<dtype>& inOtherArray) const
@@ -3666,9 +3666,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise and of the array and the scalar
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator&(dtype inScalar) const
@@ -3680,9 +3680,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise and of the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator&=(const NdArray<dtype>& inOtherArray)
@@ -3707,9 +3707,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise and of the array and the scalar
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator&=(dtype inScalar)
@@ -3729,9 +3729,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise xor of the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray<dtype> operator^(const NdArray<dtype>& inOtherArray) const
@@ -3743,9 +3743,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise xor of the array and the scalar
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator^(dtype inScalar) const
@@ -3757,9 +3757,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise xor of the elements of two arrays
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         NdArray<dtype>& operator^=(const NdArray<dtype>& inOtherArray)
@@ -3784,9 +3784,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise xor of the array and the scalar
         //		
-        // Inputs:
+        /// @param
         //				scalar
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator^=(dtype inScalar)
@@ -3806,9 +3806,9 @@ namespace NumC
         // Method Description: 
         //						Takes the bitwise not of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator~() const
@@ -3830,9 +3830,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator==(dtype inValue) const
@@ -3851,9 +3851,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator==(const NdArray<dtype>& inOtherArray) const
@@ -3877,9 +3877,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator!=(dtype inValue) const
@@ -3898,9 +3898,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator!=(const NdArray<dtype>& inOtherArray) const
@@ -3924,9 +3924,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						the array and a scalar
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator<(dtype inScalar) const
@@ -3945,9 +3945,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator<(const NdArray<dtype>& inOtherArray) const
@@ -3971,9 +3971,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						the array and a scalar
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator>(dtype inScalar) const
@@ -3992,9 +3992,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator>(const NdArray<dtype>& inOtherArray) const
@@ -4018,9 +4018,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						the array and a scalar
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator<=(dtype inScalar) const
@@ -4039,9 +4039,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator<=(const NdArray<dtype>& inOtherArray) const
@@ -4065,9 +4065,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						the array and a scalar
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator>=(dtype inScalar) const
@@ -4086,9 +4086,9 @@ namespace NumC
         //						Returns an array of booleans of element wise comparison
         //						of two arrays
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<bool> operator>=(const NdArray<dtype>& inOtherArray) const
@@ -4111,9 +4111,9 @@ namespace NumC
         // Method Description: 
         //						Bitshifts left the elements of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         friend NdArray<dtype> operator<<(const NdArray<dtype>& lhs, uint8 inNumBits)
@@ -4127,9 +4127,9 @@ namespace NumC
         // Method Description: 
         //						Bitshifts left the elements of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         friend NdArray<dtype>& operator<<=(NdArray<dtype>& lhs, uint8 inNumBits)
@@ -4146,9 +4146,9 @@ namespace NumC
         // Method Description: 
         //						Bitshifts right the elements of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         friend NdArray<dtype> operator>>(const NdArray<dtype>& lhs, uint8 inNumBits)
@@ -4162,9 +4162,9 @@ namespace NumC
         // Method Description: 
         //						Bitshifts right the elements of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         friend NdArray<dtype>& operator>>=(NdArray<dtype>& lhs, uint8 inNumBits)
@@ -4181,9 +4181,9 @@ namespace NumC
         // Method Description: 
         //						prefix incraments the elements of an array
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
 
@@ -4201,9 +4201,9 @@ namespace NumC
         // Method Description: 
         //						prefix decrements the elements of an array
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator--()
@@ -4220,9 +4220,9 @@ namespace NumC
         // Method Description: 
         //						postfix increments the elements of an array
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator++(int) const
@@ -4240,9 +4240,9 @@ namespace NumC
         // Method Description: 
         //						postfix decrements the elements of an array
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype> operator--(int) const
@@ -4260,9 +4260,9 @@ namespace NumC
         // Method Description: 
         //						io operator for the NdArray class
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         friend std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype>& inArray)

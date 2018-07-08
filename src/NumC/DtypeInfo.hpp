@@ -36,9 +36,9 @@ namespace NumC
         //						For integer types: number of non-sign bits in the representation.
         //						For floating types : number of digits(in radix base) in the mantissa
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				number of bits
         //
         static constexpr dtype bits()
@@ -51,9 +51,9 @@ namespace NumC
         //						Machine epsilon (the difference between 1 and the least 
         //						value greater than 1 that is representable).
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				dtype
         //
         static constexpr dtype epsilon()
@@ -65,9 +65,9 @@ namespace NumC
         // Method Description: 
         //						true if type is integer.
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				bool
         //
         static constexpr bool isInteger()
@@ -79,9 +79,9 @@ namespace NumC
         // Method Description: 
         //						true if type is signed.
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				bool
         //
         static constexpr bool isSigned()
@@ -93,9 +93,9 @@ namespace NumC
         // Method Description: 
         //						Returns the minimum value of the dtype
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				min value
         //
         static constexpr dtype min()
@@ -107,9 +107,9 @@ namespace NumC
         // Method Description: 
         //						Returns the maximum value of the dtype
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				max value
         //
         static constexpr dtype max()

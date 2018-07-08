@@ -52,9 +52,9 @@ namespace NumC
         // Method Description: 
         //						Default Constructor
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         DataCube() :
@@ -65,9 +65,9 @@ namespace NumC
         // Method Description: 
         //						Constructor, preallocates to the input size
         //		
-        // Inputs:
+        /// @param
         //				size
-        // Outputs:
+        /// @return
         //				None
         //
         DataCube(uint32 inSize) :
@@ -79,9 +79,9 @@ namespace NumC
         // Method Description: 
         //						access method, with bounds checking
         //		
-        // Inputs:
+        /// @param
         //				index
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& at(uint32 inIndex)
@@ -93,9 +93,9 @@ namespace NumC
         // Method Description: 
         //						const access method, with bounds checking
         //		
-        // Inputs:
+        /// @param
         //				index
-        // Outputs:
+        /// @return
         //				NdArray
         //
         const NdArray<dtype>& at(uint32 inIndex) const
@@ -107,9 +107,9 @@ namespace NumC
         // Method Description: 
         //						returns a reference to the last element of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				NdArray&
         //
         NdArray<dtype>& back()
@@ -121,9 +121,9 @@ namespace NumC
         // Method Description: 
         //						returns an iterator to the beginning of the container
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				iterator
         //
         iterator begin()
@@ -135,9 +135,9 @@ namespace NumC
         // Method Description: 
         //						returns a const_iterator to the beginning of the container
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				const_iterator
         //
         const_iterator cbegin() const
@@ -149,9 +149,9 @@ namespace NumC
         // Method Description: 
         //						outputs the DataCube as a .bin file
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void dump(const std::string& inFilename) const
@@ -182,9 +182,9 @@ namespace NumC
         // Method Description: 
         //						tests whether or not the container is empty
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				bool
         //
         bool isempty()
@@ -196,9 +196,9 @@ namespace NumC
         // Method Description: 
         //						returns an iterator to 1 past the end of the container
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				iterator
         //
         iterator end()
@@ -210,9 +210,9 @@ namespace NumC
         // Method Description: 
         //						returns a const_iterator to 1 past the end of the container
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				const_iterator
         //
         const_iterator cend() const
@@ -224,9 +224,9 @@ namespace NumC
         // Method Description: 
         //						returns a reference to the first element of the array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				NdArray&
         //
         NdArray<dtype>& front()
@@ -238,9 +238,9 @@ namespace NumC
         // Method Description: 
         //						returns the number shape of the element arrays
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				Shape
         //
         const Shape& shape() const
@@ -252,9 +252,9 @@ namespace NumC
         // Method Description: 
         //						returns the size of the container array
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				uint16 size
         //
         uint32 size() const
@@ -266,9 +266,9 @@ namespace NumC
         // Method Description: 
         //						Removes the last element in the container
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void pop_back()
@@ -280,9 +280,9 @@ namespace NumC
         // Method Description: 
         //						Removes the first element in the container
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void pop_front()
@@ -294,9 +294,9 @@ namespace NumC
         // Method Description: 
         //						Adds a new element at the end of the container
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				None
         //
         void push_back(const NdArray<dtype>& inArray)
@@ -322,9 +322,9 @@ namespace NumC
         // Method Description: 
         //						Adds a new element at the beginning of the container
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				None
         //
         void push_front(const NdArray<dtype>& inArray)
@@ -350,9 +350,9 @@ namespace NumC
         // Method Description: 
         //						access operator, no bounds checking
         //		
-        // Inputs:
+        /// @param
         //				index
-        // Outputs:
+        /// @return
         //				NdArray
         //
         NdArray<dtype>& operator[](uint32 inIndex)
@@ -364,9 +364,9 @@ namespace NumC
         // Method Description: 
         //						const access operator, no bounds checking
         //		
-        // Inputs:
+        /// @param
         //				index
-        // Outputs:
+        /// @return
         //				NdArray
         //
         const NdArray<dtype>& operator[](uint32 inIndex) const

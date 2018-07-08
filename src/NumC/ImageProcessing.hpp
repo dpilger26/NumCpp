@@ -59,10 +59,10 @@ namespace NumC
             // Description:
             //              defualt constructor needed by containers
             // 
-            // Inputs:
+            /// @param
             //              None
             // 
-            // Outputs:
+            /// @return
             //              None
             //
             Pixel() :
@@ -76,12 +76,12 @@ namespace NumC
             // Description:
             //              constructor
             // 
-            // Inputs:
+            /// @param
             //              pixel row,
             //              pixel column,
             //              pixel intensity
             // 
-            // Outputs:
+            /// @return
             //              None
             //
             Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) :
@@ -95,10 +95,10 @@ namespace NumC
             // Description:
             //              equality operator
             // 
-            // Inputs:
+            /// @param
             //              None
             // 
-            // Outputs:
+            /// @return
             //              bool
             //
             bool operator==(const Pixel& rhs) const
@@ -110,10 +110,10 @@ namespace NumC
             // Description:
             //              not equality operator
             // 
-            // Inputs:
+            /// @param
             //              None
             // 
-            // Outputs:
+            /// @return
             //              bool
             //
             bool operator!=(const Pixel& rhs) const
@@ -161,10 +161,10 @@ namespace NumC
             // Description:
             //              returns the cluster id that this pixel belongs to
             // 
-            // Inputs:
+            /// @param
             //              None
             // 
-            // Outputs:
+            /// @return
             //              cluster id
             //
             int32 clusterId() const
@@ -176,10 +176,10 @@ namespace NumC
             // Description:
             //              sets the cluster id that this pixel belongs to
             // 
-            // Inputs:
+            /// @param
             //              cluster id
             // 
-            // Outputs:
+            /// @return
             //              None
             //
             void setClusterId(int32 inClusterId)
@@ -196,10 +196,10 @@ namespace NumC
             // Description:
             //              returns the pixel row
             // 
-            // Inputs:
+            /// @param
             //              None
             // 
-            // Outputs:
+            /// @return
             //              row
             //
             uint32 row() const
@@ -211,10 +211,10 @@ namespace NumC
             // Description:
             //              returns the pixel column
             // 
-            // Inputs:
+            /// @param
             //              None
             // 
-            // Outputs:
+            /// @return
             //              column
             //
             uint32 col() const
@@ -226,10 +226,10 @@ namespace NumC
             // Description:
             //              returns the pixel intensity
             // 
-            // Inputs:
+            /// @param
             //              None
             // 
-            // Outputs:
+            /// @return
             //              intensity
             //
             dtype intensity() const
@@ -241,10 +241,10 @@ namespace NumC
             // Description:
             //              returns the pixel intensity
             // 
-            // Inputs:
+            /// @param
             //              None
             // 
-            // Outputs:
+            /// @return
             //              intensity
             //
             std::string str() const
@@ -258,9 +258,9 @@ namespace NumC
             // Method Description: 
             //						prints the Pixel object to the console
             //		
-            // Inputs:
+            /// @param
             //				None
-            // Outputs:
+            /// @return
             //				None
             //
             void print() const
@@ -272,10 +272,10 @@ namespace NumC
             // Description:
             //              osstream operator
             // 
-            // Inputs:
+            /// @param
             //              None
             // 
-            // Outputs:
+            /// @return
             //              None
             //
             friend std::ostream& operator<<(std::ostream& inStream, const Pixel& inPixel)
@@ -674,9 +674,9 @@ namespace NumC
             // Method Description: 
             //						prints the Cluster object to the console
             //		
-            // Inputs:
+            /// @param
             //				None
-            // Outputs:
+            /// @return
             //				None
             //
             void print() const
@@ -1254,9 +1254,9 @@ namespace NumC
             // Method Description: 
             //						prints the Centroid object to the console
             //		
-            // Inputs:
+            /// @param
             //				None
-            // Outputs:
+            /// @return
             //				None
             //
             void print() const
@@ -1333,10 +1333,10 @@ namespace NumC
         // Method Description: 
         //						Applies a threshold to an image
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				threshold value
-        // Outputs:
+        /// @return
         //				NdArray of booleans of pixels that exceeded the threshold
         //
         static NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold)
@@ -1348,10 +1348,10 @@ namespace NumC
         // Method Description: 
         //						Center of Mass centroids clusters
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				threshold value
-        // Outputs:
+        /// @return
         //				std::vector<Centroid>
         //
         static std::vector<Centroid> centroidClusters(const std::vector<Cluster>& inClusters)
@@ -1370,11 +1370,11 @@ namespace NumC
         // Method Description: 
         //						Clusters exceedance pixels from an image
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				NdArray of exceedances
         //				border to apply around exceedance pixels post clustering, default 0
-        // Outputs:
+        /// @return
         //				std::vector<Cluster>
         //
         static std::vector<Cluster> clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
@@ -1388,12 +1388,12 @@ namespace NumC
         //						Generates a list of centroids givin an input exceedance
         //						rate
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				exceedance rate
         //              string "pre", or "post" for where to apply the exceedance windowing
         //				border to apply, default 0
-        // Outputs:
+        /// @return
         //				std::vector<Centroid>
         //
         static std::vector<Centroid> generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
@@ -1438,10 +1438,10 @@ namespace NumC
         //						exceeds the threshold. Really should only be used for integer
         //                      input array values. If using floating point data, user beware...
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				exceedance rate
-        // Outputs:
+        /// @return
         //				dtype
         //
         static dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
@@ -1538,10 +1538,10 @@ namespace NumC
         // Method Description: 
         //						Window expand around exceedance pixels
         //		
-        // Inputs:
+        /// @param
         //				NdArray<bool>
         //				border width
-        // Outputs:
+        /// @return
         //				NdArray<bool>
         //
         static NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth)

@@ -42,9 +42,9 @@ namespace NumC
         //						matrix determinant.
         //						NOTE: can get verrrrry slow for large matrices (order > 10)
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				dtype
         //
         static dtype det(const NdArray<dtype>& inArray)
@@ -107,11 +107,11 @@ namespace NumC
         // Method Description: 
         //						vector hat operator
         //		
-        // Inputs:
+        /// @param
         //				x
         //				y
         //				z
-        // Outputs:
+        /// @return
         //				3x3 NdArray
         //
         static NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
@@ -134,9 +134,9 @@ namespace NumC
         // Method Description: 
         //						vector hat operator
         //		
-        // Inputs:
+        /// @param
         //				NdArray 3x1, or 1x3 cartesian vector
-        // Outputs:
+        /// @return
         //				3x3 NdArray
         //
         static NdArray<dtype> hat(const NdArray<dtype>& inVec)
@@ -153,9 +153,9 @@ namespace NumC
         // Method Description: 
         //						matrix inverse
         //		
-        // Inputs:
+        /// @param
         //				NdArray
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<double> inv(const NdArray<dtype>& inArray)
@@ -241,12 +241,12 @@ namespace NumC
         //						full rank, then x (but for round-off error) is the 
         //						“exact” solution of the equation.
         //		
-        // Inputs:
+        /// @param
         //				NdArray, coefficient matrix
         //				NdArray, Ordinate or “dependent variable” values
         //				double, tolerance
         //
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
@@ -266,11 +266,11 @@ namespace NumC
         //						the identity matrix of the same shape as M is returned.
         //						If n < 0, the inverse is computed and then raised to the abs(n).
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				power
         //
-        // Outputs:
+        /// @return
         //				NdArray
         //
         template<typename dtypeOut = double>
@@ -320,10 +320,10 @@ namespace NumC
         //						Compute the dot product of two or more arrays in a single 
         //						function call..
         //		
-        // Inputs:
+        /// @param
         //				initializer_list<NdArray<dtype> >, list of arrays
         //
-        // Outputs:
+        /// @return
         //				NdArray
         //
         template<typename dtypeOut = double>
@@ -354,12 +354,12 @@ namespace NumC
         // Method Description: 
         //						matrix svd
         //		
-        // Inputs:
+        /// @param
         //				NdArray to be SVDed
         //				NdArray output U
         //				NdArray output S
         //				NdArray output V transpose
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)

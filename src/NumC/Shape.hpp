@@ -43,10 +43,10 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				number of rows,
         //				number of cols
-        // Outputs:
+        /// @return
         //				None
         //
         Shape() :
@@ -58,9 +58,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				number of rows and cols
-        // Outputs:
+        /// @return
         //				None
         //
         explicit Shape(uint32 inSquareSize) :
@@ -72,10 +72,10 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				number of rows,
         //				number of cols
-        // Outputs:
+        /// @return
         //				None
         //
         Shape(uint32 inRows, uint32 inCols) :
@@ -87,9 +87,9 @@ namespace NumC
         // Method Description: 
         //						equality operator
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         bool operator==(const Shape& inOtherShape) const
@@ -101,9 +101,9 @@ namespace NumC
         // Method Description: 
         //						not equality operator
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         bool operator!=(const Shape& inOtherShape) const
@@ -115,9 +115,9 @@ namespace NumC
         // Method Description: 
         //						returns the size of the shape
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				size
         //
         uint32 size() const
@@ -130,9 +130,9 @@ namespace NumC
         //						returns whether the shape is null (constructed with the 
         //						default constructor).
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				bool
         //
         bool isnull()
@@ -144,9 +144,9 @@ namespace NumC
         // Method Description: 
         //						returns the shape as a string representation
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				string
         //
         std::string str() const
@@ -159,9 +159,9 @@ namespace NumC
         // Method Description: 
         //						prints the shape to the console
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void print() const
@@ -173,9 +173,9 @@ namespace NumC
         // Method Description: 
         //						io operator for the Shape class
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape)

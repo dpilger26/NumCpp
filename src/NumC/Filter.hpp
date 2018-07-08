@@ -49,12 +49,12 @@ namespace NumC
         // Method Description: 
         //						samples a gaussian of mean zero and input STD sigma
         //		
-        // Inputs:
+        /// @param
         //				x value,
         //              y value,
         //              sigma value
         //              
-        // Outputs:
+        /// @return
         //				dtype
         //
         static dtype gaussian(dtype inX, dtype inY, dtype inSigma)
@@ -67,10 +67,10 @@ namespace NumC
         // Method Description: 
         //						extends the corner values
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				None
         //
         static void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth)
@@ -96,11 +96,11 @@ namespace NumC
         // Method Description: 
         //						extends the corner values
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
         //				fill value
-        // Outputs:
+        /// @return
         //				None
         //
         static void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)
@@ -126,10 +126,10 @@ namespace NumC
         // Method Description: 
         //						Reflects the boundaries
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> reflectBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
@@ -188,10 +188,10 @@ namespace NumC
         // Method Description: 
         //						Reflects the boundaries
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> reflectBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
@@ -214,10 +214,10 @@ namespace NumC
         // Method Description: 
         //						Constant boundary
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> constantBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
@@ -243,10 +243,10 @@ namespace NumC
         // Method Description: 
         //						Constant boundary1d
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> constantBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
@@ -269,10 +269,10 @@ namespace NumC
         // Method Description: 
         //						Nearest boundary
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> nearestBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
@@ -319,10 +319,10 @@ namespace NumC
         // Method Description: 
         //						Nearest boundary1d
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> nearestBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
@@ -345,10 +345,10 @@ namespace NumC
         // Method Description: 
         //						Mirror boundary
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> mirrorBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
@@ -407,10 +407,10 @@ namespace NumC
         // Method Description: 
         //						Mirror boundary1d
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> mirrorBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
@@ -433,10 +433,10 @@ namespace NumC
         // Method Description: 
         //						Wrap boundary
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> wrapBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
@@ -489,10 +489,10 @@ namespace NumC
         // Method Description: 
         //						Wrap boundary1d
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> wrapBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
@@ -515,12 +515,12 @@ namespace NumC
         // Method Description: 
         //						Wrap boundary
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              Boundary::Mode
         //              kernel window size
         //              (optional) constant value used for constant boundary condition
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> addBoundary(const NdArray<dtype>& inImage, Filter::Boundary::Mode inMode, uint32 inKernalSize, dtype inConstantValue = 0)
@@ -566,12 +566,12 @@ namespace NumC
         // Method Description: 
         //						Wrap boundary
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              Boundary::Mode
         //              kernel window size
         //              (optional) constant value used for constant boundary condition
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> addBoundary1d(const NdArray<dtype>& inImage, Filter::Boundary::Mode inMode, uint32 inKernalSize, dtype inConstantValue = 0)
@@ -617,10 +617,10 @@ namespace NumC
         // Method Description: 
         //						trims the boundary off to make the image back to the original size
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> trimBoundary(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
@@ -638,10 +638,10 @@ namespace NumC
         // Method Description: 
         //						trims the boundary off to make the image back to the original size
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //              boundary size
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> trimBoundary1d(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
@@ -657,11 +657,11 @@ namespace NumC
         // Method Description: 
         //						Calculates a multidimensional complemenatry median filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				square size of the kernel to apply
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
@@ -677,12 +677,12 @@ namespace NumC
         // Method Description: 
         //						Calculate a one-dimensional complemenatry median filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				size of the kernel to apply
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
@@ -698,13 +698,13 @@ namespace NumC
         // Method Description: 
         //						Calculates a multidimensional kernel convolution.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				square size of the kernel to apply
         //				NdArray, weights
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
@@ -742,12 +742,12 @@ namespace NumC
         // Method Description: 
         //						Calculates a one-dimensional kernel convolution.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				NdArray, weights
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
@@ -775,12 +775,12 @@ namespace NumC
         // Method Description: 
         //						Calculates a multidimensional gaussian filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				double, Standard deviation for Gaussian kernel
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma,
@@ -828,12 +828,12 @@ namespace NumC
         // Method Description: 
         //						Calculate a one-dimensional gaussian filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				double, Standard deviation for Gaussian kernel
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma,
@@ -877,12 +877,12 @@ namespace NumC
         // Method Description: 
         //						Calculates a multidimensional maximum filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				square size of the kernel to apply
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
@@ -914,12 +914,12 @@ namespace NumC
         // Method Description: 
         //						Calculates a one-dimensional maximum filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				size of the kernel to apply
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> maximumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
@@ -945,12 +945,12 @@ namespace NumC
         // Method Description: 
         //						Calculates a multidimensional median filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				square size of the kernel to apply
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> medianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
@@ -982,12 +982,12 @@ namespace NumC
         // Method Description: 
         //						Calculates a one-dimensional median filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				linear size of the kernel to apply
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
@@ -1013,12 +1013,12 @@ namespace NumC
         // Method Description: 
         //						Calculates a multidimensional minimum filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				square size of the kernel to apply
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> minimumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
@@ -1050,12 +1050,12 @@ namespace NumC
         // Method Description: 
         //						Calculates a one-dimensional minumum filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				size of the kernel to apply
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> minumumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
@@ -1081,13 +1081,13 @@ namespace NumC
         // Method Description: 
         //						Calculates a multidimensional percentile filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				square size of the kernel to apply
         //				percentile [0, 100]
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
@@ -1119,13 +1119,13 @@ namespace NumC
         // Method Description: 
         //						Calculates a one-dimensional percentile filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				size of the kernel to apply
         //				percentile [0, 100]
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
@@ -1151,13 +1151,13 @@ namespace NumC
         // Method Description: 
         //						Calculates a multidimensional rank filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				square size of the kernel to apply
         //				rank [0, inSize^2 - 1]
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
@@ -1194,13 +1194,13 @@ namespace NumC
         // Method Description: 
         //						Calculates a one-dimensional rank filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				size of the kernel to apply
         //				rank [0, 100]
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
@@ -1226,12 +1226,12 @@ namespace NumC
         // Method Description: 
         //						Calculates a multidimensional uniform filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				square size of the kernel to apply
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
@@ -1263,12 +1263,12 @@ namespace NumC
         // Method Description: 
         //						Calculates a one-dimensional uniform filter.
         //		
-        // Inputs:
+        /// @param
         //				NdArray
         //				size of the kernel to apply
         //              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
         //				contant value if boundary = 'constant'
-        // Outputs:
+        /// @return
         //				NdArray
         //
         static NdArray<dtype> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,

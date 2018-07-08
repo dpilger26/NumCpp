@@ -44,9 +44,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         Slice() :
@@ -59,9 +59,9 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				stop index (not included)
-        // Outputs:
+        /// @return
         //				None
         //
         explicit Slice(int32 inStop) :
@@ -74,10 +74,10 @@ namespace NumC
         // Method Description: 
         //						Constructor
         //		
-        // Inputs:
+        /// @param
         //				start index,
         //				stop index (not included)
-        // Outputs:
+        /// @return
         //				None
         //
         Slice(int32 inStart, int32 inStop) :
@@ -90,11 +90,11 @@ namespace NumC
         // Method Description:
         //						Constructor
         //			
-        // Inputs:
+        /// @param
         //				start index,
         //				stop index (not included)
         //				step value
-        // Outputs:
+        /// @return
         //				None
         //
         Slice(int32 inStart, int32 inStop, int32 inStep) :
@@ -107,9 +107,9 @@ namespace NumC
         // Method Description: 
         //						prints the shape to the console
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         std::string str() const
@@ -122,9 +122,9 @@ namespace NumC
         // Method Description: 
         //						prints the shape to the console
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         void print()
@@ -136,9 +136,9 @@ namespace NumC
         // Method Description: 
         //						io operator for the Slice class
         //		
-        // Inputs:
+        /// @param
         //				None
-        // Outputs:
+        /// @return
         //				None
         //
         friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
@@ -151,9 +151,9 @@ namespace NumC
         // Method Description:
         //						Make the slice all positive and does some error checking
         //			
-        // Inputs:
+        /// @param
         //				The calling array size
-        // Outputs:
+        /// @return
         //				None
         //
         void makePositiveAndValidate(uint32 inArraySize)
@@ -206,9 +206,9 @@ namespace NumC
         //						be aware that this method will also make the slice all 
         //						positive!
         //			
-        // Inputs:
+        /// @param
         //				The calling array size
-        // Outputs:
+        /// @return
         //				None
         //
         uint32 numElements(uint32 inArraySize)
