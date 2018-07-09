@@ -133,12 +133,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>matrix determinant. NOTE: can get verrrrry slow for large matrices (order &gt; 10)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>dtype </dd></dl>
 
 </div>
 </div>
@@ -183,12 +185,16 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>vector hat operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramname">z</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>3x3 <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -217,12 +223,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>vector hat operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>3x1, or 1x3 cartesian vector </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>3x3 <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -251,12 +259,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>matrix inverse</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -301,12 +311,16 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Solves the equation a x = b by computing a vector x that minimizes the Euclidean 2-norm || b - a x ||^2. The equation may be under-, well-, or over- determined (i.e., the number of linearly independent rows of a can be less than, equal to, or greater than its number of linearly independent columns). If a is square and of full rank, then x (but for round-off error) is the "exact" solution of the equation.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>,coefficient</td><td>matrix </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>,Ordinate</td><td>or "dependent variable" values </td></tr>
+    <tr><td class="paramname">double,tolerance</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -347,12 +361,16 @@ template&lt;typename dtypeOut  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Raise a square matrix to the (integer) power n.</p>
+<p>For positive integers n, the power is computed by repeated matrix squarings and matrix multiplications. If n == 0, the identity matrix of the same shape as M is returned. If n &lt; 0, the inverse is computed and then raised to the abs(n).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">power</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -383,12 +401,14 @@ template&lt;typename dtypeOut  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Compute the dot product of two or more arrays in a single function call..</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">initializer_list&lt;NdArray&lt;dtype&gt;</td><td>&gt;, list of arrays</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -439,12 +459,17 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>matrix svd</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>to be SVDed </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>output U </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>output S </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>output V transpose </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>

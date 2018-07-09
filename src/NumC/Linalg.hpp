@@ -1,22 +1,29 @@
-// Copyright 2018 David Pilger
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-// software and associated documentation files(the "Software"), to deal in the Software 
-// without restriction, including without limitation the rights to use, copy, modify, 
-// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-// permit persons to whom the Software is furnished to do so, subject to the following 
-// conditions :
-//
-// The above copyright notice and this permission notice shall be included in all copies 
-// or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-// DEALINGS IN THE SOFTWARE.
-
+/// @author David Pilger <dpilger26@gmail.com>
+/// @version 1.0
+///
+/// @section LICENSE
+/// Copyright 2018 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software 
+/// without restriction, including without limitation the rights to use, copy, modify, 
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies 
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// DEALINGS IN THE SOFTWARE.
+///
+/// @section DESCRIPTION
+/// Class for doing linear algebra operations
+///
 #pragma once
 
 #include"NumC/Methods.hpp"
@@ -40,14 +47,14 @@ namespace NumC
     public:
         //============================================================================
         // Method Description: 
-        //						matrix determinant.
-        //						NOTE: can get verrrrry slow for large matrices (order > 10)
-        //		
+        ///						matrix determinant.
+        ///						NOTE: can get verrrrry slow for large matrices (order > 10)
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				dtype
-        //
+        ///				dtype
+        ///
         static dtype det(const NdArray<dtype>& inArray)
         {
             Shape inShape = inArray.shape();
@@ -106,15 +113,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						vector hat operator
-        //		
-        /// @param
-        //				x
-        //				y
-        //				z
+        ///						vector hat operator
+        ///		
+        /// @param			x
+        /// @param			y
+        /// @param			z
         /// @return
-        //				3x3 NdArray
-        //
+        ///				3x3 NdArray
+        ///
         static NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
         {
             NdArray<dtype> returnArray(3);
@@ -133,13 +139,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						vector hat operator
-        //		
+        ///						vector hat operator
+        ///		
         /// @param
-        //				NdArray 3x1, or 1x3 cartesian vector
+        ///				NdArray 3x1, or 1x3 cartesian vector
         /// @return
-        //				3x3 NdArray
-        //
+        ///				3x3 NdArray
+        ///
         static NdArray<dtype> hat(const NdArray<dtype>& inVec)
         {
             if (inVec.size() != 3)
@@ -152,13 +158,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						matrix inverse
-        //		
+        ///						matrix inverse
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> inv(const NdArray<dtype>& inArray)
         {
             Shape inShape = inArray.shape();
@@ -233,23 +239,22 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Solves the equation a x = b by computing a vector x 
-        //						that minimizes the Euclidean 2-norm || b - a x ||^2. 
-        //						The equation may be under-, well-, or over- determined 
-        //						(i.e., the number of linearly independent rows of a can 
-        //						be less than, equal to, or greater than its number of 
-        //						linearly independent columns). If a is square and of 
-        //						full rank, then x (but for round-off error) is the 
-        //						“exact” solution of the equation.
-        //		
-        /// @param
-        //				NdArray, coefficient matrix
-        //				NdArray, Ordinate or “dependent variable” values
-        //				double, tolerance
-        //
+        ///						Solves the equation a x = b by computing a vector x 
+        ///						that minimizes the Euclidean 2-norm || b - a x ||^2. 
+        ///						The equation may be under-, well-, or over- determined 
+        ///						(i.e., the number of linearly independent rows of a can 
+        ///						be less than, equal to, or greater than its number of 
+        ///						linearly independent columns). If a is square and of 
+        ///						full rank, then x (but for round-off error) is the 
+        ///						"exact" solution of the equation.
+        ///		
+        /// @param				NdArray, coefficient matrix
+        /// @param  			NdArray, Ordinate or "dependent variable" values
+        /// @param				double, tolerance
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
         {
             SVD svdSolver(inA);
@@ -260,20 +265,19 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Raise a square matrix to the (integer) power n.
-        //
-        //						For positive integers n, the power is computed by repeated
-        //						matrix squarings and matrix multiplications.  If n == 0, 
-        //						the identity matrix of the same shape as M is returned.
-        //						If n < 0, the inverse is computed and then raised to the abs(n).
-        //		
-        /// @param
-        //				NdArray
-        //				power
-        //
+        ///						Raise a square matrix to the (integer) power n.
+        ///
+        ///						For positive integers n, the power is computed by repeated
+        ///						matrix squarings and matrix multiplications.  If n == 0, 
+        ///						the identity matrix of the same shape as M is returned.
+        ///						If n < 0, the inverse is computed and then raised to the abs(n).
+        ///		
+        /// @param				NdArray
+        /// @param				power
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
@@ -318,15 +322,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the dot product of two or more arrays in a single 
-        //						function call..
-        //		
+        ///						Compute the dot product of two or more arrays in a single 
+        ///						function call..
+        ///		
         /// @param
-        //				initializer_list<NdArray<dtype> >, list of arrays
-        //
+        ///				initializer_list<NdArray<dtype> >, list of arrays
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
         {
@@ -353,16 +357,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						matrix svd
-        //		
-        /// @param
-        //				NdArray to be SVDed
-        //				NdArray output U
-        //				NdArray output S
-        //				NdArray output V transpose
+        ///						matrix svd
+        ///		
+        /// @param				NdArray to be SVDed
+        /// @param				NdArray output U
+        /// @param				NdArray output S
+        /// @param				NdArray output V transpose
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
         {
             SVD svdSolver(inArray);
@@ -376,9 +379,8 @@ namespace NumC
     private:
         // =============================================================================
         // Class Description:
-        //              performs the singular value decomposition of a general matrix,
-        //              taken and adapted from Numerical Recipes Third Edition svd.h
-        //
+        ///              performs the singular value decomposition of a general matrix,
+        ///              taken and adapted from Numerical Recipes Third Edition svd.h
         class SVD
         {
         private:
@@ -394,14 +396,14 @@ namespace NumC
         public:
             // =============================================================================
             // Description:
-            //              Constructor
-            // 
-            // Parameter(s): 
-            //              Matrix::Mat<double> matrix to perform SVD on
-            // 
-            // Return: 
-            //              None
-            //
+            ///              Constructor
+            /// 
+            /// @param 
+            ///              Matrix::Mat<double> matrix to perform SVD on
+            /// 
+            /// @return 
+            ///              None
+            ///
             SVD(const NdArray<double>& inMatrix) :
                 m_(inMatrix.shape().rows),
                 n_(inMatrix.shape().cols),
@@ -417,14 +419,14 @@ namespace NumC
 
             // =============================================================================
             // Description:
-            //              the resultant u matrix
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              u matrix
-            //
+            ///              the resultant u matrix
+            /// 
+            /// @param 
+            ///              None
+            /// 
+            /// @return 
+            ///              u matrix
+            ///
             const NdArray<double>& u()
             {
                 return u_;
@@ -432,14 +434,14 @@ namespace NumC
 
             // =============================================================================
             // Description:
-            //              the resultant v matrix
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              v matrix
-            //
+            ///              the resultant v matrix
+            /// 
+            /// @param 
+            ///              None
+            /// 
+            /// @return 
+            ///              v matrix
+            ///
             const NdArray<double>& v()
             {
                 return v_;
@@ -447,14 +449,14 @@ namespace NumC
 
             // =============================================================================
             // Description:
-            //              the resultant w matrix
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              s matrix
-            //
+            ///              the resultant w matrix
+            /// 
+            /// @param 
+            ///              None
+            /// 
+            /// @return 
+            ///              s matrix
+            ///
             const NdArray<double>& s()
             {
                 return s_;
@@ -462,14 +464,14 @@ namespace NumC
 
             // =============================================================================
             // Description:
-            //              solves the linear least squares problem
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              None
-            //
+            ///              solves the linear least squares problem
+            /// 
+            /// @param 
+            ///              None
+            /// 
+            /// @return 
+            ///              None
+            ///
             NdArray<double> solve(const NdArray<double>& inInput, double inThresh = -1.0)
             {
                 double s;
@@ -516,15 +518,14 @@ namespace NumC
         private:
             // =============================================================================
             // Description:
-            //              returns the SIGN of two values
-            // 
-            // Parameter(s): 
-            //              a,
-            //              b
-            // 
-            // Return: 
-            //              value
-            //
+            ///              returns the SIGN of two values
+            ///  
+            /// @param              a,
+            /// @param              b
+            /// 
+            /// @return 
+            ///              value
+            ///
             double SIGN(double a, double b)
             {
                 return b >= 0 ? (a >= 0 ? a : -a) : (a >= 0 ? -a : a);
@@ -532,14 +533,14 @@ namespace NumC
 
             // =============================================================================
             // Description:
-            //              decomposes the input matrix
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              None
-            //
+            ///              decomposes the input matrix
+            /// 
+            /// @param 
+            ///              None
+            /// 
+            /// @return 
+            ///              None
+            ///
             void decompose()
             {
                 bool    flag;
@@ -879,14 +880,14 @@ namespace NumC
 
             // =============================================================================
             // Description:
-            //              reorders the input matrix
-            // 
-            // Parameter(s): 
-            //              None
-            // 
-            // Return: 
-            //              None
-            //
+            ///              reorders the input matrix
+            /// 
+            /// @param 
+            ///              None
+            /// 
+            /// @return 
+            ///              None
+            ///
             void reorder()
             {
                 uint32  i;
@@ -996,15 +997,14 @@ namespace NumC
 
             // =============================================================================
             // Description:
-            //              performs pythag of input values
-            // 
-            // Parameter(s): 
-            //              a,
-            //              b
-            // 
-            // Return: 
-            //              resultant value
-            //
+            ///              performs pythag of input values
+            ///  
+            /// @param              a
+            /// @param              b
+            /// 
+            /// @return 
+            ///              resultant value
+            ///
             double pythag(double a, double b)
             {
                 double absa = std::abs(a);

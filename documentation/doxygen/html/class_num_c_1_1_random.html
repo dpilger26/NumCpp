@@ -74,6 +74,11 @@ $(function() {
 <div class="title">NumC::Random&lt; dtype &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class for generating random numbers.  
+ <a href="class_num_c_1_1_random.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_random_8hpp_source.html">Random.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -142,7 +147,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a17af9673d03e2e66f0e27c958f8f8fb2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_random.html#a17af9673d03e2e66f0e27c958f8f8fb2">weibull</a> (const <a class="el" href="class_num_c_1_1_shape.html">Shape</a> &amp;inShape, dtype inA=1, dtype inB=1)</td></tr>
 <tr class="separator:a17af9673d03e2e66f0e27c958f8f8fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename dtype&gt;<br />
+class NumC::Random&lt; dtype &gt;</h3>
+
+<p>A class for generating random numbers. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aacdb28b0362c31586e404e510dddf840"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacdb28b0362c31586e404e510dddf840">&#9670;&nbsp;</a></span>bernoulli()</h2>
 
@@ -178,12 +188,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from the “bernoulli” distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">probablity</td><td>of success [0, 1] </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -228,12 +241,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from the “beta” distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">alpha</td><td></td></tr>
+    <tr><td class="paramname">beta</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -278,12 +295,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from the “binomial” distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">number</td><td>of trials </td></tr>
+    <tr><td class="paramname">probablity</td><td>of success [0, 1] </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -328,12 +349,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "cauchy" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">mean</td><td>Mean value of the underlying normal distribution. Default is 0. </td></tr>
+    <tr><td class="paramname">sigma,Standard</td><td>deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -372,12 +396,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from the “chi square” distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">df</td><td>independent random variables </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -406,12 +433,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Generates a random sample from an input array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -450,12 +479,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "discrete" distrubution. It produces integers in the range [0, n) with the probability of producing each value is specified by the parameters of the distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>of weights, </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -494,12 +525,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "exponential" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">scale</td><td>value, default 1 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -544,12 +578,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "extreme value" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">a,default</td><td>1 </td></tr>
+    <tr><td class="paramname">b,default</td><td>1 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -594,12 +632,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "F" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">Degrees</td><td>of freedom in numerator. Should be greater than zero. </td></tr>
+    <tr><td class="paramname">Degrees</td><td>of freedom in denominator. Should be greater than zero. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -644,12 +686,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "gamma" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">Scale,default</td><td>1 </td></tr>
+    <tr><td class="paramname">Gamma</td><td>shape </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -688,12 +734,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "geometric" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">probablity</td><td>of success [0, 1] </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -738,12 +787,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "laplace" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">inLoc</td><td>The position, mu, of the distribution peak. Default is 0. </td></tr>
+    <tr><td class="paramname">inScale</td><td>float optional, the exponential decay. Default is 1. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -788,12 +840,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "lognormal" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">mean</td><td>Mean value of the underlying normal distribution. Default is 0. </td></tr>
+    <tr><td class="paramname">sigma,Standard</td><td>deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -838,12 +893,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from the “negative Binomial” distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">number</td><td>of trials </td></tr>
+    <tr><td class="paramname">probablity</td><td>of success [0, 1] </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -888,12 +947,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "non central chi squared" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">k,default</td><td>1 </td></tr>
+    <tr><td class="paramname">lambda,default</td><td>1 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -938,12 +1001,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "normal" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">mean</td><td>Mean value of the underlying normal distribution. Default is 0. </td></tr>
+    <tr><td class="paramname">sigma,Standard</td><td>deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -972,12 +1038,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Randomly permute a sequence, or return a permuted range. If x is an integer, randomly permute np.arange(x). If x is an array, make a copy and shuffle the elements randomly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1006,12 +1074,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Randomly permute a sequence, or return a permuted range. If x is an integer, randomly permute np.arange(x). If x is an array, make a copy and shuffle the elements randomly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1050,12 +1120,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from the “poisson” distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">mean,default</td><td>1 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1084,12 +1157,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a uniform distribution over [0, 1).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1134,12 +1209,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return random floats from low (inclusive) to high (exclusive), with the given shape</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">low</td><td>value </td></tr>
+    <tr><td class="paramname">high</td><td>value </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1184,12 +1263,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return random integers from low (inclusive) to high (exclusive), with the given shape</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">low</td><td>value </td></tr>
+    <tr><td class="paramname">high</td><td>value </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1218,12 +1301,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from the “standard normal” distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1252,12 +1337,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Seeds the random number generator_</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">seed</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -1286,12 +1373,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Modify a sequence in-place by shuffling its contents.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -1320,12 +1409,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from a "standard normal" distrubution with mean = 0 and std = 1</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1364,12 +1455,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from the “student-T” distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">df</td><td>independent random variables </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1420,12 +1514,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from the “triangle” distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">a</td><td></td></tr>
+    <tr><td class="paramname">b</td><td></td></tr>
+    <tr><td class="paramname">c</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1470,12 +1569,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Draw samples from a uniform distribution.</p>
+<p>Samples are uniformly distributed over the half - open interval[low, high) (includes low, but excludes high)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">low</td><td>value </td></tr>
+    <tr><td class="paramname">high</td><td>value </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1514,12 +1618,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Such a distribution produces random numbers uniformly distributed on the unit sphere of arbitrary dimension dim.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">number</td><td>of points </td></tr>
+    <tr><td class="paramname">dimension</td><td>of the sphere, default 2 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1564,12 +1671,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Create an array of the given shape and populate it with random samples from the "weibull" distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">a,default</td><td>1 </td></tr>
+    <tr><td class="paramname">b,default</td><td>1 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>

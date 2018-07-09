@@ -1,7 +1,7 @@
 var searchData=
 [
   ['back',['back',['../class_num_c_1_1_data_cube.html#a5ca3940c4aad34665e9d6104a05a6899',1,'NumC::DataCube']]],
-  ['begin',['begin',['../class_num_c_1_1_data_cube.html#ab3d0a674028d5aab89d56a2d591ff17e',1,'NumC::DataCube::begin()'],['../class_num_c_1_1_nd_array.html#a3bba56461121f422750bd6b7a69bd9c4',1,'NumC::NdArray::begin()'],['../class_num_c_1_1_nd_array.html#a6cca558bd443f861482a6856980fc80f',1,'NumC::NdArray::begin(uint32 inRow)']]],
+  ['begin',['begin',['../class_num_c_1_1_data_cube.html#ab3d0a674028d5aab89d56a2d591ff17e',1,'NumC::DataCube::begin()'],['../class_num_c_1_1_image_processing_1_1_cluster.html#a692e76f15ac0f1678e0a89654ff42665',1,'NumC::ImageProcessing::Cluster::begin()'],['../class_num_c_1_1_nd_array.html#a3bba56461121f422750bd6b7a69bd9c4',1,'NumC::NdArray::begin()'],['../class_num_c_1_1_nd_array.html#a6cca558bd443f861482a6856980fc80f',1,'NumC::NdArray::begin(uint32 inRow)']]],
   ['bernoulli',['bernoulli',['../class_num_c_1_1_random.html#aacdb28b0362c31586e404e510dddf840',1,'NumC::Random']]],
   ['beta',['beta',['../class_num_c_1_1_random.html#a7e13e27466d9504bfba6427b1a37872e',1,'NumC::Random']]],
   ['bincount',['bincount',['../class_num_c_1_1_methods.html#a193c627a3f91d7de1844414ec5df9b86',1,'NumC::Methods::bincount(const NdArray&lt; dtype &gt; &amp;inArray, uint16 inMinLength=0)'],['../class_num_c_1_1_methods.html#ada3873d1bfea40ccd013b1d7c52a2501',1,'NumC::Methods::bincount(const NdArray&lt; dtype &gt; &amp;inArray, const NdArray&lt; dtype &gt; &amp;inWeights, uint16 inMinLength=0)']]],

@@ -95,8 +95,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a614d9061c2a04982883d977642ad5852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a182ba7349c947cbb84535a3d08bbdc1c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_image_processing_1_1_pixel.html#a182ba7349c947cbb84535a3d08bbdc1c">operator!=</a> (const <a class="el" href="class_num_c_1_1_image_processing_1_1_pixel.html">Pixel</a> &amp;rhs) const</td></tr>
 <tr class="separator:a182ba7349c947cbb84535a3d08bbdc1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27f73437f8fa291fcb16c4928cf24a8b"><td class="memItemLeft" align="right" valign="top"><a id="a27f73437f8fa291fcb16c4928cf24a8b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_num_c_1_1_image_processing_1_1_pixel.html">Pixel</a> &amp;rhs) const</td></tr>
+<tr class="memitem:a27f73437f8fa291fcb16c4928cf24a8b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_image_processing_1_1_pixel.html#a27f73437f8fa291fcb16c4928cf24a8b">operator&lt;</a> (const <a class="el" href="class_num_c_1_1_image_processing_1_1_pixel.html">Pixel</a> &amp;rhs) const</td></tr>
 <tr class="separator:a27f73437f8fa291fcb16c4928cf24a8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab99d24ca953870794f9d0e2d35a49679"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_image_processing_1_1_pixel.html#ab99d24ca953870794f9d0e2d35a49679">operator==</a> (const <a class="el" href="class_num_c_1_1_image_processing_1_1_pixel.html">Pixel</a> &amp;rhs) const</td></tr>
 <tr class="separator:ab99d24ca953870794f9d0e2d35a49679"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,12 +143,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>defualt constructor needed by containers</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -194,12 +195,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">pixel</td><td>row, </td></tr>
+    <tr><td class="paramname">pixel</td><td>column, </td></tr>
+    <tr><td class="paramname">pixel</td><td>intensity</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -228,12 +233,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the cluster id that this pixel belongs to</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>cluster id </dd></dl>
 
 </div>
 </div>
@@ -261,12 +268,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the pixel column</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>column </dd></dl>
 
 </div>
 </div>
@@ -294,12 +303,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the pixel intensity</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>intensity </dd></dl>
 
 </div>
 </div>
@@ -328,12 +339,50 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>not equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<a id="a27f73437f8fa291fcb16c4928cf24a8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27f73437f8fa291fcb16c4928cf24a8b">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_num_c_1_1_image_processing.html">NumC::ImageProcessing</a>&lt; dtype &gt;::Pixel::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_num_c_1_1_image_processing_1_1_pixel.html">Pixel</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>less than operator for std::sort algorithm and std::set&lt;&gt;; NOTE: std::sort sorts in ascending order. Since I want to sort the centroids in descensing order, I am purposefully defining this operator backwards!</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -362,12 +411,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -395,12 +446,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Method Description: prints the <a class="el" href="class_num_c_1_1_image_processing_1_1_pixel.html" title="Holds the information for a single pixel. ">Pixel</a> object to the console</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -428,12 +481,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the pixel row</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>row </dd></dl>
 
 </div>
 </div>
@@ -462,12 +517,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>sets the cluster id that this pixel belongs to</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">cluster</td><td>id</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -495,12 +552,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the pixel information as a string</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
 </div>
 </div>
@@ -540,12 +599,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>osstream operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">std::ostream</td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_image_processing_1_1_pixel.html" title="Holds the information for a single pixel. ">Pixel</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>std::ostream </dd></dl>
 
 </div>
 </div>

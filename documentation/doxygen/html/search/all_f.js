@@ -2,6 +2,7 @@ var searchData=
 [
   ['pad',['pad',['../class_num_c_1_1_methods.html#aa45707c2429c5c8b50c00b82dbc44cf7',1,'NumC::Methods']]],
   ['partition',['partition',['../class_num_c_1_1_methods.html#aedeb0f56575add16c4ef893b0d27f334',1,'NumC::Methods::partition()'],['../class_num_c_1_1_nd_array.html#aff67329d4dc3c27b160649ead4e1f30e',1,'NumC::NdArray::partition()']]],
+  ['peakpixelintensity',['peakPixelIntensity',['../class_num_c_1_1_image_processing_1_1_cluster.html#abf91ca832195383b222b0c68b367a131',1,'NumC::ImageProcessing::Cluster']]],
   ['percentile',['percentile',['../class_num_c_1_1_methods.html#ad30caff5e5a775d3fc637cdb5c001372',1,'NumC::Methods']]],
   ['percentilefilter',['percentileFilter',['../class_num_c_1_1_filters.html#a90b60e978fd65e702cb5212e701c479f',1,'NumC::Filters']]],
   ['percentilefilter1d',['percentileFilter1d',['../class_num_c_1_1_filters.html#ab27a9d4db137a7512967132758a4440c',1,'NumC::Filters']]],

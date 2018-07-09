@@ -23,6 +23,8 @@ var searchData=
   ['rot90',['rot90',['../class_num_c_1_1_methods.html#a4779b5b388cdc22828a7c9363f5307fe',1,'NumC::Methods']]],
   ['rotate',['rotate',['../class_num_c_1_1_rotations_1_1_quaternion.html#a4fafcb2d64f0a9ef1f16f4b15a2324e7',1,'NumC::Rotations::Quaternion']]],
   ['round',['round',['../class_num_c_1_1_methods.html#aed4f6044e1a3bd2d95f6755d43c9c286',1,'NumC::Methods::round(dtype inValue, uint8 inDecimals)'],['../class_num_c_1_1_methods.html#ad61f0294ec81993d8f12bf5ce9a526e3',1,'NumC::Methods::round(const NdArray&lt; dtype &gt; &amp;inArray, uint8 inDecimals)'],['../class_num_c_1_1_nd_array.html#ac083fe73fd750871618990f44b3a854d',1,'NumC::NdArray::round()']]],
-  ['row',['row',['../class_num_c_1_1_image_processing_1_1_pixel.html#a436cfd82dc144afa2d3cfe134bc872fd',1,'NumC::ImageProcessing::Pixel']]],
-  ['row_5fstack',['row_stack',['../class_num_c_1_1_methods.html#a02de1a2b6cbc879abc43c0d0d06929a9',1,'NumC::Methods']]]
+  ['row',['row',['../class_num_c_1_1_image_processing_1_1_pixel.html#a436cfd82dc144afa2d3cfe134bc872fd',1,'NumC::ImageProcessing::Pixel::row()'],['../class_num_c_1_1_image_processing_1_1_centroid.html#a59cd9d66283c26d813a6b36cfc92689c',1,'NumC::ImageProcessing::Centroid::row()']]],
+  ['row_5fstack',['row_stack',['../class_num_c_1_1_methods.html#a02de1a2b6cbc879abc43c0d0d06929a9',1,'NumC::Methods']]],
+  ['rowmax',['rowMax',['../class_num_c_1_1_image_processing_1_1_cluster.html#a90036e75f85a60f0d8a55d7cf8975da5',1,'NumC::ImageProcessing::Cluster']]],
+  ['rowmin',['rowMin',['../class_num_c_1_1_image_processing_1_1_cluster.html#a87ebe359c4ad0e5996d1f8fef7e572fa',1,'NumC::ImageProcessing::Cluster']]]
 ];

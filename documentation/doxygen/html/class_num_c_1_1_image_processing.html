@@ -84,6 +84,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_image_processing_1_1_centroid.html">Centroid</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">holds the information for a centroid  <a href="class_num_c_1_1_image_processing_1_1_centroid.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_image_processing_1_1_cluster.html">Cluster</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the information for a cluster of pixels.  <a href="class_num_c_1_1_image_processing_1_1_cluster.html#details">More...</a><br /></td></tr>
@@ -148,12 +149,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Applies a threshold to an image</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>threshold value </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> of booleans of pixels that exceeded the threshold </dd></dl>
 
 </div>
 </div>
@@ -182,12 +185,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Center of Mass centroids clusters</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">threshold</td><td>value </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Centroid&gt; </dd></dl>
 
 </div>
 </div>
@@ -232,12 +238,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Clusters exceedance pixels from an image</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>of exceedances </td></tr>
+    <tr><td class="paramname">border</td><td>to apply around exceedance pixels post clustering, default 0 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Cluster&gt; </dd></dl>
 
 </div>
 </div>
@@ -288,12 +298,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Generates a list of centroids givin an input exceedance rate</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">exceedance</td><td>rate </td></tr>
+    <tr><td class="paramname">string</td><td>"pre", or "post" for where to apply the exceedance windowing </td></tr>
+    <tr><td class="paramname">border</td><td>to apply, default 0 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Centroid&gt; </dd></dl>
 
 </div>
 </div>
@@ -332,12 +347,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a threshold such that the input rate of pixels exceeds the threshold. Really should only be used for integer input array values. If using floating point data, user beware...</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">exceedance</td><td>rate </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>dtype </dd></dl>
 
 </div>
 </div>
@@ -376,12 +394,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Window expand around exceedance pixels</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray&lt;bool&gt;</a></td><td></td></tr>
+    <tr><td class="paramname">border</td><td>width </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray&lt;bool&gt;</a> </dd></dl>
 
 </div>
 </div>

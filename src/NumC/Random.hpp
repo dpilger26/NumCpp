@@ -1,22 +1,29 @@
-// Copyright 2018 David Pilger
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-// software and associated documentation files(the "Software"), to deal in the Software 
-// without restriction, including without limitation the rights to use, copy, modify, 
-// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-// permit persons to whom the Software is furnished to do so, subject to the following 
-// conditions :
-//
-// The above copyright notice and this permission notice shall be included in all copies 
-// or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-// DEALINGS IN THE SOFTWARE.
-
+/// @author David Pilger <dpilger26@gmail.com>
+/// @version 1.0
+///
+/// @section LICENSE
+/// Copyright 2018 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software 
+/// without restriction, including without limitation the rights to use, copy, modify, 
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies 
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// DEALINGS IN THE SOFTWARE.
+///
+/// @section DESCRIPTION
+/// A module for generating random numbers
+///
 #pragma once
 
 #include"NumC/Methods.hpp"
@@ -31,25 +38,25 @@
 
 namespace NumC
 {
-    // generator function
+    /// generator function
     boost::random::mt19937 generator_;
 
     //================================Random Class=============================
+    /// A class for generating random numbers
     template<typename dtype>
     class Random
     {
     public:
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from the “bernoulli” distribution.
-        //		
-        /// @param
-        //				Shape
-        //				probablity of success [0, 1]
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from the “bernoulli” distribution.
+        ///		
+        /// @param				Shape
+        /// @param				probablity of success [0, 1]
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> bernoulli(const Shape& inShape, dtype inP)
         {
             if (inP < 0 || inP > 1)
@@ -70,16 +77,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from the “beta” distribution.
-        //		
-        /// @param
-        //				Shape
-        //				alpha
-        //				beta
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from the “beta” distribution.
+        ///		
+        /// @param				Shape
+        /// @param				alpha
+        /// @param				beta
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> beta(const Shape& inShape, dtype inAlpha, dtype inBeta)
         {
             if (inAlpha < 0)
@@ -105,16 +111,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from the “binomial” distribution.
-        //		
-        /// @param
-        //				Shape
-        //				number of trials
-        //				probablity of success [0, 1]
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from the “binomial” distribution.
+        ///		
+        /// @param				Shape
+        /// @param				number of trials
+        /// @param				probablity of success [0, 1]
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> binomial(const Shape& inShape, dtype inN, double inP = 0.5)
         {
             // only works with integer input types
@@ -143,15 +148,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from the “chi square” distribution.
-        //		
-        /// @param
-        //				Shape
-        //				df independent random variables
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from the “chi square” distribution.
+        ///		
+        /// @param				Shape
+        /// @param				df independent random variables
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> chiSquare(const Shape& inShape, dtype inDof)
         {
             if (inDof <= 0)
@@ -172,13 +176,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Generates a random sample from an input array
-        //		
+        ///						Generates a random sample from an input array
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static dtype choice(const NdArray<dtype>& inArray)
         {
             uint32 randIdx = Random<uint32>::randInt(Shape(1), 0, inArray.size()).item();
@@ -187,15 +191,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "cauchy" distrubution.
-        //		
-        /// @param
-        //				mean: Mean value of the underlying normal distribution. Default is 0.
-        //				sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "cauchy" distrubution.
+        ///		
+        /// @param				mean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param				sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> cauchy(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
         {
             if (inSigma <= 0)
@@ -216,17 +219,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "discrete" distrubution.  It produces
-        //						integers in the range [0, n) with the probability of 
-        //						producing each value is specified by the parameters 
-        //						of the distribution.
-        //		
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "discrete" distrubution.  It produces
+        ///						integers in the range [0, n) with the probability of 
+        ///						producing each value is specified by the parameters 
+        ///						of the distribution.
+        ///		
         /// @param
-        //				NdArray of weights, 
+        ///				NdArray of weights, 
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> discrete(const Shape& inShape, const NdArray<double>& inWeights)
         {
             // only works with integer input types
@@ -245,15 +248,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "exponential" distrubution.
-        //		
-        /// @param
-        //				Shape
-        //				scale value, default 1
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "exponential" distrubution.
+        ///		
+        /// @param				Shape
+        /// @param				scale value, default 1
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1)
         {
             NdArray<dtype> returnArray(inShape);
@@ -269,16 +271,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "extreme value" distrubution.
-        //		
-        /// @param
-        //				Shape
-        //				a, default 1
-        //				b, default 1
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "extreme value" distrubution.
+        ///		
+        /// @param				Shape
+        /// @param				a, default 1
+        /// @param				b, default 1
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> extremeValue(const Shape& inShape, dtype inA = 1, dtype inB = 1)
         {
             if (inA <= 0)
@@ -304,16 +305,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "F" distrubution.
-        //		
-        /// @param
-        //				Shape
-        //				Degrees of freedom in numerator. Should be greater than zero.
-        //				Degrees of freedom in denominator. Should be greater than zero.
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "F" distrubution.
+        ///		
+        /// @param				Shape
+        /// @param				Degrees of freedom in numerator. Should be greater than zero.
+        /// @param				Degrees of freedom in denominator. Should be greater than zero.
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> f(const Shape& inShape, dtype inDofN, dtype inDofD)
         {
             if (inDofN <= 0)
@@ -339,16 +339,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "gamma" distrubution.
-        //		
-        /// @param
-        //				Shape
-        //				Scale, default 1
-        //				Gamma shape
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "gamma" distrubution.
+        ///		
+        /// @param				Shape
+        /// @param			    Scale, default 1
+        /// @param				Gamma shape
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> gamma(const Shape& inShape, dtype inGammaShape, dtype inScaleValue = 1)
         {
             if (inGammaShape <= 0)
@@ -374,15 +373,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "geometric" distrubution.
-        //		
-        /// @param
-        //				Shape
-        //				probablity of success [0, 1]
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "geometric" distrubution.
+        ///		
+        /// @param				Shape
+        /// @param				probablity of success [0, 1]
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> geometric(const Shape& inShape, double inP = 0.5)
         {
             // only works with integer input types
@@ -406,15 +404,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "laplace" distrubution.
-        //		
-        /// @param
-        //				inLoc: The position, mu, of the distribution peak. Default is 0.
-        //				inScale: float  optional, the exponential decay. Default is 1.
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "laplace" distrubution.
+        ///		
+        /// @param				inLoc: The position, mu, of the distribution peak. Default is 0.
+        /// @param				inScale: float  optional, the exponential decay. Default is 1.
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1)
         {
             NdArray<dtype> returnArray(inShape);
@@ -430,15 +427,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "lognormal" distrubution.
-        //		
-        /// @param
-        //				mean: Mean value of the underlying normal distribution. Default is 0.
-        //				sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "lognormal" distrubution.
+        ///		
+        /// @param				mean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param				sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> lognormal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
         {
             if (inSigma <= 0)
@@ -459,16 +455,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from the “negative Binomial” distribution.
-        //		
-        /// @param
-        //				Shape
-        //				number of trials
-        //				probablity of success [0, 1]
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from the “negative Binomial” distribution.
+        ///		
+        /// @param				Shape
+        /// @param				number of trials
+        /// @param				probablity of success [0, 1]
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> negativeBinomial(const Shape& inShape, dtype inN, double inP = 0.5)
         {
             // only works with integer input types
@@ -497,16 +492,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "non central chi squared" distrubution.
-        //		
-        /// @param
-        //				Shape
-        //				k, default 1
-        //				lambda, default 1
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "non central chi squared" distrubution.
+        ///		
+        /// @param				Shape
+        /// @param				k, default 1
+        /// @param				lambda, default 1
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> nonCentralChiSquared(const Shape& inShape, dtype inK = 1, dtype inLambda = 1)
         {
             if (inK <= 0)
@@ -532,15 +526,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "normal" distrubution.
-        //		
-        /// @param
-        //				mean: Mean value of the underlying normal distribution. Default is 0.
-        //				sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "normal" distrubution.
+        ///		
+        /// @param				mean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param  			sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> normal(const Shape& inShape, dtype inMean = 0, dtype inSigma = 1)
         {
             if (inSigma <= 0)
@@ -561,15 +554,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Randomly permute a sequence, or return a permuted range.
-        //						If x is an integer, randomly permute np.arange(x). 
-        //						If x is an array, make a copy and shuffle the elements randomly.
-        //		
+        ///						Randomly permute a sequence, or return a permuted range.
+        ///						If x is an integer, randomly permute np.arange(x). 
+        ///						If x is an array, make a copy and shuffle the elements randomly.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> permutation(dtype inValue)
         {
             NdArray<dtype> returnArray = Methods<dtype>::arange(inValue);
@@ -579,15 +572,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Randomly permute a sequence, or return a permuted range.
-        //						If x is an integer, randomly permute np.arange(x). 
-        //						If x is an array, make a copy and shuffle the elements randomly.
-        //		
+        ///						Randomly permute a sequence, or return a permuted range.
+        ///						If x is an integer, randomly permute np.arange(x). 
+        ///						If x is an array, make a copy and shuffle the elements randomly.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> permutation(const NdArray<dtype>& inArray)
         {
             NdArray<dtype> returnArray(inArray);
@@ -597,15 +590,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from the “poisson” distribution.
-        //		
-        /// @param
-        //				Shape
-        //				mean, default 1
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from the “poisson” distribution.
+        ///		
+        /// @param				Shape
+        /// @param				mean, default 1
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> poisson(const Shape& inShape, double inMean = 1)
         {
             if (inMean <= 0)
@@ -626,14 +618,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a uniform distribution over [0, 1).
-        //		
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a uniform distribution over [0, 1).
+        ///		
         /// @param
-        //				Shape
+        ///				Shape
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> rand(const Shape& inShape)
         {
             NdArray<dtype> returnArray(inShape);
@@ -649,16 +641,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return random floats from low (inclusive) to high (exclusive), 
-        //						with the given shape
-        //		
-        /// @param
-        //				Shape
-        //				low value
-        //				high value
+        ///						Return random floats from low (inclusive) to high (exclusive), 
+        ///						with the given shape
+        ///		
+        /// @param				Shape
+        /// @param  			low value
+        /// @param				high value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh)
         {
             if (inLow == inHigh)
@@ -683,16 +674,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return random integers from low (inclusive) to high (exclusive), 
-        //						with the given shape
-        //		
-        /// @param
-        //				Shape
-        //				low value
-        //				high value
+        ///						Return random integers from low (inclusive) to high (exclusive), 
+        ///						with the given shape
+        ///		
+        /// @param				Shape
+        /// @param				low value
+        /// @param				high value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh)
         {
             // only works with integer input types
@@ -720,14 +710,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from the “standard normal” distribution.
-        //		
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from the “standard normal” distribution.
+        ///		
         /// @param
-        //				Shape
+        ///				Shape
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> randN(const Shape& inShape)
         {
             NdArray<dtype> returnArray(inShape);
@@ -743,13 +733,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Seeds the random number generator_
-        //		
+        ///						Seeds the random number generator_
+        ///		
         /// @param
-        //				seed
+        ///				seed
         /// @return
-        //				None
-        //
+        ///				None
+        ///
         static void seed(uint32 inSeed)
         {
             generator_.seed(inSeed);
@@ -757,13 +747,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Modify a sequence in-place by shuffling its contents.
-        //		
+        ///						Modify a sequence in-place by shuffling its contents.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				None
-        //
+        ///				None
+        ///
         static void shuffle(NdArray<dtype>& inArray)
         {
             std::random_shuffle(inArray.begin(), inArray.end());
@@ -771,15 +761,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from a "standard normal" distrubution with 
-        //						mean = 0 and std = 1
-        //		
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from a "standard normal" distrubution with 
+        ///						mean = 0 and std = 1
+        ///		
         /// @param
-        //				inShape
+        ///				Shape
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> standardNormal(const Shape& inShape)
         {
             return std::move(normal(inShape, 0, 1));
@@ -787,15 +777,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from the “student-T” distribution.
-        //		
-        /// @param
-        //				Shape
-        //				df independent random variables
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from the “student-T” distribution.
+        ///		
+        /// @param				Shape
+        /// @param				df independent random variables
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> studentT(const Shape& inShape, dtype inDof)
         {
             if (inDof <= 0)
@@ -816,17 +805,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from the “triangle” distribution.
-        //		
-        /// @param
-        //				Shape
-        //				a
-        //				b
-        //				c
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from the “triangle” distribution.
+        ///		
+        /// @param				Shape
+        /// @param				a
+        /// @param				b
+        /// @param				c
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> triangle(const Shape& inShape, dtype inA = 0, dtype inB = 0.5, dtype inC = 1)
         {
             if (inA < 0)
@@ -864,18 +852,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Draw samples from a uniform distribution.
-        //
-        //						Samples are uniformly distributed over the half - 
-        //						open interval[low, high) (includes low, but excludes high)
-        //		
-        /// @param
-        //				Shape
-        //				low value
-        //				high value
+        ///						Draw samples from a uniform distribution.
+        ///
+        ///						Samples are uniformly distributed over the half - 
+        ///						open interval[low, high) (includes low, but excludes high)
+        ///		
+        /// @param				Shape
+        /// @param				low value
+        /// @param				high value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)
         {
             return std::move(randFloat(inShape, inLow, inHigh));
@@ -883,15 +870,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Such a distribution produces random numbers uniformly
-        //						distributed on the unit sphere of arbitrary dimension dim.
-        //		
-        /// @param
-        //				number of points
-        //				dimension of the sphere, default 2
+        ///						Such a distribution produces random numbers uniformly
+        ///						distributed on the unit sphere of arbitrary dimension dim.
+        ///		
+        /// @param				number of points
+        /// @param				dimension of the sphere, default 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> uniformOnSphere(uint32 inNumPoints, uint32 inDims = 2)
         {
             if (inDims < 0)
@@ -916,16 +902,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create an array of the given shape and populate it with 
-        //						random samples from the “weibull” distribution.
-        //		
-        /// @param
-        //				Shape
-        //				a, default 1
-        //				b, default 1
+        ///						Create an array of the given shape and populate it with 
+        ///						random samples from the "weibull" distribution.
+        ///		
+        /// @param				Shape
+        /// @param				a, default 1
+        /// @param				b, default 1
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> weibull(const Shape& inShape, dtype inA = 1, dtype inB = 1)
         {
             if (inA <= 0)
