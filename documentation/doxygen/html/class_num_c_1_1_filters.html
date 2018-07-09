@@ -74,6 +74,8 @@ $(function() {
 <div class="title">NumC::Filters&lt; dtype &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_filter_8hpp_source.html">Filter.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -114,7 +116,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d8f504b903901218ae7a843b96fefe1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a0d8f504b903901218ae7a843b96fefe1">uniformFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a0d8f504b903901218ae7a843b96fefe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename dtype&gt;<br />
+class NumC::Filters&lt; dtype &gt;</h3>
+
+<p>Class for performing many types of image filtering </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac64c322e09321ba9903d4463174c1f80"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac64c322e09321ba9903d4463174c1f80">&#9670;&nbsp;</a></span>complementaryMedianFilter()</h2>
 
@@ -162,12 +169,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a multidimensional complemenatry median filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -218,12 +230,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculate a one-dimensional complemenatry median filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -280,12 +297,18 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a multidimensional kernel convolution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>,weights</td><td></td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -336,12 +359,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a one-dimensional kernel convolution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>,weights</td><td></td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -392,12 +420,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a multidimensional gaussian filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">double,Standard</td><td>deviation for Gaussian kernel </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -448,12 +481,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculate a one-dimensional gaussian filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">double,Standard</td><td>deviation for Gaussian kernel </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -504,12 +542,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a multidimensional maximum filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -560,12 +603,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a one-dimensional maximum filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -616,12 +664,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a multidimensional median filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -672,12 +725,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a one-dimensional median filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">linear</td><td>size of the kernel to apply </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -728,12 +786,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a multidimensional minimum filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -784,12 +847,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a one-dimensional minumum filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -846,12 +914,18 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a multidimensional percentile filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
+    <tr><td class="paramname">percentile</td><td>[0, 100] </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -908,12 +982,18 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a one-dimensional percentile filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
+    <tr><td class="paramname">percentile</td><td>[0, 100] </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -970,12 +1050,18 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a multidimensional rank filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
+    <tr><td class="paramname">rank</td><td>[0, inSize^2 - 1] </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1032,12 +1118,18 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a one-dimensional rank filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
+    <tr><td class="paramname">rank</td><td>[0, 100] </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1088,12 +1180,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a multidimensional uniform filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1144,12 +1241,17 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculates a one-dimensional uniform filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
+    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>

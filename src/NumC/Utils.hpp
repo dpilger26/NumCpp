@@ -1,83 +1,84 @@
-// Copyright 2018 David Pilger
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-// software and associated documentation files(the "Software"), to deal in the Software 
-// without restriction, including without limitation the rights to use, copy, modify, 
-// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-// permit persons to whom the Software is furnished to do so, subject to the following 
-// conditions :
-//
-// The above copyright notice and this permission notice shall be included in all copies 
-// or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-// DEALINGS IN THE SOFTWARE.
-
+/// @author David Pilger <dpilger26@gmail.com>
+/// @version 1.0
+///
+/// @section LICENSE
+/// Copyright 2018 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software 
+/// without restriction, including without limitation the rights to use, copy, modify, 
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies 
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// DEALINGS IN THE SOFTWARE.
+///
+/// @section DESCRIPTION
+/// Usefull utility type functions
+///
 #pragma once
 
 #include<string>
 
 namespace NumC
 {
+    //================================================================================
+    /// Usefull utility type functions
     template<typename dtype>
     class Utils
     {
     public:
         //============================================================================
-        // Method Description: 
-        //						Converts the number into a string
-        //		
-        /// @param
-        //				number
-        /// @return
-        //				string
-        //
+        ///						Converts the number into a string
+        ///		
+        /// @param      number
+        ///
+        /// @return     string
+        ///
         static std::string num2str(dtype inNumber)
         {
             return std::to_string(inNumber);
         }
 
         //============================================================================
-        // Method Description: 
-        //						Squares in input value
-        //		
-        /// @param
-        //				dtype
-        /// @return
-        //				dtype
-        //
+        ///						Squares in input value
+        ///		
+        /// @param      dtype
+        ///
+        /// @return     dtype
+        ///
         static dtype sqr(dtype inValue)
         {
             return inValue * inValue;
         }
 
         //============================================================================
-        // Method Description: 
-        //						Cubes in input value
-        //		
-        /// @param
-        //				dtype
-        /// @return
-        //				dtype
-        //
+        ///						Cubes in input value
+        ///		
+        /// @param      dtype
+        ///
+        /// @return     dtype
+        ///
         static dtype cube(dtype inValue)
         {
             return inValue * inValue * inValue;
         }
 
         //============================================================================
-        // Method Description: 
-        //						raises the input value to a power
-        //		
-        /// @param
-        //				dtype
-        /// @return
-        //				dtype
-        //
+        ///						Raises the input value to a power
+        ///		
+        /// @param      dtype
+        ///
+        /// @return     dtype
+        ///
         static dtype power(dtype inValue, uint8 inPower)
         {
             dtype returnVal = 1;

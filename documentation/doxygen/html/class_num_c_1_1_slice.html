@@ -76,6 +76,8 @@ $(function() {
 <div class="title">NumC::Slice Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_slice_8hpp_source.html">Slice.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -113,7 +115,9 @@ Friends</h2></td></tr>
 <tr class="memitem:ad6889d2df295fef3796aebb769b8cac0"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#ad6889d2df295fef3796aebb769b8cac0">operator&lt;&lt;</a> (std::ostream &amp;inOStream, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inSlice)</td></tr>
 <tr class="separator:ad6889d2df295fef3796aebb769b8cac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A Class for slicing into NdArrays </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a56efe4551fe9b0f75283abee2b036b80"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a56efe4551fe9b0f75283abee2b036b80">&#9670;&nbsp;</a></span>Slice() <span class="overload">[1/4]</span></h2>
 
@@ -136,12 +140,14 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -168,12 +174,14 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">stop</td><td>index (not included)</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -210,12 +218,15 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">start</td><td>index, </td></tr>
+    <tr><td class="paramname">stop</td><td>index (not included)</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -258,12 +269,16 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">start</td><td>index, </td></tr>
+    <tr><td class="paramname">stop</td><td>index (not included) </td></tr>
+    <tr><td class="paramname">step</td><td>value </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -291,12 +306,18 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Make the slice all positive and does some error checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">The</td><td>calling array size</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>convert the start value</p>
+<p>convert the stop value</p>
+<p>do some error checking</p>
+<p>otherwise flip things around for my own sanity </p>
 
 </div>
 </div>
@@ -323,12 +344,14 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns the number of elements that the slice contains. be aware that this method will also make the slice all positive!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">The</td><td>calling array size</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -354,12 +377,14 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Prints the shape to the console</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -385,12 +410,14 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Prints the shape to the console</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -428,12 +455,14 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>IO operator for the <a class="el" href="class_num_c_1_1_slice.html">Slice</a> class</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>

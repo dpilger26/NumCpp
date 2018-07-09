@@ -22,7 +22,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section DESCRIPTION
-/// The overall header for the NumC library
+/// A C++ implementation of the Python Numpy library
 ///
 #pragma once
 
