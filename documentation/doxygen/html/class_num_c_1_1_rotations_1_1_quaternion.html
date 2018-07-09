@@ -64,7 +64,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><b>Rotations</b></li><li class="navelem"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html">Quaternion</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="namespace_num_c_1_1_rotations.html">Rotations</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html">Quaternion</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -76,6 +76,11 @@ $(function() {
 <div class="title">NumC::Rotations::Quaternion Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Holds a unit quaternion.  
+ <a href="class_num_c_1_1_rotations_1_1_quaternion.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_rotations_8hpp_source.html">Rotations.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -170,7 +175,9 @@ Friends</h2></td></tr>
 <tr class="memitem:a6d11f3a719f010cdd220642d2bb586e6"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html#a6d11f3a719f010cdd220642d2bb586e6">operator&lt;&lt;</a> (std::ostream &amp;inOStream, const <a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html">Quaternion</a> &amp;inQuat)</td></tr>
 <tr class="separator:a6d11f3a719f010cdd220642d2bb586e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Holds a unit quaternion. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a652640bb697d5c3b79d33dfd8be23551"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a652640bb697d5c3b79d33dfd8be23551">&#9670;&nbsp;</a></span>Quaternion() <span class="overload">[1/3]</span></h2>
 
@@ -193,12 +200,14 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Default Constructor, not super usefull on its own</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -247,12 +256,17 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">i</td><td></td></tr>
+    <tr><td class="paramname">j</td><td></td></tr>
+    <tr><td class="paramname">k</td><td></td></tr>
+    <tr><td class="paramname">s</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -279,12 +293,14 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>,size</td><td>= 4 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -324,12 +340,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns a quaternion to rotate about the input axis by the input angle</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>,x,y,z</td><td>vector components </td></tr>
+    <tr><td class="paramname">angle</td><td>in radians </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -372,12 +391,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>angular velocity between the two quaternions. The norm of the array is the magnitude</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td>1 </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td>2 </td></tr>
+    <tr><td class="paramname">seperation</td><td>time </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -414,12 +437,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>angular velocity between the two quaternions. The norm of the array is the magnitude</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td>2 </td></tr>
+    <tr><td class="paramname">seperation</td><td>time </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -445,12 +471,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>quaternion conjugate</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>s </dd></dl>
 
 </div>
 </div>
@@ -479,12 +507,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>converts from a direction cosine matrix to a quaternion</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -510,12 +540,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the i component</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>i </dd></dl>
 
 </div>
 </div>
@@ -541,12 +573,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>quaternion identity (0,0,0,1)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -572,12 +606,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>quaternion inverse</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Quaterion </dd></dl>
+<p>for unit quaternions the inverse is equal to the conjugate </p>
 
 </div>
 </div>
@@ -603,12 +640,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the j component</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>j </dd></dl>
 
 </div>
 </div>
@@ -634,12 +673,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the k component</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>k </dd></dl>
 
 </div>
 </div>
@@ -682,12 +723,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>linearly interpolates between the two quaternions</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td>1 </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td>2 </td></tr>
+    <tr><td class="paramname">percent</td><td>[0, 1] </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -724,12 +769,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>linearly interpolates between the two quaternions</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td>2 </td></tr>
+    <tr><td class="paramname">percent</td><td>(0, 1) </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -756,12 +804,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -788,12 +838,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>multiplication operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -820,12 +872,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>multiplication operator, only useful for multiplying by negative 1, all others will be renormalized back out</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td>value </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -854,12 +908,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>multiplication operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -886,12 +942,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>multiplication assignment operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -918,12 +976,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>multiplication operator, only useful for multiplying by negative 1, all others will be renormalized back out</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td>value </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -950,12 +1010,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>addition operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -982,12 +1044,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>addition assignment operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -1014,12 +1078,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>subtraction operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -1046,12 +1112,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>subtraction assignment operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -1078,12 +1146,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>division operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -1110,12 +1180,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>division assignment operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -1142,12 +1214,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -1173,12 +1247,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>prints the <a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> to the console</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -1207,12 +1283,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>rotate a vector using the quaternion</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">cartesian</td><td>vector with x,y,z components </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>cartesian vector with x,y,z components </dd></dl>
 
 </div>
 </div>
@@ -1238,12 +1316,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the s component</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>s </dd></dl>
 
 </div>
 </div>
@@ -1286,12 +1366,16 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>spherical linear interpolates between the two quaternions</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td>1 </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td>2 </td></tr>
+    <tr><td class="paramname">percent</td><td>(0, 1) </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -1328,12 +1412,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>spherical linear interpolates between the two quaternions</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td>2 </td></tr>
+    <tr><td class="paramname">percent</td><td>(0, 1) </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -1359,12 +1446,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the quaternion as a string representation</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
 </div>
 </div>
@@ -1390,12 +1479,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the direction cosine matrix</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1421,12 +1512,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the quaternion as an <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1453,12 +1546,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns a quaternion to rotate about the x-axis by the input angle</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">angle</td><td>in radians </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -1485,12 +1580,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns a quaternion to rotate about the y-axis by the input angle</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">angle</td><td>in radians </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -1517,12 +1614,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns a quaternion to rotate about the y-axis by the input angle</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">angle</td><td>in radians </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
 
 </div>
 </div>
@@ -1560,12 +1659,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>io operator for the <a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> class</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">std::ostream</td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>std::ostream&amp; </dd></dl>
 
 </div>
 </div>

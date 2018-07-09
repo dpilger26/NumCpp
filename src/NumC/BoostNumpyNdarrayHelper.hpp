@@ -51,12 +51,10 @@ namespace NumC
 {
     //================================================================================
     ///						C or Fortran ordering from python
-    ///
-    enum Order { F, C };
+    struct Order { enum Type { F, C }; };
 
     //================================================================================
     ///						Helper class for ndarray
-    ///
     class BoostNdarrayHelper
     {
     private:
@@ -65,7 +63,7 @@ namespace NumC
         uint8							numDimensions_;
         std::vector<Py_intptr_t>		shape_;
         std::vector<uint32>				strides_;
-        Order							order_;
+        Order::Type						order_;
 
         //============================================================================
         ///						Generic check of input indices
@@ -265,7 +263,7 @@ namespace NumC
         ///
         /// @return     Order
         ///
-        Order order()
+        Order::Type order()
         {
             return order_;
         }

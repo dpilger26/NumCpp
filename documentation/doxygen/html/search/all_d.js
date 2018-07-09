@@ -34,5 +34,6 @@ var searchData=
   ['numc',['NumC',['../namespace_num_c.html',1,'']]],
   ['numctoboost',['numCToBoost',['../namespace_num_c.html#a40a56236fea76d55726c915c1415ab67',1,'NumC']]],
   ['numdimensions',['numDimensions',['../class_num_c_1_1_boost_ndarray_helper.html#adbcf2213f2b5469b558c288ae18e4825',1,'NumC::BoostNdarrayHelper']]],
-  ['numelements',['numElements',['../class_num_c_1_1_slice.html#aed7a6610a9c98c8b41f336fc8f71d94c',1,'NumC::Slice']]]
+  ['numelements',['numElements',['../class_num_c_1_1_slice.html#aed7a6610a9c98c8b41f336fc8f71d94c',1,'NumC::Slice']]],
+  ['rotations',['Rotations',['../namespace_num_c_1_1_rotations.html',1,'NumC']]]
 ];

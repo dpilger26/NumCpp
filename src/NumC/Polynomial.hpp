@@ -33,10 +33,10 @@ namespace NumC
 {
     //================================Polynomial Class=============================
     /// Class for dealing with common polynomials
-    /// \todo Complete This Module
     template<typename dtype>
     class Polynomial
     {
-
+    public:
+        /// \todo Complete This Module
     };
 }

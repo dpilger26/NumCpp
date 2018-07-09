@@ -35,16 +35,14 @@ namespace NumC
 {
     //================================================================================
     // Class Description:
-    //						class for basic image processing
-    //
+    ///						Class for basic image processing
     template<typename dtype>
     class ImageProcessing
     {
     public:
         //================================================================================
         // Class Description:
-        //						holds the information for a single pixel
-        //
+        ///						Holds the information for a single pixel
         class Pixel
         {
         private:
@@ -287,8 +285,7 @@ namespace NumC
 
         //================================================================================
         // Class Description:
-        //						holds the information for a cluster of pixels
-        //
+        ///						Holds the information for a cluster of pixels
         class Cluster
         {
         public:

@@ -33,7 +33,6 @@ namespace NumC
 {
     //================================================================================
     ///						A timer class for timing code execution
-    ///
     template<typename TimeUnit = std::chrono::milliseconds>
     class Timer
     {

@@ -64,7 +64,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><b>Rotations</b></li><li class="navelem"><a class="el" href="class_num_c_1_1_rotations_1_1_d_c_m.html">DCM</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="namespace_num_c_1_1_rotations.html">Rotations</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_rotations_1_1_d_c_m.html">DCM</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,6 +74,11 @@ $(function() {
 <div class="title">NumC::Rotations::DCM&lt; dtype &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Factory methods for generating direction cosine matrices and vectors.  
+ <a href="class_num_c_1_1_rotations_1_1_d_c_m.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_rotations_8hpp_source.html">Rotations.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -88,7 +93,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7ea7bf90a5322aa29246431b15e4b1ad"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_rotations_1_1_d_c_m.html#a7ea7bf90a5322aa29246431b15e4b1ad">zRotation</a> (double inAngle)</td></tr>
 <tr class="separator:a7ea7bf90a5322aa29246431b15e4b1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename dtype&gt;<br />
+class NumC::Rotations::DCM&lt; dtype &gt;</h3>
+
+<p>Factory methods for generating direction cosine matrices and vectors. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa5736c3ede04e8efa2bd3bb84ded577e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa5736c3ede04e8efa2bd3bb84ded577e">&#9670;&nbsp;</a></span>angleAxisRotation()</h2>
 
@@ -124,12 +134,15 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns a direction cosine matrix that rotates about the input axis by the input angle</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>,cartesian</td><td>vector with x,y,z </td></tr>
+    <tr><td class="paramname">rotation</td><td>angle, in radians </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -158,12 +171,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns whether the input array is a direction cosine matrix</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -192,12 +207,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns a direction cosine matrix that rotates about the x axis by the input angle</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">rotation</td><td>angle, in radians </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -226,12 +243,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns a direction cosine matrix that rotates about the x axis by the input angle</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">rotation</td><td>angle, in radians </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -260,12 +279,14 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns a direction cosine matrix that rotates about the x axis by the input angle</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">rotation</td><td>angle, in radians </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>

@@ -37,22 +37,18 @@
 namespace NumC
 {
     //================================================================================
-    // Namespace Description:
     ///						Image and signal filtering
-    ///
     namespace Filter
     {
         //================================================================================
         // Enum Description:
         ///						Boundary condition to apply to the image filter
-        ///
         struct Boundary { enum Mode { REFLECT = 0, CONSTANT, NEAREST, MIRROR, WRAP }; };
     }
 
     //================================================================================
     // Class Description:
     ///						Class for performing many types of image filtering
-    ///
     template<typename dtype>
     class Filters
     {

@@ -1,22 +1,29 @@
-// Copyright 2018 David Pilger
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-// software and associated documentation files(the "Software"), to deal in the Software 
-// without restriction, including without limitation the rights to use, copy, modify, 
-// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-// permit persons to whom the Software is furnished to do so, subject to the following 
-// conditions :
-//
-// The above copyright notice and this permission notice shall be included in all copies 
-// or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-// DEALINGS IN THE SOFTWARE.
-
+/// @author David Pilger <dpilger26@gmail.com>
+/// @version 1.0
+///
+/// @section LICENSE
+/// Copyright 2018 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software 
+/// without restriction, including without limitation the rights to use, copy, modify, 
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies 
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// DEALINGS IN THE SOFTWARE.
+///
+/// @section DESCRIPTION
+/// Module for dealing with rotations
+///
 #pragma once
 
 #include"NumC/Methods.hpp"
@@ -33,12 +40,12 @@
 namespace NumC
 {
     //================================Rotations Namespace=============================
+    /// Module for dealing with rotations
     namespace Rotations
     {
         //================================================================================
         // Class Description:
-        //						holds a unit quaternion
-        //
+        ///						Holds a unit quaternion
         class Quaternion
         {
         private:
@@ -47,13 +54,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						renormalizes the quaternion
-            //		
+            ///						renormalizes the quaternion
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				None
-            //
+            ///				None
+            ///
             void normalize()
             {
                 double norm = std::sqrt(Utils<double>::sqr(data_[0]) + Utils<double>::sqr(data_[1]) + Utils<double>::sqr(data_[2]) + Utils<double>::sqr(data_[3]));
@@ -66,13 +73,13 @@ namespace NumC
         public:
             //============================================================================
             // Method Description: 
-            //						Default Constructor, not super usefull on its own
-            //		
+            ///						Default Constructor, not super usefull on its own
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				None
-            //
+            ///				None
+            ///
             Quaternion()
             {
                 data_[0] = 0.0;
@@ -83,16 +90,15 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						Constructor
-            //		
-            /// @param
-            //				i
-            //				j
-            //				k
-            //				s
+            ///						Constructor
+            ///		
+            /// @param				i
+            /// @param				j
+            /// @param				k
+            /// @param				s
             /// @return
-            //				None
-            //
+            ///				None
+            ///
             Quaternion(double inI, double inJ, double inK, double inS)
             {
                 double norm = std::sqrt(Utils<double>::sqr(inI) + Utils<double>::sqr(inJ) + Utils<double>::sqr(inK) + Utils<double>::sqr(inS));
@@ -104,13 +110,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						Constructor
-            //		
+            ///						Constructor
+            ///		
             /// @param
-            //				NdArray, size = 4
+            ///				NdArray, size = 4
             /// @return
-            //				None
-            //
+            ///				None
+            ///
             Quaternion(const NdArray<double>& inArray)
             {
                 if (inArray.size() != 4)
@@ -127,14 +133,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns a quaternion to rotate about the input axis by the input angle
-            //		
-            /// @param
-            //				NdArray, x,y,z vector components
-            //				angle in radians 
+            ///						returns a quaternion to rotate about the input axis by the input angle
+            ///		
+            /// @param			NdArray, x,y,z vector components
+            /// @param			angle in radians 
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             template<typename dtype>
             static Quaternion angleAxisRotation(const NdArray<dtype>& inAxis, double inAngle)
             {
@@ -156,16 +161,15 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						angular velocity between the two quaternions. The norm
-            //						of the array is the magnitude
-            //		
-            /// @param
-            //				Quaternion 1
-            //				Quaternion 2
-            //				seperation time
+            ///						angular velocity between the two quaternions. The norm
+            ///						of the array is the magnitude
+            ///		
+            /// @param				Quaternion 1
+            /// @param				Quaternion 2
+            /// @param				seperation time
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             static NdArray<double> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime)
             {
                 NdArray<double> q0 = inQuat1.toNdArray();
@@ -193,15 +197,14 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						angular velocity between the two quaternions. The norm
-            //						of the array is the magnitude
-            //		
-            /// @param
-            //				Quaternion 2
-            //				seperation time
+            ///						angular velocity between the two quaternions. The norm
+            ///						of the array is the magnitude
+            ///		
+            /// @param				Quaternion 2
+            /// @param				seperation time
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             NdArray<double> angularVelocity(const Quaternion& inQuat2, double inTime) const
             {
                 return angularVelocity(*this, inQuat2, inTime);
@@ -209,13 +212,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						quaternion conjugate
-            //		
+            ///						quaternion conjugate
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				s
-            //
+            ///				s
+            ///
             Quaternion conjugate() const
             {
                 return Quaternion(-i(), -j(), -k(), s());
@@ -223,13 +226,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns the i component
-            //		
+            ///						returns the i component
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				i
-            //
+            ///				i
+            ///
             double i() const
             {
                 return data_[0];
@@ -237,13 +240,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						quaternion identity (0,0,0,1)
-            //		
+            ///						quaternion identity (0,0,0,1)
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				s
-            //
+            ///				Quaternion
+            ///
             static Quaternion identity()
             {
                 return Quaternion(0.0, 0.0, 0.0, 1.0);
@@ -251,28 +254,28 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						quaternion inverse
-            //		
+            ///						quaternion inverse
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				s
-            //
+            ///				Quaterion
+            ///
             Quaternion inverse() const
             {
-                // for unit quaternions the inverse is equal to the conjugate
+                /// for unit quaternions the inverse is equal to the conjugate
                 return conjugate();
             }
 
             //============================================================================
             // Method Description: 
-            //						returns the j component
-            //		
+            ///						returns the j component
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				j
-            //
+            ///				j
+            ///
             double j() const
             {
                 return data_[1];
@@ -280,13 +283,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns the k component
-            //		
+            ///						returns the k component
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				k
-            //
+            ///				k
+            ///
             double k() const
             {
                 return data_[2];
@@ -294,13 +297,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						converts from a direction cosine matrix to a quaternion
-            //		
+            ///						converts from a direction cosine matrix to a quaternion
+            ///		
             /// @param
-            //				NdArray
+            ///				NdArray
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             template<typename dtype>
             static Quaternion fromDCM(const NdArray<dtype>& inDcm)
             {
@@ -370,15 +373,14 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						linearly interpolates between the two quaternions
-            //		
-            /// @param
-            //				Quaternion 1
-            //				Quaternion 2
-            //				percent [0, 1]
+            ///						linearly interpolates between the two quaternions
+            ///		
+            /// @param				Quaternion 1
+            /// @param				Quaternion 2
+            /// @param				percent [0, 1]
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             static Quaternion nlerp(const Quaternion& inQuat1, const Quaternion& inQuat2, double inPercent)
             {
                 if (inPercent < 0 || inPercent > 1)
@@ -406,14 +408,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						linearly interpolates between the two quaternions
-            //		
-            /// @param
-            //				Quaternion 2
-            //				percent (0, 1)
+            ///						linearly interpolates between the two quaternions
+            ///		
+            /// @param				Quaternion 2
+            /// @param				percent (0, 1)
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion nlerp(const Quaternion& inQuat2, double inPercent) const
             {
                 return nlerp(*this, inQuat2, inPercent);
@@ -421,13 +422,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						prints the Quaternion to the console
-            //		
+            ///						prints the Quaternion to the console
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				None
-            //
+            ///				None
+            ///
             void print() const
             {
                 std::cout << *this;
@@ -435,13 +436,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						rotate a vector using the quaternion
-            //		
+            ///						rotate a vector using the quaternion
+            ///		
             /// @param
-            //				cartesian vector with x,y,z components
+            ///				cartesian vector with x,y,z components
             /// @return
-            //				cartesian vector with x,y,z components
-            //
+            ///				cartesian vector with x,y,z components
+            ///
             template<typename dtype>
             NdArray<double> rotate(const NdArray<dtype>& inVector) const
             {
@@ -455,13 +456,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns the s component
-            //		
+            ///						returns the s component
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				s
-            //
+            ///				s
+            ///
             double s() const
             {
                 return data_[3];
@@ -469,15 +470,14 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						spherical linear interpolates between the two quaternions
-            //		
-            /// @param
-            //				Quaternion 1
-            //				Quaternion 2
-            //				percent (0, 1)
+            ///						spherical linear interpolates between the two quaternions
+            ///		
+            /// @param				Quaternion 1
+            /// @param				Quaternion 2
+            /// @param				percent (0, 1)
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             static Quaternion slerp(const Quaternion& inQuat1, const Quaternion& inQuat2, double inPercent)
             {
                 if (inPercent < 0 || inPercent > 1)
@@ -526,14 +526,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						spherical linear interpolates between the two quaternions
-            //		
-            /// @param
-            //				Quaternion 2
-            //				percent (0, 1)
+            ///						spherical linear interpolates between the two quaternions
+            ///		
+            /// @param				Quaternion 2
+            /// @param				percent (0, 1)
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion slerp(const Quaternion& inQuat2, double inPercent) const
             {
                 return slerp(*this, inQuat2, inPercent);
@@ -541,13 +540,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns the quaternion as a string representation
-            //		
+            ///						returns the quaternion as a string representation
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				string
-            //
+            ///				string
+            ///
             std::string str() const
             {
                 std::string output = "[" + Utils<double>::num2str(i()) + ", " + Utils<double>::num2str(j()) +
@@ -558,13 +557,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns the direction cosine matrix
-            //		
+            ///						returns the direction cosine matrix
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				NdArray
-            //
+            ///				NdArray
+            ///
             NdArray<double> toDCM() const
             {
                 NdArray<double> dcm(3);
@@ -589,13 +588,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns the quaternion as an NdArray
-            //		
+            ///						returns the quaternion as an NdArray
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				NdArray
-            //
+            ///				NdArray
+            ///
             NdArray<double> toNdArray() const
             {
                 NdArray<double> returnArray = { data_[0], data_[1], data_[2], data_[3] };
@@ -604,13 +603,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns a quaternion to rotate about the x-axis by the input angle
-            //		
+            ///						returns a quaternion to rotate about the x-axis by the input angle
+            ///		
             /// @param
-            //				angle in radians 
+            ///				angle in radians 
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             static Quaternion xRotation(double inAngle)
             {
                 return angleAxisRotation<double>({ 1.0, 0.0, 0.0 }, inAngle);
@@ -618,13 +617,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns a quaternion to rotate about the y-axis by the input angle
-            //		
+            ///						returns a quaternion to rotate about the y-axis by the input angle
+            ///		
             /// @param
-            //				angle in radians 
+            ///				angle in radians 
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             static Quaternion yRotation(double inAngle)
             {
                 return angleAxisRotation<double>({ 0.0, 1.0, 0.0 }, inAngle);
@@ -632,13 +631,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns a quaternion to rotate about the y-axis by the input angle
-            //		
+            ///						returns a quaternion to rotate about the y-axis by the input angle
+            ///		
             /// @param
-            //				angle in radians 
+            ///				angle in radians 
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             static Quaternion zRotation(double inAngle)
             {
                 return angleAxisRotation<double>({ 0.0, 0.0, 1.0 }, inAngle);
@@ -646,13 +645,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						equality operator
-            //		
+            ///						equality operator
+            ///		
             /// @param
-            //				None
+            ///				Quaternion
             /// @return
-            //				None
-            //
+            ///				bool
+            ///
             bool operator==(const Quaternion& inRhs) const
             {
                 return data_[0] == inRhs.data_[0] &&
@@ -663,13 +662,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						equality operator
-            //		
+            ///						equality operator
+            ///		
             /// @param
-            //				None
+            ///				None
             /// @return
-            //				None
-            //
+            ///				None
+            ///
             bool operator!=(const Quaternion& inRhs) const
             {
                 return !(*this == inRhs);
@@ -677,13 +676,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						addition operator
-            //		
+            ///						addition operator
+            ///		
             /// @param
-            //				Quaternion
+            ///				Quaternion
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion operator+(const Quaternion& inRhs) const
             {
                 return Quaternion(*this) += inRhs;
@@ -691,13 +690,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						addition assignment operator
-            //		
+            ///						addition assignment operator
+            ///		
             /// @param
-            //				Quaternion
+            ///				Quaternion
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion& operator+=(const Quaternion& inRhs)
             {
                 data_[0] += inRhs.data_[0];
@@ -711,13 +710,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						subtraction operator
-            //		
+            ///						subtraction operator
+            ///		
             /// @param
-            //				Quaternion
+            ///				Quaternion
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion operator-(const Quaternion& inRhs) const
             {
                 return Quaternion(*this) -= inRhs;
@@ -725,13 +724,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						subtraction assignment operator
-            //		
+            ///						subtraction assignment operator
+            ///		
             /// @param
-            //				Quaternion
+            ///				Quaternion
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion& operator-=(const Quaternion& inRhs)
             {
                 data_[0] -= inRhs.data_[0];
@@ -745,13 +744,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						multiplication operator
-            //		
+            ///						multiplication operator
+            ///		
             /// @param
-            //				Quaternion
+            ///				Quaternion
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion operator*(const Quaternion& inRhs) const
             {
                 return Quaternion(*this) *= inRhs;
@@ -759,14 +758,14 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						multiplication operator, only useful for multiplying
-            //						by negative 1, all others will be renormalized back out
-            //		
+            ///						multiplication operator, only useful for multiplying
+            ///						by negative 1, all others will be renormalized back out
+            ///		
             /// @param
-            //				scalar value
+            ///				scalar value
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion operator*(double inScalar) const
             {
                 return Quaternion(*this) *= inScalar;
@@ -774,13 +773,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						multiplication operator
-            //		
+            ///						multiplication operator
+            ///		
             /// @param
-            //				NdArray
+            ///				NdArray
             /// @return
-            //				NdArray
-            //
+            ///				NdArray
+            ///
             template<typename dtype>
             NdArray<double> operator*(const NdArray<dtype>& inVec) const
             {
@@ -794,13 +793,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						multiplication assignment operator
-            //		
+            ///						multiplication assignment operator
+            ///		
             /// @param
-            //				Quaternion
+            ///				Quaternion
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion& operator*=(const Quaternion& inRhs)
             {
                 double q0 = inRhs.data_[3] * data_[0] + inRhs.data_[0] * data_[3] - inRhs.data_[1] * data_[2] + inRhs.data_[2] * data_[1];
@@ -819,14 +818,14 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						multiplication operator, only useful for multiplying
-            //						by negative 1, all others will be renormalized back out
-            //		
+            ///						multiplication operator, only useful for multiplying
+            ///						by negative 1, all others will be renormalized back out
+            ///		
             /// @param
-            //				scalar value
+            ///				scalar value
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion& operator*=(double inScalar)
             {
                 data_[0] *= inScalar;
@@ -840,13 +839,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						division operator
-            //		
+            ///						division operator
+            ///		
             /// @param
-            //				Quaternion
+            ///				Quaternion
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion operator/(const Quaternion& inRhs) const
             {
                 return Quaternion(*this) /= inRhs;
@@ -854,13 +853,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						division assignment operator
-            //		
+            ///						division assignment operator
+            ///		
             /// @param
-            //				Quaternion
+            ///				Quaternion
             /// @return
-            //				Quaternion
-            //
+            ///				Quaternion
+            ///
             Quaternion& operator/=(const Quaternion& inRhs)
             {
                 return *this *= inRhs.conjugate();
@@ -868,13 +867,13 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						io operator for the Quaternion class
-            //		
-            /// @param
-            //				None
+            ///						io operator for the Quaternion class
+            ///		
+            /// @param      std::ostream
+            /// @param 		Quaternion
             /// @return
-            //				None
-            //
+            ///				std::ostream&
+            ///
             friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat)
             {
                 inOStream << inQuat.str();
@@ -883,23 +882,21 @@ namespace NumC
         };
 
         //================================================================================
-        // Factory methods for generating direction cosine matrices and vectors
-        //
+        /// Factory methods for generating direction cosine matrices and vectors
         template<typename dtype>
         class DCM
         {
         public:
             //============================================================================
             // Method Description: 
-            //						returns a direction cosine matrix that rotates about
-            //						the input axis by the input angle
-            //		
-            /// @param
-            //				NdArray, cartesian vector with x,y,z
-            //				rotation angle, in radians
+            ///						returns a direction cosine matrix that rotates about
+            ///						the input axis by the input angle
+            ///		
+            /// @param				NdArray, cartesian vector with x,y,z
+            /// @param				rotation angle, in radians
             /// @return
-            //				NdArray
-            //
+            ///				NdArray
+            ///
             static NdArray<double> angleAxisRotation(const NdArray<dtype>& inArray, double inAngle)
             {
                 if (inArray.size() != 3)
@@ -912,14 +909,14 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns whether the input array is a direction cosine
-            //						matrix
-            //		
+            ///						returns whether the input array is a direction cosine
+            ///						matrix
+            ///		
             /// @param
-            //				NdArray
+            ///				NdArray
             /// @return
-            //				bool
-            //
+            ///				bool
+            ///
             static bool isValid(const NdArray<dtype>& inArray)
             {
                 Shape inShape = inArray.shape();
@@ -934,14 +931,14 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns a direction cosine matrix that rotates about
-            //						the x axis by the input angle
-            //		
+            ///						returns a direction cosine matrix that rotates about
+            ///						the x axis by the input angle
+            ///		
             /// @param
-            //				rotation angle, in radians
+            ///				rotation angle, in radians
             /// @return
-            //				NdArray
-            //
+            ///				NdArray
+            ///
             static NdArray<double> xRotation(double inAngle)
             {
                 return std::move(DCM<dtype>::angleAxisRotation({ 1.0, 0.0, 0.0 }, inAngle));
@@ -949,14 +946,14 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns a direction cosine matrix that rotates about
-            //						the x axis by the input angle
-            //		
+            ///						returns a direction cosine matrix that rotates about
+            ///						the x axis by the input angle
+            ///		
             /// @param
-            //				rotation angle, in radians
+            ///				rotation angle, in radians
             /// @return
-            //				NdArray
-            //
+            ///				NdArray
+            ///
             static NdArray<double> yRotation(double inAngle)
             {
                 return std::move(DCM<dtype>::angleAxisRotation({ 0.0, 1.0, 0.0 }, inAngle));
@@ -964,14 +961,14 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            //						returns a direction cosine matrix that rotates about
-            //						the x axis by the input angle
-            //		
+            ///						returns a direction cosine matrix that rotates about
+            ///						the x axis by the input angle
+            ///		
             /// @param
-            //				rotation angle, in radians
+            ///				rotation angle, in radians
             /// @return
-            //				NdArray
-            //
+            ///				NdArray
+            ///
             static NdArray<double> zRotation(double inAngle)
             {
                 return std::move(DCM<dtype>::angleAxisRotation({ 0.0, 0.0, 1.0 }, inAngle));

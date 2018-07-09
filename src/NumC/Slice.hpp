@@ -38,7 +38,6 @@ namespace NumC
 {
     //================================================================================
     ///						A Class for slicing into NdArrays
-    ///
     class Slice
     {
     public:

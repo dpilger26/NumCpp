@@ -45,7 +45,6 @@ namespace NumC
     {
         //================================================================================
         ///						Holds a right ascension object
-        ///
         template<typename dtype>
         class RA
         {
@@ -265,12 +264,10 @@ namespace NumC
 
         //================================================================================
         ///						Struct Enum for positive or negative Dec angle
-        ///
         struct Sign { enum Type { NEGATIVE = 0, POSITIVE }; };
 
         //================================================================================
         ///						Holds a Declination object
-        ///
         template<typename dtype>
         class Dec
         {
@@ -512,7 +509,6 @@ namespace NumC
 
         //================================================================================
         ///						Holds a full coordinate object
-        ///
         template<typename dtype>
         class Coordinate
         {

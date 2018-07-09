@@ -37,7 +37,6 @@ namespace NumC
 {
     //================================================================================
     ///						A Shape Class for NdArrays
-    ///
     class Shape
     {
     public:

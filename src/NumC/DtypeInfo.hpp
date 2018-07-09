@@ -32,7 +32,6 @@ namespace NumC
 {
     //================================================================================
     ///						Holds info about the dtype
-    ///
     template<typename dtype>
     class DtypeInfo
     {

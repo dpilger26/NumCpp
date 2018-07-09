@@ -32,7 +32,8 @@
 
 namespace NumC
 {
-    //================================Linalg Namespace=============================
+    //================================Linalg Class=============================
+    /// Class for doing linear algebra operations
     template<typename dtype>
     class Linalg
     {

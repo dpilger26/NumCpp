@@ -39,7 +39,6 @@ namespace NumC
 {
     //================================================================================
     ///						Convience container for holding a uniform array of NdArrays
-    ///
     template<typename dtype>
     class DataCube
     {

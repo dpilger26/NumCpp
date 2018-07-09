@@ -42,11 +42,9 @@ namespace NumC
 
     //================================================================================
     ///						Enum To describe an axis
-    ///
     struct Axis { enum Type { NONE = 0, ROW, COL }; };
 
     //================================================================================
     ///						Enum for endianess
-    ///
     struct Endian { enum Type { NATIVE = 0, BIG, LITTLE }; };
 }

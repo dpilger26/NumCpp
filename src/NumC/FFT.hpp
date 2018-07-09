@@ -33,10 +33,10 @@ namespace NumC
 {
     //================================FFT Class=============================
     /// Class for performing fast forrier tranforms
-    /// \todo Complete This Module
     template<typename dtype>
     class FFT
     {
-
+    public:
+        /// \todo Complete This Module
     };
 }
