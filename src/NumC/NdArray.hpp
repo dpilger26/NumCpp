@@ -52,7 +52,6 @@ namespace NumC
     //================================================================================
     // Class Description:
     ///						Holds 1D and 2D arrays, the main work horse of the NumC library
-    ///
     template<typename dtype>
     class NdArray
     {
@@ -129,7 +128,7 @@ namespace NumC
         ///						Constructor
         ///		
         /// @param
-        ///				square number or rows and columns
+        ///				square number of rows and columns
         /// @return
         ///				None
         ///

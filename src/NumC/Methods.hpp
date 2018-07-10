@@ -1,22 +1,29 @@
-// Copyright 2018 David Pilger
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-// software and associated documentation files(the "Software"), to deal in the Software 
-// without restriction, including without limitation the rights to use, copy, modify, 
-// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-// permit persons to whom the Software is furnished to do so, subject to the following 
-// conditions :
-//
-// The above copyright notice and this permission notice shall be included in all copies 
-// or substantial portions of the Software.
-
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-// DEALINGS IN THE SOFTWARE.
-
+/// @author David Pilger <dpilger26@gmail.com>
+/// @version 1.0
+///
+/// @section LICENSE
+/// Copyright 2018 David Pilger
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy of this
+/// software and associated documentation files(the "Software"), to deal in the Software 
+/// without restriction, including without limitation the rights to use, copy, modify, 
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// conditions :
+///
+/// The above copyright notice and this permission notice shall be included in all copies 
+/// or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// DEALINGS IN THE SOFTWARE.
+///
+/// @section DESCRIPTION
+/// Methods for working with NdArrays
+///
 #pragma once
 
 #include"NumC/Constants.hpp"
@@ -39,19 +46,22 @@
 
 namespace NumC
 {
+    //================================================================================
+    // Class Description:
+    ///						Methods for working with NdArrays
     template<typename dtype>
     class Methods
     {
     public:
         //============================================================================
         // Method Description: 
-        //						Calculate the absolute value.
-        //		
+        ///						Calculate the absolute value.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype abs(dtype inValue)
         {
             return std::abs(inValue);
@@ -59,13 +69,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculate the absolute value element-wise.
-        //		
+        ///						Calculate the absolute value element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> abs(const NdArray<dtype>& inArray)
         {
             NdArray<dtype> returnArray(inArray.shape());
@@ -76,14 +86,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Add arguments element-wise.
-        //		
-        /// @param
-        //				NdArray1
-        //				NdArray2
+        ///						Add arguments element-wise.
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
@@ -92,13 +101,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the length of the first dimension of the input array.
-        //		
+        ///						Return the length of the first dimension of the input array.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				length uint16
-        //
+        ///				length uint16
+        ///
         static uint32 alen(const NdArray<dtype>& inArray)
         {
             return inArray.shape().rows;
@@ -106,14 +115,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Test whether all array elements along a given axis evaluate to True.
-        //		
-        /// @param
-        //				NdArray
-        //				Axis
+        ///						Test whether all array elements along a given axis evaluate to True.
+        ///		
+        /// @param				NdArray
+        /// @param				Axis
         /// @return
-        //				bool
-        //
+        ///				bool
+        ///
         static NdArray<bool> all(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.all(inAxis));
@@ -121,16 +129,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns True if two arrays are element-wise equal within a tolerance.
-        //						inTolerance must be a positive number
-        //		
-        /// @param
-        //				NdArray1
-        //				NdArray2
-        //				(Optional) tolerance
+        ///						Returns True if two arrays are element-wise equal within a tolerance.
+        ///						inTolerance must be a positive number
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray
+        /// @param				(Optional) tolerance
         /// @return
-        //				bool
-        //
+        ///				bool
+        ///
         static bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance = 1e-5)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -151,14 +158,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the maximum of an array or maximum along an axis.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
+        ///						Return the maximum of an array or maximum along an axis.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
         /// @return
-        //				max value
-        //
+        ///				max value
+        ///
         static NdArray<dtype> amax(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.max(inAxis));
@@ -166,14 +172,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the minimum of an array or minimum along an axis.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
+        ///						Return the minimum of an array or minimum along an axis.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
         /// @return
-        //				min value
-        //
+        ///				min value
+        ///
         static NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.min(inAxis));
@@ -181,14 +186,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Test whether any array element along a given axis evaluates to True.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
+        ///						Test whether any array element along a given axis evaluates to True.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> any(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.any(inAxis));
@@ -196,17 +200,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Append values to the end of an array.
-        //		
-        /// @param
-        //				NdArray
-        //				NdArray append values
-        //				(Optional) axis -	The axis along which values are appended. 
-        //									If axis is not given, both inArray and inAppendValues 
-        //									are flattened before use.	
+        ///						Append values to the end of an array.
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray append values
+        /// @param				(Optional) axis -	The axis along which values are appended. 
+        ///									If axis is not given, both inArray and inAppendValues 
+        ///									are flattened before use.	
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis::Type inAxis = Axis::NONE)
         {
             switch (inAxis)
@@ -263,23 +266,22 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return evenly spaced values within a given interval.
-        //
-        //						Values are generated within the half - open interval[start, stop)
-        //						(in other words, the interval including start but excluding stop).
-        //						For integer arguments the function is equivalent to the Python built - in
-        //						range function, but returns an ndarray rather than a list.
-        //
-        //						When using a non - integer step, such as 0.1, the results will often 
-        //						not be consistent.It is better to use linspace for these cases.
-        //		
-        /// @param
-        //				start value,
-        //				stop value, 
-        //				(Optional) step value, defaults to 1
+        ///						Return evenly spaced values within a given interval.
+        ///
+        ///						Values are generated within the half - open interval[start, stop)
+        ///						(in other words, the interval including start but excluding stop).
+        ///						For integer arguments the function is equivalent to the Python built - in
+        ///						range function, but returns an ndarray rather than a list.
+        ///
+        ///						When using a non - integer step, such as 0.1, the results will often 
+        ///						not be consistent.It is better to use linspace for these cases.
+        ///		
+        /// @param				start value,
+        /// @param				stop value, 
+        /// @param				(Optional) step value, defaults to 1
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
         {
             if (inStep > 0 && inStop < inStart)
@@ -318,21 +320,21 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return evenly spaced values within a given interval.
-        //
-        //						Values are generated within the half - open interval[start, stop)
-        //						(in other words, the interval including start but excluding stop).
-        //						For integer arguments the function is equivalent to the Python built - in
-        //						range function, but returns an ndarray rather than a list.
-        //
-        //						When using a non - integer step, such as 0.1, the results will often 
-        //						not be consistent.It is better to use linspace for these cases.
-        //		
+        ///						Return evenly spaced values within a given interval.
+        ///
+        ///						Values are generated within the half - open interval[start, stop)
+        ///						(in other words, the interval including start but excluding stop).
+        ///						For integer arguments the function is equivalent to the Python built - in
+        ///						range function, but returns an ndarray rather than a list.
+        ///
+        ///						When using a non - integer step, such as 0.1, the results will often 
+        ///						not be consistent.It is better to use linspace for these cases.
+        ///		
         /// @param
-        //				stop value, start is 0 and step is 1
+        ///				stop value, start is 0 and step is 1
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> arange(dtype inStop)
         {
             if (inStop <= 0)
@@ -345,13 +347,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse cosine
-        //		
+        ///						Trigonometric inverse cosine
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double arccos(dtype inValue)
         {
             return std::acos(static_cast<double>(inValue));
@@ -359,13 +361,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse cosine, element-wise.
-        //		
+        ///						Trigonometric inverse cosine, element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> arccos(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -376,13 +378,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse hyperbolic cosine.
-        //		
+        ///						Trigonometric inverse hyperbolic cosine.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double arccosh(dtype inValue)
         {
             return std::acosh(static_cast<double>(inValue));
@@ -390,13 +392,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse hyperbolic cosine, element-wise.
-        //		
+        ///						Trigonometric inverse hyperbolic cosine, element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> arccosh(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -407,13 +409,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse sine.
-        //		
+        ///						Trigonometric inverse sine.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double arcsin(dtype inValue)
         {
             return std::asin(static_cast<double>(inValue));
@@ -421,13 +423,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse sine, element-wise.
-        //		
+        ///						Trigonometric inverse sine, element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> arcsin(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -438,13 +440,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse hyperbolic sine.
-        //		
+        ///						Trigonometric inverse hyperbolic sine.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double arcsinh(dtype inValue)
         {
             return std::asinh(static_cast<double>(inValue));
@@ -452,13 +454,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse hyperbolic sine, element-wise.
-        //		
+        ///						Trigonometric inverse hyperbolic sine, element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> arcsinh(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -469,13 +471,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse tangent.
-        //		
+        ///						Trigonometric inverse tangent.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double arctan(dtype inValue)
         {
             return std::atan(static_cast<double>(inValue));
@@ -483,13 +485,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse tangent, element-wise.
-        //		
+        ///						Trigonometric inverse tangent, element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> arctan(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -500,14 +502,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse tangent.
-        //		
-        /// @param
-        //				Y
-        //				x
+        ///						Trigonometric inverse tangent.
+        ///		
+        /// @param				Y
+        /// @param				x
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double arctan2(dtype inY, dtype inX)
         {
             return std::atan2(static_cast<double>(inY), static_cast<double>(inX));
@@ -515,14 +516,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse tangent, element-wise.
-        //		
-        /// @param
-        //				NdArray y
-        //				NdArray x
+        ///						Trigonometric inverse tangent, element-wise.
+        ///		
+        /// @param				NdArray y
+        /// @param				NdArray x
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
         {
             if (inX.shape() != inY.shape())
@@ -539,13 +539,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse hyperbolic tangent.
-        //		
+        ///						Trigonometric inverse hyperbolic tangent.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double arctanh(dtype inValue)
         {
             return std::atanh(static_cast<double>(inValue));
@@ -553,13 +553,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric inverse hyperbolic tangent, element-wise.
-        //		
+        ///						Trigonometric inverse hyperbolic tangent, element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> arctanh(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -570,14 +570,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns the indices of the maximum values along an axis.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
+        ///						Returns the indices of the maximum values along an axis.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<uint32> argmax(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.argmax(inAxis));
@@ -585,14 +584,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns the indices of the minimum values along an axis.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
+        ///						Returns the indices of the minimum values along an axis.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<uint32> argmin(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.argmin(inAxis));
@@ -600,14 +598,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns the indices that would sort an array.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
+        ///						Returns the indices that would sort an array.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<uint32> argsort(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.argsort(inAxis));
@@ -615,14 +612,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns the indices that would sort an array.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
+        ///						Returns the indices that would sort an array.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<uint32> argwhere(const NdArray<dtype>& inArray)
         {
             return std::move(inArray.nonzero());
@@ -630,14 +626,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Evenly round to the given number of decimals.
-        //		
-        /// @param
-        //				value
-        //				(Optional) decimals, default = 0
+        ///						Evenly round to the given number of decimals.
+        ///		
+        /// @param			value
+        /// @param			(Optional) decimals, default = 0
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype around(dtype inValue, uint8 inNumDecimals = 0)
         {
             NdArray<dtype> value = { inValue };
@@ -646,14 +641,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Evenly round to the given number of decimals.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) decimals, default = 0
+        ///						Evenly round to the given number of decimals.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) decimals, default = 0
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> around(const NdArray<dtype>& inArray, uint8 inNumDecimals = 0)
         {
             return std::move(inArray.round(inNumDecimals));
@@ -661,15 +655,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						True if two arrays have the same shape and elements, False otherwise.
-        //		
-        /// @param
-        //				NdArray1,
-        //				NdArray2
-        //				
+        ///						True if two arrays have the same shape and elements, False otherwise.
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray
+        ///				
         /// @return
-        //				bool
-        //
+        ///				bool
+        ///
         static bool array_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -683,18 +676,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns True if input arrays are shape consistent and all elements equal.
-        //
-        //						Shape consistent means they are either the same shape, or one input array 
-        //						can be broadcasted to create the same shape as the other one.
-        //		
-        /// @param
-        //				NdArray1,
-        //				NdArray2
-        //				
+        ///						Returns True if input arrays are shape consistent and all elements equal.
+        ///
+        ///						Shape consistent means they are either the same shape, or one input array 
+        ///						can be broadcasted to create the same shape as the other one.
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray
+        ///				
         /// @return
-        //				bool
-        //
+        ///				bool
+        ///
         static bool array_equiv(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.size() != inArray2.size())
@@ -715,13 +707,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Convert the vector to an array.
-        //		
+        ///						Convert the vector to an array.
+        ///		
         /// @param
-        //				std::vector
+        ///				std::vector
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> asarray(const std::vector<dtype>& inVector)
         {
             return std::move(NdArray<dtype>(inVector));
@@ -729,14 +721,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Convert the list initializer to an array.
-        //						eg: NdArray<int> myArray = NumC::asarray<int>({1,2,3});
-        //		
+        ///						Convert the list initializer to an array.
+        ///						eg: NdArray<int> myArray = NumC::asarray<int>({1,2,3});
+        ///		
         /// @param
-        //				std::vector
+        ///				std::vector
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> asarray(std::initializer_list<dtype>& inList)
         {
             return std::move(NdArray<dtype>(inList));
@@ -744,13 +736,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns a copy of the array, cast to a specified type.
-        //		
+        ///						Returns a copy of the array, cast to a specified type.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> astype(const NdArray<dtype> inArray)
         {
@@ -759,14 +751,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the average along the specified axis.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
+        ///						Compute the average along the specified axis.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> average(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.mean(inAxis));
@@ -774,15 +765,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the weighted average along the specified axis.
-        //		
-        /// @param
-        //				NdArray
-        //				NdArray of weights, otherwise all weights = 1
-        //				(Optional) axis
+        ///						Compute the weighted average along the specified axis.
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray of weights, otherwise all weights = 1
+        /// @param  			(Optional) axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::NONE)
         {
             switch (inAxis)
@@ -857,21 +847,20 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Count number of occurrences of each value in array of non-negative ints.
-        //						Negative values will be counted in the zero bin.
-        //
-        //						The number of bins(of size 1) is one larger than the largest value in x.
-        //						If minlength is specified, there will be at least this number of bins in 
-        //						the output array(though it will be longer if necessary, depending on the 
-        //						contents of x).Each bin gives the number of occurrences of its index value 
-        //						in x.
-        //		
-        /// @param
-        //				NdArray
-        //				min bin length
+        ///						Count number of occurrences of each value in array of non-negative ints.
+        ///						Negative values will be counted in the zero bin.
+        ///
+        ///						The number of bins(of size 1) is one larger than the largest value in x.
+        ///						If minlength is specified, there will be at least this number of bins in 
+        ///						the output array(though it will be longer if necessary, depending on the 
+        ///						contents of x).Each bin gives the number of occurrences of its index value 
+        ///						in x.
+        ///		
+        /// @param				NdArray
+        /// @param				min bin length
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
         {
             // only works with integer input types
@@ -904,24 +893,23 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Count number of occurrences of each value in array of non-negative ints.
-        //						Negative values will be counted in the zero bin.
-        //
-        //						The number of bins(of size 1) is one larger than the largest value in x.
-        //						If minlength is specified, there will be at least this number of bins in 
-        //						the output array(though it will be longer if necessary, depending on the 
-        //						contents of x).Each bin gives the number of occurrences of its index value 
-        //						in x.If weights is specified the input array is weighted by it, i.e. if a 
-        //						value n is found at position i, out[n] += weight[i] instead of out[n] += 1.
-        //						Weights array shall be of the same shape as inArray.
-        //		
-        /// @param
-        //				NdArray
-        //				NdArray weights
-        //				min bin length
+        ///						Count number of occurrences of each value in array of non-negative ints.
+        ///						Negative values will be counted in the zero bin.
+        ///
+        ///						The number of bins(of size 1) is one larger than the largest value in x.
+        ///						If minlength is specified, there will be at least this number of bins in 
+        ///						the output array(though it will be longer if necessary, depending on the 
+        ///						contents of x).Each bin gives the number of occurrences of its index value 
+        ///						in x.If weights is specified the input array is weighted by it, i.e. if a 
+        ///						value n is found at position i, out[n] += weight[i] instead of out[n] += 1.
+        ///						Weights array shall be of the same shape as inArray.
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray weights
+        /// @param				min bin length
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
         {
             // only works with integer input types
@@ -959,14 +947,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the bit-wise AND of two arrays element-wise.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Compute the bit-wise AND of two arrays element-wise.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 & inArray2);
@@ -974,13 +961,12 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the bit-wise NOT the input array element-wise.
-        //		
-        /// @param
-        //				NdArray
+        ///						Compute the bit-wise NOT the input array element-wise.
+        ///		
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray)
         {
             return std::move(~inArray);
@@ -988,14 +974,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the bit-wise OR of two arrays element-wise.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Compute the bit-wise OR of two arrays element-wise.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 | inArray2);
@@ -1003,14 +988,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the bit-wise XOR of two arrays element-wise.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Compute the bit-wise XOR of two arrays element-wise.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 ^ inArray2);
@@ -1018,15 +1002,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array with the bytes of the array elements
-        //						swapped.
-        //		
-        /// @param
-        //				NdArray 
-        //
+        ///						Return a new array with the bytes of the array elements
+        ///						swapped.
+        ///		
+        /// @param				NdArray 
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> byteswap(const NdArray<dtype>& inArray)
         {
             NdArray<dtype> returnArray(inArray);
@@ -1036,14 +1019,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the cube-root of an array. Not super usefull 
-        //						if not using a floating point type
-        //		
-        /// @param
-        //				value
+        ///						Return the cube-root of an array. Not super usefull 
+        ///						if not using a floating point type
+        ///		
+        /// @param				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double cbrt(dtype inValue)
         {
             return std::cbrt(static_cast<double>(inValue));
@@ -1051,13 +1033,12 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the cube-root of an array, element-wise.
-        //		
-        /// @param
-        //				NdArray
+        ///						Return the cube-root of an array, element-wise.
+        ///		
+        /// @param				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> cbrt(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -1068,13 +1049,12 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the ceiling of the input.
-        //		
-        /// @param
-        //				value
+        ///						Return the ceiling of the input.
+        ///		
+        /// @param				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype ceil(dtype inValue)
         {
             return std::ceil(inValue);
@@ -1082,13 +1062,12 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the ceiling of the input, element-wise.
-        //		
-        /// @param
-        //				NdArray
+        ///						Return the ceiling of the input, element-wise.
+        ///		
+        /// @param				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> ceil(const NdArray<dtype>& inArray)
         {
             NdArray<dtype> returnArray(inArray.shape());
@@ -1099,15 +1078,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Clip (limit) the value.
-        //		
-        /// @param
-        //				value
-        //				min Value
-        //				max Value
+        ///						Clip (limit) the value.
+        ///		
+        /// @param				value
+        /// @param				min Value
+        /// @param				max Value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue)
         {
             NdArray<dtype> value = { inValue };
@@ -1116,15 +1094,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Clip (limit) the values in an array.
-        //		
-        /// @param
-        //				NdArray
-        //				min Value
-        //				max Value
+        ///						Clip (limit) the values in an array.
+        ///		
+        /// @param				NdArray
+        /// @param				min Value
+        /// @param				max Value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue)
         {
             return std::move(inArray.clip(inMinValue, inMaxValue));
@@ -1132,13 +1109,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Stack 1-D arrays as columns into a 2-D array.
-        //		
+        ///						Stack 1-D arrays as columns into a 2-D array.
+        ///		
         /// @param
-        //				{list} of arrays to stack
+        ///				{list} of arrays to stack
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
         {
             // first loop through to calculate the final size of the array
@@ -1181,15 +1158,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Join a sequence of arrays along an existing axis.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				(Optional) Axis (Default NONE)
+        ///						Join a sequence of arrays along an existing axis.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        /// @param				(Optional) Axis (Default NONE)
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis::Type inAxis = Axis::NONE)
         {
             switch (inAxis)
@@ -1232,15 +1208,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						returns whether or not a value is included the array
-        //		
-        /// @param
-        //				NdArray 
-        //				value
-        //				(Optional) axis
+        ///						returns whether or not a value is included the array
+        ///		
+        /// @param				NdArray 
+        /// @param				value
+        /// @param				(Optional) axis
         /// @return
-        //				bool
-        //
+        ///				bool
+        ///
         static NdArray<bool> contains(const NdArray<dtype>& inArray, dtype inValue, Axis::Type inAxis = Axis::NONE)
         {
             return inArray.contains(inValue, inAxis);
@@ -1248,13 +1223,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return an array copy of the given object.
-        //		
+        ///						Return an array copy of the given object.
+        ///		
         /// @param
-        //				NdArray 
+        ///				NdArray 
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> copy(const NdArray<dtype>& inArray)
         {
             return std::move(NdArray<dtype>(inArray));
@@ -1262,14 +1237,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Change the sign of x1 to that of x2, element-wise.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Change the sign of x1 to that of x2, element-wise.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -1286,14 +1260,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Copies values from one array to another
-        //		
-        /// @param
-        //				NdArray destination
-        //				NdArray source
+        ///						Copies values from one array to another
+        ///		
+        /// @param				NdArray destination
+        /// @param				NdArray source
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype>& copyto(NdArray<dtype>& inDestArray, const NdArray<dtype>& inSrcArray)
         {
             inDestArray = inSrcArray;
@@ -1302,13 +1275,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Cosine .
-        //		
+        ///						Cosine .
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double cos(dtype inValue)
         {
             return std::cos(static_cast<double>(inValue));
@@ -1316,13 +1289,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Cosine element-wise.
-        //		
+        ///						Cosine element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> cos(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -1333,13 +1306,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Hyperbolic Cosine.
-        //		
+        ///						Hyperbolic Cosine.
+        ///		
         /// @param
-        //				Value
+        ///				Value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double cosh(dtype inValue)
         {
             return std::cosh(static_cast<double>(inValue));
@@ -1347,13 +1320,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Hyperbolic Cosine element-wise.
-        //		
+        ///						Hyperbolic Cosine element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> cosh(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -1364,14 +1337,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Counts the number of non-zero values in the array.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
+        ///						Counts the number of non-zero values in the array.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             switch (inAxis)
@@ -1430,15 +1402,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the cross product of two (arrays of) vectors.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				(Optional) Axis - default = row
+        ///						Return the cross product of two (arrays of) vectors.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        /// @param  			(Optional) Axis - default = row
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis::Type inAxis = Axis::NONE)
         {
@@ -1561,13 +1532,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Cubes the elements of the array
-        //		
+        ///						Cubes the elements of the array
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> cube(const NdArray<dtype>& inArray)
         {
@@ -1579,14 +1550,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the cumulative product of elements along a given axis.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
+        ///						Return the cumulative product of elements along a given axis.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> cumprod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
@@ -1595,14 +1565,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the cumulative sum of the elements along a given axis.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
+        ///						Return the cumulative sum of the elements along a given axis.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> cumsum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
@@ -1611,13 +1580,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Convert angles from degrees to radians.
-        //		
+        ///						Convert angles from degrees to radians.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double deg2rad(dtype inValue)
         {
             return inValue * Constants::pi / 180.0;
@@ -1625,13 +1594,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Convert angles from degrees to radians.
-        //		
+        ///						Convert angles from degrees to radians.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> deg2rad(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -1642,15 +1611,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array with sub-arrays along an axis deleted.
-        //		
-        /// @param
-        //				NdArray
-        //				NdArray indices to delete
-        //				(Optional) Axis, if none the indices will be applied to the flattened array
+        ///						Return a new array with sub-arrays along an axis deleted.
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray indices to delete
+        /// @param				(Optional) Axis, if none the indices will be applied to the flattened array
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis::Type inAxis = Axis::NONE)
         {
             // make sure that the indices are unique first
@@ -1741,15 +1709,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array with sub-arrays along an axis deleted.
-        //		
-        /// @param
-        //				NdArray
-        //				inIndex to delete
-        //				(Optional) Axis, if none the indices will be applied to the flattened array
+        ///						Return a new array with sub-arrays along an axis deleted.
+        ///		
+        /// @param				NdArray
+        /// @param				Slice to delete
+        /// @param  			(Optional) Axis, if none the indices will be applied to the flattened array
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Slice& inIndicesSlice, Axis::Type inAxis = Axis::NONE)
         {
             Slice sliceCopy(inIndicesSlice);
@@ -1784,15 +1751,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array with sub-arrays along an axis deleted.
-        //		
-        /// @param
-        //				NdArray
-        //				inIndex to delete
-        //				(Optional) Axis, if none the indices will be applied to the flattened array
+        ///						Return a new array with sub-arrays along an axis deleted.
+        ///		
+        /// @param				NdArray
+        /// @param				index to delete
+        /// @param				(Optional) Axis, if none the indices will be applied to the flattened array
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, uint32 inIndex, Axis::Type inAxis = Axis::NONE)
         {
             NdArray<uint32> inIndices = { inIndex };
@@ -1801,13 +1767,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Create a two-dimensional array with the flattened input as a diagonal.
-        //		
+        ///						Create a two-dimensional array with the flattened input as a diagonal.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> diagflat(const NdArray<dtype>& inArray)
         {
             NdArray<dtype> returnArray(inArray.size());
@@ -1822,15 +1788,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return specified diagonals.
-        //		
-        /// @param
-        //				NdArray
-        //				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. 
-        //				(Optional) axis the offset is applied to
+        ///						Return specified diagonals.
+        ///		
+        /// @param				NdArray
+        /// @param				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. 
+        /// @param				(Optional) axis the offset is applied to
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
         {
             return std::move(inArray.diagonal(inOffset, inAxis));
@@ -1838,15 +1803,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculate the n-th discrete difference along given axis.
-        //						Unsigned dtypes will give you weird results...obviously.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
+        ///						Calculate the n-th discrete difference along given axis.
+        ///						Unsigned dtypes will give you weird results...obviously.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             Shape inShape = inArray.shape();
@@ -1911,14 +1875,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns a true division of the inputs, element-wise.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Returns a true division of the inputs, element-wise.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
@@ -1927,14 +1890,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Dot product of two arrays.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Dot product of two arrays.
+        ///		
+        /// @param			NdArray 1
+        /// @param			NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
@@ -1943,15 +1905,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Dump a binary file of the array to the specified file. 
-        //						The array can be read back with or NumC::load.
-        //		
-        /// @param
-        //				NdArray
-        //				string filename
+        ///						Dump a binary file of the array to the specified file. 
+        ///						The array can be read back with or NumC::load.
+        ///		
+        /// @param				NdArray
+        /// @param				string filename
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static void dump(const NdArray<dtype>& inArray, const std::string& inFilename)
         {
             inArray.dump(inFilename);
@@ -1959,14 +1920,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, without initializing entries.
-        //		
-        /// @param
-        //				inNumRows
-        //				inNumCols
+        ///						Return a new array of given shape and type, without initializing entries.
+        ///		
+        /// @param				inNumRows
+        /// @param				inNumCols
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> empty(uint32 inNumRows, uint32 inNumCols)
         {
             return std::move(NdArray<dtype>(inNumRows, inNumCols));
@@ -1974,13 +1934,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, without initializing entries.
-        //		
+        ///						Return a new array of given shape and type, without initializing entries.
+        ///		
         /// @param
-        //				Shape
+        ///				Shape
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> empty(const Shape& inShape)
         {
             return std::move(NdArray<dtype>(inShape));
@@ -1988,13 +1948,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array with the same shape as a given array.
-        //		
+        ///						Return a new array with the same shape as a given array.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> empty_like(const NdArray<dtype>& inArray)
         {
@@ -2003,13 +1963,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the endianess of the array values.
-        //		
+        ///						Return the endianess of the array values.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				Endian::Type
-        //
+        ///				Endian::Type
+        ///
         static Endian::Type endianess(const NdArray<dtype>& inArray)
         {
             return inArray.endianess();
@@ -2017,14 +1977,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return (x1 == x2) element-wise.
-        //		
-        /// @param
-        //				NdArray1
-        //				NdArray2
+        ///						Return (x1 == x2) element-wise.
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 == inArray2);
@@ -2032,13 +1991,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculate the exponential of the input value.
-        //		
+        ///						Calculate the exponential of the input value.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double exp(dtype inValue)
         {
             return std::exp(static_cast<double>(inValue));
@@ -2046,13 +2005,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculate the exponential of all elements in the input array.
-        //		
+        ///						Calculate the exponential of all elements in the input array.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> exp(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -2065,13 +2024,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculate 2**p for all p in the input value.
-        //		
+        ///						Calculate 2**p for all p in the input value.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double exp2(dtype inValue)
         {
             return std::exp2(static_cast<double>(inValue));
@@ -2079,13 +2038,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculate 2**p for all p in the input array.
-        //		
+        ///						Calculate 2**p for all p in the input array.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> exp2(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -2098,13 +2057,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculate exp(x) - 1 for the input value.
-        //		
+        ///						Calculate exp(x) - 1 for the input value.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double expm1(dtype inValue)
         {
             return std::exp(static_cast<double>(inValue)) - 1.0;
@@ -2112,13 +2071,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Calculate exp(x) - 1 for all elements in the array.
-        //		
+        ///						Calculate exp(x) - 1 for all elements in the array.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> expm1(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -2131,16 +2090,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a 2-D array with ones on the diagonal and zeros elsewhere.
-        //		
-        /// @param
-        //				number of rows and columns (N)
-        //				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
-        //				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
-        //				
+        ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+        ///		
+        /// @param				number of rows and columns (N)
+        /// @param				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
+        ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> eye(uint32 inN, int32 inK = 0)
         {
             return std::move(eye(inN, inN, inK));
@@ -2148,17 +2106,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a 2-D array with ones on the diagonal and zeros elsewhere.
-        //		
-        /// @param
-        //				number of rows (N)
-        //				number of columns (M)
-        //				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
-        //				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
-        //				
+        ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+        ///		
+        /// @param				number of rows (N)
+        /// @param				number of columns (M)
+        /// @param				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
+        ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0)
         {
             NdArray<dtype> returnArray(inN, inM);
@@ -2196,16 +2153,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a 2-D array with ones on the diagonal and zeros elsewhere.
-        //		
-        /// @param
-        //				Shape
-        //				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
-        //				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
-        //				
+        ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+        ///		
+        /// @param				Shape
+        /// @param				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
+        ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> eye(const Shape& inShape, int32 inK = 0)
         {
             return std::move(eye(inShape.rows, inShape.cols, inK));
@@ -2213,13 +2169,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Round to nearest integer towards zero.
-        //		
+        ///						Round to nearest integer towards zero.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype fix(dtype inValue)
         {
             return inValue > 0 ? std::floor(inValue) : std::ceil(inValue);
@@ -2227,13 +2183,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Round to nearest integer towards zero.
-        //		
+        ///						Round to nearest integer towards zero.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> fix(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -2246,14 +2202,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a copy of the array collapsed into one dimension.
-        //		
+        ///						Return a copy of the array collapsed into one dimension.
+        ///		
         /// @param
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> flatten(const NdArray<dtype>& inArray)
         {
             return std::move(inArray.flatten());
@@ -2261,13 +2217,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return indices that are non-zero in the flattened version of a.
-        //		
+        ///						Return indices that are non-zero in the flattened version of a.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<uint32> flatnonzero(const NdArray<dtype>& inArray)
         {
             return std::move(inArray.flatten().nonzero());
@@ -2275,14 +2231,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Reverse the order of elements in an array along the given axis.
-        //		
-        /// @param
-        //				NdArray
-        //				axis
+        ///						Reverse the order of elements in an array along the given axis.
+        ///		
+        /// @param				NdArray
+        /// @param				axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> flip(const NdArray<dtype>& inArray, Axis::Type inAxis)
         {
             switch (inAxis)
@@ -2320,13 +2275,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Flip array in the left/right direction.
-        //		
+        ///						Flip array in the left/right direction.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> fliplr(const NdArray<dtype>& inArray)
         {
             return std::move(flip(inArray, Axis::COL));
@@ -2334,13 +2289,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Flip array in the up/down direction.
-        //		
+        ///						Flip array in the up/down direction.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> flipud(const NdArray<dtype>& inArray)
         {
             return std::move(flip(inArray, Axis::ROW));
@@ -2348,13 +2303,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the floor of the input.
-        //		
+        ///						Return the floor of the input.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype floor(dtype inValue)
         {
             return std::floor(inValue);
@@ -2362,13 +2317,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the floor of the input, element-wise.
-        //		
+        ///						Return the floor of the input, element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> floor(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -2381,14 +2336,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the largest integer smaller or equal to the division of the inputs.
-        //		
-        /// @param
-        //				value 1
-        //				value 2
+        ///						Return the largest integer smaller or equal to the division of the inputs.
+        ///		
+        /// @param				value 1
+        /// @param				value 2
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype floor_divide(dtype inValue1, dtype inValue2)
         {
             return std::floor(inValue1 / inValue2);
@@ -2396,14 +2350,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the largest integer smaller or equal to the division of the inputs.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Return the largest integer smaller or equal to the division of the inputs.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> floor_divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(floor(inArray1 / inArray2));
@@ -2411,17 +2364,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						maximum of inputs.
-        //
-        //						Compare two value and returns a value containing the 
-        //						maxima
-        //		
-        /// @param
-        //				value 1
-        //				value 2
+        ///						maximum of inputs.
+        ///
+        ///						Compare two value and returns a value containing the 
+        ///						maxima
+        ///		
+        /// @param				value 1
+        /// @param				value 2
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype fmax(dtype inValue1, dtype inValue2)
         {
             return std::max(inValue1, inValue2);
@@ -2429,17 +2381,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Element-wise maximum of array elements.
-        //
-        //						Compare two arrays and returns a new array containing the 
-        //						element - wise maxima
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Element-wise maximum of array elements.
+        ///
+        ///						Compare two arrays and returns a new array containing the 
+        ///						element - wise maxima
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> fmax(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -2457,17 +2408,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						minimum of inputs.
-        //
-        //						Compare two value and returns a value containing the 
-        //						minima
-        //		
-        /// @param
-        //				value 1
-        //				value 2
+        ///						minimum of inputs.
+        ///
+        ///						Compare two value and returns a value containing the 
+        ///						minima
+        ///		
+        /// @param				value 1
+        /// @param				value 2
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype fmin(dtype inValue1, dtype inValue2)
         {
             return std::min(inValue1, inValue2);
@@ -2475,17 +2425,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Element-wise minimum of array elements.
-        //
-        //						Compare two arrays and returns a new array containing the 
-        //						element - wise minima
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Element-wise minimum of array elements.
+        ///
+        ///						Compare two arrays and returns a new array containing the 
+        ///						element - wise minima
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> fmin(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -2503,15 +2452,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the remainder of division.
-        //
-        //		
-        /// @param
-        //				value 1
-        //				value 2
+        ///						Return the remainder of division.
+        ///
+        ///		
+        /// @param				value 1
+        /// @param				value 2
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype fmod(dtype inValue1, dtype inValue2)
         {
             // can only be called on integer types
@@ -2522,15 +2470,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the element-wise remainder of division.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Return the element-wise remainder of division.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             // can only be called on integer types
@@ -2551,16 +2498,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Construct an array from data in a text or binary file.
-        //		
-        /// @param
-        //				filename
-        //				seperator, Separator between items if file is a text file. Empty (“”) 
-        //							separator means the file should be treated as binary.
-        //							Right now the only supported seperators are " ", "\t", "\n"
+        ///						Construct an array from data in a text or binary file.
+        ///		
+        /// @param				filename
+        /// @param				seperator, Separator between items if file is a text file. Empty ("") 
+        ///							separator means the file should be treated as binary.
+        ///							Right now the only supported seperators are " ", "\t", "\n"
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "")
         {
             boost::filesystem::path p(inFilename);
@@ -2617,7 +2563,7 @@ namespace NumC
                         catch (const std::invalid_argument& ia)
                         {
                             std::cout << "Warning: fromfile: " << ia.what() << std::endl;
-                            //throw;
+                            ///throw;
                         }
                     }
                     file.close();
@@ -2633,14 +2579,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, filled with inFillValue
-        //		
-        /// @param
-        //				square size
-        //				fill value
+        ///						Return a new array of given shape and type, filled with inFillValue
+        ///		
+        /// @param				square size
+        /// @param				fill value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> full(uint32 inSquareSize, dtype inFillValue)
         {
             NdArray<dtype> returnArray(inSquareSize, inSquareSize);
@@ -2650,15 +2595,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, filled with inFillValue
-        //		
-        /// @param
-        //				numRows
-        //				numCols
-        //				fill value
+        ///						Return a new array of given shape and type, filled with inFillValue
+        ///		
+        /// @param				numRows
+        /// @param				numCols
+        /// @param				fill value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue)
         {
             NdArray<dtype> returnArray(inNumRows, inNumCols);
@@ -2668,14 +2612,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, filled with inFillValue
-        //		
-        /// @param
-        //				Shape
-        //				fill value
+        ///						Return a new array of given shape and type, filled with inFillValue
+        ///		
+        /// @param				Shape
+        /// @param				fill value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> full(const Shape& inShape, dtype inFillValue)
         {
             return std::move(full(inShape.rows, inShape.cols, inFillValue));
@@ -2683,14 +2626,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a full array with the same shape and type as a given array.
-        //		
-        /// @param
-        //				NdArray
-        //				fill value
+        ///						Return a full array with the same shape and type as a given array.
+        ///		
+        /// @param				NdArray
+        /// @param				fill value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue)
         {
@@ -2699,15 +2641,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the truth value of (x1 > x2) element-wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Return the truth value of (x1 > x2) element-wise.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> greater(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 > inArray2);
@@ -2715,15 +2656,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the truth value of (x1 >= x2) element-wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Return the truth value of (x1 >= x2) element-wise.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> greater_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 >= inArray2);
@@ -2731,16 +2671,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the histogram of a set of data.
-        //
-        //		
-        /// @param
-        //				NdArray 
-        //				number of bins, default 10
-        //				
+        ///						Compute the histogram of a set of data.
+        ///
+        ///		
+        /// @param				NdArray 
+        /// @param				number of bins, default 10
+        ///				
         /// @return
-        //				pair of NdArrays; first is histogram counts, seconds is the bin edges
-        //
+        ///				pair of NdArrays; first is histogram counts, seconds is the bin edges
+        ///
         static std::pair<NdArray<dtype>, NdArray<dtype> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
         {
             std::pair<NdArray<dtype>, NdArray<dtype> > bar = std::make_pair(NdArray<dtype>(0), NdArray<dtype>(0));
@@ -2749,15 +2688,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Stack arrays in sequence horizontally (column wise).
-        //
-        //		
+        ///						Stack arrays in sequence horizontally (column wise).
+        ///
+        ///		
         /// @param
-        //				{list} of arrays to stack
-        //				
+        ///				{list} of arrays to stack
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> hstack(const std::initializer_list<NdArray<dtype> >& inArrayList)
         {
             return std::move(column_stack(inArrayList));
@@ -2765,18 +2704,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Given the “legs” of a right triangle, return its hypotenuse.
-        //
-        //						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
-        //
-        //		
-        /// @param
-        //				value 1
-        //				value 2
-        //				
+        ///						Given the "legs" of a right triangle, return its hypotenuse.
+        ///
+        ///						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
+        ///
+        ///		
+        /// @param				value 1
+        /// @param				value 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static dtypeOut hypot(dtype inValue1, dtype inValue2)
         {
@@ -2785,18 +2723,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Given the “legs” of a right triangle, return its hypotenuse.
-        //
-        //						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Given the "legs" of a right triangle, return its hypotenuse.
+        ///
+        ///						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
@@ -2815,17 +2752,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the identity array.
-        //
-        //						The identity array is a square array with ones on the main diagonal.
-        //
-        //		
+        ///						Return the identity array.
+        ///
+        ///						The identity array is a square array with ones on the main diagonal.
+        ///
+        ///		
         /// @param
-        //				matrix square size
-        //				
+        ///				matrix square size
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> identity(uint32 inSquareSize)
         {
             NdArray<dtype> returnArray(inSquareSize);
@@ -2840,14 +2777,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Insert values along the given axis before the given indices.
-        //	
-        /// @param
-        //				
-        //				
+        ///						Insert values along the given axis before the given indices.
+        ///	
+        /// @param      NdArray
+        /// @param      NdArray indices
+        /// @param      NdArray values
+        /// @param      (Optional) Axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> insert(const NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues, Axis::Type inAxis = Axis::ROW)
         {
             //NdArray<uint32>& indices = np.unique(inIndices);
@@ -2922,8 +2861,8 @@ namespace NumC
             //	}
             //	default:
             //	{
-            //		// this isn't actually possible, just putting this here to get rid
-            //		// of the compiler warning.
+            //		/// this isn't actually possible, just putting this here to get rid
+            //		/// of the compiler warning.
             //		return std::move(NdArray<dtype>(0));
             //	}
             //}
@@ -2933,18 +2872,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Find the intersection of two arrays.
-        //
-        //						Return the sorted, unique values that are in both of the input arrays.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Find the intersection of two arrays.
+        ///
+        ///						Return the sorted, unique values that are in both of the input arrays.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> intersect1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             std::vector<dtype> res(inArray1.size() + inArray2.size());
@@ -2959,15 +2897,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute bit-wise inversion, or bit-wise NOT, element-wise.
-        //
-        //		
+        ///						Compute bit-wise inversion, or bit-wise NOT, element-wise.
+        ///
+        ///		
         /// @param
-        //				NdArray
-        //				
+        ///				NdArray
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> invert(const NdArray<dtype>& inArray)
         {
             return std::move(~inArray);
@@ -2975,20 +2913,19 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns a boolean array where two arrays are element-wise 
-        //						equal within a tolerance.
-        //
-        //						For finite values, isclose uses the following equation to test whether two floating point values are equivalent.
-        //						absolute(a - b) <= (atol + rtol * absolute(b))
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				relative tolerance
-        //				absolute tolerance
-        //				
+        ///						Returns a boolean array where two arrays are element-wise 
+        ///						equal within a tolerance.
+        ///
+        ///						For finite values, isclose uses the following equation to test whether two floating point values are equivalent.
+        ///						absolute(a - b) <= (atol + rtol * absolute(b))
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        /// @param				relative tolerance
+        /// @param				absolute tolerance
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -3005,15 +2942,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Test for NaN and return result as a boolean.
-        //
-        //		
+        ///						Test for NaN and return result as a boolean.
+        ///
+        ///		
         /// @param
-        //				value
-        //				
+        ///				value
+        ///				
         /// @return
-        //				bool
-        //
+        ///				bool
+        ///
         static bool isnan(dtype inValue)
         {
             return std::isnan(inValue);
@@ -3021,15 +2958,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Test element-wise for NaN and return result as a boolean array.
-        //
-        //		
+        ///						Test element-wise for NaN and return result as a boolean array.
+        ///
+        ///		
         /// @param
-        //				NdArray
-        //				
+        ///				NdArray
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> isnan(const NdArray<dtype>& inArray)
         {
             NdArray<bool> returnArray(inArray.shape());
@@ -3041,16 +2978,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns x1 * 2^x2.
-        //
-        //		
-        /// @param
-        //				value 1
-        //				value 2
-        //				
+        ///						Returns x1 * 2^x2.
+        ///
+        ///		
+        /// @param				value 1
+        /// @param				value 2
+        ///				
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype ldexp(dtype inValue1, uint8 inValue2)
         {
             return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2));
@@ -3058,16 +2994,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns x1 * 2^x2, element-wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Returns x1 * 2^x2, element-wise.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> ldexp(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -3084,16 +3019,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Shift the bits of an integer to the left.
-        //
-        //		
-        /// @param
-        //				NdArray 
-        //				number of bits to sift
-        //				
+        ///						Shift the bits of an integer to the left.
+        ///
+        ///		
+        /// @param				NdArray 
+        /// @param				number of bits to sift
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> left_shift(const NdArray<dtype>& inArray, uint8 inNumBits)
         {
             return std::move(inArray << inNumBits);
@@ -3101,16 +3035,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the truth value of (x1 < x2) element-wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Return the truth value of (x1 < x2) element-wise.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> less(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 < inArray2);
@@ -3118,16 +3051,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the truth value of (x1 <= x2) element-wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Return the truth value of (x1 <= x2) element-wise.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> less_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 <= inArray2);
@@ -3135,24 +3067,24 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return evenly spaced numbers over a specified interval.
-        //
-        //						Returns num evenly spaced samples, calculated over the 
-        //						interval[start, stop].
-        //
-        //						The endpoint of the interval can optionally be excluded.
-        //
-        //						Mostly only usefull if called with a floating point type 
-        //						for the template argument.
-        /// @param
-        //				start point
-        //				end point
-        //				number of points, default = 50
-        //				include endPoint, default = true
-        //				
+        ///						Return evenly spaced numbers over a specified interval.
+        ///
+        ///						Returns num evenly spaced samples, calculated over the 
+        ///						interval[start, stop].
+        ///
+        ///						The endpoint of the interval can optionally be excluded.
+        ///
+        ///						Mostly only usefull if called with a floating point type 
+        ///						for the template argument.
+        ///
+        /// @param				start point
+        /// @param				end point
+        /// @param				number of points, default = 50
+        /// @param				include endPoint, default = true
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)
         {
             if (inNum == 0)
@@ -3218,15 +3150,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						loads a .bin file from the dump() method into an NdArray
-        //
-        //		
+        ///						loads a .bin file from the dump() method into an NdArray
+        ///
+        ///		
         /// @param
-        //				string filename
-        //				
+        ///				string filename
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> load(const std::string& inFilename)
         {
             return std::move(fromfile(inFilename, ""));
@@ -3234,15 +3166,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Natural logarithm.
-        //
-        //		
+        ///						Natural logarithm.
+        ///
+        ///		
         /// @param
-        //				value
-        //				
+        ///				value
+        ///				
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double log(dtype inValue)
         {
             return std::log(static_cast<double>(inValue));
@@ -3250,15 +3182,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Natural logarithm, element-wise.
-        //
-        //		
+        ///						Natural logarithm, element-wise.
+        ///
+        ///		
         /// @param
-        //				NdArray
-        //				
+        ///				NdArray
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> log(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -3270,15 +3202,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the base 10 logarithm of the input array.
-        //
-        //		
+        ///						Return the base 10 logarithm of the input array.
+        ///
+        ///		
         /// @param
-        //				value
-        //				
+        ///				value
+        ///				
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double log10(dtype inValue)
         {
             return std::log10(static_cast<double>(inValue));
@@ -3286,15 +3218,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the base 10 logarithm of the input array, element-wise.
-        //
-        //		
+        ///						Return the base 10 logarithm of the input array, element-wise.
+        ///
+        ///		
         /// @param
-        //				NdArray
-        //				
+        ///				NdArray
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> log10(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -3306,17 +3238,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the natural logarithm of one plus the input array.
-        //
-        //						Calculates log(1 + x).
-        //
-        //		
+        ///						Return the natural logarithm of one plus the input array.
+        ///
+        ///						Calculates log(1 + x).
+        ///
+        ///		
         /// @param
-        //				value
-        //				
+        ///				value
+        ///				
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double log1p(dtype inValue)
         {
             return std::log1p(static_cast<double>(inValue));
@@ -3324,17 +3256,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the natural logarithm of one plus the input array, element-wise.
-        //
-        //						Calculates log(1 + x).
-        //
-        //		
+        ///						Return the natural logarithm of one plus the input array, element-wise.
+        ///
+        ///						Calculates log(1 + x).
+        ///
+        ///		
         /// @param
-        //				NdArray
-        //				
+        ///				NdArray
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> log1p(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -3346,15 +3278,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Base-2 logarithm of x.
-        //
-        //		
+        ///						Base-2 logarithm of x.
+        ///
+        ///		
         /// @param
-        //				value
-        //				
+        ///				value
+        ///				
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double log2(dtype inValue)
         {
             return std::log2(static_cast<double>(inValue));
@@ -3362,15 +3294,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Base-2 logarithm of x.
-        //
-        //		
+        ///						Base-2 logarithm of x.
+        ///
+        ///		
         /// @param
-        //				NdArray
-        //				
+        ///				NdArray
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> log2(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -3382,16 +3314,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the truth value of x1 AND x2 element-wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Compute the truth value of x1 AND x2 element-wise.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> logical_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -3409,15 +3340,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the truth value of NOT x element-wise.
-        //
-        //		
+        ///						Compute the truth value of NOT x element-wise.
+        ///
+        ///		
         /// @param
-        //				NdArray 
-        //				
+        ///				NdArray 
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> logical_not(const NdArray<dtype>& inArray)
         {
             NdArray<bool> returnArray(inArray.shape());
@@ -3429,16 +3360,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the truth value of x1 OR x2 element-wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Compute the truth value of x1 OR x2 element-wise.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> logical_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -3456,16 +3386,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the truth value of x1 XOR x2 element-wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Compute the truth value of x1 XOR x2 element-wise.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> logical_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -3483,16 +3412,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Matrix product of two arrays.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Matrix product of two arrays.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
@@ -3501,16 +3429,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the maximum of an array or maximum along an axis.
-        //
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
-        //				
+        ///						Return the maximum of an array or maximum along an axis.
+        ///
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> max(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.max(inAxis));
@@ -3518,16 +3445,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Element-wise maximum of array elements.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Element-wise maximum of array elements.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> maximum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -3545,16 +3471,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the mean along the specified axis.
-        //
-        //		
-        /// @param
-        //				NdArray 
-        //				(Optional) axis
-        //				
+        ///						Compute the mean along the specified axis.
+        ///
+        ///		
+        /// @param				NdArray 
+        /// @param				(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> mean(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.mean(inAxis));
@@ -3562,16 +3487,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the median along the specified axis.
-        //
-        //		
-        /// @param
-        //				NdArray 
-        //				(Optional) axis
-        //				
+        ///						Compute the median along the specified axis.
+        ///
+        ///		
+        /// @param				NdArray 
+        /// @param  			(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> median(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.median(inAxis));
@@ -3579,16 +3503,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the minimum of an array or maximum along an axis.
-        //
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
-        //				
+        ///						Return the minimum of an array or maximum along an axis.
+        ///
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> min(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.min(inAxis));
@@ -3596,16 +3519,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Element-wise minimum of array elements.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Element-wise minimum of array elements.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> minimum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -3623,16 +3545,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return element-wise remainder of division.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Return element-wise remainder of division.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> mod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 % inArray2);
@@ -3640,16 +3561,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Multiply arguments element-wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Multiply arguments element-wise.
+        ///
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> multiply(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 * inArray2);
@@ -3657,14 +3577,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns the indices of the maximum values along an axis ignoring NaNs.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
+        ///						Returns the indices of the maximum values along an axis ignoring NaNs.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<uint32> nanargmax(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             NdArray<dtype> arrayCopy(inArray);
@@ -3681,14 +3600,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns the indices of the minimum values along an axis ignoring NaNs.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
+        ///						Returns the indices of the minimum values along an axis ignoring NaNs.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             NdArray<dtype> arrayCopy(inArray);
@@ -3705,14 +3623,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the cumulative product of elements along a given axis ignoring NaNs.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
+        ///						Return the cumulative product of elements along a given axis ignoring NaNs.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> nancumprod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
@@ -3730,14 +3647,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the cumulative sum of the elements along a given axis ignoring NaNs.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
+        ///						Return the cumulative sum of the elements along a given axis ignoring NaNs.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> nancumsum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
@@ -3755,16 +3671,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the maximum of an array or maximum along an axis ignoring NaNs.
-        //
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
-        //				
+        ///						Return the maximum of an array or maximum along an axis ignoring NaNs.
+        ///
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> nanmax(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             NdArray<dtype> arrayCopy(inArray);
@@ -3781,16 +3696,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the mean along the specified axis ignoring NaNs.
-        //
-        //		
-        /// @param
-        //				NdArray 
-        //				(Optional) axis
-        //				
+        ///						Compute the mean along the specified axis ignoring NaNs.
+        ///
+        ///		
+        /// @param				NdArray 
+        /// @param				(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             switch (inAxis)
@@ -3853,16 +3767,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the median along the specified axis ignoring NaNs.
-        //
-        //		
-        /// @param
-        //				NdArray 
-        //				(Optional) axis
-        //				
+        ///						Compute the median along the specified axis ignoring NaNs.
+        ///
+        ///		
+        /// @param				NdArray 
+        /// @param				(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             switch (inAxis)
@@ -3940,16 +3853,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the minimum of an array or maximum along an axis ignoring NaNs.
-        //
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
-        //				
+        ///						Return the minimum of an array or maximum along an axis ignoring NaNs.
+        ///
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             NdArray<dtype> arrayCopy(inArray);
@@ -3966,14 +3878,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the qth percentile of the data along the specified axis, while ignoring nan values.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
+        ///						Compute the qth percentile of the data along the specified axis, while ignoring nan values.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis::Type inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
         {
@@ -4147,16 +4058,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the product of array elements over a given axis treating Not a Numbers (NaNs) as ones.
-        //
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
-        //				
+        ///						Return the product of array elements over a given axis treating Not a Numbers (NaNs) as ones.
+        ///
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> nanprod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
@@ -4174,16 +4084,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the standard deviation along the specified axis, while ignoring NaNs.
-        //
-        //		
-        /// @param
-        //				NdArray 
-        //				(Optional) axis
-        //				
+        ///						Compute the standard deviation along the specified axis, while ignoring NaNs.
+        ///
+        ///		
+        /// @param				NdArray 
+        /// @param				(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> nanstd(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             switch (inAxis)
@@ -4266,16 +4175,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.
-        //
-        //		
-        /// @param
-        //				NdArray 
-        //				(Optional) axis
-        //				
+        ///						Return the sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.
+        ///
+        ///		
+        /// @param				NdArray 
+        /// @param				(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
@@ -4293,16 +4201,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the variance along the specified axis, while ignoring NaNs.
-        //
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
-        //				
+        ///						Compute the variance along the specified axis, while ignoring NaNs.
+        ///
+        ///		
+        /// @param			NdArray
+        /// @param			(Optional) axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             NdArray<double> stdValues = nanstd(inArray, inAxis);
@@ -4315,13 +4222,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns the number of bytes held by the array
-        //	
+        ///						Returns the number of bytes held by the array
+        ///	
         /// @param
-        //				None
+        ///				None
         /// @return
-        //				number of bytes
-        //
+        ///				number of bytes
+        ///
         static uint64 nbytes(const NdArray<dtype>& inArray)
         {
             return inArray.nbytes();
@@ -4329,19 +4236,18 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the array with the same data viewed with a 
-        //						different byte order. only works for integer types, 
-        //						floating point types will not compile and you will
-        //						be confused as to why...
-        //
-        //		
-        /// @param
-        //				inValue
-        //				Endianess
-        //				
+        ///						Return the array with the same data viewed with a 
+        ///						different byte order. only works for integer types, 
+        ///						floating point types will not compile and you will
+        ///						be confused as to why...
+        ///
+        ///		
+        /// @param				inValue
+        /// @param				Endianess
+        ///				
         /// @return
-        //				inValue
-        //
+        ///				inValue
+        ///
         static dtype newbyteorder(dtype inValue, Endian::Type inEndianess)
         {
             NdArray<dtype> valueArray = { inValue };
@@ -4350,19 +4256,18 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the array with the same data viewed with a 
-        //						different byte order. only works for integer types, 
-        //						floating point types will not compile and you will
-        //						be confused as to why...
-        //
-        //		
-        /// @param
-        //				NdArray
-        //				Endianess
-        //				
+        ///						Return the array with the same data viewed with a 
+        ///						different byte order. only works for integer types, 
+        ///						floating point types will not compile and you will
+        ///						be confused as to why...
+        ///
+        ///		
+        /// @param				NdArray
+        /// @param				Endianess
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian::Type inEndianess)
         {
             return std::move(inArray.newbyteorder(inEndianess));
@@ -4370,15 +4275,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Numerical negative, element-wise.
-        //
-        //		
+        ///						Numerical negative, element-wise.
+        ///
+        ///		
         /// @param
-        //				NdArray
-        //				
+        ///				NdArray
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> negative(const NdArray<dtype>& inArray)
         {
@@ -4388,16 +4293,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the indices of the flattened array of the 
-        //						elements that are non-zero.
-        //
-        //		
+        ///						Return the indices of the flattened array of the 
+        ///						elements that are non-zero.
+        ///
+        ///		
         /// @param
-        //				NdArray
-        //				
+        ///				NdArray
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<uint32> nonzero(const NdArray<dtype>& inArray)
         {
             return std::move(inArray.nonzero());
@@ -4405,16 +4310,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Matrix or vector norm.
-        //
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
-        //				
+        ///						Matrix or vector norm.
+        ///
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> norm(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
@@ -4423,16 +4327,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return (x1 != x2) element-wise.
-        //
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //				
+        ///						Return (x1 != x2) element-wise.
+        ///
+        ///		
+        /// @param			NdArray 1
+        /// @param			NdArray 2
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> not_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             return std::move(inArray1 != inArray2);
@@ -4440,13 +4343,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, filled with ones.
-        //		
+        ///						Return a new array of given shape and type, filled with ones.
+        ///		
         /// @param
-        //				square size
+        ///				square size
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> ones(uint32 inSquareSize)
         {
             return std::move(full(inSquareSize, static_cast<dtype>(1)));
@@ -4454,14 +4357,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, filled with ones.
-        //		
-        /// @param
-        //				numRows
-        //				numCols
+        ///						Return a new array of given shape and type, filled with ones.
+        ///		
+        /// @param			numRows
+        /// @param			numCols
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> ones(uint32 inNumRows, uint32 inNumCols)
         {
             return std::move(full(inNumRows, inNumCols, static_cast<dtype>(1)));
@@ -4469,13 +4371,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, filled with ones.
-        //		
+        ///						Return a new array of given shape and type, filled with ones.
+        ///		
         /// @param
-        //				Shape
+        ///				Shape
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> ones(const Shape& inShape)
         {
             return std::move(full(inShape, static_cast<dtype>(1)));
@@ -4483,13 +4385,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, filled with ones.
-        //		
+        ///						Return a new array of given shape and type, filled with ones.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray)
         {
@@ -4500,15 +4402,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Pads an array.
-        //		
-        /// @param
-        //				NdArray
-        //				pad width
-        //				pad value
+        ///						Pads an array.
+        ///		
+        /// @param				NdArray
+        /// @param				pad width
+        /// @param				pad value
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> pad(const NdArray<dtype>& inArray, uint16 inPadWidth, dtype inPadValue)
         {
             Shape inShape = inArray.shape();
@@ -4525,19 +4426,18 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Rearranges the elements in the array in such a way that 
-        //						value of the element in kth position is in the position it 
-        //						would be in a sorted array. All elements smaller than the kth 
-        //						element are moved before this element and all equal or greater 
-        //						are moved behind it. The ordering of the elements in the two 
-        //						partitions is undefined.
-        //		
-        /// @param
-        //				kth element
-        //				(Optional) Axis
+        ///						Rearranges the elements in the array in such a way that 
+        ///						value of the element in kth position is in the position it 
+        ///						would be in a sorted array. All elements smaller than the kth 
+        ///						element are moved before this element and all equal or greater 
+        ///						are moved behind it. The ordering of the elements in the two 
+        ///						partitions is undefined.
+        ///		
+        /// @param				kth element
+        /// @param				(Optional) Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis::Type inAxis = Axis::NONE)
         {
             NdArray<dtype> returnArray(inArray);
@@ -4547,21 +4447,20 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the qth percentile of the data along the specified axis.
-        //		
-        /// @param
-        //				NdArray
-        //				percentile, must be in the range [0, 100]
-        //				(Optional) axis
-        //				(Optional) interpolation method
-        //					linear: i + (j - i) * fraction, where fraction is the fractional part of the index surrounded by i and j.
-        //					lower : i.
-        //					higher : j.
-        //					nearest : i or j, whichever is nearest.
-        //					midpoint : (i + j) / 2.
+        ///						Compute the qth percentile of the data along the specified axis.
+        ///		
+        /// @param				NdArray
+        /// @param				percentile, must be in the range [0, 100]
+        /// @param				(Optional) axis
+        /// @param				(Optional) interpolation method
+        ///					linear: i + (j - i) * fraction, where fraction is the fractional part of the index surrounded by i and j.
+        ///					lower : i.
+        ///					higher : j.
+        ///					nearest : i or j, whichever is nearest.
+        ///					midpoint : (i + j) / 2.
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis::Type inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
         {
@@ -4688,14 +4587,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Raises the elements of the array to the input power
-        //		
-        /// @param
-        //				NdArray
-        //				exponent
+        ///						Raises the elements of the array to the input power
+        ///		
+        /// @param				NdArray
+        /// @param				exponent
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> power(const NdArray<dtype>& inArray, uint8 inExponent)
         {
@@ -4708,14 +4606,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Raises the elements of the array to the input powers
-        //		
-        /// @param
-        //				NdArray
-        //				NdArray
+        ///						Raises the elements of the array to the input powers
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> power(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
         {
@@ -4733,13 +4630,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Prints the array to the console.
-        //		
+        ///						Prints the array to the console.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				None
-        //
+        ///				None
+        ///
         static void print(const NdArray<dtype>& inArray)
         {
             std::cout << inArray;
@@ -4747,14 +4644,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the product of array elements over a given axis.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
+        ///						Return the product of array elements over a given axis.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> prod(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
@@ -4763,14 +4659,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Range of values (maximum - minimum) along an axis.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
+        ///						Range of values (maximum - minimum) along an axis.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.ptp(inAxis));
@@ -4778,16 +4673,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Replaces specified elements of an array with given values.
-        //						The indexing works on the flattened target array
-        //		
-        /// @param
-        //				NdArray
-        //				NdArray of indices
-        //				NdArray of values to put
+        ///						Replaces specified elements of an array with given values.
+        ///						The indexing works on the flattened target array
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray of indices
+        /// @param				NdArray of values to put
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype>& put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
         {
             inArray.put(inIndices, inValues);
@@ -4796,19 +4690,18 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Changes elements of an array based on conditional and input values.
-        //
-        //						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
-        //
-        //						If values is not the same size as a and mask then it will repeat.
-        //		
-        /// @param
-        //				NdArray
-        //				NdArray mask
-        //				scalar value to put
+        ///						Changes elements of an array based on conditional and input values.
+        ///
+        ///						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
+        ///
+        ///						If values is not the same size as a and mask then it will repeat.
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray mask
+        /// @param				scalar value to put
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
         {
             if (inArray.shape() != inMask.shape())
@@ -4829,19 +4722,18 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Changes elements of an array based on conditional and input values.
-        //
-        //						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
-        //
-        //						If values is not the same size as a and mask then it will repeat.
-        //		
-        /// @param
-        //				NdArray
-        //				NdArray mask
-        //				NdArray of values to put
+        ///						Changes elements of an array based on conditional and input values.
+        ///
+        ///						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
+        ///
+        ///						If values is not the same size as a and mask then it will repeat.
+        ///		
+        /// @param				NdArray
+        /// @param				NdArray mask
+        /// @param				NdArray of values to put
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
         {
             if (inArray.shape() != inMask.shape())
@@ -4865,14 +4757,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Convert angles from radians to degrees.
-        //		
+        ///						Convert angles from radians to degrees.
+        ///		
         /// @param
-        //				value
-        //
+        ///				value
+        ///
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double rad2deg(dtype inValue)
         {
             return inValue * 180.0 / Constants::pi;
@@ -4880,14 +4772,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Convert angles from radians to degrees.
-        //		
+        ///						Convert angles from radians to degrees.
+        ///		
         /// @param
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> rad2deg(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -4898,16 +4790,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the reciprocal of the argument, element-wise.
-        //
-        //						Calculates 1 / x.
-        //		
+        ///						Return the reciprocal of the argument, element-wise.
+        ///
+        ///						Calculates 1 / x.
+        ///		
         /// @param
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray)
         {
@@ -4922,15 +4814,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return remainder of division.
-        //		
-        /// @param
-        //				value 1
-        //				value 2
-        //
+        ///						Return remainder of division.
+        ///		
+        /// @param				value 1
+        /// @param				value 2
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static dtypeOut remainder(dtype inValue1, dtype inValue2)
         {
@@ -4939,15 +4830,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return element-wise remainder of division.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //
+        ///						Return element-wise remainder of division.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
@@ -4965,16 +4855,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Repeat elements of an array.
-        //		
-        /// @param
-        //				numRows
-        //				numCols
-        //				Shape
-        //
+        ///						Repeat elements of an array.
+        ///		
+        /// @param				numRows
+        /// @param				numCols
+        /// @param				Shape
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> repeat(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             return std::move(inArray.repeat(inNumRows, inNumCols));
@@ -4982,15 +4871,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Repeat elements of an array.
-        //		
-        /// @param
-        //				NdArray
-        //				Shape
-        //
+        ///						Repeat elements of an array.
+        ///		
+        /// @param				NdArray
+        /// @param				Shape
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> repeat(const NdArray<dtype>& inArray, const Shape& inRepeatShape)
         {
             return std::move(inArray.repeat(inRepeatShape));
@@ -4998,16 +4886,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Gives a new shape to an array without changing its data.
-        //		
-        /// @param
-        //				numRows
-        //				numCols
-        //				Shape, new Shape
-        //
+        ///						Gives a new shape to an array without changing its data.
+        ///		
+        /// @param				numRows
+        /// @param				numCols
+        /// @param				Shape, new Shape
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype>& reshape(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             inArray.reshape(inNumRows, inNumCols);
@@ -5016,15 +4903,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Gives a new shape to an array without changing its data.
-        //		
-        /// @param
-        //				NdArray
-        //				Shape, new Shape
-        //
+        ///						Gives a new shape to an array without changing its data.
+        ///		
+        /// @param				NdArray
+        /// @param				Shape, new Shape
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype>& reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
         {
             inArray.reshape(inNewShape);
@@ -5033,17 +4919,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Change shape and size of array in-place. All previous
-        //						data of the array is lost.
-        //		
-        /// @param
-        //				NdArray
-        //				numRows
-        //				numCols
-        //
+        ///						Change shape and size of array in-place. All previous
+        ///						data of the array is lost.
+        ///		
+        /// @param				NdArray
+        /// @param				numRows
+        /// @param				numCols
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             inArray.resizeFast(inNumRows, inNumCols);
@@ -5052,16 +4937,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Change shape and size of array in-place. All previous
-        //						data of the array is lost.
-        //		
-        /// @param
-        //				NdArray 
-        //				Shape, new Shape
-        //
+        ///						Change shape and size of array in-place. All previous
+        ///						data of the array is lost.
+        ///		
+        /// @param				NdArray 
+        /// @param				Shape, new Shape
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
         {
             inArray.resizeFast(inNewShape);
@@ -5070,19 +4954,18 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array with the specified shape. If new shape
-        //						is larger than old shape then array will be padded with zeros.
-        //						If new shape is smaller than the old shape then the data will
-        //						be discarded.
-        //		
-        /// @param
-        //				NdArray
-        //				numRows
-        //				numCols
-        //
+        ///						Return a new array with the specified shape. If new shape
+        ///						is larger than old shape then array will be padded with zeros.
+        ///						If new shape is smaller than the old shape then the data will
+        ///						be discarded.
+        ///		
+        /// @param				NdArray
+        /// @param				numRows
+        /// @param				numCols
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             inArray.resizeSlow(inNumRows, inNumCols);
@@ -5091,18 +4974,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array with the specified shape. If new shape
-        //						is larger than old shape then array will be padded with zeros.
-        //						If new shape is smaller than the old shape then the data will
-        //						be discarded.
-        //		
-        /// @param
-        //				NdArray 
-        //				Shape, new Shape
-        //
+        ///						Return a new array with the specified shape. If new shape
+        ///						is larger than old shape then array will be padded with zeros.
+        ///						If new shape is smaller than the old shape then the data will
+        ///						be discarded.
+        ///		
+        /// @param				NdArray 
+        /// @param				Shape, new Shape
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
         {
             inArray.resizeSlow(inNewShape);
@@ -5111,16 +4993,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Shift the bits of an integer to the right.
-        //
-        //		
-        /// @param
-        //				NdArray 
-        //				number of bits to sift
-        //				
+        ///						Shift the bits of an integer to the right.
+        ///
+        ///		
+        /// @param				NdArray 
+        /// @param				number of bits to sift
+        ///				
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> right_shift(const NdArray<dtype>& inArray, uint8 inNumBits)
         {
             return std::move(inArray >> inNumBits);
@@ -5128,14 +5009,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Round value to the nearest integer.
-        //		
+        ///						Round value to the nearest integer.
+        ///		
         /// @param
-        //				value 
-        //
+        ///				value 
+        ///
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype rint(dtype inValue)
         {
             return std::rint(inValue);
@@ -5143,14 +5024,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Round elements of the array to the nearest integer.
-        //		
+        ///						Round elements of the array to the nearest integer.
+        ///		
         /// @param
-        //				NdArray 
-        //
+        ///				NdArray 
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> rint(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -5161,16 +5042,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Roll array elements along a given axis.
-        //		
-        /// @param
-        //				NdArray 
-        //				elements to shift, positive means forward, negative means backwards
-        //				(Optional) axis
-        //
+        ///						Roll array elements along a given axis.
+        ///		
+        /// @param				NdArray 
+        /// @param				elements to shift, positive means forward, negative means backwards
+        /// @param				(Optional) axis
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis::Type inAxis = Axis::NONE)
         {
             switch (inAxis)
@@ -5235,15 +5115,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Rotate an array by 90 degrees counter clockwise in the plane.
-        //		
-        /// @param
-        //				NdArray 
-        //				the number of times to rotate 90 degrees
-        //
+        ///						Rotate an array by 90 degrees counter clockwise in the plane.
+        ///		
+        /// @param				NdArray 
+        /// @param				the number of times to rotate 90 degrees
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1)
         {
             inK %= 4;
@@ -5272,15 +5151,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Round value to the given number of decimals.
-        //		
-        /// @param
-        //				value 
-        //				the number of decimals
-        //
+        ///						Round value to the given number of decimals.
+        ///		
+        /// @param				value 
+        /// @param				the number of decimals
+        ///
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype round(dtype inValue, uint8 inDecimals)
         {
             NdArray<dtype> input = { inValue };
@@ -5289,15 +5167,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Round an array to the given number of decimals.
-        //		
-        /// @param
-        //				NdArray 
-        //				the number of decimals
-        //
+        ///						Round an array to the given number of decimals.
+        ///		
+        /// @param				NdArray 
+        /// @param				the number of decimals
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals)
         {
             return std::move(inArray.round(inDecimals));
@@ -5305,14 +5182,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Stack arrays in sequence vertically (row wise).
-        //
+        ///						Stack arrays in sequence vertically (row wise).
+        ///
         /// @param
-        //				{list} of arrays to stack
-        //
+        ///				{list} of arrays to stack
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
         {
             // first loop through to calculate the final size of the array
@@ -5355,16 +5232,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Find the set difference of two arrays.
-        //
-        //						Return the sorted, unique values in ar1 that are not in ar2.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
+        ///						Find the set difference of two arrays.
+        ///
+        ///						Return the sorted, unique values in ar1 that are not in ar2.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> setdiff1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             std::vector<dtype> res(inArray1.size() + inArray2.size());
@@ -5379,13 +5255,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the shape of the array
-        //		
+        ///						Return the shape of the array
+        ///		
         /// @param
-        //				NdArray 
+        ///				NdArray 
         /// @return
-        //				Shape
-        //
+        ///				Shape
+        ///
         static Shape shape(const NdArray<dtype>& inArray)
         {
             return inArray.shape();
@@ -5393,16 +5269,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns an element-wise indication of the sign of a number.
-        //
-        //						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0. 
-        //						nan is returned for nan inputs.
-        //		
+        ///						Returns an element-wise indication of the sign of a number.
+        ///
+        ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0. 
+        ///						nan is returned for nan inputs.
+        ///		
         /// @param
-        //				NdArray 
+        ///				NdArray 
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static int8 sign(dtype inValue)
         {
             if (inValue < 0)
@@ -5421,16 +5297,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns an element-wise indication of the sign of a number.
-        //
-        //						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0. 
-        //						nan is returned for nan inputs.
-        //		
+        ///						Returns an element-wise indication of the sign of a number.
+        ///
+        ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0. 
+        ///						nan is returned for nan inputs.
+        ///		
         /// @param
-        //				NdArray 
+        ///				NdArray 
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<int8> sign(const NdArray<dtype>& inArray)
         {
             NdArray<int8> returnArray(inArray.shape());
@@ -5441,13 +5317,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns element-wise True where signbit is set (less than zero).
-        //		
+        ///						Returns element-wise True where signbit is set (less than zero).
+        ///		
         /// @param
-        //				NdArray 
+        ///				NdArray 
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static bool signbit(dtype inValue)
         {
             return inValue < 0 ? true : false;
@@ -5455,13 +5331,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Returns element-wise True where signbit is set (less than zero).
-        //		
+        ///						Returns element-wise True where signbit is set (less than zero).
+        ///		
         /// @param
-        //				NdArray 
+        ///				NdArray 
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<bool> signbit(const NdArray<dtype>& inArray)
         {
             NdArray<bool> returnArray(inArray.shape());
@@ -5472,13 +5348,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric sine.
-        //		
+        ///						Trigonometric sine.
+        ///		
         /// @param
-        //				value 
+        ///				value 
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double sin(dtype inValue)
         {
             return std::sin(static_cast<double>(inValue));
@@ -5486,13 +5362,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Trigonometric sine, element-wise.
-        //		
+        ///						Trigonometric sine, element-wise.
+        ///		
         /// @param
-        //				NdArray 
+        ///				NdArray 
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> sin(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -5503,15 +5379,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the sinc function.
-        //
-        //						The sinc function is sin(pi*x) / (pi*x).
-        //		
+        ///						Return the sinc function.
+        ///
+        ///						The sinc function is sin(pi*x) / (pi*x).
+        ///		
         /// @param
-        //				value 
+        ///				value 
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double sinc(dtype inValue)
         {
             double input = static_cast<double>(inValue);
@@ -5520,15 +5396,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the sinc function.
-        //
-        //						The sinc function is sin(pi*x) / (pi*x).
-        //		
+        ///						Return the sinc function.
+        ///
+        ///						The sinc function is sin(pi*x) / (pi*x).
+        ///		
         /// @param
-        //				NdArray 
+        ///				NdArray 
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> sinc(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -5539,13 +5415,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Hyperbolic sine,.
-        //		
+        ///						Hyperbolic sine,.
+        ///		
         /// @param
-        //				value 
+        ///				value 
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double sinh(dtype inValue)
         {
             return std::sinh(static_cast<double>(inValue));
@@ -5553,13 +5429,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Hyperbolic sine, element-wise.
-        //		
+        ///						Hyperbolic sine, element-wise.
+        ///		
         /// @param
-        //				NdArray 
+        ///				NdArray 
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> sinh(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -5570,13 +5446,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the number of elements.
-        //		
+        ///						Return the number of elements.
+        ///		
         /// @param
-        //				uint32 
+        ///				uint32 
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static uint32 size(const NdArray<dtype>& inArray)
         {
             return inArray.size();
@@ -5584,14 +5460,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a sorted copy of an array.
-        //		
-        /// @param
-        //				NdArray 
-        //				(Optional) Axis
+        ///						Return a sorted copy of an array.
+        ///		
+        /// @param				NdArray 
+        /// @param				(Optional) Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> sort(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             NdArray<dtype> returnArray(inArray);
@@ -5601,13 +5476,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the positive square-root of a value.
-        //		
+        ///						Return the positive square-root of a value.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double sqrt(dtype inValue)
         {
             return std::sqrt(static_cast<double>(inValue));
@@ -5615,13 +5490,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the positive square-root of an array, element-wise.
-        //		
+        ///						Return the positive square-root of an array, element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> sqrt(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -5632,13 +5507,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the square of an array.
-        //		
+        ///						Return the square of an array.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype square(dtype inValue)
         {
             return Utils<dtype>::sqr(inValue);
@@ -5646,13 +5521,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the square of an array, element-wise.
-        //		
+        ///						Return the square of an array, element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> square(const NdArray<dtype>& inArray)
         {
             NdArray<dtype> returnArray(inArray.shape());
@@ -5663,14 +5538,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the standard deviation along the specified axis.
-        //		
-        /// @param
-        //				NdArray
-        //				Axis
+        ///						Compute the standard deviation along the specified axis.
+        ///		
+        /// @param				NdArray
+        /// @param				Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> std(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.std(inAxis));
@@ -5678,14 +5552,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Sum of array elements over a given axis.
-        //		
-        /// @param
-        //				NdArray
-        //				Axis
+        ///						Sum of array elements over a given axis.
+        ///		
+        /// @param				NdArray
+        /// @param				Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
@@ -5694,13 +5567,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Interchange two axes of an array.
-        //		
+        ///						Interchange two axes of an array.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> swapaxes(const NdArray<dtype>& inArray)
         {
             return std::move(inArray.swapaxes());
@@ -5708,13 +5581,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute tangent.
-        //		
+        ///						Compute tangent.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double tan(dtype inValue)
         {
             return std::tan(static_cast<double>(inValue));
@@ -5722,13 +5595,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute tangent element-wise.
-        //		
+        ///						Compute tangent element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> tan(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -5739,13 +5612,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute hyperbolic tangent.
-        //		
+        ///						Compute hyperbolic tangent.
+        ///		
         /// @param
-        //				value
+        ///				value
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static double tanh(dtype inValue)
         {
             return std::tanh(static_cast<double>(inValue));
@@ -5753,13 +5626,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute hyperbolic tangent element-wise.
-        //		
+        ///						Compute hyperbolic tangent element-wise.
+        ///		
         /// @param
-        //				NdArray
+        ///				NdArray
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> tanh(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -5770,15 +5643,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Construct an array by repeating A the number of times given by reps.
-        //		
-        /// @param
-        //				NdArray
-        //				numRows
-        //				numCols
+        ///						Construct an array by repeating A the number of times given by reps.
+        ///		
+        /// @param				NdArray
+        /// @param				numRows
+        /// @param				numCols
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> tile(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
         {
             return std::move(inArray.repeat(inNumRows, inNumCols));
@@ -5786,14 +5658,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Construct an array by repeating A the number of times given by reps.
-        //		
-        /// @param
-        //				NdArray
-        //				Shape
+        ///						Construct an array by repeating A the number of times given by reps.
+        ///		
+        /// @param				NdArray
+        /// @param				Shape
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps)
         {
             return std::move(inArray.repeat(inReps));
@@ -5801,17 +5672,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Write array to a file as text or binary (default)..
-        //						The data produced by this method can be recovered 
-        //						using the function fromfile().
-        //		
-        /// @param
-        //				NdArray
-        //				filename
-        //				Separator between array items for text output. If “” (empty), a binary file is written 
+        ///						Write array to a file as text or binary (default)..
+        ///						The data produced by this method can be recovered 
+        ///						using the function fromfile().
+        ///		
+        /// @param				NdArray
+        /// @param				filename
+        /// @param				Separator between array items for text output. If “” (empty), a binary file is written 
         /// @return
-        //				None
-        //
+        ///				None
+        ///
         static void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const std::string& inSep = "")
         {
             return inArray.tofile(inFilename, inSep);
@@ -5819,13 +5689,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Write flattened array to an STL vector
-        //		
+        ///						Write flattened array to an STL vector
+        ///		
         /// @param
-        //				NdArray 
+        ///				NdArray 
         /// @return
-        //				std::vector
-        //
+        ///				std::vector
+        ///
         static std::vector<dtype> toStlVector(const NdArray<dtype>& inArray)
         {
             return std::move(inArray.toStlVector());
@@ -5833,15 +5703,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the sum along diagonals of the array.
-        //		
-        /// @param
-        //				NdArray
-        //				Offset from main diaganol, default = 0, negative=above, positve=below
-        //				Axis
+        ///						Return the sum along diagonals of the array.
+        ///		
+        /// @param				NdArray
+        /// @param				Offset from main diaganol, default = 0, negative=above, positve=below
+        /// @param				Axis
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static dtypeOut trace(const NdArray<dtype>& inArray, uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW)
         {
@@ -5850,14 +5719,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Permute the dimensions of an array.
-        //		
+        ///						Permute the dimensions of an array.
+        ///		
         /// @param
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> transpose(const NdArray<dtype>& inArray)
         {
             return std::move(inArray.transpose());
@@ -5865,15 +5734,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Integrate along the given axis using the composite trapezoidal rule.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) Axis
-        //
+        ///						Integrate along the given axis using the composite trapezoidal rule.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) Axis
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> trapz(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
@@ -5882,16 +5750,15 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Integrate along the given axis using the composite trapezoidal rule.
-        //		
-        /// @param
-        //				NdArray x values
-        //				NdArray y values
-        //				(Optional) Axis
-        //
+        ///						Integrate along the given axis using the composite trapezoidal rule.
+        ///		
+        /// @param				NdArray x values
+        /// @param				NdArray y values
+        /// @param				(Optional) Axis
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         template<typename dtypeOut = double>
         static NdArray<dtypeOut> trapz(const NdArray<dtype>& inArrayX, const NdArray<dtype>& inArrayY, Axis::Type inAxis = Axis::NONE)
         {
@@ -5900,18 +5767,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						An array with ones at and below the given diagonal and zeros elsewhere.
-        //		
-        /// @param
-        //				N, number of rows and cols
-        //				Offset, the sub-diagonal at and below which the array is filled. 
-        //						k = 0 is the main diagonal, while k < 0 is below it, 
-        //						and k > 0 is above. The default is 0.
-        //				
-        //
+        ///						An array with ones at and below the given diagonal and zeros elsewhere.
+        ///		
+        /// @param				N, number of rows and cols
+        /// @param				Offset, the sub-diagonal at and below which the array is filled. 
+        ///						k = 0 is the main diagonal, while k < 0 is below it, 
+        ///						and k > 0 is above. The default is 0.
+        ///				
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> tri(uint32 inN, int32 inOffset = 0)
         {
             uint32 rowStart = 0;
@@ -5945,19 +5811,18 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						An array with ones at and below the given diagonal and zeros elsewhere.
-        //		
-        /// @param
-        //				N, number of rows
-        //				M, number of columns
-        //				Offset, the sub-diagonal at and below which the array is filled. 
-        //						k = 0 is the main diagonal, while k < 0 is below it, 
-        //						and k > 0 is above. The default is 0.
-        //				
-        //
+        ///						An array with ones at and below the given diagonal and zeros elsewhere.
+        ///		
+        /// @param				N, number of rows
+        /// @param				M, number of columns
+        /// @param				Offset, the sub-diagonal at and below which the array is filled. 
+        ///						k = 0 is the main diagonal, while k < 0 is below it, 
+        ///						and k > 0 is above. The default is 0.
+        ///				
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> tri(uint32 inN, uint32 inM, int32 inOffset = 0)
         {
             uint32 rowStart = 0;
@@ -5991,57 +5856,54 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Lower triangle of an array.
-        //
-        //						Return a copy of an array with elements above the k-th diagonal zeroed.
-        //		
-        /// @param
-        //				NdArray
-        //				Offset, the sub-diagonal at and below which the array is filled. 
-        //						k = 0 is the main diagonal, while k < 0 is below it, 
-        //						and k > 0 is above. The default is 0.
-        //				
-        //
+        ///						Lower triangle of an array.
+        ///
+        ///						Return a copy of an array with elements above the k-th diagonal zeroed.
+        ///		
+        /// @param				NdArray
+        /// @param				Offset, the sub-diagonal at and below which the array is filled. 
+        ///						k = 0 is the main diagonal, while k < 0 is below it, 
+        ///						and k > 0 is above. The default is 0.
+        ///				
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0)
         {
-            return std::move(NdArray<dtype>(0)); // TODO: FIX THIS!
+            return std::move(NdArray<dtype>(0)); /// TODO: FIX THIS!
         }
 
         //============================================================================
         // Method Description: 
-        //						Upper triangle of an array.
-        //
-        //						Return a copy of an array with elements below the k-th diagonal zeroed.
-        //		
-        /// @param
-        //				NdArray
-        //				Offset, the sub-diagonal at and below which the array is filled. 
-        //						k = 0 is the main diagonal, while k < 0 is below it, 
-        //						and k > 0 is above. The default is 0.
-        //				
-        //
+        ///						Upper triangle of an array.
+        ///
+        ///						Return a copy of an array with elements below the k-th diagonal zeroed.
+        ///		
+        /// @param				NdArray
+        /// @param				Offset, the sub-diagonal at and below which the array is filled. 
+        ///						k = 0 is the main diagonal, while k < 0 is below it, 
+        ///						and k > 0 is above. The default is 0.
+        ///				
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0)
         {
-            return std::move(NdArray<dtype>(0)); // TODO: FIX THIS!
+            return std::move(NdArray<dtype>(0)); /// TODO: FIX THIS!
         }
 
         //============================================================================
         // Method Description: 
-        //						Trim the leading and/or trailing zeros from a 1-D array or sequence.
-        //		
-        /// @param
-        //				NdArray
-        //				string, "f" = front, "b" = back, "fb" = front and back
-        //
+        ///						Trim the leading and/or trailing zeros from a 1-D array or sequence.
+        ///		
+        /// @param				NdArray
+        /// @param				string, "f" = front, "b" = back, "fb" = front and back
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim = "fb")
         {
             if (inTrim == "f")
@@ -6145,14 +6007,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the truncated value of the input.
-        //		
+        ///						Return the truncated value of the input.
+        ///		
         /// @param
-        //				value 
-        //
+        ///				value 
+        ///
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype trunc(dtype inValue)
         {
             return std::trunc(inValue);
@@ -6160,14 +6022,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return the truncated value of the input, element-wise.
-        //		
+        ///						Return the truncated value of the input, element-wise.
+        ///		
         /// @param
-        //				NdArray 
-        //
+        ///				NdArray 
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> trunc(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
@@ -6178,18 +6040,17 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Find the union of two arrays.
-        //
-        //						Return the unique, sorted array of values that are in 
-        //						either of the two input arrays.
-        //		
-        /// @param
-        //				NdArray 1
-        //				NdArray 2
-        //
+        ///						Find the union of two arrays.
+        ///
+        ///						Return the unique, sorted array of values that are in 
+        ///						either of the two input arrays.
+        ///		
+        /// @param				NdArray 1
+        /// @param				NdArray 2
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> union1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
         {
             if (inArray1.shape() != inArray2.shape())
@@ -6204,16 +6065,16 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Find the unique elements of an array.
-        //
-        //						Returns the sorted unique elements of an array.
-        //		
+        ///						Find the unique elements of an array.
+        ///
+        ///						Returns the sorted unique elements of an array.
+        ///		
         /// @param
-        //				NdArray 
-        //
+        ///				NdArray 
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> unique(const NdArray<dtype>& inArray)
         {
             std::set<dtype> theSet(inArray.cbegin(), inArray.cend());
@@ -6222,14 +6083,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Unwrap by changing deltas between values to 2*pi complement.
-        //		
+        ///						Unwrap by changing deltas between values to 2*pi complement.
+        ///		
         /// @param
-        //				value 
-        //
+        ///				value 
+        ///
         /// @return
-        //				value
-        //
+        ///				value
+        ///
         static dtype unwrap(dtype inValue)
         {
             if (inValue < 0)
@@ -6248,14 +6109,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Unwrap by changing deltas between values to 2*pi complement.
-        //		
+        ///						Unwrap by changing deltas between values to 2*pi complement.
+        ///		
         /// @param
-        //				NdArray 
-        //
+        ///				NdArray 
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> unwrap(const NdArray<dtype>& inArray)
         {
             NdArray<dtype> returnArray(inArray.shape());
@@ -6267,15 +6128,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the variance along the specified axis.
-        //		
-        /// @param
-        //				NdArray
-        //				(Optional) axis
-        //
+        ///						Compute the variance along the specified axis.
+        ///		
+        /// @param				NdArray
+        /// @param				(Optional) axis
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<double> var(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
         {
             return std::move(inArray.var(inAxis));
@@ -6283,14 +6143,14 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Compute the variance along the specified axis.
-        //		
+        ///						Compute the variance along the specified axis.
+        ///		
         /// @param
-        //				{list} of arrays to stack
-        //
+        ///				{list} of arrays to stack
+        ///
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> vstack(const std::initializer_list<NdArray<dtype> >& inArrayList)
         {
             return std::move(row_stack(inArrayList));
@@ -6298,13 +6158,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, filled with zeros.
-        //		
+        ///						Return a new array of given shape and type, filled with zeros.
+        ///		
         /// @param
-        //				square size
+        ///				square size
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> zeros(uint32 inSquareSize)
         {
             return std::move(full(inSquareSize, static_cast<dtype>(0)));
@@ -6312,14 +6172,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, filled with zeros.
-        //		
-        /// @param
-        //				numRows
-        //				numCols
+        ///						Return a new array of given shape and type, filled with zeros.
+        ///		
+        /// @param				numRows
+        /// @param				numCols
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NdArray<dtype> zeros(uint32 inNumRows, uint32 inNumCols)
         {
             return std::move(full(inNumRows, inNumCols, static_cast<dtype>(0)));
@@ -6327,13 +6186,13 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        //						Return a new array of given shape and type, filled with zeros.
-        //		
+        ///						Return a new array of given shape and type, filled with zeros.
+        ///		
         /// @param
-        //				Shape
+        ///				Shape
         /// @return
-        //				NdArray
-        //
+        ///				NdArray
+        ///
         static NumC::NdArray<dtype> zeros(const NumC::Shape& inShape)
         {
             return std::move(full(inShape, static_cast<dtype>(0)));

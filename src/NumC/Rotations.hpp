@@ -867,12 +867,12 @@ namespace NumC
 
             //============================================================================
             // Method Description: 
-            ///						io operator for the Quaternion class
+            ///						IO operator for the Quaternion class
             ///		
-            /// @param      std::ostream
+            /// @param      ostream
             /// @param 		Quaternion
             /// @return
-            ///				std::ostream&
+            ///				ostream&
             ///
             friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat)
             {
