@@ -76,6 +76,8 @@ $(function() {
 <div class="title">NumC::NdArray&lt; dtype &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_nd_array_8hpp_source.html">NdArray.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -420,7 +422,12 @@ Friends</h2></td></tr>
 <tr class="memitem:a176583bd05fbbbf2f7ef9984cac49f76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a176583bd05fbbbf2f7ef9984cac49f76">operator&gt;&gt;=</a> (<a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;lhs, uint8 inNumBits)</td></tr>
 <tr class="separator:a176583bd05fbbbf2f7ef9984cac49f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename dtype&gt;<br />
+class NumC::NdArray&lt; dtype &gt;</h3>
+
+<p>Holds 1D and 2D arrays, the main work horse of the <a class="el" href="namespace_num_c.html">NumC</a> library </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4c4327e80cf320d9e634462e3f58b7b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c4327e80cf320d9e634462e3f58b7b5">&#9670;&nbsp;</a></span>NdArray() <span class="overload">[1/12]</span></h2>
 
@@ -445,12 +452,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Defualt Constructor, not very usefull...</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -479,12 +488,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">square</td><td>number or rows and columns </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -523,12 +534,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">number</td><td>of rows, </td></tr>
+    <tr><td class="paramname">number</td><td>of columns </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -557,12 +571,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -591,12 +607,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">1D</td><td>initializer list </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -625,12 +643,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">2D</td><td>initializer list </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -659,12 +679,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">std::vector</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -693,12 +715,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">std::set</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -737,12 +761,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">const_iterator</td><td>first </td></tr>
+    <tr><td class="paramname">const_iterator</td><td>second </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -781,12 +808,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">char*</td><td>to beginning of buffer </td></tr>
+    <tr><td class="paramname">number</td><td>of bytes </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -815,12 +845,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Copy Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -849,12 +881,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Move Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -882,12 +916,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Destructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -917,12 +953,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns True if all elements evaluate to True or non zero</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -951,12 +989,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns True if any elements evaluate to True or non zero</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -985,12 +1025,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return indices of the maximum values along the given axis. Only the first index is returned.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1019,12 +1061,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return indices of the minimum values along the given axis. Only the first index is returned.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1053,12 +1097,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns the indices that would sort this array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1088,12 +1134,14 @@ template&lt;typename dtypeOut  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns a copy of the array, cast to a specified type.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1122,12 +1170,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>1D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">array</td><td>index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -1156,12 +1206,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const 1D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">array</td><td>index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -1200,12 +1252,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>2D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td>index </td></tr>
+    <tr><td class="paramname">col</td><td>index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -1244,12 +1299,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const 2D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td>index </td></tr>
+    <tr><td class="paramname">col</td><td>index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -1278,12 +1336,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const 1D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Ndarray </dd></dl>
 
 </div>
 </div>
@@ -1322,12 +1382,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const 2D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">Row</td><td><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a>, </td></tr>
+    <tr><td class="paramname">Column</td><td><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Ndarray </dd></dl>
 
 </div>
 </div>
@@ -1366,12 +1429,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const 2D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">Row</td><td><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a>, </td></tr>
+    <tr><td class="paramname">Column</td><td>index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Ndarray </dd></dl>
 
 </div>
 </div>
@@ -1410,12 +1476,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const 2D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">Row</td><td>index </td></tr>
+    <tr><td class="paramname">Column</td><td><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Ndarray </dd></dl>
 
 </div>
 </div>
@@ -1443,12 +1512,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>iterator to the beginning of the flattened array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 
 </div>
 </div>
@@ -1477,12 +1548,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>iterator to the beginning of the input row</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 
 </div>
 </div>
@@ -1510,12 +1583,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Swap the bytes of the array elements in place</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1543,12 +1618,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const iterator to the beginning of the flattened array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
 </div>
@@ -1577,12 +1654,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const iterator to the beginning of the input row</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
 </div>
@@ -1610,12 +1689,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const iterator to 1 past the end of the flattened array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
 </div>
@@ -1644,12 +1725,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const iterator to 1 past the end of the input row</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
 </div>
@@ -1688,12 +1771,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array whose values are limited to [min, max].</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">min</td><td>value to clip to </td></tr>
+    <tr><td class="paramname">max</td><td>value to clip to </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>clipped value </dd></dl>
 
 </div>
 </div>
@@ -1732,12 +1818,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns whether or not a value is included the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -1765,12 +1854,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return a copy of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1801,12 +1892,14 @@ template&lt;typename dtypeOut  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the cumulative product of the elements along the given axis.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1837,12 +1930,14 @@ template&lt;typename dtypeOut  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the cumulative sum of the elements along the given axis.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1881,12 +1976,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return specified diagonals.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">Offset</td><td>of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. </td></tr>
+    <tr><td class="paramname">(Optional)</td><td>axis the offset is applied to </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -1917,12 +2015,15 @@ template&lt;typename dtypeOut  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Dot product of two arrays.</p>
+<p>For 2-D arrays it is equivalent to matrix multiplication, and for 1-D arrays to inner product of vectors.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>dot product </dd></dl>
 
 </div>
 </div>
@@ -1951,12 +2052,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Dump a binary file of the array to the specified file. The array can be read back with or NumC::load.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">filename</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -1984,12 +2087,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>iterator to 1 past the end of the flattened array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 
 </div>
 </div>
@@ -2018,12 +2123,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>iterator to the 1 past end of the row</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 
 </div>
 </div>
@@ -2051,12 +2158,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the NdArrays endianess</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Endian::Type </dd></dl>
 
 </div>
 </div>
@@ -2085,12 +2194,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Fill the array with a scalar value.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">fill</td><td>value </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -2118,12 +2229,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return a copy of the array collapsed into one dimension.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2151,12 +2264,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return if the <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> is empty. ie the default construtor was used.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
 </div>
 </div>
@@ -2184,12 +2299,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Copy an element of an array to a standard C++ scalar and return it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>array element </dd></dl>
 
 </div>
 </div>
@@ -2218,12 +2335,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the maximum along a given axis.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2252,12 +2371,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the mean along a given axis.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2286,12 +2407,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the median along a given axis. Does NOT average if array has even number of elements!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2320,12 +2443,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the minimum along a given axis.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2353,12 +2478,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns the number of bytes held by the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>number of bytes </dd></dl>
 
 </div>
 </div>
@@ -2387,12 +2514,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the array with the same data viewed with a different byte order. only works for integer types, floating point types will not compile and you will be confused as to why...</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">Endian::Type</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2420,12 +2549,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the indices of the flattened array of the elements that are non-zero.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2456,12 +2587,14 @@ template&lt;typename dtypeOut  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns the norm of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>norm </dd></dl>
 
 </div>
 </div>
@@ -2489,12 +2622,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Fills the array with ones</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -2523,12 +2658,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise and of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2557,12 +2694,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise and of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2591,12 +2730,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise and of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2625,12 +2766,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise and of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2659,12 +2802,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2693,12 +2838,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2727,12 +2874,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the modulus of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2761,12 +2910,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Modulus of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2795,12 +2946,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the modulus of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2829,12 +2982,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Modulus of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -2873,12 +3028,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>2D access operator with no bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td>index </td></tr>
+    <tr><td class="paramname">col</td><td>index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -2917,12 +3075,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const 2D access operator with no bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td>index </td></tr>
+    <tr><td class="paramname">col</td><td>index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -2961,12 +3122,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>2D Slicing access operator with no bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">Row</td><td><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
+    <tr><td class="paramname">Col</td><td><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3005,12 +3169,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>2D Slicing access operator with no bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">Row</td><td><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
+    <tr><td class="paramname">Col</td><td>index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3049,12 +3216,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>2D Slicing access operator with no bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">Row</td><td>index </td></tr>
+    <tr><td class="paramname">Col</td><td><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3083,12 +3253,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Multiplies the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3117,12 +3289,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Muliplies the scalar to the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3151,12 +3325,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Multiplies the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3185,12 +3361,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Muliplies the scalar to the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3219,12 +3397,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Adds the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3253,12 +3433,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Adds the scalar to the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3286,12 +3468,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>prefix incraments the elements of an array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3320,12 +3504,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>postfix increments the elements of an array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3354,12 +3540,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Adds the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3388,12 +3576,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Adds the scalar to the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3422,12 +3612,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Subtracts the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3456,12 +3648,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Subtracts the scalar from the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3489,12 +3683,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>prefix decrements the elements of an array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3523,12 +3719,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>postfix decrements the elements of an array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3557,12 +3755,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Subtracts the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3591,12 +3791,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Subtracts the scalar from the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3625,12 +3827,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Divides the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3659,12 +3863,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Divides the array by the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3693,12 +3899,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Divides the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3727,12 +3935,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Divides the array by the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3761,12 +3971,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison the array and a scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3795,12 +4007,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3829,12 +4043,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison the array and a scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3863,12 +4079,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3897,12 +4115,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Assignment operator, performs a deep copy</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -3931,12 +4151,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Move operator, performs a deep move</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -3965,12 +4187,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -3999,12 +4223,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4033,12 +4259,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison the array and a scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4067,12 +4295,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4101,12 +4331,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison the array and a scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4135,12 +4367,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4169,12 +4403,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>1D access operator with no bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">array</td><td>index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -4203,12 +4439,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>const 1D access operator with no bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">array</td><td>index </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -4237,12 +4475,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>1D Slicing access operator with no bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4271,12 +4511,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise xor of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -4305,12 +4547,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise xor of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4339,12 +4583,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise xor of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -4373,12 +4619,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise xor of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4407,12 +4655,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise or of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4441,12 +4691,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise or of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4475,12 +4727,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise or of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4509,12 +4763,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise or of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">scalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4542,12 +4798,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Takes the bitwise not of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4586,12 +4844,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Rearranges the elements in the array in such a way that value of the element in kth position is in the position it would be in a sorted array. All elements smaller than the kth element are moved before this element and all equal or greater are moved behind it. The ordering of the elements in the two partitions is undefined.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">kth</td><td>element </td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -4619,12 +4880,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Prints the array to the console.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -4655,12 +4918,14 @@ template&lt;typename dtypeOut  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the product of the array elements over the given axis</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4689,12 +4954,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Peak to peak (maximum - minimum) value along a given axis.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -4733,12 +5000,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>set the flat index element to the value</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">index</td><td></td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -4783,12 +5053,16 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>set the 2D row/col index element to the value</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td>index </td></tr>
+    <tr><td class="paramname">col</td><td>index </td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -4827,12 +5101,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set a.flat[n] = values for all n in indices.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>of indices </td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -4871,12 +5148,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set a.flat[n] = values[n] for all n in indices.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>of indices </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>of values </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -4915,12 +5195,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set the slice indices to the input value.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>1D </td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -4959,12 +5242,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set the slice indices to the input values.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>1D </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>of values </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5009,12 +5295,16 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set the slice indices to the input values.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>rows </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>cols </td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5059,12 +5349,16 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set the slice indices to the input values.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>rows </td></tr>
+    <tr><td class="paramname">col</td><td>index </td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5109,12 +5403,16 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set the slice indices to the input values.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td>index </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>cols </td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5159,12 +5457,16 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set the slice indices to the input values.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>rows </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>cols </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>of values </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5209,12 +5511,16 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set the slice indices to the input values.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>rows </td></tr>
+    <tr><td class="paramname">col</td><td>index </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>of values </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5259,12 +5565,16 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set the slice indices to the input values.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">row</td><td>index </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>cols </td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></td><td>of values </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5303,12 +5613,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Repeat elements of an array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">numRows</td><td></td></tr>
+    <tr><td class="paramname">numCols</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -5337,12 +5650,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Repeat elements of an array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -5381,12 +5696,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array containing the same data with a new shape.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5415,12 +5732,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns an array containing the same data with a new shape.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5459,12 +5778,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Change shape and size of array in-place. All previous data of the array is lost.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5493,12 +5814,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Change shape and size of array in-place. All previous data of the array is lost.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5537,12 +5860,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return a new array with the specified shape. If new shape is larger than old shape then array will be padded with zeros. If new shape is smaller than the old shape then the data will be discarded.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">num</td><td>Rows </td></tr>
+    <tr><td class="paramname">num</td><td>Cols </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5571,12 +5897,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return a new array with the specified shape. If new shape is larger than old shape then array will be padded with zeros. If new shape is smaller than the old shape then the data will be discarded.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5605,12 +5933,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return a with each element rounded to the given number of decimals.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">number</td><td>of decimals to round to </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -5638,12 +5968,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the shape of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a> </dd></dl>
 
 </div>
 </div>
@@ -5671,12 +6003,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the size of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>size </dd></dl>
 
 </div>
 </div>
@@ -5705,12 +6039,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Sort an array, in-place.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>size </dd></dl>
 
 </div>
 </div>
@@ -5739,12 +6075,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the std along a given axis.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -5772,12 +6110,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>returns the <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> as a string representation</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
 </div>
 </div>
@@ -5808,12 +6148,14 @@ template&lt;typename dtypeOut  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the sum of the array elements over the given axis.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -5841,12 +6183,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Interchange two axes of an array. Equivalent to transpose...</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -5885,12 +6229,15 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Write array to a file as text or binary (default).. The data produced by this method can be recovered using the function fromfile().</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">filename</td><td></td></tr>
+    <tr><td class="paramname">Separator</td><td>between array items for text output. If "" (empty), a binary file is written </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5918,12 +6265,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Write flattened array to an STL vector</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5964,12 +6313,15 @@ template&lt;typename dtypeOut  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Return the sum along diagonals of the array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">Offset</td><td>of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. </td></tr>
+    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_num_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> to offset from</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5997,12 +6349,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Tranpose the rows and columns of an array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -6031,12 +6385,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns the variance of the array elements, along given axis.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">(Optional)</td><td>Axes </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -6064,12 +6420,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Fills the array with zeros</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -6109,12 +6467,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Bitshifts left the elements of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -6153,12 +6513,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>io operator for the <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> class</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -6197,12 +6559,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Bitshifts left the elements of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -6241,12 +6605,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Bitshifts right the elements of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -6285,12 +6651,14 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Bitshifts right the elements of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
+    <tr><td class="paramname">None</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
