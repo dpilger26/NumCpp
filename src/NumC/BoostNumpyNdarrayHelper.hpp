@@ -421,7 +421,7 @@ namespace NumC
     /// @return     NdArray<T>
     ///
     template<typename dtype>
-    NdArray<dtype> boostToNumC(const boost::python::numpy::ndarray& inArray)
+    NdArray<dtype> boostToNumC(boost::python::numpy::ndarray& inArray)
     {
         BoostNdarrayHelper helper(&inArray);
         if (helper.numDimensions() > 2)
