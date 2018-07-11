@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -48,6 +56,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_num_c_1_1_coordinates_1_1_r_a.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,11 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="namespace_num_c_1_1_coordinates.html">Coordinates</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html">RA</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -87,16 +107,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5196fabc335bfd0d3e13c11b9955a08c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a694c2d0953ae789b22ca8ea031381b51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html#a694c2d0953ae789b22ca8ea031381b51">RA</a> (dtype inDegrees)</td></tr>
 <tr class="separator:a694c2d0953ae789b22ca8ea031381b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66f414e4b65e1fa0bc1fc76b3b9c6794"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html#a66f414e4b65e1fa0bc1fc76b3b9c6794">RA</a> (uint8 inHours, uint8 inMinutes, dtype inSeconds)</td></tr>
+<tr class="memitem:a66f414e4b65e1fa0bc1fc76b3b9c6794"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html#a66f414e4b65e1fa0bc1fc76b3b9c6794">RA</a> (<a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inHours, <a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inMinutes, dtype inSeconds)</td></tr>
 <tr class="separator:a66f414e4b65e1fa0bc1fc76b3b9c6794"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9f6cfbab0fd4def322392631f917846"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut &gt; </td></tr>
 <tr class="memitem:ab9f6cfbab0fd4def322392631f917846"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html">RA</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html#ab9f6cfbab0fd4def322392631f917846">astype</a> ()</td></tr>
 <tr class="separator:ab9f6cfbab0fd4def322392631f917846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6993ec638e01b191d7fd7b8c88476a99"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html#a6993ec638e01b191d7fd7b8c88476a99">degrees</a> () const</td></tr>
 <tr class="separator:a6993ec638e01b191d7fd7b8c88476a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85d46e5a7b720aaf60fcf424c0d303e6"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html#a85d46e5a7b720aaf60fcf424c0d303e6">hours</a> () const</td></tr>
+<tr class="memitem:a85d46e5a7b720aaf60fcf424c0d303e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html#a85d46e5a7b720aaf60fcf424c0d303e6">hours</a> () const</td></tr>
 <tr class="separator:a85d46e5a7b720aaf60fcf424c0d303e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e5fab3e72129828e77f4d19750398d4"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html#a6e5fab3e72129828e77f4d19750398d4">minutes</a> () const</td></tr>
+<tr class="memitem:a6e5fab3e72129828e77f4d19750398d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html#a6e5fab3e72129828e77f4d19750398d4">minutes</a> () const</td></tr>
 <tr class="separator:a6e5fab3e72129828e77f4d19750398d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0f38f418cc2ee6cf3f320cc85567d55"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html#ae0f38f418cc2ee6cf3f320cc85567d55">operator!=</a> (const <a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html">RA</a>&lt; dtype &gt; &amp;inRhs) const</td></tr>
 <tr class="separator:ae0f38f418cc2ee6cf3f320cc85567d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,13 +227,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html">NumC::Coordinates::RA</a>&lt; dtype &gt;::<a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html">RA</a> </td>
           <td>(</td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inHours</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inMinutes</em>, </td>
         </tr>
         <tr>
@@ -332,7 +352,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8 <a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html">NumC::Coordinates::RA</a>&lt; dtype &gt;::hours </td>
+          <td class="memname"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> <a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html">NumC::Coordinates::RA</a>&lt; dtype &gt;::hours </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -367,7 +387,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8 <a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html">NumC::Coordinates::RA</a>&lt; dtype &gt;::minutes </td>
+          <td class="memname"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> <a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html">NumC::Coordinates::RA</a>&lt; dtype &gt;::minutes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -654,11 +674,15 @@ template&lt;typename dtype&gt; </div>
 <li><a class="el" href="_coordinates_8hpp_source.html">Coordinates.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="namespace_num_c_1_1_coordinates.html">Coordinates</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_coordinates_1_1_r_a.html">RA</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
 </body>
 </html>

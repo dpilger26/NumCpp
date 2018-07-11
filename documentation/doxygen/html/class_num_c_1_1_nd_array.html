@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -48,6 +56,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_num_c_1_1_nd_array.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,11 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
@@ -84,20 +104,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a445cec326684b0066bddae07ba06eddf"><td class="memItemLeft" align="right" valign="top"><a id="a445cec326684b0066bddae07ba06eddf"></a>
-typedef const dtype *&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></td></tr>
+<tr class="memitem:a445cec326684b0066bddae07ba06eddf"><td class="memItemLeft" align="right" valign="top">typedef const dtype *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a></td></tr>
 <tr class="separator:a445cec326684b0066bddae07ba06eddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49cd61f019d7106a40ffdb9c3ee98f08"><td class="memItemLeft" align="right" valign="top"><a id="a49cd61f019d7106a40ffdb9c3ee98f08"></a>
-typedef dtype *&#160;</td><td class="memItemRight" valign="bottom"><b>iterator</b></td></tr>
+<tr class="memitem:a49cd61f019d7106a40ffdb9c3ee98f08"><td class="memItemLeft" align="right" valign="top">typedef dtype *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a49cd61f019d7106a40ffdb9c3ee98f08">iterator</a></td></tr>
 <tr class="separator:a49cd61f019d7106a40ffdb9c3ee98f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4c4327e80cf320d9e634462e3f58b7b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a4c4327e80cf320d9e634462e3f58b7b5">NdArray</a> ()</td></tr>
 <tr class="separator:a4c4327e80cf320d9e634462e3f58b7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe77a5faaf421f07b4fd08228fc7214b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#abe77a5faaf421f07b4fd08228fc7214b">NdArray</a> (uint32 inSquareSize)</td></tr>
+<tr class="memitem:abe77a5faaf421f07b4fd08228fc7214b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#abe77a5faaf421f07b4fd08228fc7214b">NdArray</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSquareSize)</td></tr>
 <tr class="separator:abe77a5faaf421f07b4fd08228fc7214b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18907a1e1a932dea4d133656c765a2c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a18907a1e1a932dea4d133656c765a2c8">NdArray</a> (uint32 inNumRows, uint32 inNumCols)</td></tr>
+<tr class="memitem:a18907a1e1a932dea4d133656c765a2c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a18907a1e1a932dea4d133656c765a2c8">NdArray</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumRows, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumCols)</td></tr>
 <tr class="separator:a18907a1e1a932dea4d133656c765a2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfb0bb5fe5fc12c2c0aa66c0c403278f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#abfb0bb5fe5fc12c2c0aa66c0c403278f">NdArray</a> (const <a class="el" href="class_num_c_1_1_shape.html">Shape</a> &amp;inShape)</td></tr>
 <tr class="separator:abfb0bb5fe5fc12c2c0aa66c0c403278f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,9 +127,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a57378e996158f31c5be873eca046109c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbe7b33c1cea9849ea292e91becd833b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#acbe7b33c1cea9849ea292e91becd833b">NdArray</a> (const std::set&lt; dtype &gt; &amp;inSet)</td></tr>
 <tr class="separator:acbe7b33c1cea9849ea292e91becd833b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27533d2cbbffc8572e42c17027f5b2f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a27533d2cbbffc8572e42c17027f5b2f1">NdArray</a> (const_iterator inFirst, const_iterator inLast)</td></tr>
+<tr class="memitem:a27533d2cbbffc8572e42c17027f5b2f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a27533d2cbbffc8572e42c17027f5b2f1">NdArray</a> (<a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a> inFirst, <a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a> inLast)</td></tr>
 <tr class="separator:a27533d2cbbffc8572e42c17027f5b2f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeddcb74a88d62e836396af0e807d44c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aeddcb74a88d62e836396af0e807d44c1">NdArray</a> (const dtype *inBeginning, uint32 inNumBytes)</td></tr>
+<tr class="memitem:aeddcb74a88d62e836396af0e807d44c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aeddcb74a88d62e836396af0e807d44c1">NdArray</a> (const dtype *inBeginning, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumBytes)</td></tr>
 <tr class="separator:aeddcb74a88d62e836396af0e807d44c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7353baf388187d002e2064c6d450017"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aa7353baf388187d002e2064c6d450017">NdArray</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inOtherArray)</td></tr>
 <tr class="separator:aa7353baf388187d002e2064c6d450017"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,73 +137,73 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a76b42e2d2e0224861d57baea97c65cb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13491803f306cd0908fd443e80074148"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a13491803f306cd0908fd443e80074148">~NdArray</a> ()</td></tr>
 <tr class="separator:a13491803f306cd0908fd443e80074148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f8be2e4a1cb8e27f56ea7f9487fd029"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a4f8be2e4a1cb8e27f56ea7f9487fd029">all</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a4f8be2e4a1cb8e27f56ea7f9487fd029"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a4f8be2e4a1cb8e27f56ea7f9487fd029">all</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a4f8be2e4a1cb8e27f56ea7f9487fd029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab303bf5141b46d0025b73a036804d6c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ab303bf5141b46d0025b73a036804d6c3">any</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:ab303bf5141b46d0025b73a036804d6c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ab303bf5141b46d0025b73a036804d6c3">any</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:ab303bf5141b46d0025b73a036804d6c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54f2e7b6313e1d3641cf23285842dfdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; uint32 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a54f2e7b6313e1d3641cf23285842dfdf">argmax</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a54f2e7b6313e1d3641cf23285842dfdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a54f2e7b6313e1d3641cf23285842dfdf">argmax</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a54f2e7b6313e1d3641cf23285842dfdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2029b396cc040cd9666b31d0ebfce0aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; uint32 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2029b396cc040cd9666b31d0ebfce0aa">argmin</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a2029b396cc040cd9666b31d0ebfce0aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2029b396cc040cd9666b31d0ebfce0aa">argmin</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a2029b396cc040cd9666b31d0ebfce0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ce62796f80e2d3f19969ee3f75a6f18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; uint32 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a3ce62796f80e2d3f19969ee3f75a6f18">argsort</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a3ce62796f80e2d3f19969ee3f75a6f18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a3ce62796f80e2d3f19969ee3f75a6f18">argsort</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a3ce62796f80e2d3f19969ee3f75a6f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03c8719dffd012fa234b4ae2feae2ed2"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
 <tr class="memitem:a03c8719dffd012fa234b4ae2feae2ed2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a03c8719dffd012fa234b4ae2feae2ed2">astype</a> () const</td></tr>
 <tr class="separator:a03c8719dffd012fa234b4ae2feae2ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad50a883233561c1b8345678ae5b1480e"><td class="memItemLeft" align="right" valign="top">dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ad50a883233561c1b8345678ae5b1480e">at</a> (int32 inIndex)</td></tr>
+<tr class="memitem:ad50a883233561c1b8345678ae5b1480e"><td class="memItemLeft" align="right" valign="top">dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ad50a883233561c1b8345678ae5b1480e">at</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inIndex)</td></tr>
 <tr class="separator:ad50a883233561c1b8345678ae5b1480e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d705eda354e6632dd457d3a33456073"><td class="memItemLeft" align="right" valign="top">const dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a4d705eda354e6632dd457d3a33456073">at</a> (int32 inIndex) const</td></tr>
+<tr class="memitem:a4d705eda354e6632dd457d3a33456073"><td class="memItemLeft" align="right" valign="top">const dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a4d705eda354e6632dd457d3a33456073">at</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inIndex) const</td></tr>
 <tr class="separator:a4d705eda354e6632dd457d3a33456073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b7551b29fd04ad88102ae279357057a"><td class="memItemLeft" align="right" valign="top">dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a1b7551b29fd04ad88102ae279357057a">at</a> (int32 inRowIndex, int32 inColIndex)</td></tr>
+<tr class="memitem:a1b7551b29fd04ad88102ae279357057a"><td class="memItemLeft" align="right" valign="top">dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a1b7551b29fd04ad88102ae279357057a">at</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inRowIndex, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inColIndex)</td></tr>
 <tr class="separator:a1b7551b29fd04ad88102ae279357057a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a0ece5152ba2a14d4e9ae0566499052"><td class="memItemLeft" align="right" valign="top">const dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2a0ece5152ba2a14d4e9ae0566499052">at</a> (int32 inRowIndex, int32 inColIndex) const</td></tr>
+<tr class="memitem:a2a0ece5152ba2a14d4e9ae0566499052"><td class="memItemLeft" align="right" valign="top">const dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2a0ece5152ba2a14d4e9ae0566499052">at</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inRowIndex, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inColIndex) const</td></tr>
 <tr class="separator:a2a0ece5152ba2a14d4e9ae0566499052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2be747f5c745a8a70fc1e036c912ec4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2be747f5c745a8a70fc1e036c912ec4a">at</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inSlice) const</td></tr>
 <tr class="separator:a2be747f5c745a8a70fc1e036c912ec4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45b3ca6d928b673c97bd9e2792a71706"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a45b3ca6d928b673c97bd9e2792a71706">at</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice) const</td></tr>
 <tr class="separator:a45b3ca6d928b673c97bd9e2792a71706"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa81e931f772bb2a452e77cfa6760f45c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aa81e931f772bb2a452e77cfa6760f45c">at</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, int32 inColIndex) const</td></tr>
+<tr class="memitem:aa81e931f772bb2a452e77cfa6760f45c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aa81e931f772bb2a452e77cfa6760f45c">at</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inColIndex) const</td></tr>
 <tr class="separator:aa81e931f772bb2a452e77cfa6760f45c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab54ef20be682805145902d979e9a0c44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ab54ef20be682805145902d979e9a0c44">at</a> (int32 inRowIndex, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice) const</td></tr>
+<tr class="memitem:ab54ef20be682805145902d979e9a0c44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ab54ef20be682805145902d979e9a0c44">at</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inRowIndex, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice) const</td></tr>
 <tr class="separator:ab54ef20be682805145902d979e9a0c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bba56461121f422750bd6b7a69bd9c4"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a3bba56461121f422750bd6b7a69bd9c4">begin</a> ()</td></tr>
+<tr class="memitem:a3bba56461121f422750bd6b7a69bd9c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html#a49cd61f019d7106a40ffdb9c3ee98f08">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a3bba56461121f422750bd6b7a69bd9c4">begin</a> ()</td></tr>
 <tr class="separator:a3bba56461121f422750bd6b7a69bd9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cca558bd443f861482a6856980fc80f"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a6cca558bd443f861482a6856980fc80f">begin</a> (uint32 inRow)</td></tr>
+<tr class="memitem:a6cca558bd443f861482a6856980fc80f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html#a49cd61f019d7106a40ffdb9c3ee98f08">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a6cca558bd443f861482a6856980fc80f">begin</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inRow)</td></tr>
 <tr class="separator:a6cca558bd443f861482a6856980fc80f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a847dd08abd0ccc23ee792ab503cf60c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a847dd08abd0ccc23ee792ab503cf60c1">byteswap</a> ()</td></tr>
 <tr class="separator:a847dd08abd0ccc23ee792ab503cf60c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac80d7125ea62fcd159e40387c2389081"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ac80d7125ea62fcd159e40387c2389081">cbegin</a> () const</td></tr>
+<tr class="memitem:ac80d7125ea62fcd159e40387c2389081"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ac80d7125ea62fcd159e40387c2389081">cbegin</a> () const</td></tr>
 <tr class="separator:ac80d7125ea62fcd159e40387c2389081"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15d151b34c7fa94d5710f07fe2327663"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a15d151b34c7fa94d5710f07fe2327663">cbegin</a> (uint32 inRow) const</td></tr>
+<tr class="memitem:a15d151b34c7fa94d5710f07fe2327663"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a15d151b34c7fa94d5710f07fe2327663">cbegin</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inRow) const</td></tr>
 <tr class="separator:a15d151b34c7fa94d5710f07fe2327663"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7299d5d8949b5348dde9d05f96f20b59"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a7299d5d8949b5348dde9d05f96f20b59">cend</a> () const</td></tr>
+<tr class="memitem:a7299d5d8949b5348dde9d05f96f20b59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a7299d5d8949b5348dde9d05f96f20b59">cend</a> () const</td></tr>
 <tr class="separator:a7299d5d8949b5348dde9d05f96f20b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0ec9dc7cfc8b4aaf2b89a4d05832c73"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ab0ec9dc7cfc8b4aaf2b89a4d05832c73">cend</a> (uint32 inRow) const</td></tr>
+<tr class="memitem:ab0ec9dc7cfc8b4aaf2b89a4d05832c73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ab0ec9dc7cfc8b4aaf2b89a4d05832c73">cend</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inRow) const</td></tr>
 <tr class="separator:ab0ec9dc7cfc8b4aaf2b89a4d05832c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e01615d14c68380987be493adf55258"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a0e01615d14c68380987be493adf55258">clip</a> (dtype inMin, dtype inMax) const</td></tr>
 <tr class="separator:a0e01615d14c68380987be493adf55258"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a539de1546f457bf67a4c61188d783504"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a539de1546f457bf67a4c61188d783504">contains</a> (dtype inValue, Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a539de1546f457bf67a4c61188d783504"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a539de1546f457bf67a4c61188d783504">contains</a> (dtype inValue, <a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a539de1546f457bf67a4c61188d783504"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cac8d729a4ea624fd4512fc51b331e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a1cac8d729a4ea624fd4512fc51b331e9">copy</a> ()</td></tr>
 <tr class="separator:a1cac8d729a4ea624fd4512fc51b331e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a963d6a129add991c1f0a7658a4cfd4"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
-<tr class="memitem:a2a963d6a129add991c1f0a7658a4cfd4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2a963d6a129add991c1f0a7658a4cfd4">cumprod</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a2a963d6a129add991c1f0a7658a4cfd4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2a963d6a129add991c1f0a7658a4cfd4">cumprod</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a2a963d6a129add991c1f0a7658a4cfd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2124ddf2c54e5c2c59763c1010d7592d"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
-<tr class="memitem:a2124ddf2c54e5c2c59763c1010d7592d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2124ddf2c54e5c2c59763c1010d7592d">cumsum</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a2124ddf2c54e5c2c59763c1010d7592d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2124ddf2c54e5c2c59763c1010d7592d">cumsum</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a2124ddf2c54e5c2c59763c1010d7592d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96b353eeb4cf46de14b1ad1c277f5060"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a96b353eeb4cf46de14b1ad1c277f5060">diagonal</a> (uint32 inOffset=0, Axis::Type inAxis=Axis::ROW) const</td></tr>
+<tr class="memitem:a96b353eeb4cf46de14b1ad1c277f5060"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a96b353eeb4cf46de14b1ad1c277f5060">diagonal</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inOffset=0, <a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a392f74a34b6718b6d219cb2a08894feb">Axis::ROW</a>) const</td></tr>
 <tr class="separator:a96b353eeb4cf46de14b1ad1c277f5060"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b557f69722874eceb23bae1ce11aa07"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
 <tr class="memitem:a8b557f69722874eceb23bae1ce11aa07"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a8b557f69722874eceb23bae1ce11aa07">dot</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inOtherArray) const</td></tr>
 <tr class="separator:a8b557f69722874eceb23bae1ce11aa07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a647c9f590512193ad0de8257b1143396"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a647c9f590512193ad0de8257b1143396">dump</a> (const std::string &amp;inFilename) const</td></tr>
 <tr class="separator:a647c9f590512193ad0de8257b1143396"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe62fb75f8608717d211997f86d73735"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#abe62fb75f8608717d211997f86d73735">end</a> ()</td></tr>
+<tr class="memitem:abe62fb75f8608717d211997f86d73735"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html#a49cd61f019d7106a40ffdb9c3ee98f08">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#abe62fb75f8608717d211997f86d73735">end</a> ()</td></tr>
 <tr class="separator:abe62fb75f8608717d211997f86d73735"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d80422e72f05dc0af9945ee091ae261"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a9d80422e72f05dc0af9945ee091ae261">end</a> (uint32 inRow)</td></tr>
+<tr class="memitem:a9d80422e72f05dc0af9945ee091ae261"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html#a49cd61f019d7106a40ffdb9c3ee98f08">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a9d80422e72f05dc0af9945ee091ae261">end</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inRow)</td></tr>
 <tr class="separator:a9d80422e72f05dc0af9945ee091ae261"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb277ffe6553d9c77f2c86e62fe96945"><td class="memItemLeft" align="right" valign="top">Endian::Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#acb277ffe6553d9c77f2c86e62fe96945">endianess</a> () const</td></tr>
+<tr class="memitem:acb277ffe6553d9c77f2c86e62fe96945"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_num_c_1_1_endian.html#ab667001489f67f8a96f328f0a9c351fa">Endian::Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#acb277ffe6553d9c77f2c86e62fe96945">endianess</a> () const</td></tr>
 <tr class="separator:acb277ffe6553d9c77f2c86e62fe96945"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2fe95342a32bcf98b7961499b2e4378"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aa2fe95342a32bcf98b7961499b2e4378">fill</a> (dtype inFillValue)</td></tr>
 <tr class="separator:aa2fe95342a32bcf98b7961499b2e4378"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -195,22 +213,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af21818e8cf4a9c0938a3f444894d0fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3be50d8f34980d81b51bdf25d09ffdfb"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a3be50d8f34980d81b51bdf25d09ffdfb">item</a> () const</td></tr>
 <tr class="separator:a3be50d8f34980d81b51bdf25d09ffdfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae080f0343d72279ca5f5e51722bf2f4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ae080f0343d72279ca5f5e51722bf2f4b">max</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:ae080f0343d72279ca5f5e51722bf2f4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ae080f0343d72279ca5f5e51722bf2f4b">max</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:ae080f0343d72279ca5f5e51722bf2f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4176e740965e272fa24fda54dd2e875"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#af4176e740965e272fa24fda54dd2e875">mean</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:af4176e740965e272fa24fda54dd2e875"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#af4176e740965e272fa24fda54dd2e875">mean</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:af4176e740965e272fa24fda54dd2e875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ac6430930f379b06f650db8ca7aa62b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a8ac6430930f379b06f650db8ca7aa62b">median</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a8ac6430930f379b06f650db8ca7aa62b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a8ac6430930f379b06f650db8ca7aa62b">median</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a8ac6430930f379b06f650db8ca7aa62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f4c77688334d3760f4df54137ce9c32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a1f4c77688334d3760f4df54137ce9c32">min</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a1f4c77688334d3760f4df54137ce9c32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a1f4c77688334d3760f4df54137ce9c32">min</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a1f4c77688334d3760f4df54137ce9c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68b69a2bce03b4a10961c51fff965522"><td class="memItemLeft" align="right" valign="top">uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a68b69a2bce03b4a10961c51fff965522">nbytes</a> () const</td></tr>
+<tr class="memitem:a68b69a2bce03b4a10961c51fff965522"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#a22306a0884a815781c5b147415f6d817">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a68b69a2bce03b4a10961c51fff965522">nbytes</a> () const</td></tr>
 <tr class="separator:a68b69a2bce03b4a10961c51fff965522"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a992b403fa64d2d3c4516b0ca9328de66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a992b403fa64d2d3c4516b0ca9328de66">newbyteorder</a> (Endian::Type inEndianess) const</td></tr>
+<tr class="memitem:a992b403fa64d2d3c4516b0ca9328de66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a992b403fa64d2d3c4516b0ca9328de66">newbyteorder</a> (<a class="el" href="struct_num_c_1_1_endian.html#ab667001489f67f8a96f328f0a9c351fa">Endian::Type</a> inEndianess) const</td></tr>
 <tr class="separator:a992b403fa64d2d3c4516b0ca9328de66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0a3b09f956b37105f51728f43fedc75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; uint32 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aa0a3b09f956b37105f51728f43fedc75">nonzero</a> () const</td></tr>
+<tr class="memitem:aa0a3b09f956b37105f51728f43fedc75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aa0a3b09f956b37105f51728f43fedc75">nonzero</a> () const</td></tr>
 <tr class="separator:aa0a3b09f956b37105f51728f43fedc75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47c3cf20b6d6c9836c8f44cd20db19a2"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
-<tr class="memitem:a47c3cf20b6d6c9836c8f44cd20db19a2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a47c3cf20b6d6c9836c8f44cd20db19a2">norm</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a47c3cf20b6d6c9836c8f44cd20db19a2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a47c3cf20b6d6c9836c8f44cd20db19a2">norm</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a47c3cf20b6d6c9836c8f44cd20db19a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad4dd497617c112f0651c063101abf3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aad4dd497617c112f0651c063101abf3f">ones</a> ()</td></tr>
 <tr class="separator:aad4dd497617c112f0651c063101abf3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,15 +252,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4d0842ab19ac2b3e65b28499cccc1607"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36721fa821483a1f74598a51c7a84f60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a36721fa821483a1f74598a51c7a84f60">operator%=</a> (dtype inScalar)</td></tr>
 <tr class="separator:a36721fa821483a1f74598a51c7a84f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae169bd3c7ad2bd3254c8317c173bb83b"><td class="memItemLeft" align="right" valign="top">dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ae169bd3c7ad2bd3254c8317c173bb83b">operator()</a> (int32 inRowIndex, int32 inColIndex)</td></tr>
+<tr class="memitem:ae169bd3c7ad2bd3254c8317c173bb83b"><td class="memItemLeft" align="right" valign="top">dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ae169bd3c7ad2bd3254c8317c173bb83b">operator()</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inRowIndex, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inColIndex)</td></tr>
 <tr class="separator:ae169bd3c7ad2bd3254c8317c173bb83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e7b94b3396715c3d6a3befc24b907e3"><td class="memItemLeft" align="right" valign="top">const dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a1e7b94b3396715c3d6a3befc24b907e3">operator()</a> (int32 inRowIndex, int32 inColIndex) const</td></tr>
+<tr class="memitem:a1e7b94b3396715c3d6a3befc24b907e3"><td class="memItemLeft" align="right" valign="top">const dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a1e7b94b3396715c3d6a3befc24b907e3">operator()</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inRowIndex, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inColIndex) const</td></tr>
 <tr class="separator:a1e7b94b3396715c3d6a3befc24b907e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aba19daad3acef73ee1538ea75c67cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a1aba19daad3acef73ee1538ea75c67cd">operator()</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice) const</td></tr>
 <tr class="separator:a1aba19daad3acef73ee1538ea75c67cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc89e90ee2777842c911f640c8d86228"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#abc89e90ee2777842c911f640c8d86228">operator()</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, int32 inColIndex) const</td></tr>
+<tr class="memitem:abc89e90ee2777842c911f640c8d86228"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#abc89e90ee2777842c911f640c8d86228">operator()</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inColIndex) const</td></tr>
 <tr class="separator:abc89e90ee2777842c911f640c8d86228"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f395ba86e934cc3291c6dbb1f89c13e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a6f395ba86e934cc3291c6dbb1f89c13e">operator()</a> (int32 inRowIndex, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice) const</td></tr>
+<tr class="memitem:a6f395ba86e934cc3291c6dbb1f89c13e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a6f395ba86e934cc3291c6dbb1f89c13e">operator()</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inRowIndex, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice) const</td></tr>
 <tr class="separator:a6f395ba86e934cc3291c6dbb1f89c13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c3d42b830320dfd322e71757cb7e001"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a7c3d42b830320dfd322e71757cb7e001">operator*</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inOtherArray) const</td></tr>
 <tr class="separator:a7c3d42b830320dfd322e71757cb7e001"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -308,9 +326,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0d67e0665db97abe686599cb0a9d0196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a954c60e9d86bf650cc4a58953fce1e59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a954c60e9d86bf650cc4a58953fce1e59">operator&gt;=</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inOtherArray) const</td></tr>
 <tr class="separator:a954c60e9d86bf650cc4a58953fce1e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2691e9a00d2312da23cb97bb22fcddc9"><td class="memItemLeft" align="right" valign="top">dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2691e9a00d2312da23cb97bb22fcddc9">operator[]</a> (int32 inIndex)</td></tr>
+<tr class="memitem:a2691e9a00d2312da23cb97bb22fcddc9"><td class="memItemLeft" align="right" valign="top">dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2691e9a00d2312da23cb97bb22fcddc9">operator[]</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inIndex)</td></tr>
 <tr class="separator:a2691e9a00d2312da23cb97bb22fcddc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1304c70c1a2360b370792a6be37e94cd"><td class="memItemLeft" align="right" valign="top">const dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a1304c70c1a2360b370792a6be37e94cd">operator[]</a> (int32 inIndex) const</td></tr>
+<tr class="memitem:a1304c70c1a2360b370792a6be37e94cd"><td class="memItemLeft" align="right" valign="top">const dtype &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a1304c70c1a2360b370792a6be37e94cd">operator[]</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inIndex) const</td></tr>
 <tr class="separator:a1304c70c1a2360b370792a6be37e94cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae59cd422917912b1f58e66af33f7a5e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ae59cd422917912b1f58e66af33f7a5e2">operator[]</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inSlice) const</td></tr>
 <tr class="separator:ae59cd422917912b1f58e66af33f7a5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -332,22 +350,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8b5adc0e2a4dc3b86a31103bc74810df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d84b394bbbe64d9e05f6e2246f83bee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a9d84b394bbbe64d9e05f6e2246f83bee">operator~</a> () const</td></tr>
 <tr class="separator:a9d84b394bbbe64d9e05f6e2246f83bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff67329d4dc3c27b160649ead4e1f30e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aff67329d4dc3c27b160649ead4e1f30e">partition</a> (uint32 inKth, Axis::Type inAxis=Axis::NONE)</td></tr>
+<tr class="memitem:aff67329d4dc3c27b160649ead4e1f30e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aff67329d4dc3c27b160649ead4e1f30e">partition</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inKth, <a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>)</td></tr>
 <tr class="separator:aff67329d4dc3c27b160649ead4e1f30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4326a363b8f016fc72ba4ec22485f9de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a4326a363b8f016fc72ba4ec22485f9de">print</a> () const</td></tr>
 <tr class="separator:a4326a363b8f016fc72ba4ec22485f9de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8ed6e901ba5ef37797047b4bbf67b73"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
-<tr class="memitem:ab8ed6e901ba5ef37797047b4bbf67b73"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ab8ed6e901ba5ef37797047b4bbf67b73">prod</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:ab8ed6e901ba5ef37797047b4bbf67b73"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ab8ed6e901ba5ef37797047b4bbf67b73">prod</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:ab8ed6e901ba5ef37797047b4bbf67b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa591a54d03a0b7e4169a693431cc0900"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aa591a54d03a0b7e4169a693431cc0900">ptp</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:aa591a54d03a0b7e4169a693431cc0900"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aa591a54d03a0b7e4169a693431cc0900">ptp</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:aa591a54d03a0b7e4169a693431cc0900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1f5bf7ebbf9b9941e07a72371bf521b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ac1f5bf7ebbf9b9941e07a72371bf521b">put</a> (int32 inIndex, dtype inValue)</td></tr>
+<tr class="memitem:ac1f5bf7ebbf9b9941e07a72371bf521b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ac1f5bf7ebbf9b9941e07a72371bf521b">put</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inIndex, dtype inValue)</td></tr>
 <tr class="separator:ac1f5bf7ebbf9b9941e07a72371bf521b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37be8fed0a6dd4573377ca5c1e43265c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a37be8fed0a6dd4573377ca5c1e43265c">put</a> (int32 inRow, int32 inCol, dtype inValue)</td></tr>
+<tr class="memitem:a37be8fed0a6dd4573377ca5c1e43265c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a37be8fed0a6dd4573377ca5c1e43265c">put</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inRow, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inCol, dtype inValue)</td></tr>
 <tr class="separator:a37be8fed0a6dd4573377ca5c1e43265c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35f20063d37b86c903c470f0fa91dae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a35f20063d37b86c903c470f0fa91dae3">put</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; uint32 &gt; &amp;inIndices, dtype inValue)</td></tr>
+<tr class="memitem:a35f20063d37b86c903c470f0fa91dae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a35f20063d37b86c903c470f0fa91dae3">put</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> &gt; &amp;inIndices, dtype inValue)</td></tr>
 <tr class="separator:a35f20063d37b86c903c470f0fa91dae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bd27656a5a052f4f1757881bb8c5117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a5bd27656a5a052f4f1757881bb8c5117">put</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; uint32 &gt; &amp;inIndices, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inValues)</td></tr>
+<tr class="memitem:a5bd27656a5a052f4f1757881bb8c5117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a5bd27656a5a052f4f1757881bb8c5117">put</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> &gt; &amp;inIndices, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inValues)</td></tr>
 <tr class="separator:a5bd27656a5a052f4f1757881bb8c5117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50cae04d1e231ad496053c30f99650e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a50cae04d1e231ad496053c30f99650e0">put</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inSlice, dtype inValue)</td></tr>
 <tr class="separator:a50cae04d1e231ad496053c30f99650e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -355,46 +373,46 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aacf22eb97ab4c78b8fd021baf8d0b144"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96e788a4524cbf562f57a4b7b4c559f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a96e788a4524cbf562f57a4b7b4c559f7">put</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice, dtype inValue)</td></tr>
 <tr class="separator:a96e788a4524cbf562f57a4b7b4c559f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33006436a1f26df0fc60919444899270"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a33006436a1f26df0fc60919444899270">put</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, int32 inColIndex, dtype inValue)</td></tr>
+<tr class="memitem:a33006436a1f26df0fc60919444899270"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a33006436a1f26df0fc60919444899270">put</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inColIndex, dtype inValue)</td></tr>
 <tr class="separator:a33006436a1f26df0fc60919444899270"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ee8abf9530df801c091cc6ed7c4fe89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2ee8abf9530df801c091cc6ed7c4fe89">put</a> (int32 inRowIndex, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice, dtype inValue)</td></tr>
+<tr class="memitem:a2ee8abf9530df801c091cc6ed7c4fe89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2ee8abf9530df801c091cc6ed7c4fe89">put</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inRowIndex, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice, dtype inValue)</td></tr>
 <tr class="separator:a2ee8abf9530df801c091cc6ed7c4fe89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f02539960c15a726e69dfefade76986"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a0f02539960c15a726e69dfefade76986">put</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inValues)</td></tr>
 <tr class="separator:a0f02539960c15a726e69dfefade76986"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ac10180b5ea5aed6c044012e74ca4fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a0ac10180b5ea5aed6c044012e74ca4fe">put</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, int32 inColIndex, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inValues)</td></tr>
+<tr class="memitem:a0ac10180b5ea5aed6c044012e74ca4fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a0ac10180b5ea5aed6c044012e74ca4fe">put</a> (const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inRowSlice, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inColIndex, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inValues)</td></tr>
 <tr class="separator:a0ac10180b5ea5aed6c044012e74ca4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13f162dc541b9dcad9e38e00afe0ab02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a13f162dc541b9dcad9e38e00afe0ab02">put</a> (int32 inRowIndex, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inValues)</td></tr>
+<tr class="memitem:a13f162dc541b9dcad9e38e00afe0ab02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a13f162dc541b9dcad9e38e00afe0ab02">put</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inRowIndex, const <a class="el" href="class_num_c_1_1_slice.html">Slice</a> &amp;inColSlice, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inValues)</td></tr>
 <tr class="separator:a13f162dc541b9dcad9e38e00afe0ab02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2314d88fd8d3c7adb25bc1331996d248"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2314d88fd8d3c7adb25bc1331996d248">repeat</a> (uint32 inNumRows, uint32 inNumCols) const</td></tr>
+<tr class="memitem:a2314d88fd8d3c7adb25bc1331996d248"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2314d88fd8d3c7adb25bc1331996d248">repeat</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumRows, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumCols) const</td></tr>
 <tr class="separator:a2314d88fd8d3c7adb25bc1331996d248"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe4566bcc50f89abad438ff8606dc735"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#afe4566bcc50f89abad438ff8606dc735">repeat</a> (const <a class="el" href="class_num_c_1_1_shape.html">Shape</a> &amp;inRepeatShape) const</td></tr>
 <tr class="separator:afe4566bcc50f89abad438ff8606dc735"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55fbd9259848930ce641e62069c82bce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a55fbd9259848930ce641e62069c82bce">reshape</a> (uint32 inNumRows, uint32 inNumCols)</td></tr>
+<tr class="memitem:a55fbd9259848930ce641e62069c82bce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a55fbd9259848930ce641e62069c82bce">reshape</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumRows, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumCols)</td></tr>
 <tr class="separator:a55fbd9259848930ce641e62069c82bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12296c59b04435b329317d2137c5e86e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a12296c59b04435b329317d2137c5e86e">reshape</a> (const <a class="el" href="class_num_c_1_1_shape.html">Shape</a> &amp;inShape)</td></tr>
 <tr class="separator:a12296c59b04435b329317d2137c5e86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a46a3ea9c292d315d6dc2e6381d2e0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a6a46a3ea9c292d315d6dc2e6381d2e0f">resizeFast</a> (uint32 inNumRows, uint32 inNumCols)</td></tr>
+<tr class="memitem:a6a46a3ea9c292d315d6dc2e6381d2e0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a6a46a3ea9c292d315d6dc2e6381d2e0f">resizeFast</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumRows, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumCols)</td></tr>
 <tr class="separator:a6a46a3ea9c292d315d6dc2e6381d2e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2426f7ae3429f859e12e61f64965c81c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2426f7ae3429f859e12e61f64965c81c">resizeFast</a> (const <a class="el" href="class_num_c_1_1_shape.html">Shape</a> &amp;inShape)</td></tr>
 <tr class="separator:a2426f7ae3429f859e12e61f64965c81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe49f888c39334d1a743f39fe45dc5ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#abe49f888c39334d1a743f39fe45dc5ea">resizeSlow</a> (uint32 inNumRows, uint32 inNumCols)</td></tr>
+<tr class="memitem:abe49f888c39334d1a743f39fe45dc5ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#abe49f888c39334d1a743f39fe45dc5ea">resizeSlow</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumRows, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inNumCols)</td></tr>
 <tr class="separator:abe49f888c39334d1a743f39fe45dc5ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a73a3515f3be49f89af26ae3103c2a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a5a73a3515f3be49f89af26ae3103c2a8">resizeSlow</a> (const <a class="el" href="class_num_c_1_1_shape.html">Shape</a> &amp;inShape)</td></tr>
 <tr class="separator:a5a73a3515f3be49f89af26ae3103c2a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac083fe73fd750871618990f44b3a854d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ac083fe73fd750871618990f44b3a854d">round</a> (uint8 inNumDecimals=0) const</td></tr>
+<tr class="memitem:ac083fe73fd750871618990f44b3a854d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ac083fe73fd750871618990f44b3a854d">round</a> (<a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inNumDecimals=0) const</td></tr>
 <tr class="separator:ac083fe73fd750871618990f44b3a854d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa73e539af091f6a8f4830300101cd50b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_shape.html">Shape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aa73e539af091f6a8f4830300101cd50b">shape</a> () const</td></tr>
 <tr class="separator:aa73e539af091f6a8f4830300101cd50b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedee1cbe27b3a3ff31b06d0003d69632"><td class="memItemLeft" align="right" valign="top">uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aedee1cbe27b3a3ff31b06d0003d69632">size</a> () const</td></tr>
+<tr class="memitem:aedee1cbe27b3a3ff31b06d0003d69632"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aedee1cbe27b3a3ff31b06d0003d69632">size</a> () const</td></tr>
 <tr class="separator:aedee1cbe27b3a3ff31b06d0003d69632"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae7e14bb192456a85f253bc359625042"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aae7e14bb192456a85f253bc359625042">sort</a> (Axis::Type inAxis=Axis::NONE)</td></tr>
+<tr class="memitem:aae7e14bb192456a85f253bc359625042"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#aae7e14bb192456a85f253bc359625042">sort</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>)</td></tr>
 <tr class="separator:aae7e14bb192456a85f253bc359625042"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f7450b2a02a7399a9fa69cbd5fa8005"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2f7450b2a02a7399a9fa69cbd5fa8005">std</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a2f7450b2a02a7399a9fa69cbd5fa8005"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a2f7450b2a02a7399a9fa69cbd5fa8005">std</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a2f7450b2a02a7399a9fa69cbd5fa8005"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a405e8c1f1acb2abb77c0d505be554cea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a405e8c1f1acb2abb77c0d505be554cea">str</a> () const</td></tr>
 <tr class="separator:a405e8c1f1acb2abb77c0d505be554cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6424afd8a7039fc8f42a1e0c45e73b77"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
-<tr class="memitem:a6424afd8a7039fc8f42a1e0c45e73b77"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a6424afd8a7039fc8f42a1e0c45e73b77">sum</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a6424afd8a7039fc8f42a1e0c45e73b77"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a6424afd8a7039fc8f42a1e0c45e73b77">sum</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a6424afd8a7039fc8f42a1e0c45e73b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe86fdb5637da58ba7630ff9051cafd2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#afe86fdb5637da58ba7630ff9051cafd2">swapaxes</a> () const</td></tr>
 <tr class="separator:afe86fdb5637da58ba7630ff9051cafd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -403,26 +421,26 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6c0fc5c26b9d536c8cbb2c344fb32125"><td class="memItemLeft" align="right" valign="top">std::vector&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a6c0fc5c26b9d536c8cbb2c344fb32125">toStlVector</a> () const</td></tr>
 <tr class="separator:a6c0fc5c26b9d536c8cbb2c344fb32125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23fa05a861a45be62bb4c7650ecebcb3"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
-<tr class="memitem:a23fa05a861a45be62bb4c7650ecebcb3"><td class="memTemplItemLeft" align="right" valign="top">dtypeOut&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a23fa05a861a45be62bb4c7650ecebcb3">trace</a> (uint16 inOffset=0, Axis::Type inAxis=Axis::ROW) const</td></tr>
+<tr class="memitem:a23fa05a861a45be62bb4c7650ecebcb3"><td class="memTemplItemLeft" align="right" valign="top">dtypeOut&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a23fa05a861a45be62bb4c7650ecebcb3">trace</a> (<a class="el" href="namespace_num_c.html#a870ab72deafe3efd4eb63e6a2e63a236">uint16</a> inOffset=0, <a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a392f74a34b6718b6d219cb2a08894feb">Axis::ROW</a>) const</td></tr>
 <tr class="separator:a23fa05a861a45be62bb4c7650ecebcb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a6a59611e0138b624030d30f362f8ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a3a6a59611e0138b624030d30f362f8ac">transpose</a> () const</td></tr>
 <tr class="separator:a3a6a59611e0138b624030d30f362f8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b56db8e1e80782412cee85c277ca614"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a5b56db8e1e80782412cee85c277ca614">var</a> (Axis::Type inAxis=Axis::NONE) const</td></tr>
+<tr class="memitem:a5b56db8e1e80782412cee85c277ca614"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a5b56db8e1e80782412cee85c277ca614">var</a> (<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a> inAxis=<a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a5b56db8e1e80782412cee85c277ca614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5a6ca9e5aed16a5dc6ea3965f96124c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ac5a6ca9e5aed16a5dc6ea3965f96124c">zeros</a> ()</td></tr>
 <tr class="separator:ac5a6ca9e5aed16a5dc6ea3965f96124c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ad870c7e142d724ed1a984e4e0998d871"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ad870c7e142d724ed1a984e4e0998d871">operator&lt;&lt;</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;lhs, uint8 inNumBits)</td></tr>
+<tr class="memitem:ad870c7e142d724ed1a984e4e0998d871"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ad870c7e142d724ed1a984e4e0998d871">operator&lt;&lt;</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;lhs, <a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inNumBits)</td></tr>
 <tr class="separator:ad870c7e142d724ed1a984e4e0998d871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bc4555bca4773adf8f4e51ca73c13ed"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a7bc4555bca4773adf8f4e51ca73c13ed">operator&lt;&lt;</a> (std::ostream &amp;inOStream, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray)</td></tr>
 <tr class="separator:a7bc4555bca4773adf8f4e51ca73c13ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad35a1fb99d88618e4446403e9f77d228"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ad35a1fb99d88618e4446403e9f77d228">operator&lt;&lt;=</a> (<a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;lhs, uint8 inNumBits)</td></tr>
+<tr class="memitem:ad35a1fb99d88618e4446403e9f77d228"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ad35a1fb99d88618e4446403e9f77d228">operator&lt;&lt;=</a> (<a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;lhs, <a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inNumBits)</td></tr>
 <tr class="separator:ad35a1fb99d88618e4446403e9f77d228"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab15a0eab1b334b204ab5dd780c35435a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ab15a0eab1b334b204ab5dd780c35435a">operator&gt;&gt;</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;lhs, uint8 inNumBits)</td></tr>
+<tr class="memitem:ab15a0eab1b334b204ab5dd780c35435a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#ab15a0eab1b334b204ab5dd780c35435a">operator&gt;&gt;</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;lhs, <a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inNumBits)</td></tr>
 <tr class="separator:ab15a0eab1b334b204ab5dd780c35435a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a176583bd05fbbbf2f7ef9984cac49f76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a176583bd05fbbbf2f7ef9984cac49f76">operator&gt;&gt;=</a> (<a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;lhs, uint8 inNumBits)</td></tr>
+<tr class="memitem:a176583bd05fbbbf2f7ef9984cac49f76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_nd_array.html#a176583bd05fbbbf2f7ef9984cac49f76">operator&gt;&gt;=</a> (<a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;lhs, <a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inNumBits)</td></tr>
 <tr class="separator:a176583bd05fbbbf2f7ef9984cac49f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -430,7 +448,40 @@ Friends</h2></td></tr>
 class NumC::NdArray&lt; dtype &gt;</h3>
 
 <p>Holds 1D and 2D arrays, the main work horse of the <a class="el" href="namespace_num_c.html">NumC</a> library. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a445cec326684b0066bddae07ba06eddf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a445cec326684b0066bddae07ba06eddf">&#9670;&nbsp;</a></span>const_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef const dtype* <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::<a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49cd61f019d7106a40ffdb9c3ee98f08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49cd61f019d7106a40ffdb9c3ee98f08">&#9670;&nbsp;</a></span>iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef dtype* <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::<a class="el" href="class_num_c_1_1_nd_array.html#a49cd61f019d7106a40ffdb9c3ee98f08">iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4c4327e80cf320d9e634462e3f58b7b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c4327e80cf320d9e634462e3f58b7b5">&#9670;&nbsp;</a></span>NdArray() <span class="overload">[1/12]</span></h2>
 
@@ -480,7 +531,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::<a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSquareSize</em></td><td>)</td>
           <td></td>
         </tr>
@@ -516,13 +567,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::<a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumRows</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumCols</em>&#160;</td>
         </tr>
         <tr>
@@ -743,13 +794,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::<a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a> </td>
           <td>(</td>
-          <td class="paramtype">const_iterator&#160;</td>
+          <td class="paramtype"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a>&#160;</td>
           <td class="paramname"><em>inFirst</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const_iterator&#160;</td>
+          <td class="paramtype"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a>&#160;</td>
           <td class="paramname"><em>inLast</em>&#160;</td>
         </tr>
         <tr>
@@ -796,7 +847,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumBytes</em>&#160;</td>
         </tr>
         <tr>
@@ -945,8 +996,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;bool&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::all </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -981,8 +1032,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;bool&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::any </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -1015,10 +1066,10 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;uint32&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::argmax </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::argmax </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -1051,10 +1102,10 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;uint32&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::argmin </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::argmin </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -1087,10 +1138,10 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;uint32&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::argsort </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::argsort </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -1162,7 +1213,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">dtype&amp; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::at </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inIndex</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1198,7 +1249,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">const dtype&amp; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::at </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inIndex</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1234,13 +1285,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">dtype&amp; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::at </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inRowIndex</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inColIndex</em>&#160;</td>
         </tr>
         <tr>
@@ -1281,13 +1332,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">const dtype&amp; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::at </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inRowIndex</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inColIndex</em>&#160;</td>
         </tr>
         <tr>
@@ -1417,7 +1468,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inColIndex</em>&#160;</td>
         </tr>
         <tr>
@@ -1458,7 +1509,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::at </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inRowIndex</em>, </td>
         </tr>
         <tr>
@@ -1503,7 +1554,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">iterator <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::begin </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html#a49cd61f019d7106a40ffdb9c3ee98f08">iterator</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1538,9 +1589,9 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">iterator <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::begin </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html#a49cd61f019d7106a40ffdb9c3ee98f08">iterator</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::begin </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inRow</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1609,7 +1660,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const_iterator <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::cbegin </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::cbegin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1644,9 +1695,9 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const_iterator <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::cbegin </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::cbegin </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inRow</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1680,7 +1731,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const_iterator <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::cend </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::cend </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1715,9 +1766,9 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const_iterator <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::cend </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html#a445cec326684b0066bddae07ba06eddf">const_iterator</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::cend </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inRow</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -1806,8 +1857,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1884,8 +1935,8 @@ template&lt;typename dtypeOut  = double&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtypeOut&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::cumprod </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -1922,8 +1973,8 @@ template&lt;typename dtypeOut  = double&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtypeOut&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::cumsum </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -1958,14 +2009,14 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::diagonal </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inOffset</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::ROW</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a392f74a34b6718b6d219cb2a08894feb">Axis::ROW</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2078,7 +2129,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">iterator <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::end </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html#a49cd61f019d7106a40ffdb9c3ee98f08">iterator</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::end </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2113,9 +2164,9 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">iterator <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::end </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html#a49cd61f019d7106a40ffdb9c3ee98f08">iterator</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::end </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inRow</em></td><td>)</td>
           <td></td>
         </tr>
@@ -2149,7 +2200,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Endian::Type <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::endianess </td>
+          <td class="memname"><a class="el" href="struct_num_c_1_1_endian.html#ab667001489f67f8a96f328f0a9c351fa">Endian::Type</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::endianess </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -2168,7 +2219,7 @@ template&lt;typename dtype&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Endian::Type </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_num_c_1_1_endian.html#ab667001489f67f8a96f328f0a9c351fa">Endian::Type</a> </dd></dl>
 
 </div>
 </div>
@@ -2327,8 +2378,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::max </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -2363,8 +2414,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;double&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::mean </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -2399,8 +2450,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::median </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -2435,8 +2486,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::min </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -2469,7 +2520,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint64 <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::nbytes </td>
+          <td class="memname"><a class="el" href="namespace_num_c.html#a22306a0884a815781c5b147415f6d817">uint64</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::nbytes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -2506,7 +2557,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::newbyteorder </td>
           <td>(</td>
-          <td class="paramtype">Endian::Type&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_endian.html#ab667001489f67f8a96f328f0a9c351fa">Endian::Type</a>&#160;</td>
           <td class="paramname"><em>inEndianess</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -2520,7 +2571,7 @@ template&lt;typename dtype&gt; </div>
 <p>Return the array with the same data viewed with a different byte order. only works for integer types, floating point types will not compile and you will be confused as to why...</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Endian::Type</td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="struct_num_c_1_1_endian.html#ab667001489f67f8a96f328f0a9c351fa">Endian::Type</a></td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2540,7 +2591,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;uint32&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::nonzero </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::nonzero </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -2579,8 +2630,8 @@ template&lt;typename dtypeOut  = double&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtypeOut&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::norm </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -3010,13 +3061,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">dtype&amp; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inRowIndex</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inColIndex</em>&#160;</td>
         </tr>
         <tr>
@@ -3057,13 +3108,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">const dtype&amp; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inRowIndex</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inColIndex</em>&#160;</td>
         </tr>
         <tr>
@@ -3157,7 +3208,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inColIndex</em>&#160;</td>
         </tr>
         <tr>
@@ -3198,7 +3249,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inRowIndex</em>, </td>
         </tr>
         <tr>
@@ -4395,7 +4446,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">dtype&amp; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inIndex</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4431,7 +4482,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">const dtype&amp; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inIndex</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -4826,14 +4877,14 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::partition </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inKth</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -4910,8 +4961,8 @@ template&lt;typename dtypeOut  = double&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtypeOut&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::prod </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -4946,8 +4997,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::ptp </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -4982,7 +5033,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::put </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inIndex</em>, </td>
         </tr>
         <tr>
@@ -5029,13 +5080,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::put </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inRow</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inCol</em>, </td>
         </tr>
         <tr>
@@ -5083,7 +5134,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::put </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; uint32 &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>inIndices</em>, </td>
         </tr>
         <tr>
@@ -5130,7 +5181,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::put </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; uint32 &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>inIndices</em>, </td>
         </tr>
         <tr>
@@ -5331,7 +5382,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inColIndex</em>, </td>
         </tr>
         <tr>
@@ -5379,7 +5430,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::put </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inRowIndex</em>, </td>
         </tr>
         <tr>
@@ -5493,7 +5544,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inColIndex</em>, </td>
         </tr>
         <tr>
@@ -5541,7 +5592,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::put </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inRowIndex</em>, </td>
         </tr>
         <tr>
@@ -5595,13 +5646,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::repeat </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumRows</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumCols</em>&#160;</td>
         </tr>
         <tr>
@@ -5678,13 +5729,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::reshape </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumRows</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumCols</em>&#160;</td>
         </tr>
         <tr>
@@ -5760,13 +5811,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::resizeFast </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumRows</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumCols</em>&#160;</td>
         </tr>
         <tr>
@@ -5842,13 +5893,13 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::resizeSlow </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumRows</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inNumCols</em>&#160;</td>
         </tr>
         <tr>
@@ -5925,7 +5976,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::round </td>
           <td>(</td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inNumDecimals</em> = <code>0</code></td><td>)</td>
           <td> const</td>
         </tr>
@@ -5994,7 +6045,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32 <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::size </td>
+          <td class="memname"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -6031,8 +6082,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::sort </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -6067,8 +6118,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;double&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::std </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -6140,8 +6191,8 @@ template&lt;typename dtypeOut  = double&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtypeOut&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::sum </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -6295,14 +6346,14 @@ template&lt;typename dtypeOut  = double&gt; </div>
         <tr>
           <td class="memname">dtypeOut <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::trace </td>
           <td>(</td>
-          <td class="paramtype">uint16&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a870ab72deafe3efd4eb63e6a2e63a236">uint16</a>&#160;</td>
           <td class="paramname"><em>inOffset</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::ROW</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a392f74a34b6718b6d219cb2a08894feb">Axis::ROW</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -6377,8 +6428,8 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;double&gt; <a class="el" href="class_num_c_1_1_nd_array.html">NumC::NdArray</a>&lt; dtype &gt;::var </td>
           <td>(</td>
-          <td class="paramtype">Axis::Type&#160;</td>
-          <td class="paramname"><em>inAxis</em> = <code>Axis::NONE</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3">Axis::Type</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94">Axis::NONE</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -6455,7 +6506,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inNumBits</em>&#160;</td>
         </tr>
         <tr>
@@ -6547,7 +6598,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inNumBits</em>&#160;</td>
         </tr>
         <tr>
@@ -6593,7 +6644,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inNumBits</em>&#160;</td>
         </tr>
         <tr>
@@ -6639,7 +6690,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inNumBits</em>&#160;</td>
         </tr>
         <tr>
@@ -6669,11 +6720,15 @@ template&lt;typename dtype&gt; </div>
 <li><a class="el" href="_nd_array_8hpp_source.html">NdArray.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -48,6 +56,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_num_c_1_1_slice.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,11 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_slice.html">Slice</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -86,15 +106,15 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a56efe4551fe9b0f75283abee2b036b80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#a56efe4551fe9b0f75283abee2b036b80">Slice</a> ()</td></tr>
 <tr class="separator:a56efe4551fe9b0f75283abee2b036b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb851855afd73f625da0cded5d66f60a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#acb851855afd73f625da0cded5d66f60a">Slice</a> (int32 inStop)</td></tr>
+<tr class="memitem:acb851855afd73f625da0cded5d66f60a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#acb851855afd73f625da0cded5d66f60a">Slice</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inStop)</td></tr>
 <tr class="separator:acb851855afd73f625da0cded5d66f60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af304ab5aaca67f7213ec55e969d1fab0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#af304ab5aaca67f7213ec55e969d1fab0">Slice</a> (int32 inStart, int32 inStop)</td></tr>
+<tr class="memitem:af304ab5aaca67f7213ec55e969d1fab0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#af304ab5aaca67f7213ec55e969d1fab0">Slice</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inStart, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inStop)</td></tr>
 <tr class="separator:af304ab5aaca67f7213ec55e969d1fab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa70bf9a129371e3680688221f20fe85f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#aa70bf9a129371e3680688221f20fe85f">Slice</a> (int32 inStart, int32 inStop, int32 inStep)</td></tr>
+<tr class="memitem:aa70bf9a129371e3680688221f20fe85f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#aa70bf9a129371e3680688221f20fe85f">Slice</a> (<a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inStart, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inStop, <a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> inStep)</td></tr>
 <tr class="separator:aa70bf9a129371e3680688221f20fe85f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae16d83808701213c8ac0d0313ae72f56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#ae16d83808701213c8ac0d0313ae72f56">makePositiveAndValidate</a> (uint32 inArraySize)</td></tr>
+<tr class="memitem:ae16d83808701213c8ac0d0313ae72f56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#ae16d83808701213c8ac0d0313ae72f56">makePositiveAndValidate</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inArraySize)</td></tr>
 <tr class="separator:ae16d83808701213c8ac0d0313ae72f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed7a6610a9c98c8b41f336fc8f71d94c"><td class="memItemLeft" align="right" valign="top">uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#aed7a6610a9c98c8b41f336fc8f71d94c">numElements</a> (uint32 inArraySize)</td></tr>
+<tr class="memitem:aed7a6610a9c98c8b41f336fc8f71d94c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#aed7a6610a9c98c8b41f336fc8f71d94c">numElements</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inArraySize)</td></tr>
 <tr class="separator:aed7a6610a9c98c8b41f336fc8f71d94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5c337ad7e0b8606fdde5227b00fe8e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#aa5c337ad7e0b8606fdde5227b00fe8e9">print</a> ()</td></tr>
 <tr class="separator:aa5c337ad7e0b8606fdde5227b00fe8e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,14 +123,11 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a9be315d782553b06c6af8256ef80e311"><td class="memItemLeft" align="right" valign="top"><a id="a9be315d782553b06c6af8256ef80e311"></a>
-int32&#160;</td><td class="memItemRight" valign="bottom"><b>start</b></td></tr>
+<tr class="memitem:a9be315d782553b06c6af8256ef80e311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#a9be315d782553b06c6af8256ef80e311">start</a></td></tr>
 <tr class="separator:a9be315d782553b06c6af8256ef80e311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95060e2e1c9a2adbf1f6d0f58d1dd951"><td class="memItemLeft" align="right" valign="top"><a id="a95060e2e1c9a2adbf1f6d0f58d1dd951"></a>
-int32&#160;</td><td class="memItemRight" valign="bottom"><b>step</b></td></tr>
+<tr class="memitem:a95060e2e1c9a2adbf1f6d0f58d1dd951"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#a95060e2e1c9a2adbf1f6d0f58d1dd951">step</a></td></tr>
 <tr class="separator:a95060e2e1c9a2adbf1f6d0f58d1dd951"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab71a753be2f3a9fff01c71734e4368bb"><td class="memItemLeft" align="right" valign="top"><a id="ab71a753be2f3a9fff01c71734e4368bb"></a>
-int32&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b></td></tr>
+<tr class="memitem:ab71a753be2f3a9fff01c71734e4368bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_slice.html#ab71a753be2f3a9fff01c71734e4368bb">stop</a></td></tr>
 <tr class="separator:ab71a753be2f3a9fff01c71734e4368bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -166,7 +183,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">NumC::Slice::Slice </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inStop</em></td><td>)</td>
           <td></td>
         </tr>
@@ -200,13 +217,13 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">NumC::Slice::Slice </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inStart</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inStop</em>&#160;</td>
         </tr>
         <tr>
@@ -245,19 +262,19 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">NumC::Slice::Slice </td>
           <td>(</td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inStart</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inStop</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a>&#160;</td>
           <td class="paramname"><em>inStep</em>&#160;</td>
         </tr>
         <tr>
@@ -298,7 +315,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void NumC::Slice::makePositiveAndValidate </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inArraySize</em></td><td>)</td>
           <td></td>
         </tr>
@@ -317,10 +334,6 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
-<p>convert the start value</p>
-<p>convert the stop value</p>
-<p>do some error checking</p>
-<p>otherwise flip things around for my own sanity </p>
 
 </div>
 </div>
@@ -334,9 +347,9 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32 NumC::Slice::numElements </td>
+          <td class="memname"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> NumC::Slice::numElements </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inArraySize</em></td><td>)</td>
           <td></td>
         </tr>
@@ -469,15 +482,62 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Field Documentation</h2>
+<a id="a9be315d782553b06c6af8256ef80e311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9be315d782553b06c6af8256ef80e311">&#9670;&nbsp;</a></span>start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> NumC::Slice::start</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95060e2e1c9a2adbf1f6d0f58d1dd951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95060e2e1c9a2adbf1f6d0f58d1dd951">&#9670;&nbsp;</a></span>step</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> NumC::Slice::step</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab71a753be2f3a9fff01c71734e4368bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab71a753be2f3a9fff01c71734e4368bb">&#9670;&nbsp;</a></span>stop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53">int32</a> NumC::Slice::stop</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_slice_8hpp_source.html">Slice.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_slice.html">Slice</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
 </body>
 </html>

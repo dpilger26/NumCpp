@@ -1,10 +1,14 @@
 var searchData=
 [
-  ['hat',['hat',['../class_num_c_1_1_linalg.html#a8819524018933c08f89f86ddda3f6779',1,'NumC::Linalg::hat(dtype inX, dtype inY, dtype inZ)'],['../class_num_c_1_1_linalg.html#adb223dd51b52f44b942bcddd1717bba8',1,'NumC::Linalg::hat(const NdArray&lt; dtype &gt; &amp;inVec)']]],
-  ['height',['height',['../class_num_c_1_1_image_processing_1_1_cluster.html#a4b09031519932642dced2e943c5ce6d6',1,'NumC::ImageProcessing::Cluster']]],
-  ['histogram',['histogram',['../class_num_c_1_1_methods.html#aec3ae5f0e3330abe3ad764311895a970',1,'NumC::Methods']]],
-  ['hours',['hours',['../class_num_c_1_1_coordinates_1_1_r_a.html#a85d46e5a7b720aaf60fcf424c0d303e6',1,'NumC::Coordinates::RA']]],
-  ['hours_5fper_5fday',['HOURS_PER_DAY',['../namespace_num_c_1_1_constants.html#a56c169b380c3327b81d5c10f9ae8cc09',1,'NumC::Constants']]],
-  ['hstack',['hstack',['../class_num_c_1_1_methods.html#adac3d17bfc14c569a406c313a2d72351',1,'NumC::Methods']]],
-  ['hypot',['hypot',['../class_num_c_1_1_methods.html#acb958fe14081adb2a7c0eb1c94c15186',1,'NumC::Methods::hypot(dtype inValue1, dtype inValue2)'],['../class_num_c_1_1_methods.html#a6300cbd327f64eeb9c3fe3e61daaf252',1,'NumC::Methods::hypot(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]]
+  ['gamma',['gamma',['../class_num_c_1_1_random.html#ac630a68b963e5280b8924319574f7bda',1,'NumC::Random']]],
+  ['gaussianfilter',['gaussianFilter',['../class_num_c_1_1_filters.html#aba7428a73a74370033dea5f4c465ff9c',1,'NumC::Filters']]],
+  ['gaussianfilter1d',['gaussianFilter1d',['../class_num_c_1_1_filters.html#a742ee5099aaff16e7e769f5d0d3540e2',1,'NumC::Filters']]],
+  ['generatecentroids',['generateCentroids',['../class_num_c_1_1_image_processing.html#a34e42cb92932de6219ccfe796c8ffeab',1,'NumC::ImageProcessing']]],
+  ['generatethreshold',['generateThreshold',['../class_num_c_1_1_image_processing.html#ac700f57ca979bf4752fb89591b5e4b7a',1,'NumC::ImageProcessing']]],
+  ['generator_5f',['generator_',['../namespace_num_c.html#af78b9b391c2e4523f13bb00706b21b02',1,'NumC']]],
+  ['geometric',['geometric',['../class_num_c_1_1_random.html#ac7fb9ce67d3defc4e9c58b76085efaaa',1,'NumC::Random']]],
+  ['getarray',['getArray',['../class_num_c_1_1_boost_ndarray_helper.html#acceb3bb2db61aeecba91336eb13feba0',1,'NumC::BoostNdarrayHelper']]],
+  ['getarrayasmatrix',['getArrayAsMatrix',['../class_num_c_1_1_boost_ndarray_helper.html#a9800430d89ded6d79b7b143b0dca5292',1,'NumC::BoostNdarrayHelper']]],
+  ['greater',['greater',['../class_num_c_1_1_methods.html#a5f671a0559e19f55eed87e99f3296ae3',1,'NumC::Methods']]],
+  ['greater_5fequal',['greater_equal',['../class_num_c_1_1_methods.html#afaf342d2c80916d4fa5b69e6cfb9afc7',1,'NumC::Methods']]]
 ];

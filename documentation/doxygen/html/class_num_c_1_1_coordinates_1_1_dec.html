@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -48,6 +56,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_num_c_1_1_coordinates_1_1_dec.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,11 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="namespace_num_c_1_1_coordinates.html">Coordinates</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">Dec</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -87,16 +107,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac55f97b493e807657cd2a1596da382fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8907d7ea5bc9204aaef40371270be03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#ab8907d7ea5bc9204aaef40371270be03">Dec</a> (dtype inDegrees)</td></tr>
 <tr class="separator:ab8907d7ea5bc9204aaef40371270be03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a776298864c1fa18e61d81014adbecd07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#a776298864c1fa18e61d81014adbecd07">Dec</a> (Sign::Type inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds)</td></tr>
+<tr class="memitem:a776298864c1fa18e61d81014adbecd07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#a776298864c1fa18e61d81014adbecd07">Dec</a> (<a class="el" href="struct_num_c_1_1_coordinates_1_1_sign.html#a915938d7fce678936d8728ca14a70e22">Sign::Type</a> inSign, <a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inDegrees, <a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inMinutes, dtype inSeconds)</td></tr>
 <tr class="separator:a776298864c1fa18e61d81014adbecd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a618d31057fd90456d99b28c1b9c69f7a"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut &gt; </td></tr>
 <tr class="memitem:a618d31057fd90456d99b28c1b9c69f7a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">Dec</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#a618d31057fd90456d99b28c1b9c69f7a">astype</a> ()</td></tr>
 <tr class="separator:a618d31057fd90456d99b28c1b9c69f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03ea596ee39499e2f2b988c79b7340d3"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#a03ea596ee39499e2f2b988c79b7340d3">degrees</a> () const</td></tr>
 <tr class="separator:a03ea596ee39499e2f2b988c79b7340d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a060d73cb1ff0003123bc30355de7b3ac"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#a060d73cb1ff0003123bc30355de7b3ac">degreesWhole</a> () const</td></tr>
+<tr class="memitem:a060d73cb1ff0003123bc30355de7b3ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#a060d73cb1ff0003123bc30355de7b3ac">degreesWhole</a> () const</td></tr>
 <tr class="separator:a060d73cb1ff0003123bc30355de7b3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4f3861e5dfb0f7ea3d8df79ecdad327"><td class="memItemLeft" align="right" valign="top">uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#af4f3861e5dfb0f7ea3d8df79ecdad327">minutes</a> () const</td></tr>
+<tr class="memitem:af4f3861e5dfb0f7ea3d8df79ecdad327"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#af4f3861e5dfb0f7ea3d8df79ecdad327">minutes</a> () const</td></tr>
 <tr class="separator:af4f3861e5dfb0f7ea3d8df79ecdad327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa8fe40598ecc6c8258bc2d69c7382e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#afa8fe40598ecc6c8258bc2d69c7382e9">operator!=</a> (const <a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">Dec</a>&lt; dtype &gt; &amp;inRhs) const</td></tr>
 <tr class="separator:afa8fe40598ecc6c8258bc2d69c7382e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,7 +128,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a976e30bb867ec04221f77cf0ca6ac053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5660a795f51d52d2dbf2578d92ef284b"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#a5660a795f51d52d2dbf2578d92ef284b">seconds</a> () const</td></tr>
 <tr class="separator:a5660a795f51d52d2dbf2578d92ef284b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2ad87383ff4db3c9b1fd1aa90262be5"><td class="memItemLeft" align="right" valign="top">Sign::Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#ae2ad87383ff4db3c9b1fd1aa90262be5">sign</a> () const</td></tr>
+<tr class="memitem:ae2ad87383ff4db3c9b1fd1aa90262be5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_num_c_1_1_coordinates_1_1_sign.html#a915938d7fce678936d8728ca14a70e22">Sign::Type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#ae2ad87383ff4db3c9b1fd1aa90262be5">sign</a> () const</td></tr>
 <tr class="separator:ae2ad87383ff4db3c9b1fd1aa90262be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0116aa3de05240cdd9730462b1baac1e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html#a0116aa3de05240cdd9730462b1baac1e">str</a> () const</td></tr>
 <tr class="separator:a0116aa3de05240cdd9730462b1baac1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,19 +229,19 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">NumC::Coordinates::Dec</a>&lt; dtype &gt;::<a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">Dec</a> </td>
           <td>(</td>
-          <td class="paramtype">Sign::Type&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_coordinates_1_1_sign.html#a915938d7fce678936d8728ca14a70e22">Sign::Type</a>&#160;</td>
           <td class="paramname"><em>inSign</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inDegrees</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inMinutes</em>, </td>
         </tr>
         <tr>
@@ -245,7 +265,7 @@ template&lt;typename dtype&gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Sign::Type</td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="struct_num_c_1_1_coordinates_1_1_sign.html#a915938d7fce678936d8728ca14a70e22">Sign::Type</a></td><td></td></tr>
     <tr><td class="paramname">hours</td><td></td></tr>
     <tr><td class="paramname">minutes</td><td></td></tr>
     <tr><td class="paramname">seconds</td><td></td></tr>
@@ -341,7 +361,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8 <a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">NumC::Coordinates::Dec</a>&lt; dtype &gt;::degreesWhole </td>
+          <td class="memname"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> <a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">NumC::Coordinates::Dec</a>&lt; dtype &gt;::degreesWhole </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -376,7 +396,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8 <a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">NumC::Coordinates::Dec</a>&lt; dtype &gt;::minutes </td>
+          <td class="memname"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> <a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">NumC::Coordinates::Dec</a>&lt; dtype &gt;::minutes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -588,7 +608,7 @@ template&lt;typename dtype&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Sign::Type <a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">NumC::Coordinates::Dec</a>&lt; dtype &gt;::sign </td>
+          <td class="memname"><a class="el" href="struct_num_c_1_1_coordinates_1_1_sign.html#a915938d7fce678936d8728ca14a70e22">Sign::Type</a> <a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">NumC::Coordinates::Dec</a>&lt; dtype &gt;::sign </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -607,7 +627,7 @@ template&lt;typename dtype&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Sign::Type </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_num_c_1_1_coordinates_1_1_sign.html#a915938d7fce678936d8728ca14a70e22">Sign::Type</a> </dd></dl>
 
 </div>
 </div>
@@ -697,11 +717,15 @@ template&lt;typename dtype&gt; </div>
 <li><a class="el" href="_coordinates_8hpp_source.html">Coordinates.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="namespace_num_c_1_1_coordinates.html">Coordinates</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_coordinates_1_1_dec.html">Dec</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
 </body>
 </html>

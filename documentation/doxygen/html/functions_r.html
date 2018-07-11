@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -49,6 +57,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_r.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -64,7 +88,7 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented struct and union fields with links to the struct/union documentation for each field:</div>
+<div class="textblock">Here is a list of all struct and union fields with links to the structures/unions they belong to:</div>
 
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>ra()
@@ -104,6 +128,9 @@ $(function() {
 <li>reciprocal()
 : <a class="el" href="class_num_c_1_1_methods.html#a2f45b3938a3c92c3f5658b670439f339">NumC::Methods&lt; dtype &gt;</a>
 </li>
+<li>REFLECT
+: <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">NumC::Filter::Boundary</a>
+</li>
 <li>remainder()
 : <a class="el" href="class_num_c_1_1_methods.html#a22948a1f2e776ca7fabe72b044357902">NumC::Methods&lt; dtype &gt;</a>
 </li>
@@ -113,15 +140,15 @@ $(function() {
 </li>
 <li>reshape()
 : <a class="el" href="class_num_c_1_1_methods.html#aeeaf673c255fea9cc983c905947bc31c">NumC::Methods&lt; dtype &gt;</a>
-, <a class="el" href="class_num_c_1_1_nd_array.html#a12296c59b04435b329317d2137c5e86e">NumC::NdArray&lt; dtype &gt;</a>
+, <a class="el" href="class_num_c_1_1_nd_array.html#a55fbd9259848930ce641e62069c82bce">NumC::NdArray&lt; dtype &gt;</a>
 </li>
 <li>resizeFast()
 : <a class="el" href="class_num_c_1_1_methods.html#aa7c1d41340e6e2a6fae5d28bdb8e7cc0">NumC::Methods&lt; dtype &gt;</a>
-, <a class="el" href="class_num_c_1_1_nd_array.html#a2426f7ae3429f859e12e61f64965c81c">NumC::NdArray&lt; dtype &gt;</a>
+, <a class="el" href="class_num_c_1_1_nd_array.html#a6a46a3ea9c292d315d6dc2e6381d2e0f">NumC::NdArray&lt; dtype &gt;</a>
 </li>
 <li>resizeSlow()
 : <a class="el" href="class_num_c_1_1_methods.html#a0bf70bf640d1546ef97a446bb834ff08">NumC::Methods&lt; dtype &gt;</a>
-, <a class="el" href="class_num_c_1_1_nd_array.html#abe49f888c39334d1a743f39fe45dc5ea">NumC::NdArray&lt; dtype &gt;</a>
+, <a class="el" href="class_num_c_1_1_nd_array.html#a5a73a3515f3be49f89af26ae3103c2a8">NumC::NdArray&lt; dtype &gt;</a>
 </li>
 <li>right_shift()
 : <a class="el" href="class_num_c_1_1_methods.html#a9cd22723047f6f075ea95d41646deeaa">NumC::Methods&lt; dtype &gt;</a>
@@ -139,8 +166,11 @@ $(function() {
 : <a class="el" href="class_num_c_1_1_rotations_1_1_quaternion.html#a4fafcb2d64f0a9ef1f16f4b15a2324e7">NumC::Rotations::Quaternion</a>
 </li>
 <li>round()
-: <a class="el" href="class_num_c_1_1_methods.html#ad61f0294ec81993d8f12bf5ce9a526e3">NumC::Methods&lt; dtype &gt;</a>
+: <a class="el" href="class_num_c_1_1_methods.html#aed4f6044e1a3bd2d95f6755d43c9c286">NumC::Methods&lt; dtype &gt;</a>
 , <a class="el" href="class_num_c_1_1_nd_array.html#ac083fe73fd750871618990f44b3a854d">NumC::NdArray&lt; dtype &gt;</a>
+</li>
+<li>ROW
+: <a class="el" href="struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a392f74a34b6718b6d219cb2a08894feb">NumC::Axis</a>
 </li>
 <li>row()
 : <a class="el" href="class_num_c_1_1_image_processing_1_1_centroid.html#a59cd9d66283c26d813a6b36cfc92689c">NumC::ImageProcessing&lt; dtype &gt;::Centroid</a>
@@ -155,13 +185,19 @@ $(function() {
 <li>rowMin()
 : <a class="el" href="class_num_c_1_1_image_processing_1_1_cluster.html#a87ebe359c4ad0e5996d1f8fef7e572fa">NumC::ImageProcessing&lt; dtype &gt;::Cluster</a>
 </li>
+<li>rows
+: <a class="el" href="class_num_c_1_1_shape.html#a9535da39217424a1afb81c0a7baa3acc">NumC::Shape</a>
+</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -48,6 +56,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_num_c_1_1_filters.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,11 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_filters.html">Filters</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a>  </div>
@@ -82,41 +102,41 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac64c322e09321ba9903d4463174c1f80"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#ac64c322e09321ba9903d4463174c1f80">complementaryMedianFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:ac64c322e09321ba9903d4463174c1f80"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#ac64c322e09321ba9903d4463174c1f80">complementaryMedianFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:ac64c322e09321ba9903d4463174c1f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d0e5efdec107524f4de3cf4cf3bb210"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a2d0e5efdec107524f4de3cf4cf3bb210">complementaryMedianFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:a2d0e5efdec107524f4de3cf4cf3bb210"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a2d0e5efdec107524f4de3cf4cf3bb210">complementaryMedianFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a2d0e5efdec107524f4de3cf4cf3bb210"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac748e9ed1f97917ba619ef0978b85d95"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#ac748e9ed1f97917ba619ef0978b85d95">convolve</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inWeights, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:ac748e9ed1f97917ba619ef0978b85d95"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#ac748e9ed1f97917ba619ef0978b85d95">convolve</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inWeights, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:ac748e9ed1f97917ba619ef0978b85d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5391f92f8fca1b1742ea4eb62261936c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a5391f92f8fca1b1742ea4eb62261936c">convolve1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inWeights, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:a5391f92f8fca1b1742ea4eb62261936c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a5391f92f8fca1b1742ea4eb62261936c">convolve1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inWeights, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a5391f92f8fca1b1742ea4eb62261936c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba7428a73a74370033dea5f4c465ff9c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#aba7428a73a74370033dea5f4c465ff9c">gaussianFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, double inSigma, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:aba7428a73a74370033dea5f4c465ff9c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#aba7428a73a74370033dea5f4c465ff9c">gaussianFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, double inSigma, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:aba7428a73a74370033dea5f4c465ff9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a742ee5099aaff16e7e769f5d0d3540e2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a742ee5099aaff16e7e769f5d0d3540e2">gaussianFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, double inSigma, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:a742ee5099aaff16e7e769f5d0d3540e2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a742ee5099aaff16e7e769f5d0d3540e2">gaussianFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, double inSigma, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a742ee5099aaff16e7e769f5d0d3540e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec5c934314cc94275dd91e9cdd9e5e91"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#aec5c934314cc94275dd91e9cdd9e5e91">maximumFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:aec5c934314cc94275dd91e9cdd9e5e91"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#aec5c934314cc94275dd91e9cdd9e5e91">maximumFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:aec5c934314cc94275dd91e9cdd9e5e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaead5029a360f207f497a90304ce21ac"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#aaead5029a360f207f497a90304ce21ac">maximumFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:aaead5029a360f207f497a90304ce21ac"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#aaead5029a360f207f497a90304ce21ac">maximumFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:aaead5029a360f207f497a90304ce21ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87cbfb7cddb015f8e47cdd8a7eb45c3d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a87cbfb7cddb015f8e47cdd8a7eb45c3d">medianFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:a87cbfb7cddb015f8e47cdd8a7eb45c3d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a87cbfb7cddb015f8e47cdd8a7eb45c3d">medianFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a87cbfb7cddb015f8e47cdd8a7eb45c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a358311eaadb1a44e94e8e30af2328222"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a358311eaadb1a44e94e8e30af2328222">medianFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:a358311eaadb1a44e94e8e30af2328222"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a358311eaadb1a44e94e8e30af2328222">medianFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a358311eaadb1a44e94e8e30af2328222"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af827f96d4d86cb2f0a43c743bccee74f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#af827f96d4d86cb2f0a43c743bccee74f">minimumFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:af827f96d4d86cb2f0a43c743bccee74f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#af827f96d4d86cb2f0a43c743bccee74f">minimumFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:af827f96d4d86cb2f0a43c743bccee74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0036d85d2cb73c578416dd32165043ae"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a0036d85d2cb73c578416dd32165043ae">minumumFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:a0036d85d2cb73c578416dd32165043ae"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a0036d85d2cb73c578416dd32165043ae">minumumFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a0036d85d2cb73c578416dd32165043ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90b60e978fd65e702cb5212e701c479f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a90b60e978fd65e702cb5212e701c479f">percentileFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, uint8 inPercentile, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:a90b60e978fd65e702cb5212e701c479f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a90b60e978fd65e702cb5212e701c479f">percentileFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inPercentile, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a90b60e978fd65e702cb5212e701c479f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab27a9d4db137a7512967132758a4440c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#ab27a9d4db137a7512967132758a4440c">percentileFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, uint8 inPercentile, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:ab27a9d4db137a7512967132758a4440c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#ab27a9d4db137a7512967132758a4440c">percentileFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inPercentile, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:ab27a9d4db137a7512967132758a4440c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa3e80d9085d43c9a26e175713105199"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#aaa3e80d9085d43c9a26e175713105199">rankFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, uint32 inRank, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:aaa3e80d9085d43c9a26e175713105199"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#aaa3e80d9085d43c9a26e175713105199">rankFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inRank, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:aaa3e80d9085d43c9a26e175713105199"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb73af9b240fe10dcaaf0659fa90bb4f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#afb73af9b240fe10dcaaf0659fa90bb4f">rankFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, uint8 inRank, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:afb73af9b240fe10dcaaf0659fa90bb4f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#afb73af9b240fe10dcaaf0659fa90bb4f">rankFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a> inRank, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:afb73af9b240fe10dcaaf0659fa90bb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13da71bb1cc314679fbba4a23ea85134"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a13da71bb1cc314679fbba4a23ea85134">uniformFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:a13da71bb1cc314679fbba4a23ea85134"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a13da71bb1cc314679fbba4a23ea85134">uniformFilter</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a13da71bb1cc314679fbba4a23ea85134"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d8f504b903901218ae7a843b96fefe1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a0d8f504b903901218ae7a843b96fefe1">uniformFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Filter::Boundary::Mode inMode=Filter::Boundary::REFLECT, dtype inConstantValue=0)</td></tr>
+<tr class="memitem:a0d8f504b903901218ae7a843b96fefe1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_filters.html#a0d8f504b903901218ae7a843b96fefe1">uniformFilter1d</a> (const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize, <a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a> inMode=<a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a0d8f504b903901218ae7a843b96fefe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -145,14 +165,14 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -206,14 +226,14 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -267,7 +287,7 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
@@ -279,8 +299,8 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -341,8 +361,8 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -402,8 +422,8 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -463,8 +483,8 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -518,14 +538,14 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -579,14 +599,14 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -640,14 +660,14 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -701,14 +721,14 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -762,14 +782,14 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -823,14 +843,14 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -884,20 +904,20 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inPercentile</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -952,20 +972,20 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inPercentile</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1020,20 +1040,20 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inRank</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1088,20 +1108,20 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#a60b2e2f49e1ff61059731c154e560869">uint8</a>&#160;</td>
           <td class="paramname"><em>inRank</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1156,14 +1176,14 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1217,14 +1237,14 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Filter::Boundary::Mode&#160;</td>
-          <td class="paramname"><em>inMode</em> = <code>Filter::Boundary::REFLECT</code>, </td>
+          <td class="paramtype"><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3">Filter::Boundary::Mode</a>&#160;</td>
+          <td class="paramname"><em>inMode</em> = <code><a class="el" href="struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3a5571d98046aa858b5c79dce8c4c16c04">Filter::Boundary::REFLECT</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1262,11 +1282,15 @@ template&lt;typename dtype &gt; </div>
 <li><a class="el" href="_filter_8hpp_source.html">Filter.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_filters.html">Filters</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
 </body>
 </html>

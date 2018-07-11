@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -48,6 +56,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_num_c_1_1_data_cube.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,11 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_data_cube.html">DataCube</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
@@ -83,42 +103,40 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:afb6045a628e0587b3343da1dda12fa03"><td class="memItemLeft" align="right" valign="top"><a id="afb6045a628e0587b3343da1dda12fa03"></a>
-typedef std::deque&lt; <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &gt;::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><b>const_iterator</b></td></tr>
+<tr class="memitem:afb6045a628e0587b3343da1dda12fa03"><td class="memItemLeft" align="right" valign="top">typedef std::deque&lt; <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &gt;::<a class="el" href="class_num_c_1_1_data_cube.html#afb6045a628e0587b3343da1dda12fa03">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#afb6045a628e0587b3343da1dda12fa03">const_iterator</a></td></tr>
 <tr class="separator:afb6045a628e0587b3343da1dda12fa03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3703e7574db61a4e1ef4b8db93db86a"><td class="memItemLeft" align="right" valign="top"><a id="aa3703e7574db61a4e1ef4b8db93db86a"></a>
-typedef std::deque&lt; <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><b>iterator</b></td></tr>
+<tr class="memitem:aa3703e7574db61a4e1ef4b8db93db86a"><td class="memItemLeft" align="right" valign="top">typedef std::deque&lt; <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &gt;::<a class="el" href="class_num_c_1_1_data_cube.html#aa3703e7574db61a4e1ef4b8db93db86a">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#aa3703e7574db61a4e1ef4b8db93db86a">iterator</a></td></tr>
 <tr class="separator:aa3703e7574db61a4e1ef4b8db93db86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab60b5ccabf8953eee271f4064d80f708"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#ab60b5ccabf8953eee271f4064d80f708">DataCube</a> ()</td></tr>
 <tr class="separator:ab60b5ccabf8953eee271f4064d80f708"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2582be5bb1e460a945be6170d103eab7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a2582be5bb1e460a945be6170d103eab7">DataCube</a> (uint32 inSize)</td></tr>
+<tr class="memitem:a2582be5bb1e460a945be6170d103eab7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a2582be5bb1e460a945be6170d103eab7">DataCube</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inSize)</td></tr>
 <tr class="separator:a2582be5bb1e460a945be6170d103eab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe1b1ed736d07365f07b92652f484561"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#afe1b1ed736d07365f07b92652f484561">at</a> (uint32 inIndex)</td></tr>
+<tr class="memitem:afe1b1ed736d07365f07b92652f484561"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#afe1b1ed736d07365f07b92652f484561">at</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inIndex)</td></tr>
 <tr class="separator:afe1b1ed736d07365f07b92652f484561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53b0e0f624cc31c5f9bf403386181a96"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a53b0e0f624cc31c5f9bf403386181a96">at</a> (uint32 inIndex) const</td></tr>
+<tr class="memitem:a53b0e0f624cc31c5f9bf403386181a96"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a53b0e0f624cc31c5f9bf403386181a96">at</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inIndex) const</td></tr>
 <tr class="separator:a53b0e0f624cc31c5f9bf403386181a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ca3940c4aad34665e9d6104a05a6899"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a5ca3940c4aad34665e9d6104a05a6899">back</a> ()</td></tr>
 <tr class="separator:a5ca3940c4aad34665e9d6104a05a6899"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3d0a674028d5aab89d56a2d591ff17e"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#ab3d0a674028d5aab89d56a2d591ff17e">begin</a> ()</td></tr>
+<tr class="memitem:ab3d0a674028d5aab89d56a2d591ff17e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_data_cube.html#aa3703e7574db61a4e1ef4b8db93db86a">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#ab3d0a674028d5aab89d56a2d591ff17e">begin</a> ()</td></tr>
 <tr class="separator:ab3d0a674028d5aab89d56a2d591ff17e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28a7d41b1be694f97b1af279b5afffad"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a28a7d41b1be694f97b1af279b5afffad">cbegin</a> () const</td></tr>
+<tr class="memitem:a28a7d41b1be694f97b1af279b5afffad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_data_cube.html#afb6045a628e0587b3343da1dda12fa03">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a28a7d41b1be694f97b1af279b5afffad">cbegin</a> () const</td></tr>
 <tr class="separator:a28a7d41b1be694f97b1af279b5afffad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab218b7c28cb8329292167021c5ca75a0"><td class="memItemLeft" align="right" valign="top">const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#ab218b7c28cb8329292167021c5ca75a0">cend</a> () const</td></tr>
+<tr class="memitem:ab218b7c28cb8329292167021c5ca75a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_data_cube.html#afb6045a628e0587b3343da1dda12fa03">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#ab218b7c28cb8329292167021c5ca75a0">cend</a> () const</td></tr>
 <tr class="separator:ab218b7c28cb8329292167021c5ca75a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6c210bb661ece34470af77068862f36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#ae6c210bb661ece34470af77068862f36">dump</a> (const std::string &amp;inFilename) const</td></tr>
 <tr class="separator:ae6c210bb661ece34470af77068862f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac80a462829f04d482f44cb38678f9cce"><td class="memItemLeft" align="right" valign="top">iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#ac80a462829f04d482f44cb38678f9cce">end</a> ()</td></tr>
+<tr class="memitem:ac80a462829f04d482f44cb38678f9cce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_data_cube.html#aa3703e7574db61a4e1ef4b8db93db86a">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#ac80a462829f04d482f44cb38678f9cce">end</a> ()</td></tr>
 <tr class="separator:ac80a462829f04d482f44cb38678f9cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fb33e49146d1fdbdeeff0a42f36749d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a6fb33e49146d1fdbdeeff0a42f36749d">front</a> ()</td></tr>
 <tr class="separator:a6fb33e49146d1fdbdeeff0a42f36749d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f2f6afb06821995c7b640d96d2261fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a2f2f6afb06821995c7b640d96d2261fc">isempty</a> ()</td></tr>
 <tr class="separator:a2f2f6afb06821995c7b640d96d2261fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab597af34271cd67d79bd1e9dd2305cf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#ab597af34271cd67d79bd1e9dd2305cf3">operator[]</a> (uint32 inIndex)</td></tr>
+<tr class="memitem:ab597af34271cd67d79bd1e9dd2305cf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#ab597af34271cd67d79bd1e9dd2305cf3">operator[]</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inIndex)</td></tr>
 <tr class="separator:ab597af34271cd67d79bd1e9dd2305cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a147e32ef2549de0cdb946eebaf624b9d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a147e32ef2549de0cdb946eebaf624b9d">operator[]</a> (uint32 inIndex) const</td></tr>
+<tr class="memitem:a147e32ef2549de0cdb946eebaf624b9d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a147e32ef2549de0cdb946eebaf624b9d">operator[]</a> (<a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> inIndex) const</td></tr>
 <tr class="separator:a147e32ef2549de0cdb946eebaf624b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdd92c25e800265b8d142b9f1a4baaa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#acdd92c25e800265b8d142b9f1a4baaa8">pop_back</a> ()</td></tr>
 <tr class="separator:acdd92c25e800265b8d142b9f1a4baaa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,7 +148,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3f386367e0a1a6f00b535c7d97198ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f65cef25b7b9b8b0371694e7898880e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_num_c_1_1_shape.html">Shape</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a1f65cef25b7b9b8b0371694e7898880e">shape</a> () const</td></tr>
 <tr class="separator:a1f65cef25b7b9b8b0371694e7898880e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69051739dd638a04caed8ba001f01879"><td class="memItemLeft" align="right" valign="top">uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a69051739dd638a04caed8ba001f01879">size</a> () const</td></tr>
+<tr class="memitem:a69051739dd638a04caed8ba001f01879"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_num_c_1_1_data_cube.html#a69051739dd638a04caed8ba001f01879">size</a> () const</td></tr>
 <tr class="separator:a69051739dd638a04caed8ba001f01879"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -138,7 +156,40 @@ Public Member Functions</h2></td></tr>
 class NumC::DataCube&lt; dtype &gt;</h3>
 
 <p>Convience container for holding a uniform array of NdArrays. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="afb6045a628e0587b3343da1dda12fa03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb6045a628e0587b3343da1dda12fa03">&#9670;&nbsp;</a></span>const_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::deque&lt;<a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; &gt;::<a class="el" href="class_num_c_1_1_data_cube.html#afb6045a628e0587b3343da1dda12fa03">const_iterator</a> <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::<a class="el" href="class_num_c_1_1_data_cube.html#afb6045a628e0587b3343da1dda12fa03">const_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3703e7574db61a4e1ef4b8db93db86a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3703e7574db61a4e1ef4b8db93db86a">&#9670;&nbsp;</a></span>iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::deque&lt;<a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; &gt;::<a class="el" href="class_num_c_1_1_data_cube.html#aa3703e7574db61a4e1ef4b8db93db86a">iterator</a> <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::<a class="el" href="class_num_c_1_1_data_cube.html#aa3703e7574db61a4e1ef4b8db93db86a">iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab60b5ccabf8953eee271f4064d80f708"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab60b5ccabf8953eee271f4064d80f708">&#9670;&nbsp;</a></span>DataCube() <span class="overload">[1/2]</span></h2>
 
@@ -188,7 +239,7 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::<a class="el" href="class_num_c_1_1_data_cube.html">DataCube</a> </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inSize</em></td><td>)</td>
           <td></td>
         </tr>
@@ -225,7 +276,7 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt;&amp; <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::at </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inIndex</em></td><td>)</td>
           <td></td>
         </tr>
@@ -261,7 +312,7 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="memname">const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt;&amp; <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::at </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inIndex</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -330,7 +381,7 @@ template&lt;typename dtype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">iterator <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::begin </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_data_cube.html#aa3703e7574db61a4e1ef4b8db93db86a">iterator</a> <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -365,7 +416,7 @@ template&lt;typename dtype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const_iterator <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::cbegin </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_data_cube.html#afb6045a628e0587b3343da1dda12fa03">const_iterator</a> <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::cbegin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -400,7 +451,7 @@ template&lt;typename dtype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const_iterator <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::cend </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_data_cube.html#afb6045a628e0587b3343da1dda12fa03">const_iterator</a> <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::cend </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -471,7 +522,7 @@ template&lt;typename dtype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">iterator <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::end </td>
+          <td class="memname"><a class="el" href="class_num_c_1_1_data_cube.html#aa3703e7574db61a4e1ef4b8db93db86a">iterator</a> <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::end </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -578,7 +629,7 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt;&amp; <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inIndex</em></td><td>)</td>
           <td></td>
         </tr>
@@ -614,7 +665,7 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="memname">const <a class="el" href="class_num_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt;&amp; <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">uint32&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a>&#160;</td>
           <td class="paramname"><em>inIndex</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -825,7 +876,7 @@ template&lt;typename dtype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32 <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::size </td>
+          <td class="memname"><a class="el" href="namespace_num_c.html#ae685802ca6d3035f2b400b081e3953fa">uint32</a> <a class="el" href="class_num_c_1_1_data_cube.html">NumC::DataCube</a>&lt; dtype &gt;::size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -852,11 +903,15 @@ template&lt;typename dtype &gt; </div>
 <li><a class="el" href="_data_cube_8hpp_source.html">DataCube.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.14
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_num_c.html">NumC</a></li><li class="navelem"><a class="el" href="class_num_c_1_1_data_cube.html">DataCube</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
 </body>
 </html>

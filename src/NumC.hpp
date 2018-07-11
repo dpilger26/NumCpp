@@ -1,7 +1,13 @@
+/// @mainpage NumC Documentation
+///
+/// @section Description
+/// A C++ implementation of the Python Numpy library
+///
 /// @author David Pilger <dpilger26@gmail.com>
+///
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -21,8 +27,8 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
-/// A C++ implementation of the Python Numpy library
+/// @section Testing
+/// Compiled and tested with Visual Studio 2017, and MinGW gcc-6.3.0, with Boost version 1.63.
 ///
 #pragma once
 
