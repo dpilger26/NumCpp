@@ -689,6 +689,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a multidimensional kernel convolution.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html#scipy.ndimage.convolve
         ///		
         /// @param				NdArray
         /// @param				square size of the kernel to apply
@@ -732,6 +734,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a one-dimensional kernel convolution.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d
         ///		
         /// @param				NdArray
         /// @param				NdArray, weights
@@ -764,6 +768,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a multidimensional gaussian filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter
         ///		
         /// @param				NdArray
         /// @param				double, Standard deviation for Gaussian kernel
@@ -816,6 +822,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculate a one-dimensional gaussian filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d
         ///		
         /// @param				NdArray
         /// @param				double, Standard deviation for Gaussian kernel
@@ -864,6 +872,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a multidimensional maximum filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter
         ///		
         /// @param				NdArray
         /// @param				square size of the kernel to apply
@@ -900,6 +910,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a one-dimensional maximum filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter1d.html#scipy.ndimage.maximum_filter1d
         ///		
         /// @param				NdArray
         /// @param				size of the kernel to apply
@@ -930,6 +942,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a multidimensional median filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter
         ///		
         /// @param				NdArray
         /// @param				square size of the kernel to apply
@@ -966,6 +980,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a one-dimensional median filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter
         ///		
         /// @param				NdArray
         /// @param				linear size of the kernel to apply
@@ -996,6 +1012,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a multidimensional minimum filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter
         ///		
         /// @param				NdArray
         /// @param				square size of the kernel to apply
@@ -1032,6 +1050,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a one-dimensional minumum filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter1d.html#scipy.ndimage.minimum_filter1d
         ///		
         /// @param				NdArray
         /// @param				size of the kernel to apply
@@ -1062,6 +1082,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a multidimensional percentile filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter
         ///		
         /// @param				NdArray
         /// @param				square size of the kernel to apply
@@ -1099,6 +1121,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a one-dimensional percentile filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter
         ///		
         /// @param				NdArray
         /// @param				size of the kernel to apply
@@ -1130,6 +1154,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a multidimensional rank filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
         ///		
         /// @param				NdArray
         /// @param				square size of the kernel to apply
@@ -1172,6 +1198,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a one-dimensional rank filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
         ///		
         /// @param				NdArray
         /// @param				size of the kernel to apply
@@ -1203,6 +1231,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a multidimensional uniform filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter
         ///		
         /// @param				NdArray
         /// @param				square size of the kernel to apply
@@ -1239,6 +1269,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculates a one-dimensional uniform filter.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d
         ///		
         /// @param				NdArray
         /// @param				size of the kernel to apply

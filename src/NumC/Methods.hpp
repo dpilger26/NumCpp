@@ -57,6 +57,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculate the absolute value.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html
         ///		
         /// @param
         ///				value
@@ -71,6 +73,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculate the absolute value element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html
         ///		
         /// @param
         ///				NdArray
@@ -88,6 +92,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Add arguments element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.add.html
         ///		
         /// @param				NdArray
         /// @param				NdArray
@@ -117,6 +123,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Test whether all array elements along a given axis evaluate to True.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.all.html
         ///		
         /// @param				NdArray
         /// @param				Axis
@@ -132,6 +140,8 @@ namespace NumC
         // Method Description: 
         ///						Returns True if two arrays are element-wise equal within a tolerance.
         ///						inTolerance must be a positive number
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.allclose.html
         ///		
         /// @param				NdArray
         /// @param				NdArray
@@ -160,6 +170,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the maximum of an array or maximum along an axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.amax.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -174,6 +186,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the minimum of an array or minimum along an axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.amin.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -188,6 +202,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Test whether any array element along a given axis evaluates to True.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.any.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -202,6 +218,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Append values to the end of an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.append.html
         ///		
         /// @param				NdArray
         /// @param				NdArray append values
@@ -276,6 +294,8 @@ namespace NumC
         ///
         ///						When using a non - integer step, such as 0.1, the results will often 
         ///						not be consistent.It is better to use linspace for these cases.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
         ///		
         /// @param				start value,
         /// @param				stop value, 
@@ -330,6 +350,8 @@ namespace NumC
         ///
         ///						When using a non - integer step, such as 0.1, the results will often 
         ///						not be consistent.It is better to use linspace for these cases.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
         ///		
         /// @param
         ///				stop value, start is 0 and step is 1
@@ -349,6 +371,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse cosine
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html
         ///		
         /// @param
         ///				value
@@ -363,6 +387,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse cosine, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html
         ///		
         /// @param
         ///				NdArray
@@ -380,6 +406,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse hyperbolic cosine.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html
         ///		
         /// @param
         ///				value
@@ -394,6 +422,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse hyperbolic cosine, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html
         ///		
         /// @param
         ///				NdArray
@@ -411,6 +441,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse sine.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html
         ///		
         /// @param
         ///				value
@@ -425,6 +457,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse sine, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html
         ///		
         /// @param
         ///				NdArray
@@ -442,6 +476,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse hyperbolic sine.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsinh.html
         ///		
         /// @param
         ///				value
@@ -456,6 +492,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse hyperbolic sine, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsinh.html
         ///		
         /// @param
         ///				NdArray
@@ -473,6 +511,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse tangent.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan.html
         ///		
         /// @param
         ///				value
@@ -487,6 +527,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse tangent, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan.html
         ///		
         /// @param
         ///				NdArray
@@ -504,6 +546,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse tangent.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
         ///		
         /// @param				Y
         /// @param				x
@@ -518,6 +562,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse tangent, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
         ///		
         /// @param				NdArray y
         /// @param				NdArray x
@@ -541,6 +587,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse hyperbolic tangent.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
         ///		
         /// @param
         ///				value
@@ -555,6 +603,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric inverse hyperbolic tangent, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
         ///		
         /// @param
         ///				NdArray
@@ -572,6 +622,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns the indices of the maximum values along an axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argmax.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -586,6 +638,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns the indices of the minimum values along an axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argmin.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -600,6 +654,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns the indices that would sort an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argsort.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -614,6 +670,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns the indices that would sort an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argwhere.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -628,6 +686,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Evenly round to the given number of decimals.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
         ///		
         /// @param			value
         /// @param			(Optional) decimals, default = 0
@@ -643,6 +703,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Evenly round to the given number of decimals.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) decimals, default = 0
@@ -657,6 +719,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						True if two arrays have the same shape and elements, False otherwise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.array_equal.html
         ///		
         /// @param				NdArray
         /// @param				NdArray
@@ -681,6 +745,8 @@ namespace NumC
         ///
         ///						Shape consistent means they are either the same shape, or one input array 
         ///						can be broadcasted to create the same shape as the other one.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.array_equiv.html
         ///		
         /// @param				NdArray
         /// @param				NdArray
@@ -709,6 +775,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Convert the vector to an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
         ///		
         /// @param
         ///				std::vector
@@ -724,6 +792,8 @@ namespace NumC
         // Method Description: 
         ///						Convert the list initializer to an array.
         ///						eg: NdArray<int> myArray = NumC::asarray<int>({1,2,3});
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
         ///		
         /// @param
         ///				std::vector
@@ -753,6 +823,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the average along the specified axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -767,6 +839,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the weighted average along the specified axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
         ///		
         /// @param				NdArray
         /// @param				NdArray of weights, otherwise all weights = 1
@@ -856,6 +930,8 @@ namespace NumC
         ///						the output array(though it will be longer if necessary, depending on the 
         ///						contents of x).Each bin gives the number of occurrences of its index value 
         ///						in x.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
         ///		
         /// @param				NdArray
         /// @param				min bin length
@@ -904,6 +980,8 @@ namespace NumC
         ///						in x.If weights is specified the input array is weighted by it, i.e. if a 
         ///						value n is found at position i, out[n] += weight[i] instead of out[n] += 1.
         ///						Weights array shall be of the same shape as inArray.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
         ///		
         /// @param				NdArray
         /// @param				NdArray weights
@@ -949,6 +1027,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the bit-wise AND of two arrays element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bitwise_and.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -976,6 +1056,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the bit-wise OR of two arrays element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bitwise_or.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -990,6 +1072,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the bit-wise XOR of two arrays element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bitwise_xor.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -1022,6 +1106,8 @@ namespace NumC
         // Method Description: 
         ///						Return the cube-root of an array. Not super usefull 
         ///						if not using a floating point type
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
         ///		
         /// @param				value
         /// @return
@@ -1035,6 +1121,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the cube-root of an array, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
         ///		
         /// @param				NdArray
         /// @return
@@ -1051,6 +1139,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the ceiling of the input.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
         ///		
         /// @param				value
         /// @return
@@ -1064,6 +1154,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the ceiling of the input, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
         ///		
         /// @param				NdArray
         /// @return
@@ -1080,6 +1172,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Clip (limit) the value.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
         ///		
         /// @param				value
         /// @param				min Value
@@ -1096,6 +1190,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Clip (limit) the values in an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
         ///		
         /// @param				NdArray
         /// @param				min Value
@@ -1111,6 +1207,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Stack 1-D arrays as columns into a 2-D array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.column_stack.html
         ///		
         /// @param
         ///				{list} of arrays to stack
@@ -1160,6 +1258,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Join a sequence of arrays along an existing axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.concatenate.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -1225,6 +1325,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return an array copy of the given object.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copy.html
         ///		
         /// @param
         ///				NdArray 
@@ -1239,6 +1341,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Change the sign of x1 to that of x2, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copysign.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -1262,6 +1366,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Copies values from one array to another
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copyto.html
         ///		
         /// @param				NdArray destination
         /// @param				NdArray source
@@ -1276,7 +1382,9 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        ///						Cosine .
+        ///						Cosine
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html
         ///		
         /// @param
         ///				value
@@ -1291,6 +1399,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Cosine element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html
         ///		
         /// @param
         ///				NdArray
@@ -1308,6 +1418,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Hyperbolic Cosine.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
         ///		
         /// @param
         ///				Value
@@ -1322,6 +1434,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Hyperbolic Cosine element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
         ///		
         /// @param
         ///				NdArray
@@ -1339,6 +1453,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Counts the number of non-zero values in the array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.count_nonzero.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -1404,6 +1520,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the cross product of two (arrays of) vectors.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cross.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -1552,6 +1670,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the cumulative product of elements along a given axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cumprod.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -1567,6 +1687,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the cumulative sum of the elements along a given axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cumsum.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -1582,6 +1704,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Convert angles from degrees to radians.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.deg2rad.html
         ///		
         /// @param
         ///				value
@@ -1596,6 +1720,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Convert angles from degrees to radians.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.deg2rad.html
         ///		
         /// @param
         ///				NdArray
@@ -1769,6 +1895,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Create a two-dimensional array with the flattened input as a diagonal.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagflat.html
         ///		
         /// @param
         ///				NdArray
@@ -1790,6 +1918,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return specified diagonals.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagonal.html
         ///		
         /// @param				NdArray
         /// @param				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. 
@@ -1806,6 +1936,8 @@ namespace NumC
         // Method Description: 
         ///						Calculate the n-th discrete difference along given axis.
         ///						Unsigned dtypes will give you weird results...obviously.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diff.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -1877,6 +2009,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns a true division of the inputs, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -1892,6 +2026,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Dot product of two arrays.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.dot.html
         ///		
         /// @param			NdArray 1
         /// @param			NdArray 2
@@ -1922,6 +2058,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, without initializing entries.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
         ///		
         /// @param				inNumRows
         /// @param				inNumCols
@@ -1936,6 +2074,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, without initializing entries.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
         ///		
         /// @param
         ///				Shape
@@ -1950,6 +2090,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array with the same shape as a given array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty_like.html
         ///		
         /// @param
         ///				NdArray
@@ -1979,6 +2121,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return (x1 == x2) element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.equal.html
         ///		
         /// @param				NdArray
         /// @param				NdArray
@@ -1993,6 +2137,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculate the exponential of the input value.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
         ///		
         /// @param
         ///				value
@@ -2007,6 +2153,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculate the exponential of all elements in the input array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
         ///		
         /// @param
         ///				NdArray
@@ -2026,6 +2174,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculate 2**p for all p in the input value.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html
         ///		
         /// @param
         ///				value
@@ -2040,6 +2190,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculate 2**p for all p in the input array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html
         ///		
         /// @param
         ///				NdArray
@@ -2059,6 +2211,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculate exp(x) - 1 for the input value.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html
         ///		
         /// @param
         ///				value
@@ -2073,6 +2227,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Calculate exp(x) - 1 for all elements in the array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html
         ///		
         /// @param
         ///				NdArray
@@ -2092,6 +2248,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
         ///		
         /// @param				number of rows and columns (N)
         /// @param				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
@@ -2108,6 +2266,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
         ///		
         /// @param				number of rows (N)
         /// @param				number of columns (M)
@@ -2155,6 +2315,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
         ///		
         /// @param				Shape
         /// @param				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
@@ -2171,6 +2333,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Round to nearest integer towards zero.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
         ///		
         /// @param
         ///				value
@@ -2185,6 +2349,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Round to nearest integer towards zero.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
         ///		
         /// @param
         ///				NdArray
@@ -2219,6 +2385,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return indices that are non-zero in the flattened version of a.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flatnonzero.html
         ///		
         /// @param
         ///				NdArray
@@ -2233,6 +2401,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Reverse the order of elements in an array along the given axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flip.html
         ///		
         /// @param				NdArray
         /// @param				axis
@@ -2277,6 +2447,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Flip array in the left/right direction.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fliplr.html
         ///		
         /// @param
         ///				NdArray
@@ -2291,6 +2463,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Flip array in the up/down direction.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flipud.html
         ///		
         /// @param
         ///				NdArray
@@ -2305,6 +2479,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the floor of the input.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
         ///		
         /// @param
         ///				value
@@ -2319,6 +2495,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the floor of the input, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
         ///		
         /// @param
         ///				NdArray
@@ -2338,6 +2516,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the largest integer smaller or equal to the division of the inputs.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
         ///		
         /// @param				value 1
         /// @param				value 2
@@ -2352,6 +2532,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the largest integer smaller or equal to the division of the inputs.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -2369,6 +2551,8 @@ namespace NumC
         ///
         ///						Compare two value and returns a value containing the 
         ///						maxima
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
         ///		
         /// @param				value 1
         /// @param				value 2
@@ -2386,6 +2570,8 @@ namespace NumC
         ///
         ///						Compare two arrays and returns a new array containing the 
         ///						element - wise maxima
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -2413,6 +2599,8 @@ namespace NumC
         ///
         ///						Compare two value and returns a value containing the 
         ///						minima
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
         ///		
         /// @param				value 1
         /// @param				value 2
@@ -2430,6 +2618,8 @@ namespace NumC
         ///
         ///						Compare two arrays and returns a new array containing the 
         ///						element - wise minima
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -2455,6 +2645,8 @@ namespace NumC
         // Method Description: 
         ///						Return the remainder of division.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
+        ///
         ///		
         /// @param				value 1
         /// @param				value 2
@@ -2472,6 +2664,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the element-wise remainder of division.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
         ///
         ///		
         /// @param				NdArray 1
@@ -2500,6 +2694,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Construct an array from data in a text or binary file.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
         ///		
         /// @param				filename
         /// @param				seperator, Separator between items if file is a text file. Empty ("") 
@@ -2581,6 +2777,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, filled with inFillValue
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
         ///		
         /// @param				square size
         /// @param				fill value
@@ -2597,6 +2795,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, filled with inFillValue
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
         ///		
         /// @param				numRows
         /// @param				numCols
@@ -2614,6 +2814,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, filled with inFillValue
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
         ///		
         /// @param				Shape
         /// @param				fill value
@@ -2628,6 +2830,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a full array with the same shape and type as a given array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full_like.html
         ///		
         /// @param				NdArray
         /// @param				fill value
@@ -2644,6 +2848,8 @@ namespace NumC
         // Method Description: 
         ///						Return the truth value of (x1 > x2) element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.greater.html
+        ///
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -2659,6 +2865,8 @@ namespace NumC
         // Method Description: 
         ///						Return the truth value of (x1 >= x2) element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.greater_equal.html
+        ///
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -2673,6 +2881,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the histogram of a set of data.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.histogram.html
         ///
         ///		
         /// @param				NdArray 
@@ -2690,6 +2900,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Stack arrays in sequence horizontally (column wise).
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hstack.html
         ///
         ///		
         /// @param
@@ -2709,6 +2921,8 @@ namespace NumC
         ///
         ///						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
+        ///
         ///		
         /// @param				value 1
         /// @param				value 2
@@ -2727,6 +2941,8 @@ namespace NumC
         ///						Given the "legs" of a right triangle, return its hypotenuse.
         ///
         ///						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
         ///
         ///		
         /// @param				NdArray 1
@@ -2757,7 +2973,8 @@ namespace NumC
         ///
         ///						The identity array is a square array with ones on the main diagonal.
         ///
-        ///		
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.identity.html
+        ///
         /// @param
         ///				matrix square size
         ///				
@@ -2779,6 +2996,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Insert values along the given axis before the given indices.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.insert.html
         ///	
         /// @param      NdArray
         /// @param      NdArray indices
@@ -2877,7 +3096,8 @@ namespace NumC
         ///
         ///						Return the sorted, unique values that are in both of the input arrays.
         ///
-        ///		
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.intersect1d.html
+        ///
         /// @param				NdArray 1
         /// @param				NdArray 2
         ///				
@@ -2900,7 +3120,8 @@ namespace NumC
         // Method Description: 
         ///						Compute bit-wise inversion, or bit-wise NOT, element-wise.
         ///
-        ///		
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.invert.html
+        ///	
         /// @param
         ///				NdArray
         ///				
@@ -2919,6 +3140,9 @@ namespace NumC
         ///
         ///						For finite values, isclose uses the following equation to test whether two floating point values are equivalent.
         ///						absolute(a - b) <= (atol + rtol * absolute(b))
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isclose.html
+        ///
         /// @param				NdArray 1
         /// @param				NdArray 2
         /// @param				relative tolerance
@@ -2945,6 +3169,7 @@ namespace NumC
         // Method Description: 
         ///						Test for NaN and return result as a boolean.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
         ///		
         /// @param
         ///				value
@@ -2961,6 +3186,7 @@ namespace NumC
         // Method Description: 
         ///						Test element-wise for NaN and return result as a boolean array.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
         ///		
         /// @param
         ///				NdArray
@@ -2981,6 +3207,7 @@ namespace NumC
         // Method Description: 
         ///						Returns x1 * 2^x2.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
         ///		
         /// @param				value 1
         /// @param				value 2
@@ -2997,6 +3224,7 @@ namespace NumC
         // Method Description: 
         ///						Returns x1 * 2^x2, element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -3022,6 +3250,7 @@ namespace NumC
         // Method Description: 
         ///						Shift the bits of an integer to the left.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.left_shift.html
         ///		
         /// @param				NdArray 
         /// @param				number of bits to sift
@@ -3038,6 +3267,7 @@ namespace NumC
         // Method Description: 
         ///						Return the truth value of (x1 < x2) element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.less.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -3054,6 +3284,7 @@ namespace NumC
         // Method Description: 
         ///						Return the truth value of (x1 <= x2) element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.less_equal.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -3077,6 +3308,8 @@ namespace NumC
         ///
         ///						Mostly only usefull if called with a floating point type 
         ///						for the template argument.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.linspace.html
         ///
         /// @param				start point
         /// @param				end point
@@ -3153,6 +3386,7 @@ namespace NumC
         // Method Description: 
         ///						loads a .bin file from the dump() method into an NdArray
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.load.html
         ///		
         /// @param
         ///				string filename
@@ -3169,6 +3403,7 @@ namespace NumC
         // Method Description: 
         ///						Natural logarithm.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
         ///		
         /// @param
         ///				value
@@ -3185,6 +3420,7 @@ namespace NumC
         // Method Description: 
         ///						Natural logarithm, element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
         ///		
         /// @param
         ///				NdArray
@@ -3205,6 +3441,7 @@ namespace NumC
         // Method Description: 
         ///						Return the base 10 logarithm of the input array.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
         ///		
         /// @param
         ///				value
@@ -3221,6 +3458,7 @@ namespace NumC
         // Method Description: 
         ///						Return the base 10 logarithm of the input array, element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
         ///		
         /// @param
         ///				NdArray
@@ -3243,6 +3481,7 @@ namespace NumC
         ///
         ///						Calculates log(1 + x).
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
         ///		
         /// @param
         ///				value
@@ -3261,6 +3500,7 @@ namespace NumC
         ///
         ///						Calculates log(1 + x).
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
         ///		
         /// @param
         ///				NdArray
@@ -3281,6 +3521,7 @@ namespace NumC
         // Method Description: 
         ///						Base-2 logarithm of x.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
         ///		
         /// @param
         ///				value
@@ -3297,6 +3538,7 @@ namespace NumC
         // Method Description: 
         ///						Base-2 logarithm of x.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
         ///		
         /// @param
         ///				NdArray
@@ -3317,6 +3559,7 @@ namespace NumC
         // Method Description: 
         ///						Compute the truth value of x1 AND x2 element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_and.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -3343,6 +3586,7 @@ namespace NumC
         // Method Description: 
         ///						Compute the truth value of NOT x element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_not.html
         ///		
         /// @param
         ///				NdArray 
@@ -3363,6 +3607,7 @@ namespace NumC
         // Method Description: 
         ///						Compute the truth value of x1 OR x2 element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_or.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -3389,6 +3634,7 @@ namespace NumC
         // Method Description: 
         ///						Compute the truth value of x1 XOR x2 element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_xor.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -3415,6 +3661,7 @@ namespace NumC
         // Method Description: 
         ///						Matrix product of two arrays.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.matmul.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -3431,7 +3678,6 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the maximum of an array or maximum along an axis.
-        ///
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -3447,6 +3693,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Element-wise maximum of array elements.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.maximum.html
         ///
         ///		
         /// @param				NdArray 1
@@ -3474,6 +3722,7 @@ namespace NumC
         // Method Description: 
         ///						Compute the mean along the specified axis.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mean.html
         ///		
         /// @param				NdArray 
         /// @param				(Optional) axis
@@ -3490,6 +3739,7 @@ namespace NumC
         // Method Description: 
         ///						Compute the median along the specified axis.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.median.html
         ///		
         /// @param				NdArray 
         /// @param  			(Optional) axis
@@ -3505,7 +3755,6 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the minimum of an array or maximum along an axis.
-        ///
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -3522,6 +3771,7 @@ namespace NumC
         // Method Description: 
         ///						Element-wise minimum of array elements.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.minimum.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -3548,6 +3798,7 @@ namespace NumC
         // Method Description: 
         ///						Return element-wise remainder of division.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mod.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -3564,6 +3815,7 @@ namespace NumC
         // Method Description: 
         ///						Multiply arguments element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.multiply.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -3579,6 +3831,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns the indices of the maximum values along an axis ignoring NaNs.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanargmax.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -3602,6 +3856,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns the indices of the minimum values along an axis ignoring NaNs.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanargmin.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -3625,6 +3881,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the cumulative product of elements along a given axis ignoring NaNs.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumprod.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -3649,6 +3907,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the cumulative sum of the elements along a given axis ignoring NaNs.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumsum.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -3674,6 +3934,7 @@ namespace NumC
         // Method Description: 
         ///						Return the maximum of an array or maximum along an axis ignoring NaNs.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmax.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -3699,6 +3960,7 @@ namespace NumC
         // Method Description: 
         ///						Compute the mean along the specified axis ignoring NaNs.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmean.html
         ///		
         /// @param				NdArray 
         /// @param				(Optional) axis
@@ -3770,6 +4032,7 @@ namespace NumC
         // Method Description: 
         ///						Compute the median along the specified axis ignoring NaNs.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmedian.html
         ///		
         /// @param				NdArray 
         /// @param				(Optional) axis
@@ -3856,6 +4119,7 @@ namespace NumC
         // Method Description: 
         ///						Return the minimum of an array or maximum along an axis ignoring NaNs.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmin.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -3880,6 +4144,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the qth percentile of the data along the specified axis, while ignoring nan values.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanpercentile.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -4061,6 +4327,7 @@ namespace NumC
         // Method Description: 
         ///						Return the product of array elements over a given axis treating Not a Numbers (NaNs) as ones.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanprod.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -4087,6 +4354,7 @@ namespace NumC
         // Method Description: 
         ///						Compute the standard deviation along the specified axis, while ignoring NaNs.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanstd.html
         ///		
         /// @param				NdArray 
         /// @param				(Optional) axis
@@ -4178,6 +4446,7 @@ namespace NumC
         // Method Description: 
         ///						Return the sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nansum.html
         ///		
         /// @param				NdArray 
         /// @param				(Optional) axis
@@ -4204,6 +4473,7 @@ namespace NumC
         // Method Description: 
         ///						Compute the variance along the specified axis, while ignoring NaNs.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanvar.html
         ///		
         /// @param			NdArray
         /// @param			(Optional) axis
@@ -4278,6 +4548,7 @@ namespace NumC
         // Method Description: 
         ///						Numerical negative, element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.negative.html
         ///		
         /// @param
         ///				NdArray
@@ -4297,6 +4568,7 @@ namespace NumC
         ///						Return the indices of the flattened array of the 
         ///						elements that are non-zero.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nonzero.html
         ///		
         /// @param
         ///				NdArray
@@ -4312,7 +4584,6 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Matrix or vector norm.
-        ///
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -4330,6 +4601,7 @@ namespace NumC
         // Method Description: 
         ///						Return (x1 != x2) element-wise.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.not_equal.html
         ///		
         /// @param			NdArray 1
         /// @param			NdArray 2
@@ -4345,6 +4617,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, filled with ones.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
         ///		
         /// @param
         ///				square size
@@ -4359,6 +4633,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, filled with ones.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
         ///		
         /// @param			numRows
         /// @param			numCols
@@ -4373,6 +4649,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, filled with ones.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
         ///		
         /// @param
         ///				Shape
@@ -4387,6 +4665,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, filled with ones.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones_like.html
         ///		
         /// @param
         ///				NdArray
@@ -4404,6 +4684,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Pads an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.pad.html
         ///		
         /// @param				NdArray
         /// @param				pad width
@@ -4433,6 +4715,8 @@ namespace NumC
         ///						element are moved before this element and all equal or greater 
         ///						are moved behind it. The ordering of the elements in the two 
         ///						partitions is undefined.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.partition.html
         ///		
         /// @param				kth element
         /// @param				(Optional) Axis
@@ -4449,6 +4733,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the qth percentile of the data along the specified axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.percentile.html
         ///		
         /// @param				NdArray
         /// @param				percentile, must be in the range [0, 100]
@@ -4589,6 +4875,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Raises the elements of the array to the input power
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
         ///		
         /// @param				NdArray
         /// @param				exponent
@@ -4608,6 +4896,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Raises the elements of the array to the input powers
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
         ///		
         /// @param				NdArray
         /// @param				NdArray
@@ -4646,6 +4936,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the product of array elements over a given axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.prod.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -4661,6 +4953,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Range of values (maximum - minimum) along an axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ptp.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -4676,6 +4970,8 @@ namespace NumC
         // Method Description: 
         ///						Replaces specified elements of an array with given values.
         ///						The indexing works on the flattened target array
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.put.html
         ///		
         /// @param				NdArray
         /// @param				NdArray of indices
@@ -4696,6 +4992,8 @@ namespace NumC
         ///						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
         ///
         ///						If values is not the same size as a and mask then it will repeat.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
         ///		
         /// @param				NdArray
         /// @param				NdArray mask
@@ -4728,6 +5026,8 @@ namespace NumC
         ///						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
         ///
         ///						If values is not the same size as a and mask then it will repeat.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
         ///		
         /// @param				NdArray
         /// @param				NdArray mask
@@ -4759,6 +5059,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Convert angles from radians to degrees.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
         ///		
         /// @param
         ///				value
@@ -4774,6 +5076,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Convert angles from radians to degrees.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
         ///		
         /// @param
         ///				NdArray
@@ -4794,6 +5098,8 @@ namespace NumC
         ///						Return the reciprocal of the argument, element-wise.
         ///
         ///						Calculates 1 / x.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
         ///		
         /// @param
         ///				NdArray
@@ -4816,6 +5122,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return remainder of division.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html
         ///		
         /// @param				value 1
         /// @param				value 2
@@ -4832,6 +5140,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return element-wise remainder of division.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -4857,6 +5167,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Repeat elements of an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
         ///		
         /// @param				numRows
         /// @param				numCols
@@ -4873,6 +5185,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Repeat elements of an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
         ///		
         /// @param				NdArray
         /// @param				Shape
@@ -4888,6 +5202,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Gives a new shape to an array without changing its data.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reshape.html
         ///		
         /// @param				numRows
         /// @param				numCols
@@ -4905,6 +5221,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Gives a new shape to an array without changing its data.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reshape.html
         ///		
         /// @param				NdArray
         /// @param				Shape, new Shape
@@ -4922,6 +5240,8 @@ namespace NumC
         // Method Description: 
         ///						Change shape and size of array in-place. All previous
         ///						data of the array is lost.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
         ///		
         /// @param				NdArray
         /// @param				numRows
@@ -4940,6 +5260,8 @@ namespace NumC
         // Method Description: 
         ///						Change shape and size of array in-place. All previous
         ///						data of the array is lost.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
         ///		
         /// @param				NdArray 
         /// @param				Shape, new Shape
@@ -4959,6 +5281,8 @@ namespace NumC
         ///						is larger than old shape then array will be padded with zeros.
         ///						If new shape is smaller than the old shape then the data will
         ///						be discarded.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
         ///		
         /// @param				NdArray
         /// @param				numRows
@@ -4979,6 +5303,8 @@ namespace NumC
         ///						is larger than old shape then array will be padded with zeros.
         ///						If new shape is smaller than the old shape then the data will
         ///						be discarded.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
         ///		
         /// @param				NdArray 
         /// @param				Shape, new Shape
@@ -4996,6 +5322,7 @@ namespace NumC
         // Method Description: 
         ///						Shift the bits of an integer to the right.
         ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.right_shift.html
         ///		
         /// @param				NdArray 
         /// @param				number of bits to sift
@@ -5011,6 +5338,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Round value to the nearest integer.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
         ///		
         /// @param
         ///				value 
@@ -5026,6 +5355,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Round elements of the array to the nearest integer.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
         ///		
         /// @param
         ///				NdArray 
@@ -5044,6 +5375,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Roll array elements along a given axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.roll.html
         ///		
         /// @param				NdArray 
         /// @param				elements to shift, positive means forward, negative means backwards
@@ -5117,6 +5450,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Rotate an array by 90 degrees counter clockwise in the plane.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rot90.html
         ///		
         /// @param				NdArray 
         /// @param				the number of times to rotate 90 degrees
@@ -5236,6 +5571,8 @@ namespace NumC
         ///						Find the set difference of two arrays.
         ///
         ///						Return the sorted, unique values in ar1 that are not in ar2.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.setdiff1d.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -5274,6 +5611,8 @@ namespace NumC
         ///
         ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0. 
         ///						nan is returned for nan inputs.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
         ///		
         /// @param
         ///				NdArray 
@@ -5302,6 +5641,8 @@ namespace NumC
         ///
         ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0. 
         ///						nan is returned for nan inputs.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
         ///		
         /// @param
         ///				NdArray 
@@ -5319,6 +5660,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns element-wise True where signbit is set (less than zero).
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
         ///		
         /// @param
         ///				NdArray 
@@ -5333,6 +5676,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns element-wise True where signbit is set (less than zero).
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
         ///		
         /// @param
         ///				NdArray 
@@ -5350,6 +5695,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric sine.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sin.html
         ///		
         /// @param
         ///				value 
@@ -5364,6 +5711,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trigonometric sine, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sin.html
         ///		
         /// @param
         ///				NdArray 
@@ -5383,6 +5732,8 @@ namespace NumC
         ///						Return the sinc function.
         ///
         ///						The sinc function is sin(pi*x) / (pi*x).
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html
         ///		
         /// @param
         ///				value 
@@ -5400,6 +5751,8 @@ namespace NumC
         ///						Return the sinc function.
         ///
         ///						The sinc function is sin(pi*x) / (pi*x).
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html
         ///		
         /// @param
         ///				NdArray 
@@ -5416,7 +5769,9 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        ///						Hyperbolic sine,.
+        ///						Hyperbolic sine.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html
         ///		
         /// @param
         ///				value 
@@ -5431,6 +5786,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Hyperbolic sine, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html
         ///		
         /// @param
         ///				NdArray 
@@ -5462,6 +5819,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a sorted copy of an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sort.html
         ///		
         /// @param				NdArray 
         /// @param				(Optional) Axis
@@ -5478,6 +5837,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the positive square-root of a value.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
         ///		
         /// @param
         ///				value
@@ -5492,6 +5853,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the positive square-root of an array, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
         ///		
         /// @param
         ///				NdArray
@@ -5509,6 +5872,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the square of an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.square.html
         ///		
         /// @param
         ///				value
@@ -5523,6 +5888,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the square of an array, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.square.html
         ///		
         /// @param
         ///				NdArray
@@ -5540,6 +5907,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the standard deviation along the specified axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.std.html
         ///		
         /// @param				NdArray
         /// @param				Axis
@@ -5554,6 +5923,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Sum of array elements over a given axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sum.html
         ///		
         /// @param				NdArray
         /// @param				Axis
@@ -5569,6 +5940,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Interchange two axes of an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.swapaxes.html
         ///		
         /// @param
         ///				NdArray
@@ -5583,6 +5956,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute tangent.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html
         ///		
         /// @param
         ///				value
@@ -5597,6 +5972,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute tangent element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html
         ///		
         /// @param
         ///				NdArray
@@ -5614,6 +5991,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute hyperbolic tangent.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html
         ///		
         /// @param
         ///				value
@@ -5628,6 +6007,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute hyperbolic tangent element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html
         ///		
         /// @param
         ///				NdArray
@@ -5645,6 +6026,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Construct an array by repeating A the number of times given by reps.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
         ///		
         /// @param				NdArray
         /// @param				numRows
@@ -5660,6 +6043,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Construct an array by repeating A the number of times given by reps.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
         ///		
         /// @param				NdArray
         /// @param				Shape
@@ -5705,6 +6090,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the sum along diagonals of the array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trace.html
         ///		
         /// @param				NdArray
         /// @param				Offset from main diaganol, default = 0, negative=above, positve=below
@@ -5721,6 +6108,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Permute the dimensions of an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.transpose.html
         ///		
         /// @param
         ///				NdArray
@@ -5736,6 +6125,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Integrate along the given axis using the composite trapezoidal rule.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) Axis
@@ -5752,6 +6143,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Integrate along the given axis using the composite trapezoidal rule.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
         ///		
         /// @param				NdArray x values
         /// @param				NdArray y values
@@ -5769,6 +6162,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						An array with ones at and below the given diagonal and zeros elsewhere.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tri.html
         ///		
         /// @param				N, number of rows and cols
         /// @param				Offset, the sub-diagonal at and below which the array is filled. 
@@ -5813,6 +6208,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						An array with ones at and below the given diagonal and zeros elsewhere.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tri.html
         ///		
         /// @param				N, number of rows
         /// @param				M, number of columns
@@ -5860,6 +6257,8 @@ namespace NumC
         ///						Lower triangle of an array.
         ///
         ///						Return a copy of an array with elements above the k-th diagonal zeroed.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tril.html
         ///		
         /// @param				NdArray
         /// @param				Offset, the sub-diagonal at and below which the array is filled. 
@@ -5880,6 +6279,8 @@ namespace NumC
         ///						Upper triangle of an array.
         ///
         ///						Return a copy of an array with elements below the k-th diagonal zeroed.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
         ///		
         /// @param				NdArray
         /// @param				Offset, the sub-diagonal at and below which the array is filled. 
@@ -5898,6 +6299,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Trim the leading and/or trailing zeros from a 1-D array or sequence.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trim_zeros.html
         ///		
         /// @param				NdArray
         /// @param				string, "f" = front, "b" = back, "fb" = front and back
@@ -6009,6 +6412,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the truncated value of the input.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html
         ///		
         /// @param
         ///				value 
@@ -6024,6 +6429,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the truncated value of the input, element-wise.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html
         ///		
         /// @param
         ///				NdArray 
@@ -6045,6 +6452,8 @@ namespace NumC
         ///
         ///						Return the unique, sorted array of values that are in 
         ///						either of the two input arrays.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.union1d.html
         ///		
         /// @param				NdArray 1
         /// @param				NdArray 2
@@ -6069,6 +6478,8 @@ namespace NumC
         ///						Find the unique elements of an array.
         ///
         ///						Returns the sorted unique elements of an array.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unique.html
         ///		
         /// @param
         ///				NdArray 
@@ -6085,6 +6496,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Unwrap by changing deltas between values to 2*pi complement.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
         ///		
         /// @param
         ///				value 
@@ -6111,6 +6524,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Unwrap by changing deltas between values to 2*pi complement.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
         ///		
         /// @param
         ///				NdArray 
@@ -6130,6 +6545,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the variance along the specified axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.var.html
         ///		
         /// @param				NdArray
         /// @param				(Optional) axis
@@ -6145,6 +6562,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Compute the variance along the specified axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.vstack.html
         ///		
         /// @param
         ///				{list} of arrays to stack
@@ -6160,6 +6579,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, filled with zeros.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
         ///		
         /// @param
         ///				square size
@@ -6174,6 +6595,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, filled with zeros.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
         ///		
         /// @param				numRows
         /// @param				numCols
@@ -6188,6 +6611,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a new array of given shape and type, filled with zeros.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
         ///		
         /// @param
         ///				Shape

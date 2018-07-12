@@ -50,6 +50,8 @@ namespace NumC
         // Method Description: 
         ///						matrix determinant.
         ///						NOTE: can get verrrrry slow for large matrices (order > 10)
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det
         ///		
         /// @param
         ///				NdArray
@@ -160,6 +162,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						matrix inverse
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv
         ///		
         /// @param
         ///				NdArray
@@ -248,6 +252,8 @@ namespace NumC
         ///						linearly independent columns). If a is square and of 
         ///						full rank, then x (but for round-off error) is the 
         ///						"exact" solution of the equation.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq
         ///		
         /// @param				NdArray, coefficient matrix
         /// @param  			NdArray, Ordinate or "dependent variable" values
@@ -272,6 +278,8 @@ namespace NumC
         ///						matrix squarings and matrix multiplications.  If n == 0, 
         ///						the identity matrix of the same shape as M is returned.
         ///						If n < 0, the inverse is computed and then raised to the abs(n).
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power
         ///		
         /// @param				NdArray
         /// @param				power
@@ -325,6 +333,8 @@ namespace NumC
         // Method Description: 
         ///						Compute the dot product of two or more arrays in a single 
         ///						function call..
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot
         ///		
         /// @param
         ///				initializer_list<NdArray<dtype> >, list of arrays
@@ -359,6 +369,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						matrix svd
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
         ///		
         /// @param				NdArray to be SVDed
         /// @param				NdArray output U

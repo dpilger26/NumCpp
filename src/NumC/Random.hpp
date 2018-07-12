@@ -80,6 +80,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from the “beta” distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///		
         /// @param				Shape
         /// @param				alpha
@@ -114,6 +116,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from the “binomial” distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial
         ///		
         /// @param				Shape
         /// @param				number of trials
@@ -151,6 +155,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from the “chi square” distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
         ///		
         /// @param				Shape
         /// @param				df independent random variables
@@ -251,6 +257,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "exponential" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
         ///		
         /// @param				Shape
         /// @param				scale value, default 1
@@ -308,6 +316,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "F" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
         ///		
         /// @param				Shape
         /// @param				Degrees of freedom in numerator. Should be greater than zero.
@@ -342,6 +352,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "gamma" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
         ///		
         /// @param				Shape
         /// @param			    Scale, default 1
@@ -376,6 +388,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "geometric" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
         ///		
         /// @param				Shape
         /// @param				probablity of success [0, 1]
@@ -407,6 +421,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "laplace" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
         ///		
         /// @param				inLoc: The position, mu, of the distribution peak. Default is 0.
         /// @param				inScale: float  optional, the exponential decay. Default is 1.
@@ -430,6 +446,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "lognormal" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
         ///		
         /// @param				mean: Mean value of the underlying normal distribution. Default is 0.
         /// @param				sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
@@ -458,6 +476,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from the “negative Binomial” distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
         ///		
         /// @param				Shape
         /// @param				number of trials
@@ -495,6 +515,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "non central chi squared" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///		
         /// @param				Shape
         /// @param				k, default 1
@@ -529,6 +551,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "normal" distrubution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html#numpy.random.normal
         ///		
         /// @param				mean: Mean value of the underlying normal distribution. Default is 0.
         /// @param  			sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
@@ -593,6 +617,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from the “poisson” distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
         ///		
         /// @param				Shape
         /// @param				mean, default 1
@@ -621,6 +647,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a uniform distribution over [0, 1).
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
         ///		
         /// @param
         ///				Shape
@@ -644,6 +672,8 @@ namespace NumC
         // Method Description: 
         ///						Return random floats from low (inclusive) to high (exclusive), 
         ///						with the given shape
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf
         ///		
         /// @param				Shape
         /// @param  			low value
@@ -677,6 +707,8 @@ namespace NumC
         // Method Description: 
         ///						Return random integers from low (inclusive) to high (exclusive), 
         ///						with the given shape
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
         ///		
         /// @param				Shape
         /// @param				low value
@@ -713,6 +745,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from the “standard normal” distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn
         ///		
         /// @param
         ///				Shape
@@ -735,6 +769,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Seeds the random number generator_
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
         ///		
         /// @param
         ///				seed
@@ -765,6 +801,8 @@ namespace NumC
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "standard normal" distrubution with 
         ///						mean = 0 and std = 1
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
         ///		
         /// @param
         ///				Shape
@@ -780,6 +818,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from the “student-T” distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
         ///		
         /// @param				Shape
         /// @param				df independent random variables
@@ -808,6 +848,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from the “triangle” distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
         ///		
         /// @param				Shape
         /// @param				a
@@ -857,6 +899,8 @@ namespace NumC
         ///
         ///						Samples are uniformly distributed over the half - 
         ///						open interval[low, high) (includes low, but excludes high)
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
         ///		
         /// @param				Shape
         /// @param				low value
@@ -905,6 +949,8 @@ namespace NumC
         // Method Description: 
         ///						Create an array of the given shape and populate it with 
         ///						random samples from the "weibull" distribution.
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
         ///		
         /// @param				Shape
         /// @param				a, default 1
