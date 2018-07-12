@@ -901,6 +901,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns True if all elements evaluate to True or non zero
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.all.html
         ///		
         /// @param
         ///				(Optional) axis
@@ -947,6 +949,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns True if any elements evaluate to True or non zero
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.any.html
         ///		
         /// @param
         ///				(Optional) axis
@@ -994,6 +998,8 @@ namespace NumC
         // Method Description: 
         ///						Return indices of the maximum values along the given axis.
         ///						Only the first index is returned.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmax.html
         ///		
         /// @param
         ///				(Optional) axis
@@ -1041,6 +1047,8 @@ namespace NumC
         // Method Description: 
         ///						Return indices of the minimum values along the given axis.
         ///						Only the first index is returned.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmin.html
         ///		
         /// @param
         ///				(Optional) axis
@@ -1087,6 +1095,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns the indices that would sort this array.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argsort.html
         ///		
         /// @param
         ///				(Optional) axis
@@ -1149,6 +1159,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns a copy of the array, cast to a specified type.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
         ///		
         /// @param
         ///				None
@@ -1169,6 +1181,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Swap the bytes of the array elements in place
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.byteswap.html
         ///		
         /// @param
         ///				None
@@ -1204,6 +1218,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns an array whose values are limited to [min, max].
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.clip.html
         ///		
         /// @param				min value to clip to
         /// @param				max value to clip to
@@ -1282,6 +1298,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a copy of the array
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.copy.html
         ///		
         /// @param
         ///				None
@@ -1296,6 +1314,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the cumulative product of the elements along the given axis.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumprod.html
         ///		
         /// @param
         ///				(Optional) axis
@@ -1358,6 +1378,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the cumulative sum of the elements along the given axis.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumsum.html
         ///		
         /// @param
         ///				(Optional) axis
@@ -1420,6 +1442,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return specified diagonals.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.diagonal.html
         ///		
         /// @param				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. 
         /// @param				(Optional) axis the offset is applied to
@@ -1477,6 +1501,8 @@ namespace NumC
         ///
         ///						For 2-D arrays it is equivalent to matrix multiplication, 
         ///						and for 1-D arrays to inner product of vectors. 
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
         ///		
         /// @param
         ///				NdArray
@@ -1529,6 +1555,8 @@ namespace NumC
         // Method Description: 
         ///						Dump a binary file of the array to the specified file. 
         ///						The array can be read back with or NumC::load.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html
         ///		
         /// @param
         ///				filename
@@ -1587,6 +1615,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Fill the array with a scalar value.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.fill.html
         ///		
         /// @param
         ///				fill value
@@ -1604,6 +1634,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return a copy of the array collapsed into one dimension.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.flatten.html
         ///		
         /// @param
         ///				None
@@ -1624,6 +1656,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Copy an element of an array to a standard C++ scalar and return it.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.item.html
         ///		
         /// @param
         ///				None
@@ -1645,6 +1679,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the maximum along a given axis.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.max.html
         ///		
         /// @param
         ///				(Optional) Axis
@@ -1693,6 +1729,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the minimum along a given axis.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.min.html
         ///		
         /// @param
         ///				(Optional) Axis
@@ -1741,6 +1779,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the mean along a given axis.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.mean.html
         ///		
         /// @param
         ///				(Optional) Axis
@@ -1852,6 +1892,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns the number of bytes held by the array
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nbytes.html
         ///		
         /// @param
         ///				None
@@ -1869,6 +1911,8 @@ namespace NumC
         ///						different byte order. only works for integer types, 
         ///						floating point types will not compile and you will
         ///						be confused as to why...
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.newbyteorder.html
         ///		
         /// @param
         ///				Endian::Type
@@ -2012,6 +2056,8 @@ namespace NumC
         // Method Description: 
         ///						Return the indices of the flattened array of the 
         ///						elements that are non-zero.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nonzero.html
         ///		
         /// @param
         ///				None
@@ -2035,6 +2081,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns the norm of the array
+        ///
+        ///                     Numpy Reference: http://www.numpy.org/devdocs/reference/generated/numpy.linalg.norm.html?highlight=norm#numpy.linalg.norm
         ///		
         /// @param
         ///				(Optional) Axis
@@ -2118,6 +2166,8 @@ namespace NumC
         ///						element are moved before this element and all equal or greater 
         ///						are moved behind it. The ordering of the elements in the two 
         ///						partitions is undefined.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.partition.html
         ///		
         /// @param				kth element
         /// @param				(Optional) Axis
@@ -2191,6 +2241,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the product of the array elements over the given axis
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.prod.html
         ///		
         /// @param
         ///				(Optional) Axis
@@ -2255,6 +2307,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Peak to peak (maximum - minimum) value along a given axis.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.ptp.html
         ///		
         /// @param
         ///				(Optional) Axis
@@ -2306,6 +2360,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						set the flat index element to the value
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				index
         /// @param				value
@@ -2320,6 +2376,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						set the 2D row/col index element to the value
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				row index
         /// @param				col index
@@ -2335,6 +2393,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Set a.flat[n] = values for all n in indices.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				NdArray of indices
         /// @param				value
@@ -2352,6 +2412,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Set a.flat[n] = values[n] for all n in indices.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				NdArray of indices
         /// @param				NdArray of values
@@ -2374,6 +2436,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Set the slice indices to the input value.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				Slice 1D
         /// @param				value
@@ -2394,6 +2458,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Set the slice indices to the input values.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				Slice 1D
         /// @param  			NdArray of values
@@ -2417,6 +2483,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Set the slice indices to the input values.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				Slice rows
         /// @param				Slice cols
@@ -2445,6 +2513,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Set the slice indices to the input values.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				Slice rows
         /// @param				col index
@@ -2467,6 +2537,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Set the slice indices to the input values.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				row index
         /// @param				Slice cols
@@ -2489,6 +2561,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Set the slice indices to the input values.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				Slice rows
         /// @param				Slice cols
@@ -2520,6 +2594,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Set the slice indices to the input values.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				Slice rows
         /// @param				col index
@@ -2545,6 +2621,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Set the slice indices to the input values.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
         /// @param				row index
         /// @param				Slice cols
@@ -2570,6 +2648,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Repeat elements of an array.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
         ///		
         /// @param				numRows
         /// @param				numCols
@@ -2611,6 +2691,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Repeat elements of an array.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
         ///		
         /// @param
         ///				Shape
@@ -2625,6 +2707,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns an array containing the same data with a new shape.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
         ///		
         /// @param
         ///				Shape
@@ -2647,6 +2731,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns an array containing the same data with a new shape.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///		
         /// @param
         ///				Shape
@@ -2662,6 +2748,8 @@ namespace NumC
         // Method Description: 
         ///						Change shape and size of array in-place. All previous
         ///						data of the array is lost.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///		
         /// @param
         ///				Shape
@@ -2678,6 +2766,8 @@ namespace NumC
         // Method Description: 
         ///						Change shape and size of array in-place. All previous
         ///						data of the array is lost.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///		
         /// @param
         ///				Shape
@@ -2695,6 +2785,8 @@ namespace NumC
         ///						is larger than old shape then array will be padded with zeros.
         ///						If new shape is smaller than the old shape then the data will
         ///						be discarded.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///		
         /// @param				num Rows
         /// @param				num Cols
@@ -2733,6 +2825,8 @@ namespace NumC
         ///						is larger than old shape then array will be padded with zeros.
         ///						If new shape is smaller than the old shape then the data will
         ///						be discarded.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///		
         /// @param
         ///				Shape
@@ -2748,6 +2842,8 @@ namespace NumC
         // Method Description: 
         ///						Return a with each element rounded to the given number
         ///						of decimals.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.round.html
         ///		
         /// @param
         ///				number of decimals to round to
@@ -2776,6 +2872,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the shape of the array
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.shape.html
         ///		
         /// @param
         ///				None
@@ -2790,6 +2888,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the size of the array
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.size.html
         ///		
         /// @param
         ///				None
@@ -2804,6 +2904,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Sort an array, in-place.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sort.html
         ///		
         /// @param
         ///				(Optional) Axis
@@ -2843,6 +2945,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the std along a given axis.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.std.html
         ///		
         /// @param
         ///				(Optional) Axis
@@ -2943,6 +3047,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the sum of the array elements over the given axis.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sum.html
         ///		
         /// @param
         ///				(Optional) Axis
@@ -2995,6 +3101,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Interchange two axes of an array. Equivalent to transpose...
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.swapaxes.html
         ///		
         /// @param
         ///				None
@@ -3011,6 +3119,8 @@ namespace NumC
         ///						Write array to a file as text or binary (default)..
         ///						The data produced by this method can be recovered 
         ///						using the function fromfile().
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
         ///		
         /// @param				filename
         /// @param				Separator between array items for text output. If "" (empty), a binary file is written 
@@ -3068,6 +3178,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Return the sum along diagonals of the array.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.trace.html
         ///		
         /// @param				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.
         /// @param				(Optional) Axis to offset from
@@ -3122,6 +3234,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Tranpose the rows and columns of an array
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.transpose.html
         ///		
         /// @param
         ///				None
@@ -3144,6 +3258,8 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Returns the variance of the array elements, along given axis.
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.var.html
         ///
         /// @param
         ///				(Optional) Axes
