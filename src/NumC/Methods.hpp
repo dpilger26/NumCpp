@@ -2909,12 +2909,13 @@ namespace NumC
                 // binary search to find the bin idx
                 bool keepSearching = true;
                 uint32 lowIdx = 0;
-                uint32 highIdx = binEdges.size() - 1; 
+                uint32 highIdx = binEdges.size() - 1;
                 while (keepSearching)
                 {
                     uint32 idx = (lowIdx + highIdx) / 2; // integer division
                     if (lowIdx == highIdx || lowIdx == highIdx - 1)
                     {
+                        // we found the bin
                         ++histo[lowIdx];
                         break;
                     }
@@ -2933,11 +2934,10 @@ namespace NumC
                         ++histo[idx];
                         break;
                     }
-                    //std::cout << "lowIdx = " << lowIdx << " idx = " << idx << " highIdx = " << highIdx << std::endl;
                 }
             }
 
-            return std::make_pair(histo, binEdges);
+            return std::move(std::make_pair(histo, binEdges));
         }
 
         //============================================================================
@@ -6075,15 +6075,69 @@ namespace NumC
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
         ///		
         /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param              (Optional) dx, defaults to 1.0
+        /// @param				(Optional) Axis, default None
         ///
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
-        static NdArray<dtypeOut> trapz(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+        static NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis::Type inAxis = Axis::NONE)
         {
+            Shape inShape = inArray.shape();
+            switch (inAxis)
+            {
+                case Axis::COL:
+                {
+                    NdArray<double> returnArray(inShape.rows, 1);
+                    for (uint32 row = 0; row < inShape.rows - 1; ++row)
+                    {
+                        double sum = 0;
+                        for (uint32 col = 0; col < inShape.cols - 1; ++col)
+                        {
+                            sum += dx * static_cast<double>(inArray(row, col + 1) - inArray(row, col)) / 2.0 + static_cast<double>(inArray(row, col));
+                        }
 
+                        returnArray[row] = sum;
+                    }
+
+                    return std::move(returnArray);
+                }
+                case Axis::ROW:
+                {
+                    NdArray<dtype> arrayTranspose = inArray.transpose();
+                    Shape transShape = arrayTranspose.shape();
+                    NdArray<double> returnArray(transShape.rows, 1);
+                    for (uint32 row = 0; row < transShape.rows - 1; ++row)
+                    {
+                        double sum = 0;
+                        for (uint32 col = 0; col < transShape.cols - 1; ++col)
+                        {
+                            sum += dx * static_cast<double>(arrayTranspose(row, col + 1) - arrayTranspose(row, col)) / 2.0 + static_cast<double>(arrayTranspose(row, col));
+                        }
+
+                        returnArray[row] = sum;
+                    }
+
+                    return std::move(returnArray);
+                }
+                case Axis::NONE:
+                {
+                    double sum = 0.0;
+                    for (uint32 i = 0; i < inArray.size() - 1; ++i)
+                    {
+                        sum += dx * static_cast<double>(inArray[i + 1] - inArray[i]) / 2.0 + static_cast<double>(inArray[i]);
+                    }
+
+                    NdArray<double> returnArray = { sum };
+                    return std::move(returnArray);
+                }
+                default:
+                {
+                    // this isn't actually possible, just putting this here to get rid
+                    // of the compiler warning.
+                    return std::move(NdArray<double>(0));
+                }
+            }
         }
 
         //============================================================================
@@ -6092,17 +6146,81 @@ namespace NumC
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
         ///		
-        /// @param				NdArray x values
-        /// @param				NdArray y values
+        /// @param				NdArray Y values
+        /// @param				NdArray X values
         /// @param				(Optional) Axis
         ///
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
-        static NdArray<dtypeOut> trapz(const NdArray<dtype>& inArrayX, const NdArray<dtype>& inArrayY, Axis::Type inAxis = Axis::NONE)
+        static NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis::Type inAxis = Axis::NONE)
         {
+            Shape inShapeY = inArrayY.shape();
+            Shape inShapeX = inArrayX.shape();
 
+            if (inShapeY != inShapeX)
+            {
+                throw std::invalid_argument("ERROR: trapz: input x and y arrays should be the same shape.");
+            }
+
+            switch (inAxis)
+            {
+                case Axis::COL:
+                {
+                    NdArray<double> returnArray(inShapeY.rows, 1);
+                    for (uint32 row = 0; row < inShapeY.rows - 1; ++row)
+                    {
+                        double sum = 0;
+                        for (uint32 col = 0; col < inShapeY.cols - 1; ++col)
+                        {
+                            double dx = static_cast<double>(inArrayX(row, col + 1) - inArrayX(row, col));
+                            sum += dx * static_cast<double>(inArrayY(row, col + 1) - inArrayY(row, col)) / 2.0 + static_cast<double>(inArrayY(row, col));
+                        }
+
+                        returnArray[row] = sum;
+                    }
+
+                    return std::move(returnArray);
+                }
+                case Axis::ROW:
+                {
+                    NdArray<dtype> arrayYTranspose = inArrayY.transpose();
+                    NdArray<dtype> arrayXTranspose = inArrayX.transpose();
+                    Shape transShape = arrayYTranspose.shape();
+                    NdArray<double> returnArray(transShape.rows, 1);
+                    for (uint32 row = 0; row < transShape.rows - 1; ++row)
+                    {
+                        double sum = 0;
+                        for (uint32 col = 0; col < transShape.cols - 1; ++col)
+                        {
+                            double dx = static_cast<double>(arrayXTranspose(row, col + 1) - arrayXTranspose(row, col));
+                            sum += dx * static_cast<double>(arrayYTranspose(row, col + 1) - arrayYTranspose(row, col)) / 2.0 + static_cast<double>(arrayYTranspose(row, col));
+                        }
+
+                        returnArray[row] = sum;
+                    }
+
+                    return std::move(returnArray);
+                }
+                case Axis::NONE:
+                {
+                    double sum = 0.0;
+                    for (uint32 i = 0; i < inArrayY.size() - 1; ++i)
+                    {
+                        double dx = static_cast<double>(inArrayX[i + 1] - inArrayX[i]);
+                        sum += dx * static_cast<double>(inArrayY[i + 1] - inArrayY[i]) / 2.0 + static_cast<double>(inArrayY[i]);
+                    }
+
+                    NdArray<double> returnArray = { sum };
+                    return std::move(returnArray);
+                }
+                default:
+                {
+                    // this isn't actually possible, just putting this here to get rid
+                    // of the compiler warning.
+                    return std::move(NdArray<double>(0));
+                }
+            }
         }
 
         //============================================================================

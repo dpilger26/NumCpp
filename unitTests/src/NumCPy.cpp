@@ -2111,9 +2111,17 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray trapz(const NdArray<dtype> inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray trapzDx(const NdArray<dtype>& inY, double dx = 1.0, Axis::Type inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::trapz(inArray, inAxis));
+        return numCToBoost(Methods<dtype>::trapz(inY, dx, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray trapz(const NdArray<dtype>& inY, const NdArray<dtype>& inX, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::trapz(inY, inX, inAxis));
     }
 
     //================================================================================
@@ -2896,7 +2904,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("trace", &MethodsDouble::trace<double>).staticmethod("trace")
         //.def("trace", &MethodsDouble::trace<float>).staticmethod("trace")
         .def("transpose", &MethodsDouble::transpose).staticmethod("transpose")
-        //.def("trapz", &MethodsInterface::trapz<double>).staticmethod("trapz")
+        .def("trapz", &MethodsInterface::trapzDx<double>).staticmethod("trapz")
+        .def("trapz", &MethodsInterface::trapz<double>).staticmethod("trapz")
         .def("triSquare", &MethodsInterface::triSquare<double>).staticmethod("triSquare")
         .def("triRect", &MethodsInterface::triRect<double>).staticmethod("triRect")
         .def("trim_zeros", &MethodsDouble::trim_zeros).staticmethod("trim_zeros")
