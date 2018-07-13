@@ -17,9 +17,7 @@ var searchData=
   ['trapz',['trapz',['../class_num_c_1_1_methods.html#a6ab7515c6b8e5bdb4bc2072dcd9fe541',1,'NumC::Methods::trapz(const NdArray&lt; dtype &gt; &amp;inArray, Axis::Type inAxis=Axis::NONE)'],['../class_num_c_1_1_methods.html#aded1482c388226ea1d36e4c044202825',1,'NumC::Methods::trapz(const NdArray&lt; dtype &gt; &amp;inArrayX, const NdArray&lt; dtype &gt; &amp;inArrayY, Axis::Type inAxis=Axis::NONE)']]],
   ['tri',['tri',['../class_num_c_1_1_methods.html#a58daaf791661b70db89dccdda2fbbecd',1,'NumC::Methods::tri(uint32 inN, int32 inOffset=0)'],['../class_num_c_1_1_methods.html#ad6095165c30836a5df23495ac359e606',1,'NumC::Methods::tri(uint32 inN, uint32 inM, int32 inOffset=0)']]],
   ['triangle',['triangle',['../class_num_c_1_1_random.html#aacd9e263144ef57cf39c227dc47f77ea',1,'NumC::Random']]],
-  ['tril',['tril',['../class_num_c_1_1_methods.html#a65bec1607dfa9eb3dfd5962dc3cb698f',1,'NumC::Methods']]],
   ['trim_5fzeros',['trim_zeros',['../class_num_c_1_1_methods.html#a5aab439a74a754ff2bcd3be093dd4a10',1,'NumC::Methods']]],
-  ['triu',['triu',['../class_num_c_1_1_methods.html#adbb9bd985468937cc1ffffc6c4928fed',1,'NumC::Methods']]],
   ['trunc',['trunc',['../class_num_c_1_1_methods.html#af895a0fb7a668e58962d0941cbf4a4a7',1,'NumC::Methods::trunc(dtype inValue)'],['../class_num_c_1_1_methods.html#ae58faf2f6e0cdde920b1c11911949f63',1,'NumC::Methods::trunc(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['type',['Type',['../struct_num_c_1_1_order.html#aec83b68303911af9c219019600b56f23',1,'NumC::Order::Type()'],['../struct_num_c_1_1_coordinates_1_1_sign.html#a915938d7fce678936d8728ca14a70e22',1,'NumC::Coordinates::Sign::Type()'],['../struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3',1,'NumC::Axis::Type()'],['../struct_num_c_1_1_endian.html#ab667001489f67f8a96f328f0a9c351fa',1,'NumC::Endian::Type()']]],
   ['types_2ehpp',['Types.hpp',['../_types_8hpp.html',1,'']]]

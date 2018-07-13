@@ -4,7 +4,6 @@ var searchData=
   ['identity',['identity',['../class_num_c_1_1_methods.html#a79d7a56aa7ce55897c637247c9a69392',1,'NumC::Methods::identity()'],['../class_num_c_1_1_rotations_1_1_quaternion.html#a7823fd0bc7e9c2e64e2293e8956367f9',1,'NumC::Rotations::Quaternion::identity()']]],
   ['imageprocessing',['ImageProcessing',['../class_num_c_1_1_image_processing.html',1,'NumC']]],
   ['imageprocessing_2ehpp',['ImageProcessing.hpp',['../_image_processing_8hpp.html',1,'']]],
-  ['insert',['insert',['../class_num_c_1_1_methods.html#a80094e0de4f6f44187852bda829d226a',1,'NumC::Methods']]],
   ['int16',['int16',['../namespace_num_c.html#a55b6140ac3972d03a7277fc227478dc2',1,'NumC']]],
   ['int32',['int32',['../namespace_num_c.html#aa5a7e69266097d55816d4cdb19542b53',1,'NumC']]],
   ['int64',['int64',['../namespace_num_c.html#a96768695f3ea92cc3c4b79d37efb30c6',1,'NumC']]],

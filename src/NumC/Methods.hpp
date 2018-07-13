@@ -2889,11 +2889,27 @@ namespace NumC
         /// @param				number of bins, default 10
         ///				
         /// @return
-        ///				pair of NdArrays; first is histogram counts, seconds is the bin edges
+        ///				std::pair of NdArrays; first is histogram counts, seconds is the bin edges
         ///
-        static std::pair<NdArray<dtype>, NdArray<dtype> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
+        static std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
         {
-            std::pair<NdArray<dtype>, NdArray<dtype> > bar = std::make_pair(NdArray<dtype>(0), NdArray<dtype>(0));
+            NdArray<uint32> histo = Methods<uint32>::zeros(1, inNumBins);
+
+            bool useEndPoint = false;
+            NdArray<double> binEdges = Methods<double>::linspace(static_cast<double>(inArray.min().item()),
+                static_cast<double>(inArray.max().item()), inNumBins, useEndPoint);
+
+            for (uint32 i = 0; i < inArray.size(); ++i)
+            {
+                // find the index of the bin for the data value
+                NdArray<bool> indices = binEdges <= static_cast<double>(inArray[i]);
+                uint32 idx = Methods<bool>::count_nonzero(indices).item() - 1;
+
+                // incrament that index of the histogram
+                ++histo[idx];
+            }
+
+            std::pair<NdArray<uint32>, NdArray<double> > bar = std::make_pair(histo, binEdges);
             return bar; // TODO: FIX THIS!
         }
 
@@ -2991,103 +3007,6 @@ namespace NumC
             }
 
             return std::move(returnArray);
-        }
-
-        //============================================================================
-        // Method Description: 
-        ///						Insert values along the given axis before the given indices.
-        ///
-        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.insert.html
-        ///	
-        /// @param      NdArray
-        /// @param      NdArray indices
-        /// @param      NdArray values
-        /// @param      (Optional) Axis
-        ///				
-        /// @return
-        ///				NdArray
-        ///
-        static NdArray<dtype> insert(const NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues, Axis::Type inAxis = Axis::ROW)
-        {
-            //NdArray<uint32>& indices = np.unique(inIndices);
-
-            //switch (inAxis)
-            //{
-            //	case Axis::NONE:
-            //	{
-            //		if (indices.size() != inValues.size())
-            //		{
-            //			throw std::invalid_argument("ERROR: insert: input indices and value arrays size are not consistant.");
-            //		}
-
-            //		if (indices.max() > inArray.size())
-            //		{
-            //			throw std::invalid_argument("ERROR: insert: input index in greater than the size of the array.");
-            //		}
-
-            //		NdArray<dtype> returnArray(1, inArray.size(), inIndices.size());
-            //		uint32 doneCounter = 0;
-            //		for (uint32 i = 0; i < returnArray.size(); ++i)
-            //		{
-            //			if (indices.contains(i))
-            //			{
-            //				returnArray[i] = inValues[doneCounter++];
-            //			}
-            //			else
-            //			{
-            //				returnArray[i] = inArray[i];
-            //			}
-            //		}
-            //			
-            //		return std::move(returnArray);
-            //	}
-            //	case Axis::COL:
-            //	{
-            //		Shape inShape = inArray.shape();
-            //		Shape valuesShape = inValues.shape();
-
-            //		if (indices.size() != inValues.size() && indices.size() != valuesShape.cols)
-            //		{
-            //			throw std::invalid_argument("ERROR: insert: input indices and value array sizes are not consistant.");
-            //		}
-
-            //		if (indices.max() > inShape.cols)
-            //		{
-            //			throw std::invalid_argument("ERROR: insert: input index in greater than the size of the array.");
-            //		}
-
-            //		if (indices.size() == inValues.size())
-            //		{
-            //			NdArray<dtype> returnArray(inShape.rows, inShape.cols + indices.size());
-
-            //			for (uint32 i)
-            //			{
-
-            //			}
-            //		}
-            //		else if (indices.size() == valuesShape.cols)
-            //		{
-
-            //		}
-            //		else
-            //		{
-            //			throw std::runtime_error("ERROR: insert: I've made a mistake somewhere in my logic, please investigate this!");
-            //		}
-
-            //	}
-            //	case Axis::ROW:
-            //	{
-
-            //	}
-            //	default:
-            //	{
-            //		/// this isn't actually possible, just putting this here to get rid
-            //		/// of the compiler warning.
-            //		return std::move(NdArray<dtype>(0));
-            //	}
-            //}
-
-            return std::move(NdArray<dtype>(0));
         }
 
         //============================================================================
@@ -6250,50 +6169,6 @@ namespace NumC
             }
 
             return std::move(returnArray);
-        }
-
-        //============================================================================
-        // Method Description: 
-        ///						Lower triangle of an array.
-        ///
-        ///						Return a copy of an array with elements above the k-th diagonal zeroed.
-        ///
-        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tril.html
-        ///		
-        /// @param				NdArray
-        /// @param				Offset, the sub-diagonal at and below which the array is filled. 
-        ///						k = 0 is the main diagonal, while k < 0 is below it, 
-        ///						and k > 0 is above. The default is 0.
-        ///				
-        ///
-        /// @return
-        ///				NdArray
-        ///
-        static NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0)
-        {
-            return std::move(NdArray<dtype>(0)); /// TODO: FIX THIS!
-        }
-
-        //============================================================================
-        // Method Description: 
-        ///						Upper triangle of an array.
-        ///
-        ///						Return a copy of an array with elements below the k-th diagonal zeroed.
-        ///
-        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
-        ///		
-        /// @param				NdArray
-        /// @param				Offset, the sub-diagonal at and below which the array is filled. 
-        ///						k = 0 is the main diagonal, while k < 0 is below it, 
-        ///						and k > 0 is above. The default is 0.
-        ///				
-        ///
-        /// @return
-        ///				NdArray
-        ///
-        static NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0)
-        {
-            return std::move(NdArray<dtype>(0)); /// TODO: FIX THIS!
         }
 
         //============================================================================

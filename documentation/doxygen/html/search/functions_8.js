@@ -2,7 +2,6 @@ var searchData=
 [
   ['i',['i',['../class_num_c_1_1_rotations_1_1_quaternion.html#aec704993b1650cb91b50090d0f0822a4',1,'NumC::Rotations::Quaternion']]],
   ['identity',['identity',['../class_num_c_1_1_methods.html#a79d7a56aa7ce55897c637247c9a69392',1,'NumC::Methods::identity()'],['../class_num_c_1_1_rotations_1_1_quaternion.html#a7823fd0bc7e9c2e64e2293e8956367f9',1,'NumC::Rotations::Quaternion::identity()']]],
-  ['insert',['insert',['../class_num_c_1_1_methods.html#a80094e0de4f6f44187852bda829d226a',1,'NumC::Methods']]],
   ['intensity',['intensity',['../class_num_c_1_1_image_processing_1_1_pixel.html#a614d9061c2a04982883d977642ad5852',1,'NumC::ImageProcessing::Pixel::intensity()'],['../class_num_c_1_1_image_processing_1_1_cluster.html#ad68801ae625be617a59bff60131b34e6',1,'NumC::ImageProcessing::Cluster::intensity()'],['../class_num_c_1_1_image_processing_1_1_centroid.html#a973e81498b872c0a25b65728736ba6ab',1,'NumC::ImageProcessing::Centroid::intensity()']]],
   ['intersect1d',['intersect1d',['../class_num_c_1_1_methods.html#afb78cff6bd4ff9061859cddc48ba3f4e',1,'NumC::Methods']]],
   ['inv',['inv',['../class_num_c_1_1_linalg.html#a8391fecf007442cc681631ad02d4c637',1,'NumC::Linalg']]],

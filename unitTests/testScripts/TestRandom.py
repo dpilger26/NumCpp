@@ -217,7 +217,7 @@ def doTest():
     r = NumC.Random.studentT(inShape, dof)
     print(colored('\tPASS', 'green'))
 
-    print(colored('Testing normal', 'cyan'))
+    print(colored('Testing triangle', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
     values = np.random.rand(3)

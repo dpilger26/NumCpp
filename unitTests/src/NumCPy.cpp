@@ -1606,6 +1606,15 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    bp::tuple histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
+    {
+        std::pair<NdArray<uint32>, NdArray<double> > output = Methods<dtype>::histogram(inArray, inNumBins);
+        return bp::make_tuple(output.first, output.second);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray hstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
@@ -2097,6 +2106,14 @@ namespace MethodsInterface
     np::ndarray tileList(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         return numCToBoost(Methods<dtype>::tile(inArray, { inNumRows, inNumCols }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray trapz(const NdArray<dtype> inArray, Axis::Type inAxis = Axis::NONE)
+    {
+        return numCToBoost(Methods<dtype>::trapz(inArray, inAxis));
     }
 
     //================================================================================
@@ -2738,6 +2755,7 @@ BOOST_PYTHON_MODULE(NumC)
         //.def("full_like", &MethodsDouble::full_like<float>).staticmethod("full_like")
         .def("greater", &MethodsDouble::greater).staticmethod("greater")
         .def("greater_equal", &MethodsDouble::greater_equal).staticmethod("greater_equal")
+        .def("histogram", &MethodsInterface::histogram<double>).staticmethod("histogram")
         .def("hstack", &MethodsInterface::hstack<double>).staticmethod("hstack")
         .def("hypotScalar", &MethodsInterface::hypotScalar<double, double>).staticmethod("hypotScalar")
         //.def("hypotScalar", &MethodsInterface::hypotScalar<double, float>).staticmethod("hypot")
@@ -2878,10 +2896,9 @@ BOOST_PYTHON_MODULE(NumC)
         .def("trace", &MethodsDouble::trace<double>).staticmethod("trace")
         //.def("trace", &MethodsDouble::trace<float>).staticmethod("trace")
         .def("transpose", &MethodsDouble::transpose).staticmethod("transpose")
+        //.def("trapz", &MethodsInterface::trapz<double>).staticmethod("trapz")
         .def("triSquare", &MethodsInterface::triSquare<double>).staticmethod("triSquare")
         .def("triRect", &MethodsInterface::triRect<double>).staticmethod("triRect")
-        //.def("tril", &MethodsDouble::tril).staticmethod("tril")
-        //.def("triu", &MethodsDouble::triu).staticmethod("triu")
         .def("trim_zeros", &MethodsDouble::trim_zeros).staticmethod("trim_zeros")
         .def("truncScalar", &MethodsInterface::truncScalar<double>).staticmethod("truncScalar")
         .def("truncArray", &MethodsInterface::truncArray<double>).staticmethod("truncArray")

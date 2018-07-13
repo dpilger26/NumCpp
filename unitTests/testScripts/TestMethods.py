@@ -1764,7 +1764,6 @@ def doTest():
         os.mkdir(tempDir)
     tempFile = os.path.join(tempDir, 'NdArrayDump')
     NumC.MethodsDouble.tofile(cArray, tempFile, '\n')
-    print('Calling the C++')
     data2 = NumC.MethodsDouble.fromfile(tempFile + '.txt', '\n').reshape(shape)
     if np.array_equal(data, data2):
         print(colored('\tPASS', 'green'))
@@ -1842,6 +1841,22 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing histogram', 'cyan'))
+    shape = NumC.Shape(1024, 1024)
+    cArray = NumC.NdArray(shape)
+    data = np.random.randn(1024, 1024) * np.random.randint(1, 10, [1, ]).item() + np.random.randint(1, 10, [1, ]).item()
+    cArray.setArray(data)
+    numBins = np.random.randint(10, 30, [1,]).item()
+    histogram, bins = NumC.MethodsDouble.histogram(cArray, numBins)
+    h, b = np.histogram(data, numBins)
+    if np.array_equal(histogram.getNumpyArray().flatten().astype(np.int32), h) and \
+            np.array_equal(np.round(bins.getNumpyArray().flatten(), 10), np.round(b[:-1], 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    return
 
     print(colored('Testing hstack', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
