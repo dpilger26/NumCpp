@@ -1851,12 +1851,10 @@ def doTest():
     histogram, bins = NumC.MethodsDouble.histogram(cArray, numBins)
     h, b = np.histogram(data, numBins)
     if np.array_equal(histogram.getNumpyArray().flatten().astype(np.int32), h) and \
-            np.array_equal(np.round(bins.getNumpyArray().flatten(), 10), np.round(b[:-1], 10)):
+            np.array_equal(np.round(bins.getNumpyArray().flatten(), 10), np.round(b, 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
-
-    return
 
     print(colored('Testing hstack', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])

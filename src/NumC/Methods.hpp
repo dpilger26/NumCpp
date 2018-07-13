@@ -2893,24 +2893,51 @@ namespace NumC
         ///
         static std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
         {
+            if (inNumBins == 0)
+            {
+                throw std::invalid_argument("ERROR: histogram: number of bins must be positive.");
+            }
+
             NdArray<uint32> histo = Methods<uint32>::zeros(1, inNumBins);
 
-            bool useEndPoint = false;
+            bool useEndPoint = true;
             NdArray<double> binEdges = Methods<double>::linspace(static_cast<double>(inArray.min().item()),
-                static_cast<double>(inArray.max().item()), inNumBins, useEndPoint);
+                static_cast<double>(inArray.max().item()), inNumBins + 1, useEndPoint);
 
             for (uint32 i = 0; i < inArray.size(); ++i)
             {
-                // find the index of the bin for the data value
-                NdArray<bool> indices = binEdges <= static_cast<double>(inArray[i]);
-                uint32 idx = Methods<bool>::count_nonzero(indices).item() - 1;
+                // binary search to find the bin idx
+                bool keepSearching = true;
+                uint32 lowIdx = 0;
+                uint32 highIdx = binEdges.size() - 1; 
+                while (keepSearching)
+                {
+                    uint32 idx = (lowIdx + highIdx) / 2; // integer division
+                    if (lowIdx == highIdx || lowIdx == highIdx - 1)
+                    {
+                        ++histo[lowIdx];
+                        break;
+                    }
 
-                // incrament that index of the histogram
-                ++histo[idx];
+                    if (inArray[i] > binEdges[idx])
+                    {
+                        lowIdx = idx;
+                    }
+                    else if (inArray[i] < binEdges[idx])
+                    {
+                        highIdx = idx;
+                    }
+                    else
+                    {
+                        // we found the bin
+                        ++histo[idx];
+                        break;
+                    }
+                    //std::cout << "lowIdx = " << lowIdx << " idx = " << idx << " highIdx = " << highIdx << std::endl;
+                }
             }
 
-            std::pair<NdArray<uint32>, NdArray<double> > bar = std::make_pair(histo, binEdges);
-            return bar; // TODO: FIX THIS!
+            return std::make_pair(histo, binEdges);
         }
 
         //============================================================================
