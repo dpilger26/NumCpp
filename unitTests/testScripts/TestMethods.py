@@ -4330,6 +4330,96 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing trapz: Axis = None with constant dx', 'cyan'))
+    shape = NumC.Shape(np.random.randint(10, 20, [1,]).item(), 1)
+    cArray = NumC.NdArray(shape)
+    coeffs = np.random.randint(0, 10, [2, ])
+    dx = np.random.rand(1).item()
+    data = np.array([x ** 2 - coeffs[0] * x + coeffs[1] for x in range(shape.size())])
+    cArray.setArray(data)
+    integralC = NumC.MethodsDouble.trapzDx(cArray, dx, NumC.Axis.NONE).item()
+    integralPy = np.trapz(data, dx=dx)
+    if np.round(integralC, 10) == np.round(integralPy, 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing trapz: Axis = Row with constant dx', 'cyan'))
+    shape = NumC.Shape(np.random.randint(10, 20, [1,]).item(), np.random.randint(10, 20, [1,]).item())
+    cArray = NumC.NdArray(shape)
+    coeffs = np.random.randint(0, 10, [2, ])
+    dx = np.random.rand(1).item()
+    data = np.array([x ** 2 - coeffs[0] * x - coeffs[1] for x in range(shape.size())]).reshape(shape.rows, shape.cols)
+    cArray.setArray(data)
+    integralC = NumC.MethodsDouble.trapzDx(cArray, dx, NumC.Axis.ROW).flatten()
+    integralPy = np.trapz(data, dx=dx, axis=0)
+    if np.array_equal(np.round(integralC, 8), np.round(integralPy, 8)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing trapz: Axis = Col with constant dx', 'cyan'))
+    shape = NumC.Shape(np.random.randint(10, 20, [1,]).item(), np.random.randint(10, 20, [1,]).item())
+    cArray = NumC.NdArray(shape)
+    coeffs = np.random.randint(0, 10, [2, ])
+    dx = np.random.rand(1).item()
+    data = np.array([x ** 2 - coeffs[0] * x - coeffs[1] for x in range(shape.size())]).reshape(shape.rows, shape.cols)
+    cArray.setArray(data)
+    integralC = NumC.MethodsDouble.trapzDx(cArray, dx, NumC.Axis.COL).flatten()
+    integralPy = np.trapz(data, dx=dx, axis=1)
+    if np.array_equal(np.round(integralC, 8), np.round(integralPy, 8)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing trapz: Axis = None with variable dx', 'cyan'))
+    shape = NumC.Shape(1, np.random.randint(10, 20, [1,]).item())
+    cArrayY = NumC.NdArray(shape)
+    cArrayX = NumC.NdArray(shape)
+    coeffs = np.random.randint(0, 10, [2, ])
+    dx = np.random.rand(shape.rows, shape.cols)
+    data = np.array([x ** 2 - coeffs[0] * x + coeffs[1] for x in range(shape.size())])
+    cArrayY.setArray(data)
+    cArrayX.setArray(dx)
+    integralC = NumC.MethodsDouble.trapz(cArrayY, cArrayX, NumC.Axis.NONE).item()
+    integralPy = np.trapz(data, x=dx)
+    if np.round(integralC, 10) == np.round(integralPy, 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing trapz: Axis = Row with variable dx', 'cyan'))
+    shape = NumC.Shape(np.random.randint(10, 20, [1,]).item(), np.random.randint(10, 20, [1,]).item())
+    cArrayY = NumC.NdArray(shape)
+    cArrayX = NumC.NdArray(shape)
+    coeffs = np.random.randint(0, 10, [2, ])
+    dx = np.random.rand(shape.rows, shape.cols)
+    data = np.array([x ** 2 - coeffs[0] * x + coeffs[1] for x in range(shape.size())]).reshape(shape.rows, shape.cols)
+    cArrayY.setArray(data)
+    cArrayX.setArray(dx)
+    integralC = NumC.MethodsDouble.trapz(cArrayY, cArrayX, NumC.Axis.ROW).flatten()
+    integralPy = np.trapz(data, x=dx, axis=0)
+    if np.array_equal(np.round(integralC, 8), np.round(integralPy, 8)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing trapz: Axis = Col with variable dx', 'cyan'))
+    shape = NumC.Shape(np.random.randint(10, 20, [1,]).item(), np.random.randint(10, 20, [1,]).item())
+    cArrayY = NumC.NdArray(shape)
+    cArrayX = NumC.NdArray(shape)
+    coeffs = np.random.randint(0, 10, [2, ])
+    dx = np.random.rand(shape.rows, shape.cols)
+    data = np.array([x ** 2 - coeffs[0] * x + coeffs[1] for x in range(shape.size())]).reshape(shape.rows, shape.cols)
+    cArrayY.setArray(data)
+    cArrayX.setArray(dx)
+    integralC = NumC.MethodsDouble.trapz(cArrayY, cArrayX, NumC.Axis.COL).flatten()
+    integralPy = np.trapz(data, x=dx, axis=1)
+    if np.array_equal(np.round(integralC, 8), np.round(integralPy, 8)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing tri: square', 'cyan'))
     squareSize = np.random.randint(10, 100, [1, ]).item()
     offset = np.random.randint(0, squareSize, [1, ]).item()

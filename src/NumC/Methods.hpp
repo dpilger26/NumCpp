@@ -6089,15 +6089,15 @@ namespace NumC
                 case Axis::COL:
                 {
                     NdArray<double> returnArray(inShape.rows, 1);
-                    for (uint32 row = 0; row < inShape.rows - 1; ++row)
+                    for (uint32 row = 0; row < inShape.rows; ++row)
                     {
                         double sum = 0;
                         for (uint32 col = 0; col < inShape.cols - 1; ++col)
                         {
-                            sum += dx * static_cast<double>(inArray(row, col + 1) - inArray(row, col)) / 2.0 + static_cast<double>(inArray(row, col));
+                            sum += static_cast<double>(inArray(row, col + 1) - inArray(row, col)) / 2.0 + static_cast<double>(inArray(row, col));
                         }
 
-                        returnArray[row] = sum;
+                        returnArray[row] = sum * dx;
                     }
 
                     return std::move(returnArray);
@@ -6107,15 +6107,15 @@ namespace NumC
                     NdArray<dtype> arrayTranspose = inArray.transpose();
                     Shape transShape = arrayTranspose.shape();
                     NdArray<double> returnArray(transShape.rows, 1);
-                    for (uint32 row = 0; row < transShape.rows - 1; ++row)
+                    for (uint32 row = 0; row < transShape.rows; ++row)
                     {
                         double sum = 0;
                         for (uint32 col = 0; col < transShape.cols - 1; ++col)
                         {
-                            sum += dx * static_cast<double>(arrayTranspose(row, col + 1) - arrayTranspose(row, col)) / 2.0 + static_cast<double>(arrayTranspose(row, col));
+                            sum += static_cast<double>(arrayTranspose(row, col + 1) - arrayTranspose(row, col)) / 2.0 + static_cast<double>(arrayTranspose(row, col));
                         }
 
-                        returnArray[row] = sum;
+                        returnArray[row] = sum * dx;
                     }
 
                     return std::move(returnArray);
@@ -6125,10 +6125,10 @@ namespace NumC
                     double sum = 0.0;
                     for (uint32 i = 0; i < inArray.size() - 1; ++i)
                     {
-                        sum += dx * static_cast<double>(inArray[i + 1] - inArray[i]) / 2.0 + static_cast<double>(inArray[i]);
+                        sum += static_cast<double>(inArray[i + 1] - inArray[i]) / 2.0 + static_cast<double>(inArray[i]);
                     }
 
-                    NdArray<double> returnArray = { sum };
+                    NdArray<double> returnArray = { sum * dx };
                     return std::move(returnArray);
                 }
                 default:
@@ -6168,13 +6168,13 @@ namespace NumC
                 case Axis::COL:
                 {
                     NdArray<double> returnArray(inShapeY.rows, 1);
-                    for (uint32 row = 0; row < inShapeY.rows - 1; ++row)
+                    for (uint32 row = 0; row < inShapeY.rows; ++row)
                     {
                         double sum = 0;
                         for (uint32 col = 0; col < inShapeY.cols - 1; ++col)
                         {
                             double dx = static_cast<double>(inArrayX(row, col + 1) - inArrayX(row, col));
-                            sum += dx * static_cast<double>(inArrayY(row, col + 1) - inArrayY(row, col)) / 2.0 + static_cast<double>(inArrayY(row, col));
+                            sum += dx * (static_cast<double>(inArrayY(row, col + 1) - inArrayY(row, col)) / 2.0 + static_cast<double>(inArrayY(row, col)));
                         }
 
                         returnArray[row] = sum;
@@ -6188,13 +6188,13 @@ namespace NumC
                     NdArray<dtype> arrayXTranspose = inArrayX.transpose();
                     Shape transShape = arrayYTranspose.shape();
                     NdArray<double> returnArray(transShape.rows, 1);
-                    for (uint32 row = 0; row < transShape.rows - 1; ++row)
+                    for (uint32 row = 0; row < transShape.rows; ++row)
                     {
                         double sum = 0;
                         for (uint32 col = 0; col < transShape.cols - 1; ++col)
                         {
                             double dx = static_cast<double>(arrayXTranspose(row, col + 1) - arrayXTranspose(row, col));
-                            sum += dx * static_cast<double>(arrayYTranspose(row, col + 1) - arrayYTranspose(row, col)) / 2.0 + static_cast<double>(arrayYTranspose(row, col));
+                            sum += dx * (static_cast<double>(arrayYTranspose(row, col + 1) - arrayYTranspose(row, col)) / 2.0 + static_cast<double>(arrayYTranspose(row, col)));
                         }
 
                         returnArray[row] = sum;
@@ -6208,7 +6208,7 @@ namespace NumC
                     for (uint32 i = 0; i < inArrayY.size() - 1; ++i)
                     {
                         double dx = static_cast<double>(inArrayX[i + 1] - inArrayX[i]);
-                        sum += dx * static_cast<double>(inArrayY[i + 1] - inArrayY[i]) / 2.0 + static_cast<double>(inArrayY[i]);
+                        sum += dx * (static_cast<double>(inArrayY[i + 1] - inArrayY[i]) / 2.0 + static_cast<double>(inArrayY[i]));
                     }
 
                     NdArray<double> returnArray = { sum };
