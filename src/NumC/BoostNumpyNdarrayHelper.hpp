@@ -37,14 +37,6 @@
 #include<stdexcept>
 #include<utility>
 
-#ifndef BOOST_PYTHON_STATIC_LIB
-#define BOOST_PYTHON_STATIC_LIB    
-#endif
-
-#ifndef BOOST_NUMPY_STATIC_LIB
-#define BOOST_NUMPY_STATIC_LIB    
-#endif
-
 #include"boost/python.hpp"
 #include"boost/python/numpy.hpp"
 
