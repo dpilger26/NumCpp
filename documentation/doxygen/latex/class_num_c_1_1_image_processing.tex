@@ -1,0 +1,167 @@
+\hypertarget{class_num_c_1_1_image_processing}{}\section{NumC\+:\+:Image\+Processing$<$ dtype $>$ Class Template Reference}
+\label{class_num_c_1_1_image_processing}\index{Num\+C\+::\+Image\+Processing$<$ dtype $>$@{Num\+C\+::\+Image\+Processing$<$ dtype $>$}}
+
+
+Class for basic image processing.  
+
+
+
+
+{\ttfamily \#include $<$Image\+Processing.\+hpp$>$}
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_centroid}{Centroid}}
+\begin{DoxyCompactList}\small\item\em holds the information for a centroid \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_cluster}{Cluster}}
+\begin{DoxyCompactList}\small\item\em Holds the information for a cluster of pixels. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}}
+\begin{DoxyCompactList}\small\item\em Holds the information for a single pixel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ bool $>$ \mbox{\hyperlink{class_num_c_1_1_image_processing_aded7e1bfe750f7cda5a896b629136d3a}{apply\+Threshold}} (const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, dtype in\+Threshold)
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_centroid}{Centroid}} $>$ \mbox{\hyperlink{class_num_c_1_1_image_processing_aff77622fa4d58b8e66a2e0b1fc75ff66}{centroid\+Clusters}} (const std\+::vector$<$ \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_cluster}{Cluster}} $>$ \&in\+Clusters)
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_cluster}{Cluster}} $>$ \mbox{\hyperlink{class_num_c_1_1_image_processing_a5625fbfbf91275e8072e2239af85d8c8}{cluster\+Pixels}} (const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ bool $>$ \&in\+Exceedances, \mbox{\hyperlink{namespace_num_c_a60b2e2f49e1ff61059731c154e560869}{uint8}} in\+Border\+Width=0)
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_centroid}{Centroid}} $>$ \mbox{\hyperlink{class_num_c_1_1_image_processing_a34e42cb92932de6219ccfe796c8ffeab}{generate\+Centroids}} (const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, double in\+Rate, const std\+::string in\+Window\+Type, \mbox{\hyperlink{namespace_num_c_a60b2e2f49e1ff61059731c154e560869}{uint8}} in\+Border\+Width=0)
+\item 
+static dtype \mbox{\hyperlink{class_num_c_1_1_image_processing_ac700f57ca979bf4752fb89591b5e4b7a}{generate\+Threshold}} (const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, double in\+Rate)
+\item 
+static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ bool $>$ \mbox{\hyperlink{class_num_c_1_1_image_processing_a50c06a1a3fe158dbaa14878407063da9}{window\+Exceedances}} (const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ bool $>$ \&in\+Exceedances, \mbox{\hyperlink{namespace_num_c_a60b2e2f49e1ff61059731c154e560869}{uint8}} in\+Border\+Width)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename dtype$>$\newline
+class Num\+C\+::\+Image\+Processing$<$ dtype $>$}
+
+Class for basic image processing. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_aded7e1bfe750f7cda5a896b629136d3a}\label{class_num_c_1_1_image_processing_aded7e1bfe750f7cda5a896b629136d3a}} 
+\index{Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}!apply\+Threshold@{apply\+Threshold}}
+\index{apply\+Threshold@{apply\+Threshold}!Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}}
+\subsubsection{\texorpdfstring{apply\+Threshold()}{applyThreshold()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$bool$>$ \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::apply\+Threshold (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{dtype}]{in\+Threshold }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Applies a threshold to an image
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}} & threshold value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}} of booleans of pixels that exceeded the threshold 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_aff77622fa4d58b8e66a2e0b1fc75ff66}\label{class_num_c_1_1_image_processing_aff77622fa4d58b8e66a2e0b1fc75ff66}} 
+\index{Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}!centroid\+Clusters@{centroid\+Clusters}}
+\index{centroid\+Clusters@{centroid\+Clusters}!Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}}
+\subsubsection{\texorpdfstring{centroid\+Clusters()}{centroidClusters()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static std\+::vector$<$\mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_centroid}{Centroid}}$>$ \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::centroid\+Clusters (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_cluster}{Cluster}} $>$ \&}]{in\+Clusters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Center of Mass centroids clusters
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em threshold} & value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Centroid$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_a5625fbfbf91275e8072e2239af85d8c8}\label{class_num_c_1_1_image_processing_a5625fbfbf91275e8072e2239af85d8c8}} 
+\index{Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}!cluster\+Pixels@{cluster\+Pixels}}
+\index{cluster\+Pixels@{cluster\+Pixels}!Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}}
+\subsubsection{\texorpdfstring{cluster\+Pixels()}{clusterPixels()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static std\+::vector$<$\mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_cluster}{Cluster}}$>$ \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::cluster\+Pixels (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ bool $>$ \&}]{in\+Exceedances,  }\item[{\mbox{\hyperlink{namespace_num_c_a60b2e2f49e1ff61059731c154e560869}{uint8}}}]{in\+Border\+Width = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Clusters exceedance pixels from an image
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}} & of exceedances \\
+\hline
+{\em border} & to apply around exceedance pixels post clustering, default 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Cluster$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_a34e42cb92932de6219ccfe796c8ffeab}\label{class_num_c_1_1_image_processing_a34e42cb92932de6219ccfe796c8ffeab}} 
+\index{Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}!generate\+Centroids@{generate\+Centroids}}
+\index{generate\+Centroids@{generate\+Centroids}!Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}}
+\subsubsection{\texorpdfstring{generate\+Centroids()}{generateCentroids()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static std\+::vector$<$\mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_centroid}{Centroid}}$>$ \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::generate\+Centroids (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{double}]{in\+Rate,  }\item[{const std\+::string}]{in\+Window\+Type,  }\item[{\mbox{\hyperlink{namespace_num_c_a60b2e2f49e1ff61059731c154e560869}{uint8}}}]{in\+Border\+Width = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Generates a list of centroids givin an input exceedance rate
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em exceedance} & rate \\
+\hline
+{\em string} & \char`\"{}pre\char`\"{}, or \char`\"{}post\char`\"{} for where to apply the exceedance windowing \\
+\hline
+{\em border} & to apply, default 0 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Centroid$>$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_ac700f57ca979bf4752fb89591b5e4b7a}\label{class_num_c_1_1_image_processing_ac700f57ca979bf4752fb89591b5e4b7a}} 
+\index{Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}!generate\+Threshold@{generate\+Threshold}}
+\index{generate\+Threshold@{generate\+Threshold}!Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}}
+\subsubsection{\texorpdfstring{generate\+Threshold()}{generateThreshold()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static dtype \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::generate\+Threshold (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{double}]{in\+Rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a threshold such that the input rate of pixels exceeds the threshold. Really should only be used for integer input array values. If using floating point data, user beware...
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em exceedance} & rate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dtype 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_a50c06a1a3fe158dbaa14878407063da9}\label{class_num_c_1_1_image_processing_a50c06a1a3fe158dbaa14878407063da9}} 
+\index{Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}!window\+Exceedances@{window\+Exceedances}}
+\index{window\+Exceedances@{window\+Exceedances}!Num\+C\+::\+Image\+Processing@{Num\+C\+::\+Image\+Processing}}
+\subsubsection{\texorpdfstring{window\+Exceedances()}{windowExceedances()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$bool$>$ \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::window\+Exceedances (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ bool $>$ \&}]{in\+Exceedances,  }\item[{\mbox{\hyperlink{namespace_num_c_a60b2e2f49e1ff61059731c154e560869}{uint8}}}]{in\+Border\+Width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Window expand around exceedance pixels
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array$<$bool$>$}}} & \\
+\hline
+{\em border} & width \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array$<$bool$>$}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_image_processing_8hpp}{Image\+Processing.\+hpp}}\end{DoxyCompactItemize}

@@ -1,1 +1,0 @@
-doxygen ..\..\..\documentation\doxygen\Doxyfile

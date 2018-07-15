@@ -1,0 +1,316 @@
+\hypertarget{class_num_c_1_1_boost_ndarray_helper}{}\section{NumC\+:\+:Boost\+Ndarray\+Helper Class Reference}
+\label{class_num_c_1_1_boost_ndarray_helper}\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+
+
+Helper class for ndarray.  
+
+
+
+
+{\ttfamily \#include $<$Boost\+Numpy\+Ndarray\+Helper.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_a48328556cee91ae3f673f3b68548d21a}{Boost\+Ndarray\+Helper}} (boost\+::python\+::numpy\+::ndarray $\ast$in\+Array)
+\item 
+\mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_ae267e8330b5ef7072ab9bb56cfa7e831}{Boost\+Ndarray\+Helper}} (boost\+::python\+::tuple in\+Shape)
+\item 
+const boost\+::python\+::numpy\+::ndarray $\ast$ \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_acceb3bb2db61aeecba91336eb13feba0}{get\+Array}} ()
+\item 
+boost\+::python\+::numpy\+::matrix \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_a9800430d89ded6d79b7b143b0dca5292}{get\+Array\+As\+Matrix}} ()
+\item 
+\mbox{\hyperlink{namespace_num_c_a60b2e2f49e1ff61059731c154e560869}{uint8}} \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_adbcf2213f2b5469b558c288ae18e4825}{num\+Dimensions}} ()
+\item 
+double \& \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_a55c656e959263b99cd66d584c2218dc4}{operator()}} (\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} index)
+\item 
+double \& \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_afc3d675f295e685a7c89eead2da0d332}{operator()}} (\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} index1, \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} index2)
+\item 
+double \& \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_a9424faff33849081e20aecf14713cb14}{operator()}} (\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} index1, \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} index2, \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} index3)
+\item 
+\mbox{\hyperlink{struct_num_c_1_1_order_aec83b68303911af9c219019600b56f23}{Order\+::\+Type}} \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_a8995280ded1f4c28ff17f4bcbfe0b84e}{order}} ()
+\item 
+void \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_ad34f79cce34b53db9a368f74fb8d3147}{print\+Array1D}} ()
+\item 
+void \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_a190d7e62ef5bd8bcf6212ebda2b22869}{print\+Array2D}} ()
+\item 
+void \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_aacac04deba2f5405ab9188b2818853f9}{print\+Array3D}} ()
+\item 
+const std\+::vector$<$ Py\+\_\+intptr\+\_\+t $>$ \& \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_a816ee8ee38680bbeb977725474d58559}{shape}} ()
+\item 
+bool \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_aa0fd675809776b5a6b582282c7ef40b2}{shape\+Equal}} (\mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper}{Boost\+Ndarray\+Helper}} \&other\+Ndarray\+Helper)
+\item 
+\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_afaa5bd97ec3de6c055069dc54c12a02a}{size}} ()
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} $>$ \& \mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper_a760449f72af3dd8eadd67663feba6712}{strides}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Helper class for ndarray. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_a48328556cee91ae3f673f3b68548d21a}\label{class_num_c_1_1_boost_ndarray_helper_a48328556cee91ae3f673f3b68548d21a}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!Boost\+Ndarray\+Helper@{Boost\+Ndarray\+Helper}}
+\index{Boost\+Ndarray\+Helper@{Boost\+Ndarray\+Helper}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{Boost\+Ndarray\+Helper()}{BoostNdarrayHelper()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Num\+C\+::\+Boost\+Ndarray\+Helper\+::\+Boost\+Ndarray\+Helper (\begin{DoxyParamCaption}\item[{boost\+::python\+::numpy\+::ndarray $\ast$}]{in\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em pointer} & to an ndarray\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_ae267e8330b5ef7072ab9bb56cfa7e831}\label{class_num_c_1_1_boost_ndarray_helper_ae267e8330b5ef7072ab9bb56cfa7e831}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!Boost\+Ndarray\+Helper@{Boost\+Ndarray\+Helper}}
+\index{Boost\+Ndarray\+Helper@{Boost\+Ndarray\+Helper}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{Boost\+Ndarray\+Helper()}{BoostNdarrayHelper()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Num\+C\+::\+Boost\+Ndarray\+Helper\+::\+Boost\+Ndarray\+Helper (\begin{DoxyParamCaption}\item[{boost\+::python\+::tuple}]{in\+Shape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em pointer} & to an ndarray\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_acceb3bb2db61aeecba91336eb13feba0}\label{class_num_c_1_1_boost_ndarray_helper_acceb3bb2db61aeecba91336eb13feba0}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!get\+Array@{get\+Array}}
+\index{get\+Array@{get\+Array}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{get\+Array()}{getArray()}}
+{\footnotesize\ttfamily const boost\+::python\+::numpy\+::ndarray$\ast$ Num\+C\+::\+Boost\+Ndarray\+Helper\+::get\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the internaly held ndarray
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to an ndarray 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_a9800430d89ded6d79b7b143b0dca5292}\label{class_num_c_1_1_boost_ndarray_helper_a9800430d89ded6d79b7b143b0dca5292}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!get\+Array\+As\+Matrix@{get\+Array\+As\+Matrix}}
+\index{get\+Array\+As\+Matrix@{get\+Array\+As\+Matrix}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{get\+Array\+As\+Matrix()}{getArrayAsMatrix()}}
+{\footnotesize\ttfamily boost\+::python\+::numpy\+::matrix Num\+C\+::\+Boost\+Ndarray\+Helper\+::get\+Array\+As\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the internaly held ndarray as a numpy matrix
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_adbcf2213f2b5469b558c288ae18e4825}\label{class_num_c_1_1_boost_ndarray_helper_adbcf2213f2b5469b558c288ae18e4825}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!num\+Dimensions@{num\+Dimensions}}
+\index{num\+Dimensions@{num\+Dimensions}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{num\+Dimensions()}{numDimensions()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_num_c_a60b2e2f49e1ff61059731c154e560869}{uint8}} Num\+C\+::\+Boost\+Ndarray\+Helper\+::num\+Dimensions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of dimensions of the array
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+num dimensions 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_a55c656e959263b99cd66d584c2218dc4}\label{class_num_c_1_1_boost_ndarray_helper_a55c656e959263b99cd66d584c2218dc4}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!operator()@{operator()}}
+\index{operator()@{operator()}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily double\& Num\+C\+::\+Boost\+Ndarray\+Helper\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+1D access operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_afc3d675f295e685a7c89eead2da0d332}\label{class_num_c_1_1_boost_ndarray_helper_afc3d675f295e685a7c89eead2da0d332}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!operator()@{operator()}}
+\index{operator()@{operator()}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily double\& Num\+C\+::\+Boost\+Ndarray\+Helper\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{index1,  }\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{index2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+2D access operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_a9424faff33849081e20aecf14713cb14}\label{class_num_c_1_1_boost_ndarray_helper_a9424faff33849081e20aecf14713cb14}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!operator()@{operator()}}
+\index{operator()@{operator()}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily double\& Num\+C\+::\+Boost\+Ndarray\+Helper\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{index1,  }\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{index2,  }\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{index3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+3D access operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_a8995280ded1f4c28ff17f4bcbfe0b84e}\label{class_num_c_1_1_boost_ndarray_helper_a8995280ded1f4c28ff17f4bcbfe0b84e}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!order@{order}}
+\index{order@{order}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{order()}{order()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_num_c_1_1_order_aec83b68303911af9c219019600b56f23}{Order\+::\+Type}} Num\+C\+::\+Boost\+Ndarray\+Helper\+::order (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the memory order of the array (C or Fortran)
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_num_c_1_1_order}{Order}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_ad34f79cce34b53db9a368f74fb8d3147}\label{class_num_c_1_1_boost_ndarray_helper_ad34f79cce34b53db9a368f74fb8d3147}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!print\+Array1D@{print\+Array1D}}
+\index{print\+Array1D@{print\+Array1D}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{print\+Array1\+D()}{printArray1D()}}
+{\footnotesize\ttfamily void Num\+C\+::\+Boost\+Ndarray\+Helper\+::print\+Array1D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Prints a 1D array
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_a190d7e62ef5bd8bcf6212ebda2b22869}\label{class_num_c_1_1_boost_ndarray_helper_a190d7e62ef5bd8bcf6212ebda2b22869}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!print\+Array2D@{print\+Array2D}}
+\index{print\+Array2D@{print\+Array2D}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{print\+Array2\+D()}{printArray2D()}}
+{\footnotesize\ttfamily void Num\+C\+::\+Boost\+Ndarray\+Helper\+::print\+Array2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Prints a 2D array
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_aacac04deba2f5405ab9188b2818853f9}\label{class_num_c_1_1_boost_ndarray_helper_aacac04deba2f5405ab9188b2818853f9}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!print\+Array3D@{print\+Array3D}}
+\index{print\+Array3D@{print\+Array3D}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{print\+Array3\+D()}{printArray3D()}}
+{\footnotesize\ttfamily void Num\+C\+::\+Boost\+Ndarray\+Helper\+::print\+Array3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Prints a 3D array
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_a816ee8ee38680bbeb977725474d58559}\label{class_num_c_1_1_boost_ndarray_helper_a816ee8ee38680bbeb977725474d58559}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!shape@{shape}}
+\index{shape@{shape}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{shape()}{shape()}}
+{\footnotesize\ttfamily const std\+::vector$<$Py\+\_\+intptr\+\_\+t$>$\& Num\+C\+::\+Boost\+Ndarray\+Helper\+::shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the shape of the array
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_aa0fd675809776b5a6b582282c7ef40b2}\label{class_num_c_1_1_boost_ndarray_helper_aa0fd675809776b5a6b582282c7ef40b2}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!shape\+Equal@{shape\+Equal}}
+\index{shape\+Equal@{shape\+Equal}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{shape\+Equal()}{shapeEqual()}}
+{\footnotesize\ttfamily bool Num\+C\+::\+Boost\+Ndarray\+Helper\+::shape\+Equal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_num_c_1_1_boost_ndarray_helper}{Boost\+Ndarray\+Helper}} \&}]{other\+Ndarray\+Helper }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns if the shapes of the two array helpers are equal
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_afaa5bd97ec3de6c055069dc54c12a02a}\label{class_num_c_1_1_boost_ndarray_helper_afaa5bd97ec3de6c055069dc54c12a02a}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!size@{size}}
+\index{size@{size}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} Num\+C\+::\+Boost\+Ndarray\+Helper\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the size of the array
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_boost_ndarray_helper_a760449f72af3dd8eadd67663feba6712}\label{class_num_c_1_1_boost_ndarray_helper_a760449f72af3dd8eadd67663feba6712}} 
+\index{Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}!strides@{strides}}
+\index{strides@{strides}!Num\+C\+::\+Boost\+Ndarray\+Helper@{Num\+C\+::\+Boost\+Ndarray\+Helper}}
+\subsubsection{\texorpdfstring{strides()}{strides()}}
+{\footnotesize\ttfamily const std\+::vector$<$\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}$>$\& Num\+C\+::\+Boost\+Ndarray\+Helper\+::strides (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the strides of the array
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_boost_numpy_ndarray_helper_8hpp}{Boost\+Numpy\+Ndarray\+Helper.\+hpp}}\end{DoxyCompactItemize}
