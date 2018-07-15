@@ -1,0 +1,1 @@
+%windir%/explorer.exe ".\doxygen\html\index.html"
