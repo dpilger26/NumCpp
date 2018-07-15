@@ -1,0 +1,290 @@
+\hypertarget{class_num_c_1_1_image_processing_1_1_pixel}{}\section{NumC\+:\+:Image\+Processing$<$ dtype $>$\+:\+:Pixel Class Reference}
+\label{class_num_c_1_1_image_processing_1_1_pixel}\index{Num\+C\+::\+Image\+Processing$<$ dtype $>$\+::\+Pixel@{Num\+C\+::\+Image\+Processing$<$ dtype $>$\+::\+Pixel}}
+
+
+Holds the information for a single pixel.  
+
+
+
+
+{\ttfamily \#include $<$Image\+Processing.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_a7a5c740eefbeab2a6e6ed4fbffbb2f04}{Pixel}} ()
+\item 
+\mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_a6a0dcc75ec4ff6b952685627a76475dd}{Pixel}} (\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} in\+Row, \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} in\+Col, dtype in\+Intensity)
+\item 
+\mbox{\hyperlink{namespace_num_c_aa5a7e69266097d55816d4cdb19542b53}{int32}} \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_afca989f4165310288cab0d5295963f4f}{cluster\+Id}} () const
+\item 
+\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_a1819a3d5224c879ed100e20f354aa722}{col}} () const
+\item 
+dtype \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_a614d9061c2a04982883d977642ad5852}{intensity}} () const
+\item 
+bool \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_a182ba7349c947cbb84535a3d08bbdc1c}{operator!=}} (const \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_a27f73437f8fa291fcb16c4928cf24a8b}{operator$<$}} (const \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_ab99d24ca953870794f9d0e2d35a49679}{operator==}} (const \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}} \&rhs) const
+\item 
+void \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_ab66e64a517458415dcbd4c2e227c494c}{print}} () const
+\item 
+\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_a436cfd82dc144afa2d3cfe134bc872fd}{row}} () const
+\item 
+void \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_a87855b80b4b6daa9ee191b3b36d3070f}{set\+Cluster\+Id}} (\mbox{\hyperlink{namespace_num_c_aa5a7e69266097d55816d4cdb19542b53}{int32}} in\+Cluster\+Id)
+\item 
+std\+::string \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_afbed86453c85c54a480240b0755e51be}{str}} () const
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel_ab2651c4b29062ba3676ace1dde6ad93d}{operator$<$$<$}} (std\+::ostream \&in\+Stream, const \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}} \&in\+Pixel)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename dtype$>$\newline
+class Num\+C\+::\+Image\+Processing$<$ dtype $>$\+::\+Pixel}
+
+Holds the information for a single pixel. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_a7a5c740eefbeab2a6e6ed4fbffbb2f04}\label{class_num_c_1_1_image_processing_1_1_pixel_a7a5c740eefbeab2a6e6ed4fbffbb2f04}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!Pixel@{Pixel}}
+\index{Pixel@{Pixel}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{Pixel()}{Pixel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::\+Pixel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+defualt constructor needed by containers
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_a6a0dcc75ec4ff6b952685627a76475dd}\label{class_num_c_1_1_image_processing_1_1_pixel_a6a0dcc75ec4ff6b952685627a76475dd}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!Pixel@{Pixel}}
+\index{Pixel@{Pixel}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{Pixel()}{Pixel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::\+Pixel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{in\+Row,  }\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{in\+Col,  }\item[{dtype}]{in\+Intensity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel} & row, \\
+\hline
+{\em pixel} & column, \\
+\hline
+{\em pixel} & intensity\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_afca989f4165310288cab0d5295963f4f}\label{class_num_c_1_1_image_processing_1_1_pixel_afca989f4165310288cab0d5295963f4f}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!cluster\+Id@{cluster\+Id}}
+\index{cluster\+Id@{cluster\+Id}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{cluster\+Id()}{clusterId()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_c_aa5a7e69266097d55816d4cdb19542b53}{int32}} \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::cluster\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the cluster id that this pixel belongs to
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cluster id 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_a1819a3d5224c879ed100e20f354aa722}\label{class_num_c_1_1_image_processing_1_1_pixel_a1819a3d5224c879ed100e20f354aa722}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!col@{col}}
+\index{col@{col}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{col()}{col()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::col (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the pixel column
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+column 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_a614d9061c2a04982883d977642ad5852}\label{class_num_c_1_1_image_processing_1_1_pixel_a614d9061c2a04982883d977642ad5852}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!intensity@{intensity}}
+\index{intensity@{intensity}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{intensity()}{intensity()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+dtype \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::intensity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the pixel intensity
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+intensity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_a182ba7349c947cbb84535a3d08bbdc1c}\label{class_num_c_1_1_image_processing_1_1_pixel_a182ba7349c947cbb84535a3d08bbdc1c}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+bool \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+not equality operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_a27f73437f8fa291fcb16c4928cf24a8b}\label{class_num_c_1_1_image_processing_1_1_pixel_a27f73437f8fa291fcb16c4928cf24a8b}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+bool \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+less than operator for std\+::sort algorithm and std\+::set$<$$>$; N\+O\+TE\+: std\+::sort sorts in ascending order. Since I want to sort the centroids in descensing order, I am purposefully defining this operator backwards!
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_ab99d24ca953870794f9d0e2d35a49679}\label{class_num_c_1_1_image_processing_1_1_pixel_ab99d24ca953870794f9d0e2d35a49679}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!operator==@{operator==}}
+\index{operator==@{operator==}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+bool \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+equality operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_ab66e64a517458415dcbd4c2e227c494c}\label{class_num_c_1_1_image_processing_1_1_pixel_ab66e64a517458415dcbd4c2e227c494c}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!print@{print}}
+\index{print@{print}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+void \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Method Description\+: prints the \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}} object to the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_a436cfd82dc144afa2d3cfe134bc872fd}\label{class_num_c_1_1_image_processing_1_1_pixel_a436cfd82dc144afa2d3cfe134bc872fd}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!row@{row}}
+\index{row@{row}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{row()}{row()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the pixel row
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+row 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_a87855b80b4b6daa9ee191b3b36d3070f}\label{class_num_c_1_1_image_processing_1_1_pixel_a87855b80b4b6daa9ee191b3b36d3070f}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!set\+Cluster\+Id@{set\+Cluster\+Id}}
+\index{set\+Cluster\+Id@{set\+Cluster\+Id}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{set\+Cluster\+Id()}{setClusterId()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+void \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::set\+Cluster\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_c_aa5a7e69266097d55816d4cdb19542b53}{int32}}}]{in\+Cluster\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+sets the cluster id that this pixel belongs to
+
+
+\begin{DoxyParams}{Parameters}
+{\em cluster} & id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_afbed86453c85c54a480240b0755e51be}\label{class_num_c_1_1_image_processing_1_1_pixel_afbed86453c85c54a480240b0755e51be}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!str@{str}}
+\index{str@{str}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+std\+::string \mbox{\hyperlink{class_num_c_1_1_image_processing}{Num\+C\+::\+Image\+Processing}}$<$ dtype $>$\+::Pixel\+::str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the pixel information as a string
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_num_c_1_1_image_processing_1_1_pixel_ab2651c4b29062ba3676ace1dde6ad93d}\label{class_num_c_1_1_image_processing_1_1_pixel_ab2651c4b29062ba3676ace1dde6ad93d}} 
+\index{Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Num\+C\+::\+Image\+Processing\+::\+Pixel@{Num\+C\+::\+Image\+Processing\+::\+Pixel}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{in\+Stream,  }\item[{const \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}} \&}]{in\+Pixel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+osstream operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::ostream} & \\
+\hline
+{\em \mbox{\hyperlink{class_num_c_1_1_image_processing_1_1_pixel}{Pixel}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_image_processing_8hpp}{Image\+Processing.\+hpp}}\end{DoxyCompactItemize}

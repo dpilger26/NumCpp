@@ -12,8 +12,6 @@ var searchData=
   ['bitwise_5fnot',['bitwise_not',['../class_num_c_1_1_methods.html#a576e14946227cbc64c25c7a76fffb559',1,'NumC::Methods']]],
   ['bitwise_5for',['bitwise_or',['../class_num_c_1_1_methods.html#ad35b5719f9d56ebb75430b813942aef8',1,'NumC::Methods']]],
   ['bitwise_5fxor',['bitwise_xor',['../class_num_c_1_1_methods.html#a508d9675ec73865a18290248e12db167',1,'NumC::Methods']]],
-  ['boost_5fnumpy_5fstatic_5flib',['BOOST_NUMPY_STATIC_LIB',['../_boost_numpy_ndarray_helper_8hpp.html#a14d8cae4f9aedc7abae7a8ea66d45b2d',1,'BoostNumpyNdarrayHelper.hpp']]],
-  ['boost_5fpython_5fstatic_5flib',['BOOST_PYTHON_STATIC_LIB',['../_boost_numpy_ndarray_helper_8hpp.html#ab8db71261aa9207d3fb23344c18ce5a7',1,'BoostNumpyNdarrayHelper.hpp']]],
   ['boostndarrayhelper',['BoostNdarrayHelper',['../class_num_c_1_1_boost_ndarray_helper.html',1,'NumC::BoostNdarrayHelper'],['../class_num_c_1_1_boost_ndarray_helper.html#a48328556cee91ae3f673f3b68548d21a',1,'NumC::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::numpy::ndarray *inArray)'],['../class_num_c_1_1_boost_ndarray_helper.html#ae267e8330b5ef7072ab9bb56cfa7e831',1,'NumC::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::tuple inShape)']]],
   ['boostnumpyndarrayhelper_2ehpp',['BoostNumpyNdarrayHelper.hpp',['../_boost_numpy_ndarray_helper_8hpp.html',1,'']]],
   ['boosttonumc',['boostToNumC',['../namespace_num_c.html#ae4b807d81054b18034f455e5ead76711',1,'NumC']]],

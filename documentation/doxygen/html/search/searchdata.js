@@ -10,7 +10,7 @@ var indexSectionsWithContent =
   7: "mt",
   8: "bcflmnprw",
   9: "o",
-  10: "_b",
+  10: "_",
   11: "n"
 };
 

@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"class_num_c_1_1_methods.html#af0c18f6b3be8e043cd321e95ae03f92c":[2,0,0,12,7],
-"class_num_c_1_1_methods.html#af3e62238d77d12dfe46059d71541a4dd":[2,0,0,12,172],
 "class_num_c_1_1_methods.html#af446bd9bd1cfcc6d4d3ad74761c41ad1":[2,0,0,12,190],
 "class_num_c_1_1_methods.html#af65a5db2f72174e29cf5bf2c6204cd50":[2,0,0,12,79],
 "class_num_c_1_1_methods.html#af6857fe3ba347b079caf7ffdcbf05499":[2,0,0,12,184],
@@ -249,5 +247,7 @@ var NAVTREEINDEX2 =
 "class_num_c_1_1_rotations_1_1_quaternion.html#a7f88c89f0597873a10fec577bb763873":[2,0,0,2,1,38],
 "class_num_c_1_1_rotations_1_1_quaternion.html#a850c8173ab8877ba42a8d440af26fcea":[2,0,0,2,1,4],
 "class_num_c_1_1_rotations_1_1_quaternion.html#a868fc0fae2cbd21d84b59b566fd88aeb":[2,0,0,2,1,18],
-"class_num_c_1_1_rotations_1_1_quaternion.html#a8df593fa367af70a45c15d512265e7cc":[2,0,0,2,1,32]
+"class_num_c_1_1_rotations_1_1_quaternion.html#a8df593fa367af70a45c15d512265e7cc":[2,0,0,2,1,32],
+"class_num_c_1_1_rotations_1_1_quaternion.html#a8e068b817fc2d7018e7f6fd1ede977fa":[2,0,0,2,1,36],
+"class_num_c_1_1_rotations_1_1_quaternion.html#a9d6996eb1a5a3e0fdeae32bf924bc578":[2,0,0,2,1,13]
 };

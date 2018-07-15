@@ -1,0 +1,240 @@
+\hypertarget{class_num_c_1_1_shape}{}\section{NumC\+:\+:Shape Class Reference}
+\label{class_num_c_1_1_shape}\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+
+
+A \mbox{\hyperlink{class_num_c_1_1_shape}{Shape}} Class for Nd\+Arrays.  
+
+
+
+
+{\ttfamily \#include $<$Shape.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_num_c_1_1_shape_a33079d7437111c508cafe411e3fd033c}{Shape}} ()
+\item 
+\mbox{\hyperlink{class_num_c_1_1_shape_a2376c8ccff2c2594ce9afe7d9ca5d42d}{Shape}} (\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} in\+Square\+Size)
+\item 
+\mbox{\hyperlink{class_num_c_1_1_shape_aa669d346c90edad6d7ce6f2b9a481eda}{Shape}} (\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} in\+Rows, \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} in\+Cols)
+\item 
+bool \mbox{\hyperlink{class_num_c_1_1_shape_a180150d51d6ddfbd1db5279489c6866d}{isnull}} ()
+\item 
+bool \mbox{\hyperlink{class_num_c_1_1_shape_a9067ce9c89bc0859fc17b27ad588bfdf}{operator!=}} (const \mbox{\hyperlink{class_num_c_1_1_shape}{Shape}} \&in\+Other\+Shape) const
+\item 
+bool \mbox{\hyperlink{class_num_c_1_1_shape_a34bc152092e6040854c38b318cb33771}{operator==}} (const \mbox{\hyperlink{class_num_c_1_1_shape}{Shape}} \&in\+Other\+Shape) const
+\item 
+void \mbox{\hyperlink{class_num_c_1_1_shape_a4a1fe464c014b1af25c24a5de9621761}{print}} () const
+\item 
+\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} \mbox{\hyperlink{class_num_c_1_1_shape_aa143f614d1c367b7ecbf57e287ab08dd}{size}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_num_c_1_1_shape_ae3e28b5a109ab81255adb2f1f7f88dbf}{str}} () const
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} \mbox{\hyperlink{class_num_c_1_1_shape_a21b0f7b0587aad86f050e7086ceea9e7}{cols}}
+\item 
+\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} \mbox{\hyperlink{class_num_c_1_1_shape_a9535da39217424a1afb81c0a7baa3acc}{rows}}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_num_c_1_1_shape_a520d818f31bbdacdf8cfbe6de9e88a28}{operator$<$$<$}} (std\+::ostream \&in\+O\+Stream, const \mbox{\hyperlink{class_num_c_1_1_shape}{Shape}} \&in\+Shape)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \mbox{\hyperlink{class_num_c_1_1_shape}{Shape}} Class for Nd\+Arrays. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_num_c_1_1_shape_a33079d7437111c508cafe411e3fd033c}\label{class_num_c_1_1_shape_a33079d7437111c508cafe411e3fd033c}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!Shape@{Shape}}
+\index{Shape@{Shape}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{Shape()}{Shape()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Num\+C\+::\+Shape\+::\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & of rows \\
+\hline
+{\em number} & of cols\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_shape_a2376c8ccff2c2594ce9afe7d9ca5d42d}\label{class_num_c_1_1_shape_a2376c8ccff2c2594ce9afe7d9ca5d42d}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!Shape@{Shape}}
+\index{Shape@{Shape}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{Shape()}{Shape()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Num\+C\+::\+Shape\+::\+Shape (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{in\+Square\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & of rows and cols\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_shape_aa669d346c90edad6d7ce6f2b9a481eda}\label{class_num_c_1_1_shape_aa669d346c90edad6d7ce6f2b9a481eda}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!Shape@{Shape}}
+\index{Shape@{Shape}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{Shape()}{Shape()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Num\+C\+::\+Shape\+::\+Shape (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{in\+Rows,  }\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{in\+Cols }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & of rows \\
+\hline
+{\em number} & of cols\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_c_1_1_shape_a180150d51d6ddfbd1db5279489c6866d}\label{class_num_c_1_1_shape_a180150d51d6ddfbd1db5279489c6866d}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!isnull@{isnull}}
+\index{isnull@{isnull}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{isnull()}{isnull()}}
+{\footnotesize\ttfamily bool Num\+C\+::\+Shape\+::isnull (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns whether the shape is null (constructed with the default constructor).
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_shape_a9067ce9c89bc0859fc17b27ad588bfdf}\label{class_num_c_1_1_shape_a9067ce9c89bc0859fc17b27ad588bfdf}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Num\+C\+::\+Shape\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_shape}{Shape}} \&}]{in\+Other\+Shape }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Not equality operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_shape_a34bc152092e6040854c38b318cb33771}\label{class_num_c_1_1_shape_a34bc152092e6040854c38b318cb33771}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!operator==@{operator==}}
+\index{operator==@{operator==}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Num\+C\+::\+Shape\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_shape}{Shape}} \&}]{in\+Other\+Shape }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Equality operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_shape_a4a1fe464c014b1af25c24a5de9621761}\label{class_num_c_1_1_shape_a4a1fe464c014b1af25c24a5de9621761}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!print@{print}}
+\index{print@{print}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Num\+C\+::\+Shape\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Prints the shape to the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_shape_aa143f614d1c367b7ecbf57e287ab08dd}\label{class_num_c_1_1_shape_aa143f614d1c367b7ecbf57e287ab08dd}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!size@{size}}
+\index{size@{size}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} Num\+C\+::\+Shape\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the size of the shape
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_shape_ae3e28b5a109ab81255adb2f1f7f88dbf}\label{class_num_c_1_1_shape_ae3e28b5a109ab81255adb2f1f7f88dbf}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!str@{str}}
+\index{str@{str}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily std\+::string Num\+C\+::\+Shape\+::str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the shape as a string representation
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_num_c_1_1_shape_a520d818f31bbdacdf8cfbe6de9e88a28}\label{class_num_c_1_1_shape_a520d818f31bbdacdf8cfbe6de9e88a28}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{in\+O\+Stream,  }\item[{const \mbox{\hyperlink{class_num_c_1_1_shape}{Shape}} \&}]{in\+Shape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+IO operator for the \mbox{\hyperlink{class_num_c_1_1_shape}{Shape}} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{class_num_c_1_1_shape_a21b0f7b0587aad86f050e7086ceea9e7}\label{class_num_c_1_1_shape_a21b0f7b0587aad86f050e7086ceea9e7}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!cols@{cols}}
+\index{cols@{cols}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{cols}{cols}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} Num\+C\+::\+Shape\+::cols}
+
+\mbox{\Hypertarget{class_num_c_1_1_shape_a9535da39217424a1afb81c0a7baa3acc}\label{class_num_c_1_1_shape_a9535da39217424a1afb81c0a7baa3acc}} 
+\index{Num\+C\+::\+Shape@{Num\+C\+::\+Shape}!rows@{rows}}
+\index{rows@{rows}!Num\+C\+::\+Shape@{Num\+C\+::\+Shape}}
+\subsubsection{\texorpdfstring{rows}{rows}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} Num\+C\+::\+Shape\+::rows}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_shape_8hpp}{Shape.\+hpp}}\end{DoxyCompactItemize}
