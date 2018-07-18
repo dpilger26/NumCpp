@@ -32,6 +32,7 @@
 #include"NumC/Slice.hpp"
 #include"NumC/Types.hpp"
 #include"NumC/Utils.hpp"
+#include"NumC/Constants.hpp"
 
 #include<boost/filesystem.hpp>
 #include<boost/endian/conversion.hpp>
@@ -1887,6 +1888,21 @@ namespace NumC
                     return std::move(NdArray<dtype>(0));
                 }
             }
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Fills the array with nans; only really works with 
+        ///                     dtype = float, or double
+        ///		
+        /// @param
+        ///				None
+        /// @return
+        ///				None
+        ///
+        void nans()
+        {
+            fill(Constants::nan);
         }
 
         //============================================================================

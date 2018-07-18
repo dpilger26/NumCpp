@@ -4298,6 +4298,52 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
+        ///						Return a new array of given shape and type, filled with nans.
+        ///                     Only really works for dtype = float/double
+        ///		
+        /// @param
+        ///				square size
+        /// @return
+        ///				NdArray
+        ///
+        static NdArray<dtype> nans(uint32 inSquareSize)
+        {
+            return std::move(full(inSquareSize, static_cast<dtype>(Constants::nan)));
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Return a new array of given shape and type, filled with nans.
+        ///                     Only really works for dtype = float/double
+        ///		
+        /// @param				numRows
+        /// @param				numCols
+        /// @return
+        ///				NdArray
+        ///
+        static NdArray<dtype> nans(uint32 inNumRows, uint32 inNumCols)
+        {
+            return std::move(full(inNumRows, inNumCols, static_cast<dtype>(Constants::nan)));
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Return a new array of given shape and type, filled with zeros.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
+        ///		
+        /// @param
+        ///				Shape
+        /// @return
+        ///				NdArray
+        ///
+        static NumC::NdArray<dtype> nans(const NumC::Shape& inShape)
+        {
+            return std::move(full(inShape, static_cast<dtype>(Constants::nan)));
+        }
+
+        //============================================================================
+        // Method Description: 
         ///						Compute the standard deviation along the specified axis, while ignoring NaNs.
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanstd.html
