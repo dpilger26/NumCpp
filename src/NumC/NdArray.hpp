@@ -1892,8 +1892,8 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        ///						Fills the array with nans; only really works with 
-        ///                     dtype = float, or double
+        ///						Fills the array with nans; only really works with.
+        ///                     Only really works for dtype = float/double
         ///		
         /// @param
         ///				None

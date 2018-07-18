@@ -4328,9 +4328,8 @@ namespace NumC
 
         //============================================================================
         // Method Description: 
-        ///						Return a new array of given shape and type, filled with zeros.
-        ///
-        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
+        ///						Return a new array of given shape and type, filled with nans.
+        ///                     Only really works for dtype = float/double
         ///		
         /// @param
         ///				Shape
