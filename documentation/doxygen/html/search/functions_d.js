@@ -10,6 +10,7 @@ var searchData=
   ['nanmin',['nanmin',['../class_num_c_1_1_methods.html#add26f24e2eea3e7e54fbe440f6f64ecc',1,'NumC::Methods']]],
   ['nanpercentile',['nanpercentile',['../class_num_c_1_1_methods.html#a14335474f77133bbb60aa683365e3a45',1,'NumC::Methods']]],
   ['nanprod',['nanprod',['../class_num_c_1_1_methods.html#a1aeaf3e4eec88b078a17f85983fd643a',1,'NumC::Methods']]],
+  ['nans',['nans',['../class_num_c_1_1_methods.html#a8e22a8da1bfde5687038423c9be45af4',1,'NumC::Methods::nans(uint32 inSquareSize)'],['../class_num_c_1_1_methods.html#a9ecbee6ee1b6a49bb9724ec575f71f70',1,'NumC::Methods::nans(uint32 inNumRows, uint32 inNumCols)'],['../class_num_c_1_1_methods.html#a9102d4c1b6567359a31f943b27158c87',1,'NumC::Methods::nans(const NumC::Shape &amp;inShape)'],['../class_num_c_1_1_nd_array.html#ad218314b7efa61051b2bbcf683d19354',1,'NumC::NdArray::nans()']]],
   ['nanstd',['nanstd',['../class_num_c_1_1_methods.html#aa354e8080277d01abe35cd77106e9380',1,'NumC::Methods']]],
   ['nansum',['nansum',['../class_num_c_1_1_methods.html#af8d74e9cb9c796980838fad8cbab0920',1,'NumC::Methods']]],
   ['nanvar',['nanvar',['../class_num_c_1_1_methods.html#aa9f27e145e495b4ced12ff1ec0c058bf',1,'NumC::Methods']]],

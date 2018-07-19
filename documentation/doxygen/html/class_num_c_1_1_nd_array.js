@@ -55,6 +55,7 @@ var class_num_c_1_1_nd_array =
     [ "mean", "class_num_c_1_1_nd_array.html#af4176e740965e272fa24fda54dd2e875", null ],
     [ "median", "class_num_c_1_1_nd_array.html#a8ac6430930f379b06f650db8ca7aa62b", null ],
     [ "min", "class_num_c_1_1_nd_array.html#a1f4c77688334d3760f4df54137ce9c32", null ],
+    [ "nans", "class_num_c_1_1_nd_array.html#ad218314b7efa61051b2bbcf683d19354", null ],
     [ "nbytes", "class_num_c_1_1_nd_array.html#a68b69a2bce03b4a10961c51fff965522", null ],
     [ "newbyteorder", "class_num_c_1_1_nd_array.html#a992b403fa64d2d3c4516b0ca9328de66", null ],
     [ "nonzero", "class_num_c_1_1_nd_array.html#aa0a3b09f956b37105f51728f43fedc75", null ],

@@ -340,6 +340,12 @@ static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox
 \item 
 {\footnotesize template$<$typename dtype\+Out  = double$>$ }\\static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype\+Out $>$ \mbox{\hyperlink{class_num_c_1_1_methods_a1aeaf3e4eec88b078a17f85983fd643a}{nanprod}} (const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Array, \mbox{\hyperlink{struct_num_c_1_1_axis_a8e689044ef1941a03482e730c5e7ebb3}{Axis\+::\+Type}} in\+Axis=\mbox{\hyperlink{struct_num_c_1_1_axis_a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94}{Axis\+::\+N\+O\+NE}})
 \item 
+static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_c_1_1_methods_a8e22a8da1bfde5687038423c9be45af4}{nans}} (\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} in\+Square\+Size)
+\item 
+static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_c_1_1_methods_a9ecbee6ee1b6a49bb9724ec575f71f70}{nans}} (\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} in\+Num\+Rows, \mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}} in\+Num\+Cols)
+\item 
+static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Num\+C\+::\+Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_c_1_1_methods_a9102d4c1b6567359a31f943b27158c87}{nans}} (const \mbox{\hyperlink{class_num_c_1_1_shape}{Num\+C\+::\+Shape}} \&in\+Shape)
+\item 
 static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_c_1_1_methods_aa354e8080277d01abe35cd77106e9380}{nanstd}} (const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Array, \mbox{\hyperlink{struct_num_c_1_1_axis_a8e689044ef1941a03482e730c5e7ebb3}{Axis\+::\+Type}} in\+Axis=\mbox{\hyperlink{struct_num_c_1_1_axis_a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94}{Axis\+::\+N\+O\+NE}})
 \item 
 {\footnotesize template$<$typename dtype\+Out  = double$>$ }\\static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype\+Out $>$ \mbox{\hyperlink{class_num_c_1_1_methods_af8d74e9cb9c796980838fad8cbab0920}{nansum}} (const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Array, \mbox{\hyperlink{struct_num_c_1_1_axis_a8e689044ef1941a03482e730c5e7ebb3}{Axis\+::\+Type}} in\+Axis=\mbox{\hyperlink{struct_num_c_1_1_axis_a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94}{Axis\+::\+N\+O\+NE}})
@@ -3907,6 +3913,59 @@ Num\+Py Reference\+: \href{https://www.numpy.org/devdocs/reference/generated/num
 {\em \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}} & \\
 \hline
 {\em (\+Optional)} & axis\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_methods_a8e22a8da1bfde5687038423c9be45af4}\label{class_num_c_1_1_methods_a8e22a8da1bfde5687038423c9be45af4}} 
+\index{Num\+C\+::\+Methods@{Num\+C\+::\+Methods}!nans@{nans}}
+\index{nans@{nans}!Num\+C\+::\+Methods@{Num\+C\+::\+Methods}}
+\subsubsection{\texorpdfstring{nans()}{nans()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_c_1_1_methods}{Num\+C\+::\+Methods}}$<$ dtype $>$\+::nans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{in\+Square\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Return a new array of given shape and type, filled with nans. Only really works for dtype = float/double
+
+
+\begin{DoxyParams}{Parameters}
+{\em square} & size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_methods_a9ecbee6ee1b6a49bb9724ec575f71f70}\label{class_num_c_1_1_methods_a9ecbee6ee1b6a49bb9724ec575f71f70}} 
+\index{Num\+C\+::\+Methods@{Num\+C\+::\+Methods}!nans@{nans}}
+\index{nans@{nans}!Num\+C\+::\+Methods@{Num\+C\+::\+Methods}}
+\subsubsection{\texorpdfstring{nans()}{nans()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_c_1_1_methods}{Num\+C\+::\+Methods}}$<$ dtype $>$\+::nans (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{in\+Num\+Rows,  }\item[{\mbox{\hyperlink{namespace_num_c_ae685802ca6d3035f2b400b081e3953fa}{uint32}}}]{in\+Num\+Cols }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Return a new array of given shape and type, filled with nans. Only really works for dtype = float/double
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Rows} & \\
+\hline
+{\em num\+Cols} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_methods_a9102d4c1b6567359a31f943b27158c87}\label{class_num_c_1_1_methods_a9102d4c1b6567359a31f943b27158c87}} 
+\index{Num\+C\+::\+Methods@{Num\+C\+::\+Methods}!nans@{nans}}
+\index{nans@{nans}!Num\+C\+::\+Methods@{Num\+C\+::\+Methods}}
+\subsubsection{\texorpdfstring{nans()}{nans()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+static \mbox{\hyperlink{class_num_c_1_1_nd_array}{Num\+C\+::\+Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_c_1_1_methods}{Num\+C\+::\+Methods}}$<$ dtype $>$\+::nans (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_c_1_1_shape}{Num\+C\+::\+Shape}} \&}]{in\+Shape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Return a new array of given shape and type, filled with nans. Only really works for dtype = float/double
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_c_1_1_shape}{Shape}}} & \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

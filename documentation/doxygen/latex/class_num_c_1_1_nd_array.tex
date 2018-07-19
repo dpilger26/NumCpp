@@ -125,6 +125,8 @@ dtype \mbox{\hyperlink{class_num_c_1_1_nd_array_a3be50d8f34980d81b51bdf25d09ffdf
 \item 
 \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_c_1_1_nd_array_a1f4c77688334d3760f4df54137ce9c32}{min}} (\mbox{\hyperlink{struct_num_c_1_1_axis_a8e689044ef1941a03482e730c5e7ebb3}{Axis\+::\+Type}} in\+Axis=\mbox{\hyperlink{struct_num_c_1_1_axis_a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94}{Axis\+::\+N\+O\+NE}}) const
 \item 
+void \mbox{\hyperlink{class_num_c_1_1_nd_array_ad218314b7efa61051b2bbcf683d19354}{nans}} ()
+\item 
 \mbox{\hyperlink{namespace_num_c_a22306a0884a815781c5b147415f6d817}{uint64}} \mbox{\hyperlink{class_num_c_1_1_nd_array_a68b69a2bce03b4a10961c51fff965522}{nbytes}} () const
 \item 
 \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_c_1_1_nd_array_a992b403fa64d2d3c4516b0ca9328de66}{newbyteorder}} (\mbox{\hyperlink{struct_num_c_1_1_endian_ab667001489f67f8a96f328f0a9c351fa}{Endian\+::\+Type}} in\+Endianess) const
@@ -205,9 +207,9 @@ const dtype \& \mbox{\hyperlink{class_num_c_1_1_nd_array_a1e7b94b3396715c3d6a3be
 \item 
 \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \& \mbox{\hyperlink{class_num_c_1_1_nd_array_a367f7ca671c2c35bda980bb7fff8adf2}{operator/=}} (dtype in\+Scalar)
 \item 
-\mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ bool $>$ \mbox{\hyperlink{class_num_c_1_1_nd_array_ae6e2f419585540a0198dd500f2c6a547}{operator$<$}} (dtype in\+Scalar) const
-\item 
 \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ bool $>$ \mbox{\hyperlink{class_num_c_1_1_nd_array_a206b5abfcdd532efadeec123979dcb08}{operator$<$}} (const \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Other\+Array) const
+\item 
+\mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ bool $>$ \mbox{\hyperlink{class_num_c_1_1_nd_array_ae6e2f419585540a0198dd500f2c6a547}{operator$<$}} (dtype in\+Scalar) const
 \item 
 \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}}$<$ bool $>$ \mbox{\hyperlink{class_num_c_1_1_nd_array_a6ca5d2e5f0365adf35747b26fd4a892f}{operator$<$=}} (dtype in\+Scalar) const
 \item 
@@ -1339,6 +1341,23 @@ Numpy Reference\+: \href{https://www.numpy.org/devdocs/reference/generated/numpy
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 \mbox{\hyperlink{class_num_c_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_c_1_1_nd_array_ad218314b7efa61051b2bbcf683d19354}\label{class_num_c_1_1_nd_array_ad218314b7efa61051b2bbcf683d19354}} 
+\index{Num\+C\+::\+Nd\+Array@{Num\+C\+::\+Nd\+Array}!nans@{nans}}
+\index{nans@{nans}!Num\+C\+::\+Nd\+Array@{Num\+C\+::\+Nd\+Array}}
+\subsubsection{\texorpdfstring{nans()}{nans()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+void \mbox{\hyperlink{class_num_c_1_1_nd_array}{Num\+C\+::\+Nd\+Array}}$<$ dtype $>$\+::nans (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Fills the array with nans; only really works with. Only really works for dtype = float/double
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_num_c_1_1_nd_array_a68b69a2bce03b4a10961c51fff965522}\label{class_num_c_1_1_nd_array_a68b69a2bce03b4a10961c51fff965522}} 
 \index{Num\+C\+::\+Nd\+Array@{Num\+C\+::\+Nd\+Array}!nbytes@{nbytes}}

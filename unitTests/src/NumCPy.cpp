@@ -1671,6 +1671,38 @@ namespace MethodsInterface
 
     //================================================================================
 
+    template<typename dtype>
+    np::ndarray nansSquare(uint32 inSquareSize)
+    {
+        return numCToBoost(Methods<dtype>::nans(inSquareSize));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray nansRowCol(uint32 inNumRows, uint32 inNumCols)
+    {
+        return numCToBoost(Methods<dtype>::nans(inNumRows, inNumCols));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray nansShape(const Shape& inShape)
+    {
+        return numCToBoost(Methods<dtype>::nans(inShape));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray nansList(uint32 inNumRows, uint32 inNumCols)
+    {
+        return numCToBoost(Methods<dtype>::nans({ inNumRows, inNumCols }));
+    }
+
+    //================================================================================
+
     template<typename dtype, typename dtypeOut>
     np::ndarray negative(const NdArray<dtypeOut> inArray)
     {
@@ -2480,6 +2512,7 @@ BOOST_PYTHON_MODULE(NumC)
         .def("min", &NdArrayInterface::min<double>)
         .def("mean", &NdArrayInterface::mean<double>)
         .def("median", &NdArrayInterface::median<double>)
+        .def("nans", &NdArrayDouble::nans)
         .def("nbytes", &NdArrayDouble::nbytes)
         .def("nonzero", &NdArrayInterface::nonzero<double>)
         .def("norm", &NdArrayInterface::norm<double, double>)
@@ -2817,6 +2850,10 @@ BOOST_PYTHON_MODULE(NumC)
         .def("nanpercentile", &MethodsDouble::nanpercentile<double>).staticmethod("nanpercentile")
         .def("nanprod", &MethodsDouble::nanprod<double>).staticmethod("nanprod")
         //.def("nanprod", &MethodsDouble::nanprod<float>).staticmethod("nanprod")
+        .def("nansSquare", &MethodsInterface::nansSquare<double>).staticmethod("nansSquare")
+        .def("nansRowCol", &MethodsInterface::nansRowCol<double>).staticmethod("nansRowCol")
+        .def("nansShape", &MethodsInterface::nansShape<double>).staticmethod("nansShape")
+        .def("nansList", &MethodsInterface::nansList<double>).staticmethod("nansList")
         .def("nanstd", &MethodsDouble::nanstd).staticmethod("nanstd")
         .def("nansum", &MethodsDouble::nansum<double>).staticmethod("nansum")
         //.def("nansum", &MethodsDouble::nansum<float>).staticmethod("nansum")

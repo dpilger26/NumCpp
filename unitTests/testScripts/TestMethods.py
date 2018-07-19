@@ -3046,6 +3046,34 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing nans square', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [1, ]).item()
+    cArray = NumC.MethodsDouble.nansSquare(shapeInput)
+    if (cArray.shape[0] == shapeInput and cArray.shape[1] == shapeInput and
+            cArray.size == shapeInput ** 2 and np.all(np.isnan(cArray))):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nans rectangle', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    cArray = NumC.MethodsDouble.nansRowCol(shapeInput[0].item(), shapeInput[1].item())
+    if (cArray.shape[0] == shapeInput[0] and cArray.shape[1] == shapeInput[1] and
+            cArray.size == shapeInput.prod() and np.all(np.isnan(cArray))):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing nans Shape', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumC.MethodsDouble.nansShape(shape)
+    if (cArray.shape[0] == shape.rows and cArray.shape[1] == shape.cols and
+            cArray.size == shapeInput.prod() and np.all(np.isnan(cArray))):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing nanstd: Axis = None', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumC.Shape(shapeInput[0].item(), shapeInput[1].item())
