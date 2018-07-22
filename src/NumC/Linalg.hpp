@@ -533,7 +533,7 @@ namespace NumC
             // Description:
             ///              returns the SIGN of two values
             ///  
-            /// @param              a,
+            /// @param              a
             /// @param              b
             /// 
             /// @return 
