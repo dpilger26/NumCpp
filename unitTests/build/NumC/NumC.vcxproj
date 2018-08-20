@@ -156,8 +156,7 @@
       <AdditionalLibraryDirectories>$(PYTHON_LIBS);$(BOOST_LIBS);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>../../../documentation/doxygen/generator/GenerateDoxygenDocumentation.bat</Command>
       <Message>Generates the doxygen documentation</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
