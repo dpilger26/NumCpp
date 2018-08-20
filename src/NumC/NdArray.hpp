@@ -38,6 +38,7 @@
 #include<boost/endian/conversion.hpp>
 
 #include<algorithm>
+#include<functional>
 #include<cmath>
 #include<fstream>
 #include<initializer_list>
@@ -3350,10 +3351,7 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NdArray::operator+=: Array dimensions do not match.");
             }
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] += inOtherArray.array_[i];
-            }
+            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::plus<dtype>());
 
             return *this;
         }
@@ -3421,10 +3419,7 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NdArray::operator-=: Array dimensions do not match.");
             }
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] -= inOtherArray.array_[i];
-            }
+            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
 
             return *this;
         }
@@ -3492,10 +3487,7 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NdArray::operator*=: Array dimensions do not match.");
             }
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] *= inOtherArray.array_[i];
-            }
+            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::multiplies<dtype>());
 
             return *this;
         }
@@ -3563,10 +3555,7 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NdArray::operator/=: Array dimensions do not match.");
             }
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] /= inOtherArray.array_[i];
-            }
+            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::divides<dtype>());
 
             return *this;
         }
@@ -3637,15 +3626,7 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NdArray::operator%=: Array dimensions do not match.");
             }
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                if (inOtherArray.array_[i] == 0)
-                {
-                    throw std::runtime_error("ERROR: NdArray::operator%=: modulus by zero.");
-                }
-
-                array_[i] %= inOtherArray.array_[i];
-            }
+            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::modulus<dtype>());
 
             return *this;
         }
@@ -3724,10 +3705,7 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NdArray::operator|=: Array dimensions do not match.");
             }
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] |= inOtherArray.array_[i];
-            }
+            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_or<dtype>());
 
             return *this;
         }
@@ -3801,10 +3779,7 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NdArray::operator&=: Array dimensions do not match.");
             }
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] &= inOtherArray.array_[i];
-            }
+            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_and<dtype>());
 
             return *this;
         }
@@ -3878,10 +3853,7 @@ namespace NumC
                 throw std::invalid_argument("ERROR: NdArray::operator^=: Array dimensions do not match.");
             }
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] ^= inOtherArray.array_[i];
-            }
+            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_xor<dtype>());
 
             return *this;
         }
@@ -3970,10 +3942,7 @@ namespace NumC
             }
 
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] == inOtherArray.array_[i];
-            }
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::equal_to<dtype>());
 
             return std::move(returnArray);
         }
@@ -4013,14 +3982,11 @@ namespace NumC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator==: Array dimensions do not match.");
+                throw std::invalid_argument("ERROR: NdArray::operator!=: Array dimensions do not match.");
             }
 
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] != inOtherArray.array_[i];
-            }
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
 
             return std::move(returnArray);
         }
@@ -4060,14 +4026,11 @@ namespace NumC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator==: Array dimensions do not match.");
+                throw std::invalid_argument("ERROR: NdArray::operator<: Array dimensions do not match.");
             }
 
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] < inOtherArray.array_[i];
-            }
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less<dtype>());
 
             return std::move(returnArray);
         }
@@ -4107,14 +4070,11 @@ namespace NumC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator==: Array dimensions do not match.");
+                throw std::invalid_argument("ERROR: NdArray::operator>: Array dimensions do not match.");
             }
 
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] > inOtherArray.array_[i];
-            }
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater<dtype>());
 
             return std::move(returnArray);
         }
@@ -4154,14 +4114,11 @@ namespace NumC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator==: Array dimensions do not match.");
+                throw std::invalid_argument("ERROR: NdArray::operator<=: Array dimensions do not match.");
             }
 
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] <= inOtherArray.array_[i];
-            }
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less_equal<dtype>());
 
             return std::move(returnArray);
         }
@@ -4201,14 +4158,11 @@ namespace NumC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator==: Array dimensions do not match.");
+                throw std::invalid_argument("ERROR: NdArray::operator>=: Array dimensions do not match.");
             }
 
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] >= inOtherArray.array_[i];
-            }
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater_equal<dtype>());
 
             return std::move(returnArray);
         }
