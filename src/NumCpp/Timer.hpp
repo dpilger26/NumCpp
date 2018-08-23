@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -30,7 +31,7 @@
 #include<chrono>
 #include<string>
 
-namespace NumC
+namespace NumCpp
 {
     //================================================================================
     ///						A timer class for timing code execution

@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -27,10 +28,10 @@
 ///
 
 #pragma once
-#include<NumC/NdArray.hpp>
-#include<NumC/Methods.hpp>
-#include<NumC/Types.hpp>
-#include<NumC/Utils.hpp>
+#include<NumCpp/NdArray.hpp>
+#include<NumCpp/Methods.hpp>
+#include<NumCpp/Types.hpp>
+#include<NumCpp/Utils.hpp>
 
 #include<cmath>
 #include<iostream>
@@ -40,7 +41,7 @@
 #include<utility>
 #include<vector>
 
-namespace NumC
+namespace NumCpp
 {
     //================================================================================
     // Class Description:

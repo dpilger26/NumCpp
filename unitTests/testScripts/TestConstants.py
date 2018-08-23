@@ -2,7 +2,7 @@ import numpy as np
 from termcolor import colored
 import sys
 sys.path.append(r'../build/x64/Release')
-import NumC
+import NumCpp
 
 ####################################################################################
 def doTest():
@@ -11,31 +11,31 @@ def doTest():
     NUM_DECIMALS_ROUND = 10
 
     print(colored('Testing c', 'cyan'))
-    if round(NumC.c, NUM_DECIMALS_ROUND) == round(3e8, 10):
+    if round(NumCpp.c, NUM_DECIMALS_ROUND) == round(3e8, 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing e', 'cyan'))
-    if round(NumC.e, NUM_DECIMALS_ROUND) == round(np.e, 10):
+    if round(NumCpp.e, NUM_DECIMALS_ROUND) == round(np.e, 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing pi', 'cyan'))
-    if round(NumC.pi, NUM_DECIMALS_ROUND) == round(np.pi, 10):
+    if round(NumCpp.pi, NUM_DECIMALS_ROUND) == round(np.pi, 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing nan', 'cyan'))
-    if np.isnan(NumC.nan):
+    if np.isnan(NumCpp.nan):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing VERSION', 'cyan'))
-    if NumC.VERSION == '0.1':
+    if NumCpp.VERSION == '0.1':
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

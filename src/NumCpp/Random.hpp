@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -27,17 +28,17 @@
 ///
 #pragma once
 
-#include"NumC/Methods.hpp"
-#include"NumC/NdArray.hpp"
-#include"NumC/Shape.hpp"
-#include"NumC/Types.hpp"
+#include"NumCpp/Methods.hpp"
+#include"NumCpp/NdArray.hpp"
+#include"NumCpp/Shape.hpp"
+#include"NumCpp/Types.hpp"
 
 #include"boost/random.hpp"
 
 #include<algorithm>
 #include<vector>
 
-namespace NumC
+namespace NumCpp
 {
     /// generator function
     boost::random::mt19937 generator_;

@@ -1,13 +1,9 @@
-/// @mainpage NumC Documentation
-///
-/// @section Description
-/// A C++ implementation of the Python Numpy library
-///
+/// @file
 /// @author David Pilger <dpilger26@gmail.com>
-///
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section License
+/// @section LICENSE
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -27,31 +23,22 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section Testing
-/// Compiled and tested with Visual Studio 2017, and MinGW gcc-6.3.0, with Boost version 1.63.
+/// @section DESCRIPTION
+/// Class for dealing with common polynomials
 ///
 #pragma once
 
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS // for localtime with Visual Studio
-#endif
+#include"NumCpp/Types.hpp"
+#include"NumCpp/NdArray.hpp"
 
-#include"NumC/BoostNumpyNdarrayHelper.hpp"
-#include"NumC/Constants.hpp"
-#include"NumC/Coordinates.hpp"
-#include"NumC/DataCube.hpp"
-#include"NumC/DtypeInfo.hpp"
-#include"NumC/FFT.hpp"
-#include"NumC/Filter.hpp"
-#include"NumC/ImageProcessing.hpp"
-#include"NumC/Linalg.hpp"
-#include"NumC/Methods.hpp"
-#include"NumC/NdArray.hpp"
-#include"NumC/Polynomial.hpp"
-#include"NumC/Random.hpp"
-#include"NumC/Rotations.hpp"
-#include"NumC/Shape.hpp"
-#include"NumC/Slice.hpp"
-#include"NumC/Timer.hpp"
-#include"NumC/Types.hpp"
-#include"NumC/Utils.hpp"
+namespace NumCpp
+{
+    //================================Polynomial Class=============================
+    /// Class for dealing with common polynomials
+    template<typename dtype>
+    class Polynomial
+    {
+    public:
+        /// \todo Complete This Module
+    };
+}

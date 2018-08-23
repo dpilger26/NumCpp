@@ -19,35 +19,36 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\NumCPy.cpp" />
+    <ClCompile Include="..\..\src\NumCppPy.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\NumC.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\BoostNumpyNdarrayHelper.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Constants.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Coordinates.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\DataCube.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\DtypeInfo.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\FFT.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Filter.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\ImageProcessing.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Linalg.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Methods.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\NdArray.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Polynomial.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Random.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Rotations.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Shape.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Slice.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Timer.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Types.hpp" />
-    <ClInclude Include="..\..\..\src\NumC\Utils.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\BoostNumpyNdarrayHelper.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Constants.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Coordinates.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\DataCube.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\DtypeInfo.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\FFT.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Filter.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\ImageProcessing.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Linalg.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Methods.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\NdArray.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Polynomial.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Random.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Rotations.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Shape.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Slice.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Timer.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Types.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\Utils.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{A21B777B-9041-4792-8709-8DE2B5BA2C94}</ProjectGuid>
     <RootNamespace>NumC</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <ProjectName>NumCpp</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -156,7 +157,8 @@
       <AdditionalLibraryDirectories>$(PYTHON_LIBS);$(BOOST_LIBS);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>../../../documentation/doxygen/generator/GenerateDoxygenDocumentation.bat</Command>
+      <Command>
+      </Command>
       <Message>Generates the doxygen documentation</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>

@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -23,92 +24,71 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section DESCRIPTION
-/// Holds info about the dtype
+/// Usefull utility type functions
 ///
 #pragma once
 
-#include<limits>
+#include<string>
 
-namespace NumC
+namespace NumCpp
 {
     //================================================================================
-    ///						Holds info about the dtype
+    /// Usefull utility type functions
     template<typename dtype>
-    class DtypeInfo
+    class Utils
     {
     public:
         //============================================================================
-        ///						For integer types: number of non-sign bits in the representation.
-        ///						For floating types : number of digits(in radix base) in the mantissa
+        ///						Converts the number into a string
         ///		
-        /// @param      None
+        /// @param      number
         ///
-        /// @return     number of bits
+        /// @return     string
         ///
-        static constexpr dtype bits()
+        static std::string num2str(dtype inNumber)
         {
-            return std::numeric_limits<dtype>::digits;
+            return std::to_string(inNumber);
         }
 
         //============================================================================
-        ///						Machine epsilon (the difference between 1 and the least 
-        ///						value greater than 1 that is representable).
+        ///						Squares in input value
         ///		
-        /// @param      None
+        /// @param      dtype
         ///
         /// @return     dtype
         ///
-        static constexpr dtype epsilon()
+        static dtype sqr(dtype inValue)
         {
-            return std::numeric_limits<dtype>::epsilon();
+            return inValue * inValue;
         }
 
         //============================================================================
-        ///						True if type is integer.
+        ///						Cubes in input value
         ///		
-        /// @param      None
+        /// @param      dtype
         ///
-        /// @return     bool
+        /// @return     dtype
         ///
-        static constexpr bool isInteger()
+        static dtype cube(dtype inValue)
         {
-            return std::numeric_limits<dtype>::is_integer;
+            return inValue * inValue * inValue;
         }
 
         //============================================================================
-        ///						True if type is signed.
+        ///						Raises the input value to a power
         ///		
-        /// @param      None
+        /// @param      dtype
         ///
-        /// @return     bool
+        /// @return     dtype
         ///
-        static constexpr bool isSigned()
+        static dtype power(dtype inValue, uint8 inPower)
         {
-            return std::numeric_limits<dtype>::is_signed;
-        }
-
-        //============================================================================
-        ///						Returns the minimum value of the dtype
-        ///		
-        /// @param      None
-        ///
-        /// @return     min value
-        ///
-        static constexpr dtype min()
-        {
-            return std::numeric_limits<dtype>::min();
-        }
-
-        //============================================================================
-        ///						Returns the maximum value of the dtype
-        ///		
-        /// @param      None
-        ///
-        /// @return     max value
-        ///
-        static constexpr dtype max()
-        {
-            return std::numeric_limits<dtype>::max();
+            dtype returnVal = 1;
+            for (uint8 i = 0; i < inPower; ++i)
+            {
+                returnVal *= inValue;
+            }
+            return returnVal;
         }
     };
 }

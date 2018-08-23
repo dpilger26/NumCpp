@@ -3,14 +3,14 @@ from termcolor import colored
 import os
 import sys
 sys.path.append(r'../build/x64/Release')
-import NumC
+import NumCpp
 
 ####################################################################################
 def doTest():
     print(colored('Testing DataCube Module', 'magenta'))
 
     print(colored('Testing Default Constructor', 'cyan'))
-    dataCube = NumC.DataCube()
+    dataCube = NumCpp.DataCube()
     if dataCube.isempty():
         print(colored('\tPASS', 'green'))
     else:
@@ -18,7 +18,7 @@ def doTest():
 
     print(colored('Testing Size Constructor', 'cyan'))
     size = np.random.randint(10, 20, [1,]).item()
-    dataCube = NumC.DataCube(size)
+    dataCube = NumCpp.DataCube(size)
     if dataCube.size() == size:
         print(colored('\tPASS', 'green'))
     else:
@@ -26,12 +26,12 @@ def doTest():
 
     print(colored('Testing push_front/push_back', 'cyan'))
     shape = np.random.randint(10, 100, [3,])
-    cShape = NumC.Shape(shape[0].item(), shape[1].item())
+    cShape = NumCpp.Shape(shape[0].item(), shape[1].item())
     data = np.random.randint(0, 100, shape)
-    dataCube = NumC.DataCube()
+    dataCube = NumCpp.DataCube()
     frameOrder = list()
     for frame in range(shape[-1]):
-        cArray = NumC.NdArray(cShape)
+        cArray = NumCpp.NdArray(cShape)
         cArray.setArray(data[:, :, frame])
         if frame % 2 == 0:
             dataCube.push_back(cArray)

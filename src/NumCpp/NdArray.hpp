@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -23,16 +24,16 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section DESCRIPTION
-/// Holds 1D and 2D arrays, the main work horse of the NumC library
+/// Holds 1D and 2D arrays, the main work horse of the NumCpp library
 ///
 #pragma once
 
-#include"NumC/DtypeInfo.hpp"
-#include"NumC/Shape.hpp"
-#include"NumC/Slice.hpp"
-#include"NumC/Types.hpp"
-#include"NumC/Utils.hpp"
-#include"NumC/Constants.hpp"
+#include"NumCpp/DtypeInfo.hpp"
+#include"NumCpp/Shape.hpp"
+#include"NumCpp/Slice.hpp"
+#include"NumCpp/Types.hpp"
+#include"NumCpp/Utils.hpp"
+#include"NumCpp/Constants.hpp"
 
 #include<boost/filesystem.hpp>
 #include<boost/endian/conversion.hpp>
@@ -50,11 +51,11 @@
 #include<utility>
 #include<vector>
 
-namespace NumC
+namespace NumCpp
 {
     //================================================================================
     // Class Description:
-    ///						Holds 1D and 2D arrays, the main work horse of the NumC library
+    ///						Holds 1D and 2D arrays, the main work horse of the NumCpp library
     template<typename dtype>
     class NdArray
     {
@@ -1556,7 +1557,7 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Dump a binary file of the array to the specified file. 
-        ///						The array can be read back with or NumC::load.
+        ///						The array can be read back with or NumCpp::load.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html
         ///		

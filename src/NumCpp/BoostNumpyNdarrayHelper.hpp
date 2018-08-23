@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -27,8 +28,8 @@
 ///
 #pragma once
 
-#include<NumC/NdArray.hpp>
-#include<NumC/Types.hpp>
+#include<NumCpp/NdArray.hpp>
+#include<NumCpp/Types.hpp>
 
 #include<cmath>
 #include<vector>
@@ -40,7 +41,7 @@
 #include"boost/python.hpp"
 #include"boost/python/numpy.hpp"
 
-namespace NumC
+namespace NumCpp
 {
     //================================================================================
     ///						C or Fortran ordering from python
@@ -406,7 +407,7 @@ namespace NumC
     }; // class ndarrayHelper
 
     //============================================================================
-    ///						Converts from a boost ndarray to a NumC NdArray<T>
+    ///						Converts from a boost ndarray to a NumCpp NdArray<T>
     ///		
     /// @param      ndarray
     ///
@@ -421,7 +422,7 @@ namespace NumC
             throw std::runtime_error("ERROR: Can only convert 1 and 2 dimensional arrays.");
         }
 
-        NumC::Shape arrayShape;
+        NumCpp::Shape arrayShape;
         if (helper.numDimensions() == 1)
         {
             arrayShape.rows = 1;
@@ -455,7 +456,7 @@ namespace NumC
     }
 
     //============================================================================
-    ///						Converts from a NumC NdArray<T> to a boost ndarray
+    ///						Converts from a NumCpp NdArray<T> to a boost ndarray
     ///		
     /// @param      NdArray<T>
     ///

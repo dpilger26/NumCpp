@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -27,18 +28,18 @@
 ///
 #pragma once
 
-#include"NumC/Methods.hpp"
-#include"NumC/Linalg.hpp"
-#include"NumC/NdArray.hpp"
-#include"NumC/Types.hpp"
-#include"NumC/Utils.hpp"
+#include"NumCpp/Methods.hpp"
+#include"NumCpp/Linalg.hpp"
+#include"NumCpp/NdArray.hpp"
+#include"NumCpp/Types.hpp"
+#include"NumCpp/Utils.hpp"
 
 #include<cmath>
 #include<iostream>
 #include<stdexcept>
 #include<string>
 
-namespace NumC
+namespace NumCpp
 {
     //================================Rotations Namespace=============================
     /// Module for dealing with rotations

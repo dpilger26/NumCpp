@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -27,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumC/Methods.hpp"
-#include"NumC/NdArray.hpp"
-#include"NumC/Shape.hpp"
-#include"NumC/Types.hpp"
+#include"NumCpp/Methods.hpp"
+#include"NumCpp/NdArray.hpp"
+#include"NumCpp/Shape.hpp"
+#include"NumCpp/Types.hpp"
 
 #include<cmath>
 #include<initializer_list>
@@ -38,7 +39,7 @@
 #include<stdexcept>
 #include<utility>
 
-namespace NumC
+namespace NumCpp
 {
     //================================Linalg Class=============================
     /// Class for doing linear algebra operations

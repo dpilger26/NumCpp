@@ -1,8 +1,14 @@
-/// @file
+/// @mainpage NumCpp Documentation
+///
+/// @section Description
+/// A C++ implementation of the Python Numpy library
+///
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
+///
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -22,22 +28,31 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
-/// Class for dealing with common polynomials
+/// @section Testing
+/// Compiled and tested with Visual Studio 2017, and MinGW gcc-6.3.0, with Boost version 1.63.
 ///
 #pragma once
 
-#include"NumC/Types.hpp"
-#include"NumC/NdArray.hpp"
+#ifndef _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS // for fopen with Visual Studio
+#endif
 
-namespace NumC
-{
-    //================================Polynomial Class=============================
-    /// Class for dealing with common polynomials
-    template<typename dtype>
-    class Polynomial
-    {
-    public:
-        /// \todo Complete This Module
-    };
-}
+#include"NumCpp/BoostNumpyNdarrayHelper.hpp"
+#include"NumCpp/Constants.hpp"
+#include"NumCpp/Coordinates.hpp"
+#include"NumCpp/DataCube.hpp"
+#include"NumCpp/DtypeInfo.hpp"
+#include"NumCpp/FFT.hpp"
+#include"NumCpp/Filter.hpp"
+#include"NumCpp/ImageProcessing.hpp"
+#include"NumCpp/Linalg.hpp"
+#include"NumCpp/Methods.hpp"
+#include"NumCpp/NdArray.hpp"
+#include"NumCpp/Polynomial.hpp"
+#include"NumCpp/Random.hpp"
+#include"NumCpp/Rotations.hpp"
+#include"NumCpp/Shape.hpp"
+#include"NumCpp/Slice.hpp"
+#include"NumCpp/Timer.hpp"
+#include"NumCpp/Types.hpp"
+#include"NumCpp/Utils.hpp"

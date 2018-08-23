@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -27,15 +28,15 @@
 ///
 #pragma once
 
-#include<NumC/NdArray.hpp>
-#include<NumC/Methods.hpp>
-#include<NumC/Types.hpp>
-#include<NumC/Utils.hpp>
+#include<NumCpp/NdArray.hpp>
+#include<NumCpp/Methods.hpp>
+#include<NumCpp/Types.hpp>
+#include<NumCpp/Utils.hpp>
 
 #include<cmath>
 #include<utility>
 
-namespace NumC
+namespace NumCpp
 {
     //================================================================================
     ///						Image and signal filtering
@@ -705,7 +706,7 @@ namespace NumC
         {
             if (inWeights.size() != Utils<uint32>::sqr(inSize))
             {
-                throw std::invalid_argument("ERROR: NumC::Filters::convolve: input weights do no match input kernal size.");
+                throw std::invalid_argument("ERROR: NumCpp::Filters::convolve: input weights do no match input kernal size.");
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
@@ -783,7 +784,7 @@ namespace NumC
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("ERROR: NumC::Filters::gaussianFilter: input sigma value must be greater than zero.");
+                throw std::invalid_argument("ERROR: NumCpp::Filters::gaussianFilter: input sigma value must be greater than zero.");
             }
 
             // calculate the kernel size based off of the input sigma value
@@ -837,7 +838,7 @@ namespace NumC
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("ERROR: NumC::Filters::gaussianFilter: input sigma value must be greater than zero.");
+                throw std::invalid_argument("ERROR: NumCpp::Filters::gaussianFilter: input sigma value must be greater than zero.");
             }
 
             // calculate the kernel size based off of the input sigma value
@@ -1170,7 +1171,7 @@ namespace NumC
         {
             if (inRank < 0 || inRank >= Utils<uint32>::sqr(inSize))
             {
-                std::invalid_argument("ERROR: NumC::Filters::rankFilter: rank not within filter footprint size.");
+                std::invalid_argument("ERROR: NumCpp::Filters::rankFilter: rank not within filter footprint size.");
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);

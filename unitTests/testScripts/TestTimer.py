@@ -3,7 +3,7 @@ import numpy as np
 from termcolor import colored
 import sys
 sys.path.append(r'../build/x64/Release')
-import NumC
+import NumCpp
 
 ####################################################################################
 def doTest():
@@ -11,7 +11,7 @@ def doTest():
 
     SLEEP_TIME = np.random.randint(0, 10, [1,]).item()
     print(colored(f'Sleeping for {round(SLEEP_TIME * 1e6)} microseconds with default Constructor', 'cyan'))
-    timer = NumC.Timer()
+    timer = NumCpp.Timer()
     timer.tic()
     time.sleep(SLEEP_TIME)
     elapsedTime = timer.toc() # microseconds
@@ -23,7 +23,7 @@ def doTest():
 
     SLEEP_TIME = np.random.randint(0, 10, [1,]).item()
     print(colored(f'Sleeping for {round(SLEEP_TIME * 1e6)} microseconds with Named Constructor', 'cyan'))
-    timer = NumC.Timer('Python Test Case')
+    timer = NumCpp.Timer('Python Test Case')
     timer.tic()
     time.sleep(SLEEP_TIME)
     elapsedTime = timer.toc() # microseconds

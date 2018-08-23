@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -27,8 +28,8 @@
 ///
 #pragma once
 
-#include"NumC/NdArray.hpp"
-#include"NumC/Types.hpp"
+#include"NumCpp/NdArray.hpp"
+#include"NumCpp/Types.hpp"
 
 #include"boost/filesystem.hpp"
 
@@ -36,7 +37,7 @@
 #include<limits>
 #include<stdexcept>
 
-namespace NumC
+namespace NumCpp
 {
     //================================================================================
     ///						Convience container for holding a uniform array of NdArrays
@@ -284,7 +285,7 @@ namespace NumC
 
             if (inputShape != elementShape_)
             {
-                throw std::invalid_argument("ERROR: NumC::DataCube::push_back: element arrays must all be the same shape.");
+                throw std::invalid_argument("ERROR: NumCpp::DataCube::push_back: element arrays must all be the same shape.");
             }
 
             cube_.push_back(inArray);
@@ -310,7 +311,7 @@ namespace NumC
 
             if (inputShape != elementShape_)
             {
-                throw std::invalid_argument("ERROR: NumC::DataCube::push_front: element arrays must all be the same shape.");
+                throw std::invalid_argument("ERROR: NumCpp::DataCube::push_front: element arrays must all be the same shape.");
             }
 
             cube_.push_front(inArray);

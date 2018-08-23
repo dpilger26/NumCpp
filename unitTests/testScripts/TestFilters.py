@@ -3,7 +3,7 @@ from termcolor import colored
 import scipy.ndimage.filters as filters
 import sys
 sys.path.append(r'../build/x64/Release')
-import NumC
+import NumCpp
 
 ####################################################################################
 def doTest():
@@ -13,24 +13,24 @@ def doTest():
 
 ####################################################################################
 def test1D():
-    modes = {'reflect' : NumC.Mode.REFLECT,
-             'constant': NumC.Mode.CONSTANT,
-             'nearest': NumC.Mode.NEAREST,
-             'mirror': NumC.Mode.MIRROR,
-             'wrap': NumC.Mode.WRAP}
+    modes = {'reflect' : NumCpp.Mode.REFLECT,
+             'constant': NumCpp.Mode.CONSTANT,
+             'nearest': NumCpp.Mode.NEAREST,
+             'mirror': NumCpp.Mode.MIRROR,
+             'wrap': NumCpp.Mode.WRAP}
 
     for mode in modes.keys():
         print(colored(f'Testing complementaryMedianFilter1d: mode = {mode}', 'cyan'))
         size = np.random.randint(1000, 2000, [1,]).item()
-        cShape = NumC.Shape(1, size)
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, [size,])
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.complementaryMedianFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.Filters.complementaryMedianFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = data - filters.generic_filter(data, np.median, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -39,18 +39,18 @@ def test1D():
 
         print(colored(f'Testing convolve1d: mode = {mode}', 'cyan'))
         size = np.random.randint(1000, 2000, [1,]).item()
-        cShape = NumC.Shape(1, size)
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, [size,]).astype(np.double)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         weights = np.random.randint(1, 5, [kernalSize,])
-        cWeights = NumC.NdArray(1, kernalSize)
+        cWeights = NumCpp.NdArray(1, kernalSize)
         cWeights.setArray(weights)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.convolve1d(cArray, cWeights, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.Filters.convolve1d(cArray, cWeights, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.convolve(data, weights, mode=mode, cval=constantValue)
         if np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8)):
             print(colored('\tPASS', 'green'))
@@ -59,8 +59,8 @@ def test1D():
 
         print(colored(f'Testing gaussianFilter1d: mode = {mode}', 'cyan'))
         size = np.random.randint(1000, 2000, [1,]).item()
-        cShape = NumC.Shape(1, size)
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, [size,]).astype(np.double)
         cArray.setArray(data)
         kernalSize = 0
@@ -68,7 +68,7 @@ def test1D():
             kernalSize = np.random.randint(5, 15)
         sigma = np.random.rand(1).item() * 2
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.gaussianFilter1d(cArray, sigma, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.Filters.gaussianFilter1d(cArray, sigma, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.gaussian_filter(data, sigma, mode=mode, cval=constantValue)
         if np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8)):
             print(colored('\tPASS', 'green'))
@@ -77,15 +77,15 @@ def test1D():
 
         print(colored(f'Testing maximumFilter1d: mode = {mode}', 'cyan'))
         size = np.random.randint(1000, 2000, [1,]).item()
-        cShape = NumC.Shape(1, size)
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, [size,])
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.maximumFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.Filters.maximumFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.max, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -94,15 +94,15 @@ def test1D():
 
         print(colored(f'Testing medianFilter1d: mode = {mode}', 'cyan'))
         size = np.random.randint(1000, 2000, [1,]).item()
-        cShape = NumC.Shape(1, size)
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, [size,])
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.medianFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.Filters.medianFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.median, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -111,15 +111,15 @@ def test1D():
 
         print(colored(f'Testing minumumFilter1d: mode = {mode}', 'cyan'))
         size = np.random.randint(1000, 2000, [1,]).item()
-        cShape = NumC.Shape(1, size)
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, [size,])
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.minumumFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.Filters.minumumFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.min, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -128,8 +128,8 @@ def test1D():
 
         print(colored(f'Testing percentileFilter1d: mode = {mode}', 'cyan'))
         size = np.random.randint(1000, 2000, [1,]).item()
-        cShape = NumC.Shape(1, size)
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, [size,]).astype(np.double)
         cArray.setArray(data)
         kernalSize = 0
@@ -137,7 +137,7 @@ def test1D():
             kernalSize = np.random.randint(5, 15)
         percentile = np.random.randint(0, 101, [1,]).item()
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.percentileFilter1d(cArray, kernalSize, percentile, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.Filters.percentileFilter1d(cArray, kernalSize, percentile, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.percentile, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue, extra_arguments=(percentile,))
         if np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8)):
             print(colored('\tPASS', 'green'))
@@ -146,8 +146,8 @@ def test1D():
 
         print(colored(f'Testing rankFilter1d: mode = {mode}', 'cyan'))
         size = np.random.randint(1000, 2000, [1,]).item()
-        cShape = NumC.Shape(1, size)
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, [size,]).astype(np.double)
         cArray.setArray(data)
         kernalSize = 0
@@ -155,7 +155,7 @@ def test1D():
             kernalSize = np.random.randint(5, 15)
         rank = np.random.randint(0, kernalSize - 1, [1, ]).item()
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.rankFilter1d(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.Filters.rankFilter1d(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.rank_filter(data, rank, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -164,15 +164,15 @@ def test1D():
 
         print(colored(f'Testing uniformFilter1d: mode = {mode}', 'cyan'))
         size = np.random.randint(1000, 2000, [1,]).item()
-        cShape = NumC.Shape(1, size)
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(1, size)
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, [size,]).astype(np.double)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.uniformFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.Filters.uniformFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.mean, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -181,24 +181,24 @@ def test1D():
 
 ####################################################################################
 def test2D():
-    modes = {'reflect' : NumC.Mode.REFLECT,
-             'constant': NumC.Mode.CONSTANT,
-             'nearest': NumC.Mode.NEAREST,
-             'mirror': NumC.Mode.MIRROR,
-             'wrap': NumC.Mode.WRAP}
+    modes = {'reflect' : NumCpp.Mode.REFLECT,
+             'constant': NumCpp.Mode.CONSTANT,
+             'nearest': NumCpp.Mode.NEAREST,
+             'mirror': NumCpp.Mode.MIRROR,
+             'wrap': NumCpp.Mode.WRAP}
 
     for mode in modes.keys():
         print(colored(f'Testing complementaryMedianFilter: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
-        cShape = NumC.Shape(shape[0], shape[1])
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(shape[0], shape[1])
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.complementaryMedianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.Filters.complementaryMedianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = data - filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -207,8 +207,8 @@ def test2D():
 
         print(colored(f'Testing convolve: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
-        cShape = NumC.Shape(shape[0], shape[1])
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(shape[0], shape[1])
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(10, 20, shape).astype(np.double)
         cArray.setArray(data)
         kernalSize = 0
@@ -216,9 +216,9 @@ def test2D():
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
         weights = np.random.randint(-2, 3, [kernalSize, kernalSize]).astype(np.double)
-        cWeights = NumC.NdArray(kernalSize)
+        cWeights = NumCpp.NdArray(kernalSize)
         cWeights.setArray(weights)
-        dataOutC = NumC.Filters.convolve(cArray, kernalSize, cWeights, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.Filters.convolve(cArray, kernalSize, cWeights, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.convolve(data, weights, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -227,13 +227,13 @@ def test2D():
 
         print(colored(f'Testing gaussianFilter: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
-        cShape = NumC.Shape(shape[0], shape[1])
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(shape[0], shape[1])
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape).astype(np.double)
         cArray.setArray(data)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
         sigma = np.random.rand(1).item() * 2
-        dataOutC = NumC.Filters.gaussianFilter(cArray, sigma, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.Filters.gaussianFilter(cArray, sigma, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.gaussian_filter(data, sigma, mode=mode, cval=constantValue)
         if np.array_equal(np.round(dataOutC, 2), np.round(dataOutPy, 2)):
             print(colored('\tPASS', 'green'))
@@ -242,15 +242,15 @@ def test2D():
 
         print(colored(f'Testing maximumFilter: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
-        cShape = NumC.Shape(shape[0], shape[1])
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(shape[0], shape[1])
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.maximumFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.Filters.maximumFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.maximum_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -259,15 +259,15 @@ def test2D():
 
         print(colored(f'Testing medianFilter: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
-        cShape = NumC.Shape(shape[0], shape[1])
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(shape[0], shape[1])
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.medianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.Filters.medianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -276,15 +276,15 @@ def test2D():
 
         print(colored(f'Testing minimumFilter: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
-        cShape = NumC.Shape(shape[0], shape[1])
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(shape[0], shape[1])
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.minimumFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.Filters.minimumFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.minimum_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -293,8 +293,8 @@ def test2D():
 
         print(colored(f'Testing percentileFilter: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
-        cShape = NumC.Shape(shape[0], shape[1])
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(shape[0], shape[1])
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
         cArray.setArray(data)
         kernalSize = 0
@@ -302,7 +302,7 @@ def test2D():
             kernalSize = np.random.randint(5, 15)
         percentile = np.random.randint(0, 101, [1,]).item()
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.percentileFilter(cArray, kernalSize, percentile, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.Filters.percentileFilter(cArray, kernalSize, percentile, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.percentile_filter(data, percentile, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -311,8 +311,8 @@ def test2D():
 
         print(colored(f'Testing rankFilter: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
-        cShape = NumC.Shape(shape[0], shape[1])
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(shape[0], shape[1])
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
         cArray.setArray(data)
         kernalSize = 0
@@ -320,7 +320,7 @@ def test2D():
             kernalSize = np.random.randint(5, 15)
         rank = np.random.randint(0, kernalSize**2 - 1, [1,]).item()
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.rankFilter(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.Filters.rankFilter(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.rank_filter(data, rank, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -329,15 +329,15 @@ def test2D():
 
         print(colored(f'Testing uniformFilter: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
-        cShape = NumC.Shape(shape[0], shape[1])
-        cArray = NumC.NdArray(cShape)
+        cShape = NumCpp.Shape(shape[0], shape[1])
+        cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape).astype(np.double)
         cArray.setArray(data)
         kernalSize = 0
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumC.Filters.uniformFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.Filters.uniformFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.uniform_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8)):
             print(colored('\tPASS', 'green'))

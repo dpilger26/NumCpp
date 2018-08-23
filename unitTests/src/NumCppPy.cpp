@@ -1,4 +1,4 @@
-#include"NumC.hpp"
+#include"NumCpp.hpp"
 
 #include<string>
 #include<iostream>
@@ -22,7 +22,7 @@
 namespace bp = boost::python;
 namespace np = boost::python::numpy;
 
-using namespace NumC;
+using namespace NumCpp;
 
 //================================================================================
 
@@ -2394,7 +2394,7 @@ namespace DataCubeInterface
 
 //================================================================================
 
-BOOST_PYTHON_MODULE(NumC)
+BOOST_PYTHON_MODULE(NumCpp)
 {
     Py_Initialize();
     np::initialize(); // needs to be called first thing in the BOOST_PYTHON_MODULE for numpy
@@ -3041,8 +3041,8 @@ BOOST_PYTHON_MODULE(NumC)
         .def("power", &UtilsUint64::power).staticmethod("power");
 
     // Random.hpp
-    typedef NumC::Random<double> RandomDouble;
-    typedef NumC::Random<int32> RandomInt32;
+    typedef NumCpp::Random<double> RandomDouble;
+    typedef NumCpp::Random<int32> RandomInt32;
     bp::class_<RandomDouble>
         ("Random", bp::init<>())
         .def("bernoulli", &RandomDouble::bernoulli).staticmethod("bernoulli")
@@ -3079,7 +3079,7 @@ BOOST_PYTHON_MODULE(NumC)
         .def("weibull", &RandomDouble::weibull).staticmethod("weibull");
 
     // Linalg.hpp
-    typedef NumC::Linalg<double> LinalgDouble;
+    typedef NumCpp::Linalg<double> LinalgDouble;
     bp::class_<LinalgDouble>
         ("Linalg", bp::init<>())
         .def("det", &LinalgDouble::det).staticmethod("det")

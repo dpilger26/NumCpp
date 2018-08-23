@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -28,14 +29,14 @@
 
 #pragma once
 
-#include"NumC/Types.hpp"
-#include"NumC/Utils.hpp"
+#include"NumCpp/Types.hpp"
+#include"NumCpp/Utils.hpp"
 
 #include<iostream>
 #include<stdexcept>
 #include<string>
 
-namespace NumC
+namespace NumCpp
 {
     //================================================================================
     ///						A Class for slicing into NdArrays

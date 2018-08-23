@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -23,21 +24,29 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section DESCRIPTION
-/// Class for performing fast forrier tranforms
+/// Usefull types 
 ///
 #pragma once
 
-#include"NumC/NdArray.hpp"
-#include"NumC/Types.hpp"
+#include<cstdint>
 
-namespace NumC
+namespace NumCpp
 {
-    //================================FFT Class=============================
-    /// Class for performing fast forrier tranforms
-    template<typename dtype>
-    class FFT
-    {
-    public:
-        /// \todo Complete This Module
-    };
+    //====================================Typedefs====================================
+    typedef int64_t		int64;
+    typedef int32_t		int32;
+    typedef int16_t		int16;
+    typedef int8_t		int8;
+    typedef uint64_t	uint64;
+    typedef uint32_t	uint32;
+    typedef uint16_t	uint16;
+    typedef uint8_t		uint8;
+
+    //================================================================================
+    ///						Enum To describe an axis
+    struct Axis { enum Type { NONE = 0, ROW, COL }; };
+
+    //================================================================================
+    ///						Enum for endianess
+    struct Endian { enum Type { NATIVE = 0, BIG, LITTLE }; };
 }

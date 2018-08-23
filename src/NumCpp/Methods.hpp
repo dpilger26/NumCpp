@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -27,9 +28,9 @@
 ///
 #pragma once
 
-#include"NumC/Constants.hpp"
-#include"NumC/NdArray.hpp"
-#include"NumC/Types.hpp"
+#include"NumCpp/Constants.hpp"
+#include"NumCpp/NdArray.hpp"
+#include"NumCpp/Types.hpp"
 
 #include"boost/filesystem.hpp"
 
@@ -45,7 +46,7 @@
 #include<utility>
 #include<vector>
 
-namespace NumC
+namespace NumCpp
 {
     //================================================================================
     // Class Description:
@@ -791,7 +792,7 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Convert the list initializer to an array.
-        ///						eg: NdArray<int> myArray = NumC::asarray<int>({1,2,3});
+        ///						eg: NdArray<int> myArray = NumCpp::asarray<int>({1,2,3});
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
         ///		
@@ -2043,7 +2044,7 @@ namespace NumC
         //============================================================================
         // Method Description: 
         ///						Dump a binary file of the array to the specified file. 
-        ///						The array can be read back with or NumC::load.
+        ///						The array can be read back with or NumCpp::load.
         ///		
         /// @param				NdArray
         /// @param				string filename
@@ -4336,7 +4337,7 @@ namespace NumC
         /// @return
         ///				NdArray
         ///
-        static NumC::NdArray<dtype> nans(const NumC::Shape& inShape)
+        static NumCpp::NdArray<dtype> nans(const NumCpp::Shape& inShape)
         {
             return std::move(full(inShape, static_cast<dtype>(Constants::nan)));
         }
@@ -6684,7 +6685,7 @@ namespace NumC
         /// @return
         ///				NdArray
         ///
-        static NumC::NdArray<dtype> zeros(const NumC::Shape& inShape)
+        static NumCpp::NdArray<dtype> zeros(const NumCpp::Shape& inShape)
         {
             return std::move(full(inShape, static_cast<dtype>(0)));
         }

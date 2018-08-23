@@ -1,5 +1,6 @@
 /// @file
 /// @author David Pilger <dpilger26@gmail.com>
+/// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
 /// @section LICENSE
@@ -27,12 +28,12 @@
 ///
 #pragma once
 
-#include"NumC/Types.hpp"
+#include"NumCpp/Types.hpp"
 
 #include<cmath>
 #include<string>
 
-namespace NumC
+namespace NumCpp
 {
     //================================Constants====================================
     /// Holds usefull constants
@@ -54,6 +55,6 @@ namespace NumC
         const double        MILLISECONDS_PER_DAY = SECONDS_PER_DAY * MILLISECONDS_PER_SECOND; ///< Number of milliseconds in a day
         const double        SECONDS_PER_WEEK = SECONDS_PER_DAY * DAYS_PER_WEEK; ///< Number of seconds in a week
 
-        const std::string   VERSION = "1.0"; ///< Current NumC version number
+        const std::string   VERSION = "1.0"; ///< Current NumCpp version number
     }
 }

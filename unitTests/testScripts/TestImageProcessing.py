@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from termcolor import colored
 import sys
 sys.path.append(r'../build/x64/Release')
-import NumC
+import NumCpp
 
 ####################################################################################
 def doTest():
@@ -33,10 +33,10 @@ def doTest():
     # generate centroids from the image
     thresholdRate = 0.014
     borderWidth = np.random.randint(0, 4, [1,]).item()
-    cScene = NumC.NdArray(imageSize)
+    cScene = NumCpp.NdArray(imageSize)
     cScene.setArray(scene)
 
-    threshold = NumC.ImageProcessing.generateThreshold(cScene, thresholdRate)
+    threshold = NumCpp.ImageProcessing.generateThreshold(cScene, thresholdRate)
     print(f'Scene Min = {scene.min()}')
     print(f'Scene Max = {scene.max()}')
     print(f'Threshold = {threshold}')
@@ -44,7 +44,7 @@ def doTest():
     print(f'Actual Rate(Threshold) = {np.count_nonzero(scene > threshold) / scene.size}')
     print(f'Actual Rate(Threshold - 1) = {np.count_nonzero(scene > threshold - 1) / scene.size}')
 
-    centroids = list(NumC.ImageProcessing.generateCentroids(cScene, thresholdRate, 'pre', borderWidth))
+    centroids = list(NumCpp.ImageProcessing.generateCentroids(cScene, thresholdRate, 'pre', borderWidth))
     print(f'Window Pre Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
 
     # plt the results
@@ -77,7 +77,7 @@ def doTest():
     plt.ylabel('EOD (%)')
     plt.show()
 
-    centroids = list(NumC.ImageProcessing.generateCentroids(cScene, thresholdRate, 'post', borderWidth))
+    centroids = list(NumCpp.ImageProcessing.generateCentroids(cScene, thresholdRate, 'post', borderWidth))
     print(f'Window Post Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
 
     # plt the results

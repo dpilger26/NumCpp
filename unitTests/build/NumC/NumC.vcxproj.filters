@@ -13,75 +13,75 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\NumC">
+    <Filter Include="Header Files\NumCpp">
       <UniqueIdentifier>{153afb87-5c04-4b4f-af9c-6f757719681b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\NumCPy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\src\NumC.hpp">
+    <ClInclude Include="..\..\..\src\NumCpp.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\BoostNumpyNdarrayHelper.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Utils.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Constants.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\BoostNumpyNdarrayHelper.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Coordinates.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Constants.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\DataCube.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Coordinates.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\DtypeInfo.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\DataCube.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\FFT.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\DtypeInfo.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Filter.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\FFT.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\ImageProcessing.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Filter.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Linalg.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\ImageProcessing.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Methods.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Linalg.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\NdArray.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Methods.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Polynomial.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\NdArray.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Random.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Polynomial.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Rotations.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Random.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Shape.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Rotations.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Slice.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Shape.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Timer.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Slice.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Types.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Timer.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\src\NumC\Utils.hpp">
-      <Filter>Header Files\NumC</Filter>
+    <ClInclude Include="..\..\..\src\NumCpp\Types.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\NumCppPy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
