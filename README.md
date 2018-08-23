@@ -1,4 +1,4 @@
 # NumC
-C++ implementation of the Python NumPy library
+## C++ implementation of the <a href='http://www.numpy.org/'>Python NumPy Library</a>
 
-<meta http-equiv="refresh" content="0; url=http://repo.github.io/docs/doxygen/html/index.html" />
+### See \docs\doxygen\html\index.html for full documentation of the library
