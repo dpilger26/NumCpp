@@ -1,4 +1,4 @@
 var annotated_dup =
 [
-    [ "NumC", "namespace_num_c.html", "namespace_num_c" ]
+    [ "NumCpp", "namespace_num_cpp.html", "namespace_num_cpp" ]
 ];

@@ -1,0 +1,472 @@
+\hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster}{}\section{Num\+Cpp\+:\+:Image\+Processing$<$ dtype $>$\+:\+:Cluster Class Reference}
+\label{class_num_cpp_1_1_image_processing_1_1_cluster}\index{Num\+Cpp\+::\+Image\+Processing$<$ dtype $>$\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing$<$ dtype $>$\+::\+Cluster}}
+
+
+Holds the information for a cluster of pixels.  
+
+
+
+
+{\ttfamily \#include $<$Image\+Processing.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_pixel}{Pixel}} $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a8f26defce53112d60fd1a178b5669ce6}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a8f26defce53112d60fd1a178b5669ce6}{const\+\_\+iterator}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_ae630559631a6ae53ee59529a3a42b782}{Cluster}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Cluster\+Id)
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_ab8df067c115882959ee28a0c3d8b5bd1}{add\+Pixel}} (const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_pixel}{Pixel}} \&in\+Pixel)
+\item 
+const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_pixel}{Pixel}} \& \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_acb1723012708c5d01715bcbaa9ae9659}{at}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Index) const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a8f26defce53112d60fd1a178b5669ce6}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a202b31339744938c1acec76b64169eef}{begin}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a947f832c565ce3a89d53579cb2817cda}{cluster\+Id}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a6bb57ad3da4b9ee976fe452294acad72}{col\+Max}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_ad48f873ecbec96c34292d141864cfc31}{col\+Min}} () const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a8f26defce53112d60fd1a178b5669ce6}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_af796051228091567f23e5c86e87680af}{end}} () const
+\item 
+double \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a94b1532f666e9413fe34406763ef8173}{eod}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a342ed01e86ca4394d63c725391ebaa3b}{height}} () const
+\item 
+dtype \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a7d982eabfd9d738cff4cc4f77383550f}{intensity}} () const
+\item 
+bool \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a5e8ef353e90cb46a52a15618d4e3da65}{operator!=}} (const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster}{Cluster}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_aa6de265ccddeda2db7a328e21cab030c}{operator==}} (const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster}{Cluster}} \&rhs) const
+\item 
+const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_pixel}{Pixel}} \& \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a6c7f0e8f7eebb136c9b672051eef6ce5}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Index) const
+\item 
+dtype \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a05910790dbdeebaa24f0a04d4ae5d176}{peak\+Pixel\+Intensity}} () const
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a19a6271d2539f5e19a0d36a3fe7ce224}{print}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a85fab78cc81b27b60905bfa6515d4ffb}{row\+Max}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a2040e13a30db15f57b0158c2dbbe928c}{row\+Min}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a2bc0bdc7e0badf9d7487850b3df24289}{size}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a92406c7e147b2a3e649f30ce40f5a53f}{str}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a799065eaa2e5cf4244caadd2c80b6f39}{width}} () const
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a9b2341014fa476e2540940941d9dcb30}{operator$<$$<$}} (std\+::ostream \&in\+Stream, const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster}{Cluster}} \&in\+Cluster)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename dtype$>$\newline
+class Num\+Cpp\+::\+Image\+Processing$<$ dtype $>$\+::\+Cluster}
+
+Holds the information for a cluster of pixels. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a8f26defce53112d60fd1a178b5669ce6}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a8f26defce53112d60fd1a178b5669ce6}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{const\+\_\+iterator}{const\_iterator}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+typedef std\+::vector$<$\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_pixel}{Pixel}}$>$\+::\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a8f26defce53112d60fd1a178b5669ce6}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a8f26defce53112d60fd1a178b5669ce6}{Cluster\+::const\+\_\+iterator}}}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_ae630559631a6ae53ee59529a3a42b782}\label{class_num_cpp_1_1_image_processing_1_1_cluster_ae630559631a6ae53ee59529a3a42b782}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!Cluster@{Cluster}}
+\index{Cluster@{Cluster}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{Cluster()}{Cluster()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::\+Cluster (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Cluster\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+default constructor needed by containers
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Cluster\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_ab8df067c115882959ee28a0c3d8b5bd1}\label{class_num_cpp_1_1_image_processing_1_1_cluster_ab8df067c115882959ee28a0c3d8b5bd1}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!add\+Pixel@{add\+Pixel}}
+\index{add\+Pixel@{add\+Pixel}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{add\+Pixel()}{addPixel()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+void \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::add\+Pixel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_pixel}{Pixel}} \&}]{in\+Pixel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+adds a pixel to the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_acb1723012708c5d01715bcbaa9ae9659}\label{class_num_cpp_1_1_image_processing_1_1_cluster_acb1723012708c5d01715bcbaa9ae9659}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!at@{at}}
+\index{at@{at}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_pixel}{Pixel}}\& \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::at (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+access method with bounds checking
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_pixel}{Pixel}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a202b31339744938c1acec76b64169eef}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a202b31339744938c1acec76b64169eef}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!begin@{begin}}
+\index{begin@{begin}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a8f26defce53112d60fd1a178b5669ce6}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns in iterator to the beginning pixel of the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const\+\_\+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a947f832c565ce3a89d53579cb2817cda}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a947f832c565ce3a89d53579cb2817cda}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!cluster\+Id@{cluster\+Id}}
+\index{cluster\+Id@{cluster\+Id}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{cluster\+Id()}{clusterId()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::cluster\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the minimum row number of the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum row number of the cluster 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a6bb57ad3da4b9ee976fe452294acad72}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a6bb57ad3da4b9ee976fe452294acad72}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!col\+Max@{col\+Max}}
+\index{col\+Max@{col\+Max}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{col\+Max()}{colMax()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::col\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the maximum column number of the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum column number of the cluster 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_ad48f873ecbec96c34292d141864cfc31}\label{class_num_cpp_1_1_image_processing_1_1_cluster_ad48f873ecbec96c34292d141864cfc31}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!col\+Min@{col\+Min}}
+\index{col\+Min@{col\+Min}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{col\+Min()}{colMin()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::col\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the minimum column number of the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum column number of the cluster 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_af796051228091567f23e5c86e87680af}\label{class_num_cpp_1_1_image_processing_1_1_cluster_af796051228091567f23e5c86e87680af}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!end@{end}}
+\index{end@{end}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster_a8f26defce53112d60fd1a178b5669ce6}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns in iterator to the 1 past the end pixel of the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const\+\_\+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a94b1532f666e9413fe34406763ef8173}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a94b1532f666e9413fe34406763ef8173}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!eod@{eod}}
+\index{eod@{eod}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{eod()}{eod()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+double \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::eod (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the cluster estimated energy on detector (E\+OD)
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+eod 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a342ed01e86ca4394d63c725391ebaa3b}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a342ed01e86ca4394d63c725391ebaa3b}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!height@{height}}
+\index{height@{height}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the number of rows the cluster spans
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of rows 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a7d982eabfd9d738cff4cc4f77383550f}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a7d982eabfd9d738cff4cc4f77383550f}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!intensity@{intensity}}
+\index{intensity@{intensity}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{intensity()}{intensity()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+dtype \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::intensity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the summed intensity of the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+summed cluster intensity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a5e8ef353e90cb46a52a15618d4e3da65}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a5e8ef353e90cb46a52a15618d4e3da65}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+bool \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster}{Cluster}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+not equality operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster}{Cluster}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_aa6de265ccddeda2db7a328e21cab030c}\label{class_num_cpp_1_1_image_processing_1_1_cluster_aa6de265ccddeda2db7a328e21cab030c}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!operator==@{operator==}}
+\index{operator==@{operator==}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+bool \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster}{Cluster}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+equality operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster}{Cluster}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a6c7f0e8f7eebb136c9b672051eef6ce5}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a6c7f0e8f7eebb136c9b672051eef6ce5}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_pixel}{Pixel}}\& \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+access operator, no bounds checking
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_pixel}{Pixel}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a05910790dbdeebaa24f0a04d4ae5d176}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a05910790dbdeebaa24f0a04d4ae5d176}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!peak\+Pixel\+Intensity@{peak\+Pixel\+Intensity}}
+\index{peak\+Pixel\+Intensity@{peak\+Pixel\+Intensity}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{peak\+Pixel\+Intensity()}{peakPixelIntensity()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+dtype \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::peak\+Pixel\+Intensity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the intensity of the peak pixel in the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+peak pixel intensity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a19a6271d2539f5e19a0d36a3fe7ce224}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a19a6271d2539f5e19a0d36a3fe7ce224}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!print@{print}}
+\index{print@{print}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+void \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Method Description\+: prints the \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster}{Cluster}} object to the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a85fab78cc81b27b60905bfa6515d4ffb}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a85fab78cc81b27b60905bfa6515d4ffb}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!row\+Max@{row\+Max}}
+\index{row\+Max@{row\+Max}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{row\+Max()}{rowMax()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::row\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the maximum row number of the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum row number of the cluster 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a2040e13a30db15f57b0158c2dbbe928c}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a2040e13a30db15f57b0158c2dbbe928c}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!row\+Min@{row\+Min}}
+\index{row\+Min@{row\+Min}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{row\+Min()}{rowMin()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::row\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the minimum row number of the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minimum row number of the cluster 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a2bc0bdc7e0badf9d7487850b3df24289}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a2bc0bdc7e0badf9d7487850b3df24289}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!size@{size}}
+\index{size@{size}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the number of pixels in the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of pixels in the cluster 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a92406c7e147b2a3e649f30ce40f5a53f}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a92406c7e147b2a3e649f30ce40f5a53f}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!str@{str}}
+\index{str@{str}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+std\+::string \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns a string representation of the cluster
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a799065eaa2e5cf4244caadd2c80b6f39}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a799065eaa2e5cf4244caadd2c80b6f39}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!width@{width}}
+\index{width@{width}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_image_processing}{Num\+Cpp\+::\+Image\+Processing}}$<$ dtype $>$\+::Cluster\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the number of columns the cluster spans
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of columns 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_image_processing_1_1_cluster_a9b2341014fa476e2540940941d9dcb30}\label{class_num_cpp_1_1_image_processing_1_1_cluster_a9b2341014fa476e2540940941d9dcb30}} 
+\index{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Num\+Cpp\+::\+Image\+Processing\+::\+Cluster@{Num\+Cpp\+::\+Image\+Processing\+::\+Cluster}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{in\+Stream,  }\item[{const \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster}{Cluster}} \&}]{in\+Cluster }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+osstream operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::ostream} & \\
+\hline
+{\em \mbox{\hyperlink{class_num_cpp_1_1_image_processing_1_1_cluster}{Cluster}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::ostream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_image_processing_8hpp}{Image\+Processing.\+hpp}}\end{DoxyCompactItemize}

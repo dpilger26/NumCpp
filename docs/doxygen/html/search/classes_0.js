@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['axis',['Axis',['../struct_num_c_1_1_axis.html',1,'NumC']]]
+  ['axis',['Axis',['../struct_num_cpp_1_1_axis.html',1,'NumCpp']]]
 ];

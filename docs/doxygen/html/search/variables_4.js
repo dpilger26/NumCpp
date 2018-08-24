@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hours_5fper_5fday',['HOURS_PER_DAY',['../namespace_num_c_1_1_constants.html#a56c169b380c3327b81d5c10f9ae8cc09',1,'NumC::Constants']]]
+  ['hours_5fper_5fday',['HOURS_PER_DAY',['../namespace_num_cpp_1_1_constants.html#ae310d2531577c64d5fdea2da035cc1cd',1,'NumCpp::Constants']]]
 ];

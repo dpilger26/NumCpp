@@ -1,0 +1,435 @@
+\hypertarget{class_num_cpp_1_1_data_cube}{}\section{Num\+Cpp\+:\+:Data\+Cube$<$ dtype $>$ Class Template Reference}
+\label{class_num_cpp_1_1_data_cube}\index{Num\+Cpp\+::\+Data\+Cube$<$ dtype $>$@{Num\+Cpp\+::\+Data\+Cube$<$ dtype $>$}}
+
+
+Convience container for holding a uniform array of Nd\+Arrays.  
+
+
+
+
+{\ttfamily \#include $<$Data\+Cube.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::deque$<$ \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a5916086d9b71149eaa35651e2212de39}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a5916086d9b71149eaa35651e2212de39}{const\+\_\+iterator}}
+\item 
+typedef std\+::deque$<$ \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a817f739957d3d426e8a19a66867674ba}{iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a817f739957d3d426e8a19a66867674ba}{iterator}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a2be1915c2d9da633b802579690b7cc29}{Data\+Cube}} ()
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube_ad8f5801b4c2c7b4ce6e69fcb7d412c0d}{Data\+Cube}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size)
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \& \mbox{\hyperlink{class_num_cpp_1_1_data_cube_ac4ba93c6bff1a954b8ab73b2b671fc82}{at}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Index)
+\item 
+const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \& \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a4671cf664bf22da2397a60eed58441c2}{at}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Index) const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \& \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a856a49c18f35b0527e3aab14fceb6bd9}{back}} ()
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a817f739957d3d426e8a19a66867674ba}{iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube_acbce5c780a3d66e6db255e87d2b8b918}{begin}} ()
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a5916086d9b71149eaa35651e2212de39}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a76fa1b7818251391a9a240098557fb68}{cbegin}} () const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a5916086d9b71149eaa35651e2212de39}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a882f0475646eb1381969fd6f6ff054cf}{cend}} () const
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_data_cube_af4f3bcc885d1a0668e202d163d31d1ac}{dump}} (const std\+::string \&in\+Filename) const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a817f739957d3d426e8a19a66867674ba}{iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a8664c89b7134dcc64d9eb0d9c9f3f8c1}{end}} ()
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \& \mbox{\hyperlink{class_num_cpp_1_1_data_cube_ae8600af2e99651a2623b0470fd328e66}{front}} ()
+\item 
+bool \mbox{\hyperlink{class_num_cpp_1_1_data_cube_afe059f314921bb415ef38b637d4ba9e3}{isempty}} ()
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \& \mbox{\hyperlink{class_num_cpp_1_1_data_cube_ad99626cc18561e39f0ec9f8c49c56de5}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Index)
+\item 
+const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \& \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a891411d7c787f5fb927f1d8269b84ec8}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Index) const
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_data_cube_abd05ee2c3189193733607b4a19813a8b}{pop\+\_\+back}} ()
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a815b84d602a0cc59b4b96b6734d8e526}{pop\+\_\+front}} ()
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a0521c70a8a6cd5fc95faf1c526b7b228}{push\+\_\+back}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Array)
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a49c36ab206417ae30908145b4a2a001a}{push\+\_\+front}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Array)
+\item 
+const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \& \mbox{\hyperlink{class_num_cpp_1_1_data_cube_a095037bf46062430413ef8ac9bb2dd2d}{shape}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube_aee2e2c47bc592149dfb4719613058b28}{size}} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename dtype$>$\newline
+class Num\+Cpp\+::\+Data\+Cube$<$ dtype $>$}
+
+Convience container for holding a uniform array of Nd\+Arrays. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a5916086d9b71149eaa35651e2212de39}\label{class_num_cpp_1_1_data_cube_a5916086d9b71149eaa35651e2212de39}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{const\+\_\+iterator}{const\_iterator}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+typedef std\+::deque$<$\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a5916086d9b71149eaa35651e2212de39}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a5916086d9b71149eaa35651e2212de39}{const\+\_\+iterator}}}
+
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a817f739957d3d426e8a19a66867674ba}\label{class_num_cpp_1_1_data_cube_a817f739957d3d426e8a19a66867674ba}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!iterator@{iterator}}
+\index{iterator@{iterator}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+typedef std\+::deque$<$\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a817f739957d3d426e8a19a66867674ba}{iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a817f739957d3d426e8a19a66867674ba}{iterator}}}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a2be1915c2d9da633b802579690b7cc29}\label{class_num_cpp_1_1_data_cube_a2be1915c2d9da633b802579690b7cc29}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!Data\+Cube@{Data\+Cube}}
+\index{Data\+Cube@{Data\+Cube}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{Data\+Cube()}{DataCube()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Data\+Cube}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_ad8f5801b4c2c7b4ce6e69fcb7d412c0d}\label{class_num_cpp_1_1_data_cube_ad8f5801b4c2c7b4ce6e69fcb7d412c0d}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!Data\+Cube@{Data\+Cube}}
+\index{Data\+Cube@{Data\+Cube}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{Data\+Cube()}{DataCube()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Data\+Cube}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor, preallocates to the input size
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_ac4ba93c6bff1a954b8ab73b2b671fc82}\label{class_num_cpp_1_1_data_cube_ac4ba93c6bff1a954b8ab73b2b671fc82}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!at@{at}}
+\index{at@{at}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$\& \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::at (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Access method, with bounds checking
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a4671cf664bf22da2397a60eed58441c2}\label{class_num_cpp_1_1_data_cube_a4671cf664bf22da2397a60eed58441c2}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!at@{at}}
+\index{at@{at}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$\& \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::at (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Const access method, with bounds checking
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a856a49c18f35b0527e3aab14fceb6bd9}\label{class_num_cpp_1_1_data_cube_a856a49c18f35b0527e3aab14fceb6bd9}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!back@{back}}
+\index{back@{back}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{back()}{back()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$\& \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a reference to the last element of the array
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_acbce5c780a3d66e6db255e87d2b8b918}\label{class_num_cpp_1_1_data_cube_acbce5c780a3d66e6db255e87d2b8b918}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!begin@{begin}}
+\index{begin@{begin}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a817f739957d3d426e8a19a66867674ba}{iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns an iterator to the beginning of the container
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a76fa1b7818251391a9a240098557fb68}\label{class_num_cpp_1_1_data_cube_a76fa1b7818251391a9a240098557fb68}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a5916086d9b71149eaa35651e2212de39}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a const\+\_\+iterator to the beginning of the container
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const\+\_\+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a882f0475646eb1381969fd6f6ff054cf}\label{class_num_cpp_1_1_data_cube_a882f0475646eb1381969fd6f6ff054cf}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!cend@{cend}}
+\index{cend@{cend}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a5916086d9b71149eaa35651e2212de39}{const\+\_\+iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a const\+\_\+iterator to 1 past the end of the container
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const\+\_\+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_af4f3bcc885d1a0668e202d163d31d1ac}\label{class_num_cpp_1_1_data_cube_af4f3bcc885d1a0668e202d163d31d1ac}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!dump@{dump}}
+\index{dump@{dump}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{dump()}{dump()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+void \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::dump (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{in\+Filename }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Outputs the \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Data\+Cube}} as a .bin file
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a8664c89b7134dcc64d9eb0d9c9f3f8c1}\label{class_num_cpp_1_1_data_cube_a8664c89b7134dcc64d9eb0d9c9f3f8c1}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!end@{end}}
+\index{end@{end}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_data_cube_a817f739957d3d426e8a19a66867674ba}{iterator}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns an iterator to 1 past the end of the container
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+iterator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_ae8600af2e99651a2623b0470fd328e66}\label{class_num_cpp_1_1_data_cube_ae8600af2e99651a2623b0470fd328e66}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!front@{front}}
+\index{front@{front}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$\& \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns a reference to the first element of the array
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_afe059f314921bb415ef38b637d4ba9e3}\label{class_num_cpp_1_1_data_cube_afe059f314921bb415ef38b637d4ba9e3}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!isempty@{isempty}}
+\index{isempty@{isempty}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{isempty()}{isempty()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+bool \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::isempty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Tests whether or not the container is empty
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_ad99626cc18561e39f0ec9f8c49c56de5}\label{class_num_cpp_1_1_data_cube_ad99626cc18561e39f0ec9f8c49c56de5}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$\& \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Access operator, no bounds checking
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a891411d7c787f5fb927f1d8269b84ec8}\label{class_num_cpp_1_1_data_cube_a891411d7c787f5fb927f1d8269b84ec8}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$\& \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Const access operator, no bounds checking
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_abd05ee2c3189193733607b4a19813a8b}\label{class_num_cpp_1_1_data_cube_abd05ee2c3189193733607b4a19813a8b}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!pop\+\_\+back@{pop\+\_\+back}}
+\index{pop\+\_\+back@{pop\+\_\+back}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{pop\+\_\+back()}{pop\_back()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+void \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::pop\+\_\+back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes the last element in the container
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a815b84d602a0cc59b4b96b6734d8e526}\label{class_num_cpp_1_1_data_cube_a815b84d602a0cc59b4b96b6734d8e526}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!pop\+\_\+front@{pop\+\_\+front}}
+\index{pop\+\_\+front@{pop\+\_\+front}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{pop\+\_\+front()}{pop\_front()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+void \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::pop\+\_\+front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes the first element in the container
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a0521c70a8a6cd5fc95faf1c526b7b228}\label{class_num_cpp_1_1_data_cube_a0521c70a8a6cd5fc95faf1c526b7b228}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{push\+\_\+back()}{push\_back()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+void \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a new element at the end of the container
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a49c36ab206417ae30908145b4a2a001a}\label{class_num_cpp_1_1_data_cube_a49c36ab206417ae30908145b4a2a001a}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!push\+\_\+front@{push\+\_\+front}}
+\index{push\+\_\+front@{push\+\_\+front}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{push\+\_\+front()}{push\_front()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+void \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::push\+\_\+front (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a new element at the beginning of the container
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_a095037bf46062430413ef8ac9bb2dd2d}\label{class_num_cpp_1_1_data_cube_a095037bf46062430413ef8ac9bb2dd2d}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!shape@{shape}}
+\index{shape@{shape}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{shape()}{shape()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}\& \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the number shape of the element arrays
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_data_cube_aee2e2c47bc592149dfb4719613058b28}\label{class_num_cpp_1_1_data_cube_aee2e2c47bc592149dfb4719613058b28}} 
+\index{Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}!size@{size}}
+\index{size@{size}!Num\+Cpp\+::\+Data\+Cube@{Num\+Cpp\+::\+Data\+Cube}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_data_cube}{Num\+Cpp\+::\+Data\+Cube}}$<$ dtype $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the size of the container array
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_data_cube_8hpp}{Data\+Cube.\+hpp}}\end{DoxyCompactItemize}

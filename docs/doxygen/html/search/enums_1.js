@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type',['Type',['../struct_num_c_1_1_order.html#aec83b68303911af9c219019600b56f23',1,'NumC::Order::Type()'],['../struct_num_c_1_1_coordinates_1_1_sign.html#a915938d7fce678936d8728ca14a70e22',1,'NumC::Coordinates::Sign::Type()'],['../struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3',1,'NumC::Axis::Type()'],['../struct_num_c_1_1_endian.html#ab667001489f67f8a96f328f0a9c351fa',1,'NumC::Endian::Type()']]]
+  ['type',['Type',['../struct_num_cpp_1_1_order.html#a1ec7189cd22800f34d163dec75732c7f',1,'NumCpp::Order::Type()'],['../struct_num_cpp_1_1_coordinates_1_1_sign.html#a6ef8423d5e83675773c2d4f32490e04b',1,'NumCpp::Coordinates::Sign::Type()'],['../struct_num_cpp_1_1_axis.html#ac10eb76f8631762d9ed70c40c42ca6cb',1,'NumCpp::Axis::Type()'],['../struct_num_cpp_1_1_endian.html#a4b4f3e02f68302be202402f5d5501445',1,'NumCpp::Endian::Type()']]]
 ];

@@ -1,0 +1,756 @@
+\hypertarget{class_num_cpp_1_1_random}{}\section{Num\+Cpp\+:\+:Random$<$ dtype $>$ Class Template Reference}
+\label{class_num_cpp_1_1_random}\index{Num\+Cpp\+::\+Random$<$ dtype $>$@{Num\+Cpp\+::\+Random$<$ dtype $>$}}
+
+
+A class for generating random numbers.  
+
+
+
+
+{\ttfamily \#include $<$Random.\+hpp$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_aaa14fcc8f252c6714f1663f70fcbabe2}{bernoulli}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype inP)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a9417429526f6372c384c3554b0ba1d95}{beta}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Alpha, dtype in\+Beta)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_af98c20cee782243fe4d3b84f07d57075}{binomial}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype inN, double inP=0.\+5)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a6edda319fbaad2ce78a88e1c90e68e56}{cauchy}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Mean=0, dtype in\+Sigma=1)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_acaab49af61021a7f6111f7a0cf0e0e67}{chi\+Square}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Dof)
+\item 
+static dtype \mbox{\hyperlink{class_num_cpp_1_1_random_a672843d32974cfa9383fe5d14aefadb7}{choice}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Array)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a33e7c979351dda98afc5cc446800d80c}{discrete}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \&in\+Weights)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a162470de82f3b80cf65c28e2b7a8da1b}{exponential}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Scale\+Value=1)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a39db310b18bc4409c352462fe0b302b0}{extreme\+Value}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype inA=1, dtype inB=1)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a1500b7f4a135b3cd5db3bdd9378cf3bf}{f}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+DofN, dtype in\+DofD)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_aa0a336f9efdda7b56ef85db23d082acc}{gamma}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Gamma\+Shape, dtype in\+Scale\+Value=1)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_af6206b5f6ec684738de583ba15747190}{geometric}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, double inP=0.\+5)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_af2c465028c59e17622379ab4946f32f8}{laplace}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Loc=0, dtype in\+Scale=1)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a4f23d7d79f88d88181988d408d13c9b0}{lognormal}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Mean=0, dtype in\+Sigma=1)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a931f3459ad6c691eac26531c06e8282c}{negative\+Binomial}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype inN, double inP=0.\+5)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a5281a5c0343cf5307728b3ee476aa76f}{non\+Central\+Chi\+Squared}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype inK=1, dtype in\+Lambda=1)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_ad728cb6353f787802e78b627b8773c62}{normal}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Mean=0, dtype in\+Sigma=1)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a4fcceb1a8a4af24445f360f1a878115c}{permutation}} (dtype in\+Value)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a76d847d2e45580dd78ec409324fdbac1}{permutation}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Array)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_aa4317bb1be718b68c497e494141df0d0}{poisson}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, double in\+Mean=1)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_aed584f9bdfac2efc8303e8ad050229ad}{rand}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a6854fe5e882b1370ebf4ffa7b8157a9b}{rand\+Float}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Low, dtype in\+High)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_adc3c00f2d9c9c673b03f56849b9d1f39}{rand\+Int}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Low, dtype in\+High)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a074b8f4ec93fb9dde0b73a4071f732f0}{randN}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape)
+\item 
+static void \mbox{\hyperlink{class_num_cpp_1_1_random_a97f9d3ac866b90368de96c1851aab8cc}{seed}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Seed)
+\item 
+static void \mbox{\hyperlink{class_num_cpp_1_1_random_a5dbacc8396e9c1a0f79ef6a3a3ff8001}{shuffle}} (\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Array)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a92d573b9452dcd9c7c2c962c5452709f}{standard\+Normal}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a522d668bfa4192e86b18f159b6e6df01}{studentT}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Dof)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a9563adef98c0485cc31dea44a7a2c66d}{triangle}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype inA=0, dtype inB=0.\+5, dtype inC=1)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_a8151ee384c3baeab6cdbbbaf93114f93}{uniform}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype in\+Low, dtype in\+High)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_ac02ce152544716f1e3ff6dc6c48ec04d}{uniform\+On\+Sphere}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Num\+Points, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Dims=2)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_random_ad6b30a77e15fb87923526ab7df2e2e72}{weibull}} (const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&in\+Shape, dtype inA=1, dtype inB=1)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename dtype$>$\newline
+class Num\+Cpp\+::\+Random$<$ dtype $>$}
+
+A class for generating random numbers. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_aaa14fcc8f252c6714f1663f70fcbabe2}\label{class_num_cpp_1_1_random_aaa14fcc8f252c6714f1663f70fcbabe2}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!bernoulli@{bernoulli}}
+\index{bernoulli@{bernoulli}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{bernoulli()}{bernoulli()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::bernoulli (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{inP }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from the “bernoulli” distribution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em probablity} & of success \mbox{[}0, 1\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a9417429526f6372c384c3554b0ba1d95}\label{class_num_cpp_1_1_random_a9417429526f6372c384c3554b0ba1d95}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!beta@{beta}}
+\index{beta@{beta}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{beta()}{beta()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::beta (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Alpha,  }\item[{dtype}]{in\+Beta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from the “beta” distribution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+beta.\+html\#numpy.\+random.\+beta}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em alpha} & \\
+\hline
+{\em beta} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_af98c20cee782243fe4d3b84f07d57075}\label{class_num_cpp_1_1_random_af98c20cee782243fe4d3b84f07d57075}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!binomial@{binomial}}
+\index{binomial@{binomial}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{binomial()}{binomial()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::binomial (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{inN,  }\item[{double}]{inP = {\ttfamily 0.5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from the “binomial” distribution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+binomial.\+html\#numpy.\+random.\+binomial}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em number} & of trials \\
+\hline
+{\em probablity} & of success \mbox{[}0, 1\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a6edda319fbaad2ce78a88e1c90e68e56}\label{class_num_cpp_1_1_random_a6edda319fbaad2ce78a88e1c90e68e56}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!cauchy@{cauchy}}
+\index{cauchy@{cauchy}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{cauchy()}{cauchy()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::cauchy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Mean = {\ttfamily 0},  }\item[{dtype}]{in\+Sigma = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}cauchy\char`\"{} distrubution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mean} & Mean value of the underlying normal distribution. Default is 0. \\
+\hline
+{\em sigma,Standard} & deviation of the underlying normal distribution. Should be greater than zero. Default is 1. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_acaab49af61021a7f6111f7a0cf0e0e67}\label{class_num_cpp_1_1_random_acaab49af61021a7f6111f7a0cf0e0e67}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!chi\+Square@{chi\+Square}}
+\index{chi\+Square@{chi\+Square}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{chi\+Square()}{chiSquare()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::chi\+Square (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Dof }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from the “chi square” distribution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+chisquare.\+html\#numpy.\+random.\+chisquare}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em df} & independent random variables \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a672843d32974cfa9383fe5d14aefadb7}\label{class_num_cpp_1_1_random_a672843d32974cfa9383fe5d14aefadb7}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!choice@{choice}}
+\index{choice@{choice}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{choice()}{choice()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static dtype \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::choice (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Generates a random sample from an input array
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a33e7c979351dda98afc5cc446800d80c}\label{class_num_cpp_1_1_random_a33e7c979351dda98afc5cc446800d80c}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!discrete@{discrete}}
+\index{discrete@{discrete}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{discrete()}{discrete()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::discrete (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \&}]{in\+Weights }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}discrete\char`\"{} distrubution. It produces integers in the range \mbox{[}0, n) with the probability of producing each value is specified by the parameters of the distribution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & of weights, \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a162470de82f3b80cf65c28e2b7a8da1b}\label{class_num_cpp_1_1_random_a162470de82f3b80cf65c28e2b7a8da1b}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!exponential@{exponential}}
+\index{exponential@{exponential}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{exponential()}{exponential()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::exponential (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Scale\+Value = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}exponential\char`\"{} distrubution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+exponential.\+html\#numpy.\+random.\+exponential}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em scale} & value, default 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a39db310b18bc4409c352462fe0b302b0}\label{class_num_cpp_1_1_random_a39db310b18bc4409c352462fe0b302b0}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!extreme\+Value@{extreme\+Value}}
+\index{extreme\+Value@{extreme\+Value}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{extreme\+Value()}{extremeValue()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::extreme\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{inA = {\ttfamily 1},  }\item[{dtype}]{inB = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}extreme value\char`\"{} distrubution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em a,default} & 1 \\
+\hline
+{\em b,default} & 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a1500b7f4a135b3cd5db3bdd9378cf3bf}\label{class_num_cpp_1_1_random_a1500b7f4a135b3cd5db3bdd9378cf3bf}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!f@{f}}
+\index{f@{f}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::f (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+DofN,  }\item[{dtype}]{in\+DofD }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}\+F\char`\"{} distrubution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+f.\+html\#numpy.\+random.\+f}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em Degrees} & of freedom in numerator. Should be greater than zero. \\
+\hline
+{\em Degrees} & of freedom in denominator. Should be greater than zero. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_aa0a336f9efdda7b56ef85db23d082acc}\label{class_num_cpp_1_1_random_aa0a336f9efdda7b56ef85db23d082acc}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!gamma@{gamma}}
+\index{gamma@{gamma}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{gamma()}{gamma()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::gamma (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Gamma\+Shape,  }\item[{dtype}]{in\+Scale\+Value = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}gamma\char`\"{} distrubution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+gamma.\+html\#numpy.\+random.\+gamma}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em Scale,default} & 1 \\
+\hline
+{\em Gamma} & shape \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_af6206b5f6ec684738de583ba15747190}\label{class_num_cpp_1_1_random_af6206b5f6ec684738de583ba15747190}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!geometric@{geometric}}
+\index{geometric@{geometric}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{geometric()}{geometric()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::geometric (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{double}]{inP = {\ttfamily 0.5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}geometric\char`\"{} distrubution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+geometric.\+html\#numpy.\+random.\+geometric}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em probablity} & of success \mbox{[}0, 1\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_af2c465028c59e17622379ab4946f32f8}\label{class_num_cpp_1_1_random_af2c465028c59e17622379ab4946f32f8}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!laplace@{laplace}}
+\index{laplace@{laplace}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{laplace()}{laplace()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::laplace (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Loc = {\ttfamily 0},  }\item[{dtype}]{in\+Scale = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}laplace\char`\"{} distrubution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+laplace.\+html\#numpy.\+random.\+laplace}
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Loc} & The position, mu, of the distribution peak. Default is 0. \\
+\hline
+{\em in\+Scale} & float optional, the exponential decay. Default is 1. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a4f23d7d79f88d88181988d408d13c9b0}\label{class_num_cpp_1_1_random_a4f23d7d79f88d88181988d408d13c9b0}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!lognormal@{lognormal}}
+\index{lognormal@{lognormal}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{lognormal()}{lognormal()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::lognormal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Mean = {\ttfamily 0},  }\item[{dtype}]{in\+Sigma = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}lognormal\char`\"{} distrubution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+lognormal.\+html\#numpy.\+random.\+lognormal}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mean} & Mean value of the underlying normal distribution. Default is 0. \\
+\hline
+{\em sigma,Standard} & deviation of the underlying normal distribution. Should be greater than zero. Default is 1. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a931f3459ad6c691eac26531c06e8282c}\label{class_num_cpp_1_1_random_a931f3459ad6c691eac26531c06e8282c}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!negative\+Binomial@{negative\+Binomial}}
+\index{negative\+Binomial@{negative\+Binomial}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{negative\+Binomial()}{negativeBinomial()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::negative\+Binomial (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{inN,  }\item[{double}]{inP = {\ttfamily 0.5} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from the “negative Binomial” distribution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+negative\+\_\+binomial.\+html\#numpy.\+random.\+negative\+\_\+binomial}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em number} & of trials \\
+\hline
+{\em probablity} & of success \mbox{[}0, 1\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a5281a5c0343cf5307728b3ee476aa76f}\label{class_num_cpp_1_1_random_a5281a5c0343cf5307728b3ee476aa76f}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!non\+Central\+Chi\+Squared@{non\+Central\+Chi\+Squared}}
+\index{non\+Central\+Chi\+Squared@{non\+Central\+Chi\+Squared}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{non\+Central\+Chi\+Squared()}{nonCentralChiSquared()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::non\+Central\+Chi\+Squared (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{inK = {\ttfamily 1},  }\item[{dtype}]{in\+Lambda = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}non central chi squared\char`\"{} distrubution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+noncentral\+\_\+chisquare.\+html\#numpy.\+random.\+noncentral\+\_\+chisquare}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em k,default} & 1 \\
+\hline
+{\em lambda,default} & 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_ad728cb6353f787802e78b627b8773c62}\label{class_num_cpp_1_1_random_ad728cb6353f787802e78b627b8773c62}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!normal@{normal}}
+\index{normal@{normal}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{normal()}{normal()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::normal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Mean = {\ttfamily 0},  }\item[{dtype}]{in\+Sigma = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}normal\char`\"{} distrubution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html#numpy.random.normal}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+normal.\+html\#numpy.\+random.\+normal}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mean} & Mean value of the underlying normal distribution. Default is 0. \\
+\hline
+{\em sigma,Standard} & deviation of the underlying normal distribution. Should be greater than zero. Default is 1. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a4fcceb1a8a4af24445f360f1a878115c}\label{class_num_cpp_1_1_random_a4fcceb1a8a4af24445f360f1a878115c}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!permutation@{permutation}}
+\index{permutation@{permutation}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{permutation()}{permutation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::permutation (\begin{DoxyParamCaption}\item[{dtype}]{in\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Randomly permute a sequence, or return a permuted range. If x is an integer, randomly permute np.\+arange(x). If x is an array, make a copy and shuffle the elements randomly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a76d847d2e45580dd78ec409324fdbac1}\label{class_num_cpp_1_1_random_a76d847d2e45580dd78ec409324fdbac1}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!permutation@{permutation}}
+\index{permutation@{permutation}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{permutation()}{permutation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::permutation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Randomly permute a sequence, or return a permuted range. If x is an integer, randomly permute np.\+arange(x). If x is an array, make a copy and shuffle the elements randomly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_aa4317bb1be718b68c497e494141df0d0}\label{class_num_cpp_1_1_random_aa4317bb1be718b68c497e494141df0d0}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!poisson@{poisson}}
+\index{poisson@{poisson}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{poisson()}{poisson()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::poisson (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{double}]{in\+Mean = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from the “poisson” distribution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+poisson.\+html\#numpy.\+random.\+poisson}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em mean,default} & 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_aed584f9bdfac2efc8303e8ad050229ad}\label{class_num_cpp_1_1_random_aed584f9bdfac2efc8303e8ad050229ad}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!rand@{rand}}
+\index{rand@{rand}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{rand()}{rand()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::rand (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a uniform distribution over \mbox{[}0, 1).
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+rand.\+html\#numpy.\+random.\+rand}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a6854fe5e882b1370ebf4ffa7b8157a9b}\label{class_num_cpp_1_1_random_a6854fe5e882b1370ebf4ffa7b8157a9b}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!rand\+Float@{rand\+Float}}
+\index{rand\+Float@{rand\+Float}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{rand\+Float()}{randFloat()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::rand\+Float (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Low,  }\item[{dtype}]{in\+High }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Return random floats from low (inclusive) to high (exclusive), with the given shape
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+ranf.\+html\#numpy.\+random.\+ranf}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em low} & value \\
+\hline
+{\em high} & value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_adc3c00f2d9c9c673b03f56849b9d1f39}\label{class_num_cpp_1_1_random_adc3c00f2d9c9c673b03f56849b9d1f39}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!rand\+Int@{rand\+Int}}
+\index{rand\+Int@{rand\+Int}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{rand\+Int()}{randInt()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::rand\+Int (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Low,  }\item[{dtype}]{in\+High }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Return random integers from low (inclusive) to high (exclusive), with the given shape
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+randint.\+html\#numpy.\+random.\+randint}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em low} & value \\
+\hline
+{\em high} & value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a074b8f4ec93fb9dde0b73a4071f732f0}\label{class_num_cpp_1_1_random_a074b8f4ec93fb9dde0b73a4071f732f0}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!randN@{randN}}
+\index{randN@{randN}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{rand\+N()}{randN()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::randN (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from the “standard normal” distribution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+randn.\+html\#numpy.\+random.\+randn}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a97f9d3ac866b90368de96c1851aab8cc}\label{class_num_cpp_1_1_random_a97f9d3ac866b90368de96c1851aab8cc}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!seed@{seed}}
+\index{seed@{seed}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{seed()}{seed()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static void \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::seed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Seeds the random number generator\+\_\+
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+seed.\+html\#numpy.\+random.\+seed}
+
+
+\begin{DoxyParams}{Parameters}
+{\em seed} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a5dbacc8396e9c1a0f79ef6a3a3ff8001}\label{class_num_cpp_1_1_random_a5dbacc8396e9c1a0f79ef6a3a3ff8001}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{shuffle()}{shuffle()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static void \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::shuffle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Modify a sequence in-\/place by shuffling its contents.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a92d573b9452dcd9c7c2c962c5452709f}\label{class_num_cpp_1_1_random_a92d573b9452dcd9c7c2c962c5452709f}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!standard\+Normal@{standard\+Normal}}
+\index{standard\+Normal@{standard\+Normal}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{standard\+Normal()}{standardNormal()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::standard\+Normal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from a \char`\"{}standard normal\char`\"{} distrubution with mean = 0 and std = 1
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+standard\+\_\+normal.\+html\#numpy.\+random.\+standard\+\_\+normal}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a522d668bfa4192e86b18f159b6e6df01}\label{class_num_cpp_1_1_random_a522d668bfa4192e86b18f159b6e6df01}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!studentT@{studentT}}
+\index{studentT@{studentT}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{student\+T()}{studentT()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::studentT (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Dof }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from the “student-\/\+T” distribution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+standard\+\_\+t.\+html\#numpy.\+random.\+standard\+\_\+t}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em df} & independent random variables \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a9563adef98c0485cc31dea44a7a2c66d}\label{class_num_cpp_1_1_random_a9563adef98c0485cc31dea44a7a2c66d}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!triangle@{triangle}}
+\index{triangle@{triangle}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{triangle()}{triangle()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::triangle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{inA = {\ttfamily 0},  }\item[{dtype}]{inB = {\ttfamily 0.5},  }\item[{dtype}]{inC = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from the “triangle” distribution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+triangular.\+html\#numpy.\+random.\+triangular}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_a8151ee384c3baeab6cdbbbaf93114f93}\label{class_num_cpp_1_1_random_a8151ee384c3baeab6cdbbbaf93114f93}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!uniform@{uniform}}
+\index{uniform@{uniform}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{uniform()}{uniform()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::uniform (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{in\+Low,  }\item[{dtype}]{in\+High }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Draw samples from a uniform distribution.
+
+Samples are uniformly distributed over the half -\/ open interval\mbox{[}low, high) (includes low, but excludes high)
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+uniform.\+html\#numpy.\+random.\+uniform}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em low} & value \\
+\hline
+{\em high} & value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_ac02ce152544716f1e3ff6dc6c48ec04d}\label{class_num_cpp_1_1_random_ac02ce152544716f1e3ff6dc6c48ec04d}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!uniform\+On\+Sphere@{uniform\+On\+Sphere}}
+\index{uniform\+On\+Sphere@{uniform\+On\+Sphere}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{uniform\+On\+Sphere()}{uniformOnSphere()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::uniform\+On\+Sphere (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Num\+Points,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Dims = {\ttfamily 2} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Such a distribution produces random numbers uniformly distributed on the unit sphere of arbitrary dimension dim.
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & of points \\
+\hline
+{\em dimension} & of the sphere, default 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_random_ad6b30a77e15fb87923526ab7df2e2e72}\label{class_num_cpp_1_1_random_ad6b30a77e15fb87923526ab7df2e2e72}} 
+\index{Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}!weibull@{weibull}}
+\index{weibull@{weibull}!Num\+Cpp\+::\+Random@{Num\+Cpp\+::\+Random}}
+\subsubsection{\texorpdfstring{weibull()}{weibull()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_random}{Num\+Cpp\+::\+Random}}$<$ dtype $>$\+::weibull (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}} \&}]{in\+Shape,  }\item[{dtype}]{inA = {\ttfamily 1},  }\item[{dtype}]{inB = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Create an array of the given shape and populate it with random samples from the \char`\"{}weibull\char`\"{} distribution.
+
+Num\+Py Reference\+: \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull}{\tt https\+://docs.\+scipy.\+org/doc/numpy/reference/generated/numpy.\+random.\+weibull.\+html\#numpy.\+random.\+weibull}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_shape}{Shape}}} & \\
+\hline
+{\em a,default} & 1 \\
+\hline
+{\em b,default} & 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_random_8hpp}{Random.\+hpp}}\end{DoxyCompactItemize}

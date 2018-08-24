@@ -1,0 +1,789 @@
+\hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion}{}\section{Num\+Cpp\+:\+:Rotations\+:\+:Quaternion Class Reference}
+\label{class_num_cpp_1_1_rotations_1_1_quaternion}\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+
+
+Holds a unit quaternion.  
+
+
+
+
+{\ttfamily \#include $<$Rotations.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a5bb8e5c47451ce53e0f556ded29b0b36}{Quaternion}} ()
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_acadde66b5f04043f070076c99b809c3d}{Quaternion}} (double inI, double inJ, double inK, double inS)
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a5cc3021c1ec7281f3dd81d060a160eb7}{Quaternion}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \&in\+Array)
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_aedbc884a55f6ee44b3fcd031cc6c5fd3}{angular\+Velocity}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Quat2, double in\+Time) const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a12def8ee898b1f2182f376ad78a812ca}{conjugate}} () const
+\item 
+double \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_aeec666c0344f72bc55aae2d10c4c5475}{i}} () const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_acf37c9e15c6a142a7ec3ff4756103347}{inverse}} () const
+\item 
+double \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_ae4f3baf645a22886a64668c15076d508}{j}} () const
+\item 
+double \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_aa82d6223b80d45bca7ddf0986acc4e0a}{k}} () const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a956f5c22b6c8096331c0900a18662ec0}{nlerp}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Quat2, double in\+Percent) const
+\item 
+bool \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a8f2e6432eb688a850f86ec515e730d5a}{operator!=}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Rhs) const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a101006c45b6c33b3a251bbbc9169359f}{operator$\ast$}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Rhs) const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_ac08faed4f8f2dbc2f0b74fed747ada01}{operator$\ast$}} (double in\+Scalar) const
+\item 
+{\footnotesize template$<$typename dtype $>$ }\\\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a706c101d2cb79ea8d48cfe8de3dc5445}{operator$\ast$}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Vec) const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \& \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a51b3dad20f0d2aa541a2d2890a9aca5b}{operator$\ast$=}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Rhs)
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \& \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_aa21c32b9337ccd120413593048cd890a}{operator$\ast$=}} (double in\+Scalar)
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_ae470095e7fd118597c6612f9e84cd9d3}{operator+}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Rhs) const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \& \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_ae38581ed3b06acb8aca2eaf8774d6ba9}{operator+=}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Rhs)
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_ab01ead254d02e77ebb4f9de7b9e54436}{operator-\/}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Rhs) const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \& \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a0c71cbe7d90a5614bbcc50ecb1dcd3ce}{operator-\/=}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Rhs)
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_afddb51d5a55ad36e578e1aefc639f1f5}{operator/}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Rhs) const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \& \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_af8c32b0d46875ff17e6731c4a4a28c78}{operator/=}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Rhs)
+\item 
+bool \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a6060fb86327e0c1f429e9e40612f6467}{operator==}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Rhs) const
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a99e71bd7900477b9eedc1372002a1163}{print}} () const
+\item 
+{\footnotesize template$<$typename dtype $>$ }\\\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a71862c53e031f0667397f97f2bf08a09}{rotate}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Vector) const
+\item 
+double \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a9652f86c1fb09a97cb9ef6d31d40e5f9}{s}} () const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_acd927fb42ea5b0a8c2a397e493dedf3f}{slerp}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Quat2, double in\+Percent) const
+\item 
+std\+::string \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a363faa78c121cf2b78784e7b2e49e998}{str}} () const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_acb7afe46d4731a28053b68b3fdeec583}{to\+D\+CM}} () const
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_acd8bcd58737b24eb3a36962c455a0d48}{to\+Nd\+Array}} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename dtype $>$ }\\static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a6da99fa20889740318ea7f1937804089}{angle\+Axis\+Rotation}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Axis, double in\+Angle)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a0dac9684e14722df14519657d1470303}{angular\+Velocity}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Quat1, const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Quat2, double in\+Time)
+\item 
+{\footnotesize template$<$typename dtype $>$ }\\static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a4589fd8623eb308578a9888cf541cc5a}{from\+D\+CM}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Dcm)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a55f3aeaaf13db905717f1c3de476a921}{identity}} ()
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_ad3230f7957b05e62300b1da3a6bbb75f}{nlerp}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Quat1, const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Quat2, double in\+Percent)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a376b92643574eaecf93ea59540f461ae}{slerp}} (const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Quat1, const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Quat2, double in\+Percent)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_aa10a3ca29a4ac6c2f7854f47e4ca4bf9}{x\+Rotation}} (double in\+Angle)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_abcc4947abc9e0ca8dc2630940fad77df}{y\+Rotation}} (double in\+Angle)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a1c696741a9ad04719a17f0afced00e0f}{z\+Rotation}} (double in\+Angle)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion_a6d11f3a719f010cdd220642d2bb586e6}{operator$<$$<$}} (std\+::ostream \&in\+O\+Stream, const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&in\+Quat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Holds a unit quaternion. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a5bb8e5c47451ce53e0f556ded29b0b36}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a5bb8e5c47451ce53e0f556ded29b0b36}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default Constructor, not super usefull on its own
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_acadde66b5f04043f070076c99b809c3d}\label{class_num_cpp_1_1_rotations_1_1_quaternion_acadde66b5f04043f070076c99b809c3d}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{double}]{inI,  }\item[{double}]{inJ,  }\item[{double}]{inK,  }\item[{double}]{inS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+{\em j} & \\
+\hline
+{\em k} & \\
+\hline
+{\em s} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a5cc3021c1ec7281f3dd81d060a160eb7}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a5cc3021c1ec7281f3dd81d060a160eb7}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \&}]{in\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}},size} & = 4 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a6da99fa20889740318ea7f1937804089}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a6da99fa20889740318ea7f1937804089}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!angle\+Axis\+Rotation@{angle\+Axis\+Rotation}}
+\index{angle\+Axis\+Rotation@{angle\+Axis\+Rotation}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{angle\+Axis\+Rotation()}{angleAxisRotation()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::angle\+Axis\+Rotation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Axis,  }\item[{double}]{in\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+returns a quaternion to rotate about the input axis by the input angle
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}},x,y,z} & vector components \\
+\hline
+{\em angle} & in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a0dac9684e14722df14519657d1470303}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a0dac9684e14722df14519657d1470303}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!angular\+Velocity@{angular\+Velocity}}
+\index{angular\+Velocity@{angular\+Velocity}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{angular\+Velocity()}{angularVelocity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$double$>$ Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::angular\+Velocity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Quat1,  }\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Quat2,  }\item[{double}]{in\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+angular velocity between the two quaternions. The norm of the array is the magnitude
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & 1 \\
+\hline
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & 2 \\
+\hline
+{\em seperation} & time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_aedbc884a55f6ee44b3fcd031cc6c5fd3}\label{class_num_cpp_1_1_rotations_1_1_quaternion_aedbc884a55f6ee44b3fcd031cc6c5fd3}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!angular\+Velocity@{angular\+Velocity}}
+\index{angular\+Velocity@{angular\+Velocity}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{angular\+Velocity()}{angularVelocity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$double$>$ Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::angular\+Velocity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Quat2,  }\item[{double}]{in\+Time }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+angular velocity between the two quaternions. The norm of the array is the magnitude
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & 2 \\
+\hline
+{\em seperation} & time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a12def8ee898b1f2182f376ad78a812ca}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a12def8ee898b1f2182f376ad78a812ca}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!conjugate@{conjugate}}
+\index{conjugate@{conjugate}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{conjugate()}{conjugate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::conjugate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+quaternion conjugate
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+s 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a4589fd8623eb308578a9888cf541cc5a}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a4589fd8623eb308578a9888cf541cc5a}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!from\+D\+CM@{from\+D\+CM}}
+\index{from\+D\+CM@{from\+D\+CM}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{from\+D\+C\+M()}{fromDCM()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::from\+D\+CM (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Dcm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+converts from a direction cosine matrix to a quaternion
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_aeec666c0344f72bc55aae2d10c4c5475}\label{class_num_cpp_1_1_rotations_1_1_quaternion_aeec666c0344f72bc55aae2d10c4c5475}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!i@{i}}
+\index{i@{i}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{i()}{i()}}
+{\footnotesize\ttfamily double Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::i (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the i component
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+i 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a55f3aeaaf13db905717f1c3de476a921}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a55f3aeaaf13db905717f1c3de476a921}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!identity@{identity}}
+\index{identity@{identity}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{identity()}{identity()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::identity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+quaternion identity (0,0,0,1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_acf37c9e15c6a142a7ec3ff4756103347}\label{class_num_cpp_1_1_rotations_1_1_quaternion_acf37c9e15c6a142a7ec3ff4756103347}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!inverse@{inverse}}
+\index{inverse@{inverse}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::inverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+quaternion inverse
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Quaterion 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_ae4f3baf645a22886a64668c15076d508}\label{class_num_cpp_1_1_rotations_1_1_quaternion_ae4f3baf645a22886a64668c15076d508}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!j@{j}}
+\index{j@{j}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{j()}{j()}}
+{\footnotesize\ttfamily double Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::j (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the j component
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+j 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_aa82d6223b80d45bca7ddf0986acc4e0a}\label{class_num_cpp_1_1_rotations_1_1_quaternion_aa82d6223b80d45bca7ddf0986acc4e0a}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!k@{k}}
+\index{k@{k}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{k()}{k()}}
+{\footnotesize\ttfamily double Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::k (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the k component
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+k 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_ad3230f7957b05e62300b1da3a6bbb75f}\label{class_num_cpp_1_1_rotations_1_1_quaternion_ad3230f7957b05e62300b1da3a6bbb75f}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!nlerp@{nlerp}}
+\index{nlerp@{nlerp}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{nlerp()}{nlerp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::nlerp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Quat1,  }\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Quat2,  }\item[{double}]{in\+Percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+linearly interpolates between the two quaternions
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & 1 \\
+\hline
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & 2 \\
+\hline
+{\em percent} & \mbox{[}0, 1\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a956f5c22b6c8096331c0900a18662ec0}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a956f5c22b6c8096331c0900a18662ec0}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!nlerp@{nlerp}}
+\index{nlerp@{nlerp}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{nlerp()}{nlerp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::nlerp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Quat2,  }\item[{double}]{in\+Percent }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+linearly interpolates between the two quaternions
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & 2 \\
+\hline
+{\em percent} & (0, 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a8f2e6432eb688a850f86ec515e730d5a}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a8f2e6432eb688a850f86ec515e730d5a}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+equality operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a101006c45b6c33b3a251bbbc9169359f}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a101006c45b6c33b3a251bbbc9169359f}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_ac08faed4f8f2dbc2f0b74fed747ada01}\label{class_num_cpp_1_1_rotations_1_1_quaternion_ac08faed4f8f2dbc2f0b74fed747ada01}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{double}]{in\+Scalar }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication operator, only useful for multiplying by negative 1, all others will be renormalized back out
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a706c101d2cb79ea8d48cfe8de3dc5445}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a706c101d2cb79ea8d48cfe8de3dc5445}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$double$>$ Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a51b3dad20f0d2aa541a2d2890a9aca5b}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a51b3dad20f0d2aa541a2d2890a9aca5b}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}\& Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication assignment operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_aa21c32b9337ccd120413593048cd890a}\label{class_num_cpp_1_1_rotations_1_1_quaternion_aa21c32b9337ccd120413593048cd890a}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}\& Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{double}]{in\+Scalar }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+multiplication operator, only useful for multiplying by negative 1, all others will be renormalized back out
+
+
+\begin{DoxyParams}{Parameters}
+{\em scalar} & value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_ae470095e7fd118597c6612f9e84cd9d3}\label{class_num_cpp_1_1_rotations_1_1_quaternion_ae470095e7fd118597c6612f9e84cd9d3}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator+@{operator+}}
+\index{operator+@{operator+}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+addition operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_ae38581ed3b06acb8aca2eaf8774d6ba9}\label{class_num_cpp_1_1_rotations_1_1_quaternion_ae38581ed3b06acb8aca2eaf8774d6ba9}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}\& Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+addition assignment operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_ab01ead254d02e77ebb4f9de7b9e54436}\label{class_num_cpp_1_1_rotations_1_1_quaternion_ab01ead254d02e77ebb4f9de7b9e54436}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+subtraction operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a0c71cbe7d90a5614bbcc50ecb1dcd3ce}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a0c71cbe7d90a5614bbcc50ecb1dcd3ce}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}\& Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+subtraction assignment operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_afddb51d5a55ad36e578e1aefc639f1f5}\label{class_num_cpp_1_1_rotations_1_1_quaternion_afddb51d5a55ad36e578e1aefc639f1f5}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator/@{operator/}}
+\index{operator/@{operator/}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+division operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_af8c32b0d46875ff17e6731c4a4a28c78}\label{class_num_cpp_1_1_rotations_1_1_quaternion_af8c32b0d46875ff17e6731c4a4a28c78}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}\& Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+division assignment operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a6060fb86327e0c1f429e9e40612f6467}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a6060fb86327e0c1f429e9e40612f6467}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator==@{operator==}}
+\index{operator==@{operator==}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+equality operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a99e71bd7900477b9eedc1372002a1163}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a99e71bd7900477b9eedc1372002a1163}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!print@{print}}
+\index{print@{print}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+prints the \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} to the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a71862c53e031f0667397f97f2bf08a09}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a71862c53e031f0667397f97f2bf08a09}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!rotate@{rotate}}
+\index{rotate@{rotate}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$double$>$ Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::rotate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Vector }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+rotate a vector using the quaternion
+
+
+\begin{DoxyParams}{Parameters}
+{\em cartesian} & vector with x,y,z components \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cartesian vector with x,y,z components 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a9652f86c1fb09a97cb9ef6d31d40e5f9}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a9652f86c1fb09a97cb9ef6d31d40e5f9}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!s@{s}}
+\index{s@{s}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{s()}{s()}}
+{\footnotesize\ttfamily double Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::s (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the s component
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+s 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a376b92643574eaecf93ea59540f461ae}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a376b92643574eaecf93ea59540f461ae}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!slerp@{slerp}}
+\index{slerp@{slerp}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{slerp()}{slerp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::slerp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Quat1,  }\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Quat2,  }\item[{double}]{in\+Percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+spherical linear interpolates between the two quaternions
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & 1 \\
+\hline
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & 2 \\
+\hline
+{\em percent} & (0, 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_acd927fb42ea5b0a8c2a397e493dedf3f}\label{class_num_cpp_1_1_rotations_1_1_quaternion_acd927fb42ea5b0a8c2a397e493dedf3f}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!slerp@{slerp}}
+\index{slerp@{slerp}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{slerp()}{slerp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::slerp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Quat2,  }\item[{double}]{in\+Percent }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+spherical linear interpolates between the two quaternions
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & 2 \\
+\hline
+{\em percent} & (0, 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a363faa78c121cf2b78784e7b2e49e998}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a363faa78c121cf2b78784e7b2e49e998}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!str@{str}}
+\index{str@{str}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily std\+::string Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the quaternion as a string representation
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_acb7afe46d4731a28053b68b3fdeec583}\label{class_num_cpp_1_1_rotations_1_1_quaternion_acb7afe46d4731a28053b68b3fdeec583}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!to\+D\+CM@{to\+D\+CM}}
+\index{to\+D\+CM@{to\+D\+CM}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{to\+D\+C\+M()}{toDCM()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$double$>$ Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::to\+D\+CM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the direction cosine matrix
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_acd8bcd58737b24eb3a36962c455a0d48}\label{class_num_cpp_1_1_rotations_1_1_quaternion_acd8bcd58737b24eb3a36962c455a0d48}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!to\+Nd\+Array@{to\+Nd\+Array}}
+\index{to\+Nd\+Array@{to\+Nd\+Array}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{to\+Nd\+Array()}{toNdArray()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$double$>$ Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::to\+Nd\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+returns the quaternion as an \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_aa10a3ca29a4ac6c2f7854f47e4ca4bf9}\label{class_num_cpp_1_1_rotations_1_1_quaternion_aa10a3ca29a4ac6c2f7854f47e4ca4bf9}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!x\+Rotation@{x\+Rotation}}
+\index{x\+Rotation@{x\+Rotation}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{x\+Rotation()}{xRotation()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::x\+Rotation (\begin{DoxyParamCaption}\item[{double}]{in\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+returns a quaternion to rotate about the x-\/axis by the input angle
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_abcc4947abc9e0ca8dc2630940fad77df}\label{class_num_cpp_1_1_rotations_1_1_quaternion_abcc4947abc9e0ca8dc2630940fad77df}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!y\+Rotation@{y\+Rotation}}
+\index{y\+Rotation@{y\+Rotation}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{y\+Rotation()}{yRotation()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::y\+Rotation (\begin{DoxyParamCaption}\item[{double}]{in\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+returns a quaternion to rotate about the y-\/axis by the input angle
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a1c696741a9ad04719a17f0afced00e0f}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a1c696741a9ad04719a17f0afced00e0f}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!z\+Rotation@{z\+Rotation}}
+\index{z\+Rotation@{z\+Rotation}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{z\+Rotation()}{zRotation()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} Num\+Cpp\+::\+Rotations\+::\+Quaternion\+::z\+Rotation (\begin{DoxyParamCaption}\item[{double}]{in\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+returns a quaternion to rotate about the y-\/axis by the input angle
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_quaternion_a6d11f3a719f010cdd220642d2bb586e6}\label{class_num_cpp_1_1_rotations_1_1_quaternion_a6d11f3a719f010cdd220642d2bb586e6}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Num\+Cpp\+::\+Rotations\+::\+Quaternion@{Num\+Cpp\+::\+Rotations\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{in\+O\+Stream,  }\item[{const \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} \&}]{in\+Quat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+IO operator for the \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em ostream} & \\
+\hline
+{\em \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_quaternion}{Quaternion}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ostream\& 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_rotations_8hpp}{Rotations.\+hpp}}\end{DoxyCompactItemize}

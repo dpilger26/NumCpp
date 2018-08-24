@@ -23,8 +23,8 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "NumC", "index.html", [
-    [ "NumC Documentation", "index.html", [
+  [ "NumCpp", "index.html", [
+    [ "NumCpp Documentation", "index.html", [
       [ "Description", "index.html#Description", null ],
       [ "License", "index.html#License", null ],
       [ "Testing", "index.html#Testing", null ]
@@ -64,9 +64,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_boost_numpy_ndarray_helper_8hpp.html",
-"class_num_c_1_1_image_processing_1_1_pixel.html#afca989f4165310288cab0d5295963f4f",
-"class_num_c_1_1_methods.html#af091a1448a047355546594f2ced87624",
-"class_num_c_1_1_rotations_1_1_quaternion.html#a868fc0fae2cbd21d84b59b566fd88aeb"
+"class_num_cpp_1_1_image_processing_1_1_pixel.html#af5240a6addc57c5951fb38879b18162d",
+"class_num_cpp_1_1_methods.html#aee2bf20a3d51dd5a699b94a8b8e124ea",
+"class_num_cpp_1_1_rotations_1_1_quaternion.html#ab01ead254d02e77ebb4f9de7b9e54436"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

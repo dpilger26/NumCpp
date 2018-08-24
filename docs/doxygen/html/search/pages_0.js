@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['numc_20documentation',['NumC Documentation',['../index.html',1,'']]]
+  ['numcpp_20documentation',['NumCpp Documentation',['../index.html',1,'']]]
 ];

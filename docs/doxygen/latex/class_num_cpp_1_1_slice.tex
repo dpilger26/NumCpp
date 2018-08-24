@@ -1,0 +1,232 @@
+\hypertarget{class_num_cpp_1_1_slice}{}\section{Num\+Cpp\+:\+:Slice Class Reference}
+\label{class_num_cpp_1_1_slice}\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+
+
+A Class for slicing into Nd\+Arrays.  
+
+
+
+
+{\ttfamily \#include $<$Slice.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_slice_afb92692f125347a65ef8bcb360529afc}{Slice}} ()
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_slice_a396190f16de290b03b8ba4b46cad0cfd}{Slice}} (\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} in\+Stop)
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_slice_af6f987a9f02fd455e41b2b1b8616782a}{Slice}} (\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} in\+Start, \mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} in\+Stop)
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_slice_aad688cba1c49dd4f6c74aa740c6301b2}{Slice}} (\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} in\+Start, \mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} in\+Stop, \mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} in\+Step)
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_slice_a91256eecc37240cb46b394d4a24d019f}{make\+Positive\+And\+Validate}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Array\+Size)
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} \mbox{\hyperlink{class_num_cpp_1_1_slice_af3ee8316724829adde628338c0b226ee}{num\+Elements}} (\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Array\+Size)
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_slice_adb10794ccc51c541a007403455073621}{print}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_num_cpp_1_1_slice_a1d653c371a7933ed07c0a0862779edea}{str}} () const
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} \mbox{\hyperlink{class_num_cpp_1_1_slice_a2b304f62d107e09756fdebf45029d333}{start}}
+\item 
+\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} \mbox{\hyperlink{class_num_cpp_1_1_slice_a7a20894f3625159ed878124664887aff}{step}}
+\item 
+\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} \mbox{\hyperlink{class_num_cpp_1_1_slice_a443abc110225a97be15c02b1b89c10f3}{stop}}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_num_cpp_1_1_slice_ad6889d2df295fef3796aebb769b8cac0}{operator$<$$<$}} (std\+::ostream \&in\+O\+Stream, const \mbox{\hyperlink{class_num_cpp_1_1_slice}{Slice}} \&in\+Slice)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Class for slicing into Nd\+Arrays. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_afb92692f125347a65ef8bcb360529afc}\label{class_num_cpp_1_1_slice_afb92692f125347a65ef8bcb360529afc}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!Slice@{Slice}}
+\index{Slice@{Slice}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{Slice()}{Slice()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Num\+Cpp\+::\+Slice\+::\+Slice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_a396190f16de290b03b8ba4b46cad0cfd}\label{class_num_cpp_1_1_slice_a396190f16de290b03b8ba4b46cad0cfd}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!Slice@{Slice}}
+\index{Slice@{Slice}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{Slice()}{Slice()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Num\+Cpp\+::\+Slice\+::\+Slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}}}]{in\+Stop }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em stop} & index (not included)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_af6f987a9f02fd455e41b2b1b8616782a}\label{class_num_cpp_1_1_slice_af6f987a9f02fd455e41b2b1b8616782a}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!Slice@{Slice}}
+\index{Slice@{Slice}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{Slice()}{Slice()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Num\+Cpp\+::\+Slice\+::\+Slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}}}]{in\+Start,  }\item[{\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}}}]{in\+Stop }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & index, \\
+\hline
+{\em stop} & index (not included)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_aad688cba1c49dd4f6c74aa740c6301b2}\label{class_num_cpp_1_1_slice_aad688cba1c49dd4f6c74aa740c6301b2}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!Slice@{Slice}}
+\index{Slice@{Slice}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{Slice()}{Slice()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Num\+Cpp\+::\+Slice\+::\+Slice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}}}]{in\+Start,  }\item[{\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}}}]{in\+Stop,  }\item[{\mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}}}]{in\+Step }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & index, \\
+\hline
+{\em stop} & index (not included) \\
+\hline
+{\em step} & value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_a91256eecc37240cb46b394d4a24d019f}\label{class_num_cpp_1_1_slice_a91256eecc37240cb46b394d4a24d019f}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!make\+Positive\+And\+Validate@{make\+Positive\+And\+Validate}}
+\index{make\+Positive\+And\+Validate@{make\+Positive\+And\+Validate}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{make\+Positive\+And\+Validate()}{makePositiveAndValidate()}}
+{\footnotesize\ttfamily void Num\+Cpp\+::\+Slice\+::make\+Positive\+And\+Validate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Array\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Make the slice all positive and does some error checking
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & calling array size\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_af3ee8316724829adde628338c0b226ee}\label{class_num_cpp_1_1_slice_af3ee8316724829adde628338c0b226ee}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!num\+Elements@{num\+Elements}}
+\index{num\+Elements@{num\+Elements}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{num\+Elements()}{numElements()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} Num\+Cpp\+::\+Slice\+::num\+Elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Array\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of elements that the slice contains. be aware that this method will also make the slice all positive!
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & calling array size\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_adb10794ccc51c541a007403455073621}\label{class_num_cpp_1_1_slice_adb10794ccc51c541a007403455073621}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!print@{print}}
+\index{print@{print}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Num\+Cpp\+::\+Slice\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Prints the shape to the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_a1d653c371a7933ed07c0a0862779edea}\label{class_num_cpp_1_1_slice_a1d653c371a7933ed07c0a0862779edea}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!str@{str}}
+\index{str@{str}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily std\+::string Num\+Cpp\+::\+Slice\+::str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Prints the shape to the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_ad6889d2df295fef3796aebb769b8cac0}\label{class_num_cpp_1_1_slice_ad6889d2df295fef3796aebb769b8cac0}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{in\+O\+Stream,  }\item[{const \mbox{\hyperlink{class_num_cpp_1_1_slice}{Slice}} \&}]{in\+Slice }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+IO operator for the \mbox{\hyperlink{class_num_cpp_1_1_slice}{Slice}} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_a2b304f62d107e09756fdebf45029d333}\label{class_num_cpp_1_1_slice_a2b304f62d107e09756fdebf45029d333}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!start@{start}}
+\index{start@{start}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} Num\+Cpp\+::\+Slice\+::start}
+
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_a7a20894f3625159ed878124664887aff}\label{class_num_cpp_1_1_slice_a7a20894f3625159ed878124664887aff}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!step@{step}}
+\index{step@{step}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{step}{step}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} Num\+Cpp\+::\+Slice\+::step}
+
+\mbox{\Hypertarget{class_num_cpp_1_1_slice_a443abc110225a97be15c02b1b89c10f3}\label{class_num_cpp_1_1_slice_a443abc110225a97be15c02b1b89c10f3}} 
+\index{Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}!stop@{stop}}
+\index{stop@{stop}!Num\+Cpp\+::\+Slice@{Num\+Cpp\+::\+Slice}}
+\subsubsection{\texorpdfstring{stop}{stop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_num_cpp_acf3eb1592f8b248ff0a236634864633c}{int32}} Num\+Cpp\+::\+Slice\+::stop}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_slice_8hpp}{Slice.\+hpp}}\end{DoxyCompactItemize}

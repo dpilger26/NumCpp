@@ -1,0 +1,142 @@
+\hypertarget{class_num_cpp_1_1_dtype_info}{}\section{Num\+Cpp\+:\+:Dtype\+Info$<$ dtype $>$ Class Template Reference}
+\label{class_num_cpp_1_1_dtype_info}\index{Num\+Cpp\+::\+Dtype\+Info$<$ dtype $>$@{Num\+Cpp\+::\+Dtype\+Info$<$ dtype $>$}}
+
+
+Holds info about the dtype.  
+
+
+
+
+{\ttfamily \#include $<$Dtype\+Info.\+hpp$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr dtype \mbox{\hyperlink{class_num_cpp_1_1_dtype_info_a938bb36dda6d59dccebe73aa25c0e849}{bits}} ()
+\item 
+static constexpr dtype \mbox{\hyperlink{class_num_cpp_1_1_dtype_info_a1afd447920d6512f6d3e7acdc08cfca6}{epsilon}} ()
+\item 
+static constexpr bool \mbox{\hyperlink{class_num_cpp_1_1_dtype_info_a32d737185a788bba65eba2d26fbc5bd8}{is\+Integer}} ()
+\item 
+static constexpr bool \mbox{\hyperlink{class_num_cpp_1_1_dtype_info_ac21f1389476091ea0b8d966e657fe647}{is\+Signed}} ()
+\item 
+static constexpr dtype \mbox{\hyperlink{class_num_cpp_1_1_dtype_info_ad24c59bdfce18ae8fb3aedef097231cf}{max}} ()
+\item 
+static constexpr dtype \mbox{\hyperlink{class_num_cpp_1_1_dtype_info_aef92445d06c7c31cd0b2622771457190}{min}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename dtype$>$\newline
+class Num\+Cpp\+::\+Dtype\+Info$<$ dtype $>$}
+
+Holds info about the dtype. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_dtype_info_a938bb36dda6d59dccebe73aa25c0e849}\label{class_num_cpp_1_1_dtype_info_a938bb36dda6d59dccebe73aa25c0e849}} 
+\index{Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}!bits@{bits}}
+\index{bits@{bits}!Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}}
+\subsubsection{\texorpdfstring{bits()}{bits()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static constexpr dtype \mbox{\hyperlink{class_num_cpp_1_1_dtype_info}{Num\+Cpp\+::\+Dtype\+Info}}$<$ dtype $>$\+::bits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+For integer types\+: number of non-\/sign bits in the representation. For floating types \+: number of digits(in radix base) in the mantissa
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bits 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_dtype_info_a1afd447920d6512f6d3e7acdc08cfca6}\label{class_num_cpp_1_1_dtype_info_a1afd447920d6512f6d3e7acdc08cfca6}} 
+\index{Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}!epsilon@{epsilon}}
+\index{epsilon@{epsilon}!Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}}
+\subsubsection{\texorpdfstring{epsilon()}{epsilon()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static constexpr dtype \mbox{\hyperlink{class_num_cpp_1_1_dtype_info}{Num\+Cpp\+::\+Dtype\+Info}}$<$ dtype $>$\+::epsilon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Machine epsilon (the difference between 1 and the least value greater than 1 that is representable).
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dtype 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_dtype_info_a32d737185a788bba65eba2d26fbc5bd8}\label{class_num_cpp_1_1_dtype_info_a32d737185a788bba65eba2d26fbc5bd8}} 
+\index{Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}!is\+Integer@{is\+Integer}}
+\index{is\+Integer@{is\+Integer}!Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}}
+\subsubsection{\texorpdfstring{is\+Integer()}{isInteger()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static constexpr bool \mbox{\hyperlink{class_num_cpp_1_1_dtype_info}{Num\+Cpp\+::\+Dtype\+Info}}$<$ dtype $>$\+::is\+Integer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+True if type is integer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_dtype_info_ac21f1389476091ea0b8d966e657fe647}\label{class_num_cpp_1_1_dtype_info_ac21f1389476091ea0b8d966e657fe647}} 
+\index{Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}!is\+Signed@{is\+Signed}}
+\index{is\+Signed@{is\+Signed}!Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}}
+\subsubsection{\texorpdfstring{is\+Signed()}{isSigned()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static constexpr bool \mbox{\hyperlink{class_num_cpp_1_1_dtype_info}{Num\+Cpp\+::\+Dtype\+Info}}$<$ dtype $>$\+::is\+Signed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+True if type is signed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_dtype_info_ad24c59bdfce18ae8fb3aedef097231cf}\label{class_num_cpp_1_1_dtype_info_ad24c59bdfce18ae8fb3aedef097231cf}} 
+\index{Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}!max@{max}}
+\index{max@{max}!Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}}
+\subsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static constexpr dtype \mbox{\hyperlink{class_num_cpp_1_1_dtype_info}{Num\+Cpp\+::\+Dtype\+Info}}$<$ dtype $>$\+::max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Returns the maximum value of the dtype
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+max value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_dtype_info_aef92445d06c7c31cd0b2622771457190}\label{class_num_cpp_1_1_dtype_info_aef92445d06c7c31cd0b2622771457190}} 
+\index{Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}!min@{min}}
+\index{min@{min}!Num\+Cpp\+::\+Dtype\+Info@{Num\+Cpp\+::\+Dtype\+Info}}
+\subsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static constexpr dtype \mbox{\hyperlink{class_num_cpp_1_1_dtype_info}{Num\+Cpp\+::\+Dtype\+Info}}$<$ dtype $>$\+::min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Returns the minimum value of the dtype
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+min value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_dtype_info_8hpp}{Dtype\+Info.\+hpp}}\end{DoxyCompactItemize}

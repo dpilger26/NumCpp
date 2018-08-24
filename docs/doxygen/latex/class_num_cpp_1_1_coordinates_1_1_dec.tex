@@ -1,0 +1,329 @@
+\hypertarget{class_num_cpp_1_1_coordinates_1_1_dec}{}\section{Num\+Cpp\+:\+:Coordinates\+:\+:Dec$<$ dtype $>$ Class Template Reference}
+\label{class_num_cpp_1_1_coordinates_1_1_dec}\index{Num\+Cpp\+::\+Coordinates\+::\+Dec$<$ dtype $>$@{Num\+Cpp\+::\+Coordinates\+::\+Dec$<$ dtype $>$}}
+
+
+Holds a Declination object.  
+
+
+
+
+{\ttfamily \#include $<$Coordinates.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_aa32c17eaf9b36b0c1dd2ac1567a823b1}{Dec}} ()
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_aab887730681c569abf8a3588ed5adef4}{Dec}} (dtype in\+Degrees)
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_a1e26af1eea1f505f32a5761767ef9ed3}{Dec}} (\mbox{\hyperlink{struct_num_cpp_1_1_coordinates_1_1_sign_a6ef8423d5e83675773c2d4f32490e04b}{Sign\+::\+Type}} in\+Sign, \mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}} in\+Degrees, \mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}} in\+Minutes, dtype in\+Seconds)
+\item 
+{\footnotesize template$<$typename dtype\+Out $>$ }\\\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}}$<$ dtype\+Out $>$ \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_aa93345e827c1dcc7e1ffbdaf0ce0639f}{astype}} ()
+\item 
+dtype \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_a6529988c999d74ce3f59b1479135f9f4}{degrees}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}} \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_a83b278f99a2774571bbc635a22fd1097}{degrees\+Whole}} () const
+\item 
+\mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}} \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_ae8ac68a953525869d08d144d2cc68429}{minutes}} () const
+\item 
+bool \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_a23611ec1f4e09d00de3975fb26c3d9dd}{operator!=}} (const \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}}$<$ dtype $>$ \&in\+Rhs) const
+\item 
+bool \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_a562f803afeaeb1ab2ebacbbfd048fd17}{operator==}} (const \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}}$<$ dtype $>$ \&in\+Rhs) const
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_aa11f1fac2dfe2a9341b25d2ee71a9a34}{print}} () const
+\item 
+dtype \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_ad4bc900f3a4b2a29089a76d72fe04053}{radians}} () const
+\item 
+dtype \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_a7097ca352bfd8bd25b42f06feeece857}{seconds}} () const
+\item 
+\mbox{\hyperlink{struct_num_cpp_1_1_coordinates_1_1_sign_a6ef8423d5e83675773c2d4f32490e04b}{Sign\+::\+Type}} \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_a66811b54110025749c34ebfcaf9db8b5}{sign}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_a1e98421fc7e41424d706bb507d6813dd}{str}} () const
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec_aa501ef35ac052d5084d792bfcde2345f}{operator$<$$<$}} (std\+::ostream \&in\+Stream, const \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}}$<$ dtype $>$ \&in\+Dec)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename dtype$>$\newline
+class Num\+Cpp\+::\+Coordinates\+::\+Dec$<$ dtype $>$}
+
+Holds a Declination object. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_aa32c17eaf9b36b0c1dd2ac1567a823b1}\label{class_num_cpp_1_1_coordinates_1_1_dec_aa32c17eaf9b36b0c1dd2ac1567a823b1}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!Dec@{Dec}}
+\index{Dec@{Dec}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{Dec()}{Dec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default Constructor, not super usefull on its own
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_aab887730681c569abf8a3588ed5adef4}\label{class_num_cpp_1_1_coordinates_1_1_dec_aab887730681c569abf8a3588ed5adef4}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!Dec@{Dec}}
+\index{Dec@{Dec}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{Dec()}{Dec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}} (\begin{DoxyParamCaption}\item[{dtype}]{in\+Degrees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em degrees} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_a1e26af1eea1f505f32a5761767ef9ed3}\label{class_num_cpp_1_1_coordinates_1_1_dec_a1e26af1eea1f505f32a5761767ef9ed3}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!Dec@{Dec}}
+\index{Dec@{Dec}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{Dec()}{Dec()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_num_cpp_1_1_coordinates_1_1_sign_a6ef8423d5e83675773c2d4f32490e04b}{Sign\+::\+Type}}}]{in\+Sign,  }\item[{\mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}}}]{in\+Degrees,  }\item[{\mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}}}]{in\+Minutes,  }\item[{dtype}]{in\+Seconds }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_num_cpp_1_1_coordinates_1_1_sign_a6ef8423d5e83675773c2d4f32490e04b}{Sign\+::\+Type}}} & \\
+\hline
+{\em hours} & \\
+\hline
+{\em minutes} & \\
+\hline
+{\em seconds} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_aa93345e827c1dcc7e1ffbdaf0ce0639f}\label{class_num_cpp_1_1_coordinates_1_1_dec_aa93345e827c1dcc7e1ffbdaf0ce0639f}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!astype@{astype}}
+\index{astype@{astype}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{astype()}{astype()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+template$<$typename dtype\+Out $>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}}$<$dtype\+Out$>$ \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::astype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a copy of the \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}} object as a different type
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_a6529988c999d74ce3f59b1479135f9f4}\label{class_num_cpp_1_1_coordinates_1_1_dec_a6529988c999d74ce3f59b1479135f9f4}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!degrees@{degrees}}
+\index{degrees@{degrees}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{degrees()}{degrees()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+dtype \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::degrees (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the degrees value
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_a83b278f99a2774571bbc635a22fd1097}\label{class_num_cpp_1_1_coordinates_1_1_dec_a83b278f99a2774571bbc635a22fd1097}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!degrees\+Whole@{degrees\+Whole}}
+\index{degrees\+Whole@{degrees\+Whole}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{degrees\+Whole()}{degreesWhole()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+\mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}} \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::degrees\+Whole (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the whole degrees value
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whole degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_ae8ac68a953525869d08d144d2cc68429}\label{class_num_cpp_1_1_coordinates_1_1_dec_ae8ac68a953525869d08d144d2cc68429}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!minutes@{minutes}}
+\index{minutes@{minutes}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{minutes()}{minutes()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+\mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}} \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::minutes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the minute value
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minutes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_a23611ec1f4e09d00de3975fb26c3d9dd}\label{class_num_cpp_1_1_coordinates_1_1_dec_a23611ec1f4e09d00de3975fb26c3d9dd}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+bool \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}}$<$ dtype $>$ \&}]{in\+Rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Not equality operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_a562f803afeaeb1ab2ebacbbfd048fd17}\label{class_num_cpp_1_1_coordinates_1_1_dec_a562f803afeaeb1ab2ebacbbfd048fd17}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!operator==@{operator==}}
+\index{operator==@{operator==}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+bool \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}}$<$ dtype $>$ \&}]{in\+Rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Equality operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_aa11f1fac2dfe2a9341b25d2ee71a9a34}\label{class_num_cpp_1_1_coordinates_1_1_dec_aa11f1fac2dfe2a9341b25d2ee71a9a34}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!print@{print}}
+\index{print@{print}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+void \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Prints the \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}} object to the console
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_ad4bc900f3a4b2a29089a76d72fe04053}\label{class_num_cpp_1_1_coordinates_1_1_dec_ad4bc900f3a4b2a29089a76d72fe04053}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!radians@{radians}}
+\index{radians@{radians}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{radians()}{radians()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+dtype \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::radians (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the radians value
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+minutes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_a7097ca352bfd8bd25b42f06feeece857}\label{class_num_cpp_1_1_coordinates_1_1_dec_a7097ca352bfd8bd25b42f06feeece857}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!seconds@{seconds}}
+\index{seconds@{seconds}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{seconds()}{seconds()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+dtype \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::seconds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the seconds value
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+seconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_a66811b54110025749c34ebfcaf9db8b5}\label{class_num_cpp_1_1_coordinates_1_1_dec_a66811b54110025749c34ebfcaf9db8b5}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!sign@{sign}}
+\index{sign@{sign}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{sign()}{sign()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+\mbox{\hyperlink{struct_num_cpp_1_1_coordinates_1_1_sign_a6ef8423d5e83675773c2d4f32490e04b}{Sign\+::\+Type}} \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::sign (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the sign of the degrees (positive or negative)
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_num_cpp_1_1_coordinates_1_1_sign_a6ef8423d5e83675773c2d4f32490e04b}{Sign\+::\+Type}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_a1e98421fc7e41424d706bb507d6813dd}\label{class_num_cpp_1_1_coordinates_1_1_dec_a1e98421fc7e41424d706bb507d6813dd}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!str@{str}}
+\index{str@{str}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+std\+::string \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec}}$<$ dtype $>$\+::str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the dec object as a string representation
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_coordinates_1_1_dec_aa501ef35ac052d5084d792bfcde2345f}\label{class_num_cpp_1_1_coordinates_1_1_dec_aa501ef35ac052d5084d792bfcde2345f}} 
+\index{Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Num\+Cpp\+::\+Coordinates\+::\+Dec@{Num\+Cpp\+::\+Coordinates\+::\+Dec}}
+\subsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename dtype$>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{in\+Stream,  }\item[{const \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}}$<$ dtype $>$ \&}]{in\+Dec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Ostream operator
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_coordinates_8hpp}{Coordinates.\+hpp}}\end{DoxyCompactItemize}

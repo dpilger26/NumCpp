@@ -1,10 +1,10 @@
 \hypertarget{_coordinates_8hpp}{}\section{Coordinates.\+hpp File Reference}
 \label{_coordinates_8hpp}\index{Coordinates.\+hpp@{Coordinates.\+hpp}}
-{\ttfamily \#include \char`\"{}Num\+C/\+Dtype\+Info.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Num\+C/\+Nd\+Array.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Num\+C/\+Methods.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Num\+C/\+Types.\+hpp\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Num\+C/\+Utils.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Num\+Cpp/\+Dtype\+Info.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Num\+Cpp/\+Nd\+Array.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Num\+Cpp/\+Methods.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Num\+Cpp/\+Types.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Num\+Cpp/\+Utils.\+hpp\char`\"{}}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$stdexcept$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
@@ -12,37 +12,37 @@
 \subsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{class_num_c_1_1_coordinates_1_1_coordinate}{Num\+C\+::\+Coordinates\+::\+Coordinate$<$ dtype $>$}}
+class \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_coordinate}{Num\+Cpp\+::\+Coordinates\+::\+Coordinate$<$ dtype $>$}}
 \begin{DoxyCompactList}\small\item\em Holds a full coordinate object. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_num_c_1_1_coordinates_1_1_dec}{Num\+C\+::\+Coordinates\+::\+Dec$<$ dtype $>$}}
+class \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Num\+Cpp\+::\+Coordinates\+::\+Dec$<$ dtype $>$}}
 \begin{DoxyCompactList}\small\item\em Holds a Declination object. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_num_c_1_1_coordinates_1_1_r_a}{Num\+C\+::\+Coordinates\+::\+R\+A$<$ dtype $>$}}
+class \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_r_a}{Num\+Cpp\+::\+Coordinates\+::\+R\+A$<$ dtype $>$}}
 \begin{DoxyCompactList}\small\item\em Holds a right ascension object. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_num_c_1_1_coordinates_1_1_sign}{Num\+C\+::\+Coordinates\+::\+Sign}}
-\begin{DoxyCompactList}\small\item\em Struct Enum for positive or negative \mbox{\hyperlink{class_num_c_1_1_coordinates_1_1_dec}{Dec}} angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{struct_num_cpp_1_1_coordinates_1_1_sign}{Num\+Cpp\+::\+Coordinates\+::\+Sign}}
+\begin{DoxyCompactList}\small\item\em Struct Enum for positive or negative \mbox{\hyperlink{class_num_cpp_1_1_coordinates_1_1_dec}{Dec}} angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \mbox{\hyperlink{namespace_num_c}{NumC}}
+ \mbox{\hyperlink{namespace_num_cpp}{Num\+Cpp}}
 \item 
- \mbox{\hyperlink{namespace_num_c_1_1_coordinates}{Num\+C\+::\+Coordinates}}
+ \mbox{\hyperlink{namespace_num_cpp_1_1_coordinates}{Num\+Cpp\+::\+Coordinates}}
 \begin{DoxyCompactList}\small\item\em A module for holding and working with coordinates in either Ra/\+Dec or cartesian formats. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename dtype $>$ }\\dtype \mbox{\hyperlink{namespace_num_c_1_1_coordinates_a3b695f21f748403aec310ba37ac39956}{Num\+C\+::\+Coordinates\+::degree\+Seperation}} (const Coordinate$<$ dtype $>$ \&in\+Coordinate1, const Coordinate$<$ dtype $>$ \&in\+Coordinate2)
+{\footnotesize template$<$typename dtype $>$ }\\dtype \mbox{\hyperlink{namespace_num_cpp_1_1_coordinates_a063ca826702d5afecd7607ac61ee6e88}{Num\+Cpp\+::\+Coordinates\+::degree\+Seperation}} (const Coordinate$<$ dtype $>$ \&in\+Coordinate1, const Coordinate$<$ dtype $>$ \&in\+Coordinate2)
 \item 
-{\footnotesize template$<$typename dtype $>$ }\\dtype \mbox{\hyperlink{namespace_num_c_1_1_coordinates_afc8ea343df2b0b3060e41bc1ff4c28c7}{Num\+C\+::\+Coordinates\+::degree\+Seperation}} (const Nd\+Array$<$ dtype $>$ \&in\+Vector1, const Nd\+Array$<$ dtype $>$ \&in\+Vector2)
+{\footnotesize template$<$typename dtype $>$ }\\dtype \mbox{\hyperlink{namespace_num_cpp_1_1_coordinates_a1bd451cf9737de1038420b005b9ccf48}{Num\+Cpp\+::\+Coordinates\+::degree\+Seperation}} (const Nd\+Array$<$ dtype $>$ \&in\+Vector1, const Nd\+Array$<$ dtype $>$ \&in\+Vector2)
 \item 
-{\footnotesize template$<$typename dtype $>$ }\\dtype \mbox{\hyperlink{namespace_num_c_1_1_coordinates_a480804b5ece54f2468163256c0fa8171}{Num\+C\+::\+Coordinates\+::radian\+Seperation}} (const Coordinate$<$ dtype $>$ \&in\+Coordinate1, const Coordinate$<$ dtype $>$ \&in\+Coordinate2)
+{\footnotesize template$<$typename dtype $>$ }\\dtype \mbox{\hyperlink{namespace_num_cpp_1_1_coordinates_a2c41aaaa5c660d3ec0d9ab23327f4d44}{Num\+Cpp\+::\+Coordinates\+::radian\+Seperation}} (const Coordinate$<$ dtype $>$ \&in\+Coordinate1, const Coordinate$<$ dtype $>$ \&in\+Coordinate2)
 \item 
-{\footnotesize template$<$typename dtype $>$ }\\dtype \mbox{\hyperlink{namespace_num_c_1_1_coordinates_a1e42c59854af0ce7ead309772211fcf4}{Num\+C\+::\+Coordinates\+::radian\+Seperation}} (const Nd\+Array$<$ dtype $>$ \&in\+Vector1, const Nd\+Array$<$ dtype $>$ \&in\+Vector2)
+{\footnotesize template$<$typename dtype $>$ }\\dtype \mbox{\hyperlink{namespace_num_cpp_1_1_coordinates_a1395767e51f62c2fa7d7106decf65172}{Num\+Cpp\+::\+Coordinates\+::radian\+Seperation}} (const Nd\+Array$<$ dtype $>$ \&in\+Vector1, const Nd\+Array$<$ dtype $>$ \&in\+Vector2)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \begin{DoxyAuthor}{Author}
-David Pilger \href{mailto:dpilger26@gmail.com}{\tt dpilger26@gmail.\+com} 
+David Pilger \href{mailto:dpilger26@gmail.com}{\tt dpilger26@gmail.\+com} \href{https://github.com/dpilger26/NumCpp}{\tt Git\+Hub Repository} 
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
 1.\+0

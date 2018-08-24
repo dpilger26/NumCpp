@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['seconds_5fper_5fday',['SECONDS_PER_DAY',['../namespace_num_c_1_1_constants.html#a0679151e1b64bb3d5a0d005893a4fe3e',1,'NumC::Constants']]],
-  ['seconds_5fper_5fhour',['SECONDS_PER_HOUR',['../namespace_num_c_1_1_constants.html#a5090dc3b19761dcf8c008b1ee54d2936',1,'NumC::Constants']]],
-  ['seconds_5fper_5fminute',['SECONDS_PER_MINUTE',['../namespace_num_c_1_1_constants.html#af8489b57825b7d3355fd0e3da0e4ad62',1,'NumC::Constants']]],
-  ['seconds_5fper_5fweek',['SECONDS_PER_WEEK',['../namespace_num_c_1_1_constants.html#abb1ba6ca939e4a4872c904e9cb624300',1,'NumC::Constants']]],
-  ['start',['start',['../class_num_c_1_1_slice.html#a9be315d782553b06c6af8256ef80e311',1,'NumC::Slice']]],
-  ['step',['step',['../class_num_c_1_1_slice.html#a95060e2e1c9a2adbf1f6d0f58d1dd951',1,'NumC::Slice']]],
-  ['stop',['stop',['../class_num_c_1_1_slice.html#ab71a753be2f3a9fff01c71734e4368bb',1,'NumC::Slice']]]
+  ['seconds_5fper_5fday',['SECONDS_PER_DAY',['../namespace_num_cpp_1_1_constants.html#aa703dec8b51bafb3c563067d0453db60',1,'NumCpp::Constants']]],
+  ['seconds_5fper_5fhour',['SECONDS_PER_HOUR',['../namespace_num_cpp_1_1_constants.html#ae640876d26ba37e5e1706d83738b23a8',1,'NumCpp::Constants']]],
+  ['seconds_5fper_5fminute',['SECONDS_PER_MINUTE',['../namespace_num_cpp_1_1_constants.html#ab3ee006095e209277bcfeebff5a3d755',1,'NumCpp::Constants']]],
+  ['seconds_5fper_5fweek',['SECONDS_PER_WEEK',['../namespace_num_cpp_1_1_constants.html#a9968bb1bca0d3a33456087e1f2e01971',1,'NumCpp::Constants']]],
+  ['start',['start',['../class_num_cpp_1_1_slice.html#a2b304f62d107e09756fdebf45029d333',1,'NumCpp::Slice']]],
+  ['step',['step',['../class_num_cpp_1_1_slice.html#a7a20894f3625159ed878124664887aff',1,'NumCpp::Slice']]],
+  ['stop',['stop',['../class_num_cpp_1_1_slice.html#a443abc110225a97be15c02b1b89c10f3',1,'NumCpp::Slice']]]
 ];

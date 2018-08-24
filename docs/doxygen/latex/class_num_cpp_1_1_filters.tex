@@ -1,0 +1,520 @@
+\hypertarget{class_num_cpp_1_1_filters}{}\section{Num\+Cpp\+:\+:Filters$<$ dtype $>$ Class Template Reference}
+\label{class_num_cpp_1_1_filters}\index{Num\+Cpp\+::\+Filters$<$ dtype $>$@{Num\+Cpp\+::\+Filters$<$ dtype $>$}}
+
+
+Class for performing many types of image filtering.  
+
+
+
+
+{\ttfamily \#include $<$Filter.\+hpp$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_aae121f772eb9a6f8eb1f13a15327ac22}{complementary\+Median\+Filter}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_afa935d5bb626ddf3c8465c61f25e3a42}{complementary\+Median\+Filter1d}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_acf5da263331a56f2d28778226bffff62}{convolve}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Weights, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a46a1e5bc5c88996cd3baf20c8f5a37fc}{convolve1d}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Weights, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_aaeee33ddf95d64d4b4d63530a6918465}{gaussian\+Filter}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, double in\+Sigma, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_aa836b33dc4f3fa552b67ef4ad2e1ee8a}{gaussian\+Filter1d}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, double in\+Sigma, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_ab4d6b31618fbf09fafaa0643f4d6dff7}{maximum\+Filter}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a6c52468ff9d827a98dcb02246213fde8}{maximum\+Filter1d}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a9a1db9fe2ea9457d87f22ec41f93b42f}{median\+Filter}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a74a21b9101a1861aebce8e1c46746b5a}{median\+Filter1d}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a274b8b1cf4fd0a5b97716f3c6b1ddecb}{minimum\+Filter}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a1c91d3519848af5bbbb1e453bf2025f9}{minumum\+Filter1d}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a32b93eea46a6b556e91075ddafde5a85}{percentile\+Filter}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}} in\+Percentile, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a704d8121e62b084daab9143e65a6a4bd}{percentile\+Filter1d}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}} in\+Percentile, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_ad42daee24b305fe657544fab38e0db69}{rank\+Filter}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Rank, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a6be9872f0f62734e6b34ac2f9eb8cca9}{rank\+Filter1d}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}} in\+Rank, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a69d706ac982b2e50be55e4aee492b427}{uniform\+Filter}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \mbox{\hyperlink{class_num_cpp_1_1_filters_a29b685f383ddecbfac2a5b67de7592ba}{uniform\+Filter1d}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Image\+Array, \mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}} in\+Size, \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}} in\+Mode=\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}, dtype in\+Constant\+Value=0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename dtype$>$\newline
+class Num\+Cpp\+::\+Filters$<$ dtype $>$}
+
+Class for performing many types of image filtering. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_aae121f772eb9a6f8eb1f13a15327ac22}\label{class_num_cpp_1_1_filters_aae121f772eb9a6f8eb1f13a15327ac22}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!complementary\+Median\+Filter@{complementary\+Median\+Filter}}
+\index{complementary\+Median\+Filter@{complementary\+Median\+Filter}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{complementary\+Median\+Filter()}{complementaryMedianFilter()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::complementary\+Median\+Filter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a multidimensional complemenatry median filter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em square} & size of the kernel to apply \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_afa935d5bb626ddf3c8465c61f25e3a42}\label{class_num_cpp_1_1_filters_afa935d5bb626ddf3c8465c61f25e3a42}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!complementary\+Median\+Filter1d@{complementary\+Median\+Filter1d}}
+\index{complementary\+Median\+Filter1d@{complementary\+Median\+Filter1d}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{complementary\+Median\+Filter1d()}{complementaryMedianFilter1d()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::complementary\+Median\+Filter1d (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculate a one-\/dimensional complemenatry median filter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em size} & of the kernel to apply \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_acf5da263331a56f2d28778226bffff62}\label{class_num_cpp_1_1_filters_acf5da263331a56f2d28778226bffff62}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!convolve@{convolve}}
+\index{convolve@{convolve}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{convolve()}{convolve()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::convolve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Weights,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a multidimensional kernel convolution.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html#scipy.ndimage.convolve}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+convolve.\+html\#scipy.\+ndimage.\+convolve}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em square} & size of the kernel to apply \\
+\hline
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}},weights} & \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a46a1e5bc5c88996cd3baf20c8f5a37fc}\label{class_num_cpp_1_1_filters_a46a1e5bc5c88996cd3baf20c8f5a37fc}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!convolve1d@{convolve1d}}
+\index{convolve1d@{convolve1d}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{convolve1d()}{convolve1d()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::convolve1d (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Weights,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a one-\/dimensional kernel convolution.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+convolve1d.\+html\#scipy.\+ndimage.\+convolve1d}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}},weights} & \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_aaeee33ddf95d64d4b4d63530a6918465}\label{class_num_cpp_1_1_filters_aaeee33ddf95d64d4b4d63530a6918465}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!gaussian\+Filter@{gaussian\+Filter}}
+\index{gaussian\+Filter@{gaussian\+Filter}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{gaussian\+Filter()}{gaussianFilter()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::gaussian\+Filter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{double}]{in\+Sigma,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a multidimensional gaussian filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+gaussian\+\_\+filter.\+html\#scipy.\+ndimage.\+gaussian\+\_\+filter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em double,Standard} & deviation for Gaussian kernel \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_aa836b33dc4f3fa552b67ef4ad2e1ee8a}\label{class_num_cpp_1_1_filters_aa836b33dc4f3fa552b67ef4ad2e1ee8a}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!gaussian\+Filter1d@{gaussian\+Filter1d}}
+\index{gaussian\+Filter1d@{gaussian\+Filter1d}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{gaussian\+Filter1d()}{gaussianFilter1d()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::gaussian\+Filter1d (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{double}]{in\+Sigma,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculate a one-\/dimensional gaussian filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+generic\+\_\+filter1d.\+html\#scipy.\+ndimage.\+generic\+\_\+filter1d}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em double,Standard} & deviation for Gaussian kernel \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_ab4d6b31618fbf09fafaa0643f4d6dff7}\label{class_num_cpp_1_1_filters_ab4d6b31618fbf09fafaa0643f4d6dff7}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!maximum\+Filter@{maximum\+Filter}}
+\index{maximum\+Filter@{maximum\+Filter}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{maximum\+Filter()}{maximumFilter()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::maximum\+Filter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a multidimensional maximum filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+maximum\+\_\+filter.\+html\#scipy.\+ndimage.\+maximum\+\_\+filter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em square} & size of the kernel to apply \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a6c52468ff9d827a98dcb02246213fde8}\label{class_num_cpp_1_1_filters_a6c52468ff9d827a98dcb02246213fde8}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!maximum\+Filter1d@{maximum\+Filter1d}}
+\index{maximum\+Filter1d@{maximum\+Filter1d}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{maximum\+Filter1d()}{maximumFilter1d()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::maximum\+Filter1d (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a one-\/dimensional maximum filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter1d.html#scipy.ndimage.maximum_filter1d}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+maximum\+\_\+filter1d.\+html\#scipy.\+ndimage.\+maximum\+\_\+filter1d}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em size} & of the kernel to apply \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a9a1db9fe2ea9457d87f22ec41f93b42f}\label{class_num_cpp_1_1_filters_a9a1db9fe2ea9457d87f22ec41f93b42f}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!median\+Filter@{median\+Filter}}
+\index{median\+Filter@{median\+Filter}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{median\+Filter()}{medianFilter()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::median\+Filter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a multidimensional median filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+median\+\_\+filter.\+html\#scipy.\+ndimage.\+median\+\_\+filter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em square} & size of the kernel to apply \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a74a21b9101a1861aebce8e1c46746b5a}\label{class_num_cpp_1_1_filters_a74a21b9101a1861aebce8e1c46746b5a}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!median\+Filter1d@{median\+Filter1d}}
+\index{median\+Filter1d@{median\+Filter1d}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{median\+Filter1d()}{medianFilter1d()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::median\+Filter1d (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a one-\/dimensional median filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+median\+\_\+filter.\+html\#scipy.\+ndimage.\+median\+\_\+filter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em linear} & size of the kernel to apply \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a274b8b1cf4fd0a5b97716f3c6b1ddecb}\label{class_num_cpp_1_1_filters_a274b8b1cf4fd0a5b97716f3c6b1ddecb}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!minimum\+Filter@{minimum\+Filter}}
+\index{minimum\+Filter@{minimum\+Filter}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{minimum\+Filter()}{minimumFilter()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::minimum\+Filter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a multidimensional minimum filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+minimum\+\_\+filter.\+html\#scipy.\+ndimage.\+minimum\+\_\+filter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em square} & size of the kernel to apply \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a1c91d3519848af5bbbb1e453bf2025f9}\label{class_num_cpp_1_1_filters_a1c91d3519848af5bbbb1e453bf2025f9}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!minumum\+Filter1d@{minumum\+Filter1d}}
+\index{minumum\+Filter1d@{minumum\+Filter1d}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{minumum\+Filter1d()}{minumumFilter1d()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::minumum\+Filter1d (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a one-\/dimensional minumum filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter1d.html#scipy.ndimage.minimum_filter1d}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+minimum\+\_\+filter1d.\+html\#scipy.\+ndimage.\+minimum\+\_\+filter1d}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em size} & of the kernel to apply \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a32b93eea46a6b556e91075ddafde5a85}\label{class_num_cpp_1_1_filters_a32b93eea46a6b556e91075ddafde5a85}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!percentile\+Filter@{percentile\+Filter}}
+\index{percentile\+Filter@{percentile\+Filter}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{percentile\+Filter()}{percentileFilter()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::percentile\+Filter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}}}]{in\+Percentile,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a multidimensional percentile filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+percentile\+\_\+filter.\+html\#scipy.\+ndimage.\+percentile\+\_\+filter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em square} & size of the kernel to apply \\
+\hline
+{\em percentile} & \mbox{[}0, 100\mbox{]} \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a704d8121e62b084daab9143e65a6a4bd}\label{class_num_cpp_1_1_filters_a704d8121e62b084daab9143e65a6a4bd}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!percentile\+Filter1d@{percentile\+Filter1d}}
+\index{percentile\+Filter1d@{percentile\+Filter1d}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{percentile\+Filter1d()}{percentileFilter1d()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::percentile\+Filter1d (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}}}]{in\+Percentile,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a one-\/dimensional percentile filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+percentile\+\_\+filter.\+html\#scipy.\+ndimage.\+percentile\+\_\+filter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em size} & of the kernel to apply \\
+\hline
+{\em percentile} & \mbox{[}0, 100\mbox{]} \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_ad42daee24b305fe657544fab38e0db69}\label{class_num_cpp_1_1_filters_ad42daee24b305fe657544fab38e0db69}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!rank\+Filter@{rank\+Filter}}
+\index{rank\+Filter@{rank\+Filter}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{rank\+Filter()}{rankFilter()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::rank\+Filter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Rank,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a multidimensional rank filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+rank\+\_\+filter.\+html\#scipy.\+ndimage.\+rank\+\_\+filter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em square} & size of the kernel to apply \\
+\hline
+{\em rank} & \mbox{[}0, in\+Size$^\wedge$2 -\/ 1\mbox{]} \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a6be9872f0f62734e6b34ac2f9eb8cca9}\label{class_num_cpp_1_1_filters_a6be9872f0f62734e6b34ac2f9eb8cca9}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!rank\+Filter1d@{rank\+Filter1d}}
+\index{rank\+Filter1d@{rank\+Filter1d}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{rank\+Filter1d()}{rankFilter1d()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::rank\+Filter1d (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{namespace_num_cpp_aee396d0469d6031cd18118c0a45bcdda}{uint8}}}]{in\+Rank,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a one-\/dimensional rank filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+rank\+\_\+filter.\+html\#scipy.\+ndimage.\+rank\+\_\+filter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em size} & of the kernel to apply \\
+\hline
+{\em rank} & \mbox{[}0, 100\mbox{]} \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a69d706ac982b2e50be55e4aee492b427}\label{class_num_cpp_1_1_filters_a69d706ac982b2e50be55e4aee492b427}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!uniform\+Filter@{uniform\+Filter}}
+\index{uniform\+Filter@{uniform\+Filter}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{uniform\+Filter()}{uniformFilter()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::uniform\+Filter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a multidimensional uniform filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+uniform\+\_\+filter.\+html\#scipy.\+ndimage.\+uniform\+\_\+filter}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em square} & size of the kernel to apply \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_filters_a29b685f383ddecbfac2a5b67de7592ba}\label{class_num_cpp_1_1_filters_a29b685f383ddecbfac2a5b67de7592ba}} 
+\index{Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}!uniform\+Filter1d@{uniform\+Filter1d}}
+\index{uniform\+Filter1d@{uniform\+Filter1d}!Num\+Cpp\+::\+Filters@{Num\+Cpp\+::\+Filters}}
+\subsubsection{\texorpdfstring{uniform\+Filter1d()}{uniformFilter1d()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$dtype$>$ \mbox{\hyperlink{class_num_cpp_1_1_filters}{Num\+Cpp\+::\+Filters}}$<$ dtype $>$\+::uniform\+Filter1d (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Image\+Array,  }\item[{\mbox{\hyperlink{namespace_num_cpp_a36f388e948380413c63011cab9b7fbd5}{uint32}}}]{in\+Size,  }\item[{\mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081}{Filter\+::\+Boundary\+::\+Mode}}}]{in\+Mode = {\ttfamily \mbox{\hyperlink{struct_num_cpp_1_1_filter_1_1_boundary_a3fb520b67d524104db12ceef41adf081ad0d71a6dafb7ae1e96441e3f9f7aced8}{Filter\+::\+Boundary\+::\+R\+E\+F\+L\+E\+CT}}},  }\item[{dtype}]{in\+Constant\+Value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Calculates a one-\/dimensional uniform filter.
+
+Sci\+Py Reference\+: \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d}{\tt https\+://docs.\+scipy.\+org/doc/scipy/reference/generated/scipy.\+ndimage.\+uniform\+\_\+filter1d.\+html\#scipy.\+ndimage.\+uniform\+\_\+filter1d}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+{\em size} & of the kernel to apply \\
+\hline
+{\em boundary} & mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) \\
+\hline
+{\em contant} & value if boundary = \textquotesingle{}constant\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_filter_8hpp}{Filter.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,25 @@
+var class_num_cpp_1_1_coordinates_1_1_coordinate =
+[
+    [ "Coordinate", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#acd7f14b8d7baab313c6a195dfce7bae1", null ],
+    [ "Coordinate", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#ac26745663fdd7450516d8ee37237a423", null ],
+    [ "Coordinate", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#af52fdaf1bc6730e14f5a415464453a80", null ],
+    [ "Coordinate", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#abf3318419f11eded03ac85832b827ef6", null ],
+    [ "Coordinate", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#ab8599520ca046b0c97647ffeeec6b80f", null ],
+    [ "Coordinate", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a93f3a7f7a77b657367a77fdafc7aee73", null ],
+    [ "astype", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a3c39deb9386e4e1d6ed9138ff592660c", null ],
+    [ "dec", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a3366db15458260cfc4f44330d0fc27bc", null ],
+    [ "degreeSeperation", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a00a50c0182dc1e7a3bee136055f133aa", null ],
+    [ "degreeSeperation", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a3e9c20dfa5ec3045f746344542c06e81", null ],
+    [ "operator!=", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a0dcc2f1285e939100e6e55d3fa6b1a61", null ],
+    [ "operator==", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#ab45610b5c1480afe554ee58bc86990af", null ],
+    [ "print", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a01e9d9db5cdb57678f4aede1939214cf", null ],
+    [ "ra", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a87ab8065c93fc089e95b43510e3fab94", null ],
+    [ "radianSeperation", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a8f875954a12c27848e494507bfda4b22", null ],
+    [ "radianSeperation", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#ac23fb1e36d5b3b090dd1188dd4ce174c", null ],
+    [ "str", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a415be42fdb49cb3e573a9492a15c88e0", null ],
+    [ "x", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a6f50cd856484c4a08e376970c58820b4", null ],
+    [ "xyz", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a17960f2fcadf941cbfaa8c38aa26c07d", null ],
+    [ "y", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a913147d914b6435aee56a266e0148cbe", null ],
+    [ "z", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#a1ae1746da7602f619eef958552ffd743", null ],
+    [ "operator<<", "class_num_cpp_1_1_coordinates_1_1_coordinate.html#aa5a56295ef46edb54bf7fdafb169c081", null ]
+];

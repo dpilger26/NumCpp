@@ -1,0 +1,131 @@
+\hypertarget{class_num_cpp_1_1_timer}{}\section{Num\+Cpp\+:\+:Timer$<$ Time\+Unit $>$ Class Template Reference}
+\label{class_num_cpp_1_1_timer}\index{Num\+Cpp\+::\+Timer$<$ Time\+Unit $>$@{Num\+Cpp\+::\+Timer$<$ Time\+Unit $>$}}
+
+
+A timer class for timing code execution.  
+
+
+
+
+{\ttfamily \#include $<$Timer.\+hpp$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::chrono\+::high\+\_\+resolution\+\_\+clock \mbox{\hyperlink{class_num_cpp_1_1_timer_aa3bbbc8ee01812af652336ea2b7a1fe2}{Chrono\+Clock}}
+\item 
+typedef std\+::chrono\+::time\+\_\+point$<$ \mbox{\hyperlink{class_num_cpp_1_1_timer_aa3bbbc8ee01812af652336ea2b7a1fe2}{Chrono\+Clock}} $>$ \mbox{\hyperlink{class_num_cpp_1_1_timer_a8539a1471597c9cc517a5043c425bbf5}{Time\+Point}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_timer_a87d3101750d6d321b01bfbbaaae6c1b6}{Timer}} ()
+\item 
+\mbox{\hyperlink{class_num_cpp_1_1_timer_a36945c44c530ddd72ae0264909dff7d9}{Timer}} (const std\+::string \&in\+Name)
+\item 
+void \mbox{\hyperlink{class_num_cpp_1_1_timer_a03288816968f855e4e755f35f1f82f85}{tic}} ()
+\item 
+\mbox{\hyperlink{namespace_num_cpp_a22e530c7304044b86c04203429f3dcd1}{int64}} \mbox{\hyperlink{class_num_cpp_1_1_timer_a73fdacd0e0dde0812d9c2dac05b7f051}{toc}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Time\+Unit = std\+::chrono\+::milliseconds$>$\newline
+class Num\+Cpp\+::\+Timer$<$ Time\+Unit $>$}
+
+A timer class for timing code execution. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_timer_aa3bbbc8ee01812af652336ea2b7a1fe2}\label{class_num_cpp_1_1_timer_aa3bbbc8ee01812af652336ea2b7a1fe2}} 
+\index{Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}!Chrono\+Clock@{Chrono\+Clock}}
+\index{Chrono\+Clock@{Chrono\+Clock}!Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}}
+\subsubsection{\texorpdfstring{Chrono\+Clock}{ChronoClock}}
+{\footnotesize\ttfamily template$<$typename Time\+Unit  = std\+::chrono\+::milliseconds$>$ \\
+typedef std\+::chrono\+::high\+\_\+resolution\+\_\+clock \mbox{\hyperlink{class_num_cpp_1_1_timer}{Num\+Cpp\+::\+Timer}}$<$ Time\+Unit $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_timer_aa3bbbc8ee01812af652336ea2b7a1fe2}{Chrono\+Clock}}}
+
+\mbox{\Hypertarget{class_num_cpp_1_1_timer_a8539a1471597c9cc517a5043c425bbf5}\label{class_num_cpp_1_1_timer_a8539a1471597c9cc517a5043c425bbf5}} 
+\index{Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}!Time\+Point@{Time\+Point}}
+\index{Time\+Point@{Time\+Point}!Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}}
+\subsubsection{\texorpdfstring{Time\+Point}{TimePoint}}
+{\footnotesize\ttfamily template$<$typename Time\+Unit  = std\+::chrono\+::milliseconds$>$ \\
+typedef std\+::chrono\+::time\+\_\+point$<$\mbox{\hyperlink{class_num_cpp_1_1_timer_aa3bbbc8ee01812af652336ea2b7a1fe2}{Chrono\+Clock}}$>$ \mbox{\hyperlink{class_num_cpp_1_1_timer}{Num\+Cpp\+::\+Timer}}$<$ Time\+Unit $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_timer_a8539a1471597c9cc517a5043c425bbf5}{Time\+Point}}}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_timer_a87d3101750d6d321b01bfbbaaae6c1b6}\label{class_num_cpp_1_1_timer_a87d3101750d6d321b01bfbbaaae6c1b6}} 
+\index{Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}!Timer@{Timer}}
+\index{Timer@{Timer}!Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}}
+\subsubsection{\texorpdfstring{Timer()}{Timer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Time\+Unit  = std\+::chrono\+::milliseconds$>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_timer}{Num\+Cpp\+::\+Timer}}$<$ Time\+Unit $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_timer}{Timer}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_timer_a36945c44c530ddd72ae0264909dff7d9}\label{class_num_cpp_1_1_timer_a36945c44c530ddd72ae0264909dff7d9}} 
+\index{Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}!Timer@{Timer}}
+\index{Timer@{Timer}!Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}}
+\subsubsection{\texorpdfstring{Timer()}{Timer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Time\+Unit  = std\+::chrono\+::milliseconds$>$ \\
+\mbox{\hyperlink{class_num_cpp_1_1_timer}{Num\+Cpp\+::\+Timer}}$<$ Time\+Unit $>$\+::\mbox{\hyperlink{class_num_cpp_1_1_timer}{Timer}} (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{in\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_timer}{Timer}}} & name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_timer_a03288816968f855e4e755f35f1f82f85}\label{class_num_cpp_1_1_timer_a03288816968f855e4e755f35f1f82f85}} 
+\index{Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}!tic@{tic}}
+\index{tic@{tic}!Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}}
+\subsubsection{\texorpdfstring{tic()}{tic()}}
+{\footnotesize\ttfamily template$<$typename Time\+Unit  = std\+::chrono\+::milliseconds$>$ \\
+void \mbox{\hyperlink{class_num_cpp_1_1_timer}{Num\+Cpp\+::\+Timer}}$<$ Time\+Unit $>$\+::tic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Starts the timer
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_timer_a73fdacd0e0dde0812d9c2dac05b7f051}\label{class_num_cpp_1_1_timer_a73fdacd0e0dde0812d9c2dac05b7f051}} 
+\index{Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}!toc@{toc}}
+\index{toc@{toc}!Num\+Cpp\+::\+Timer@{Num\+Cpp\+::\+Timer}}
+\subsubsection{\texorpdfstring{toc()}{toc()}}
+{\footnotesize\ttfamily template$<$typename Time\+Unit  = std\+::chrono\+::milliseconds$>$ \\
+\mbox{\hyperlink{namespace_num_cpp_a22e530c7304044b86c04203429f3dcd1}{int64}} \mbox{\hyperlink{class_num_cpp_1_1_timer}{Num\+Cpp\+::\+Timer}}$<$ Time\+Unit $>$\+::toc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Method Description\+: Stops the timer
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ellapsed time in specified time units 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_timer_8hpp}{Timer.\+hpp}}\end{DoxyCompactItemize}

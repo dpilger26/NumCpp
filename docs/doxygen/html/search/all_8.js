@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['hat',['hat',['../class_num_c_1_1_linalg.html#a8819524018933c08f89f86ddda3f6779',1,'NumC::Linalg::hat(dtype inX, dtype inY, dtype inZ)'],['../class_num_c_1_1_linalg.html#adb223dd51b52f44b942bcddd1717bba8',1,'NumC::Linalg::hat(const NdArray&lt; dtype &gt; &amp;inVec)']]],
-  ['height',['height',['../class_num_c_1_1_image_processing_1_1_cluster.html#a4b09031519932642dced2e943c5ce6d6',1,'NumC::ImageProcessing::Cluster']]],
-  ['histogram',['histogram',['../class_num_c_1_1_methods.html#ad917b9a5e104eba005dc92e010ad3c97',1,'NumC::Methods']]],
-  ['hours',['hours',['../class_num_c_1_1_coordinates_1_1_r_a.html#a85d46e5a7b720aaf60fcf424c0d303e6',1,'NumC::Coordinates::RA']]],
-  ['hours_5fper_5fday',['HOURS_PER_DAY',['../namespace_num_c_1_1_constants.html#a56c169b380c3327b81d5c10f9ae8cc09',1,'NumC::Constants']]],
-  ['hstack',['hstack',['../class_num_c_1_1_methods.html#adac3d17bfc14c569a406c313a2d72351',1,'NumC::Methods']]],
-  ['hypot',['hypot',['../class_num_c_1_1_methods.html#acb958fe14081adb2a7c0eb1c94c15186',1,'NumC::Methods::hypot(dtype inValue1, dtype inValue2)'],['../class_num_c_1_1_methods.html#a6300cbd327f64eeb9c3fe3e61daaf252',1,'NumC::Methods::hypot(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]]
+  ['hat',['hat',['../class_num_cpp_1_1_linalg.html#a232f2a1ab68c5b26411b12b59ef4a521',1,'NumCpp::Linalg::hat(dtype inX, dtype inY, dtype inZ)'],['../class_num_cpp_1_1_linalg.html#aac0a291ef1c7fb178530b432405d331c',1,'NumCpp::Linalg::hat(const NdArray&lt; dtype &gt; &amp;inVec)']]],
+  ['height',['height',['../class_num_cpp_1_1_image_processing_1_1_cluster.html#a342ed01e86ca4394d63c725391ebaa3b',1,'NumCpp::ImageProcessing::Cluster']]],
+  ['histogram',['histogram',['../class_num_cpp_1_1_methods.html#a434dcb34afcbf0a818f8bd5df4e7deb4',1,'NumCpp::Methods']]],
+  ['hours',['hours',['../class_num_cpp_1_1_coordinates_1_1_r_a.html#a2435ddac71ce32ebe112a5a3d0438df7',1,'NumCpp::Coordinates::RA']]],
+  ['hours_5fper_5fday',['HOURS_PER_DAY',['../namespace_num_cpp_1_1_constants.html#ae310d2531577c64d5fdea2da035cc1cd',1,'NumCpp::Constants']]],
+  ['hstack',['hstack',['../class_num_cpp_1_1_methods.html#a7d0c7a43a66395345544902666537b26',1,'NumCpp::Methods']]],
+  ['hypot',['hypot',['../class_num_cpp_1_1_methods.html#a80a69637667269c53c4e61b6b2517586',1,'NumCpp::Methods::hypot(dtype inValue1, dtype inValue2)'],['../class_num_cpp_1_1_methods.html#ac3ab6542753d0c3af04ba819c83bb5d2',1,'NumCpp::Methods::hypot(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]]
 ];

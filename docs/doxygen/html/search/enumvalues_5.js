@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['native',['NATIVE',['../struct_num_c_1_1_endian.html#ab667001489f67f8a96f328f0a9c351faa2a005e0131df4be2a90ba50ab355cef0',1,'NumC::Endian']]],
-  ['nearest',['NEAREST',['../struct_num_c_1_1_filter_1_1_boundary.html#a20ccfbf059139a99eda623c1550a27e3ad1f9e362171b0c789acf9268055fa060',1,'NumC::Filter::Boundary']]],
-  ['negative',['NEGATIVE',['../struct_num_c_1_1_coordinates_1_1_sign.html#a915938d7fce678936d8728ca14a70e22a1accb4ea5527ad47f8edbfe574e61c93',1,'NumC::Coordinates::Sign']]],
-  ['none',['NONE',['../struct_num_c_1_1_axis.html#a8e689044ef1941a03482e730c5e7ebb3a0ae033c4226f7184bf0050b101e7ed94',1,'NumC::Axis']]]
+  ['native',['NATIVE',['../struct_num_cpp_1_1_endian.html#a4b4f3e02f68302be202402f5d5501445af10d74f29f26ec78c2dd20f261b53393',1,'NumCpp::Endian']]],
+  ['nearest',['NEAREST',['../struct_num_cpp_1_1_filter_1_1_boundary.html#a3fb520b67d524104db12ceef41adf081a98fedee0b1875b2e6f97b3db624490d4',1,'NumCpp::Filter::Boundary']]],
+  ['negative',['NEGATIVE',['../struct_num_cpp_1_1_coordinates_1_1_sign.html#a6ef8423d5e83675773c2d4f32490e04ba1e7d6094d2b86466b2aea4cd12a70dc3',1,'NumCpp::Coordinates::Sign']]],
+  ['none',['NONE',['../struct_num_cpp_1_1_axis.html#ac10eb76f8631762d9ed70c40c42ca6cba747ae657022cca1d87702b56d0c038e9',1,'NumCpp::Axis']]]
 ];

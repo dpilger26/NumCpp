@@ -1,0 +1,125 @@
+\hypertarget{class_num_cpp_1_1_rotations_1_1_d_c_m}{}\section{Num\+Cpp\+:\+:Rotations\+:\+:D\+CM$<$ dtype $>$ Class Template Reference}
+\label{class_num_cpp_1_1_rotations_1_1_d_c_m}\index{Num\+Cpp\+::\+Rotations\+::\+D\+C\+M$<$ dtype $>$@{Num\+Cpp\+::\+Rotations\+::\+D\+C\+M$<$ dtype $>$}}
+
+
+Factory methods for generating direction cosine matrices and vectors.  
+
+
+
+
+{\ttfamily \#include $<$Rotations.\+hpp$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_d_c_m_a3d75bbc08842f49beeb41be7eb1f7c1b}{angle\+Axis\+Rotation}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Array, double in\+Angle)
+\item 
+static bool \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_d_c_m_a2173648fd6088e1ef98de97f7131cbac}{is\+Valid}} (const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&in\+Array)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_d_c_m_aa8a963c18f3dde1fa4fd37f5dd1d976e}{x\+Rotation}} (double in\+Angle)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_d_c_m_a7843801d5e1f9cb57cbf152205a44bb5}{y\+Rotation}} (double in\+Angle)
+\item 
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ double $>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_d_c_m_aaa05c16ece645e72d8396a73bf2a6e32}{z\+Rotation}} (double in\+Angle)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename dtype$>$\newline
+class Num\+Cpp\+::\+Rotations\+::\+D\+C\+M$<$ dtype $>$}
+
+Factory methods for generating direction cosine matrices and vectors. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_d_c_m_a3d75bbc08842f49beeb41be7eb1f7c1b}\label{class_num_cpp_1_1_rotations_1_1_d_c_m_a3d75bbc08842f49beeb41be7eb1f7c1b}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+D\+CM@{Num\+Cpp\+::\+Rotations\+::\+D\+CM}!angle\+Axis\+Rotation@{angle\+Axis\+Rotation}}
+\index{angle\+Axis\+Rotation@{angle\+Axis\+Rotation}!Num\+Cpp\+::\+Rotations\+::\+D\+CM@{Num\+Cpp\+::\+Rotations\+::\+D\+CM}}
+\subsubsection{\texorpdfstring{angle\+Axis\+Rotation()}{angleAxisRotation()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$double$>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_d_c_m}{Num\+Cpp\+::\+Rotations\+::\+D\+CM}}$<$ dtype $>$\+::angle\+Axis\+Rotation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Array,  }\item[{double}]{in\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+returns a direction cosine matrix that rotates about the input axis by the input angle
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}},cartesian} & vector with x,y,z \\
+\hline
+{\em rotation} & angle, in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_d_c_m_a2173648fd6088e1ef98de97f7131cbac}\label{class_num_cpp_1_1_rotations_1_1_d_c_m_a2173648fd6088e1ef98de97f7131cbac}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+D\+CM@{Num\+Cpp\+::\+Rotations\+::\+D\+CM}!is\+Valid@{is\+Valid}}
+\index{is\+Valid@{is\+Valid}!Num\+Cpp\+::\+Rotations\+::\+D\+CM@{Num\+Cpp\+::\+Rotations\+::\+D\+CM}}
+\subsubsection{\texorpdfstring{is\+Valid()}{isValid()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static bool \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_d_c_m}{Num\+Cpp\+::\+Rotations\+::\+D\+CM}}$<$ dtype $>$\+::is\+Valid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$ dtype $>$ \&}]{in\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+returns whether the input array is a direction cosine matrix
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_d_c_m_aa8a963c18f3dde1fa4fd37f5dd1d976e}\label{class_num_cpp_1_1_rotations_1_1_d_c_m_aa8a963c18f3dde1fa4fd37f5dd1d976e}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+D\+CM@{Num\+Cpp\+::\+Rotations\+::\+D\+CM}!x\+Rotation@{x\+Rotation}}
+\index{x\+Rotation@{x\+Rotation}!Num\+Cpp\+::\+Rotations\+::\+D\+CM@{Num\+Cpp\+::\+Rotations\+::\+D\+CM}}
+\subsubsection{\texorpdfstring{x\+Rotation()}{xRotation()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$double$>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_d_c_m}{Num\+Cpp\+::\+Rotations\+::\+D\+CM}}$<$ dtype $>$\+::x\+Rotation (\begin{DoxyParamCaption}\item[{double}]{in\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+returns a direction cosine matrix that rotates about the x axis by the input angle
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & angle, in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_d_c_m_a7843801d5e1f9cb57cbf152205a44bb5}\label{class_num_cpp_1_1_rotations_1_1_d_c_m_a7843801d5e1f9cb57cbf152205a44bb5}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+D\+CM@{Num\+Cpp\+::\+Rotations\+::\+D\+CM}!y\+Rotation@{y\+Rotation}}
+\index{y\+Rotation@{y\+Rotation}!Num\+Cpp\+::\+Rotations\+::\+D\+CM@{Num\+Cpp\+::\+Rotations\+::\+D\+CM}}
+\subsubsection{\texorpdfstring{y\+Rotation()}{yRotation()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$double$>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_d_c_m}{Num\+Cpp\+::\+Rotations\+::\+D\+CM}}$<$ dtype $>$\+::y\+Rotation (\begin{DoxyParamCaption}\item[{double}]{in\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+returns a direction cosine matrix that rotates about the x axis by the input angle
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & angle, in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_num_cpp_1_1_rotations_1_1_d_c_m_aaa05c16ece645e72d8396a73bf2a6e32}\label{class_num_cpp_1_1_rotations_1_1_d_c_m_aaa05c16ece645e72d8396a73bf2a6e32}} 
+\index{Num\+Cpp\+::\+Rotations\+::\+D\+CM@{Num\+Cpp\+::\+Rotations\+::\+D\+CM}!z\+Rotation@{z\+Rotation}}
+\index{z\+Rotation@{z\+Rotation}!Num\+Cpp\+::\+Rotations\+::\+D\+CM@{Num\+Cpp\+::\+Rotations\+::\+D\+CM}}
+\subsubsection{\texorpdfstring{z\+Rotation()}{zRotation()}}
+{\footnotesize\ttfamily template$<$typename dtype $>$ \\
+static \mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}}$<$double$>$ \mbox{\hyperlink{class_num_cpp_1_1_rotations_1_1_d_c_m}{Num\+Cpp\+::\+Rotations\+::\+D\+CM}}$<$ dtype $>$\+::z\+Rotation (\begin{DoxyParamCaption}\item[{double}]{in\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+returns a direction cosine matrix that rotates about the x axis by the input angle
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & angle, in radians \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_num_cpp_1_1_nd_array}{Nd\+Array}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_rotations_8hpp}{Rotations.\+hpp}}\end{DoxyCompactItemize}

@@ -63,18 +63,18 @@
 					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.1497121127." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.base.154263488" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.base">
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.PE" id="cdt.managedbuild.target.gnu.platform.mingw.base.249292232" name="Debug Platform" osList="win32" superClass="cdt.managedbuild.target.gnu.platform.mingw.base"/>
-							<builder buildPath="${workspace_loc:/TestBuild}/Release" id="cdt.managedbuild.builder.gnu.cross.1523328055" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/TestBuild}/Release" id="cdt.managedbuild.builder.gnu.cross.1523328055" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.mingw.base.836516799" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.base">
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1833718705" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.64991766" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.78744650" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base">
-								<option id="gnu.cpp.compiler.option.include.paths.144779852" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+								<option id="gnu.cpp.compiler.option.include.paths.144779852" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;C:\Users\pilgeda\Documents\GitHub\NumC\src&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${BOOST_INCLUDES}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${PYTHON_INCLUDES}&quot;"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.preprocessor.def.1995177737" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
+								<option id="gnu.cpp.compiler.option.preprocessor.def.1995177737" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="&quot;MS_WIN64&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;Py_TRACE_DEFS&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;BOOST_PYTHON3_STATIC_LIB&quot;"/>
@@ -82,26 +82,28 @@
 									<listOptionValue builtIn="false" value="&quot;BOOST_FILESYSTEM_STATIC_LIB&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;BOOST_SYSTEM_STATIC_LIB&quot;"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.optimization.level.679918732" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.option.debugging.level.997177229" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.optimization.level.679918732" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.debugging.level.997177229" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.891727991" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.mingw.base.287347001" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.base">
-								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1910346844" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.debugging.level.1963777499" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1910346844" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.debugging.level.1963777499" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1675586303" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="MS_WIN64"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1852568440" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.base.1444403481" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.base.1967183495" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.base">
-								<option id="gnu.cpp.link.option.libs.188546509" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
-									<listOptionValue builtIn="false" value="&quot;python3&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;python36&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;boost_filesystem-mgw63-mt-1_63&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;boost_system-mgw63-mt-1_63&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;boost_python3-mgw63-mt-1_63&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;boost_numpy3-mgw63-mt-1_63&quot;"/>
+								<option id="gnu.cpp.link.option.libs.188546509" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="python36"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_filesystem-mgw63-mt-1_63"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_system-mgw63-mt-1_63"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_python3-mgw63-mt-1_63"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="boost_numpy3-mgw63-mt-1_63"/>
 								</option>
-								<option id="gnu.cpp.link.option.paths.1443136200" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
+								<option id="gnu.cpp.link.option.paths.1443136200" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;C:\libs\boost_1_63_0\stage\gnu\lib&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\Users\pilgeda\Anaconda3\libs&quot;"/>
 								</option>
@@ -122,6 +124,14 @@
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/TestBuild"/>
+		</configuration>
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/TestBuild"/>
+		</configuration>
+	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.1497121127;cdt.managedbuild.config.gnu.cross.exe.release.1497121127.;cdt.managedbuild.tool.gnu.cross.c.compiler.422654958;cdt.managedbuild.tool.gnu.c.compiler.input.1133097392">
@@ -139,16 +149,14 @@
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.1497121127;cdt.managedbuild.config.gnu.cross.exe.release.1497121127.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.1206324474;cdt.managedbuild.tool.gnu.cpp.compiler.input.2044154198">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.1497121127;cdt.managedbuild.config.gnu.cross.exe.release.1497121127.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.78744650;cdt.managedbuild.tool.gnu.cpp.compiler.input.891727991">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.1497121127;cdt.managedbuild.config.gnu.cross.exe.release.1497121127.;cdt.managedbuild.tool.gnu.c.compiler.mingw.base.287347001;cdt.managedbuild.tool.gnu.c.compiler.input.1852568440">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.1497121127;cdt.managedbuild.config.gnu.cross.exe.release.1497121127.;cdt.managedbuild.tool.gnu.cross.cpp.compiler.1463146763;cdt.managedbuild.tool.gnu.cpp.compiler.input.1779838274">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
-	</storageModule>
-	<storageModule moduleId="refreshScope" versionNumber="2">
-		<configuration configurationName="Debug">
-			<resource resourceType="PROJECT" workspacePath="/TestBuild"/>
-		</configuration>
-		<configuration configurationName="Release">
-			<resource resourceType="PROJECT" workspacePath="/TestBuild"/>
-		</configuration>
 	</storageModule>
 </cproject>

@@ -1,18 +1,18 @@
 var searchData=
 [
-  ['e',['e',['../namespace_num_c_1_1_constants.html#ad23ede271b96029153a807d9ddf4f795',1,'NumC::Constants']]],
-  ['empty',['empty',['../class_num_c_1_1_methods.html#a063fc918fa921e5e306e7ae6824e4acc',1,'NumC::Methods::empty(uint32 inNumRows, uint32 inNumCols)'],['../class_num_c_1_1_methods.html#af65a5db2f72174e29cf5bf2c6204cd50',1,'NumC::Methods::empty(const Shape &amp;inShape)']]],
-  ['empty_5flike',['empty_like',['../class_num_c_1_1_methods.html#a02df3dbafbd250a9d60ad4225b171260',1,'NumC::Methods']]],
-  ['end',['end',['../class_num_c_1_1_data_cube.html#ac80a462829f04d482f44cb38678f9cce',1,'NumC::DataCube::end()'],['../class_num_c_1_1_image_processing_1_1_cluster.html#ad3ac71a698ea0bbcc1fc5f71b4dc4eb7',1,'NumC::ImageProcessing::Cluster::end()'],['../class_num_c_1_1_nd_array.html#abe62fb75f8608717d211997f86d73735',1,'NumC::NdArray::end()'],['../class_num_c_1_1_nd_array.html#a9d80422e72f05dc0af9945ee091ae261',1,'NumC::NdArray::end(uint32 inRow)']]],
-  ['endian',['Endian',['../struct_num_c_1_1_endian.html',1,'NumC']]],
-  ['endianess',['endianess',['../class_num_c_1_1_methods.html#aa1ae8e60f4cd4a8b866d3754dd174b55',1,'NumC::Methods::endianess()'],['../class_num_c_1_1_nd_array.html#acb277ffe6553d9c77f2c86e62fe96945',1,'NumC::NdArray::endianess()']]],
-  ['eod',['eod',['../class_num_c_1_1_image_processing_1_1_cluster.html#ad1816507512dc817b9e3619ff482c9ed',1,'NumC::ImageProcessing::Cluster::eod()'],['../class_num_c_1_1_image_processing_1_1_centroid.html#ac5ac656c68e5c1419a4404d507eeee21',1,'NumC::ImageProcessing::Centroid::eod()']]],
-  ['epsilon',['epsilon',['../class_num_c_1_1_dtype_info.html#a2f1d9e60fc1d2d64a69d4012ec72c43b',1,'NumC::DtypeInfo']]],
-  ['equal',['equal',['../class_num_c_1_1_methods.html#a91a28e723b0eae5798fd6803f9dbfe39',1,'NumC::Methods']]],
-  ['exp',['exp',['../class_num_c_1_1_methods.html#a7e5add4fd87dd253607e2f33011cec40',1,'NumC::Methods::exp(dtype inValue)'],['../class_num_c_1_1_methods.html#a72d5dd254f9ab9376b0fafc1ceac9faa',1,'NumC::Methods::exp(const NdArray&lt; dtype &gt; &amp;inArray)']]],
-  ['exp2',['exp2',['../class_num_c_1_1_methods.html#ace1ecf1732e83a0a9fc51b628d0ad530',1,'NumC::Methods::exp2(dtype inValue)'],['../class_num_c_1_1_methods.html#a3efb19ecca4b385ed51359605c0576fd',1,'NumC::Methods::exp2(const NdArray&lt; dtype &gt; &amp;inArray)']]],
-  ['expm1',['expm1',['../class_num_c_1_1_methods.html#ad5fce0ebf501ab0ecdbeeaf23db50ec5',1,'NumC::Methods::expm1(dtype inValue)'],['../class_num_c_1_1_methods.html#a73a0a58c022833512c8a245d02a086ee',1,'NumC::Methods::expm1(const NdArray&lt; dtype &gt; &amp;inArray)']]],
-  ['exponential',['exponential',['../class_num_c_1_1_random.html#a273099f8fa5566522f4904d57a5f5ab3',1,'NumC::Random']]],
-  ['extremevalue',['extremeValue',['../class_num_c_1_1_random.html#a59bba8b4a7962b501af9b3e4f125e88e',1,'NumC::Random']]],
-  ['eye',['eye',['../class_num_c_1_1_methods.html#afb40d3ad6c15a2e748d7334b71affadb',1,'NumC::Methods::eye(uint32 inN, int32 inK=0)'],['../class_num_c_1_1_methods.html#a388e1aab07320b1c3e8311eee149727b',1,'NumC::Methods::eye(uint32 inN, uint32 inM, int32 inK=0)'],['../class_num_c_1_1_methods.html#a7be0936fdf59540fd8b0ffac358cd3d3',1,'NumC::Methods::eye(const Shape &amp;inShape, int32 inK=0)']]]
+  ['e',['e',['../namespace_num_cpp_1_1_constants.html#a4e37443f31ad7709dc9a87d4f57c1771',1,'NumCpp::Constants']]],
+  ['empty',['empty',['../class_num_cpp_1_1_methods.html#a1f646a32fff4d0f47e94c49e1d629228',1,'NumCpp::Methods::empty(uint32 inNumRows, uint32 inNumCols)'],['../class_num_cpp_1_1_methods.html#accd58078ccfef0ad04afc9460b779386',1,'NumCpp::Methods::empty(const Shape &amp;inShape)']]],
+  ['empty_5flike',['empty_like',['../class_num_cpp_1_1_methods.html#af30e7b0e72780b26d1de7f763205e811',1,'NumCpp::Methods']]],
+  ['end',['end',['../class_num_cpp_1_1_data_cube.html#a8664c89b7134dcc64d9eb0d9c9f3f8c1',1,'NumCpp::DataCube::end()'],['../class_num_cpp_1_1_image_processing_1_1_cluster.html#af796051228091567f23e5c86e87680af',1,'NumCpp::ImageProcessing::Cluster::end()'],['../class_num_cpp_1_1_nd_array.html#a7c6dfc0aa51f8e7347e84e7a9cca9e5c',1,'NumCpp::NdArray::end()'],['../class_num_cpp_1_1_nd_array.html#aedaf352bf0f00435ab5fdedb9ac87e96',1,'NumCpp::NdArray::end(uint32 inRow)']]],
+  ['endian',['Endian',['../struct_num_cpp_1_1_endian.html',1,'NumCpp']]],
+  ['endianess',['endianess',['../class_num_cpp_1_1_methods.html#a21468e16e462295627908db5693019a8',1,'NumCpp::Methods::endianess()'],['../class_num_cpp_1_1_nd_array.html#a993056fafbb30dbbab8957496a5226be',1,'NumCpp::NdArray::endianess()']]],
+  ['eod',['eod',['../class_num_cpp_1_1_image_processing_1_1_cluster.html#a94b1532f666e9413fe34406763ef8173',1,'NumCpp::ImageProcessing::Cluster::eod()'],['../class_num_cpp_1_1_image_processing_1_1_centroid.html#a770b6454957dbf2615522d14e4aa57f2',1,'NumCpp::ImageProcessing::Centroid::eod()']]],
+  ['epsilon',['epsilon',['../class_num_cpp_1_1_dtype_info.html#a1afd447920d6512f6d3e7acdc08cfca6',1,'NumCpp::DtypeInfo']]],
+  ['equal',['equal',['../class_num_cpp_1_1_methods.html#a7936ead85d2fec1b586077701dba59e0',1,'NumCpp::Methods']]],
+  ['exp',['exp',['../class_num_cpp_1_1_methods.html#a414654d7f8ed04914efb438e489e70d1',1,'NumCpp::Methods::exp(dtype inValue)'],['../class_num_cpp_1_1_methods.html#a9b875ea474b03cb9aeffd350556781e6',1,'NumCpp::Methods::exp(const NdArray&lt; dtype &gt; &amp;inArray)']]],
+  ['exp2',['exp2',['../class_num_cpp_1_1_methods.html#a5dbe32d6f6df33577e895db457bfc7d4',1,'NumCpp::Methods::exp2(dtype inValue)'],['../class_num_cpp_1_1_methods.html#ae1e08626575755cfca70f75f7e974410',1,'NumCpp::Methods::exp2(const NdArray&lt; dtype &gt; &amp;inArray)']]],
+  ['expm1',['expm1',['../class_num_cpp_1_1_methods.html#a1a7fbb6aebddc916e1f8d216c1fb6b0a',1,'NumCpp::Methods::expm1(dtype inValue)'],['../class_num_cpp_1_1_methods.html#aa144898db4d9a4367fe61317f8947d00',1,'NumCpp::Methods::expm1(const NdArray&lt; dtype &gt; &amp;inArray)']]],
+  ['exponential',['exponential',['../class_num_cpp_1_1_random.html#a162470de82f3b80cf65c28e2b7a8da1b',1,'NumCpp::Random']]],
+  ['extremevalue',['extremeValue',['../class_num_cpp_1_1_random.html#a39db310b18bc4409c352462fe0b302b0',1,'NumCpp::Random']]],
+  ['eye',['eye',['../class_num_cpp_1_1_methods.html#ad442aff83913b34b339b4f0e78451fde',1,'NumCpp::Methods::eye(uint32 inN, int32 inK=0)'],['../class_num_cpp_1_1_methods.html#a9f1b30094ce36c53d367bfe688686b6f',1,'NumCpp::Methods::eye(uint32 inN, uint32 inM, int32 inK=0)'],['../class_num_cpp_1_1_methods.html#af4aa16804af2d3fb72c144352e357822',1,'NumCpp::Methods::eye(const Shape &amp;inShape, int32 inK=0)']]]
 ];
