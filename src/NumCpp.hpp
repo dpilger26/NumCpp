@@ -37,7 +37,9 @@
 #define _CRT_SECURE_NO_WARNINGS // for fopen with Visual Studio
 #endif
 
+#ifdef INCLUDE_PYTHON_INTERFACE
 #include"NumCpp/BoostNumpyNdarrayHelper.hpp"
+#endif
 #include"NumCpp/Constants.hpp"
 #include"NumCpp/Coordinates.hpp"
 #include"NumCpp/DataCube.hpp"
