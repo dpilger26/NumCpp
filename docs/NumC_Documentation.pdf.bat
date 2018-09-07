@@ -1,1 +1,0 @@
-%windir%/explorer.exe ".\doxygen\latex\refman.pdf"
