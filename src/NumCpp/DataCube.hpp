@@ -40,7 +40,7 @@
 namespace NumCpp
 {
     //================================================================================
-    ///						Convience container for holding a uniform array of NdArrays
+    ///						Convenience container for holding a uniform array of NdArrays
     template<typename dtype>
     class DataCube
     {
@@ -51,8 +51,8 @@ namespace NumCpp
 
     private:
         //================================Attributes==================================
-        std::deque<NdArray<dtype> >  cube_;
-        Shape                       elementShape_;
+        std::deque<NdArray<dtype> >     cube_;
+        Shape                           elementShape_;
 
     public:
         //============================================================================
