@@ -23,7 +23,7 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "NumCpp", "index.html", [
+  [ "NumC", "index.html", [
     [ "NumCpp Documentation", "index.html", [
       [ "Description", "index.html#Description", null ],
       [ "License", "index.html#License", null ],
