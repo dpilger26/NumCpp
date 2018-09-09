@@ -45,7 +45,7 @@ namespace NumCpp
 
     //================================Random Class=============================
     /// A class for generating random numbers
-    template<typename dtype>
+    template<typename dtype = int32>
     class Random
     {
     public:
