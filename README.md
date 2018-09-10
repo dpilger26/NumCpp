@@ -1,9 +1,10 @@
-# NumCpp
-## C++ implementation of the [Python NumPy Library](http://www.numpy.org/)
-
-### [Full Documentation](https://dpilger26.github.io/NumCpp)
+# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org/)
 
 ## From NumPy To NumCpp – A Quick Start Guide
+This quick start guide is meant as a very brief overview of some of the things
+that can be done with **NumCpp**.  For a full breakdown of everything available
+in the **NumCpp** library please visit the [Full Documentation](https://dpilger26.github.io/NumCpp).
+
 ```c++
 namespace nc = NumCpp;
 ```
@@ -79,7 +80,7 @@ The following return new `NdArray`s.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```for value in a                                        | ```for(auto it = a.begin(); a < a.end(); ++it)```        |
+| ```for value in a"""                                     | ```for(auto it = a.begin(); a < a.end(); ++it)```        |
 |                                                          | ```for(auto& value : a)```                               |
 
 ### LOGICAL
