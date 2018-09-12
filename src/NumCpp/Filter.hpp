@@ -51,7 +51,7 @@ namespace NC
     //================================================================================
     // Class Description:
     ///						Class for performing many types of image filtering
-    template<typename dtype>
+    template<typename dtype = double>
     class Filters
     {
     private:

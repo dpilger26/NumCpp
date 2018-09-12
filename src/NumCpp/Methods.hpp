@@ -51,7 +51,7 @@ namespace NC
     //================================================================================
     // Class Description:
     ///						Methods for working with NdArrays
-    template<typename dtype>
+    template<typename dtype = double>
     class Methods
     {
     public:

@@ -34,7 +34,7 @@ namespace NC
 {
     //================================================================================
     /// Usefull utility type functions
-    template<typename dtype>
+    template<typename dtype = double>
     class Utils
     {
     public:

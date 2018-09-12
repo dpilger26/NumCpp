@@ -35,7 +35,7 @@ namespace NC
 {
     //================================FFT Class=============================
     /// Class for performing fast forrier tranforms
-    template<typename dtype>
+    template<typename dtype = double>
     class FFT
     {
     public:

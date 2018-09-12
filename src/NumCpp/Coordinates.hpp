@@ -47,7 +47,7 @@ namespace NC
     {
         //================================================================================
         ///						Holds a right ascension object
-        template<typename dtype>
+        template<typename dtype = double>
         class RA
         {
         private:
@@ -270,7 +270,7 @@ namespace NC
 
         //================================================================================
         ///						Holds a Declination object
-        template<typename dtype>
+        template<typename dtype = double>
         class Dec
         {
         private:
@@ -511,7 +511,7 @@ namespace NC
 
         //================================================================================
         ///						Holds a full coordinate object
-        template<typename dtype>
+        template<typename dtype = double>
         class Coordinate
         {
         private:

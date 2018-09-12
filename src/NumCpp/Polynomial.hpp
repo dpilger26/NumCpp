@@ -35,7 +35,7 @@ namespace NC
 {
     //================================Polynomial Class=============================
     /// Class for dealing with common polynomials
-    template<typename dtype>
+    template<typename dtype = double>
     class Polynomial
     {
     public:

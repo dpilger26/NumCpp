@@ -46,7 +46,7 @@ namespace NC
     //================================================================================
     // Class Description:
     ///						Class for basic image processing
-    template<typename dtype>
+    template<typename dtype = double>
     class ImageProcessing
     {
     public:

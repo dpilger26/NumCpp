@@ -56,7 +56,7 @@ namespace NC
     //================================================================================
     // Class Description:
     ///						Holds 1D and 2D arrays, the main work horse of the NumCpp library
-    template<typename dtype>
+    template<typename dtype = double>
     class NdArray
     {
     public:

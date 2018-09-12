@@ -41,7 +41,7 @@ namespace NC
 {
     //================================================================================
     ///						Convenience container for holding a uniform array of NdArrays
-    template<typename dtype>
+    template<typename dtype = double>
     class DataCube
     {
     public:

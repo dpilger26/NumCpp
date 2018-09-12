@@ -43,7 +43,7 @@ namespace NC
 {
     //================================Linalg Class=============================
     /// Class for doing linear algebra operations
-    template<typename dtype>
+    template<typename dtype = double>
     class Linalg
     {
     public:

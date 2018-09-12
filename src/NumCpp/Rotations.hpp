@@ -885,7 +885,7 @@ namespace NC
 
         //================================================================================
         /// Factory methods for generating direction cosine matrices and vectors
-        template<typename dtype>
+        template<typename dtype = double>
         class DCM
         {
         public:
