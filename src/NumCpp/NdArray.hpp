@@ -379,6 +379,26 @@ namespace NC
 
         //============================================================================
         // Method Description: 
+        ///						Assignment operator, sets the entire array to a single 
+        ///                     scalar value.  
+        ///		
+        /// @param
+        ///				NdArray
+        /// @return
+        ///				None
+        ///
+        NdArray<dtype>& operator=(dtype inValue)
+        {
+            for (auto& value : this)
+            {
+                value = inValue;
+            }
+
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description: 
         ///						Move operator, performs a deep move
         ///		
         /// @param
@@ -491,7 +511,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						1D Slicing access operator with no bounds checking. 
+        ///						1D Slicing access operator with bounds checking. 
         ///						returned array is of the range [start, stop).
         ///		
         /// @param
@@ -515,7 +535,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						2D Slicing access operator with no bounds checking.
+        ///						2D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
         ///		
         /// @param				Row Slice
@@ -547,7 +567,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						2D Slicing access operator with no bounds checking.
+        ///						2D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
         ///		
         /// @param				Row Slice
@@ -572,7 +592,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						2D Slicing access operator with no bounds checking.
+        ///						2D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
         ///		
         /// @param				Row index
@@ -593,6 +613,36 @@ namespace NC
             }
 
             return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Returns a Slice object for slicing a row to the end of 
+        ///                     array.
+        ///		
+        /// @param
+        ///				None
+        /// @return
+        ///				Slice
+        ///
+        const Slice rSlice(int32 inStartIdx = 0) const
+        {
+            return Slice(inStartIdx, shape_.rows);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Returns a Slice object for slicing a column to the end
+        ///                     of the array.
+        ///		
+        /// @param
+        ///				None
+        /// @return
+        ///				Slice
+        ///
+        const Slice cSlice(int32 inStartIdx = 0) const
+        {
+            return Slice(inStartIdx, shape_.cols);
         }
 
         //============================================================================
@@ -1311,7 +1361,7 @@ namespace NC
         ///
         NdArray<dtype> copy()
         {
-            return NdArray<dtype>(*this);
+            return std::move(NdArray<dtype>(*this));
         }
 
         //============================================================================

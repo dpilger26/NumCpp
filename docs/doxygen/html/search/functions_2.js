@@ -32,6 +32,7 @@ var searchData=
   ['cosh',['cosh',['../class_n_c_1_1_methods.html#a40461311cd35449832ee6ba85d58da1e',1,'NC::Methods::cosh(dtype inValue)'],['../class_n_c_1_1_methods.html#a4b0e1b8392a58fd5d73710254d9d280b',1,'NC::Methods::cosh(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['count_5fnonzero',['count_nonzero',['../class_n_c_1_1_methods.html#aa635ae38ff1b22048185622c524c3ff6',1,'NC::Methods']]],
   ['cross',['cross',['../class_n_c_1_1_methods.html#a2c6ef401321137e4f5c63ed8db6ef573',1,'NC::Methods']]],
+  ['cslice',['cSlice',['../class_n_c_1_1_nd_array.html#a1a2d3b89ca74ad0cd1433cbc04178003',1,'NC::NdArray']]],
   ['cube',['cube',['../class_n_c_1_1_methods.html#a6dc27252fc09cad325c54420f23efa0a',1,'NC::Methods::cube()'],['../class_n_c_1_1_utils.html#ad6b88c81333e0325a0d7484330666a07',1,'NC::Utils::cube()']]],
   ['cumprod',['cumprod',['../class_n_c_1_1_methods.html#a3066ab9bb771451381c2c091415c01ac',1,'NC::Methods::cumprod()'],['../class_n_c_1_1_nd_array.html#afb35cb0b3603a40e18aaea2b6e8336eb',1,'NC::NdArray::cumprod()']]],
   ['cumsum',['cumsum',['../class_n_c_1_1_methods.html#a9085e27b6f742a99fd4cb42e426576d6',1,'NC::Methods::cumsum()'],['../class_n_c_1_1_nd_array.html#ae94e7bbe02bde29deabcc16a9fedf27d',1,'NC::NdArray::cumsum()']]]

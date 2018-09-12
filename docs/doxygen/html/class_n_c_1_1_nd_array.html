@@ -186,6 +186,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af2b417044fcc0b59c30fb847b9d88983"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f37114c1f634d16335fb58b2c0c20b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a7f37114c1f634d16335fb58b2c0c20b1">copy</a> ()</td></tr>
 <tr class="separator:a7f37114c1f634d16335fb58b2c0c20b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a2d3b89ca74ad0cd1433cbc04178003"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_n_c_1_1_slice.html">Slice</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a1a2d3b89ca74ad0cd1433cbc04178003">cSlice</a> (<a class="el" href="namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc">int32</a> inStartIdx=0) const</td></tr>
+<tr class="separator:a1a2d3b89ca74ad0cd1433cbc04178003"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb35cb0b3603a40e18aaea2b6e8336eb"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
 <tr class="memitem:afb35cb0b3603a40e18aaea2b6e8336eb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#afb35cb0b3603a40e18aaea2b6e8336eb">cumprod</a> (<a class="el" href="struct_n_c_1_1_axis.html#acaeb67c883cf3aae11a2b54096285d94">Axis::Type</a> inAxis=<a class="el" href="struct_n_c_1_1_axis.html#acaeb67c883cf3aae11a2b54096285d94a9adfad9a969d74a1469c27d6f0b514f9">Axis::NONE</a>) const</td></tr>
 <tr class="separator:afb35cb0b3603a40e18aaea2b6e8336eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -403,6 +405,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0abb1a9946231226e099fa8a601e5318"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ee5f70f822051bd286bf931d37a3dab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a6ee5f70f822051bd286bf931d37a3dab">round</a> (<a class="el" href="namespace_n_c.html#a939a5d01867b6ec5ae4d3932e96ddb4b">uint8</a> inNumDecimals=0) const</td></tr>
 <tr class="separator:a6ee5f70f822051bd286bf931d37a3dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ca2a0d18cdae883b127687de6d1d1a4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_n_c_1_1_slice.html">Slice</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a3ca2a0d18cdae883b127687de6d1d1a4">rSlice</a> (<a class="el" href="namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc">int32</a> inStartIdx=0) const</td></tr>
+<tr class="separator:a3ca2a0d18cdae883b127687de6d1d1a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfac82582f55477428d2c5431d0a9c8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_shape.html">Shape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#acfac82582f55477428d2c5431d0a9c8b">shape</a> () const</td></tr>
 <tr class="separator:acfac82582f55477428d2c5431d0a9c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3124b6287b61248753f83327a6fc64d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#ac3124b6287b61248753f83327a6fc64d">size</a> () const</td></tr>
@@ -1930,6 +1934,42 @@ template&lt;typename dtype&gt; </div>
 
 </div>
 </div>
+<a id="a1a2d3b89ca74ad0cd1433cbc04178003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a2d3b89ca74ad0cd1433cbc04178003">&#9670;&nbsp;</a></span>cSlice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_n_c_1_1_slice.html">Slice</a> <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::cSlice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc">int32</a>&#160;</td>
+          <td class="paramname"><em>inStartIdx</em> = <code>0</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a <a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> object for slicing a column to the end of the array.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </dd></dl>
+
+</div>
+</div>
 <a id="afb35cb0b3603a40e18aaea2b6e8336eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb35cb0b3603a40e18aaea2b6e8336eb">&#9670;&nbsp;</a></span>cumprod()</h2>
 
@@ -3237,7 +3277,7 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>2D Slicing access operator with no bounds checking. returned array is of the range [start, stop).</p>
+<p>2D Slicing access operator with bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Row</td><td><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
@@ -3284,7 +3324,7 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>2D Slicing access operator with no bounds checking. returned array is of the range [start, stop).</p>
+<p>2D Slicing access operator with bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Row</td><td><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
@@ -3331,7 +3371,7 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>2D Slicing access operator with no bounds checking. returned array is of the range [start, stop).</p>
+<p>2D Slicing access operator with bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Row</td><td>index </td></tr>
@@ -4061,44 +4101,8 @@ template&lt;typename dtype&gt; </div>
 
 </div>
 </div>
-<a id="ae4e80a558a8469c082b722eeb73d2d0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4e80a558a8469c082b722eeb73d2d0a">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename dtype&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;bool&gt; <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">dtype&#160;</td>
-          <td class="paramname"><em>inScalar</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns an array of booleans of element wise comparison the array and a scalar</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
-
-</div>
-</div>
 <a id="a163e6ed72adebfe53592ba8df2f6b167"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a163e6ed72adebfe53592ba8df2f6b167">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a163e6ed72adebfe53592ba8df2f6b167">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4123,6 +4127,42 @@ template&lt;typename dtype&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Returns an array of booleans of element wise comparison of two arrays</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae4e80a558a8469c082b722eeb73d2d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4e80a558a8469c082b722eeb73d2d0a">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;bool&gt; <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inScalar</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison the array and a scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
@@ -4590,7 +4630,7 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>1D Slicing access operator with no bounds checking. returned array is of the range [start, stop).</p>
+<p>1D Slicing access operator with bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td></td></tr>
@@ -6080,6 +6120,42 @@ template&lt;typename dtype&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="a3ca2a0d18cdae883b127687de6d1d1a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ca2a0d18cdae883b127687de6d1d1a4">&#9670;&nbsp;</a></span>rSlice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_n_c_1_1_slice.html">Slice</a> <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::rSlice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc">int32</a>&#160;</td>
+          <td class="paramname"><em>inStartIdx</em> = <code>0</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a <a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> object for slicing a row to the end of array.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </dd></dl>
 
 </div>
 </div>
