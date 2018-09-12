@@ -1,17 +1,17 @@
 var searchData=
 [
-  ['back',['back',['../class_num_cpp_1_1_data_cube.html#a856a49c18f35b0527e3aab14fceb6bd9',1,'NumCpp::DataCube']]],
-  ['begin',['begin',['../class_num_cpp_1_1_data_cube.html#acbce5c780a3d66e6db255e87d2b8b918',1,'NumCpp::DataCube::begin()'],['../class_num_cpp_1_1_image_processing_1_1_cluster.html#a202b31339744938c1acec76b64169eef',1,'NumCpp::ImageProcessing::Cluster::begin()'],['../class_num_cpp_1_1_nd_array.html#a2c6eb3423503beaf4c70938122c39ea9',1,'NumCpp::NdArray::begin()'],['../class_num_cpp_1_1_nd_array.html#a6f3e40957ac38eb4fa0694b03309f525',1,'NumCpp::NdArray::begin(uint32 inRow)']]],
-  ['bernoulli',['bernoulli',['../class_num_cpp_1_1_random.html#aaa14fcc8f252c6714f1663f70fcbabe2',1,'NumCpp::Random']]],
-  ['beta',['beta',['../class_num_cpp_1_1_random.html#a9417429526f6372c384c3554b0ba1d95',1,'NumCpp::Random']]],
-  ['bincount',['bincount',['../class_num_cpp_1_1_methods.html#abaf5f976b32dad4f3ac69ce416663e58',1,'NumCpp::Methods::bincount(const NdArray&lt; dtype &gt; &amp;inArray, uint16 inMinLength=0)'],['../class_num_cpp_1_1_methods.html#ac4f769611ab75aeefeac69b473097846',1,'NumCpp::Methods::bincount(const NdArray&lt; dtype &gt; &amp;inArray, const NdArray&lt; dtype &gt; &amp;inWeights, uint16 inMinLength=0)']]],
-  ['binomial',['binomial',['../class_num_cpp_1_1_random.html#af98c20cee782243fe4d3b84f07d57075',1,'NumCpp::Random']]],
-  ['bits',['bits',['../class_num_cpp_1_1_dtype_info.html#a938bb36dda6d59dccebe73aa25c0e849',1,'NumCpp::DtypeInfo']]],
-  ['bitwise_5fand',['bitwise_and',['../class_num_cpp_1_1_methods.html#adca3a54dd0f7bff0244b457ef06acdcc',1,'NumCpp::Methods']]],
-  ['bitwise_5fnot',['bitwise_not',['../class_num_cpp_1_1_methods.html#a03aa3e60a91a1b637d70dfe4da7cc758',1,'NumCpp::Methods']]],
-  ['bitwise_5for',['bitwise_or',['../class_num_cpp_1_1_methods.html#a990a4e025ca619cbc59a824779165bed',1,'NumCpp::Methods']]],
-  ['bitwise_5fxor',['bitwise_xor',['../class_num_cpp_1_1_methods.html#aa5e60191f31aef850c72f002426ba883',1,'NumCpp::Methods']]],
-  ['boostndarrayhelper',['BoostNdarrayHelper',['../class_num_cpp_1_1_boost_ndarray_helper.html#ab19508d6f9bc79d031152eb2640df6ac',1,'NumCpp::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::numpy::ndarray *inArray)'],['../class_num_cpp_1_1_boost_ndarray_helper.html#acd629d37df30bd06c40165648a7ddffd',1,'NumCpp::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::tuple inShape)']]],
-  ['boosttonumc',['boostToNumC',['../namespace_num_cpp.html#a5868211230328aff1a1d017a75aca374',1,'NumCpp']]],
-  ['byteswap',['byteswap',['../class_num_cpp_1_1_methods.html#afc6ba76e4a41b68263732890313b665a',1,'NumCpp::Methods::byteswap()'],['../class_num_cpp_1_1_nd_array.html#ad3fb7bfa80870bf4dbdf4829d7666521',1,'NumCpp::NdArray::byteswap()']]]
+  ['back',['back',['../class_n_c_1_1_data_cube.html#a7a1da80055d7bbe7b6063ed2042166da',1,'NC::DataCube']]],
+  ['begin',['begin',['../class_n_c_1_1_data_cube.html#ab22d0b61632335da1541ca37688b492d',1,'NC::DataCube::begin()'],['../class_n_c_1_1_image_processing_1_1_cluster.html#a6b1ff7abc05ae6b720b4879c297e5375',1,'NC::ImageProcessing::Cluster::begin()'],['../class_n_c_1_1_nd_array.html#a519432b1efea5071b11627a5be6c6a0e',1,'NC::NdArray::begin()'],['../class_n_c_1_1_nd_array.html#a0779401b75d896819e0a9b5fb536e0ad',1,'NC::NdArray::begin(uint32 inRow)']]],
+  ['bernoulli',['bernoulli',['../class_n_c_1_1_random.html#ac346f5cceb659aeb546ce9e44e5273a9',1,'NC::Random']]],
+  ['beta',['beta',['../class_n_c_1_1_random.html#aca7fb9c74d4ffb9736250d05fd1a2369',1,'NC::Random']]],
+  ['bincount',['bincount',['../class_n_c_1_1_methods.html#a0ef87ca3ec05da1caa447cfe0088d019',1,'NC::Methods::bincount(const NdArray&lt; dtype &gt; &amp;inArray, uint16 inMinLength=0)'],['../class_n_c_1_1_methods.html#a2602a87e99a148a0867de6f0a49e12b1',1,'NC::Methods::bincount(const NdArray&lt; dtype &gt; &amp;inArray, const NdArray&lt; dtype &gt; &amp;inWeights, uint16 inMinLength=0)']]],
+  ['binomial',['binomial',['../class_n_c_1_1_random.html#a52c209398965a8323d77c6dede74f3ed',1,'NC::Random']]],
+  ['bits',['bits',['../class_n_c_1_1_dtype_info.html#a37f859671616eea12689849c7803eb12',1,'NC::DtypeInfo']]],
+  ['bitwise_5fand',['bitwise_and',['../class_n_c_1_1_methods.html#ab10abe25d3ffc44e639b308ebf4f354a',1,'NC::Methods']]],
+  ['bitwise_5fnot',['bitwise_not',['../class_n_c_1_1_methods.html#a2ed4b2b9d7c7f4147defffabb1f1f2a5',1,'NC::Methods']]],
+  ['bitwise_5for',['bitwise_or',['../class_n_c_1_1_methods.html#a001f601d6ade1c97d6baa274816b2f24',1,'NC::Methods']]],
+  ['bitwise_5fxor',['bitwise_xor',['../class_n_c_1_1_methods.html#a079a167e4a6fa47dbbf7ae1455f14f12',1,'NC::Methods']]],
+  ['boostndarrayhelper',['BoostNdarrayHelper',['../class_n_c_1_1_boost_ndarray_helper.html#ad6f9133998ceeec2b490672cd01b55ef',1,'NC::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::numpy::ndarray *inArray)'],['../class_n_c_1_1_boost_ndarray_helper.html#a61c19e769e272065b48422a3280b6b6a',1,'NC::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::tuple inShape)']]],
+  ['boosttonumc',['boostToNumC',['../namespace_n_c.html#a6480f49e8c8489013935c4a1c77bc54d',1,'NC']]],
+  ['byteswap',['byteswap',['../class_n_c_1_1_methods.html#a932eee69ea4974b1b2f74e37804280a3',1,'NC::Methods::byteswap()'],['../class_n_c_1_1_nd_array.html#af6ad8bf45d201b7c813df1ac6d047ca0',1,'NC::NdArray::byteswap()']]]
 ];

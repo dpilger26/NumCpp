@@ -30,7 +30,7 @@
 
 #include<string>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     /// Usefull utility type functions

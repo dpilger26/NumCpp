@@ -31,7 +31,7 @@
 #include"NumCpp/Types.hpp"
 #include"NumCpp/NdArray.hpp"
 
-namespace NumCpp
+namespace NC
 {
     //================================Polynomial Class=============================
     /// Class for dealing with common polynomials

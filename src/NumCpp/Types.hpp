@@ -30,7 +30,7 @@
 
 #include<cstdint>
 
-namespace NumCpp
+namespace NC
 {
     //====================================Typedefs====================================
     typedef int64_t		int64;

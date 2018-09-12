@@ -39,7 +39,7 @@
 #include<stdexcept>
 #include<string>
 
-namespace NumCpp
+namespace NC
 {
     //================================Rotations Namespace=============================
     /// Module for dealing with rotations

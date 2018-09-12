@@ -39,7 +39,7 @@
 #include<stdexcept>
 #include<utility>
 
-namespace NumCpp
+namespace NC
 {
     //================================Linalg Class=============================
     /// Class for doing linear algebra operations

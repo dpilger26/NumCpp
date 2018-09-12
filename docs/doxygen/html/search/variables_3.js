@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['generator_5f',['generator_',['../namespace_num_cpp.html#a89b9a902970eecc0ec84aa6d29711fe6',1,'NumCpp']]]
+  ['generator_5f',['generator_',['../namespace_n_c.html#a0612e00ac736d17b5ce8c9f87402f2b7',1,'NC']]]
 ];

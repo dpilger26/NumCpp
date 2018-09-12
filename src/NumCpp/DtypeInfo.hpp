@@ -30,7 +30,7 @@
 
 #include<limits>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						Holds info about the dtype

@@ -31,7 +31,7 @@
 #include<chrono>
 #include<string>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						A timer class for timing code execution

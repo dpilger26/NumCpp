@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['gamma',['gamma',['../class_num_cpp_1_1_random.html#aa0a336f9efdda7b56ef85db23d082acc',1,'NumCpp::Random']]],
-  ['gaussianfilter',['gaussianFilter',['../class_num_cpp_1_1_filters.html#aaeee33ddf95d64d4b4d63530a6918465',1,'NumCpp::Filters']]],
-  ['gaussianfilter1d',['gaussianFilter1d',['../class_num_cpp_1_1_filters.html#aa836b33dc4f3fa552b67ef4ad2e1ee8a',1,'NumCpp::Filters']]],
-  ['generatecentroids',['generateCentroids',['../class_num_cpp_1_1_image_processing.html#ac2a11e5f87b28c5e3e68dcb07fcdb16d',1,'NumCpp::ImageProcessing']]],
-  ['generatethreshold',['generateThreshold',['../class_num_cpp_1_1_image_processing.html#aa11b07d204806bbb23f1188190f428c7',1,'NumCpp::ImageProcessing']]],
-  ['generator_5f',['generator_',['../namespace_num_cpp.html#a89b9a902970eecc0ec84aa6d29711fe6',1,'NumCpp']]],
-  ['geometric',['geometric',['../class_num_cpp_1_1_random.html#af6206b5f6ec684738de583ba15747190',1,'NumCpp::Random']]],
-  ['getarray',['getArray',['../class_num_cpp_1_1_boost_ndarray_helper.html#a1c0c7067349cfa0f1847d7a7059edc43',1,'NumCpp::BoostNdarrayHelper']]],
-  ['getarrayasmatrix',['getArrayAsMatrix',['../class_num_cpp_1_1_boost_ndarray_helper.html#a3e6232d550be5b963bc0bb5ab20d8147',1,'NumCpp::BoostNdarrayHelper']]],
-  ['greater',['greater',['../class_num_cpp_1_1_methods.html#af565171a322cae47c13681c73d247dc1',1,'NumCpp::Methods']]],
-  ['greater_5fequal',['greater_equal',['../class_num_cpp_1_1_methods.html#a6c304460175cc9c331f2eb932aae4b40',1,'NumCpp::Methods']]]
+  ['gamma',['gamma',['../class_n_c_1_1_random.html#a78d93ea5550152d1a8d3086b5a08f43b',1,'NC::Random']]],
+  ['gaussianfilter',['gaussianFilter',['../class_n_c_1_1_filters.html#ac166e6a7dea4a2e5ee0e76d8f511f0a8',1,'NC::Filters']]],
+  ['gaussianfilter1d',['gaussianFilter1d',['../class_n_c_1_1_filters.html#a2f5f96231dffc8495c0f2aeb5c174b98',1,'NC::Filters']]],
+  ['generatecentroids',['generateCentroids',['../class_n_c_1_1_image_processing.html#a2cea37af61637aeedff510fec568ab15',1,'NC::ImageProcessing']]],
+  ['generatethreshold',['generateThreshold',['../class_n_c_1_1_image_processing.html#a95f85fac6aa333b12c3fdaf326a8b7c6',1,'NC::ImageProcessing']]],
+  ['generator_5f',['generator_',['../namespace_n_c.html#a0612e00ac736d17b5ce8c9f87402f2b7',1,'NC']]],
+  ['geometric',['geometric',['../class_n_c_1_1_random.html#acfc3fcfe141e9000f041f53287da0009',1,'NC::Random']]],
+  ['getarray',['getArray',['../class_n_c_1_1_boost_ndarray_helper.html#a340c954e03c62dacd6f261883fa5e6b0',1,'NC::BoostNdarrayHelper']]],
+  ['getarrayasmatrix',['getArrayAsMatrix',['../class_n_c_1_1_boost_ndarray_helper.html#a364623d5469be0e2ef832904afadfaa8',1,'NC::BoostNdarrayHelper']]],
+  ['greater',['greater',['../class_n_c_1_1_methods.html#af9753ef6258e7ec463f04da13cf87421',1,'NC::Methods']]],
+  ['greater_5fequal',['greater_equal',['../class_n_c_1_1_methods.html#aabec7a40a9fe2bd230cf0cec6a4b9e7e',1,'NC::Methods']]]
 ];

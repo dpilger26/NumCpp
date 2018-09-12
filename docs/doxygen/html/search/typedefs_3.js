@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['uint16',['uint16',['../namespace_num_cpp.html#a3078cddd091529b8dd3e7828fa9a9926',1,'NumCpp']]],
-  ['uint32',['uint32',['../namespace_num_cpp.html#a36f388e948380413c63011cab9b7fbd5',1,'NumCpp']]],
-  ['uint64',['uint64',['../namespace_num_cpp.html#a9b8a75722198a622843adfb37b1b2e9d',1,'NumCpp']]],
-  ['uint8',['uint8',['../namespace_num_cpp.html#aee396d0469d6031cd18118c0a45bcdda',1,'NumCpp']]]
+  ['uint16',['uint16',['../namespace_n_c.html#a01e01d74021d3b1441af51bff8db3f1d',1,'NC']]],
+  ['uint32',['uint32',['../namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7',1,'NC']]],
+  ['uint64',['uint64',['../namespace_n_c.html#ac2c3932eef7f9dce28f4a7dc17ecc05c',1,'NC']]],
+  ['uint8',['uint8',['../namespace_n_c.html#a939a5d01867b6ec5ae4d3932e96ddb4b',1,'NC']]]
 ];

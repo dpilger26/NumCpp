@@ -41,7 +41,7 @@
 #include<utility>
 #include<vector>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     // Class Description:

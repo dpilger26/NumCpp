@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timer',['Timer',['../class_num_cpp_1_1_timer.html',1,'NumCpp']]]
+  ['timer',['Timer',['../class_n_c_1_1_timer.html',1,'NC']]]
 ];

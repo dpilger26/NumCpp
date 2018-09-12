@@ -36,7 +36,7 @@
 #include<cmath>
 #include<utility>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						Image and signal filtering
@@ -706,7 +706,7 @@ namespace NumCpp
         {
             if (inWeights.size() != Utils<uint32>::sqr(inSize))
             {
-                throw std::invalid_argument("ERROR: NumCpp::Filters::convolve: input weights do no match input kernal size.");
+                throw std::invalid_argument("ERROR: NC::Filters::convolve: input weights do no match input kernal size.");
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
@@ -784,7 +784,7 @@ namespace NumCpp
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("ERROR: NumCpp::Filters::gaussianFilter: input sigma value must be greater than zero.");
+                throw std::invalid_argument("ERROR: NC::Filters::gaussianFilter: input sigma value must be greater than zero.");
             }
 
             // calculate the kernel size based off of the input sigma value
@@ -838,7 +838,7 @@ namespace NumCpp
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("ERROR: NumCpp::Filters::gaussianFilter: input sigma value must be greater than zero.");
+                throw std::invalid_argument("ERROR: NC::Filters::gaussianFilter: input sigma value must be greater than zero.");
             }
 
             // calculate the kernel size based off of the input sigma value
@@ -1171,7 +1171,7 @@ namespace NumCpp
         {
             if (inRank < 0 || inRank >= Utils<uint32>::sqr(inSize))
             {
-                std::invalid_argument("ERROR: NumCpp::Filters::rankFilter: rank not within filter footprint size.");
+                std::invalid_argument("ERROR: NC::Filters::rankFilter: rank not within filter footprint size.");
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);

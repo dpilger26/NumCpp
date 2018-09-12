@@ -38,7 +38,7 @@
 #include<algorithm>
 #include<vector>
 
-namespace NumCpp
+namespace NC
 {
     /// generator function
     boost::random::mt19937 generator_;

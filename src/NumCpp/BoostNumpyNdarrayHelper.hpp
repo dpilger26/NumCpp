@@ -41,7 +41,7 @@
 #include"boost/python.hpp"
 #include"boost/python/numpy.hpp"
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						C or Fortran ordering from python
@@ -422,7 +422,7 @@ namespace NumCpp
             throw std::runtime_error("ERROR: Can only convert 1 and 2 dimensional arrays.");
         }
 
-        NumCpp::Shape arrayShape;
+        NC::Shape arrayShape;
         if (helper.numDimensions() == 1)
         {
             arrayShape.rows = 1;

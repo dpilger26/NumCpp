@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['uniform',['uniform',['../class_num_cpp_1_1_random.html#a8151ee384c3baeab6cdbbbaf93114f93',1,'NumCpp::Random']]],
-  ['uniformfilter',['uniformFilter',['../class_num_cpp_1_1_filters.html#a69d706ac982b2e50be55e4aee492b427',1,'NumCpp::Filters']]],
-  ['uniformfilter1d',['uniformFilter1d',['../class_num_cpp_1_1_filters.html#a29b685f383ddecbfac2a5b67de7592ba',1,'NumCpp::Filters']]],
-  ['uniformonsphere',['uniformOnSphere',['../class_num_cpp_1_1_random.html#ac02ce152544716f1e3ff6dc6c48ec04d',1,'NumCpp::Random']]],
-  ['union1d',['union1d',['../class_num_cpp_1_1_methods.html#a3210783b2dcbcc8083eb02438b47bb4f',1,'NumCpp::Methods']]],
-  ['unique',['unique',['../class_num_cpp_1_1_methods.html#a8103b0db1cb54e0c3c76bfb6f0981242',1,'NumCpp::Methods']]],
-  ['unwrap',['unwrap',['../class_num_cpp_1_1_methods.html#ac50f629024f7fc50f35dbec021c59fd5',1,'NumCpp::Methods::unwrap(dtype inValue)'],['../class_num_cpp_1_1_methods.html#a5136677c8fd27d9348c84c195ecc969e',1,'NumCpp::Methods::unwrap(const NdArray&lt; dtype &gt; &amp;inArray)']]]
+  ['uniform',['uniform',['../class_n_c_1_1_random.html#a5480ee93f58b5ab1b135ceed2694e750',1,'NC::Random']]],
+  ['uniformfilter',['uniformFilter',['../class_n_c_1_1_filters.html#a7c79cfd81f995d4865c9d6a47d949d82',1,'NC::Filters']]],
+  ['uniformfilter1d',['uniformFilter1d',['../class_n_c_1_1_filters.html#a9f8b97d8d022c00bee98e59085b64378',1,'NC::Filters']]],
+  ['uniformonsphere',['uniformOnSphere',['../class_n_c_1_1_random.html#afd8bf2f1e3313141b6887528953a7d6d',1,'NC::Random']]],
+  ['union1d',['union1d',['../class_n_c_1_1_methods.html#a3f450eaefb51c8a22e1a8562397a0391',1,'NC::Methods']]],
+  ['unique',['unique',['../class_n_c_1_1_methods.html#ab90081f3c0b03181f7db1b0e058b1f47',1,'NC::Methods']]],
+  ['unwrap',['unwrap',['../class_n_c_1_1_methods.html#a6e2941a57153cf07c0f774a79aee7dde',1,'NC::Methods::unwrap(dtype inValue)'],['../class_n_c_1_1_methods.html#a90d1a0c315c73f202f478796c5aa6967',1,'NC::Methods::unwrap(const NdArray&lt; dtype &gt; &amp;inArray)']]]
 ];

@@ -31,7 +31,7 @@
 #include"NumCpp/NdArray.hpp"
 #include"NumCpp/Types.hpp"
 
-namespace NumCpp
+namespace NC
 {
     //================================FFT Class=============================
     /// Class for performing fast forrier tranforms

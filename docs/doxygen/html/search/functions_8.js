@@ -1,18 +1,18 @@
 var searchData=
 [
-  ['i',['i',['../class_num_cpp_1_1_rotations_1_1_quaternion.html#aeec666c0344f72bc55aae2d10c4c5475',1,'NumCpp::Rotations::Quaternion']]],
-  ['identity',['identity',['../class_num_cpp_1_1_methods.html#a5c88cb907d37627b60094871fc1034b2',1,'NumCpp::Methods::identity()'],['../class_num_cpp_1_1_rotations_1_1_quaternion.html#a55f3aeaaf13db905717f1c3de476a921',1,'NumCpp::Rotations::Quaternion::identity()']]],
-  ['intensity',['intensity',['../class_num_cpp_1_1_image_processing_1_1_pixel.html#ab5c4e0bd7121e3a51ccf3ae5e7a9f621',1,'NumCpp::ImageProcessing::Pixel::intensity()'],['../class_num_cpp_1_1_image_processing_1_1_cluster.html#a7d982eabfd9d738cff4cc4f77383550f',1,'NumCpp::ImageProcessing::Cluster::intensity()'],['../class_num_cpp_1_1_image_processing_1_1_centroid.html#ab0e97e8341f54295e5f1be508b539ae8',1,'NumCpp::ImageProcessing::Centroid::intensity()']]],
-  ['intersect1d',['intersect1d',['../class_num_cpp_1_1_methods.html#aa81b22602422c4ad5a79aa42a32aa2c0',1,'NumCpp::Methods']]],
-  ['inv',['inv',['../class_num_cpp_1_1_linalg.html#ab800e3d60c0290b5355fc2caa71f3365',1,'NumCpp::Linalg']]],
-  ['inverse',['inverse',['../class_num_cpp_1_1_rotations_1_1_quaternion.html#acf37c9e15c6a142a7ec3ff4756103347',1,'NumCpp::Rotations::Quaternion']]],
-  ['invert',['invert',['../class_num_cpp_1_1_methods.html#a360e0cab3f7eaeb0081c891bb620b4a9',1,'NumCpp::Methods']]],
-  ['isclose',['isclose',['../class_num_cpp_1_1_methods.html#adca451def79560a0512b4d494231518d',1,'NumCpp::Methods']]],
-  ['isempty',['isempty',['../class_num_cpp_1_1_data_cube.html#afe059f314921bb415ef38b637d4ba9e3',1,'NumCpp::DataCube::isempty()'],['../class_num_cpp_1_1_nd_array.html#ae1b8560fe448e702b51b83b6e3a5c844',1,'NumCpp::NdArray::isempty()']]],
-  ['isinteger',['isInteger',['../class_num_cpp_1_1_dtype_info.html#a32d737185a788bba65eba2d26fbc5bd8',1,'NumCpp::DtypeInfo']]],
-  ['isnan',['isnan',['../class_num_cpp_1_1_methods.html#afae564ebc589b66c28bbbee8c5b80809',1,'NumCpp::Methods::isnan(dtype inValue)'],['../class_num_cpp_1_1_methods.html#aa595cd26fe299ae7f1739775c85c8994',1,'NumCpp::Methods::isnan(const NdArray&lt; dtype &gt; &amp;inArray)']]],
-  ['isnull',['isnull',['../class_num_cpp_1_1_shape.html#a88d385a8c0651a666413543dde4a176f',1,'NumCpp::Shape']]],
-  ['issigned',['isSigned',['../class_num_cpp_1_1_dtype_info.html#ac21f1389476091ea0b8d966e657fe647',1,'NumCpp::DtypeInfo']]],
-  ['isvalid',['isValid',['../class_num_cpp_1_1_rotations_1_1_d_c_m.html#a2173648fd6088e1ef98de97f7131cbac',1,'NumCpp::Rotations::DCM']]],
-  ['item',['item',['../class_num_cpp_1_1_nd_array.html#af5d55944e1693657135b30972f658f2f',1,'NumCpp::NdArray']]]
+  ['i',['i',['../class_n_c_1_1_rotations_1_1_quaternion.html#ab37f35ab17027cd3309ad79247fe6e50',1,'NC::Rotations::Quaternion']]],
+  ['identity',['identity',['../class_n_c_1_1_methods.html#a21531300b7f51d18cbef879504aec8fe',1,'NC::Methods::identity()'],['../class_n_c_1_1_rotations_1_1_quaternion.html#adc693216a7fa4c6bb31a1c84f7ad7bf6',1,'NC::Rotations::Quaternion::identity()']]],
+  ['intensity',['intensity',['../class_n_c_1_1_image_processing_1_1_pixel.html#a90c330dc4ccdc17911c723a1454d6dea',1,'NC::ImageProcessing::Pixel::intensity()'],['../class_n_c_1_1_image_processing_1_1_cluster.html#a81ca540bfeddc157fafbed4514fc5f16',1,'NC::ImageProcessing::Cluster::intensity()'],['../class_n_c_1_1_image_processing_1_1_centroid.html#ad3e38597c0ab40bb71ba4dd9ce8d0af3',1,'NC::ImageProcessing::Centroid::intensity()']]],
+  ['intersect1d',['intersect1d',['../class_n_c_1_1_methods.html#aac5ac53e72f6453356f001f8387eb0fb',1,'NC::Methods']]],
+  ['inv',['inv',['../class_n_c_1_1_linalg.html#a23a5f1208ef206e735898728d21c5054',1,'NC::Linalg']]],
+  ['inverse',['inverse',['../class_n_c_1_1_rotations_1_1_quaternion.html#a0e542ddd20cedc68a86bb93fded76871',1,'NC::Rotations::Quaternion']]],
+  ['invert',['invert',['../class_n_c_1_1_methods.html#af77e491a439d7a9fd272843231ad8ea7',1,'NC::Methods']]],
+  ['isclose',['isclose',['../class_n_c_1_1_methods.html#a490784a9c0202ae398fb8dc8f839ce50',1,'NC::Methods']]],
+  ['isempty',['isempty',['../class_n_c_1_1_data_cube.html#a49e7d48a296400e005593e631189b0f7',1,'NC::DataCube::isempty()'],['../class_n_c_1_1_nd_array.html#a46c0fbb27a0d2c37ab53cc3c29d7b92a',1,'NC::NdArray::isempty()']]],
+  ['isinteger',['isInteger',['../class_n_c_1_1_dtype_info.html#a865db491574ef82c0cd3d6c494e3a10b',1,'NC::DtypeInfo']]],
+  ['isnan',['isnan',['../class_n_c_1_1_methods.html#a34bffa766f76b61ef95b4b154a5059bb',1,'NC::Methods::isnan(dtype inValue)'],['../class_n_c_1_1_methods.html#a223cbf295dd75facb9e181ffa0680926',1,'NC::Methods::isnan(const NdArray&lt; dtype &gt; &amp;inArray)']]],
+  ['isnull',['isnull',['../class_n_c_1_1_shape.html#a8c61246b18bb149ea80221a88b424c5b',1,'NC::Shape']]],
+  ['issigned',['isSigned',['../class_n_c_1_1_dtype_info.html#a0e06345e3cc8be62609885db901f07bc',1,'NC::DtypeInfo']]],
+  ['isvalid',['isValid',['../class_n_c_1_1_rotations_1_1_d_c_m.html#aef3a93bdaa5b679066e0a4d76ce03b32',1,'NC::Rotations::DCM']]],
+  ['item',['item',['../class_n_c_1_1_nd_array.html#ad97218738e42ae072c0715d3559d7f54',1,'NC::NdArray']]]
 ];

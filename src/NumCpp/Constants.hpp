@@ -33,7 +33,7 @@
 #include<cmath>
 #include<string>
 
-namespace NumCpp
+namespace NC
 {
     //================================Constants====================================
     /// Holds usefull constants

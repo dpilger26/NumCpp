@@ -35,7 +35,7 @@
 #include<stdexcept>
 #include<string>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						A Shape Class for NdArrays

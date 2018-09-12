@@ -46,7 +46,7 @@
 #include<utility>
 #include<vector>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     // Class Description:
@@ -792,7 +792,7 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						Convert the list initializer to an array.
-        ///						eg: NdArray<int> myArray = NumCpp::asarray<int>({1,2,3});
+        ///						eg: NdArray<int> myArray = NC::asarray<int>({1,2,3});
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
         ///		
@@ -2044,7 +2044,7 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						Dump a binary file of the array to the specified file. 
-        ///						The array can be read back with or NumCpp::load.
+        ///						The array can be read back with or NC::load.
         ///		
         /// @param				NdArray
         /// @param				string filename
@@ -4337,7 +4337,7 @@ namespace NumCpp
         /// @return
         ///				NdArray
         ///
-        static NumCpp::NdArray<dtype> nans(const NumCpp::Shape& inShape)
+        static NC::NdArray<dtype> nans(const NC::Shape& inShape)
         {
             return std::move(full(inShape, static_cast<dtype>(Constants::nan)));
         }
@@ -6685,7 +6685,7 @@ namespace NumCpp
         /// @return
         ///				NdArray
         ///
-        static NumCpp::NdArray<dtype> zeros(const NumCpp::Shape& inShape)
+        static NC::NdArray<dtype> zeros(const NC::Shape& inShape)
         {
             return std::move(full(inShape, static_cast<dtype>(0)));
         }

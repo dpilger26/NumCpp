@@ -36,7 +36,7 @@
 #include<stdexcept>
 #include<string>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						A Class for slicing into NdArrays

@@ -1,13 +1,13 @@
 var _types_8hpp =
 [
-    [ "Axis", "struct_num_cpp_1_1_axis.html", "struct_num_cpp_1_1_axis" ],
-    [ "Endian", "struct_num_cpp_1_1_endian.html", "struct_num_cpp_1_1_endian" ],
-    [ "int16", "_types_8hpp.html#a4cf8a907fdc869d71f98ca69efb7ea09", null ],
-    [ "int32", "_types_8hpp.html#acf3eb1592f8b248ff0a236634864633c", null ],
-    [ "int64", "_types_8hpp.html#a22e530c7304044b86c04203429f3dcd1", null ],
-    [ "int8", "_types_8hpp.html#a7f7ba56fbcdea3aa31f11382416d2e4d", null ],
-    [ "uint16", "_types_8hpp.html#a3078cddd091529b8dd3e7828fa9a9926", null ],
-    [ "uint32", "_types_8hpp.html#a36f388e948380413c63011cab9b7fbd5", null ],
-    [ "uint64", "_types_8hpp.html#a9b8a75722198a622843adfb37b1b2e9d", null ],
-    [ "uint8", "_types_8hpp.html#aee396d0469d6031cd18118c0a45bcdda", null ]
+    [ "Axis", "struct_n_c_1_1_axis.html", "struct_n_c_1_1_axis" ],
+    [ "Endian", "struct_n_c_1_1_endian.html", "struct_n_c_1_1_endian" ],
+    [ "int16", "_types_8hpp.html#a535e526a19bcffbb692eec03a7a49fb6", null ],
+    [ "int32", "_types_8hpp.html#aaa4fcce123084afbd85696dc3a6545fc", null ],
+    [ "int64", "_types_8hpp.html#aadd3d23e97405ab543f83e781996b4ae", null ],
+    [ "int8", "_types_8hpp.html#ad5bd21af285f932aa660c85dc55e3d7f", null ],
+    [ "uint16", "_types_8hpp.html#a01e01d74021d3b1441af51bff8db3f1d", null ],
+    [ "uint32", "_types_8hpp.html#a215e17fa1a04d466ad58380ff471b3e7", null ],
+    [ "uint64", "_types_8hpp.html#ac2c3932eef7f9dce28f4a7dc17ecc05c", null ],
+    [ "uint8", "_types_8hpp.html#a939a5d01867b6ec5ae4d3932e96ddb4b", null ]
 ];

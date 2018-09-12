@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['x',['x',['../class_num_cpp_1_1_coordinates_1_1_coordinate.html#a6f50cd856484c4a08e376970c58820b4',1,'NumCpp::Coordinates::Coordinate']]],
-  ['xrotation',['xRotation',['../class_num_cpp_1_1_rotations_1_1_quaternion.html#aa10a3ca29a4ac6c2f7854f47e4ca4bf9',1,'NumCpp::Rotations::Quaternion::xRotation()'],['../class_num_cpp_1_1_rotations_1_1_d_c_m.html#aa8a963c18f3dde1fa4fd37f5dd1d976e',1,'NumCpp::Rotations::DCM::xRotation()']]],
-  ['xyz',['xyz',['../class_num_cpp_1_1_coordinates_1_1_coordinate.html#a17960f2fcadf941cbfaa8c38aa26c07d',1,'NumCpp::Coordinates::Coordinate']]]
+  ['x',['x',['../class_n_c_1_1_coordinates_1_1_coordinate.html#a0dd46ee2a7102cda9fbd67196e8cef1a',1,'NC::Coordinates::Coordinate']]],
+  ['xrotation',['xRotation',['../class_n_c_1_1_rotations_1_1_quaternion.html#aa25340d0f880d0ee3bc9880943ca5d3a',1,'NC::Rotations::Quaternion::xRotation()'],['../class_n_c_1_1_rotations_1_1_d_c_m.html#a537890395afe715191ebfbefe2e8e569',1,'NC::Rotations::DCM::xRotation()']]],
+  ['xyz',['xyz',['../class_n_c_1_1_coordinates_1_1_coordinate.html#ad4c5c5af4c53adadcec2d2bd40f6e106',1,'NC::Coordinates::Coordinate']]]
 ];

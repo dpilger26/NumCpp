@@ -51,7 +51,7 @@
 #include<utility>
 #include<vector>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     // Class Description:
@@ -1557,7 +1557,7 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						Dump a binary file of the array to the specified file. 
-        ///						The array can be read back with or NumCpp::load.
+        ///						The array can be read back with or NC::load.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html
         ///		

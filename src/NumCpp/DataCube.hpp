@@ -37,7 +37,7 @@
 #include<limits>
 #include<stdexcept>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						Convenience container for holding a uniform array of NdArrays
@@ -285,7 +285,7 @@ namespace NumCpp
 
             if (inputShape != elementShape_)
             {
-                throw std::invalid_argument("ERROR: NumCpp::DataCube::push_back: element arrays must all be the same shape.");
+                throw std::invalid_argument("ERROR: NC::DataCube::push_back: element arrays must all be the same shape.");
             }
 
             cube_.push_back(inArray);
@@ -311,7 +311,7 @@ namespace NumCpp
 
             if (inputShape != elementShape_)
             {
-                throw std::invalid_argument("ERROR: NumCpp::DataCube::push_front: element arrays must all be the same shape.");
+                throw std::invalid_argument("ERROR: NC::DataCube::push_front: element arrays must all be the same shape.");
             }
 
             cube_.push_front(inArray);
