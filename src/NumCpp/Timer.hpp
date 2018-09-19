@@ -84,10 +84,6 @@ namespace NC
     public:
         //============================================================================
         ///						Constructor
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         Timer() :
             name_(""),
@@ -99,9 +95,7 @@ namespace NC
         //============================================================================
         ///						Constructor
         ///		
-        /// @param      Timer name
-        ///
-        /// @return     None
+        /// @param      inName
         ///
         Timer(const std::string& inName) :
             name_(inName + " "),
@@ -112,10 +106,6 @@ namespace NC
 
         //============================================================================
         ///						Starts the timer
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void tic()
         {
@@ -125,8 +115,6 @@ namespace NC
         //============================================================================
         /// Method Description: 
         ///						Stops the timer
-        ///		
-        /// @param      None
         ///
         /// @return     ellapsed time in specified time units
         ///

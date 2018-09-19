@@ -48,11 +48,6 @@ namespace NC
 
         //============================================================================
         ///						Constructor
-        ///		
-        /// @param      number of rows
-        /// @param      number of cols
-        ///
-        /// @return     None
         ///
         Shape() :
             rows(0),
@@ -62,9 +57,7 @@ namespace NC
         //============================================================================
         ///						Constructor
         ///		
-        /// @param      number of rows and cols
-        ///
-        /// @return     None
+        /// @param      inSquareSize
         ///
         explicit Shape(uint32 inSquareSize) :
             rows(inSquareSize),
@@ -74,10 +67,8 @@ namespace NC
         //============================================================================
         ///						Constructor
         ///		
-        /// @param      number of rows
-        /// @param      number of cols
-        ///
-        /// @return     None
+        /// @param      inRows
+        /// @param      inCols
         ///
         Shape(uint32 inRows, uint32 inCols) :
             rows(inRows),
@@ -87,9 +78,9 @@ namespace NC
         //============================================================================
         ///						Equality operator
         ///		
-        /// @param      None
+        /// @param      inOtherShape
         ///
-        /// @return     None
+        /// @return     bool
         ///
         bool operator==(const Shape& inOtherShape) const
         {
@@ -99,9 +90,9 @@ namespace NC
         //============================================================================
         ///						Not equality operator
         ///		
-        /// @param      None
+        /// @param      inOtherShape
         ///
-        /// @return     None
+        /// @return     bool
         ///
         bool operator!=(const Shape& inOtherShape) const
         {
@@ -110,8 +101,6 @@ namespace NC
 
         //============================================================================
         ///						Returns the size of the shape
-        ///		
-        /// @param      None
         ///
         /// @return     size
         ///
@@ -123,8 +112,6 @@ namespace NC
         //============================================================================
         ///						Returns whether the shape is null (constructed with the 
         ///						default constructor).
-        ///		
-        /// @param      None
         ///
         /// @return     bool
         ///
@@ -135,10 +122,8 @@ namespace NC
 
         //============================================================================
         ///						Returns the shape as a string representation
-        ///		
-        /// @param      None
         ///
-        /// @return     string
+        /// @return     std::string
         ///
         std::string str() const
         {
@@ -148,10 +133,6 @@ namespace NC
 
         //============================================================================
         ///						Prints the shape to the console
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void print() const
         {
@@ -161,9 +142,10 @@ namespace NC
         //============================================================================
         ///						IO operator for the Shape class
         ///		
-        /// @param      None
+        /// @param      inOStream
+        /// @param      inShape
         ///
-        /// @return     None
+        /// @return     std::ostream
         ///
         friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape)
         {

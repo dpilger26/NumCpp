@@ -50,10 +50,6 @@ namespace NC
 
         //============================================================================
         ///						Constructor
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         Slice() :
             start(0),
@@ -64,9 +60,7 @@ namespace NC
         //============================================================================
         ///						Constructor
         ///		
-        /// @param      stop index (not included)
-        ///
-        /// @return     None
+        /// @param      inStop (index not included)
         ///
         explicit Slice(int32 inStop) :
             start(0),
@@ -77,10 +71,8 @@ namespace NC
         //============================================================================
         ///						Constructor
         ///		
-        /// @param          start index,
-        /// @param			stop index (not included)
-        ///
-        /// @return         None
+        /// @param          inStart
+        /// @param			inStop (index not included)
         ///
         Slice(int32 inStart, int32 inStop) :
             start(inStart),
@@ -91,10 +83,9 @@ namespace NC
         //============================================================================
         ///						Constructor
         ///			
-        /// @param      start index,
-        /// @param      stop index (not included)
-        /// @param      step value
-        /// @return     None
+        /// @param      inStart
+        /// @param      inStop (not included)
+        /// @param      inStep
         ///
         Slice(int32 inStart, int32 inStop, int32 inStep) :
             start(inStart),
@@ -104,10 +95,8 @@ namespace NC
 
         //============================================================================
         ///						Prints the shape to the console
-        ///		
-        /// @param      None
         ///
-        /// @return     None
+        /// @return     std::string
         ///
         std::string str() const
         {
@@ -117,10 +106,6 @@ namespace NC
 
         //============================================================================
         ///						Prints the shape to the console
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void print()
         {
@@ -130,9 +115,10 @@ namespace NC
         //============================================================================
         ///						IO operator for the Slice class
         ///		
-        /// @param      None
+        /// @param      inOStream
+        /// @param      inSlice
         ///
-        /// @return     None
+        /// @return     std::ostream
         ///
         friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
         {
@@ -143,9 +129,7 @@ namespace NC
         //============================================================================
         ///						Make the slice all positive and does some error checking
         ///			
-        /// @param      The calling array size
-        ///
-        /// @return     None
+        /// @param      inArraySize
         ///
         void makePositiveAndValidate(uint32 inArraySize)
         {
@@ -196,9 +180,7 @@ namespace NC
         ///						be aware that this method will also make the slice all 
         ///						positive!
         ///			
-        /// @param      The calling array size
-        ///
-        /// @return     None
+        /// @param      inArraySize
         ///
         uint32 numElements(uint32 inArraySize)
         {

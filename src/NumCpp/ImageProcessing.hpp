@@ -66,12 +66,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              defualt constructor needed by containers
-            /// 
-            /// @param
-            ///              None
-            /// 
-            /// @return
-            ///              None
             ///
             Pixel() :
                 clusterId_(-1),
@@ -84,12 +78,9 @@ namespace NC
             // Description:
             ///              constructor
             /// 
-            /// @param              pixel row,
-            /// @param              pixel column,
-            /// @param              pixel intensity
-            /// 
-            /// @return
-            ///              None
+            /// @param              inRow: pixel row
+            /// @param              inCol: pixel column
+            /// @param              inIntensity: pixel intensity
             ///
             Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) :
                 clusterId_(-1),
@@ -103,7 +94,7 @@ namespace NC
             ///              equality operator
             /// 
             /// @param
-            ///              None
+            ///              rhs
             /// 
             /// @return
             ///              bool
@@ -118,7 +109,7 @@ namespace NC
             ///              not equality operator
             /// 
             /// @param
-            ///              None
+            ///              rhs
             /// 
             /// @return
             ///              bool
@@ -136,10 +127,10 @@ namespace NC
             ///              this operator backwards!
             /// 
             /// @param 
-            ///              None
+            ///              rhs
             /// 
             /// @return 
-            ///              None
+            ///              bool
             ///
             bool operator<(const Pixel& rhs) const
             {
@@ -168,9 +159,6 @@ namespace NC
             // Description:
             ///              returns the cluster id that this pixel belongs to
             /// 
-            /// @param
-            ///              None
-            /// 
             /// @return
             ///              cluster id
             ///
@@ -184,10 +172,7 @@ namespace NC
             ///              sets the cluster id that this pixel belongs to
             /// 
             /// @param
-            ///              cluster id
-            /// 
-            /// @return
-            ///              None
+            ///              inClusterId
             ///
             void setClusterId(int32 inClusterId)
             {
@@ -203,9 +188,6 @@ namespace NC
             // Description:
             ///              returns the pixel row
             /// 
-            /// @param
-            ///              None
-            /// 
             /// @return
             ///              row
             ///
@@ -217,9 +199,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              returns the pixel column
-            /// 
-            /// @param
-            ///              None
             /// 
             /// @return
             ///              column
@@ -233,9 +212,6 @@ namespace NC
             // Description:
             ///              returns the pixel intensity
             /// 
-            /// @param
-            ///              None
-            /// 
             /// @return
             ///              intensity
             ///
@@ -247,9 +223,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              returns the pixel information as a string
-            /// 
-            /// @param
-            ///              None
             /// 
             /// @return
             ///              std::string
@@ -264,11 +237,6 @@ namespace NC
             //============================================================================
             /// Method Description: 
             ///						prints the Pixel object to the console
-            ///		
-            /// @param
-            ///				None
-            /// @return
-            ///				None
             ///
             void print() const
             {
@@ -279,8 +247,8 @@ namespace NC
             // Description:
             ///              osstream operator
             /// 
-            /// @param              std::ostream
-            /// @param              Pixel
+            /// @param              inStream
+            /// @param              inPixel
             /// @return
             ///              std::ostream
             ///
@@ -322,9 +290,6 @@ namespace NC
             /// 
             /// @param 
             ///              inClusterId
-            /// 
-            /// @return 
-            ///              None
             ///
             Cluster(uint32 inClusterId) :
                 clusterId_(inClusterId),
@@ -342,7 +307,7 @@ namespace NC
             ///              equality operator
             /// 
             /// @param 
-            ///              Cluster
+            ///              rhs
             /// 
             /// @return 
             ///              bool
@@ -370,7 +335,7 @@ namespace NC
             ///              not equality operator
             /// 
             /// @param 
-            ///              Cluster
+            ///              rhs
             /// 
             /// @return 
             ///              bool
@@ -385,7 +350,7 @@ namespace NC
             ///              access operator, no bounds checking
             /// 
             /// @param 
-            ///              index
+            ///              inIndex
             /// 
             /// @return 
             ///              Pixel
@@ -400,7 +365,7 @@ namespace NC
             ///              access method with bounds checking
             /// 
             /// @param 
-            ///              index
+            ///              inIndex
             /// 
             /// @return 
             ///              Pixel
@@ -418,9 +383,6 @@ namespace NC
             // Description:
             ///              returns in iterator to the beginning pixel of the cluster
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              const_iterator
             ///
@@ -432,9 +394,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              returns in iterator to the 1 past the end pixel of the cluster
-            /// 
-            /// @param 
-            ///              None
             /// 
             /// @return 
             ///              const_iterator
@@ -448,9 +407,6 @@ namespace NC
             // Description:
             ///              returns the number of pixels in the cluster
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              number of pixels in the cluster
             ///
@@ -462,9 +418,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              returns the minimum row number of the cluster
-            /// 
-            /// @param 
-            ///              None
             /// 
             /// @return 
             ///              minimum row number of the cluster
@@ -478,9 +431,6 @@ namespace NC
             // Description:
             ///              returns the minimum row number of the cluster
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              minimum row number of the cluster
             ///
@@ -492,9 +442,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              returns the maximum row number of the cluster
-            /// 
-            /// @param 
-            ///              None
             /// 
             /// @return 
             ///              maximum row number of the cluster
@@ -508,9 +455,6 @@ namespace NC
             // Description:
             ///              returns the minimum column number of the cluster
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              minimum column number of the cluster
             ///
@@ -522,9 +466,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              returns the maximum column number of the cluster
-            /// 
-            /// @param 
-            ///              None
             /// 
             /// @return 
             ///              maximum column number of the cluster
@@ -538,9 +479,6 @@ namespace NC
             // Description:
             ///              returns the number of rows the cluster spans
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              number of rows
             ///
@@ -552,9 +490,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              returns the number of columns the cluster spans
-            /// 
-            /// @param 
-            ///              None
             /// 
             /// @return 
             ///              number of columns
@@ -568,9 +503,6 @@ namespace NC
             // Description:
             ///              returns the summed intensity of the cluster
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              summed cluster intensity
             ///
@@ -583,9 +515,6 @@ namespace NC
             // Description:
             ///              returns the intensity of the peak pixel in the cluster
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              peak pixel intensity
             ///
@@ -597,9 +526,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              returns the cluster estimated energy on detector (EOD)
-            /// 
-            /// @param 
-            ///              None
             /// 
             /// @return 
             ///              eod
@@ -614,10 +540,7 @@ namespace NC
             ///              adds a pixel to the cluster
             /// 
             /// @param 
-            ///              pixel
-            /// 
-            /// @return 
-            ///              None
+            ///              inPixel
             ///
             void addPixel(const Pixel& inPixel)
             {
@@ -658,9 +581,6 @@ namespace NC
             // Description:
             ///              returns a string representation of the cluster
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              string
             ///
@@ -678,11 +598,6 @@ namespace NC
             //============================================================================
             /// Method Description: 
             ///						prints the Cluster object to the console
-            ///		
-            /// @param
-            ///				None
-            /// @return
-            ///				None
             ///
             void print() const
             {
@@ -693,8 +608,8 @@ namespace NC
             // Description:
             ///              osstream operator
             /// 
-            /// @param               std::ostream
-            /// @param               Cluster 
+            /// @param               inStream
+            /// @param               inCluster 
             /// @return 
             ///              std::ostream
             ///
@@ -725,8 +640,8 @@ namespace NC
             // Description:
             ///              checks that the input row and column have not fallen off of the edge
             /// 
-            /// @param              pixel row, 
-            /// @param              pixel column
+            /// @param              inRow
+            /// @param              inCol
             /// 
             /// @return 
             ///              returns a pixel object clipped to the image boundaries
@@ -746,8 +661,8 @@ namespace NC
             // Description:
             ///              finds all of the neighboring pixels to the input pixel 
             /// 
-            /// @param               Pixel
-            /// @param               std::set<Pixel> neighbors
+            /// @param               inPixel
+            /// @param               outNeighbors
             /// @return 
             ///              None
             ///
@@ -773,8 +688,8 @@ namespace NC
             // Description:
             ///              finds all of the neighboring pixels to the input pixel that are NOT exceedances
             ///  
-            /// @param       Pixel
-            /// @param       std::vector<Pixel> neighbors
+            /// @param       inPixel
+            /// @param       outNeighbors
             /// 
             /// @return 
             ///              vector of non exceedance neighboring pixels
@@ -798,8 +713,8 @@ namespace NC
             // Description:
             ///              finds the pixel index of neighboring pixels
             ///  
-            /// @param       Pixel
-            /// @param       std::vector<uint32> neigbhors
+            /// @param       inPixel
+            /// @param       outNeighbors
             /// 
             /// @return 
             ///              vector of neighboring pixel indices
@@ -830,12 +745,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              workhorse method that performs the clustering algorithm
-            /// 
-            /// @param 
-            ///              None
-            /// 
-            /// @return 
-            ///              None
             ///
             void runClusterMaker()
             {
@@ -898,12 +807,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              3x3 dialates the clusters
-            /// 
-            /// @param 
-            ///              None
-            /// 
-            /// @return 
-            ///              None
             ///
             void expandClusters()
             {
@@ -939,9 +842,9 @@ namespace NC
             // Description:
             ///              constructor
             ///  
-            /// @param              NdArray<bool>*, pointer to exceedance array
-            /// @param              NdArray<dtype>*, pointer to intensity array
-            /// @param				border to apply around exceedance pixels post clustering, default 0
+            /// @param              inXcdArrayPtr: pointer to exceedance array
+            /// @param              inIntensityArrayPtr: pointer to intensity array
+            /// @param				inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
             /// 
             /// @return 
             ///              None
@@ -982,9 +885,6 @@ namespace NC
             // Description:
             ///              returns the number of clusters in the frame
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              number of clusters
             ///
@@ -998,10 +898,10 @@ namespace NC
             ///              access operator, no bounds checking
             /// 
             /// @param 
-            ///              index
+            ///              inIndex
             /// 
             /// @return 
-            ///              None
+            ///              Cluster
             ///
             const Cluster& operator[](uint32 inIndex) const
             {
@@ -1013,10 +913,10 @@ namespace NC
             ///              access method with bounds checking
             /// 
             /// @param 
-            ///              index
+            ///              inIndex
             /// 
             /// @return 
-            ///              None
+            ///              Cluster
             ///
             const Cluster& at(uint32 inIndex) const
             {
@@ -1031,9 +931,6 @@ namespace NC
             // Description:
             ///              returns in iterator to the beginning cluster of the container
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              const_iterator
             ///
@@ -1045,9 +942,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              returns in iterator to the 1 past the end cluster of the container
-            /// 
-            /// @param 
-            ///              None
             /// 
             /// @return 
             ///              const_iterator
@@ -1077,10 +971,7 @@ namespace NC
             ///              it can lead to an undefined COM.
             /// 
             /// @param 
-            ///              cluster
-            /// 
-            /// @return 
-            ///              None
+            ///              inCluster
             ///
             void centerOfMass(const Cluster& inCluster)
             {
@@ -1133,12 +1024,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              defualt constructor needed by containers
-            /// 
-            /// @param 
-            ///              None
-            /// 
-            /// @return 
-            ///              None
             ///
             Centroid() :
                 row_(0),
@@ -1151,15 +1036,7 @@ namespace NC
             // Description:
             ///              constructor
             /// 
-            /// @param               centroid id,
-            /// @param               FP row,
-            /// @param               FP column,
-            /// @param               centroid intensity
-            /// @param               cluster EOD
-            /// @param               cluster number of pixels
-            /// 
-            /// @return 
-            ///              None
+            /// @param               inCluster
             ///
             Centroid(const Cluster& inCluster) :
                 row_(0),
@@ -1174,9 +1051,6 @@ namespace NC
             // Description:
             ///              gets the centroid row
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              centroid row
             ///
@@ -1188,9 +1062,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              gets the centroid col
-            /// 
-            /// @param 
-            ///              None
             /// 
             /// @return 
             ///              centroid col
@@ -1204,9 +1075,6 @@ namespace NC
             // Description:
             ///              gets the centroid intensity
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              centroid intensity
             ///
@@ -1218,9 +1086,6 @@ namespace NC
             //=============================================================================
             // Description:
             ///              returns the estimated eod of the centroid
-            /// 
-            /// @param 
-            ///              None
             /// 
             /// @return 
             ///              star id
@@ -1234,11 +1099,8 @@ namespace NC
             // Description:
             ///              returns the centroid as a string representation
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
-            ///              string
+            ///              std::string
             ///
             std::string str() const
             {
@@ -1252,11 +1114,6 @@ namespace NC
             //============================================================================
             /// Method Description: 
             ///						prints the Centroid object to the console
-            ///		
-            /// @param
-            ///				None
-            /// @return
-            ///				None
             ///
             void print() const
             {
@@ -1268,7 +1125,7 @@ namespace NC
             ///              equality operator
             /// 
             /// @param 
-            ///              None
+            ///              rhs
             /// 
             /// @return 
             ///              bool
@@ -1283,7 +1140,7 @@ namespace NC
             ///              not equality operator
             /// 
             /// @param 
-            ///              None
+            ///              rhs
             /// 
             /// @return 
             ///              bool
@@ -1301,10 +1158,10 @@ namespace NC
             ///              this operator backwards!
             /// 
             /// @param 
-            ///              None
+            ///              rhs
             /// 
             /// @return 
-            ///              None
+            ///              bool
             ///
             bool operator<(const Centroid& rhs) const
             {
@@ -1315,8 +1172,8 @@ namespace NC
             // Description:
             ///              ostream operator
             ///  
-            /// @param              std::ostream
-            /// @param              Centroid
+            /// @param              inStream
+            /// @param              inCentriod
             /// @return 
             ///              std::ostream
             ///
@@ -1332,8 +1189,8 @@ namespace NC
         ///						Applies a threshold to an image
         ///		
         /// @param
-        ///				NdArray
-        ///				threshold value
+        ///				inImageArray
+        ///				inThreshold
         /// @return
         ///				NdArray of booleans of pixels that exceeded the threshold
         ///
@@ -1346,8 +1203,7 @@ namespace NC
         // Method Description: 
         ///						Center of Mass centroids clusters
         ///		
-        /// @param				NdArray
-        /// @param				threshold value
+        /// @param				inClusters
         /// @return
         ///				std::vector<Centroid>
         ///
@@ -1367,9 +1223,9 @@ namespace NC
         // Method Description: 
         ///						Clusters exceedance pixels from an image
         ///		
-        /// @param				NdArray
-        /// @param				NdArray of exceedances
-        /// @param				border to apply around exceedance pixels post clustering, default 0
+        /// @param				inImageArray
+        /// @param				inExceedances
+        /// @param				inBorderWidth: border to apply around exceedance pixels post clustering (default 0)
         /// @return
         ///				std::vector<Cluster>
         ///
@@ -1384,10 +1240,10 @@ namespace NC
         ///						Generates a list of centroids givin an input exceedance
         ///						rate
         ///		
-        /// @param				NdArray
-        /// @param				exceedance rate
-        /// @param              string "pre", or "post" for where to apply the exceedance windowing
-        /// @param				border to apply, default 0
+        /// @param				inImageArray
+        /// @param				inRate: exceedance rate
+        /// @param              inWindowType: (string "pre", or "post" for where to apply the exceedance windowing)
+        /// @param				inBorderWidth: border to apply (default 0)
         /// @return
         ///				std::vector<Centroid>
         ///
@@ -1433,8 +1289,8 @@ namespace NC
         ///						exceeds the threshold. Really should only be used for integer
         ///                      input array values. If using floating point data, user beware...
         ///		
-        /// @param				NdArray
-        /// @param				exceedance rate
+        /// @param				inImageArray
+        /// @param				inRate
         /// @return
         ///				dtype
         ///
@@ -1532,8 +1388,8 @@ namespace NC
         // Method Description: 
         ///						Window expand around exceedance pixels
         ///		
-        /// @param				NdArray<bool>
-        /// @param				border width
+        /// @param				inExceedances
+        /// @param				inBorderWidth
         /// @return
         ///				NdArray<bool>
         ///

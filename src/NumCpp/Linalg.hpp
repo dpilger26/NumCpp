@@ -55,9 +55,9 @@ namespace NC
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
-        ///				dtype
+        ///				matrix determinant
         ///
         static dtype det(const NdArray<dtype>& inArray)
         {
@@ -119,9 +119,9 @@ namespace NC
         // Method Description: 
         ///						vector hat operator
         ///		
-        /// @param			x
-        /// @param			y
-        /// @param			z
+        /// @param			inX
+        /// @param			inY
+        /// @param			inZ
         /// @return
         ///				3x3 NdArray
         ///
@@ -146,7 +146,7 @@ namespace NC
         ///						vector hat operator
         ///		
         /// @param
-        ///				NdArray 3x1, or 1x3 cartesian vector
+        ///				inVec (3x1, or 1x3 cartesian vector)
         /// @return
         ///				3x3 NdArray
         ///
@@ -167,7 +167,7 @@ namespace NC
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -256,9 +256,9 @@ namespace NC
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq
         ///		
-        /// @param				NdArray, coefficient matrix
-        /// @param  			NdArray, Ordinate or "dependent variable" values
-        /// @param				double, tolerance
+        /// @param				inA: coefficient matrix
+        /// @param  			inB: Ordinate or "dependent variable" values
+        /// @param				inTolerance (default 1e-12)
         ///
         /// @return
         ///				NdArray
@@ -282,8 +282,8 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power
         ///		
-        /// @param				NdArray
-        /// @param				power
+        /// @param				inArray
+        /// @param				inPower
         ///
         /// @return
         ///				NdArray
@@ -338,7 +338,7 @@ namespace NC
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot
         ///		
         /// @param
-        ///				initializer_list<NdArray<dtype> >, list of arrays
+        ///				inList: list of arrays
         ///
         /// @return
         ///				NdArray
@@ -373,12 +373,10 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
         ///		
-        /// @param				NdArray to be SVDed
-        /// @param				NdArray output U
-        /// @param				NdArray output S
-        /// @param				NdArray output V transpose
-        /// @return
-        ///				NdArray
+        /// @param				inArray: NdArray to be SVDed
+        /// @param				outU: NdArray output U
+        /// @param				outS: NdArray output S
+        /// @param				outVt: NdArray output V transpose
         ///
         static void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
         {
@@ -413,10 +411,7 @@ namespace NC
             ///              Constructor
             /// 
             /// @param 
-            ///              Matrix::Mat<double> matrix to perform SVD on
-            /// 
-            /// @return 
-            ///              None
+            ///              inMatrix: matrix to perform SVD on
             ///
             SVD(const NdArray<double>& inMatrix) :
                 m_(inMatrix.shape().rows),
@@ -435,9 +430,6 @@ namespace NC
             // Description:
             ///              the resultant u matrix
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              u matrix
             ///
@@ -449,9 +441,6 @@ namespace NC
             // =============================================================================
             // Description:
             ///              the resultant v matrix
-            /// 
-            /// @param 
-            ///              None
             /// 
             /// @return 
             ///              v matrix
@@ -465,9 +454,6 @@ namespace NC
             // Description:
             ///              the resultant w matrix
             /// 
-            /// @param 
-            ///              None
-            /// 
             /// @return 
             ///              s matrix
             ///
@@ -480,11 +466,11 @@ namespace NC
             // Description:
             ///              solves the linear least squares problem
             /// 
-            /// @param 
-            ///              None
+            /// @param      inInput
+            /// @param      inThresh (default -1.0)
             /// 
             /// @return 
-            ///              None
+            ///              NdArray
             ///
             NdArray<double> solve(const NdArray<double>& inInput, double inThresh = -1.0)
             {
@@ -534,26 +520,20 @@ namespace NC
             // Description:
             ///              returns the SIGN of two values
             ///  
-            /// @param              a
-            /// @param              b
+            /// @param              inA
+            /// @param              inB
             /// 
             /// @return 
             ///              value
             ///
-            double SIGN(double a, double b)
+            double SIGN(double inA, double inB)
             {
-                return b >= 0 ? (a >= 0 ? a : -a) : (a >= 0 ? -a : a);
+                return inB >= 0 ? (inA >= 0 ? inA : -inA) : (inA >= 0 ? -inA : inA);
             }
 
             // =============================================================================
             // Description:
             ///              decomposes the input matrix
-            /// 
-            /// @param 
-            ///              None
-            /// 
-            /// @return 
-            ///              None
             ///
             void decompose()
             {
@@ -895,12 +875,6 @@ namespace NC
             // =============================================================================
             // Description:
             ///              reorders the input matrix
-            /// 
-            /// @param 
-            ///              None
-            /// 
-            /// @return 
-            ///              None
             ///
             void reorder()
             {
@@ -1013,16 +987,16 @@ namespace NC
             // Description:
             ///              performs pythag of input values
             ///  
-            /// @param              a
-            /// @param              b
+            /// @param              inA
+            /// @param              inB
             /// 
             /// @return 
             ///              resultant value
             ///
-            double pythag(double a, double b)
+            double pythag(double inA, double inB)
             {
-                double absa = std::abs(a);
-                double absb = std::abs(b);
+                double absa = std::abs(inA);
+                double absb = std::abs(inB);
                 return (absa > absb ? absa * std::sqrt(1.0 + Utils<double>::sqr(absb / absa)) : (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + Utils<double>::sqr(absa / absb))));
             }
         };

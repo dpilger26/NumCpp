@@ -163,14 +163,7 @@ template&lt;typename dtype  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>defualt constructor needed by containers</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>defualt constructor needed by containers </p>
 
 </div>
 </div>
@@ -218,13 +211,12 @@ template&lt;typename dtype  = double&gt; </div>
 <p>constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pixel</td><td>row, </td></tr>
-    <tr><td class="paramname">pixel</td><td>column, </td></tr>
-    <tr><td class="paramname">pixel</td><td>intensity</td></tr>
+    <tr><td class="paramname">inRow</td><td>pixel row </td></tr>
+    <tr><td class="paramname">inCol</td><td>pixel column </td></tr>
+    <tr><td class="paramname">inIntensity</td><td>pixel intensity </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -254,12 +246,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the cluster id that this pixel belongs to</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>cluster id </dd></dl>
 
 </div>
@@ -289,12 +275,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the pixel column</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>column </dd></dl>
 
 </div>
@@ -324,12 +304,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the pixel intensity</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>intensity </dd></dl>
 
 </div>
@@ -362,7 +336,7 @@ template&lt;typename dtype  = double&gt; </div>
 <p>not equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -398,11 +372,11 @@ template&lt;typename dtype  = double&gt; </div>
 <p>less than operator for std::sort algorithm and std::set&lt;&gt;; NOTE: std::sort sorts in ascending order. Since I want to sort the centroids in descensing order, I am purposefully defining this operator backwards!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -434,7 +408,7 @@ template&lt;typename dtype  = double&gt; </div>
 <p>equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -466,14 +440,7 @@ template&lt;typename dtype  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Method Description: prints the <a class="el" href="class_n_c_1_1_image_processing_1_1_pixel.html" title="Holds the information for a single pixel. ">Pixel</a> object to the console</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Method Description: prints the <a class="el" href="class_n_c_1_1_image_processing_1_1_pixel.html" title="Holds the information for a single pixel. ">Pixel</a> object to the console </p>
 
 </div>
 </div>
@@ -502,12 +469,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the pixel row</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>row </dd></dl>
 
 </div>
@@ -540,11 +501,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>sets the cluster id that this pixel belongs to</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cluster</td><td>id</td></tr>
+    <tr><td class="paramname">inClusterId</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -573,12 +533,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the pixel information as a string</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
 </div>
@@ -622,8 +576,8 @@ template&lt;typename dtype  = double&gt; </div>
 <p>osstream operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">std::ostream</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_image_processing_1_1_pixel.html" title="Holds the information for a single pixel. ">Pixel</a></td><td></td></tr>
+    <tr><td class="paramname">inStream</td><td></td></tr>
+    <tr><td class="paramname">inPixel</td><td></td></tr>
   </table>
   </dd>
 </dl>

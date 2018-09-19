@@ -160,15 +160,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructor</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">number</td><td>of rows </td></tr>
-    <tr><td class="paramname">number</td><td>of cols</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Constructor </p>
 
 </div>
 </div>
@@ -198,11 +190,10 @@ Friends</h2></td></tr>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">number</td><td>of rows and cols</td></tr>
+    <tr><td class="paramname">inSquareSize</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -242,12 +233,11 @@ Friends</h2></td></tr>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">number</td><td>of rows </td></tr>
-    <tr><td class="paramname">number</td><td>of cols</td></tr>
+    <tr><td class="paramname">inRows</td><td></td></tr>
+    <tr><td class="paramname">inCols</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -275,12 +265,6 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns whether the shape is null (constructed with the default constructor).</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
@@ -311,11 +295,11 @@ Friends</h2></td></tr>
 <p>Not equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">inOtherShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -345,11 +329,11 @@ Friends</h2></td></tr>
 <p>Equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">inOtherShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -375,14 +359,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints the shape to the console</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Prints the shape to the console </p>
 
 </div>
 </div>
@@ -409,12 +386,6 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns the size of the shape</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>size </dd></dl>
 
 </div>
@@ -442,13 +413,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns the shape as a string representation</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
 </div>
 </div>
@@ -489,11 +454,12 @@ Friends</h2></td></tr>
 <p>IO operator for the <a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a> class</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">inOStream</td><td></td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::ostream </dd></dl>
 
 </div>
 </div>

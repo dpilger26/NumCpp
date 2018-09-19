@@ -41,8 +41,6 @@ namespace NC
         //============================================================================
         ///						For integer types: number of non-sign bits in the representation.
         ///						For floating types : number of digits(in radix base) in the mantissa
-        ///		
-        /// @param      None
         ///
         /// @return     number of bits
         ///
@@ -54,8 +52,6 @@ namespace NC
         //============================================================================
         ///						Machine epsilon (the difference between 1 and the least 
         ///						value greater than 1 that is representable).
-        ///		
-        /// @param      None
         ///
         /// @return     dtype
         ///
@@ -66,8 +62,6 @@ namespace NC
 
         //============================================================================
         ///						True if type is integer.
-        ///		
-        /// @param      None
         ///
         /// @return     bool
         ///
@@ -78,8 +72,6 @@ namespace NC
 
         //============================================================================
         ///						True if type is signed.
-        ///		
-        /// @param      None
         ///
         /// @return     bool
         ///
@@ -90,8 +82,6 @@ namespace NC
 
         //============================================================================
         ///						Returns the minimum value of the dtype
-        ///		
-        /// @param      None
         ///
         /// @return     min value
         ///
@@ -102,8 +92,6 @@ namespace NC
 
         //============================================================================
         ///						Returns the maximum value of the dtype
-        ///		
-        /// @param      None
         ///
         /// @return     max value
         ///

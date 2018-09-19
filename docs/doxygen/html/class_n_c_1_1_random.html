@@ -211,8 +211,8 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>Create an array of the given shape and populate it with random samples from the “bernoulli” distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">probablity</td><td>of success [0, 1] </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inP</td><td>(probability of success [0, 1]) </td></tr>
   </table>
   </dd>
 </dl>
@@ -265,9 +265,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">alpha</td><td></td></tr>
-    <tr><td class="paramname">beta</td><td></td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inAlpha</td><td></td></tr>
+    <tr><td class="paramname">inBeta</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -320,9 +320,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">number</td><td>of trials </td></tr>
-    <tr><td class="paramname">probablity</td><td>of success [0, 1] </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inN</td><td>(number of trials) </td></tr>
+    <tr><td class="paramname">inP</td><td>(probablity of success [0, 1]) </td></tr>
   </table>
   </dd>
 </dl>
@@ -374,8 +374,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>Create an array of the given shape and populate it with random samples from a "cauchy" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mean</td><td>Mean value of the underlying normal distribution. Default is 0. </td></tr>
-    <tr><td class="paramname">sigma,Standard</td><td>deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inMean</td><td>Mean value of the underlying normal distribution. Default is 0. </td></tr>
+    <tr><td class="paramname">inSigma</td><td>Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </td></tr>
   </table>
   </dd>
 </dl>
@@ -422,8 +423,8 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">df</td><td>independent random variables </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inDof</td><td>(independent random variables) </td></tr>
   </table>
   </dd>
 </dl>
@@ -459,7 +460,7 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>Generates a random sample from an input array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -505,7 +506,8 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>Create an array of the given shape and populate it with random samples from a "discrete" distrubution. It produces integers in the range [0, n) with the probability of producing each value is specified by the parameters of the distribution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>of weights, </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inWeights</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -552,8 +554,8 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">scale</td><td>value, default 1 </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inScaleValue</td><td>(default 1) </td></tr>
   </table>
   </dd>
 </dl>
@@ -605,9 +607,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>Create an array of the given shape and populate it with random samples from a "extreme value" distrubution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">a,default</td><td>1 </td></tr>
-    <tr><td class="paramname">b,default</td><td>1 </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inA</td><td>(default 1) </td></tr>
+    <tr><td class="paramname">inB</td><td>(default 1) </td></tr>
   </table>
   </dd>
 </dl>
@@ -660,9 +662,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">Degrees</td><td>of freedom in numerator. Should be greater than zero. </td></tr>
-    <tr><td class="paramname">Degrees</td><td>of freedom in denominator. Should be greater than zero. </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inDofN</td><td>Degrees of freedom in numerator. Should be greater than zero. </td></tr>
+    <tr><td class="paramname">inDofD</td><td>Degrees of freedom in denominator. Should be greater than zero. </td></tr>
   </table>
   </dd>
 </dl>
@@ -715,9 +717,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">Scale,default</td><td>1 </td></tr>
-    <tr><td class="paramname">Gamma</td><td>shape </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inGammaShape</td><td></td></tr>
+    <tr><td class="paramname">inScaleValue</td><td>(default 1) </td></tr>
   </table>
   </dd>
 </dl>
@@ -764,8 +766,8 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">probablity</td><td>of success [0, 1] </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inP</td><td>(probablity of success [0, 1]) </td></tr>
   </table>
   </dd>
 </dl>
@@ -818,8 +820,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">inLoc</td><td>The position, mu, of the distribution peak. Default is 0. </td></tr>
-    <tr><td class="paramname">inScale</td><td>float optional, the exponential decay. Default is 1. </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inLoc</td><td>(The position, mu, of the distribution peak. Default is 0) </td></tr>
+    <tr><td class="paramname">inScale</td><td>(float optional the exponential decay. Default is 1) </td></tr>
   </table>
   </dd>
 </dl>
@@ -872,8 +875,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mean</td><td>Mean value of the underlying normal distribution. Default is 0. </td></tr>
-    <tr><td class="paramname">sigma,Standard</td><td>deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inMean</td><td>Mean value of the underlying normal distribution. Default is 0. </td></tr>
+    <tr><td class="paramname">inSigma</td><td>Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </td></tr>
   </table>
   </dd>
 </dl>
@@ -926,9 +930,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">number</td><td>of trials </td></tr>
-    <tr><td class="paramname">probablity</td><td>of success [0, 1] </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inN</td><td>number of trials </td></tr>
+    <tr><td class="paramname">inP</td><td>probablity of success [0, 1] </td></tr>
   </table>
   </dd>
 </dl>
@@ -981,9 +985,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">k,default</td><td>1 </td></tr>
-    <tr><td class="paramname">lambda,default</td><td>1 </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inK</td><td>(default 1) </td></tr>
+    <tr><td class="paramname">inLambda</td><td>(default 1) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1036,8 +1040,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html#numpy.random.normal">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html#numpy.random.normal</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mean</td><td>Mean value of the underlying normal distribution. Default is 0. </td></tr>
-    <tr><td class="paramname">sigma,Standard</td><td>deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inMean</td><td>Mean value of the underlying normal distribution. Default is 0. </td></tr>
+    <tr><td class="paramname">inSigma</td><td>Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1073,7 +1078,7 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>Randomly permute a sequence, or return a permuted range. If x is an integer, randomly permute np.arange(x). If x is an array, make a copy and shuffle the elements randomly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1109,7 +1114,7 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>Randomly permute a sequence, or return a permuted range. If x is an integer, randomly permute np.arange(x). If x is an array, make a copy and shuffle the elements randomly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1156,8 +1161,8 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">mean,default</td><td>1 </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inMean</td><td>(default 1) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1194,7 +1199,7 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1247,9 +1252,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">low</td><td>value </td></tr>
-    <tr><td class="paramname">high</td><td>value </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inLow</td><td></td></tr>
+    <tr><td class="paramname">inHigh</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1302,9 +1307,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">low</td><td>value </td></tr>
-    <tr><td class="paramname">high</td><td>value </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inLow</td><td></td></tr>
+    <tr><td class="paramname">inHigh</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1341,7 +1346,7 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1378,11 +1383,10 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">seed</td><td></td></tr>
+    <tr><td class="paramname">inSeed</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -1414,11 +1418,10 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>Modify a sequence in-place by shuffling its contents.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -1451,7 +1454,7 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1498,8 +1501,8 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">df</td><td>independent random variables </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inDof</td><td>independent random variables </td></tr>
   </table>
   </dd>
 </dl>
@@ -1558,10 +1561,10 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">a</td><td></td></tr>
-    <tr><td class="paramname">b</td><td></td></tr>
-    <tr><td class="paramname">c</td><td></td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inA</td><td></td></tr>
+    <tr><td class="paramname">inB</td><td></td></tr>
+    <tr><td class="paramname">inC</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1615,9 +1618,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">low</td><td>value </td></tr>
-    <tr><td class="paramname">high</td><td>value </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inLow</td><td></td></tr>
+    <tr><td class="paramname">inHigh</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1663,8 +1666,8 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>Such a distribution produces random numbers uniformly distributed on the unit sphere of arbitrary dimension dim.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">number</td><td>of points </td></tr>
-    <tr><td class="paramname">dimension</td><td>of the sphere, default 2 </td></tr>
+    <tr><td class="paramname">inNumPoints</td><td></td></tr>
+    <tr><td class="paramname">inDims</td><td>dimension of the sphere (default 2) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1717,9 +1720,9 @@ template&lt;typename dtype  = int32&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
-    <tr><td class="paramname">a,default</td><td>1 </td></tr>
-    <tr><td class="paramname">b,default</td><td>1 </td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
+    <tr><td class="paramname">inA</td><td>(default 1) </td></tr>
+    <tr><td class="paramname">inB</td><td>(default 1) </td></tr>
   </table>
   </dd>
 </dl>

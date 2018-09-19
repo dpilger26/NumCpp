@@ -290,7 +290,7 @@ namespace NC
         // Method Description: 
         ///						Constructor
         ///		
-        /// @param				char* to beginning of buffer 
+        /// @param				dtype* to beginning of buffer 
         /// @param				number of bytes
         /// @return
         ///				None

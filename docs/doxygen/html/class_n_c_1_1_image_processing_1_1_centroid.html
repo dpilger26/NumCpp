@@ -161,14 +161,7 @@ template&lt;typename dtype  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>defualt constructor needed by containers</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>defualt constructor needed by containers </p>
 
 </div>
 </div>
@@ -200,16 +193,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">centroid</td><td>id, </td></tr>
-    <tr><td class="paramname">FP</td><td>row, </td></tr>
-    <tr><td class="paramname">FP</td><td>column, </td></tr>
-    <tr><td class="paramname">centroid</td><td>intensity </td></tr>
-    <tr><td class="paramname">cluster</td><td>EOD </td></tr>
-    <tr><td class="paramname">cluster</td><td>number of pixels</td></tr>
+    <tr><td class="paramname">inCluster</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -239,12 +226,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>gets the centroid col</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>centroid col </dd></dl>
 
 </div>
@@ -274,12 +255,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the estimated eod of the centroid</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>star id </dd></dl>
 
 </div>
@@ -309,12 +284,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>gets the centroid intensity</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>centroid intensity </dd></dl>
 
 </div>
@@ -347,7 +316,7 @@ template&lt;typename dtype  = double&gt; </div>
 <p>not equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -383,11 +352,11 @@ template&lt;typename dtype  = double&gt; </div>
 <p>less than operator for std::sort algorithm; NOTE: std::sort sorts in ascending order. Since I want to sort the centroids in descensing order, I am purposefully defining this operator backwards!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -419,7 +388,7 @@ template&lt;typename dtype  = double&gt; </div>
 <p>equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -451,14 +420,7 @@ template&lt;typename dtype  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Method Description: prints the <a class="el" href="class_n_c_1_1_image_processing_1_1_centroid.html" title="holds the information for a centroid ">Centroid</a> object to the console</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Method Description: prints the <a class="el" href="class_n_c_1_1_image_processing_1_1_centroid.html" title="holds the information for a centroid ">Centroid</a> object to the console </p>
 
 </div>
 </div>
@@ -487,12 +449,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>gets the centroid row</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>centroid row </dd></dl>
 
 </div>
@@ -522,13 +478,7 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the centroid as a string representation</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
 </div>
 </div>
@@ -571,8 +521,8 @@ template&lt;typename dtype  = double&gt; </div>
 <p>ostream operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">std::ostream</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_image_processing_1_1_centroid.html" title="holds the information for a centroid ">Centroid</a></td><td></td></tr>
+    <tr><td class="paramname">inStream</td><td></td></tr>
+    <tr><td class="paramname">inCentriod</td><td></td></tr>
   </table>
   </dd>
 </dl>

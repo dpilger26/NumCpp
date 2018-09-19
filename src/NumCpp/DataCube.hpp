@@ -57,10 +57,6 @@ namespace NC
     public:
         //============================================================================
         ///						Default Constructor
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         DataCube() :
             elementShape_(0, 0)
@@ -69,9 +65,7 @@ namespace NC
         //============================================================================
         ///						Constructor, preallocates to the input size
         ///		
-        /// @param      size
-        ///
-        /// @return     None
+        /// @param      inSize
         ///
         DataCube(uint32 inSize) :
             cube_(inSize),
@@ -81,7 +75,7 @@ namespace NC
         //============================================================================
         ///						Access method, with bounds checking
         ///		
-        /// @param      index
+        /// @param      inIndex
         ///
         /// @return     NdArray
         ///
@@ -93,7 +87,7 @@ namespace NC
         //============================================================================
         ///						Const access method, with bounds checking
         ///		
-        /// @param      index
+        /// @param      inIndex
         ///
         /// @return     NdArray
         ///
@@ -104,8 +98,6 @@ namespace NC
 
         //============================================================================
         ///						Returns a reference to the last element of the array
-        ///		
-        /// @param      None
         ///
         /// @return     NdArray&
         ///
@@ -116,8 +108,6 @@ namespace NC
 
         //============================================================================
         ///						Returns an iterator to the beginning of the container
-        ///		
-        /// @param      None
         ///
         /// @return     iterator
         ///
@@ -128,8 +118,6 @@ namespace NC
 
         //============================================================================
         ///						Returns a const_iterator to the beginning of the container
-        ///		
-        /// @param      None
         ///
         /// @return     const_iterator
         ///
@@ -141,9 +129,7 @@ namespace NC
         //============================================================================
         ///						Outputs the DataCube as a .bin file
         ///		
-        /// @param      None
-        ///
-        /// @return     None
+        /// @param      inFilename
         ///
         void dump(const std::string& inFilename) const
         {
@@ -171,8 +157,6 @@ namespace NC
 
         //============================================================================
         ///						Tests whether or not the container is empty
-        ///		
-        /// @param      None
         ///
         /// @return     bool
         ///
@@ -183,8 +167,6 @@ namespace NC
 
         //============================================================================
         ///						Returns an iterator to 1 past the end of the container
-        ///		
-        /// @param      None
         ///
         /// @return     iterator
         ///
@@ -195,8 +177,6 @@ namespace NC
 
         //============================================================================
         ///						Returns a const_iterator to 1 past the end of the container
-        ///		
-        /// @param      None
         ///
         /// @return     const_iterator
         ///
@@ -207,8 +187,6 @@ namespace NC
 
         //============================================================================ 
         ///						returns a reference to the first element of the array
-        ///		
-        /// @param      None
         ///
         /// @return     NdArray&
         ///
@@ -219,8 +197,6 @@ namespace NC
 
         //============================================================================
         ///						returns the number shape of the element arrays
-        ///		
-        /// @param      None
         ///
         /// @return     Shape
         ///
@@ -231,8 +207,6 @@ namespace NC
 
         //============================================================================
         ///						Returns the size of the container array
-        ///		
-        /// @param      None
         ///
         /// @return     size
         ///
@@ -243,10 +217,6 @@ namespace NC
 
         //============================================================================
         ///						Removes the last element in the container
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void pop_back()
         {
@@ -255,10 +225,6 @@ namespace NC
 
         //============================================================================
         ///						Removes the first element in the container
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void pop_front()
         {
@@ -268,9 +234,7 @@ namespace NC
         //============================================================================
         ///						Adds a new element at the end of the container
         ///		
-        /// @param      NdArray
-        ///
-        /// @return     None
+        /// @param      inArray
         ///
         void push_back(const NdArray<dtype>& inArray)
         {
@@ -294,9 +258,7 @@ namespace NC
         //============================================================================
         ///						Adds a new element at the beginning of the container
         ///		
-        /// @param      NdArray
-        ///
-        /// @return     None
+        /// @param      inArray
         ///
         void push_front(const NdArray<dtype>& inArray)
         {
@@ -320,7 +282,7 @@ namespace NC
         //============================================================================
         ///						Access operator, no bounds checking
         ///		
-        /// @param      index
+        /// @param      inIndex
         ///
         /// @return     NdArray
         ///
@@ -332,7 +294,7 @@ namespace NC
         //============================================================================
         ///						Const access operator, no bounds checking
         ///		
-        /// @param      index
+        /// @param      inIndex
         ///
         /// @return     NdArray
         ///

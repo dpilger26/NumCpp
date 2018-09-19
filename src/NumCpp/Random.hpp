@@ -54,8 +54,8 @@ namespace NC
         ///						Create an array of the given shape and populate it with 
         ///						random samples from the “bernoulli” distribution.
         ///		
-        /// @param				Shape
-        /// @param				probablity of success [0, 1]
+        /// @param				inShape
+        /// @param				inP (probability of success [0, 1])
         /// @return
         ///				NdArray
         ///
@@ -84,9 +84,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///		
-        /// @param				Shape
-        /// @param				alpha
-        /// @param				beta
+        /// @param				inShape
+        /// @param				inAlpha
+        /// @param				inBeta
         /// @return
         ///				NdArray
         ///
@@ -120,9 +120,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial
         ///		
-        /// @param				Shape
-        /// @param				number of trials
-        /// @param				probablity of success [0, 1]
+        /// @param				inShape
+        /// @param				inN (number of trials)
+        /// @param				inP (probablity of success [0, 1])
         /// @return
         ///				NdArray
         ///
@@ -159,8 +159,8 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
         ///		
-        /// @param				Shape
-        /// @param				df independent random variables
+        /// @param				inShape
+        /// @param				inDof (independent random variables)
         /// @return
         ///				NdArray
         ///
@@ -187,7 +187,7 @@ namespace NC
         ///						Generates a random sample from an input array
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -202,8 +202,9 @@ namespace NC
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "cauchy" distrubution.
         ///		
-        /// @param				mean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param				sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @param              inShape
+        /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
         /// @return
         ///				NdArray
         ///
@@ -233,8 +234,8 @@ namespace NC
         ///						producing each value is specified by the parameters 
         ///						of the distribution.
         ///		
-        /// @param
-        ///				NdArray of weights, 
+        /// @param      inShape
+        ///	@param		inWeights
         /// @return
         ///				NdArray
         ///
@@ -261,8 +262,8 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
         ///		
-        /// @param				Shape
-        /// @param				scale value, default 1
+        /// @param				inShape
+        /// @param				inScaleValue (default 1)
         /// @return
         ///				NdArray
         ///
@@ -284,9 +285,9 @@ namespace NC
         ///						Create an array of the given shape and populate it with 
         ///						random samples from a "extreme value" distrubution.
         ///		
-        /// @param				Shape
-        /// @param				a, default 1
-        /// @param				b, default 1
+        /// @param				inShape
+        /// @param				inA (default 1)
+        /// @param				inB (default 1)
         /// @return
         ///				NdArray
         ///
@@ -320,9 +321,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
         ///		
-        /// @param				Shape
-        /// @param				Degrees of freedom in numerator. Should be greater than zero.
-        /// @param				Degrees of freedom in denominator. Should be greater than zero.
+        /// @param				inShape
+        /// @param				inDofN: Degrees of freedom in numerator. Should be greater than zero.
+        /// @param				inDofD: Degrees of freedom in denominator. Should be greater than zero.
         /// @return
         ///				NdArray
         ///
@@ -356,9 +357,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
         ///		
-        /// @param				Shape
-        /// @param			    Scale, default 1
-        /// @param				Gamma shape
+        /// @param				inShape
+        /// @param			    inGammaShape
+        /// @param				inScaleValue (default 1)
         /// @return
         ///				NdArray
         ///
@@ -392,8 +393,8 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
         ///		
-        /// @param				Shape
-        /// @param				probablity of success [0, 1]
+        /// @param				inShape
+        /// @param				inP (probablity of success [0, 1])
         /// @return
         ///				NdArray
         ///
@@ -425,8 +426,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
         ///		
-        /// @param				inLoc: The position, mu, of the distribution peak. Default is 0.
-        /// @param				inScale: float  optional, the exponential decay. Default is 1.
+        /// @param              inShape
+        /// @param				inLoc: (The position, mu, of the distribution peak. Default is 0)
+        /// @param				inScale: (float optional the exponential decay. Default is 1)
         /// @return
         ///				NdArray
         ///
@@ -450,8 +452,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
         ///		
-        /// @param				mean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param				sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @param              inShape
+        /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
         /// @return
         ///				NdArray
         ///
@@ -480,9 +483,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
         ///		
-        /// @param				Shape
-        /// @param				number of trials
-        /// @param				probablity of success [0, 1]
+        /// @param				inShape
+        /// @param				inN: number of trials
+        /// @param				inP: probablity of success [0, 1]
         /// @return
         ///				NdArray
         ///
@@ -519,9 +522,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
         ///		
-        /// @param				Shape
-        /// @param				k, default 1
-        /// @param				lambda, default 1
+        /// @param				inShape
+        /// @param				inK (default 1)
+        /// @param				inLambda (default 1)
         /// @return
         ///				NdArray
         ///
@@ -555,8 +558,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html#numpy.random.normal
         ///		
-        /// @param				mean: Mean value of the underlying normal distribution. Default is 0.
-        /// @param  			sigma, Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
+        /// @param              inShape
+        /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
+        /// @param  			inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
         /// @return
         ///				NdArray
         ///
@@ -585,7 +589,7 @@ namespace NC
         ///						If x is an array, make a copy and shuffle the elements randomly.
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				NdArray
         ///
@@ -603,7 +607,7 @@ namespace NC
         ///						If x is an array, make a copy and shuffle the elements randomly.
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -621,8 +625,8 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
         ///		
-        /// @param				Shape
-        /// @param				mean, default 1
+        /// @param				inShape
+        /// @param				inMean (default 1)
         /// @return
         ///				NdArray
         ///
@@ -652,7 +656,7 @@ namespace NC
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
         ///		
         /// @param
-        ///				Shape
+        ///				inShape
         /// @return
         ///				NdArray
         ///
@@ -676,9 +680,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf
         ///		
-        /// @param				Shape
-        /// @param  			low value
-        /// @param				high value
+        /// @param				inShape
+        /// @param  			inLow
+        /// @param				inHigh
         /// @return
         ///				NdArray
         ///
@@ -711,9 +715,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
         ///		
-        /// @param				Shape
-        /// @param				low value
-        /// @param				high value
+        /// @param				inShape
+        /// @param				inLow
+        /// @param				inHigh
         /// @return
         ///				NdArray
         ///
@@ -750,7 +754,7 @@ namespace NC
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn
         ///		
         /// @param
-        ///				Shape
+        ///				inShape
         /// @return
         ///				NdArray
         ///
@@ -774,9 +778,7 @@ namespace NC
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
         ///		
         /// @param
-        ///				seed
-        /// @return
-        ///				None
+        ///				inSeed
         ///
         static void seed(uint32 inSeed)
         {
@@ -788,9 +790,7 @@ namespace NC
         ///						Modify a sequence in-place by shuffling its contents.
         ///		
         /// @param
-        ///				NdArray
-        /// @return
-        ///				None
+        ///				inArray
         ///
         static void shuffle(NdArray<dtype>& inArray)
         {
@@ -806,7 +806,7 @@ namespace NC
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
         ///		
         /// @param
-        ///				Shape
+        ///				inShape
         /// @return
         ///				NdArray
         ///
@@ -822,8 +822,8 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
         ///		
-        /// @param				Shape
-        /// @param				df independent random variables
+        /// @param				inShape
+        /// @param				inDof independent random variables
         /// @return
         ///				NdArray
         ///
@@ -852,10 +852,10 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
         ///		
-        /// @param				Shape
-        /// @param				a
-        /// @param				b
-        /// @param				c
+        /// @param				inShape
+        /// @param				inA
+        /// @param				inB
+        /// @param				inC
         /// @return
         ///				NdArray
         ///
@@ -903,9 +903,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
         ///		
-        /// @param				Shape
-        /// @param				low value
-        /// @param				high value
+        /// @param				inShape
+        /// @param				inLow
+        /// @param				inHigh
         /// @return
         ///				NdArray
         ///
@@ -919,8 +919,8 @@ namespace NC
         ///						Such a distribution produces random numbers uniformly
         ///						distributed on the unit sphere of arbitrary dimension dim.
         ///		
-        /// @param				number of points
-        /// @param				dimension of the sphere, default 2
+        /// @param				inNumPoints
+        /// @param				inDims: dimension of the sphere (default 2)
         /// @return
         ///				NdArray
         ///
@@ -953,9 +953,9 @@ namespace NC
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
         ///		
-        /// @param				Shape
-        /// @param				a, default 1
-        /// @param				b, default 1
+        /// @param				inShape
+        /// @param				inA (default 1)
+        /// @param				inB (default 1)
         /// @return
         ///				NdArray
         ///

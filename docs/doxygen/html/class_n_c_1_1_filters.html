@@ -195,10 +195,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>Calculates a multidimensional complemenatry median filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>square size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -256,10 +256,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>Calculate a one-dimensional complemenatry median filter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>square size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -324,11 +324,11 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html#scipy.ndimage.convolve">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html#scipy.ndimage.convolve</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a>,weights</td><td></td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>square size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inWeights</td><td></td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -387,10 +387,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a>,weights</td><td></td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inWeights</td><td></td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -449,10 +449,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">double,Standard</td><td>deviation for Gaussian kernel </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSigma</td><td>Standard deviation for Gaussian kernel </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -511,10 +511,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">double,Standard</td><td>deviation for Gaussian kernel </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSigma</td><td>Standard deviation for Gaussian kernel </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -573,10 +573,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>square size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -635,10 +635,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter1d.html#scipy.ndimage.maximum_filter1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter1d.html#scipy.ndimage.maximum_filter1d</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>linear size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -697,10 +697,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>square size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -759,10 +759,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">linear</td><td>size of the kernel to apply </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>linear size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -821,10 +821,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>square size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -883,10 +883,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter1d.html#scipy.ndimage.minimum_filter1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter1d.html#scipy.ndimage.minimum_filter1d</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>linear size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -951,11 +951,11 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
-    <tr><td class="paramname">percentile</td><td>[0, 100] </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>square size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inPercentile</td><td>percentile [0, 100] </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1020,11 +1020,11 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
-    <tr><td class="paramname">percentile</td><td>[0, 100] </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>linear size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inPercentile</td><td>percentile [0, 100] </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1089,11 +1089,11 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
-    <tr><td class="paramname">rank</td><td>[0, inSize^2 - 1] </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>square size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inRank</td><td>([0, inSize^2 - 1]) </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1158,11 +1158,11 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
-    <tr><td class="paramname">rank</td><td>[0, 100] </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>linear size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inRank</td><td>([0, inSize^2 - 1]) </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1221,10 +1221,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">square</td><td>size of the kernel to apply </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>square size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1283,10 +1283,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">size</td><td>of the kernel to apply </td></tr>
-    <tr><td class="paramname">boundary</td><td>mode, default Reflect, options (reflect, constant, nearest, mirror, wrap) </td></tr>
-    <tr><td class="paramname">contant</td><td>value if boundary = 'constant' </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inSize</td><td>linear size of the kernel to apply </td></tr>
+    <tr><td class="paramname">inMode</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
   </table>
   </dd>
 </dl>

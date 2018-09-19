@@ -61,10 +61,6 @@ namespace NC
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             RA() :
                 hours_(0),
@@ -79,9 +75,7 @@ namespace NC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      degrees
-            ///
-            /// @return     None
+            /// @param      inDegrees
             ///
             RA(dtype inDegrees) :
                 hours_(0),
@@ -106,11 +100,9 @@ namespace NC
             //============================================================================
             ///						Constructor
             ///		
-            ///	@param			hours
-            /// @param          minutes
-            /// @param          seconds
-            ///
-            /// @return         None
+            ///	@param			inHours
+            /// @param          inMinutes
+            /// @param          inSeconds
             ///
             RA(uint8 inHours, uint8 inMinutes, dtype inSeconds) :
                 hours_(inHours),
@@ -127,8 +119,6 @@ namespace NC
 
             //============================================================================
             ///						Returns a copy of the RA object as a different type
-            ///		
-            /// @param      None
             ///
             /// @return     RA
             ///
@@ -142,8 +132,6 @@ namespace NC
 
             //============================================================================
             ///						Get the radians value
-            ///		
-            /// @param      None
             ///
             /// @return     radians
             ///
@@ -154,8 +142,6 @@ namespace NC
 
             //============================================================================
             ///						Get the degrees value
-            ///		
-            /// @param      None
             ///
             /// @return     degrees
             ///
@@ -166,8 +152,6 @@ namespace NC
 
             //============================================================================
             ///						Get the hour value
-            ///		
-            /// @param      None
             ///
             /// @return     hours
             ///
@@ -178,8 +162,6 @@ namespace NC
 
             //============================================================================
             ///						Get the minute value
-            ///		
-            /// @param      None   
             ///
             /// @return     minutes
             ///
@@ -190,8 +172,6 @@ namespace NC
 
             //============================================================================
             ///						Get the seconds value
-            ///		
-            /// @param      None
             /// 
             /// @return     seconds
             ///
@@ -202,10 +182,8 @@ namespace NC
 
             //============================================================================
             ///						Return the RA object as a string representation
-            ///		
-            /// @param      None
             ///
-            /// @return     string
+            /// @return     std::string
             ///
             std::string str() const
             {
@@ -216,10 +194,6 @@ namespace NC
 
             //============================================================================
             ///						Prints the RA object to the console
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             void print() const
             {
@@ -229,7 +203,7 @@ namespace NC
             //============================================================================
             ///						Equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -241,7 +215,7 @@ namespace NC
             //============================================================================
             ///						Not equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -253,9 +227,8 @@ namespace NC
             //============================================================================
             ///						Ostream operator
             ///		
-            /// @param      None
-            ///
-            /// @return     None
+            /// @param      inStream
+            /// @param      inRa
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const RA<dtype>& inRa)
             {
@@ -285,10 +258,6 @@ namespace NC
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             Dec() :
                 sign_(Sign::POSITIVE),
@@ -304,9 +273,7 @@ namespace NC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      degrees
-            ///
-            /// @return     None
+            /// @param      inDegrees
             ///
             Dec(dtype inDegrees) :
                 degreesWhole_(0),
@@ -334,12 +301,10 @@ namespace NC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      Sign::Type
-            ///	@param      hours
-            /// @param      minutes
-            /// @param      seconds
-            ///
-            /// @return     None
+            /// @param      inSign
+            ///	@param      inDegrees
+            /// @param      inMinutes
+            /// @param      inSeconds
             ///
             Dec(Sign::Type inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds) :
                 sign_(inSign),
@@ -359,8 +324,6 @@ namespace NC
 
             //============================================================================
             ///						Returns a copy of the Dec object as a different type
-            ///		
-            /// @param      None
             ///
             /// @return     Dec
             ///
@@ -374,8 +337,6 @@ namespace NC
 
             //============================================================================
             ///						Get the sign of the degrees (positive or negative)
-            ///		
-            /// @param      None
             ///
             /// @return     Sign::Type
             ///
@@ -386,8 +347,6 @@ namespace NC
 
             //============================================================================
             ///						Get the degrees value
-            ///		
-            /// @param      None
             ///
             /// @return     degrees
             ///
@@ -398,8 +357,6 @@ namespace NC
 
             //============================================================================
             ///						Get the radians value
-            ///		
-            /// @param      None
             ///
             /// @return     minutes
             ///
@@ -410,8 +367,6 @@ namespace NC
 
             //============================================================================
             ///						Get the whole degrees value
-            ///		
-            /// @param      None
             ///
             /// @return     whole degrees
             ///
@@ -422,8 +377,6 @@ namespace NC
 
             //============================================================================
             ///						Get the minute value
-            ///		
-            /// @param      None
             ///
             /// @return     minutes
             ///
@@ -434,8 +387,6 @@ namespace NC
 
             //============================================================================
             ///						Get the seconds value
-            ///		
-            /// @param      None
             ///
             /// @return     seconds
             ///
@@ -446,10 +397,8 @@ namespace NC
 
             //============================================================================
             ///						Return the dec object as a string representation
-            ///		
-            /// @param      None
             ///
-            /// @return     string
+            /// @return     std::string
             ///
             std::string str() const
             {
@@ -461,10 +410,6 @@ namespace NC
 
             //============================================================================
             ///						Prints the Dec object to the console
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             void print() const
             {
@@ -474,7 +419,7 @@ namespace NC
             //============================================================================
             ///						Equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -486,7 +431,7 @@ namespace NC
             //============================================================================
             ///						Not equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -498,9 +443,10 @@ namespace NC
             //============================================================================
             ///						Ostream operator
             ///		
-            /// @param      None
+            /// @param      inStream
+            /// @param      inDec
             ///
-            /// @return     None
+            /// @return     std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const Dec<dtype>& inDec)
             {
@@ -524,9 +470,6 @@ namespace NC
 
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
-            ///		
-            /// @param      None
-            /// @return     None
             ///
             void cartesianToPolar()
             {
@@ -544,10 +487,6 @@ namespace NC
 
             //============================================================================ 
             ///						Converts polar coordinates to cartesian coordinates
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             void polarToCartesian()
             {
@@ -562,10 +501,6 @@ namespace NC
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             Coordinate() :
                 ra_(),
@@ -580,10 +515,8 @@ namespace NC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      RA degrees
-            /// @param      Dec degrees
-            ///
-            /// @return     None
+            /// @param      inRaDegrees
+            /// @param      inDecDegrees
             ///
             Coordinate(dtype inRaDegrees, dtype inDecDegrees) :
                 ra_(inRaDegrees),
@@ -599,14 +532,13 @@ namespace NC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param				RA hours
-            /// @param              RA minutes
-            /// @param              RA seconds
-            /// @param              Dec degrees whole
-            /// @param              Dec minutes
-            /// @param              Dec seconds
-            ///
-            /// @return             None
+            /// @param				inRaHours
+            /// @param              inRaMinutes
+            /// @param              inRaSeconds
+            /// @param              inSign
+            /// @param              inDecDegreesWhole
+            /// @param              inDecMinutes
+            /// @param              inDecSeconds
             ///
             Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign::Type inSign, uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
@@ -622,10 +554,8 @@ namespace NC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param				RA 
-            /// @param              Dec
-            ///
-            /// @return             None
+            /// @param				inRA 
+            /// @param              inDec
             ///
             Coordinate(const RA<dtype>& inRA, const Dec<dtype>& inDec) :
                 ra_(inRA),
@@ -641,11 +571,9 @@ namespace NC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param				x 
-            /// @param              y
-            /// @param              z
-            ///
-            /// @return             None
+            /// @param				inX 
+            /// @param              inY
+            /// @param              inZ
             ///
             Coordinate(dtype inX, dtype inY, dtype inZ) :
                 ra_(),
@@ -661,9 +589,7 @@ namespace NC
             //============================================================================
             ///						Constructor
             ///		
-            /// @param				NdArray
-            ///
-            /// @return             None
+            /// @param				inCartesianVector
             ///
             Coordinate(const NdArray<dtype> inCartesianVector) :
                 ra_(),
@@ -688,8 +614,6 @@ namespace NC
 
             //============================================================================
             ///						Returns a new Coordinate object with the specified type
-            ///		
-            /// @param      None
             ///
             /// @return     Coordinate
             ///
@@ -701,8 +625,6 @@ namespace NC
 
             //============================================================================
             ///						Returns the Dec object
-            ///		
-            /// @param              None
             ///
             /// @return             Dec
             ///
@@ -713,8 +635,6 @@ namespace NC
 
             //============================================================================
             ///						Returns the RA object
-            ///		
-            /// @param      None
             ///
             /// @return     RA
             ///
@@ -725,8 +645,6 @@ namespace NC
 
             //============================================================================
             ///						Returns the cartesian x value
-            ///		
-            /// @param      None
             ///
             /// @return     x
             ///
@@ -737,8 +655,6 @@ namespace NC
 
             //============================================================================
             ///						Returns the cartesian y value
-            ///		
-            /// @param      None
             ///
             /// @return     y
             ///
@@ -749,8 +665,6 @@ namespace NC
 
             //============================================================================
             ///						Returns the cartesian z value
-            ///		
-            /// @param      None
             ///
             /// @return     z
             ///
@@ -761,8 +675,6 @@ namespace NC
 
             //============================================================================
             ///						Returns the cartesian xyz triplet as an NdArray
-            ///		
-            /// @param      None
             ///
             /// @return     NdArray
             ///
@@ -775,7 +687,7 @@ namespace NC
             //============================================================================  
             ///						Returns the degree seperation between the two Coordinates
             ///		
-            /// @param      Coordinate
+            /// @param      inOtherCoordinate
             ///
             /// @return     degrees
             ///
@@ -788,7 +700,7 @@ namespace NC
             ///						Returns the degree seperation between the Coordinate
             ///                     and the input vector
             ///		
-            /// @param      NdArray
+            /// @param      inVector
             ///
             /// @return     degrees
             ///
@@ -800,7 +712,7 @@ namespace NC
             //============================================================================
             ///						Returns the radian seperation between the two Coordinates
             ///		
-            /// @param      Coordinate
+            /// @param      inOtherCoordinate
             ///
             /// @return     radians
             ///
@@ -813,7 +725,7 @@ namespace NC
             ///						Returns the radian seperation between the Coordinate
             ///                     and the input vector
             ///		
-            /// @param      NdArray
+            /// @param      inVector
             ///
             /// @return     radians
             ///
@@ -829,8 +741,6 @@ namespace NC
 
             //============================================================================
             ///						Returns coordinate as a string representation
-            ///		
-            /// @param      None
             ///
             /// @return     string
             ///
@@ -845,10 +755,6 @@ namespace NC
 
             //============================================================================
             ///						Prints the Coordinate object to the console
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             void print() const
             {
@@ -858,7 +764,7 @@ namespace NC
             //============================================================================
             ///						Equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -870,7 +776,7 @@ namespace NC
             //============================================================================
             ///						Not equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -882,9 +788,10 @@ namespace NC
             //============================================================================
             ///						Ostream operator
             ///		
-            /// @param      None
+            /// @param      inStream
+            /// @param      inCoord
             ///
-            /// @return     None
+            /// @return     std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const Coordinate<dtype>& inCoord)
             {
@@ -896,8 +803,8 @@ namespace NC
         //============================================================================
         ///						Returns the degree seperation between the two Coordinates
         ///		
-        /// @param				Coordinate
-        /// @param              Coordinate
+        /// @param				inCoordinate1
+        /// @param              inCoordinate2
         ///
         /// @return             degrees
         ///
@@ -911,8 +818,8 @@ namespace NC
         ///						Returns the degree seperation between the Coordinate
         ///                     and the input vector
         ///		
-        /// @param				NdArray
-        /// @param              NdArray
+        /// @param				inVector1
+        /// @param              inVector2
         ///
         /// @return             degrees
         ///
@@ -926,8 +833,8 @@ namespace NC
         //============================================================================
         ///						Returns the radian seperation between the two Coordinates
         ///		
-        /// @param				Coordinate
-        /// @param              Coordinate
+        /// @param				inCoordinate1
+        /// @param              inCoordinate2
         ///
         /// @return             radians
         ///
@@ -941,8 +848,9 @@ namespace NC
         ///						Returns the radian seperation between the Coordinate
         ///                     and the input vector
         ///		
-        /// @param				NdArray
-        /// @param              NdArray
+        /// @param				inVector1
+        /// @param              inVector2
+        ///
         /// @return             radians
         ///
         template<typename dtype>

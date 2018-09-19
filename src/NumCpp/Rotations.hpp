@@ -58,11 +58,6 @@ namespace NC
             // Method Description: 
             ///						renormalizes the quaternion
             ///		
-            /// @param
-            ///				None
-            /// @return
-            ///				None
-            ///
             void normalize()
             {
                 double norm = std::sqrt(Utils<double>::sqr(data_[0]) + Utils<double>::sqr(data_[1]) + Utils<double>::sqr(data_[2]) + Utils<double>::sqr(data_[3]));
@@ -77,11 +72,6 @@ namespace NC
             // Method Description: 
             ///						Default Constructor, not super usefull on its own
             ///		
-            /// @param
-            ///				None
-            /// @return
-            ///				None
-            ///
             Quaternion()
             {
                 data_[0] = 0.0;
@@ -94,13 +84,11 @@ namespace NC
             // Method Description: 
             ///						Constructor
             ///		
-            /// @param				i
-            /// @param				j
-            /// @param				k
-            /// @param				s
-            /// @return
-            ///				None
-            ///
+            /// @param				inI
+            /// @param				inJ
+            /// @param				inK
+            /// @param				inS
+            ///				
             Quaternion(double inI, double inJ, double inK, double inS)
             {
                 double norm = std::sqrt(Utils<double>::sqr(inI) + Utils<double>::sqr(inJ) + Utils<double>::sqr(inK) + Utils<double>::sqr(inS));
@@ -115,9 +103,7 @@ namespace NC
             ///						Constructor
             ///		
             /// @param
-            ///				NdArray, size = 4
-            /// @return
-            ///				None
+            ///				inArray (size = 4)
             ///
             Quaternion(const NdArray<double>& inArray)
             {
@@ -137,8 +123,8 @@ namespace NC
             // Method Description: 
             ///						returns a quaternion to rotate about the input axis by the input angle
             ///		
-            /// @param			NdArray, x,y,z vector components
-            /// @param			angle in radians 
+            /// @param			inAxis (x,y,z vector components)
+            /// @param			inAngle (radians)
             /// @return
             ///				Quaternion
             ///
@@ -163,14 +149,14 @@ namespace NC
 
             //============================================================================
             // Method Description: 
-            ///						angular velocity between the two quaternions. The norm
+            ///						angular velocity vector between the two quaternions. The norm
             ///						of the array is the magnitude
             ///		
-            /// @param				Quaternion 1
-            /// @param				Quaternion 2
-            /// @param				seperation time
+            /// @param				inQuat1
+            /// @param				inQuat2
+            /// @param				inTime (seperation time)
             /// @return
-            ///				Quaternion
+            ///				NdArray<double>
             ///
             static NdArray<double> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime)
             {
@@ -199,13 +185,13 @@ namespace NC
 
             //============================================================================
             // Method Description: 
-            ///						angular velocity between the two quaternions. The norm
+            ///						angular velocity vector between the two quaternions. The norm
             ///						of the array is the magnitude
             ///		
-            /// @param				Quaternion 2
-            /// @param				seperation time
+            /// @param				inQuat2
+            /// @param				inTime (seperation time)
             /// @return
-            ///				Quaternion
+            ///				NdArray<double>
             ///
             NdArray<double> angularVelocity(const Quaternion& inQuat2, double inTime) const
             {
@@ -215,11 +201,9 @@ namespace NC
             //============================================================================
             // Method Description: 
             ///						quaternion conjugate
-            ///		
-            /// @param
-            ///				None
+            ///				
             /// @return
-            ///				s
+            ///				Quaternion
             ///
             Quaternion conjugate() const
             {
@@ -229,11 +213,9 @@ namespace NC
             //============================================================================
             // Method Description: 
             ///						returns the i component
-            ///		
-            /// @param
-            ///				None
+            ///				
             /// @return
-            ///				i
+            ///				double
             ///
             double i() const
             {
@@ -243,9 +225,7 @@ namespace NC
             //============================================================================
             // Method Description: 
             ///						quaternion identity (0,0,0,1)
-            ///		
-            /// @param
-            ///				None
+            ///				
             /// @return
             ///				Quaternion
             ///
@@ -257,9 +237,7 @@ namespace NC
             //============================================================================
             // Method Description: 
             ///						quaternion inverse
-            ///		
-            /// @param
-            ///				None
+            ///				
             /// @return
             ///				Quaterion
             ///
@@ -272,11 +250,9 @@ namespace NC
             //============================================================================
             // Method Description: 
             ///						returns the j component
-            ///		
-            /// @param
-            ///				None
+            ///				
             /// @return
-            ///				j
+            ///				double
             ///
             double j() const
             {
@@ -286,11 +262,9 @@ namespace NC
             //============================================================================
             // Method Description: 
             ///						returns the k component
-            ///		
-            /// @param
-            ///				None
+            ///				
             /// @return
-            ///				k
+            ///				double
             ///
             double k() const
             {
@@ -302,7 +276,7 @@ namespace NC
             ///						converts from a direction cosine matrix to a quaternion
             ///		
             /// @param
-            ///				NdArray
+            ///				inDcm
             /// @return
             ///				Quaternion
             ///
@@ -377,9 +351,9 @@ namespace NC
             // Method Description: 
             ///						linearly interpolates between the two quaternions
             ///		
-            /// @param				Quaternion 1
-            /// @param				Quaternion 2
-            /// @param				percent [0, 1]
+            /// @param				inQuat1
+            /// @param				inQuat2
+            /// @param				inPercent [0, 1]
             /// @return
             ///				Quaternion
             ///
@@ -412,8 +386,8 @@ namespace NC
             // Method Description: 
             ///						linearly interpolates between the two quaternions
             ///		
-            /// @param				Quaternion 2
-            /// @param				percent (0, 1)
+            /// @param				inQuat2
+            /// @param				inPercent (0, 1)
             /// @return
             ///				Quaternion
             ///
@@ -425,12 +399,7 @@ namespace NC
             //============================================================================
             // Method Description: 
             ///						prints the Quaternion to the console
-            ///		
-            /// @param
-            ///				None
-            /// @return
-            ///				None
-            ///
+            ///				
             void print() const
             {
                 std::cout << *this;
@@ -441,9 +410,9 @@ namespace NC
             ///						rotate a vector using the quaternion
             ///		
             /// @param
-            ///				cartesian vector with x,y,z components
+            ///				inVector (cartesian vector with x,y,z components)
             /// @return
-            ///				cartesian vector with x,y,z components
+            ///				NdArray<double> (cartesian vector with x,y,z components)
             ///
             template<typename dtype>
             NdArray<double> rotate(const NdArray<dtype>& inVector) const
@@ -460,10 +429,8 @@ namespace NC
             // Method Description: 
             ///						returns the s component
             ///		
-            /// @param
-            ///				None
             /// @return
-            ///				s
+            ///				double
             ///
             double s() const
             {
@@ -474,9 +441,9 @@ namespace NC
             // Method Description: 
             ///						spherical linear interpolates between the two quaternions
             ///		
-            /// @param				Quaternion 1
-            /// @param				Quaternion 2
-            /// @param				percent (0, 1)
+            /// @param				inQuat1
+            /// @param				inQuat2
+            /// @param				inPercent (0, 1)
             /// @return
             ///				Quaternion
             ///
@@ -530,8 +497,8 @@ namespace NC
             // Method Description: 
             ///						spherical linear interpolates between the two quaternions
             ///		
-            /// @param				Quaternion 2
-            /// @param				percent (0, 1)
+            /// @param				inQuat2
+            /// @param				inPercent (0, 1)
             /// @return
             ///				Quaternion
             ///
@@ -543,11 +510,9 @@ namespace NC
             //============================================================================
             // Method Description: 
             ///						returns the quaternion as a string representation
-            ///		
-            /// @param
-            ///				None
+            ///				
             /// @return
-            ///				string
+            ///				std::string
             ///
             std::string str() const
             {
@@ -560,11 +525,9 @@ namespace NC
             //============================================================================
             // Method Description: 
             ///						returns the direction cosine matrix
-            ///		
-            /// @param
-            ///				None
+            ///				
             /// @return
-            ///				NdArray
+            ///				NdArray<double>
             ///
             NdArray<double> toDCM() const
             {
@@ -590,12 +553,10 @@ namespace NC
 
             //============================================================================
             // Method Description: 
-            ///						returns the quaternion as an NdArray
-            ///		
-            /// @param
-            ///				None
+            ///						returns the quaternion as an NdArray	
+            ///				
             /// @return
-            ///				NdArray
+            ///				NdArray<double>
             ///
             NdArray<double> toNdArray() const
             {
@@ -608,7 +569,7 @@ namespace NC
             ///						returns a quaternion to rotate about the x-axis by the input angle
             ///		
             /// @param
-            ///				angle in radians 
+            ///				inAngle (radians)
             /// @return
             ///				Quaternion
             ///
@@ -622,7 +583,7 @@ namespace NC
             ///						returns a quaternion to rotate about the y-axis by the input angle
             ///		
             /// @param
-            ///				angle in radians 
+            ///				inAngle (radians) 
             /// @return
             ///				Quaternion
             ///
@@ -636,7 +597,7 @@ namespace NC
             ///						returns a quaternion to rotate about the y-axis by the input angle
             ///		
             /// @param
-            ///				angle in radians 
+            ///				inAngle (radians) 
             /// @return
             ///				Quaternion
             ///
@@ -650,7 +611,7 @@ namespace NC
             ///						equality operator
             ///		
             /// @param
-            ///				Quaternion
+            ///				inRhs
             /// @return
             ///				bool
             ///
@@ -667,9 +628,9 @@ namespace NC
             ///						equality operator
             ///		
             /// @param
-            ///				None
+            ///				inRhs
             /// @return
-            ///				None
+            ///				bool
             ///
             bool operator!=(const Quaternion& inRhs) const
             {
@@ -681,7 +642,7 @@ namespace NC
             ///						addition operator
             ///		
             /// @param
-            ///				Quaternion
+            ///				inRhs
             /// @return
             ///				Quaternion
             ///
@@ -695,7 +656,7 @@ namespace NC
             ///						addition assignment operator
             ///		
             /// @param
-            ///				Quaternion
+            ///				inRhs
             /// @return
             ///				Quaternion
             ///
@@ -715,7 +676,7 @@ namespace NC
             ///						subtraction operator
             ///		
             /// @param
-            ///				Quaternion
+            ///				inRhs
             /// @return
             ///				Quaternion
             ///
@@ -729,7 +690,7 @@ namespace NC
             ///						subtraction assignment operator
             ///		
             /// @param
-            ///				Quaternion
+            ///				inRhs
             /// @return
             ///				Quaternion
             ///
@@ -749,7 +710,7 @@ namespace NC
             ///						multiplication operator
             ///		
             /// @param
-            ///				Quaternion
+            ///				inRhs
             /// @return
             ///				Quaternion
             ///
@@ -764,7 +725,7 @@ namespace NC
             ///						by negative 1, all others will be renormalized back out
             ///		
             /// @param
-            ///				scalar value
+            ///				inScalar
             /// @return
             ///				Quaternion
             ///
@@ -778,9 +739,9 @@ namespace NC
             ///						multiplication operator
             ///		
             /// @param
-            ///				NdArray
+            ///				inVec
             /// @return
-            ///				NdArray
+            ///				NdArray<double>
             ///
             template<typename dtype>
             NdArray<double> operator*(const NdArray<dtype>& inVec) const
@@ -798,7 +759,7 @@ namespace NC
             ///						multiplication assignment operator
             ///		
             /// @param
-            ///				Quaternion
+            ///				inRhs
             /// @return
             ///				Quaternion
             ///
@@ -824,7 +785,7 @@ namespace NC
             ///						by negative 1, all others will be renormalized back out
             ///		
             /// @param
-            ///				scalar value
+            ///				inScalar
             /// @return
             ///				Quaternion
             ///
@@ -844,7 +805,7 @@ namespace NC
             ///						division operator
             ///		
             /// @param
-            ///				Quaternion
+            ///				inRhs
             /// @return
             ///				Quaternion
             ///
@@ -858,7 +819,7 @@ namespace NC
             ///						division assignment operator
             ///		
             /// @param
-            ///				Quaternion
+            ///				inRhs
             /// @return
             ///				Quaternion
             ///
@@ -871,10 +832,10 @@ namespace NC
             // Method Description: 
             ///						IO operator for the Quaternion class
             ///		
-            /// @param      ostream
-            /// @param 		Quaternion
+            /// @param      inOStream
+            /// @param 		inQuat
             /// @return
-            ///				ostream&
+            ///				std::ostream&
             ///
             friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat)
             {
@@ -894,8 +855,8 @@ namespace NC
             ///						returns a direction cosine matrix that rotates about
             ///						the input axis by the input angle
             ///		
-            /// @param				NdArray, cartesian vector with x,y,z
-            /// @param				rotation angle, in radians
+            /// @param				inArray (cartesian vector with x,y,z)
+            /// @param				inAngle (in radians)
             /// @return
             ///				NdArray
             ///
@@ -915,7 +876,7 @@ namespace NC
             ///						matrix
             ///		
             /// @param
-            ///				NdArray
+            ///				inArray
             /// @return
             ///				bool
             ///
@@ -937,9 +898,9 @@ namespace NC
             ///						the x axis by the input angle
             ///		
             /// @param
-            ///				rotation angle, in radians
+            ///				inAngle (in radians)
             /// @return
-            ///				NdArray
+            ///				NdArray<double>
             ///
             static NdArray<double> xRotation(double inAngle)
             {
@@ -952,9 +913,9 @@ namespace NC
             ///						the x axis by the input angle
             ///		
             /// @param
-            ///				rotation angle, in radians
+            ///				inAngle (in radians)
             /// @return
-            ///				NdArray
+            ///				NdArray<double>
             ///
             static NdArray<double> yRotation(double inAngle)
             {
@@ -967,9 +928,9 @@ namespace NC
             ///						the x axis by the input angle
             ///		
             /// @param
-            ///				rotation angle, in radians
+            ///				inAngle (in radians)
             /// @return
-            ///				NdArray
+            ///				NdArray<double>
             ///
             static NdArray<double> zRotation(double inAngle)
             {

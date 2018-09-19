@@ -41,9 +41,9 @@ namespace NC
         //============================================================================
         ///						Converts the number into a string
         ///		
-        /// @param      number
+        /// @param      inNumber
         ///
-        /// @return     string
+        /// @return     std::string
         ///
         static std::string num2str(dtype inNumber)
         {
@@ -53,9 +53,9 @@ namespace NC
         //============================================================================
         ///						Squares in input value
         ///		
-        /// @param      dtype
+        /// @param      inValue
         ///
-        /// @return     dtype
+        /// @return     squared value
         ///
         static dtype sqr(dtype inValue)
         {
@@ -65,9 +65,9 @@ namespace NC
         //============================================================================
         ///						Cubes in input value
         ///		
-        /// @param      dtype
+        /// @param      inValue
         ///
-        /// @return     dtype
+        /// @return     cubed value
         ///
         static dtype cube(dtype inValue)
         {
@@ -77,9 +77,10 @@ namespace NC
         //============================================================================
         ///						Raises the input value to a power
         ///		
-        /// @param      dtype
+        /// @param      inValue
+        /// @param      inPower
         ///
-        /// @return     dtype
+        /// @return     inValue raised to inPower
         ///
         static dtype power(dtype inValue, uint8 inPower)
         {

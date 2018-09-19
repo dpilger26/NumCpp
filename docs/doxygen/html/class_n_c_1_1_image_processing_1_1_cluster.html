@@ -212,7 +212,6 @@ template&lt;typename dtype  = double&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -245,11 +244,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>adds a pixel to the cluster</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pixel</td><td></td></tr>
+    <tr><td class="paramname">inPixel</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -281,7 +279,7 @@ template&lt;typename dtype  = double&gt; </div>
 <p>access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td></td></tr>
+    <tr><td class="paramname">inIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -314,12 +312,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns in iterator to the beginning pixel of the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
@@ -349,12 +341,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the minimum row number of the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>minimum row number of the cluster </dd></dl>
 
 </div>
@@ -384,12 +370,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the maximum column number of the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>maximum column number of the cluster </dd></dl>
 
 </div>
@@ -419,12 +399,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the minimum column number of the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>minimum column number of the cluster </dd></dl>
 
 </div>
@@ -454,12 +428,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns in iterator to the 1 past the end pixel of the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
@@ -489,12 +457,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the cluster estimated energy on detector (EOD)</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>eod </dd></dl>
 
 </div>
@@ -524,12 +486,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the number of rows the cluster spans</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>number of rows </dd></dl>
 
 </div>
@@ -559,12 +515,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the summed intensity of the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>summed cluster intensity </dd></dl>
 
 </div>
@@ -597,7 +547,7 @@ template&lt;typename dtype  = double&gt; </div>
 <p>not equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_image_processing_1_1_cluster.html" title="Holds the information for a cluster of pixels. ">Cluster</a></td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -633,7 +583,7 @@ template&lt;typename dtype  = double&gt; </div>
 <p>equality operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_image_processing_1_1_cluster.html" title="Holds the information for a cluster of pixels. ">Cluster</a></td><td></td></tr>
+    <tr><td class="paramname">rhs</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -669,7 +619,7 @@ template&lt;typename dtype  = double&gt; </div>
 <p>access operator, no bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td></td></tr>
+    <tr><td class="paramname">inIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -702,12 +652,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the intensity of the peak pixel in the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>peak pixel intensity </dd></dl>
 
 </div>
@@ -736,14 +680,7 @@ template&lt;typename dtype  = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Method Description: prints the <a class="el" href="class_n_c_1_1_image_processing_1_1_cluster.html" title="Holds the information for a cluster of pixels. ">Cluster</a> object to the console</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Method Description: prints the <a class="el" href="class_n_c_1_1_image_processing_1_1_cluster.html" title="Holds the information for a cluster of pixels. ">Cluster</a> object to the console </p>
 
 </div>
 </div>
@@ -772,12 +709,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the maximum row number of the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>maximum row number of the cluster </dd></dl>
 
 </div>
@@ -807,12 +738,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the minimum row number of the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>minimum row number of the cluster </dd></dl>
 
 </div>
@@ -842,12 +767,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the number of pixels in the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>number of pixels in the cluster </dd></dl>
 
 </div>
@@ -877,12 +796,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns a string representation of the cluster</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
 </div>
@@ -912,12 +825,6 @@ template&lt;typename dtype  = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the number of columns the cluster spans</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>number of columns </dd></dl>
 
 </div>
@@ -961,8 +868,8 @@ template&lt;typename dtype  = double&gt; </div>
 <p>osstream operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">std::ostream</td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_image_processing_1_1_cluster.html" title="Holds the information for a cluster of pixels. ">Cluster</a></td><td></td></tr>
+    <tr><td class="paramname">inStream</td><td></td></tr>
+    <tr><td class="paramname">inCluster</td><td></td></tr>
   </table>
   </dd>
 </dl>

@@ -157,11 +157,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det">https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>dtype </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>matrix determinant </dd></dl>
 
 </div>
 </div>
@@ -209,9 +209,9 @@ template&lt;typename dtype = double&gt; </div>
 <p>vector hat operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramname">y</td><td></td></tr>
-    <tr><td class="paramname">z</td><td></td></tr>
+    <tr><td class="paramname">inX</td><td></td></tr>
+    <tr><td class="paramname">inY</td><td></td></tr>
+    <tr><td class="paramname">inZ</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -247,7 +247,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>vector hat operator</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>3x1, or 1x3 cartesian vector </td></tr>
+    <tr><td class="paramname">inVec</td><td>(3x1, or 1x3 cartesian vector) </td></tr>
   </table>
   </dd>
 </dl>
@@ -284,7 +284,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv">https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -337,9 +337,9 @@ template&lt;typename dtype = double&gt; </div>
 <p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq">https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a>,coefficient</td><td>matrix </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a>,Ordinate</td><td>or "dependent variable" values </td></tr>
-    <tr><td class="paramname">double,tolerance</td><td></td></tr>
+    <tr><td class="paramname">inA</td><td>coefficient matrix </td></tr>
+    <tr><td class="paramname">inB</td><td>Ordinate or "dependent variable" values </td></tr>
+    <tr><td class="paramname">inTolerance</td><td>(default 1e-12)</td></tr>
   </table>
   </dd>
 </dl>
@@ -389,8 +389,8 @@ template&lt;typename dtypeOut  = double&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">power</td><td></td></tr>
+    <tr><td class="paramname">inArray</td><td></td></tr>
+    <tr><td class="paramname">inPower</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -429,7 +429,7 @@ template&lt;typename dtypeOut  = double&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">initializer_list&lt;NdArray&lt;dtype&gt;</td><td>&gt;, list of arrays</td></tr>
+    <tr><td class="paramname">inList</td><td>list of arrays</td></tr>
   </table>
   </dd>
 </dl>
@@ -488,14 +488,13 @@ template&lt;typename dtype = double&gt; </div>
 <p>NumPy Reference: <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>to be SVDed </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>output U </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>output S </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>output V transpose </td></tr>
+    <tr><td class="paramname">inArray</td><td><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> to be SVDed </td></tr>
+    <tr><td class="paramname">outU</td><td><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> output U </td></tr>
+    <tr><td class="paramname">outS</td><td><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> output S </td></tr>
+    <tr><td class="paramname">outVt</td><td><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> output V transpose </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
 </div>

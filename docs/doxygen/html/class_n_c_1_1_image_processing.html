@@ -172,7 +172,7 @@ template&lt;typename dtype  = double&gt; </div>
 <p>Applies a threshold to an image</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>threshold value </td></tr>
+    <tr><td class="paramname">inImageArray</td><td>inThreshold </td></tr>
   </table>
   </dd>
 </dl>
@@ -208,8 +208,7 @@ template&lt;typename dtype  = double&gt; </div>
 <p>Center of Mass centroids clusters</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">threshold</td><td>value </td></tr>
+    <tr><td class="paramname">inClusters</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -261,9 +260,9 @@ template&lt;typename dtype  = double&gt; </div>
 <p>Clusters exceedance pixels from an image</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>of exceedances </td></tr>
-    <tr><td class="paramname">border</td><td>to apply around exceedance pixels post clustering, default 0 </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inExceedances</td><td></td></tr>
+    <tr><td class="paramname">inBorderWidth</td><td>border to apply around exceedance pixels post clustering (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -321,10 +320,10 @@ template&lt;typename dtype  = double&gt; </div>
 <p>Generates a list of centroids givin an input exceedance rate</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">exceedance</td><td>rate </td></tr>
-    <tr><td class="paramname">string</td><td>"pre", or "post" for where to apply the exceedance windowing </td></tr>
-    <tr><td class="paramname">border</td><td>to apply, default 0 </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inRate</td><td>exceedance rate </td></tr>
+    <tr><td class="paramname">inWindowType</td><td>(string "pre", or "post" for where to apply the exceedance windowing) </td></tr>
+    <tr><td class="paramname">inBorderWidth</td><td>border to apply (default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -370,8 +369,8 @@ template&lt;typename dtype  = double&gt; </div>
 <p>Calculates a threshold such that the input rate of pixels exceeds the threshold. Really should only be used for integer input array values. If using floating point data, user beware...</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-    <tr><td class="paramname">exceedance</td><td>rate </td></tr>
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inRate</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -417,8 +416,8 @@ template&lt;typename dtype  = double&gt; </div>
 <p>Window expand around exceedance pixels</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray&lt;bool&gt;</a></td><td></td></tr>
-    <tr><td class="paramname">border</td><td>width </td></tr>
+    <tr><td class="paramname">inExceedances</td><td></td></tr>
+    <tr><td class="paramname">inBorderWidth</td><td></td></tr>
   </table>
   </dd>
 </dl>
