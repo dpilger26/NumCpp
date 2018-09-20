@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,14 +23,14 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// Holds info about the dtype
 ///
 #pragma once
 
 #include<limits>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						Holds info about the dtype
@@ -41,8 +41,6 @@ namespace NumCpp
         //============================================================================
         ///						For integer types: number of non-sign bits in the representation.
         ///						For floating types : number of digits(in radix base) in the mantissa
-        ///		
-        /// @param      None
         ///
         /// @return     number of bits
         ///
@@ -54,8 +52,6 @@ namespace NumCpp
         //============================================================================
         ///						Machine epsilon (the difference between 1 and the least 
         ///						value greater than 1 that is representable).
-        ///		
-        /// @param      None
         ///
         /// @return     dtype
         ///
@@ -66,8 +62,6 @@ namespace NumCpp
 
         //============================================================================
         ///						True if type is integer.
-        ///		
-        /// @param      None
         ///
         /// @return     bool
         ///
@@ -78,8 +72,6 @@ namespace NumCpp
 
         //============================================================================
         ///						True if type is signed.
-        ///		
-        /// @param      None
         ///
         /// @return     bool
         ///
@@ -90,8 +82,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the minimum value of the dtype
-        ///		
-        /// @param      None
         ///
         /// @return     min value
         ///
@@ -102,8 +92,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the maximum value of the dtype
-        ///		
-        /// @param      None
         ///
         /// @return     max value
         ///

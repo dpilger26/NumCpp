@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// Holds 1D and 2D arrays, the main work horse of the NumCpp library
 ///
 #pragma once
@@ -51,12 +51,12 @@
 #include<utility>
 #include<vector>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     // Class Description:
     ///						Holds 1D and 2D arrays, the main work horse of the NumCpp library
-    template<typename dtype>
+    template<typename dtype = double>
     class NdArray
     {
     public:
@@ -74,11 +74,6 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						Deletes the internal array
-        ///		
-        /// @param
-        ///				None
-        /// @return
-        ///				None
         ///
         void deleteArray()
         {
@@ -96,9 +91,7 @@ namespace NumCpp
         ///						Creates a new internal array
         ///		
         /// @param
-        ///				Shape
-        /// @return
-        ///				None
+        ///				inShape
         ///
         void newArray(const Shape& inShape)
         {
@@ -114,11 +107,6 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						Defualt Constructor, not very usefull...
-        ///		
-        /// @param
-        ///				None
-        /// @return
-        ///				None
         ///
         NdArray() :
             shape_(0, 0),
@@ -132,9 +120,7 @@ namespace NumCpp
         ///						Constructor
         ///		
         /// @param
-        ///				square number of rows and columns
-        /// @return
-        ///				None
+        ///				inSquareSize: square number of rows and columns
         ///
         explicit NdArray(uint32 inSquareSize) :
             shape_(inSquareSize, inSquareSize),
@@ -147,10 +133,8 @@ namespace NumCpp
         // Method Description: 
         ///						Constructor
         ///		
-        /// @param				number of rows,
-        /// @param				number of columns
-        /// @return
-        ///				None
+        /// @param				inNumRows
+        /// @param				inNumCols
         ///
         NdArray(uint32 inNumRows, uint32 inNumCols) :
             shape_(inNumRows, inNumCols),
@@ -164,9 +148,7 @@ namespace NumCpp
         ///						Constructor
         ///		
         /// @param
-        ///				Shape 
-        /// @return
-        ///				None
+        ///				inShape 
         ///
         explicit NdArray(const Shape& inShape) :
             shape_(inShape),
@@ -180,9 +162,7 @@ namespace NumCpp
         ///						Constructor
         ///		
         /// @param
-        ///				1D initializer list
-        /// @return
-        ///				None
+        ///				inList
         ///
         NdArray(const std::initializer_list<dtype>& inList) :
             shape_(1, static_cast<uint32>(inList.size())),
@@ -198,9 +178,7 @@ namespace NumCpp
         ///						Constructor
         ///		
         /// @param
-        ///				2D initializer list
-        /// @return
-        ///				None
+        ///				inList: 2D initializer list
         ///
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
             shape_(static_cast<uint32>(inList.size()), 0),
@@ -237,9 +215,7 @@ namespace NumCpp
         ///						Constructor
         ///		
         /// @param
-        ///				std::vector
-        /// @return
-        ///				None
+        ///				inVector
         ///
         explicit NdArray(const std::vector<dtype>& inVector) :
             shape_(1, static_cast<uint32>(inVector.size())),
@@ -255,9 +231,7 @@ namespace NumCpp
         ///						Constructor
         ///		
         /// @param
-        ///				std::set
-        /// @return
-        ///				None
+        ///				inSet
         ///
         explicit NdArray(const std::set<dtype>& inSet) :
             shape_(1, static_cast<uint32>(inSet.size())),
@@ -272,10 +246,8 @@ namespace NumCpp
         // Method Description: 
         ///						Constructor
         ///		
-        /// @param				const_iterator first
-        /// @param				const_iterator second
-        /// @return
-        ///				None
+        /// @param				inFirst: 
+        /// @param				inLast
         ///
         explicit NdArray(const_iterator inFirst, const_iterator inLast) :
             shape_(1, static_cast<uint32>(inLast - inFirst)),
@@ -290,10 +262,8 @@ namespace NumCpp
         // Method Description: 
         ///						Constructor
         ///		
-        /// @param				char* to beginning of buffer 
-        /// @param				number of bytes
-        /// @return
-        ///				None
+        /// @param				inBeginning: dtype* to beginning of buffer 
+        /// @param				inNumBytes: number of bytes
         ///
         NdArray(const dtype* inBeginning, uint32 inNumBytes) :
             shape_(1, inNumBytes / sizeof(dtype)),
@@ -312,9 +282,7 @@ namespace NumCpp
         ///						Copy Constructor
         ///		
         /// @param
-        ///				NdArray
-        /// @return
-        ///				None
+        ///				inOtherArray
         ///
         NdArray(const NdArray<dtype>& inOtherArray) :
             shape_(inOtherArray.shape_),
@@ -330,9 +298,7 @@ namespace NumCpp
         ///						Move Constructor
         ///		
         /// @param
-        ///				NdArray
-        /// @return
-        ///				None
+        ///				inOtherArray
         ///
         NdArray(NdArray<dtype>&& inOtherArray) :
             shape_(inOtherArray.shape_),
@@ -347,11 +313,6 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						Destructor
-        ///		
-        /// @param
-        ///				None
-        /// @return
-        ///				None
         ///
         ~NdArray()
         {
@@ -363,9 +324,9 @@ namespace NumCpp
         ///						Assignment operator, performs a deep copy
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
-        ///				None
+        ///				NdArray<dtype>
         ///
         NdArray<dtype>& operator=(const NdArray<dtype>& inOtherArray)
         {
@@ -379,12 +340,32 @@ namespace NumCpp
 
         //============================================================================
         // Method Description: 
+        ///						Assignment operator, sets the entire array to a single 
+        ///                     scalar value.  
+        ///		
+        /// @param
+        ///				inValue
+        /// @return
+        ///				NdArray<dtype>
+        ///
+        NdArray<dtype>& operator=(dtype inValue)
+        {
+            for (auto& value : this)
+            {
+                value = inValue;
+            }
+
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description: 
         ///						Move operator, performs a deep move
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
-        ///				None
+        ///				NdArray<dtype>
         ///
         NdArray<dtype>& operator=(NdArray<dtype>&& inOtherArray)
         {
@@ -408,7 +389,7 @@ namespace NumCpp
         ///						1D access operator with no bounds checking
         ///		
         /// @param
-        ///				array index
+        ///				inIndex
         /// @return
         ///				value
         ///
@@ -427,7 +408,7 @@ namespace NumCpp
         ///						const 1D access operator with no bounds checking
         ///		
         /// @param
-        ///				array index
+        ///				inIndex
         /// @return
         ///				value
         ///
@@ -445,8 +426,8 @@ namespace NumCpp
         // Method Description: 
         ///						2D access operator with no bounds checking
         ///		
-        /// @param				row index
-        /// @param				col index
+        /// @param				inRowIndex
+        /// @param				inColIndex
         /// @return
         ///				value
         ///
@@ -469,8 +450,8 @@ namespace NumCpp
         // Method Description: 
         ///						const 2D access operator with no bounds checking
         ///		
-        /// @param				row index
-        /// @param				col index
+        /// @param				inRowIndex
+        /// @param				inColIndex
         /// @return
         ///				value
         ///
@@ -491,11 +472,11 @@ namespace NumCpp
 
         //============================================================================
         // Method Description: 
-        ///						1D Slicing access operator with no bounds checking. 
+        ///						1D Slicing access operator with bounds checking. 
         ///						returned array is of the range [start, stop).
         ///		
         /// @param
-        ///				Slice
+        ///				inSlice
         /// @return
         ///				NdArray
         ///
@@ -515,11 +496,11 @@ namespace NumCpp
 
         //============================================================================
         // Method Description: 
-        ///						2D Slicing access operator with no bounds checking.
+        ///						2D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
         ///		
-        /// @param				Row Slice
-        /// @param				Col Slice
+        /// @param				inRowSlice
+        /// @param				inColSlice
         /// @return
         ///				NdArray
         ///
@@ -547,11 +528,11 @@ namespace NumCpp
 
         //============================================================================
         // Method Description: 
-        ///						2D Slicing access operator with no bounds checking.
+        ///						2D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
         ///		
-        /// @param				Row Slice
-        /// @param				Col index
+        /// @param				inRowSlice
+        /// @param				inColIndex
         /// @return
         ///				NdArray
         ///
@@ -572,11 +553,11 @@ namespace NumCpp
 
         //============================================================================
         // Method Description: 
-        ///						2D Slicing access operator with no bounds checking.
+        ///						2D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
         ///		
-        /// @param				Row index
-        /// @param				Col Slice
+        /// @param				inRowIndex
+        /// @param				inColSlice
         /// @return
         ///				NdArray
         ///
@@ -597,10 +578,40 @@ namespace NumCpp
 
         //============================================================================
         // Method Description: 
+        ///						Returns a Slice object for slicing a row to the end of 
+        ///                     array.
+        ///		
+        /// @param
+        ///				inStartIdx
+        /// @return
+        ///				Slice
+        ///
+        const Slice rSlice(int32 inStartIdx = 0) const
+        {
+            return Slice(inStartIdx, shape_.rows);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Returns a Slice object for slicing a column to the end
+        ///                     of the array.
+        ///		
+        /// @param
+        ///				inStartIdx
+        /// @return
+        ///				Slice
+        ///
+        const Slice cSlice(int32 inStartIdx = 0) const
+        {
+            return Slice(inStartIdx, shape_.cols);
+        }
+
+        //============================================================================
+        // Method Description: 
         ///						1D access method with bounds checking
         ///		
         /// @param
-        ///				array index
+        ///				inIndex
         /// @return
         ///				value
         ///
@@ -623,7 +634,7 @@ namespace NumCpp
         ///						const 1D access method with bounds checking
         ///		
         /// @param
-        ///				array index
+        ///				inIndex
         /// @return
         ///				value
         ///
@@ -645,8 +656,8 @@ namespace NumCpp
         // Method Description: 
         ///						2D access method with bounds checking
         ///		
-        /// @param				row index
-        /// @param				col index
+        /// @param				inRowIndex
+        /// @param				inColIndex
         /// @return
         ///				value
         ///
@@ -677,8 +688,8 @@ namespace NumCpp
         // Method Description: 
         ///						const 2D access method with bounds checking
         ///		
-        /// @param				row index
-        /// @param				col index
+        /// @param				inRowIndex
+        /// @param				inColIndex
         /// @return
         ///				value
         ///
@@ -710,7 +721,7 @@ namespace NumCpp
         ///						const 1D access method with bounds checking
         ///		
         /// @param
-        ///				Slice
+        ///				inSlice
         /// @return
         ///				Ndarray
         ///
@@ -725,8 +736,8 @@ namespace NumCpp
         // Method Description: 
         ///						const 2D access method with bounds checking
         ///		
-        /// @param				Row Slice,
-        /// @param				Column Slice
+        /// @param				inRowSlice
+        /// @param				inColSlice
         /// @return
         ///				Ndarray
         ///
@@ -741,8 +752,8 @@ namespace NumCpp
         // Method Description: 
         ///						const 2D access method with bounds checking
         ///		
-        /// @param				Row Slice,
-        /// @param				Column index
+        /// @param				inRowSlice
+        /// @param				inColIndex
         /// @return
         ///				Ndarray
         ///
@@ -757,8 +768,8 @@ namespace NumCpp
         // Method Description: 
         ///						const 2D access method with bounds checking
         ///		
-        /// @param				Row index
-        /// @param				Column Slice
+        /// @param				inRowIndex
+        /// @param				inColSlice
         /// @return
         ///				Ndarray
         ///
@@ -771,10 +782,7 @@ namespace NumCpp
 
         //============================================================================
         // Method Description: 
-        ///						iterator to the beginning of the flattened array
-        ///		
-        /// @param
-        ///				None
+        ///						iterator to the beginning of the flattened array	None
         /// @return
         ///				iterator
         ///
@@ -788,7 +796,7 @@ namespace NumCpp
         ///						iterator to the beginning of the input row
         ///		
         /// @param
-        ///				row
+        ///				inRow
         /// @return
         ///				iterator
         ///
@@ -805,9 +813,6 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						iterator to 1 past the end of the flattened array
-        ///		
-        /// @param
-        ///				None
         /// @return
         ///				iterator
         ///
@@ -821,7 +826,7 @@ namespace NumCpp
         ///						iterator to the 1 past end of the row
         ///		
         /// @param
-        ///				row
+        ///				inRow
         /// @return
         ///				iterator
         ///
@@ -838,9 +843,7 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						const iterator to the beginning of the flattened array
-        ///		
-        /// @param
-        ///				None
+        ///
         /// @return
         ///				const_iterator
         ///
@@ -854,7 +857,7 @@ namespace NumCpp
         ///						const iterator to the beginning of the input row
         ///		
         /// @param
-        ///				row
+        ///				inRow
         /// @return
         ///				const_iterator
         ///
@@ -872,8 +875,6 @@ namespace NumCpp
         // Method Description: 
         ///						const iterator to 1 past the end of the flattened array
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				const_iterator
         ///
@@ -887,7 +888,7 @@ namespace NumCpp
         ///						const iterator to 1 past the end of the input row
         ///		
         /// @param
-        ///				row
+        ///				inRow
         /// @return
         ///				const_iterator
         ///
@@ -908,7 +909,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.all.html
         ///		
         /// @param
-        ///				(Optional) axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -956,7 +957,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.any.html
         ///		
         /// @param
-        ///				(Optional) axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1005,7 +1006,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmax.html
         ///		
         /// @param
-        ///				(Optional) axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1054,7 +1055,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmin.html
         ///		
         /// @param
-        ///				(Optional) axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1102,7 +1103,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argsort.html
         ///		
         /// @param
-        ///				(Optional) axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1165,8 +1166,6 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				NdArray
         ///
@@ -1187,8 +1186,6 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.byteswap.html
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				NdArray
         ///
@@ -1224,8 +1221,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.clip.html
         ///		
-        /// @param				min value to clip to
-        /// @param				max value to clip to
+        /// @param				inMin: min value to clip to
+        /// @param				inMax: max value to clip to
         /// @return
         ///				clipped value
         ///
@@ -1254,8 +1251,8 @@ namespace NumCpp
         // Method Description: 
         ///						returns whether or not a value is included the array
         ///		
-        /// @param				value
-        /// @param				(Optional) axis
+        /// @param				inValue
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				bool
         ///
@@ -1304,14 +1301,12 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.copy.html
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				NdArray
         ///
         NdArray<dtype> copy()
         {
-            return NdArray<dtype>(*this);
+            return std::move(NdArray<dtype>(*this));
         }
 
         //============================================================================
@@ -1321,7 +1316,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumprod.html
         ///		
         /// @param
-        ///				(Optional) axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1385,7 +1380,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumsum.html
         ///		
         /// @param
-        ///				(Optional) axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1448,27 +1443,32 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.diagonal.html
         ///		
-        /// @param				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. 
-        /// @param				(Optional) axis the offset is applied to
+        /// @param				inOffset: Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. 
+        /// @param				inAxis: (Optional, default ROW) axis the offset is applied to
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> diagonal(uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
+        NdArray<dtype> diagonal(int32 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
         {
             switch (inAxis)
             {
                 case Axis::COL:
                 {
                     std::vector<dtype> diagnolValues;
-                    uint32 col = inOffset;
+                    int32 col = inOffset;
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        if (col >= shape_.cols)
+                        if (col < 0)
+                        {
+                            col++;
+                            continue;
+                        }
+                        else if (col >= static_cast<int32>(shape_.cols))
                         {
                             break;
                         }
 
-                        diagnolValues.push_back(this->operator()(row, col));
+                        diagnolValues.push_back(this->operator()(row, static_cast<uint32>(col)));
                         ++col;
                     }
 
@@ -1478,14 +1478,19 @@ namespace NumCpp
                 {
                     std::vector<dtype> diagnolValues;
                     uint32 col = 0;
-                    for (uint32 row = inOffset; row < shape_.rows; ++row)
+                    for (int32 row = inOffset; row < static_cast<int32>(shape_.rows); ++row)
                     {
-                        if (col >= shape_.cols)
+                        if (row < 0)
+                        {
+                            ++col;
+                            continue;
+                        }
+                        else if (col >= shape_.cols)
                         {
                             break;
                         }
 
-                        diagnolValues.push_back(this->operator()(row, col));
+                        diagnolValues.push_back(this->operator()(static_cast<uint32>(row), col));
                         ++col;
                     }
 
@@ -1508,7 +1513,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				dot product
         ///
@@ -1557,14 +1562,12 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						Dump a binary file of the array to the specified file. 
-        ///						The array can be read back with or NumCpp::load.
+        ///						The array can be read back with or NC::load.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html
         ///		
         /// @param
-        ///				filename
-        /// @return
-        ///				None
+        ///				inFilename
         ///
         void dump(const std::string& inFilename) const
         {
@@ -1591,8 +1594,6 @@ namespace NumCpp
         ///						Return if the NdArray is empty. ie the default construtor
         ///						was used.
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				boolean
         ///
@@ -1605,8 +1606,6 @@ namespace NumCpp
         // Method Description: 
         ///						Return the NdArrays endianess
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				Endian::Type
         ///
@@ -1622,7 +1621,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.fill.html
         ///		
         /// @param
-        ///				fill value
+        ///				inFillValue
         /// @return
         ///				None
         ///
@@ -1640,8 +1639,6 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.flatten.html
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				NdArray
         ///
@@ -1662,8 +1659,6 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.item.html
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				array element
         ///
@@ -1686,7 +1681,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.max.html
         ///		
         /// @param
-        ///				(Optional) Axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1736,7 +1731,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.min.html
         ///		
         /// @param
-        ///				(Optional) Axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1786,7 +1781,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.mean.html
         ///		
         /// @param
-        ///				(Optional) Axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1839,7 +1834,7 @@ namespace NumCpp
         ///						if array has even number of elements!
         ///		
         /// @param
-        ///				(Optional) Axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1897,10 +1892,6 @@ namespace NumCpp
         ///						Fills the array with nans; only really works with.
         ///                     Only really works for dtype = float/double
         ///		
-        /// @param
-        ///				None
-        /// @return
-        ///				None
         ///
         void nans()
         {
@@ -1912,9 +1903,7 @@ namespace NumCpp
         ///						Returns the number of bytes held by the array
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nbytes.html
-        ///		
-        /// @param
-        ///				None
+        ///
         /// @return
         ///				number of bytes
         ///
@@ -1933,7 +1922,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.newbyteorder.html
         ///		
         /// @param
-        ///				Endian::Type
+        ///				inEndianess
         /// @return
         ///				NdArray
         ///
@@ -2077,8 +2066,6 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nonzero.html
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				NdArray
         ///
@@ -2103,7 +2090,7 @@ namespace NumCpp
         ///                     Numpy Reference: http://www.numpy.org/devdocs/reference/generated/numpy.linalg.norm.html?highlight=norm#numpy.linalg.norm
         ///		
         /// @param
-        ///				(Optional) Axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				norm
         ///
@@ -2166,10 +2153,6 @@ namespace NumCpp
         // Method Description: 
         ///						Fills the array with ones
         ///		
-        /// @param
-        ///				None
-        /// @return
-        ///				None
         ///
         void ones()
         {
@@ -2187,8 +2170,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.partition.html
         ///		
-        /// @param				kth element
-        /// @param				(Optional) Axis
+        /// @param				inKth: kth element
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				None
         ///
@@ -2246,10 +2229,6 @@ namespace NumCpp
         // Method Description: 
         ///						Prints the array to the console.
         ///		
-        /// @param
-        ///				None
-        /// @return
-        ///				None
         ///
         void print() const
         {
@@ -2263,7 +2242,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.prod.html
         ///		
         /// @param
-        ///				(Optional) Axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -2329,7 +2308,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.ptp.html
         ///		
         /// @param
-        ///				(Optional) Axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -2381,10 +2360,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				index
-        /// @param				value
-        /// @return
-        ///				None
+        /// @param				inIndex
+        /// @param				inValue
         ///
         void put(int32 inIndex, dtype inValue)
         {
@@ -2397,11 +2374,9 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				row index
-        /// @param				col index
-        /// @param				value
-        /// @return
-        ///				None
+        /// @param				inRow
+        /// @param				inCol
+        /// @param				inValue
         ///
         void put(int32 inRow, int32 inCol, dtype inValue)
         {
@@ -2414,10 +2389,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				NdArray of indices
-        /// @param				value
-        /// @return
-        ///				None
+        /// @param				inIndices
+        /// @param				inValue
         ///
         void put(const NdArray<uint32>& inIndices, dtype inValue)
         {
@@ -2433,10 +2406,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				NdArray of indices
-        /// @param				NdArray of values
-        /// @return
-        ///				None
+        /// @param				inIndices
+        /// @param				inValues
         ///
         void put(const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
         {
@@ -2457,10 +2428,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				Slice 1D
-        /// @param				value
-        /// @return
-        ///				None
+        /// @param				inSlice
+        /// @param				inValue
         ///
         void put(const Slice& inSlice, dtype inValue)
         {
@@ -2479,10 +2448,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				Slice 1D
-        /// @param  			NdArray of values
-        /// @return
-        ///				None
+        /// @param				inSlice
+        /// @param  			inValues
         ///
         void put(const Slice& inSlice, const NdArray<dtype>& inValues)
         {
@@ -2504,11 +2471,9 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				Slice rows
-        /// @param				Slice cols
-        /// @param				value
-        /// @return
-        ///				None
+        /// @param				inRowSlice
+        /// @param				inColSlice
+        /// @param				inValue
         ///
         void put(const Slice& inRowSlice, const Slice& inColSlice, dtype inValue)
         {
@@ -2534,11 +2499,9 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				Slice rows
-        /// @param				col index
-        /// @param				value
-        /// @return
-        ///				None
+        /// @param				inRowSlice
+        /// @param				inColIndex
+        /// @param				inValue
         ///
         void put(const Slice& inRowSlice, int32 inColIndex, dtype inValue)
         {
@@ -2558,11 +2521,9 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				row index
-        /// @param				Slice cols
-        /// @param				value
-        /// @return
-        ///				None
+        /// @param				inRowIndex
+        /// @param				inColSlice
+        /// @param				inValue
         ///
         void put(int32 inRowIndex, const Slice& inColSlice, dtype inValue)
         {
@@ -2582,11 +2543,9 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				Slice rows
-        /// @param				Slice cols
-        /// @param				NdArray of values
-        /// @return
-        ///				None
+        /// @param				inRowSlice
+        /// @param				inColSlice
+        /// @param				inValues
         ///
         void put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype>& inValues)
         {
@@ -2615,11 +2574,9 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				Slice rows
-        /// @param				col index
-        /// @param				NdArray of values
-        /// @return
-        ///				None
+        /// @param				inRowSlice
+        /// @param				inColIndex
+        /// @param				inValues
         ///
         void put(const Slice& inRowSlice, int32 inColIndex, const NdArray<dtype>& inValues)
         {
@@ -2642,11 +2599,9 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
-        /// @param				row index
-        /// @param				Slice cols
-        /// @param				NdArray of values
-        /// @return
-        ///				None
+        /// @param				inRowIndex
+        /// @param				inColSlice
+        /// @param				inValues
         ///
         void put(int32 inRowIndex, const Slice& inColSlice, const NdArray<dtype>& inValues)
         {
@@ -2669,8 +2624,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
         ///		
-        /// @param				numRows
-        /// @param				numCols
+        /// @param				inNumRows
+        /// @param				inNumCols
         /// @return
         ///				NdArray
         ///
@@ -2713,7 +2668,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
         ///		
         /// @param
-        ///				Shape
+        ///				inRepeatShape
         /// @return
         ///				NdArray
         ///
@@ -2728,10 +2683,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
         ///		
-        /// @param
-        ///				Shape
-        /// @return
-        ///				None
+        /// @param      inNumRows
+        /// @param      inNumCols
         ///
         void reshape(uint32 inNumRows, uint32 inNumCols)
         {
@@ -2753,9 +2706,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///		
         /// @param
-        ///				Shape
-        /// @return
-        ///				None
+        ///				inShape
         ///
         void reshape(const Shape& inShape)
         {
@@ -2769,10 +2720,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///		
-        /// @param
-        ///				Shape
-        /// @return
-        ///				None
+        /// @param      inNumRows
+        /// @param      inNumCols
         ///
         void resizeFast(uint32 inNumRows, uint32 inNumCols)
         {
@@ -2788,9 +2737,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///		
         /// @param
-        ///				Shape
-        /// @return
-        ///				None
+        ///				inShape
         ///
         void resizeFast(const Shape& inShape)
         {
@@ -2806,10 +2753,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///		
-        /// @param				num Rows
-        /// @param				num Cols
-        /// @return
-        ///				None
+        /// @param				inNumRows
+        /// @param				inNumCols
         ///
         void resizeSlow(uint32 inNumRows, uint32 inNumCols)
         {
@@ -2847,9 +2792,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
         ///		
         /// @param
-        ///				Shape
-        /// @return
-        ///				None
+        ///				inShape
         ///
         void resizeSlow(const Shape& inShape)
         {
@@ -2864,7 +2807,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.round.html
         ///		
         /// @param
-        ///				number of decimals to round to
+        ///				inNumDecimals (default 0)
         /// @return
         ///				NdArray
         ///
@@ -2893,8 +2836,6 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.shape.html
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				Shape
         ///
@@ -2909,8 +2850,6 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.size.html
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				size
         ///
@@ -2926,7 +2865,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sort.html
         ///		
         /// @param
-        ///				(Optional) Axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				size
         ///
@@ -2967,7 +2906,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.std.html
         ///		
         /// @param
-        ///				(Optional) Axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -3032,8 +2971,6 @@ namespace NumCpp
         // Method Description: 
         ///						returns the NdArray as a string representation
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				string
         ///
@@ -3069,7 +3006,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sum.html
         ///		
         /// @param
-        ///				(Optional) Axis
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -3122,8 +3059,6 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.swapaxes.html
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				NdArray
         ///
@@ -3140,8 +3075,8 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
         ///		
-        /// @param				filename
-        /// @param				Separator between array items for text output. If "" (empty), a binary file is written 
+        /// @param				inFilename
+        /// @param				inSep: Separator between array items for text output. If "" (empty), a binary file is written 
         /// @return
         ///				None
         ///
@@ -3183,10 +3118,8 @@ namespace NumCpp
         // Method Description: 
         ///						Write flattened array to an STL vector
         ///		
-        /// @param
-        ///				None 
         /// @return
-        ///				None
+        ///				std::vector
         ///
         std::vector<dtype> toStlVector() const
         {
@@ -3199,11 +3132,11 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.trace.html
         ///		
-        /// @param				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.
-        /// @param				(Optional) Axis to offset from
+        /// @param				inOffset: Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.
+        /// @param				inAxis: (Optional, default ROW) Axis to offset from
         ///				
         /// @return
-        ///				None
+        ///				value
         ///
         template<typename dtypeOut = double>
         dtypeOut trace(uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
@@ -3255,8 +3188,6 @@ namespace NumCpp
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.transpose.html
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				NdArray
         ///
@@ -3280,7 +3211,7 @@ namespace NumCpp
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.var.html
         ///
         /// @param
-        ///				(Optional) Axes
+        ///				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -3298,10 +3229,6 @@ namespace NumCpp
         // Method Description: 
         ///						Fills the array with zeros
         ///		
-        /// @param
-        ///				None
-        /// @return
-        ///				None
         ///
         void zeros()
         {
@@ -3313,7 +3240,7 @@ namespace NumCpp
         ///						Adds the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3327,7 +3254,7 @@ namespace NumCpp
         ///						Adds the scalar to the array
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3341,7 +3268,7 @@ namespace NumCpp
         ///						Adds the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3362,7 +3289,7 @@ namespace NumCpp
         ///						Adds the scalar to the array
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3381,7 +3308,7 @@ namespace NumCpp
         ///						Subtracts the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3395,7 +3322,7 @@ namespace NumCpp
         ///						Subtracts the scalar from the array
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3409,7 +3336,7 @@ namespace NumCpp
         ///						Subtracts the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3430,7 +3357,7 @@ namespace NumCpp
         ///						Subtracts the scalar from the array
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3449,7 +3376,7 @@ namespace NumCpp
         ///						Multiplies the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3463,7 +3390,7 @@ namespace NumCpp
         ///						Muliplies the scalar to the array
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3477,7 +3404,7 @@ namespace NumCpp
         ///						Multiplies the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3498,7 +3425,7 @@ namespace NumCpp
         ///						Muliplies the scalar to the array
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3517,7 +3444,7 @@ namespace NumCpp
         ///						Divides the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3531,7 +3458,7 @@ namespace NumCpp
         ///						Divides the array by the scalar
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3545,7 +3472,7 @@ namespace NumCpp
         ///						Divides the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3566,7 +3493,7 @@ namespace NumCpp
         ///						Divides the array by the scalar
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3585,7 +3512,7 @@ namespace NumCpp
         ///						Takes the modulus of the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3599,7 +3526,7 @@ namespace NumCpp
         ///						Modulus of the array and the scalar
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3613,7 +3540,7 @@ namespace NumCpp
         ///						Takes the modulus of the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3637,7 +3564,7 @@ namespace NumCpp
         ///						Modulus of the array and the scalar
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3664,7 +3591,7 @@ namespace NumCpp
         ///						Takes the bitwise or of the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3678,7 +3605,7 @@ namespace NumCpp
         ///						Takes the bitwise or of the array and the scalar
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3692,7 +3619,7 @@ namespace NumCpp
         ///						Takes the bitwise or of the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3716,7 +3643,7 @@ namespace NumCpp
         ///						Takes the bitwise or of the array and the scalar
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3738,7 +3665,7 @@ namespace NumCpp
         ///						Takes the bitwise and of the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3752,7 +3679,7 @@ namespace NumCpp
         ///						Takes the bitwise and of the array and the scalar
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3766,7 +3693,7 @@ namespace NumCpp
         ///						Takes the bitwise and of the elements of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3790,7 +3717,7 @@ namespace NumCpp
         ///						Takes the bitwise and of the array and the scalar
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3812,7 +3739,7 @@ namespace NumCpp
         ///						Takes the bitwise xor of the elements of two arrays
         ///		
         /// @param
-        ///				None
+        ///				inOtherArray
         /// @return
         ///				None
         ///
@@ -3826,7 +3753,7 @@ namespace NumCpp
         ///						Takes the bitwise xor of the array and the scalar
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3840,7 +3767,7 @@ namespace NumCpp
         ///						Takes the bitwise xor of the elements of two arrays
         ///		
         /// @param
-        ///				None
+        ///				inOtherArray
         /// @return
         ///				None
         ///
@@ -3864,7 +3791,7 @@ namespace NumCpp
         ///						Takes the bitwise xor of the array and the scalar
         ///		
         /// @param
-        ///				scalar
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -3885,8 +3812,6 @@ namespace NumCpp
         // Method Description: 
         ///						Takes the bitwise not of the array
         ///		
-        /// @param
-        ///				None
         /// @return
         ///				NdArray
         ///
@@ -3910,7 +3835,7 @@ namespace NumCpp
         ///						of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inValue
         /// @return
         ///				NdArray
         ///
@@ -3931,7 +3856,7 @@ namespace NumCpp
         ///						of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3954,7 +3879,7 @@ namespace NumCpp
         ///						of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inValue
         /// @return
         ///				NdArray
         ///
@@ -3975,7 +3900,7 @@ namespace NumCpp
         ///						of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -3998,7 +3923,7 @@ namespace NumCpp
         ///						the array and a scalar
         ///		
         /// @param
-        ///				NdArray
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -4019,7 +3944,7 @@ namespace NumCpp
         ///						of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -4042,7 +3967,7 @@ namespace NumCpp
         ///						the array and a scalar
         ///		
         /// @param
-        ///				NdArray
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -4063,7 +3988,7 @@ namespace NumCpp
         ///						of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -4086,7 +4011,7 @@ namespace NumCpp
         ///						the array and a scalar
         ///		
         /// @param
-        ///				NdArray
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -4107,7 +4032,7 @@ namespace NumCpp
         ///						of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -4130,7 +4055,7 @@ namespace NumCpp
         ///						the array and a scalar
         ///		
         /// @param
-        ///				NdArray
+        ///				inScalar
         /// @return
         ///				NdArray
         ///
@@ -4151,7 +4076,7 @@ namespace NumCpp
         ///						of two arrays
         ///		
         /// @param
-        ///				NdArray
+        ///				inOtherArray
         /// @return
         ///				NdArray
         ///
@@ -4172,10 +4097,10 @@ namespace NumCpp
         // Method Description: 
         ///						Bitshifts left the elements of the array
         ///		
-        /// @param
-        ///				None
+        /// @param      lhs
+        /// @param      inNumBits
         /// @return
-        ///				None
+        ///				NdArray
         ///
         friend NdArray<dtype> operator<<(const NdArray<dtype>& lhs, uint8 inNumBits)
         {
@@ -4188,10 +4113,10 @@ namespace NumCpp
         // Method Description: 
         ///						Bitshifts left the elements of the array
         ///		
-        /// @param
-        ///				None
+        /// @param      lhs
+        /// @param      inNumBits
         /// @return
-        ///				None
+        ///				NdArray
         ///
         friend NdArray<dtype>& operator<<=(NdArray<dtype>& lhs, uint8 inNumBits)
         {
@@ -4207,10 +4132,10 @@ namespace NumCpp
         // Method Description: 
         ///						Bitshifts right the elements of the array
         ///		
-        /// @param
-        ///				None
+        /// @param      lhs
+        /// @param      inNumBits
         /// @return
-        ///				None
+        ///				NdArray
         ///
         friend NdArray<dtype> operator>>(const NdArray<dtype>& lhs, uint8 inNumBits)
         {
@@ -4223,10 +4148,10 @@ namespace NumCpp
         // Method Description: 
         ///						Bitshifts right the elements of the array
         ///		
-        /// @param
-        ///				None
+        /// @param      lhs
+        /// @param      inNumBits
         /// @return
-        ///				None
+        ///				NdArray
         ///
         friend NdArray<dtype>& operator>>=(NdArray<dtype>& lhs, uint8 inNumBits)
         {
@@ -4242,8 +4167,6 @@ namespace NumCpp
         // Method Description: 
         ///						prefix incraments the elements of an array
         ///		
-        /// @param
-        ///				NdArray
         /// @return
         ///				NdArray
         ///
@@ -4262,8 +4185,6 @@ namespace NumCpp
         // Method Description: 
         ///						prefix decrements the elements of an array
         ///		
-        /// @param
-        ///				NdArray
         /// @return
         ///				NdArray
         ///
@@ -4281,8 +4202,6 @@ namespace NumCpp
         // Method Description: 
         ///						postfix increments the elements of an array
         ///		
-        /// @param
-        ///				NdArray
         /// @return
         ///				NdArray
         ///
@@ -4301,8 +4220,6 @@ namespace NumCpp
         // Method Description: 
         ///						postfix decrements the elements of an array
         ///		
-        /// @param
-        ///				NdArray
         /// @return
         ///				NdArray
         ///
@@ -4321,10 +4238,10 @@ namespace NumCpp
         // Method Description: 
         ///						io operator for the NdArray class
         ///		
-        /// @param
-        ///				None
+        /// @param      inOStream
+        /// @param      inArray
         /// @return
-        ///				None
+        ///				std::ostream
         ///
         friend std::ostream& operator<<(std::ostream& inOStream, const NdArray<dtype>& inArray)
         {

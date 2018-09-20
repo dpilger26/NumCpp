@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// Class for performing fast forrier tranforms
 ///
 #pragma once
@@ -31,11 +31,11 @@
 #include"NumCpp/NdArray.hpp"
 #include"NumCpp/Types.hpp"
 
-namespace NumCpp
+namespace NC
 {
     //================================FFT Class=============================
     /// Class for performing fast forrier tranforms
-    template<typename dtype>
+    template<typename dtype = double>
     class FFT
     {
     public:

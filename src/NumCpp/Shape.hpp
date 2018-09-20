@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// A Shape Class for NdArrays
 ///
 #pragma once
@@ -35,7 +35,7 @@
 #include<stdexcept>
 #include<string>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						A Shape Class for NdArrays
@@ -48,11 +48,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Constructor
-        ///		
-        /// @param      number of rows
-        /// @param      number of cols
-        ///
-        /// @return     None
         ///
         Shape() :
             rows(0),
@@ -62,9 +57,7 @@ namespace NumCpp
         //============================================================================
         ///						Constructor
         ///		
-        /// @param      number of rows and cols
-        ///
-        /// @return     None
+        /// @param      inSquareSize
         ///
         explicit Shape(uint32 inSquareSize) :
             rows(inSquareSize),
@@ -74,10 +67,8 @@ namespace NumCpp
         //============================================================================
         ///						Constructor
         ///		
-        /// @param      number of rows
-        /// @param      number of cols
-        ///
-        /// @return     None
+        /// @param      inRows
+        /// @param      inCols
         ///
         Shape(uint32 inRows, uint32 inCols) :
             rows(inRows),
@@ -87,9 +78,9 @@ namespace NumCpp
         //============================================================================
         ///						Equality operator
         ///		
-        /// @param      None
+        /// @param      inOtherShape
         ///
-        /// @return     None
+        /// @return     bool
         ///
         bool operator==(const Shape& inOtherShape) const
         {
@@ -99,9 +90,9 @@ namespace NumCpp
         //============================================================================
         ///						Not equality operator
         ///		
-        /// @param      None
+        /// @param      inOtherShape
         ///
-        /// @return     None
+        /// @return     bool
         ///
         bool operator!=(const Shape& inOtherShape) const
         {
@@ -110,8 +101,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the size of the shape
-        ///		
-        /// @param      None
         ///
         /// @return     size
         ///
@@ -123,8 +112,6 @@ namespace NumCpp
         //============================================================================
         ///						Returns whether the shape is null (constructed with the 
         ///						default constructor).
-        ///		
-        /// @param      None
         ///
         /// @return     bool
         ///
@@ -135,10 +122,8 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the shape as a string representation
-        ///		
-        /// @param      None
         ///
-        /// @return     string
+        /// @return     std::string
         ///
         std::string str() const
         {
@@ -148,10 +133,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Prints the shape to the console
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void print() const
         {
@@ -161,9 +142,10 @@ namespace NumCpp
         //============================================================================
         ///						IO operator for the Shape class
         ///		
-        /// @param      None
+        /// @param      inOStream
+        /// @param      inShape
         ///
-        /// @return     None
+        /// @return     std::ostream
         ///
         friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape)
         {

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// A module for interacting with the boost numpy arrays
 ///
 #pragma once
@@ -41,7 +41,7 @@
 #include"boost/python.hpp"
 #include"boost/python/numpy.hpp"
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						C or Fortran ordering from python
@@ -62,9 +62,7 @@ namespace NumCpp
         //============================================================================
         ///						Generic check of input indices
         ///		
-        /// @param      tuple of indices
-        ///
-        /// @return     None
+        /// @param      indices
         ///
         void checkIndicesGeneric(boost::python::tuple indices)
         {
@@ -90,11 +88,9 @@ namespace NumCpp
         ///		
         /// @param      index
         ///
-        /// @return     None
-        ///
-        void checkIndices1D(uint32 index1)
+        void checkIndices1D(uint32 index)
         {
-            boost::python::tuple indices = boost::python::make_tuple(index1);
+            boost::python::tuple indices = boost::python::make_tuple(index);
             checkIndicesGeneric(indices);
         }
 
@@ -103,8 +99,6 @@ namespace NumCpp
         ///		
         /// @param      index1
         /// @param		index2
-        ///
-        /// @return     None
         ///
         void checkIndices2D(uint32 index1, uint32 index2)
         {
@@ -119,8 +113,6 @@ namespace NumCpp
         /// @param      index2
         /// @param      index3
         ///
-        /// @return     None
-        ///
         void checkIndices3D(uint32 index1, uint32 index2, uint32 index3)
         {
             boost::python::tuple indices = boost::python::make_tuple(index1, index2, index3);
@@ -131,9 +123,7 @@ namespace NumCpp
         //============================================================================
         ///						Constructor
         ///		
-        /// @param      pointer to an ndarray
-        ///
-        /// @return     None
+        /// @param      inArray: pointer to an ndarray
         ///
         BoostNdarrayHelper(boost::python::numpy::ndarray* inArray) :
             theArray_(inArray->astype(boost::python::numpy::dtype::get_builtin<double>())),
@@ -157,9 +147,7 @@ namespace NumCpp
         //============================================================================
         ///						Constructor
         ///		
-        /// @param      pointer to an ndarray
-        ///
-        /// @return     None
+        /// @param      inShape
         ///
         BoostNdarrayHelper(boost::python::tuple inShape) :
             theArray_(boost::python::numpy::zeros(inShape, boost::python::numpy::dtype::get_builtin<double>()))
@@ -174,8 +162,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the internaly held ndarray
-        ///		
-        /// @param      None
         ///
         /// @return     pointer to an ndarray
         ///
@@ -186,8 +172,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the internaly held ndarray as a numpy matrix
-        ///		
-        /// @param      None
         ///
         /// @return     matrix
         ///
@@ -198,8 +182,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the number of dimensions of the array
-        ///		
-        /// @param      None
         ///
         /// @return     num dimensions
         ///
@@ -210,8 +192,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the shape of the array
-        ///		
-        /// @param      None
         ///
         /// @return     vector
         ///
@@ -222,8 +202,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the size of the array
-        ///		
-        /// @param      None
         ///
         /// @return     size
         ///
@@ -240,8 +218,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the strides of the array
-        ///		
-        /// @param      None
         ///
         /// @return     vector
         ///
@@ -252,8 +228,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Returns the memory order of the array (C or Fortran)
-        ///		
-        /// @param      None
         ///
         /// @return     Order
         ///
@@ -265,7 +239,7 @@ namespace NumCpp
         //============================================================================
         ///						Returns if the shapes of the two array helpers are equal
         ///		
-        /// @param      None
+        /// @param      otherNdarrayHelper
         ///
         /// @return     boolean
         ///
@@ -289,7 +263,7 @@ namespace NumCpp
         //============================================================================
         ///						1D access operator
         ///		
-        /// @param      None
+        /// @param      index
         ///
         /// @return     double
         ///
@@ -303,7 +277,8 @@ namespace NumCpp
         //============================================================================
         ///						2D access operator
         ///		
-        /// @param      None
+        /// @param      index1
+        /// @param      index2
         ///
         /// @return     double
         ///
@@ -316,7 +291,9 @@ namespace NumCpp
         //============================================================================
         ///						3D access operator
         ///		
-        /// @param      None
+        /// @param      index1
+        /// @param      index2
+        /// @param      index3
         ///
         /// @return     double
         ///
@@ -329,10 +306,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Prints a 1D array
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void printArray1D()
         {
@@ -351,10 +324,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Prints a 2D array
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void printArray2D()
         {
@@ -377,10 +346,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Prints a 3D array
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void printArray3D()
         {
@@ -409,7 +374,7 @@ namespace NumCpp
     //============================================================================
     ///						Converts from a boost ndarray to a NumCpp NdArray<T>
     ///		
-    /// @param      ndarray
+    /// @param      inArray
     ///
     /// @return     NdArray<T>
     ///
@@ -422,7 +387,7 @@ namespace NumCpp
             throw std::runtime_error("ERROR: Can only convert 1 and 2 dimensional arrays.");
         }
 
-        NumCpp::Shape arrayShape;
+        NC::Shape arrayShape;
         if (helper.numDimensions() == 1)
         {
             arrayShape.rows = 1;
@@ -458,7 +423,7 @@ namespace NumCpp
     //============================================================================
     ///						Converts from a NumCpp NdArray<T> to a boost ndarray
     ///		
-    /// @param      NdArray<T>
+    /// @param      inArray
     ///
     /// @return     ndarray
     ///

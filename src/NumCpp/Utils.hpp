@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,27 +23,27 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// Usefull utility type functions
 ///
 #pragma once
 
 #include<string>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     /// Usefull utility type functions
-    template<typename dtype>
+    template<typename dtype = double>
     class Utils
     {
     public:
         //============================================================================
         ///						Converts the number into a string
         ///		
-        /// @param      number
+        /// @param      inNumber
         ///
-        /// @return     string
+        /// @return     std::string
         ///
         static std::string num2str(dtype inNumber)
         {
@@ -53,9 +53,9 @@ namespace NumCpp
         //============================================================================
         ///						Squares in input value
         ///		
-        /// @param      dtype
+        /// @param      inValue
         ///
-        /// @return     dtype
+        /// @return     squared value
         ///
         static dtype sqr(dtype inValue)
         {
@@ -65,9 +65,9 @@ namespace NumCpp
         //============================================================================
         ///						Cubes in input value
         ///		
-        /// @param      dtype
+        /// @param      inValue
         ///
-        /// @return     dtype
+        /// @return     cubed value
         ///
         static dtype cube(dtype inValue)
         {
@@ -77,9 +77,10 @@ namespace NumCpp
         //============================================================================
         ///						Raises the input value to a power
         ///		
-        /// @param      dtype
+        /// @param      inValue
+        /// @param      inPower
         ///
-        /// @return     dtype
+        /// @return     inValue raised to inPower
         ///
         static dtype power(dtype inValue, uint8 inPower)
         {

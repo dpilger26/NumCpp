@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['days_5fper_5fweek',['DAYS_PER_WEEK',['../namespace_num_cpp_1_1_constants.html#a3e3a9afde968528817a7c33d8e93169e',1,'NumCpp::Constants']]]
+  ['days_5fper_5fweek',['DAYS_PER_WEEK',['../namespace_n_c_1_1_constants.html#a14bf6d24a8be26317a3ef03fea032f97',1,'NC::Constants']]]
 ];

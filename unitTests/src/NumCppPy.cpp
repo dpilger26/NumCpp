@@ -22,7 +22,7 @@
 namespace bp = boost::python;
 namespace np = boost::python::numpy;
 
-using namespace NumCpp;
+using namespace NC;
 
 //================================================================================
 
@@ -187,7 +187,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diagonal(NdArray<dtype>& self, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+    np::ndarray diagonal(NdArray<dtype>& self, int32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
     {
         return numCToBoost(self.diagonal(inOffset, inAxis));
     }
@@ -2483,6 +2483,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("test2DListContructor", &NdArrayInterface::test2DListContructor<double>).staticmethod("test2DListContructor")
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<double>)
         .def("setArray", &NdArrayInterface::setArray<double>)
+        .def("rSlice", &NdArrayDouble::rSlice)
+        .def("cSlice", &NdArrayDouble::cSlice)
         .def("all", &NdArrayInterface::all<double>)
         .def("any", &NdArrayInterface::any<double>)
         .def("argmax", &NdArrayInterface::argmax<double>)
@@ -3041,8 +3043,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("power", &UtilsUint64::power).staticmethod("power");
 
     // Random.hpp
-    typedef NumCpp::Random<double> RandomDouble;
-    typedef NumCpp::Random<int32> RandomInt32;
+    typedef NC::Random<double> RandomDouble;
+    typedef NC::Random<int32> RandomInt32;
     bp::class_<RandomDouble>
         ("Random", bp::init<>())
         .def("bernoulli", &RandomDouble::bernoulli).staticmethod("bernoulli")
@@ -3079,7 +3081,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("weibull", &RandomDouble::weibull).staticmethod("weibull");
 
     // Linalg.hpp
-    typedef NumCpp::Linalg<double> LinalgDouble;
+    typedef NC::Linalg<double> LinalgDouble;
     bp::class_<LinalgDouble>
         ("Linalg", bp::init<>())
         .def("det", &LinalgDouble::det).staticmethod("det")

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// A module for holding and working with coordinates in either Ra/Dec or cartesian formats
 ///
 #pragma once
@@ -39,7 +39,7 @@
 #include<string>
 #include<utility>
 
-namespace NumCpp
+namespace NC
 {
     //================================Coordinates Namespace=============================
     ///A module for holding and working with coordinates in either Ra/Dec or cartesian formats
@@ -47,7 +47,7 @@ namespace NumCpp
     {
         //================================================================================
         ///						Holds a right ascension object
-        template<typename dtype>
+        template<typename dtype = double>
         class RA
         {
         private:
@@ -61,10 +61,6 @@ namespace NumCpp
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             RA() :
                 hours_(0),
@@ -73,15 +69,13 @@ namespace NumCpp
                 degrees_(0.0),
                 radians_(0.0)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::RA: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
             }
 
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      degrees
-            ///
-            /// @return     None
+            /// @param      inDegrees
             ///
             RA(dtype inDegrees) :
                 hours_(0),
@@ -90,11 +84,11 @@ namespace NumCpp
                 degrees_(inDegrees),
                 radians_(static_cast<dtype>(Methods<dtype>::deg2rad(inDegrees)))
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::RA: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
 
                 if (inDegrees < 0 || inDegrees >= 360)
                 {
-                    throw std::invalid_argument("ERROR: NumCpp::Coordinates::RA: input degrees must be of the range [0, 360)");
+                    throw std::invalid_argument("ERROR: NC::Coordinates::RA: input degrees must be of the range [0, 360)");
                 }
 
                 hours_ = static_cast<uint8>(std::floor(degrees_ / 15.0));
@@ -106,11 +100,9 @@ namespace NumCpp
             //============================================================================
             ///						Constructor
             ///		
-            ///	@param			hours
-            /// @param          minutes
-            /// @param          seconds
-            ///
-            /// @return         None
+            ///	@param			inHours
+            /// @param          inMinutes
+            /// @param          inSeconds
             ///
             RA(uint8 inHours, uint8 inMinutes, dtype inSeconds) :
                 hours_(inHours),
@@ -119,7 +111,7 @@ namespace NumCpp
                 degrees_(0.0),
                 radians_(0.0)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::RA: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
 
                 degrees_ = static_cast<dtype>(static_cast<double>(hours_) * 15.0 + static_cast<double>(minutes_) / 4.0 + static_cast<double>(seconds_) / 240.0);
                 radians_ = static_cast<dtype>(Methods<dtype>::deg2rad(degrees_));
@@ -127,23 +119,19 @@ namespace NumCpp
 
             //============================================================================
             ///						Returns a copy of the RA object as a different type
-            ///		
-            /// @param      None
             ///
             /// @return     RA
             ///
             template<typename dtypeOut>
             RA<dtypeOut> astype()
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::RA::astype: method can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA::astype: method can only be called with floating point types.");
 
                 return RA<dtypeOut>(hours_, minutes_, static_cast<dtypeOut>(seconds_));
             }
 
             //============================================================================
             ///						Get the radians value
-            ///		
-            /// @param      None
             ///
             /// @return     radians
             ///
@@ -154,8 +142,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Get the degrees value
-            ///		
-            /// @param      None
             ///
             /// @return     degrees
             ///
@@ -166,8 +152,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Get the hour value
-            ///		
-            /// @param      None
             ///
             /// @return     hours
             ///
@@ -178,8 +162,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Get the minute value
-            ///		
-            /// @param      None   
             ///
             /// @return     minutes
             ///
@@ -190,8 +172,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Get the seconds value
-            ///		
-            /// @param      None
             /// 
             /// @return     seconds
             ///
@@ -202,10 +182,8 @@ namespace NumCpp
 
             //============================================================================
             ///						Return the RA object as a string representation
-            ///		
-            /// @param      None
             ///
-            /// @return     string
+            /// @return     std::string
             ///
             std::string str() const
             {
@@ -216,10 +194,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Prints the RA object to the console
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             void print() const
             {
@@ -229,7 +203,7 @@ namespace NumCpp
             //============================================================================
             ///						Equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -241,7 +215,7 @@ namespace NumCpp
             //============================================================================
             ///						Not equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -253,9 +227,8 @@ namespace NumCpp
             //============================================================================
             ///						Ostream operator
             ///		
-            /// @param      None
-            ///
-            /// @return     None
+            /// @param      inStream
+            /// @param      inRa
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const RA<dtype>& inRa)
             {
@@ -270,7 +243,7 @@ namespace NumCpp
 
         //================================================================================
         ///						Holds a Declination object
-        template<typename dtype>
+        template<typename dtype = double>
         class Dec
         {
         private:
@@ -285,10 +258,6 @@ namespace NumCpp
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             Dec() :
                 sign_(Sign::POSITIVE),
@@ -298,15 +267,13 @@ namespace NumCpp
                 degrees_(0.0),
                 radians_(0.0)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::Dec: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
             }
 
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      degrees
-            ///
-            /// @return     None
+            /// @param      inDegrees
             ///
             Dec(dtype inDegrees) :
                 degreesWhole_(0),
@@ -315,11 +282,11 @@ namespace NumCpp
                 degrees_(inDegrees),
                 radians_(static_cast<dtype>(Methods<dtype>::deg2rad(inDegrees)))
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::Dec: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
 
                 if (inDegrees < -90 || inDegrees > 90)
                 {
-                    throw std::invalid_argument("ERROR: NumCpp::Coordinates::Dec: input degrees must be of the range [-90, 90]");
+                    throw std::invalid_argument("ERROR: NC::Coordinates::Dec: input degrees must be of the range [-90, 90]");
                 }
 
                 sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;
@@ -334,12 +301,10 @@ namespace NumCpp
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      Sign::Type
-            ///	@param      hours
-            /// @param      minutes
-            /// @param      seconds
-            ///
-            /// @return     None
+            /// @param      inSign
+            ///	@param      inDegrees
+            /// @param      inMinutes
+            /// @param      inSeconds
             ///
             Dec(Sign::Type inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds) :
                 sign_(inSign),
@@ -349,7 +314,7 @@ namespace NumCpp
                 degrees_(0.0),
                 radians_(0.0)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::Dec: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
 
                 degrees_ = static_cast<dtype>(static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + static_cast<double>(seconds_) / 3600.0);
                 degrees_ *= sign_ == Sign::NEGATIVE ? -1 : 1;
@@ -359,23 +324,19 @@ namespace NumCpp
 
             //============================================================================
             ///						Returns a copy of the Dec object as a different type
-            ///		
-            /// @param      None
             ///
             /// @return     Dec
             ///
             template<typename dtypeOut>
             Dec<dtypeOut> astype()
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::Dec::astype: method can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec::astype: method can only be called with floating point types.");
 
                 return Dec<dtypeOut>(sign_, degreesWhole_, minutes_, static_cast<dtypeOut>(seconds_));
             }
 
             //============================================================================
             ///						Get the sign of the degrees (positive or negative)
-            ///		
-            /// @param      None
             ///
             /// @return     Sign::Type
             ///
@@ -386,8 +347,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Get the degrees value
-            ///		
-            /// @param      None
             ///
             /// @return     degrees
             ///
@@ -398,8 +357,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Get the radians value
-            ///		
-            /// @param      None
             ///
             /// @return     minutes
             ///
@@ -410,8 +367,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Get the whole degrees value
-            ///		
-            /// @param      None
             ///
             /// @return     whole degrees
             ///
@@ -422,8 +377,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Get the minute value
-            ///		
-            /// @param      None
             ///
             /// @return     minutes
             ///
@@ -434,8 +387,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Get the seconds value
-            ///		
-            /// @param      None
             ///
             /// @return     seconds
             ///
@@ -446,10 +397,8 @@ namespace NumCpp
 
             //============================================================================
             ///						Return the dec object as a string representation
-            ///		
-            /// @param      None
             ///
-            /// @return     string
+            /// @return     std::string
             ///
             std::string str() const
             {
@@ -461,10 +410,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Prints the Dec object to the console
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             void print() const
             {
@@ -474,7 +419,7 @@ namespace NumCpp
             //============================================================================
             ///						Equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -486,7 +431,7 @@ namespace NumCpp
             //============================================================================
             ///						Not equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -498,9 +443,10 @@ namespace NumCpp
             //============================================================================
             ///						Ostream operator
             ///		
-            /// @param      None
+            /// @param      inStream
+            /// @param      inDec
             ///
-            /// @return     None
+            /// @return     std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const Dec<dtype>& inDec)
             {
@@ -511,7 +457,7 @@ namespace NumCpp
 
         //================================================================================
         ///						Holds a full coordinate object
-        template<typename dtype>
+        template<typename dtype = double>
         class Coordinate
         {
         private:
@@ -524,9 +470,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
-            ///		
-            /// @param      None
-            /// @return     None
             ///
             void cartesianToPolar()
             {
@@ -544,10 +487,6 @@ namespace NumCpp
 
             //============================================================================ 
             ///						Converts polar coordinates to cartesian coordinates
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             void polarToCartesian()
             {
@@ -562,10 +501,6 @@ namespace NumCpp
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             Coordinate() :
                 ra_(),
@@ -574,16 +509,14 @@ namespace NumCpp
                 y_(0.0),
                 z_(0.0)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::Dec: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
             }
 
             //============================================================================
             ///						Constructor
             ///		
-            /// @param      RA degrees
-            /// @param      Dec degrees
-            ///
-            /// @return     None
+            /// @param      inRaDegrees
+            /// @param      inDecDegrees
             ///
             Coordinate(dtype inRaDegrees, dtype inDecDegrees) :
                 ra_(inRaDegrees),
@@ -592,21 +525,20 @@ namespace NumCpp
                 y_(0.0),
                 z_(0.0)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::Dec: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
             }
 
             //============================================================================
             ///						Constructor
             ///		
-            /// @param				RA hours
-            /// @param              RA minutes
-            /// @param              RA seconds
-            /// @param              Dec degrees whole
-            /// @param              Dec minutes
-            /// @param              Dec seconds
-            ///
-            /// @return             None
+            /// @param				inRaHours
+            /// @param              inRaMinutes
+            /// @param              inRaSeconds
+            /// @param              inSign
+            /// @param              inDecDegreesWhole
+            /// @param              inDecMinutes
+            /// @param              inDecSeconds
             ///
             Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign::Type inSign, uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
@@ -615,17 +547,15 @@ namespace NumCpp
                 y_(0.0),
                 z_(0.0)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::Dec: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
             }
 
             //============================================================================
             ///						Constructor
             ///		
-            /// @param				RA 
-            /// @param              Dec
-            ///
-            /// @return             None
+            /// @param				inRA 
+            /// @param              inDec
             ///
             Coordinate(const RA<dtype>& inRA, const Dec<dtype>& inDec) :
                 ra_(inRA),
@@ -634,18 +564,16 @@ namespace NumCpp
                 y_(0.0),
                 z_(0.0)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::Dec: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
             }
 
             //============================================================================
             ///						Constructor
             ///		
-            /// @param				x 
-            /// @param              y
-            /// @param              z
-            ///
-            /// @return             None
+            /// @param				inX 
+            /// @param              inY
+            /// @param              inZ
             ///
             Coordinate(dtype inX, dtype inY, dtype inZ) :
                 ra_(),
@@ -654,16 +582,14 @@ namespace NumCpp
                 y_(inY),
                 z_(inZ)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::Dec: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
                 cartesianToPolar();
             }
 
             //============================================================================
             ///						Constructor
             ///		
-            /// @param				NdArray
-            ///
-            /// @return             None
+            /// @param				inCartesianVector
             ///
             Coordinate(const NdArray<dtype> inCartesianVector) :
                 ra_(),
@@ -672,11 +598,11 @@ namespace NumCpp
                 y_(0.0),
                 z_(0.0)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NumCpp::Coordinates::Dec: constructor can only be called with floating point types.");
+                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
 
                 if (inCartesianVector.size() != 3)
                 {
-                    throw std::invalid_argument("ERROR: NumCpp::Coordinates::Dec: constructor NdArray input must be of length 3.");
+                    throw std::invalid_argument("ERROR: NC::Coordinates::Dec: constructor NdArray input must be of length 3.");
                 }
 
                 x_ = inCartesianVector[0];
@@ -688,8 +614,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Returns a new Coordinate object with the specified type
-            ///		
-            /// @param      None
             ///
             /// @return     Coordinate
             ///
@@ -701,8 +625,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Returns the Dec object
-            ///		
-            /// @param              None
             ///
             /// @return             Dec
             ///
@@ -713,8 +635,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Returns the RA object
-            ///		
-            /// @param      None
             ///
             /// @return     RA
             ///
@@ -725,8 +645,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Returns the cartesian x value
-            ///		
-            /// @param      None
             ///
             /// @return     x
             ///
@@ -737,8 +655,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Returns the cartesian y value
-            ///		
-            /// @param      None
             ///
             /// @return     y
             ///
@@ -749,8 +665,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Returns the cartesian z value
-            ///		
-            /// @param      None
             ///
             /// @return     z
             ///
@@ -761,8 +675,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Returns the cartesian xyz triplet as an NdArray
-            ///		
-            /// @param      None
             ///
             /// @return     NdArray
             ///
@@ -775,7 +687,7 @@ namespace NumCpp
             //============================================================================  
             ///						Returns the degree seperation between the two Coordinates
             ///		
-            /// @param      Coordinate
+            /// @param      inOtherCoordinate
             ///
             /// @return     degrees
             ///
@@ -788,7 +700,7 @@ namespace NumCpp
             ///						Returns the degree seperation between the Coordinate
             ///                     and the input vector
             ///		
-            /// @param      NdArray
+            /// @param      inVector
             ///
             /// @return     degrees
             ///
@@ -800,7 +712,7 @@ namespace NumCpp
             //============================================================================
             ///						Returns the radian seperation between the two Coordinates
             ///		
-            /// @param      Coordinate
+            /// @param      inOtherCoordinate
             ///
             /// @return     radians
             ///
@@ -813,7 +725,7 @@ namespace NumCpp
             ///						Returns the radian seperation between the Coordinate
             ///                     and the input vector
             ///		
-            /// @param      NdArray
+            /// @param      inVector
             ///
             /// @return     radians
             ///
@@ -821,7 +733,7 @@ namespace NumCpp
             {
                 if (inVector.size() != 3)
                 {
-                    throw std::invalid_argument("ERROR: NumCpp::Coordinates::Coordinate::radianSeperation: input vector must be of length 3.");
+                    throw std::invalid_argument("ERROR: NC::Coordinates::Coordinate::radianSeperation: input vector must be of length 3.");
                 }
 
                 return static_cast<dtype>(std::acos(Methods<dtype>::dot(xyz(), inVector.flatten()).item()));
@@ -829,8 +741,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Returns coordinate as a string representation
-            ///		
-            /// @param      None
             ///
             /// @return     string
             ///
@@ -845,10 +755,6 @@ namespace NumCpp
 
             //============================================================================
             ///						Prints the Coordinate object to the console
-            ///		
-            /// @param      None
-            ///
-            /// @return     None
             ///
             void print() const
             {
@@ -858,7 +764,7 @@ namespace NumCpp
             //============================================================================
             ///						Equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -870,7 +776,7 @@ namespace NumCpp
             //============================================================================
             ///						Not equality operator
             ///		
-            /// @param      None
+            /// @param      inRhs
             ///
             /// @return     bool
             ///
@@ -882,9 +788,10 @@ namespace NumCpp
             //============================================================================
             ///						Ostream operator
             ///		
-            /// @param      None
+            /// @param      inStream
+            /// @param      inCoord
             ///
-            /// @return     None
+            /// @return     std::ostream
             ///
             friend std::ostream& operator<<(std::ostream& inStream, const Coordinate<dtype>& inCoord)
             {
@@ -896,8 +803,8 @@ namespace NumCpp
         //============================================================================
         ///						Returns the degree seperation between the two Coordinates
         ///		
-        /// @param				Coordinate
-        /// @param              Coordinate
+        /// @param				inCoordinate1
+        /// @param              inCoordinate2
         ///
         /// @return             degrees
         ///
@@ -911,8 +818,8 @@ namespace NumCpp
         ///						Returns the degree seperation between the Coordinate
         ///                     and the input vector
         ///		
-        /// @param				NdArray
-        /// @param              NdArray
+        /// @param				inVector1
+        /// @param              inVector2
         ///
         /// @return             degrees
         ///
@@ -926,8 +833,8 @@ namespace NumCpp
         //============================================================================
         ///						Returns the radian seperation between the two Coordinates
         ///		
-        /// @param				Coordinate
-        /// @param              Coordinate
+        /// @param				inCoordinate1
+        /// @param              inCoordinate2
         ///
         /// @return             radians
         ///
@@ -941,8 +848,9 @@ namespace NumCpp
         ///						Returns the radian seperation between the Coordinate
         ///                     and the input vector
         ///		
-        /// @param				NdArray
-        /// @param              NdArray
+        /// @param				inVector1
+        /// @param              inVector2
+        ///
         /// @return             radians
         ///
         template<typename dtype>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['weibull',['weibull',['../class_num_cpp_1_1_random.html#ad6b30a77e15fb87923526ab7df2e2e72',1,'NumCpp::Random']]],
-  ['width',['width',['../class_num_cpp_1_1_image_processing_1_1_cluster.html#a799065eaa2e5cf4244caadd2c80b6f39',1,'NumCpp::ImageProcessing::Cluster']]],
-  ['windowexceedances',['windowExceedances',['../class_num_cpp_1_1_image_processing.html#aaba0eb493a0962f57ee79997a8166302',1,'NumCpp::ImageProcessing']]]
+  ['weibull',['weibull',['../class_n_c_1_1_random.html#a0d36a3b9b7c765f50eeaf465ae1b189d',1,'NC::Random']]],
+  ['width',['width',['../class_n_c_1_1_image_processing_1_1_cluster.html#a02ac1c5d1875095bd522e5c3ef63f98e',1,'NC::ImageProcessing::Cluster']]],
+  ['windowexceedances',['windowExceedances',['../class_n_c_1_1_image_processing.html#af3632fbf92fc686861e3e31102e4f297',1,'NC::ImageProcessing']]]
 ];

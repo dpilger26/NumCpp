@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['version',['VERSION',['../namespace_num_cpp_1_1_constants.html#a4fa5aa3163e77fd3c9d7f563a1dce90c',1,'NumCpp::Constants']]]
+  ['version',['VERSION',['../namespace_n_c_1_1_constants.html#a914053f59e1e8e0c55df4ba3df23794b',1,'NC::Constants']]]
 ];

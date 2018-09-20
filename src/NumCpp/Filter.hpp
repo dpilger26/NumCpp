@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// Image and signal filtering
 ///
 #pragma once
@@ -36,7 +36,7 @@
 #include<cmath>
 #include<utility>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						Image and signal filtering
@@ -51,7 +51,7 @@ namespace NumCpp
     //================================================================================
     // Class Description:
     ///						Class for performing many types of image filtering
-    template<typename dtype>
+    template<typename dtype = double>
     class Filters
     {
     private:
@@ -59,9 +59,9 @@ namespace NumCpp
         // Method Description: 
         ///						samples a gaussian of mean zero and input STD sigma
         ///		
-        /// @param				x value,
-        /// @param              y value,
-        /// @param              sigma value
+        /// @param				inX
+        /// @param              inY
+        /// @param              inSigma
         ///              
         /// @return             dtype
         ///
@@ -75,10 +75,8 @@ namespace NumCpp
         // Method Description: 
         ///						extends the corner values
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
-        ///
-        /// @return             None
+        /// @param				inArray
+        /// @param              inBorderWidth
         ///
         static void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth)
         {
@@ -103,12 +101,9 @@ namespace NumCpp
         // Method Description: 
         ///						extends the corner values
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
-        /// @param				fill value
-        ///
-        /// @return
-        ///				None
+        /// @param				inArray
+        /// @param              inBorderWidth
+        /// @param				inFillValue
         ///
         static void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)
         {
@@ -133,8 +128,8 @@ namespace NumCpp
         // Method Description: 
         ///						Reflects the boundaries
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImage
+        /// @param              inBoundarySize
         ///
         /// @return
         ///				NdArray
@@ -195,8 +190,8 @@ namespace NumCpp
         // Method Description: 
         ///						Reflects the boundaries
         ///	
-        /// @param			NdArray
-        /// @param          boundary size
+        /// @param			inImage
+        /// @param          inBoundarySize
         ///
         /// @return         NdArray
         ///
@@ -220,8 +215,9 @@ namespace NumCpp
         // Method Description: 
         ///						Constant boundary
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImage
+        /// @param              inBoundarySize
+        /// @param              inConstantValue
         /// @return
         ///				NdArray
         ///
@@ -248,8 +244,9 @@ namespace NumCpp
         // Method Description: 
         ///						Constant boundary1d
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImage
+        /// @param              inBoundarySize
+        /// @param              inConstantValue
         /// @return
         ///				NdArray
         ///
@@ -273,8 +270,8 @@ namespace NumCpp
         // Method Description: 
         ///						Nearest boundary
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImage
+        /// @param              inBoundarySize
         /// @return
         ///				NdArray
         ///
@@ -322,8 +319,8 @@ namespace NumCpp
         // Method Description: 
         ///						Nearest boundary1d
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImage
+        /// @param              inBoundarySize
         /// @return
         ///				NdArray
         ///
@@ -347,8 +344,8 @@ namespace NumCpp
         // Method Description: 
         ///						Mirror boundary
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImage
+        /// @param              inBoundarySize
         /// @return
         ///				NdArray
         ///
@@ -408,8 +405,8 @@ namespace NumCpp
         // Method Description: 
         ///						Mirror boundary1d
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImage
+        /// @param              inBoundarySize
         /// @return
         ///				NdArray
         ///
@@ -433,8 +430,8 @@ namespace NumCpp
         // Method Description: 
         ///						Wrap boundary
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImage
+        /// @param              inBoundarySize
         /// @return
         ///				NdArray
         ///
@@ -488,8 +485,8 @@ namespace NumCpp
         // Method Description: 
         ///						Wrap boundary1d
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImage
+        /// @param              inBoundarySize
         /// @return
         ///				NdArray
         ///
@@ -513,10 +510,10 @@ namespace NumCpp
         // Method Description: 
         ///						Wrap boundary
         ///		
-        /// @param				NdArray
-        /// @param              Boundary::Mode
-        /// @param              kernel window size
-        /// @param              (optional) constant value used for constant boundary condition
+        /// @param				inImage
+        /// @param              inMode
+        /// @param              inKernalSize
+        /// @param              inConstantValue (default 0)
         /// @return
         ///				NdArray
         ///
@@ -563,10 +560,10 @@ namespace NumCpp
         // Method Description: 
         ///						Wrap boundary
         ///		
-        /// @param				NdArray
-        /// @param              Boundary::Mode
-        /// @param              kernel window size
-        /// @param              (optional) constant value used for constant boundary condition
+        /// @param				inImage
+        /// @param              inMode
+        /// @param              inKernalSize
+        /// @param              inConstantValue (default 0)
         /// @return
         ///				NdArray
         ///
@@ -613,8 +610,8 @@ namespace NumCpp
         // Method Description: 
         ///						trims the boundary off to make the image back to the original size
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImageWithBoundary
+        /// @param              inSize
         /// @return
         ///				NdArray
         ///
@@ -633,8 +630,8 @@ namespace NumCpp
         // Method Description: 
         ///						trims the boundary off to make the image back to the original size
         ///		
-        /// @param				NdArray
-        /// @param              boundary size
+        /// @param				inImageWithBoundary
+        /// @param              inSize
         /// @return
         ///				NdArray
         ///
@@ -651,10 +648,10 @@ namespace NumCpp
         // Method Description: 
         ///						Calculates a multidimensional complemenatry median filter.
         ///		
-        /// @param				NdArray
-        /// @param				square size of the kernel to apply
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: square size of the kernel to apply
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -671,10 +668,10 @@ namespace NumCpp
         // Method Description: 
         ///						Calculate a one-dimensional complemenatry median filter.
         ///		
-        /// @param				NdArray
-        /// @param				size of the kernel to apply
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: square size of the kernel to apply
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -693,11 +690,11 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html#scipy.ndimage.convolve
         ///		
-        /// @param				NdArray
-        /// @param				square size of the kernel to apply
-        /// @param				NdArray, weights
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: square size of the kernel to apply
+        /// @param              inWeights
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -706,7 +703,7 @@ namespace NumCpp
         {
             if (inWeights.size() != Utils<uint32>::sqr(inSize))
             {
-                throw std::invalid_argument("ERROR: NumCpp::Filters::convolve: input weights do no match input kernal size.");
+                throw std::invalid_argument("ERROR: NC::Filters::convolve: input weights do no match input kernal size.");
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
@@ -738,10 +735,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d
         ///		
-        /// @param				NdArray
-        /// @param				NdArray, weights
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param              inWeights
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -772,10 +769,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter
         ///		
-        /// @param				NdArray
-        /// @param				double, Standard deviation for Gaussian kernel
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSigma: Standard deviation for Gaussian kernel
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -784,7 +781,7 @@ namespace NumCpp
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("ERROR: NumCpp::Filters::gaussianFilter: input sigma value must be greater than zero.");
+                throw std::invalid_argument("ERROR: NC::Filters::gaussianFilter: input sigma value must be greater than zero.");
             }
 
             // calculate the kernel size based off of the input sigma value
@@ -826,10 +823,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d
         ///		
-        /// @param				NdArray
-        /// @param				double, Standard deviation for Gaussian kernel
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSigma: Standard deviation for Gaussian kernel
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -838,7 +835,7 @@ namespace NumCpp
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("ERROR: NumCpp::Filters::gaussianFilter: input sigma value must be greater than zero.");
+                throw std::invalid_argument("ERROR: NC::Filters::gaussianFilter: input sigma value must be greater than zero.");
             }
 
             // calculate the kernel size based off of the input sigma value
@@ -876,10 +873,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter
         ///		
-        /// @param				NdArray
-        /// @param				square size of the kernel to apply
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: square size of the kernel to apply
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -914,10 +911,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter1d.html#scipy.ndimage.maximum_filter1d
         ///		
-        /// @param				NdArray
-        /// @param				size of the kernel to apply
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: linear size of the kernel to apply
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -946,10 +943,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter
         ///		
-        /// @param				NdArray
-        /// @param				square size of the kernel to apply
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: square size of the kernel to apply
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -984,10 +981,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter
         ///		
-        /// @param				NdArray
-        /// @param				linear size of the kernel to apply
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: linear size of the kernel to apply
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -1016,10 +1013,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter
         ///		
-        /// @param				NdArray
-        /// @param				square size of the kernel to apply
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: square size of the kernel to apply
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -1054,10 +1051,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter1d.html#scipy.ndimage.minimum_filter1d
         ///		
-        /// @param				NdArray
-        /// @param				size of the kernel to apply
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: linear size of the kernel to apply
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -1085,12 +1082,12 @@ namespace NumCpp
         ///						Calculates a multidimensional percentile filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter
-        ///		
-        /// @param				NdArray
-        /// @param				square size of the kernel to apply
-        /// @param			    percentile [0, 100]
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        ///
+        /// @param				inImageArray
+        /// @param				inSize: square size of the kernel to apply
+        /// @param              inPercentile: percentile [0, 100]
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -1125,11 +1122,11 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter
         ///		
-        /// @param				NdArray
-        /// @param				size of the kernel to apply
-        /// @param				percentile [0, 100]
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: linear size of the kernel to apply
+        /// @param              inPercentile: percentile [0, 100]
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -1158,11 +1155,11 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
         ///		
-        /// @param				NdArray
-        /// @param				square size of the kernel to apply
-        /// @param				rank [0, inSize^2 - 1]
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: square size of the kernel to apply
+        /// @param              inRank: ([0, inSize^2 - 1])
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -1171,7 +1168,7 @@ namespace NumCpp
         {
             if (inRank < 0 || inRank >= Utils<uint32>::sqr(inSize))
             {
-                std::invalid_argument("ERROR: NumCpp::Filters::rankFilter: rank not within filter footprint size.");
+                std::invalid_argument("ERROR: NC::Filters::rankFilter: rank not within filter footprint size.");
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
@@ -1202,11 +1199,11 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
         ///		
-        /// @param				NdArray
-        /// @param				size of the kernel to apply
-        /// @param				rank [0, 100]
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: linear size of the kernel to apply
+        /// @param              inRank: ([0, inSize^2 - 1])
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -1235,10 +1232,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter
         ///		
-        /// @param				NdArray
-        /// @param				square size of the kernel to apply
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: square size of the kernel to apply
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
@@ -1273,10 +1270,10 @@ namespace NumCpp
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d
         ///		
-        /// @param				NdArray
-        /// @param				size of the kernel to apply
-        /// @param              boundary mode, default Reflect, options (reflect, constant, nearest, mirror, wrap)
-        /// @param				contant value if boundary = 'constant'
+        /// @param				inImageArray
+        /// @param				inSize: linear size of the kernel to apply
+        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///

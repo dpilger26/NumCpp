@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wrap',['WRAP',['../struct_num_cpp_1_1_filter_1_1_boundary.html#a3fb520b67d524104db12ceef41adf081aaa1813005ea6e5c748220e455b772115',1,'NumCpp::Filter::Boundary']]]
+  ['wrap',['WRAP',['../struct_n_c_1_1_filter_1_1_boundary.html#ac4390669f01016fa73d8b5e314ccf11ba47ec37d08881e78c079dd184f6221a33',1,'NC::Filter::Boundary']]]
 ];

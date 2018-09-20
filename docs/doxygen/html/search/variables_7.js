@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pi',['pi',['../namespace_num_cpp_1_1_constants.html#af22b64ad1b8901bb580d2d9877586399',1,'NumCpp::Constants']]]
+  ['pi',['pi',['../namespace_n_c_1_1_constants.html#a4cf95bf5673b59405b102822ed3e0cd2',1,'NC::Constants']]]
 ];

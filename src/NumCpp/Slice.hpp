@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// A Class for slicing into NdArrays
 ///
 
@@ -36,7 +36,7 @@
 #include<stdexcept>
 #include<string>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						A Class for slicing into NdArrays
@@ -50,10 +50,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Constructor
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         Slice() :
             start(0),
@@ -64,9 +60,7 @@ namespace NumCpp
         //============================================================================
         ///						Constructor
         ///		
-        /// @param      stop index (not included)
-        ///
-        /// @return     None
+        /// @param      inStop (index not included)
         ///
         explicit Slice(int32 inStop) :
             start(0),
@@ -77,10 +71,8 @@ namespace NumCpp
         //============================================================================
         ///						Constructor
         ///		
-        /// @param          start index,
-        /// @param			stop index (not included)
-        ///
-        /// @return         None
+        /// @param          inStart
+        /// @param			inStop (index not included)
         ///
         Slice(int32 inStart, int32 inStop) :
             start(inStart),
@@ -91,10 +83,9 @@ namespace NumCpp
         //============================================================================
         ///						Constructor
         ///			
-        /// @param      start index,
-        /// @param      stop index (not included)
-        /// @param      step value
-        /// @return     None
+        /// @param      inStart
+        /// @param      inStop (not included)
+        /// @param      inStep
         ///
         Slice(int32 inStart, int32 inStop, int32 inStep) :
             start(inStart),
@@ -104,10 +95,8 @@ namespace NumCpp
 
         //============================================================================
         ///						Prints the shape to the console
-        ///		
-        /// @param      None
         ///
-        /// @return     None
+        /// @return     std::string
         ///
         std::string str() const
         {
@@ -117,10 +106,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Prints the shape to the console
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void print()
         {
@@ -130,9 +115,10 @@ namespace NumCpp
         //============================================================================
         ///						IO operator for the Slice class
         ///		
-        /// @param      None
+        /// @param      inOStream
+        /// @param      inSlice
         ///
-        /// @return     None
+        /// @return     std::ostream
         ///
         friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
         {
@@ -143,9 +129,7 @@ namespace NumCpp
         //============================================================================
         ///						Make the slice all positive and does some error checking
         ///			
-        /// @param      The calling array size
-        ///
-        /// @return     None
+        /// @param      inArraySize
         ///
         void makePositiveAndValidate(uint32 inArraySize)
         {
@@ -196,9 +180,7 @@ namespace NumCpp
         ///						be aware that this method will also make the slice all 
         ///						positive!
         ///			
-        /// @param      The calling array size
-        ///
-        /// @return     None
+        /// @param      inArraySize
         ///
         uint32 numElements(uint32 inArraySize)
         {

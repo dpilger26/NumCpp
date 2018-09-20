@@ -453,7 +453,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
-    offset = np.random.randint(0, min(shape.rows, shape.cols), [1,]).item()
+    offset = np.random.randint(-min(shape.rows, shape.cols), min(shape.rows, shape.cols), [1,]).item()
     if np.array_equal(cArray.diagonal(offset, NumCpp.Axis.ROW).astype(np.uint32).flatten(), data.diagonal(offset, axis1=1, axis2=0)):
         print(colored('\tPASS', 'green'))
     else:
@@ -465,7 +465,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
-    offset = np.random.randint(0, min(shape.rows, shape.cols), [1,]).item()
+    offset = np.random.randint(-min(shape.rows, shape.cols), min(shape.rows, shape.cols), [1,]).item()
     if np.array_equal(cArray.diagonal(offset, NumCpp.Axis.COL).astype(np.uint32).flatten(), data.diagonal(offset, axis1=0, axis2=1)):
         print(colored('\tPASS', 'green'))
     else:

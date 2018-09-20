@@ -35,7 +35,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing VERSION', 'cyan'))
-    if NumCpp.VERSION == '0.1':
+    if NumCpp.VERSION == '1.0':
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

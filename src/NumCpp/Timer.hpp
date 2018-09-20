@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// A timer class for timing code execution
 ///
 #pragma once
@@ -31,7 +31,7 @@
 #include<chrono>
 #include<string>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     ///						A timer class for timing code execution
@@ -84,10 +84,6 @@ namespace NumCpp
     public:
         //============================================================================
         ///						Constructor
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         Timer() :
             name_(""),
@@ -99,9 +95,7 @@ namespace NumCpp
         //============================================================================
         ///						Constructor
         ///		
-        /// @param      Timer name
-        ///
-        /// @return     None
+        /// @param      inName
         ///
         Timer(const std::string& inName) :
             name_(inName + " "),
@@ -112,10 +106,6 @@ namespace NumCpp
 
         //============================================================================
         ///						Starts the timer
-        ///		
-        /// @param      None
-        ///
-        /// @return     None
         ///
         void tic()
         {
@@ -125,8 +115,6 @@ namespace NumCpp
         //============================================================================
         /// Method Description: 
         ///						Stops the timer
-        ///		
-        /// @param      None
         ///
         /// @return     ellapsed time in specified time units
         ///

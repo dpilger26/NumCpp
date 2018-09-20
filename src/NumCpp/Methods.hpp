@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// Methods for working with NdArrays
 ///
 #pragma once
@@ -46,12 +46,12 @@
 #include<utility>
 #include<vector>
 
-namespace NumCpp
+namespace NC
 {
     //================================================================================
     // Class Description:
     ///						Methods for working with NdArrays
-    template<typename dtype>
+    template<typename dtype = double>
     class Methods
     {
     public:
@@ -62,7 +62,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -78,7 +78,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -96,8 +96,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.add.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -112,7 +112,7 @@ namespace NumCpp
         ///						Return the length of the first dimension of the input array.
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				length uint16
         ///
@@ -127,8 +127,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.all.html
         ///		
-        /// @param				NdArray
-        /// @param				Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				bool
         ///
@@ -144,9 +144,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.allclose.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray
-        /// @param				(Optional) tolerance
+        /// @param				inArray1
+        /// @param				inArray2
+        /// @param				inTolerance: (Optional, default 1e-5)
         /// @return
         ///				bool
         ///
@@ -174,8 +174,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.amax.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				max value
         ///
@@ -190,8 +190,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.amin.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				min value
         ///
@@ -206,8 +206,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.any.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -222,9 +222,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.append.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray append values
-        /// @param				(Optional) axis -	The axis along which values are appended. 
+        /// @param				inArray
+        /// @param				inAppendValues
+        /// @param				inAxis (Optional, default NONE): The axis along which values are appended. 
         ///									If axis is not given, both inArray and inAppendValues 
         ///									are flattened before use.	
         /// @return
@@ -298,9 +298,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
         ///		
-        /// @param				start value,
-        /// @param				stop value, 
-        /// @param				(Optional) step value, defaults to 1
+        /// @param				inStart
+        /// @param				inStop
+        /// @param				inStep: (Optional, defaults to 1)
         /// @return
         ///				NdArray
         ///
@@ -355,7 +355,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
         ///		
         /// @param
-        ///				stop value, start is 0 and step is 1
+        ///				inStop: start is 0 and step is 1
         /// @return
         ///				NdArray
         ///
@@ -376,7 +376,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -392,7 +392,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -411,7 +411,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -427,7 +427,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -446,7 +446,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -462,7 +462,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -481,7 +481,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsinh.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -497,7 +497,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsinh.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -516,7 +516,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -532,7 +532,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -550,8 +550,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
         ///		
-        /// @param				Y
-        /// @param				x
+        /// @param				inY
+        /// @param				inX
         /// @return
         ///				value
         ///
@@ -566,8 +566,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
         ///		
-        /// @param				NdArray y
-        /// @param				NdArray x
+        /// @param				inY
+        /// @param				inX
         /// @return
         ///				NdArray
         ///
@@ -592,7 +592,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -608,7 +608,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -626,8 +626,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argmax.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -642,8 +642,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argmin.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -658,8 +658,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argsort.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -674,8 +674,7 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argwhere.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
         /// @return
         ///				NdArray
         ///
@@ -690,8 +689,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
         ///		
-        /// @param			value
-        /// @param			(Optional) decimals, default = 0
+        /// @param			inValue
+        /// @param			inNumDecimals: (Optional, default = 0)
         /// @return
         ///				value
         ///
@@ -707,8 +706,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) decimals, default = 0
+        /// @param			inArray
+        /// @param			inNumDecimals: (Optional, default = 0)
         /// @return
         ///				NdArray
         ///
@@ -723,8 +722,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.array_equal.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				bool
@@ -749,8 +748,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.array_equiv.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				bool
@@ -780,7 +779,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
         ///		
         /// @param
-        ///				std::vector
+        ///				inVector
         /// @return
         ///				NdArray
         ///
@@ -792,12 +791,12 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						Convert the list initializer to an array.
-        ///						eg: NdArray<int> myArray = NumCpp::asarray<int>({1,2,3});
+        ///						eg: NdArray<int> myArray = NC::asarray<int>({1,2,3});
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
         ///		
         /// @param
-        ///				std::vector
+        ///				inList
         /// @return
         ///				NdArray
         ///
@@ -811,7 +810,7 @@ namespace NumCpp
         ///						Returns a copy of the array, cast to a specified type.
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -827,8 +826,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -843,9 +842,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray of weights, otherwise all weights = 1
-        /// @param  			(Optional) axis
+        /// @param				inArray
+        /// @param				inWeights
+        /// @param  			inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -934,8 +933,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
         ///		
-        /// @param				NdArray
-        /// @param				min bin length
+        /// @param				inArray
+        /// @param				inMinLength
         /// @return
         ///				NdArray
         ///
@@ -984,9 +983,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray weights
-        /// @param				min bin length
+        /// @param				inArray
+        /// @param				inWeights
+        /// @param				inMinLength
         /// @return
         ///				NdArray
         ///
@@ -1031,8 +1030,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bitwise_and.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -1045,7 +1044,7 @@ namespace NumCpp
         // Method Description: 
         ///						Compute the bit-wise NOT the input array element-wise.
         ///		
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -1060,8 +1059,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bitwise_or.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -1076,8 +1075,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bitwise_xor.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -1091,7 +1090,7 @@ namespace NumCpp
         ///						Return a new array with the bytes of the array elements
         ///						swapped.
         ///		
-        /// @param				NdArray 
+        /// @param				inArray 
         ///
         /// @return
         ///				NdArray
@@ -1110,7 +1109,7 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
         ///		
-        /// @param				value
+        /// @param				inValue
         /// @return
         ///				value
         ///
@@ -1125,7 +1124,7 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
         ///		
-        /// @param				NdArray
+        /// @param				inArray
         /// @return
         ///				NdArray
         ///
@@ -1143,7 +1142,7 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
         ///		
-        /// @param				value
+        /// @param				inValue
         /// @return
         ///				value
         ///
@@ -1158,7 +1157,7 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
         ///		
-        /// @param				NdArray
+        /// @param				inArray
         /// @return
         ///				NdArray
         ///
@@ -1176,9 +1175,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
         ///		
-        /// @param				value
-        /// @param				min Value
-        /// @param				max Value
+        /// @param				inValue
+        /// @param				inMinValue
+        /// @param				inMaxValue
         /// @return
         ///				NdArray
         ///
@@ -1194,9 +1193,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
         ///		
-        /// @param				NdArray
-        /// @param				min Value
-        /// @param				max Value
+        /// @param				inArray
+        /// @param				inMinValue
+        /// @param				inMaxValue
         /// @return
         ///				NdArray
         ///
@@ -1212,7 +1211,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.column_stack.html
         ///		
         /// @param
-        ///				{list} of arrays to stack
+        ///				inArrayList: {list} of arrays to stack
         /// @return
         ///				NdArray
         ///
@@ -1262,9 +1261,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.concatenate.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
-        /// @param				(Optional) Axis (Default NONE)
+        /// @param				inArrayList
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1312,9 +1310,9 @@ namespace NumCpp
         // Method Description: 
         ///						returns whether or not a value is included the array
         ///		
-        /// @param				NdArray 
-        /// @param				value
-        /// @param				(Optional) axis
+        /// @param				inArray 
+        /// @param				inValue
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				bool
         ///
@@ -1330,7 +1328,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copy.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         /// @return
         ///				NdArray
         ///
@@ -1345,8 +1343,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copysign.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -1370,8 +1368,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copyto.html
         ///		
-        /// @param				NdArray destination
-        /// @param				NdArray source
+        /// @param				inDestArray
+        /// @param				inSrcArray
         /// @return
         ///				NdArray
         ///
@@ -1388,7 +1386,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -1404,7 +1402,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -1423,7 +1421,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
         ///		
         /// @param
-        ///				Value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -1439,7 +1437,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -1457,8 +1455,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.count_nonzero.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1524,9 +1522,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cross.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
-        /// @param  			(Optional) Axis - default = row
+        /// @param				inArray1
+        /// @param				inArray2
+        /// @param  			inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1655,7 +1653,7 @@ namespace NumCpp
         ///						Cubes the elements of the array
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -1674,8 +1672,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cumprod.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1691,8 +1689,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cumsum.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -1709,7 +1707,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.deg2rad.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -1725,14 +1723,14 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.deg2rad.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
         static NdArray<double> deg2rad(const NdArray<dtype>& inArray)
         {
             NdArray<double> returnArray(inArray.shape());
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return deg2rad(inValue); });
+            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return Methods<dtype>::deg2rad(inValue); });
 
             return std::move(returnArray);
         }
@@ -1741,9 +1739,9 @@ namespace NumCpp
         // Method Description: 
         ///						Return a new array with sub-arrays along an axis deleted.
         ///		
-        /// @param				NdArray
-        /// @param				NdArray indices to delete
-        /// @param				(Optional) Axis, if none the indices will be applied to the flattened array
+        /// @param				inArray
+        /// @param				inArrayIdxs
+        /// @param				inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
         /// @return
         ///				NdArray
         ///
@@ -1839,9 +1837,9 @@ namespace NumCpp
         // Method Description: 
         ///						Return a new array with sub-arrays along an axis deleted.
         ///		
-        /// @param				NdArray
-        /// @param				Slice to delete
-        /// @param  			(Optional) Axis, if none the indices will be applied to the flattened array
+        /// @param				inArray
+        /// @param				inIndicesSlice
+        /// @param  			inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
         /// @return
         ///				NdArray
         ///
@@ -1881,9 +1879,9 @@ namespace NumCpp
         // Method Description: 
         ///						Return a new array with sub-arrays along an axis deleted.
         ///		
-        /// @param				NdArray
-        /// @param				index to delete
-        /// @param				(Optional) Axis, if none the indices will be applied to the flattened array
+        /// @param				inArray
+        /// @param				inIndex
+        /// @param				inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
         /// @return
         ///				NdArray
         ///
@@ -1900,7 +1898,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagflat.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -1922,13 +1920,13 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagonal.html
         ///		
-        /// @param				NdArray
-        /// @param				Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. 
-        /// @param				(Optional) axis the offset is applied to
+        /// @param				inArray
+        /// @param				inOffset (Defaults to 0)
+        /// @param				inAxis (Optional, default NONE) axis the offset is applied to
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+        static NdArray<dtype> diagonal(const NdArray<dtype>& inArray, int32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
         {
             return std::move(inArray.diagonal(inOffset, inAxis));
         }
@@ -1940,8 +1938,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diff.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -2013,8 +2011,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -2030,8 +2028,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.dot.html
         ///		
-        /// @param			NdArray 1
-        /// @param			NdArray 2
+        /// @param			inArray1
+        /// @param			inArray2
         /// @return
         ///				NdArray
         ///
@@ -2044,10 +2042,10 @@ namespace NumCpp
         //============================================================================
         // Method Description: 
         ///						Dump a binary file of the array to the specified file. 
-        ///						The array can be read back with or NumCpp::load.
+        ///						The array can be read back with or NC::load.
         ///		
-        /// @param				NdArray
-        /// @param				string filename
+        /// @param				inArray
+        /// @param				inFilename
         /// @return
         ///				NdArray
         ///
@@ -2079,7 +2077,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
         ///		
         /// @param
-        ///				Shape
+        ///				inShape
         /// @return
         ///				NdArray
         ///
@@ -2095,7 +2093,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty_like.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -2110,7 +2108,7 @@ namespace NumCpp
         ///						Return the endianess of the array values.
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				Endian::Type
         ///
@@ -2125,8 +2123,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.equal.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -2142,7 +2140,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -2158,7 +2156,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -2179,7 +2177,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -2195,7 +2193,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -2216,7 +2214,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -2232,7 +2230,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -2252,8 +2250,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
         ///		
-        /// @param				number of rows and columns (N)
-        /// @param				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
+        /// @param				inN: number of rows and columns (N)
+        /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
         ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
         ///				
         /// @return
@@ -2270,9 +2268,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
         ///		
-        /// @param				number of rows (N)
-        /// @param				number of columns (M)
-        /// @param				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
+        /// @param				inN: number of rows (N)
+        /// @param				inM: number of columns (M)
+        /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
         ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
         ///				
         /// @return
@@ -2319,8 +2317,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
         ///		
-        /// @param				Shape
-        /// @param				K - Index of the diagonal: 0 (the default) refers to the main diagonal,
+        /// @param				inShape
+        /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
         ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
         ///				
         /// @return
@@ -2338,7 +2336,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -2354,7 +2352,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -2373,7 +2371,7 @@ namespace NumCpp
         ///						Return a copy of the array collapsed into one dimension.
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///
         /// @return
         ///				NdArray
@@ -2390,7 +2388,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flatnonzero.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -2405,8 +2403,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flip.html
         ///		
-        /// @param				NdArray
-        /// @param				axis
+        /// @param				inArray
+        /// @param				inAxis
         /// @return
         ///				NdArray
         ///
@@ -2452,7 +2450,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fliplr.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -2468,7 +2466,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flipud.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -2484,7 +2482,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -2500,7 +2498,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -2520,8 +2518,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
         ///		
-        /// @param				value 1
-        /// @param				value 2
+        /// @param				inValue1
+        /// @param				inValue2
         /// @return
         ///				value
         ///
@@ -2536,8 +2534,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -2555,8 +2553,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
         ///		
-        /// @param				value 1
-        /// @param				value 2
+        /// @param				inValue1
+        /// @param				inValue2
         /// @return
         ///				value
         ///
@@ -2574,8 +2572,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -2603,8 +2601,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
         ///		
-        /// @param				value 1
-        /// @param				value 2
+        /// @param				inValue1
+        /// @param				inValue2
         /// @return
         ///				value
         ///
@@ -2622,8 +2620,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -2649,8 +2647,8 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
         ///
         ///		
-        /// @param				value 1
-        /// @param				value 2
+        /// @param				inValue1
+        /// @param				inValue2
         /// @return
         ///				value
         ///
@@ -2669,8 +2667,8 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
         ///
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -2698,8 +2696,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
         ///		
-        /// @param				filename
-        /// @param				seperator, Separator between items if file is a text file. Empty ("") 
+        /// @param				inFilename
+        /// @param				inSep: Separator between items if file is a text file. Empty ("") 
         ///							separator means the file should be treated as binary.
         ///							Right now the only supported seperators are " ", "\t", "\n"
         /// @return
@@ -2781,8 +2779,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
         ///		
-        /// @param				square size
-        /// @param				fill value
+        /// @param				inSquareSize
+        /// @param				inFillValue
         /// @return
         ///				NdArray
         ///
@@ -2799,9 +2797,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
         ///		
-        /// @param				numRows
-        /// @param				numCols
-        /// @param				fill value
+        /// @param				inNumRows
+        /// @param				inNumCols
+        /// @param				inFillValue
         /// @return
         ///				NdArray
         ///
@@ -2818,8 +2816,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
         ///		
-        /// @param				Shape
-        /// @param				fill value
+        /// @param				inShape
+        /// @param				inFillValue
         /// @return
         ///				NdArray
         ///
@@ -2834,8 +2832,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full_like.html
         ///		
-        /// @param				NdArray
-        /// @param				fill value
+        /// @param				inArray
+        /// @param				inFillValue
         /// @return
         ///				NdArray
         ///
@@ -2852,8 +2850,8 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.greater.html
         ///
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -2869,8 +2867,8 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.greater_equal.html
         ///
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -2886,8 +2884,8 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.histogram.html
         ///
         ///		
-        /// @param				NdArray 
-        /// @param				number of bins, default 10
+        /// @param				inArray 
+        /// @param				inNumBins( default 10)
         ///				
         /// @return
         ///				std::pair of NdArrays; first is histogram counts, seconds is the bin edges
@@ -2949,7 +2947,7 @@ namespace NumCpp
         ///
         ///		
         /// @param
-        ///				{list} of arrays to stack
+        ///				inArrayList: {list} of arrays to stack
         ///				
         /// @return
         ///				NdArray
@@ -2968,8 +2966,8 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
         ///
         ///		
-        /// @param				value 1
-        /// @param				value 2
+        /// @param				inValue1
+        /// @param				inValue2
         ///				
         /// @return
         ///				NdArray
@@ -2989,8 +2987,8 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
         ///
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3020,7 +3018,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.identity.html
         ///
         /// @param
-        ///				matrix square size
+        ///				inSquareSize
         ///				
         /// @return
         ///				NdArray
@@ -3045,8 +3043,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.intersect1d.html
         ///
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3070,7 +3068,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.invert.html
         ///	
         /// @param
-        ///				NdArray
+        ///				inArray
         ///				
         /// @return
         ///				NdArray
@@ -3090,10 +3088,10 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isclose.html
         ///
-        /// @param				NdArray 1
-        /// @param				NdArray 2
-        /// @param				relative tolerance
-        /// @param				absolute tolerance
+        /// @param				inArray1
+        /// @param				inArray2
+        /// @param				inRtol: relative tolerance (default 1e-5)
+        /// @param				inAtol: absolute tolerance (default 1e-9)
         ///				
         /// @return
         ///				NdArray
@@ -3119,7 +3117,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         ///				
         /// @return
         ///				bool
@@ -3136,7 +3134,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///				
         /// @return
         ///				NdArray
@@ -3156,8 +3154,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
         ///		
-        /// @param				value 1
-        /// @param				value 2
+        /// @param				inValue1
+        /// @param				inValue2
         ///				
         /// @return
         ///				value
@@ -3173,8 +3171,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3199,8 +3197,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.left_shift.html
         ///		
-        /// @param				NdArray 
-        /// @param				number of bits to sift
+        /// @param				inArray 
+        /// @param				inNumBits
         ///				
         /// @return
         ///				NdArray
@@ -3216,8 +3214,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.less.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3233,8 +3231,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.less_equal.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3258,10 +3256,10 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.linspace.html
         ///
-        /// @param				start point
-        /// @param				end point
-        /// @param				number of points, default = 50
-        /// @param				include endPoint, default = true
+        /// @param				inStart
+        /// @param				inStop
+        /// @param				inNum: number of points (default = 50)
+        /// @param				endPoint: include endPoint (default = true)
         ///				
         /// @return
         ///				NdArray
@@ -3336,7 +3334,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.load.html
         ///		
         /// @param
-        ///				string filename
+        ///				inFilename
         ///				
         /// @return
         ///				NdArray
@@ -3353,7 +3351,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         ///				
         /// @return
         ///				value
@@ -3370,7 +3368,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///				
         /// @return
         ///				NdArray
@@ -3391,7 +3389,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         ///				
         /// @return
         ///				value
@@ -3408,7 +3406,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///				
         /// @return
         ///				NdArray
@@ -3431,7 +3429,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         ///				
         /// @return
         ///				value
@@ -3450,7 +3448,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///				
         /// @return
         ///				NdArray
@@ -3471,7 +3469,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         ///				
         /// @return
         ///				value
@@ -3488,7 +3486,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///				
         /// @return
         ///				NdArray
@@ -3508,8 +3506,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_and.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3536,7 +3534,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_not.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         ///				
         /// @return
         ///				NdArray
@@ -3556,8 +3554,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_or.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3583,8 +3581,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_xor.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3610,8 +3608,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.matmul.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3626,8 +3624,8 @@ namespace NumCpp
         // Method Description: 
         ///						Return the maximum of an array or maximum along an axis.
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -3644,8 +3642,8 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.maximum.html
         ///
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3671,8 +3669,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mean.html
         ///		
-        /// @param				NdArray 
-        /// @param				(Optional) axis
+        /// @param				inArray 
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -3688,8 +3686,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.median.html
         ///		
-        /// @param				NdArray 
-        /// @param  			(Optional) axis
+        /// @param				inArray 
+        /// @param  			inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -3703,8 +3701,8 @@ namespace NumCpp
         // Method Description: 
         ///						Return the minimum of an array or maximum along an axis.
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -3720,8 +3718,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.minimum.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3747,8 +3745,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mod.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3764,8 +3762,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.multiply.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///				
         /// @return
         ///				NdArray
@@ -3781,8 +3779,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanargmax.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -3806,8 +3804,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanargmin.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -3831,8 +3829,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumprod.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -3857,8 +3855,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumsum.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -3883,8 +3881,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmax.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -3909,8 +3907,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmean.html
         ///		
-        /// @param				NdArray 
-        /// @param				(Optional) axis
+        /// @param				inArray 
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -3981,8 +3979,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmedian.html
         ///		
-        /// @param				NdArray 
-        /// @param				(Optional) axis
+        /// @param				inArray 
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -4068,8 +4066,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmin.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -4094,8 +4092,10 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanpercentile.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param              inPercentile
+        /// @param				inAxis (Optional, default NONE)
+        /// @param              inInterpMethod (default linear) choices = ['linear','lower','higher','nearest','midpoint']
         /// @return
         ///				NdArray
         ///
@@ -4276,8 +4276,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanprod.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -4303,7 +4303,7 @@ namespace NumCpp
         ///                     Only really works for dtype = float/double
         ///		
         /// @param
-        ///				square size
+        ///				inSquareSize
         /// @return
         ///				NdArray
         ///
@@ -4317,8 +4317,8 @@ namespace NumCpp
         ///						Return a new array of given shape and type, filled with nans.
         ///                     Only really works for dtype = float/double
         ///		
-        /// @param				numRows
-        /// @param				numCols
+        /// @param				inNumRows
+        /// @param				inNumCols
         /// @return
         ///				NdArray
         ///
@@ -4333,11 +4333,11 @@ namespace NumCpp
         ///                     Only really works for dtype = float/double
         ///		
         /// @param
-        ///				Shape
+        ///				inShape
         /// @return
         ///				NdArray
         ///
-        static NumCpp::NdArray<dtype> nans(const NumCpp::Shape& inShape)
+        static NC::NdArray<dtype> nans(const NC::Shape& inShape)
         {
             return std::move(full(inShape, static_cast<dtype>(Constants::nan)));
         }
@@ -4348,8 +4348,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanstd.html
         ///		
-        /// @param				NdArray 
-        /// @param				(Optional) axis
+        /// @param				inArray 
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -4440,8 +4440,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nansum.html
         ///		
-        /// @param				NdArray 
-        /// @param				(Optional) axis
+        /// @param				inArray 
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -4467,8 +4467,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanvar.html
         ///		
-        /// @param			NdArray
-        /// @param			(Optional) axis
+        /// @param			inArray
+        /// @param			inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -4488,7 +4488,7 @@ namespace NumCpp
         ///						Returns the number of bytes held by the array
         ///	
         /// @param
-        ///				None
+        ///				inArray
         /// @return
         ///				number of bytes
         ///
@@ -4506,7 +4506,7 @@ namespace NumCpp
         ///
         ///		
         /// @param				inValue
-        /// @param				Endianess
+        /// @param				inEndianess
         ///				
         /// @return
         ///				inValue
@@ -4525,8 +4525,8 @@ namespace NumCpp
         ///						be confused as to why...
         ///
         ///		
-        /// @param				NdArray
-        /// @param				Endianess
+        /// @param				inArray
+        /// @param				inEndianess
         ///				
         /// @return
         ///				NdArray
@@ -4543,7 +4543,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.negative.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///				
         /// @return
         ///				NdArray
@@ -4563,7 +4563,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nonzero.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///				
         /// @return
         ///				NdArray
@@ -4577,8 +4577,8 @@ namespace NumCpp
         // Method Description: 
         ///						Matrix or vector norm.
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         ///				
         /// @return
         ///				NdArray
@@ -4595,8 +4595,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.not_equal.html
         ///		
-        /// @param			NdArray 1
-        /// @param			NdArray 2
+        /// @param			inArray1
+        /// @param			inArray2
         ///				
         /// @return
         ///				NdArray
@@ -4613,7 +4613,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
         ///		
         /// @param
-        ///				square size
+        ///				inSquareSize
         /// @return
         ///				NdArray
         ///
@@ -4628,8 +4628,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
         ///		
-        /// @param			numRows
-        /// @param			numCols
+        /// @param			inNumRows
+        /// @param			inNumCols
         /// @return
         ///				NdArray
         ///
@@ -4645,7 +4645,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
         ///		
         /// @param
-        ///				Shape
+        ///				inShape
         /// @return
         ///				NdArray
         ///
@@ -4661,7 +4661,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones_like.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -4679,9 +4679,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.pad.html
         ///		
-        /// @param				NdArray
-        /// @param				pad width
-        /// @param				pad value
+        /// @param				inArray
+        /// @param				inPadWidth
+        /// @param				inPadValue
         /// @return
         ///				NdArray
         ///
@@ -4710,8 +4710,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.partition.html
         ///		
-        /// @param				kth element
-        /// @param				(Optional) Axis
+        /// @param              inArray
+        /// @param				inKth: kth element
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -4728,10 +4729,10 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.percentile.html
         ///		
-        /// @param				NdArray
-        /// @param				percentile, must be in the range [0, 100]
-        /// @param				(Optional) axis
-        /// @param				(Optional) interpolation method
+        /// @param				inArray
+        /// @param				inPercentile: percentile must be in the range [0, 100]
+        /// @param				inAxis (Optional, default NONE)
+        /// @param				inInterpMethod (Optional) interpolation method
         ///					linear: i + (j - i) * fraction, where fraction is the fractional part of the index surrounded by i and j.
         ///					lower : i.
         ///					higher : j.
@@ -4870,8 +4871,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
         ///		
-        /// @param				NdArray
-        /// @param				exponent
+        /// @param				inArray
+        /// @param				inExponent
         /// @return
         ///				NdArray
         ///
@@ -4891,8 +4892,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray
+        /// @param				inArray
+        /// @param				inExponents
         /// @return
         ///				NdArray
         ///
@@ -4916,7 +4917,7 @@ namespace NumCpp
         ///						Prints the array to the console.
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				None
         ///
@@ -4931,8 +4932,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.prod.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -4948,8 +4949,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ptp.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -4965,9 +4966,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.put.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray of indices
-        /// @param				NdArray of values to put
+        /// @param				inArray
+        /// @param				inIndices
+        /// @param				inValues
         /// @return
         ///				NdArray
         ///
@@ -4987,9 +4988,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray mask
-        /// @param				scalar value to put
+        /// @param				inArray
+        /// @param				inMask
+        /// @param				inValue
         /// @return
         ///				NdArray
         ///
@@ -5021,9 +5022,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
         ///		
-        /// @param				NdArray
-        /// @param				NdArray mask
-        /// @param				NdArray of values to put
+        /// @param				inArray
+        /// @param				inMask
+        /// @param				inValues
         /// @return
         ///				NdArray
         ///
@@ -5055,7 +5056,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         ///
         /// @return
         ///				value
@@ -5072,7 +5073,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///
         /// @return
         ///				NdArray
@@ -5094,7 +5095,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///
         /// @return
         ///				NdArray
@@ -5117,8 +5118,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html
         ///		
-        /// @param				value 1
-        /// @param				value 2
+        /// @param				inValue1
+        /// @param				inValue2
         ///
         /// @return
         ///				NdArray
@@ -5135,8 +5136,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///
         /// @return
         ///				NdArray
@@ -5162,9 +5163,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
         ///		
-        /// @param				numRows
-        /// @param				numCols
-        /// @param				Shape
+        /// @param				inArray
+        /// @param				inNumRows
+        /// @param				inNumCols
         ///
         /// @return
         ///				NdArray
@@ -5180,8 +5181,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
         ///		
-        /// @param				NdArray
-        /// @param				Shape
+        /// @param				inArray
+        /// @param				inRepeatShape
         ///
         /// @return
         ///				NdArray
@@ -5197,9 +5198,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reshape.html
         ///		
-        /// @param				numRows
-        /// @param				numCols
-        /// @param				Shape, new Shape
+        /// @param				inArray
+        /// @param				inNumRows
+        /// @param				inNumCols
         ///
         /// @return
         ///				NdArray
@@ -5216,8 +5217,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reshape.html
         ///		
-        /// @param				NdArray
-        /// @param				Shape, new Shape
+        /// @param				inArray
+        /// @param				inNewShape
         ///
         /// @return
         ///				NdArray
@@ -5235,9 +5236,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
         ///		
-        /// @param				NdArray
-        /// @param				numRows
-        /// @param				numCols
+        /// @param				inArray
+        /// @param				inNumRows
+        /// @param				inNumCols
         ///
         /// @return
         ///				NdArray
@@ -5255,8 +5256,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
         ///		
-        /// @param				NdArray 
-        /// @param				Shape, new Shape
+        /// @param				inArray 
+        /// @param				inNewShape
         ///
         /// @return
         ///				NdArray
@@ -5276,9 +5277,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
         ///		
-        /// @param				NdArray
-        /// @param				numRows
-        /// @param				numCols
+        /// @param				inArray
+        /// @param				inNumRows
+        /// @param				inNumCols
         ///
         /// @return
         ///				NdArray
@@ -5298,8 +5299,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
         ///		
-        /// @param				NdArray 
-        /// @param				Shape, new Shape
+        /// @param				inArray 
+        /// @param				inNewShape
         ///
         /// @return
         ///				NdArray
@@ -5316,8 +5317,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.right_shift.html
         ///		
-        /// @param				NdArray 
-        /// @param				number of bits to sift
+        /// @param				inArray 
+        /// @param				inNumBits
         ///				
         /// @return
         ///				NdArray
@@ -5334,7 +5335,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
         ///		
         /// @param
-        ///				value 
+        ///				inValue 
         ///
         /// @return
         ///				value
@@ -5351,7 +5352,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         ///
         /// @return
         ///				NdArray
@@ -5370,9 +5371,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.roll.html
         ///		
-        /// @param				NdArray 
-        /// @param				elements to shift, positive means forward, negative means backwards
-        /// @param				(Optional) axis
+        /// @param				inArray 
+        /// @param				inShift: (elements to shift, positive means forward, negative means backwards)
+        /// @param				inAxis (Optional, default NONE)
         ///
         /// @return
         ///				NdArray
@@ -5445,8 +5446,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rot90.html
         ///		
-        /// @param				NdArray 
-        /// @param				the number of times to rotate 90 degrees
+        /// @param				inArray 
+        /// @param				inK: the number of times to rotate 90 degrees
         ///
         /// @return
         ///				NdArray
@@ -5481,8 +5482,8 @@ namespace NumCpp
         // Method Description: 
         ///						Round value to the given number of decimals.
         ///		
-        /// @param				value 
-        /// @param				the number of decimals
+        /// @param				inValue 
+        /// @param				inDecimals
         ///
         /// @return
         ///				value
@@ -5497,8 +5498,8 @@ namespace NumCpp
         // Method Description: 
         ///						Round an array to the given number of decimals.
         ///		
-        /// @param				NdArray 
-        /// @param				the number of decimals
+        /// @param				inArray 
+        /// @param				inDecimals
         ///
         /// @return
         ///				NdArray
@@ -5513,7 +5514,7 @@ namespace NumCpp
         ///						Stack arrays in sequence vertically (row wise).
         ///
         /// @param
-        ///				{list} of arrays to stack
+        ///				inArrayList: {list} of arrays to stack
         ///
         /// @return
         ///				NdArray
@@ -5566,8 +5567,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.setdiff1d.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         /// @return
         ///				NdArray
         ///
@@ -5588,7 +5589,7 @@ namespace NumCpp
         ///						Return the shape of the array
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         /// @return
         ///				Shape
         ///
@@ -5607,7 +5608,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inValue 
         /// @return
         ///				NdArray
         ///
@@ -5637,7 +5638,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         /// @return
         ///				NdArray
         ///
@@ -5656,7 +5657,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inValue 
         /// @return
         ///				NdArray
         ///
@@ -5672,7 +5673,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         /// @return
         ///				NdArray
         ///
@@ -5691,7 +5692,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sin.html
         ///		
         /// @param
-        ///				value 
+        ///				inValue 
         /// @return
         ///				value
         ///
@@ -5707,7 +5708,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sin.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         /// @return
         ///				NdArray
         ///
@@ -5728,7 +5729,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html
         ///		
         /// @param
-        ///				value 
+        ///				inValue 
         /// @return
         ///				value
         ///
@@ -5747,7 +5748,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         /// @return
         ///				NdArray
         ///
@@ -5766,7 +5767,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html
         ///		
         /// @param
-        ///				value 
+        ///				inValue 
         /// @return
         ///				value
         ///
@@ -5782,7 +5783,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         /// @return
         ///				NdArray
         ///
@@ -5799,9 +5800,9 @@ namespace NumCpp
         ///						Return the number of elements.
         ///		
         /// @param
-        ///				uint32 
+        ///				inArray 
         /// @return
-        ///				NdArray
+        ///				uint32 size
         ///
         static uint32 size(const NdArray<dtype>& inArray)
         {
@@ -5814,8 +5815,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sort.html
         ///		
-        /// @param				NdArray 
-        /// @param				(Optional) Axis
+        /// @param				inArray 
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -5833,7 +5834,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -5849,7 +5850,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -5868,7 +5869,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.square.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -5884,7 +5885,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.square.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -5902,8 +5903,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.std.html
         ///		
-        /// @param				NdArray
-        /// @param				Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -5918,8 +5919,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sum.html
         ///		
-        /// @param				NdArray
-        /// @param				Axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         /// @return
         ///				NdArray
         ///
@@ -5936,7 +5937,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.swapaxes.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -5952,7 +5953,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -5968,7 +5969,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -5987,7 +5988,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html
         ///		
         /// @param
-        ///				value
+        ///				inValue
         /// @return
         ///				value
         ///
@@ -6003,7 +6004,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         /// @return
         ///				NdArray
         ///
@@ -6021,9 +6022,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
         ///		
-        /// @param				NdArray
-        /// @param				numRows
-        /// @param				numCols
+        /// @param				inArray
+        /// @param				inNumRows
+        /// @param				inNumCols
         /// @return
         ///				NdArray
         ///
@@ -6038,8 +6039,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
         ///		
-        /// @param				NdArray
-        /// @param				Shape
+        /// @param				inArray
+        /// @param				inReps
         /// @return
         ///				NdArray
         ///
@@ -6054,9 +6055,9 @@ namespace NumCpp
         ///						The data produced by this method can be recovered 
         ///						using the function fromfile().
         ///		
-        /// @param				NdArray
-        /// @param				filename
-        /// @param				Separator between array items for text output. If “” (empty), a binary file is written 
+        /// @param				inArray
+        /// @param				inFilename
+        /// @param				inSep: (Separator between array items for text output. If “” (empty), a binary file is written)
         /// @return
         ///				None
         ///
@@ -6070,7 +6071,7 @@ namespace NumCpp
         ///						Write flattened array to an STL vector
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         /// @return
         ///				std::vector
         ///
@@ -6085,14 +6086,14 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trace.html
         ///		
-        /// @param				NdArray
-        /// @param				Offset from main diaganol, default = 0, negative=above, positve=below
-        /// @param				Axis
+        /// @param				inArray
+        /// @param				inOffset: (Offset from main diaganol, default = 0, negative=above, positve=below)
+        /// @param				inAxis (Optional, default ROW)
         /// @return
         ///				NdArray
         ///
         template<typename dtypeOut = double>
-        static dtypeOut trace(const NdArray<dtype>& inArray, uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+        static dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis::Type inAxis = Axis::ROW)
         {
             return std::move(inArray.trace<dtypeOut>(inOffset, inAxis));
         }
@@ -6104,7 +6105,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.transpose.html
         ///		
         /// @param
-        ///				NdArray
+        ///				inArray
         ///
         /// @return
         ///				NdArray
@@ -6120,9 +6121,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
         ///		
-        /// @param				NdArray
-        /// @param              (Optional) dx, defaults to 1.0
-        /// @param				(Optional) Axis, default None
+        /// @param				inArray
+        /// @param              dx: (Optional defaults to 1.0)
+        /// @param				inAxis (Optional, default NONE)
         ///
         /// @return
         ///				NdArray
@@ -6192,9 +6193,9 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
         ///		
-        /// @param				NdArray Y values
-        /// @param				NdArray X values
-        /// @param				(Optional) Axis
+        /// @param				inArrayY
+        /// @param				inArrayX
+        /// @param				inAxis (Optional, default NONE)
         ///
         /// @return
         ///				NdArray
@@ -6275,10 +6276,10 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tri.html
         ///		
-        /// @param				N, number of rows and cols
-        /// @param				Offset, the sub-diagonal at and below which the array is filled. 
+        /// @param				inN: number of rows and cols
+        /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
         ///						k = 0 is the main diagonal, while k < 0 is below it, 
-        ///						and k > 0 is above. The default is 0.
+        ///						and k > 0 is above. The default is 0.)
         ///				
         ///
         /// @return
@@ -6321,11 +6322,11 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tri.html
         ///		
-        /// @param				N, number of rows
-        /// @param				M, number of columns
-        /// @param				Offset, the sub-diagonal at and below which the array is filled. 
+        /// @param				inN: number of rows
+        /// @param				inM: number of columns
+        /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
         ///						k = 0 is the main diagonal, while k < 0 is below it, 
-        ///						and k > 0 is above. The default is 0.
+        ///						and k > 0 is above. The default is 0.)
         ///				
         ///
         /// @return
@@ -6368,8 +6369,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trim_zeros.html
         ///		
-        /// @param				NdArray
-        /// @param				string, "f" = front, "b" = back, "fb" = front and back
+        /// @param				inArray
+        /// @param				inTrim: ("f" = front, "b" = back, "fb" = front and back)
         ///
         /// @return
         ///				NdArray
@@ -6482,7 +6483,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html
         ///		
         /// @param
-        ///				value 
+        ///				inValue 
         ///
         /// @return
         ///				value
@@ -6499,7 +6500,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         ///
         /// @return
         ///				NdArray
@@ -6521,8 +6522,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.union1d.html
         ///		
-        /// @param				NdArray 1
-        /// @param				NdArray 2
+        /// @param				inArray1
+        /// @param				inArray2
         ///
         /// @return
         ///				NdArray
@@ -6548,7 +6549,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unique.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         ///
         /// @return
         ///				NdArray
@@ -6566,7 +6567,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
         ///		
         /// @param
-        ///				value 
+        ///				inValue 
         ///
         /// @return
         ///				value
@@ -6594,7 +6595,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
         ///		
         /// @param
-        ///				NdArray 
+        ///				inArray 
         ///
         /// @return
         ///				NdArray
@@ -6614,8 +6615,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.var.html
         ///		
-        /// @param				NdArray
-        /// @param				(Optional) axis
+        /// @param				inArray
+        /// @param				inAxis (Optional, default NONE)
         ///
         /// @return
         ///				NdArray
@@ -6632,7 +6633,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.vstack.html
         ///		
         /// @param
-        ///				{list} of arrays to stack
+        ///				inArrayList: {list} of arrays to stack
         ///
         /// @return
         ///				NdArray
@@ -6649,7 +6650,7 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
         ///		
         /// @param
-        ///				square size
+        ///				inSquareSize
         /// @return
         ///				NdArray
         ///
@@ -6664,8 +6665,8 @@ namespace NumCpp
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
         ///		
-        /// @param				numRows
-        /// @param				numCols
+        /// @param				inNumRows
+        /// @param				inNumCols
         /// @return
         ///				NdArray
         ///
@@ -6681,11 +6682,11 @@ namespace NumCpp
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
         ///		
         /// @param
-        ///				Shape
+        ///				inShape
         /// @return
         ///				NdArray
         ///
-        static NumCpp::NdArray<dtype> zeros(const NumCpp::Shape& inShape)
+        static NC::NdArray<dtype> zeros(const NC::Shape& inShape)
         {
             return std::move(full(inShape, static_cast<dtype>(0)));
         }
