@@ -9,7 +9,7 @@ var searchData=
   ['deleteindices',['deleteIndices',['../class_n_c_1_1_methods.html#afdaf1e9b0d8d1bc10eb6891778ea2f0c',1,'NC::Methods::deleteIndices(const NdArray&lt; dtype &gt; &amp;inArray, const NdArray&lt; uint32 &gt; &amp;inArrayIdxs, Axis::Type inAxis=Axis::NONE)'],['../class_n_c_1_1_methods.html#a537efbca0cbec59b8cf9679777c116f1',1,'NC::Methods::deleteIndices(const NdArray&lt; dtype &gt; &amp;inArray, const Slice &amp;inIndicesSlice, Axis::Type inAxis=Axis::NONE)'],['../class_n_c_1_1_methods.html#a344eb0084f15828ad68366fd72bf429a',1,'NC::Methods::deleteIndices(const NdArray&lt; dtype &gt; &amp;inArray, uint32 inIndex, Axis::Type inAxis=Axis::NONE)']]],
   ['det',['det',['../class_n_c_1_1_linalg.html#aebc707941e2dd8bcf1c67644fbaec578',1,'NC::Linalg']]],
   ['diagflat',['diagflat',['../class_n_c_1_1_methods.html#a28375660f061c01018735af395d29d1e',1,'NC::Methods']]],
-  ['diagonal',['diagonal',['../class_n_c_1_1_methods.html#a23065c672010fdfe9122652d8577d729',1,'NC::Methods::diagonal()'],['../class_n_c_1_1_nd_array.html#a370c27a4fc96ab4b57b62b07f360b017',1,'NC::NdArray::diagonal()']]],
+  ['diagonal',['diagonal',['../class_n_c_1_1_methods.html#a16e641dadd9b7876aed139a7cd76a5c8',1,'NC::Methods::diagonal()'],['../class_n_c_1_1_nd_array.html#a2ff05e0062d9ef6fb82794fad1f42e74',1,'NC::NdArray::diagonal()']]],
   ['diff',['diff',['../class_n_c_1_1_methods.html#a2e3b76657192f9dabffd65e4358af630',1,'NC::Methods']]],
   ['discrete',['discrete',['../class_n_c_1_1_random.html#a6f50495495cf6e2261ca8e7c0a05b40b',1,'NC::Random']]],
   ['divide',['divide',['../class_n_c_1_1_methods.html#aad97a155e74e8893f0c25f852aefc677',1,'NC::Methods']]],

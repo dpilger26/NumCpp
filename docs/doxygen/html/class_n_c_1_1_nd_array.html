@@ -194,8 +194,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae94e7bbe02bde29deabcc16a9fedf27d"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
 <tr class="memitem:ae94e7bbe02bde29deabcc16a9fedf27d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#ae94e7bbe02bde29deabcc16a9fedf27d">cumsum</a> (<a class="el" href="struct_n_c_1_1_axis.html#acaeb67c883cf3aae11a2b54096285d94">Axis::Type</a> inAxis=<a class="el" href="struct_n_c_1_1_axis.html#acaeb67c883cf3aae11a2b54096285d94a9adfad9a969d74a1469c27d6f0b514f9">Axis::NONE</a>) const</td></tr>
 <tr class="separator:ae94e7bbe02bde29deabcc16a9fedf27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a370c27a4fc96ab4b57b62b07f360b017"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a370c27a4fc96ab4b57b62b07f360b017">diagonal</a> (<a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inOffset=0, <a class="el" href="struct_n_c_1_1_axis.html#acaeb67c883cf3aae11a2b54096285d94">Axis::Type</a> inAxis=<a class="el" href="struct_n_c_1_1_axis.html#acaeb67c883cf3aae11a2b54096285d94a23f418dec4196d19f7a09f017c0ddd59">Axis::ROW</a>) const</td></tr>
-<tr class="separator:a370c27a4fc96ab4b57b62b07f360b017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ff05e0062d9ef6fb82794fad1f42e74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a2ff05e0062d9ef6fb82794fad1f42e74">diagonal</a> (<a class="el" href="namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc">int32</a> inOffset=0, <a class="el" href="struct_n_c_1_1_axis.html#acaeb67c883cf3aae11a2b54096285d94">Axis::Type</a> inAxis=<a class="el" href="struct_n_c_1_1_axis.html#acaeb67c883cf3aae11a2b54096285d94a23f418dec4196d19f7a09f017c0ddd59">Axis::ROW</a>) const</td></tr>
+<tr class="separator:a2ff05e0062d9ef6fb82794fad1f42e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d3f6f224f3c1948705f04cbf0551e16"><td class="memTemplParams" colspan="2">template&lt;typename dtypeOut  = double&gt; </td></tr>
 <tr class="memitem:a5d3f6f224f3c1948705f04cbf0551e16"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtypeOut &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a5d3f6f224f3c1948705f04cbf0551e16">dot</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inOtherArray) const</td></tr>
 <tr class="separator:a5d3f6f224f3c1948705f04cbf0551e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -514,14 +514,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Defualt Constructor, not very usefull...</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Defualt Constructor, not very usefull... </p>
 
 </div>
 </div>
@@ -553,11 +546,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">square</td><td>number of rows and columns </td></tr>
+    <tr><td class="paramname">inSquareSize</td><td>square number of rows and columns </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -599,12 +591,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">number</td><td>of rows, </td></tr>
-    <tr><td class="paramname">number</td><td>of columns </td></tr>
+    <tr><td class="paramname">inNumRows</td><td></td></tr>
+    <tr><td class="paramname">inNumCols</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -636,11 +627,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -672,11 +662,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">1D</td><td>initializer list </td></tr>
+    <tr><td class="paramname">inList</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -708,11 +697,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">2D</td><td>initializer list </td></tr>
+    <tr><td class="paramname">inList</td><td>2D initializer list </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -744,11 +732,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">std::vector</td><td></td></tr>
+    <tr><td class="paramname">inVector</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -780,11 +767,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">std::set</td><td></td></tr>
+    <tr><td class="paramname">inSet</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -826,12 +812,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">const_iterator</td><td>first </td></tr>
-    <tr><td class="paramname">const_iterator</td><td>second </td></tr>
+    <tr><td class="paramname">inFirst</td><td></td></tr>
+    <tr><td class="paramname">inLast</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -873,12 +858,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dtype*</td><td>to beginning of buffer </td></tr>
-    <tr><td class="paramname">number</td><td>of bytes </td></tr>
+    <tr><td class="paramname">inBeginning</td><td>dtype* to beginning of buffer </td></tr>
+    <tr><td class="paramname">inNumBytes</td><td>number of bytes </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -910,11 +894,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Copy Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -946,11 +929,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Move Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -978,14 +960,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Destructor</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Destructor </p>
 
 </div>
 </div>
@@ -1019,7 +994,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.all.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.all.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1056,7 +1031,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.any.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.any.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1093,7 +1068,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmax.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmax.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1130,7 +1105,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmin.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmin.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1167,7 +1142,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argsort.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argsort.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1203,12 +1178,6 @@ template&lt;typename dtypeOut  = double&gt; </div>
 </div><div class="memdoc">
 <p>Returns a copy of the array, cast to a specified type.</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -1241,7 +1210,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>1D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">array</td><td>index </td></tr>
+    <tr><td class="paramname">inIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1277,7 +1246,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>const 1D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">array</td><td>index </td></tr>
+    <tr><td class="paramname">inIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1323,8 +1292,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>2D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>index </td></tr>
-    <tr><td class="paramname">col</td><td>index </td></tr>
+    <tr><td class="paramname">inRowIndex</td><td></td></tr>
+    <tr><td class="paramname">inColIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1370,8 +1339,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>const 2D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>index </td></tr>
-    <tr><td class="paramname">col</td><td>index </td></tr>
+    <tr><td class="paramname">inRowIndex</td><td></td></tr>
+    <tr><td class="paramname">inColIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1407,7 +1376,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>const 1D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td></td></tr>
+    <tr><td class="paramname">inSlice</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1453,8 +1422,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>const 2D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Row</td><td><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a>, </td></tr>
-    <tr><td class="paramname">Column</td><td><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
+    <tr><td class="paramname">inRowSlice</td><td></td></tr>
+    <tr><td class="paramname">inColSlice</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1500,8 +1469,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>const 2D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Row</td><td><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a>, </td></tr>
-    <tr><td class="paramname">Column</td><td>index </td></tr>
+    <tr><td class="paramname">inRowSlice</td><td></td></tr>
+    <tr><td class="paramname">inColIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1547,8 +1516,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>const 2D access method with bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Row</td><td>index </td></tr>
-    <tr><td class="paramname">Column</td><td><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
+    <tr><td class="paramname">inRowIndex</td><td></td></tr>
+    <tr><td class="paramname">inColSlice</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1580,14 +1549,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>iterator to the beginning of the flattened array</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
+<p>iterator to the beginning of the flattened array None </p><dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 
 </div>
 </div>
@@ -1619,7 +1581,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>iterator to the beginning of the input row</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td></td></tr>
+    <tr><td class="paramname">inRow</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1653,12 +1615,6 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Swap the bytes of the array elements in place</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.byteswap.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.byteswap.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -1688,12 +1644,6 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>const iterator to the beginning of the flattened array</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
@@ -1726,7 +1676,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>const iterator to the beginning of the input row</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td></td></tr>
+    <tr><td class="paramname">inRow</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1759,12 +1709,6 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>const iterator to 1 past the end of the flattened array</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>const_iterator </dd></dl>
 
 </div>
@@ -1797,7 +1741,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>const iterator to 1 past the end of the input row</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td></td></tr>
+    <tr><td class="paramname">inRow</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -1844,8 +1788,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.clip.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.clip.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">min</td><td>value to clip to </td></tr>
-    <tr><td class="paramname">max</td><td>value to clip to </td></tr>
+    <tr><td class="paramname">inMin</td><td>min value to clip to </td></tr>
+    <tr><td class="paramname">inMax</td><td>max value to clip to </td></tr>
   </table>
   </dd>
 </dl>
@@ -1891,8 +1835,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>returns whether or not a value is included the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td></td></tr>
-    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1926,12 +1870,6 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Return a copy of the array</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.copy.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.copy.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -1964,7 +1902,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns a <a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> object for slicing a column to the end of the array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">inStartIdx</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2003,7 +1941,7 @@ template&lt;typename dtypeOut  = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumprod.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumprod.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -2042,7 +1980,7 @@ template&lt;typename dtypeOut  = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumsum.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumsum.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td>axis </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -2050,8 +1988,8 @@ template&lt;typename dtypeOut  = double&gt; </div>
 
 </div>
 </div>
-<a id="a370c27a4fc96ab4b57b62b07f360b017"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a370c27a4fc96ab4b57b62b07f360b017">&#9670;&nbsp;</a></span>diagonal()</h2>
+<a id="a2ff05e0062d9ef6fb82794fad1f42e74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff05e0062d9ef6fb82794fad1f42e74">&#9670;&nbsp;</a></span>diagonal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2064,7 +2002,7 @@ template&lt;typename dtype = double&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::diagonal </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc">int32</a>&#160;</td>
           <td class="paramname"><em>inOffset</em> = <code>0</code>, </td>
         </tr>
         <tr>
@@ -2089,8 +2027,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.diagonal.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.diagonal.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Offset</td><td>of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. </td></tr>
-    <tr><td class="paramname">(Optional)</td><td>axis the offset is applied to </td></tr>
+    <tr><td class="paramname">inOffset</td><td>Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default ROW) axis the offset is applied to </td></tr>
   </table>
   </dd>
 </dl>
@@ -2130,7 +2068,7 @@ template&lt;typename dtypeOut  = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2167,11 +2105,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td></td></tr>
+    <tr><td class="paramname">inFilename</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -2199,14 +2136,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>iterator to 1 past the end of the flattened array</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
+<p>iterator to 1 past the end of the flattened array </p><dl class="section return"><dt>Returns</dt><dd>iterator </dd></dl>
 
 </div>
 </div>
@@ -2238,7 +2168,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>iterator to the 1 past end of the row</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td></td></tr>
+    <tr><td class="paramname">inRow</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2271,12 +2201,6 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Return the NdArrays endianess</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_n_c_1_1_endian.html#a03765f6248fbbfdd0db77b98309d62b4">Endian::Type</a> </dd></dl>
 
 </div>
@@ -2310,7 +2234,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.fill.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.fill.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fill</td><td>value </td></tr>
+    <tr><td class="paramname">inFillValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2344,12 +2268,6 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Return a copy of the array collapsed into one dimension.</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.flatten.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.flatten.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -2379,12 +2297,6 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Return if the <a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> is empty. ie the default construtor was used.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
 </div>
@@ -2415,12 +2327,6 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Copy an element of an array to a standard C++ scalar and return it.</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.item.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.item.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>array element </dd></dl>
 
 </div>
@@ -2454,7 +2360,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.max.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.max.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -2491,7 +2397,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.mean.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.mean.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -2527,7 +2433,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Return the median along a given axis. Does NOT average if array has even number of elements!</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -2564,7 +2470,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.min.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.min.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -2596,14 +2502,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Fills the array with nans; only really works with. Only really works for dtype = float/double</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Fills the array with nans; only really works with. Only really works for dtype = float/double </p>
 
 </div>
 </div>
@@ -2633,12 +2532,6 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Returns the number of bytes held by the array</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nbytes.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nbytes.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>number of bytes </dd></dl>
 
 </div>
@@ -2672,7 +2565,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.newbyteorder.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.newbyteorder.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="struct_n_c_1_1_endian.html#a03765f6248fbbfdd0db77b98309d62b4">Endian::Type</a></td><td></td></tr>
+    <tr><td class="paramname">inEndianess</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2706,12 +2599,6 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Return the indices of the flattened array of the elements that are non-zero.</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nonzero.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nonzero.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -2747,7 +2634,7 @@ template&lt;typename dtypeOut  = double&gt; </div>
 <p>Numpy Reference: <a href="http://www.numpy.org/devdocs/reference/generated/numpy.linalg.norm.html?highlight=norm#numpy.linalg.norm">http://www.numpy.org/devdocs/reference/generated/numpy.linalg.norm.html?highlight=norm#numpy.linalg.norm</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -2779,14 +2666,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Fills the array with ones</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Fills the array with ones </p>
 
 </div>
 </div>
@@ -2818,7 +2698,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise and of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2854,7 +2734,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise and of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2890,7 +2770,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise and of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2926,7 +2806,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise and of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2962,7 +2842,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -2998,7 +2878,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3034,7 +2914,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the modulus of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3070,7 +2950,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Modulus of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3106,7 +2986,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the modulus of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3142,7 +3022,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Modulus of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3188,8 +3068,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>2D access operator with no bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>index </td></tr>
-    <tr><td class="paramname">col</td><td>index </td></tr>
+    <tr><td class="paramname">inRowIndex</td><td></td></tr>
+    <tr><td class="paramname">inColIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3235,8 +3115,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>const 2D access operator with no bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>index </td></tr>
-    <tr><td class="paramname">col</td><td>index </td></tr>
+    <tr><td class="paramname">inRowIndex</td><td></td></tr>
+    <tr><td class="paramname">inColIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3282,8 +3162,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>2D Slicing access operator with bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Row</td><td><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
-    <tr><td class="paramname">Col</td><td><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
+    <tr><td class="paramname">inRowSlice</td><td></td></tr>
+    <tr><td class="paramname">inColSlice</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3329,8 +3209,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>2D Slicing access operator with bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Row</td><td><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
-    <tr><td class="paramname">Col</td><td>index </td></tr>
+    <tr><td class="paramname">inRowSlice</td><td></td></tr>
+    <tr><td class="paramname">inColIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3376,8 +3256,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>2D Slicing access operator with bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Row</td><td>index </td></tr>
-    <tr><td class="paramname">Col</td><td><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> </td></tr>
+    <tr><td class="paramname">inRowIndex</td><td></td></tr>
+    <tr><td class="paramname">inColSlice</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3413,7 +3293,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Multiplies the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3449,7 +3329,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Muliplies the scalar to the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3485,7 +3365,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Multiplies the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3521,7 +3401,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Muliplies the scalar to the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3557,7 +3437,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Adds the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3593,7 +3473,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Adds the scalar to the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3626,12 +3506,6 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>prefix incraments the elements of an array</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -3662,12 +3536,6 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>postfix increments the elements of an array</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -3700,7 +3568,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Adds the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3736,7 +3604,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Adds the scalar to the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3772,7 +3640,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Subtracts the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3808,7 +3676,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Subtracts the scalar from the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3841,12 +3709,6 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>prefix decrements the elements of an array</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -3877,12 +3739,6 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>postfix decrements the elements of an array</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -3915,7 +3771,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Subtracts the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3951,7 +3807,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Subtracts the scalar from the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -3987,7 +3843,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Divides the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4023,7 +3879,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Divides the array by the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4059,7 +3915,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Divides the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4095,7 +3951,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Divides the array by the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4131,7 +3987,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison the array and a scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4167,7 +4023,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4203,7 +4059,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison the array and a scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4239,7 +4095,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4275,11 +4131,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Assignment operator, performs a deep copy</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>NdArray&lt;dtype&gt; </dd></dl>
 
 </div>
 </div>
@@ -4311,11 +4167,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Assignment operator, sets the entire array to a single scalar value. <br />
  </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>NdArray&lt;dtype&gt; </dd></dl>
 
 </div>
 </div>
@@ -4347,11 +4203,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Move operator, performs a deep move</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>NdArray&lt;dtype&gt; </dd></dl>
 
 </div>
 </div>
@@ -4383,7 +4239,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4419,7 +4275,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4455,7 +4311,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison the array and a scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4491,7 +4347,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4527,7 +4383,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison the array and a scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4563,7 +4419,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns an array of booleans of element wise comparison of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4599,7 +4455,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>1D access operator with no bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">array</td><td>index </td></tr>
+    <tr><td class="paramname">inIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4635,7 +4491,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>const 1D access operator with no bounds checking</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">array</td><td>index </td></tr>
+    <tr><td class="paramname">inIndex</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4671,7 +4527,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>1D Slicing access operator with bounds checking. returned array is of the range [start, stop).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td></td></tr>
+    <tr><td class="paramname">inSlice</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4707,7 +4563,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise xor of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4743,7 +4599,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise xor of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4779,7 +4635,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise xor of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4815,7 +4671,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise xor of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4851,7 +4707,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise or of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4887,7 +4743,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise or of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4923,7 +4779,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise or of the elements of two arrays</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td></td></tr>
+    <tr><td class="paramname">inOtherArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4959,7 +4815,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Takes the bitwise or of the array and the scalar</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scalar</td><td></td></tr>
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -4992,12 +4848,6 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Takes the bitwise not of the array</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -5041,8 +4891,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.partition.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.partition.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">kth</td><td>element </td></tr>
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inKth</td><td>kth element </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -5074,14 +4924,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Prints the array to the console.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Prints the array to the console. </p>
 
 </div>
 </div>
@@ -5116,7 +4959,7 @@ template&lt;typename dtypeOut  = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.prod.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.prod.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -5153,7 +4996,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.ptp.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.ptp.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -5200,12 +5043,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td></td></tr>
-    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">inIndex</td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5254,13 +5096,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>index </td></tr>
-    <tr><td class="paramname">col</td><td>index </td></tr>
-    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">inRow</td><td></td></tr>
+    <tr><td class="paramname">inCol</td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5303,12 +5144,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>of indices </td></tr>
-    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">inIndices</td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5351,12 +5191,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>of indices </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>of values </td></tr>
+    <tr><td class="paramname">inIndices</td><td></td></tr>
+    <tr><td class="paramname">inValues</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5399,12 +5238,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>1D </td></tr>
-    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">inSlice</td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5447,12 +5285,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>1D </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>of values </td></tr>
+    <tr><td class="paramname">inSlice</td><td></td></tr>
+    <tr><td class="paramname">inValues</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5501,13 +5338,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>rows </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>cols </td></tr>
-    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">inRowSlice</td><td></td></tr>
+    <tr><td class="paramname">inColSlice</td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5556,13 +5392,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>rows </td></tr>
-    <tr><td class="paramname">col</td><td>index </td></tr>
-    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">inRowSlice</td><td></td></tr>
+    <tr><td class="paramname">inColIndex</td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5611,13 +5446,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>index </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>cols </td></tr>
-    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">inRowIndex</td><td></td></tr>
+    <tr><td class="paramname">inColSlice</td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5666,13 +5500,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>rows </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>cols </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>of values </td></tr>
+    <tr><td class="paramname">inRowSlice</td><td></td></tr>
+    <tr><td class="paramname">inColSlice</td><td></td></tr>
+    <tr><td class="paramname">inValues</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5721,13 +5554,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>rows </td></tr>
-    <tr><td class="paramname">col</td><td>index </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>of values </td></tr>
+    <tr><td class="paramname">inRowSlice</td><td></td></tr>
+    <tr><td class="paramname">inColIndex</td><td></td></tr>
+    <tr><td class="paramname">inValues</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5776,13 +5608,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>index </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a></td><td>cols </td></tr>
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a></td><td>of values </td></tr>
+    <tr><td class="paramname">inRowIndex</td><td></td></tr>
+    <tr><td class="paramname">inColSlice</td><td></td></tr>
+    <tr><td class="paramname">inValues</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5825,8 +5656,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">numRows</td><td></td></tr>
-    <tr><td class="paramname">numCols</td><td></td></tr>
+    <tr><td class="paramname">inNumRows</td><td></td></tr>
+    <tr><td class="paramname">inNumCols</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -5863,7 +5694,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">inRepeatShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -5910,11 +5741,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">inNumRows</td><td></td></tr>
+    <tr><td class="paramname">inNumCols</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5947,11 +5778,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -5994,11 +5824,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">inNumRows</td><td></td></tr>
+    <tr><td class="paramname">inNumCols</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -6031,11 +5861,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -6078,12 +5907,11 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">num</td><td>Rows </td></tr>
-    <tr><td class="paramname">num</td><td>Cols </td></tr>
+    <tr><td class="paramname">inNumRows</td><td></td></tr>
+    <tr><td class="paramname">inNumCols</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -6116,11 +5944,10 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a></td><td></td></tr>
+    <tr><td class="paramname">inShape</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
 
 </div>
 </div>
@@ -6153,7 +5980,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.round.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.round.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">number</td><td>of decimals to round to </td></tr>
+    <tr><td class="paramname">inNumDecimals</td><td>(default 0) </td></tr>
   </table>
   </dd>
 </dl>
@@ -6189,7 +6016,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Returns a <a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> object for slicing a row to the end of array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">inStartIdx</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -6223,12 +6050,6 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Return the shape of the array</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.shape.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.shape.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a> </dd></dl>
 
 </div>
@@ -6259,12 +6080,6 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Return the size of the array</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.size.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.size.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>size </dd></dl>
 
 </div>
@@ -6298,7 +6113,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sort.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sort.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -6335,7 +6150,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.std.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.std.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -6368,12 +6183,6 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>returns the <a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> as a string representation</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
 </div>
@@ -6409,7 +6218,7 @@ template&lt;typename dtypeOut  = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sum.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sum.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -6443,12 +6252,6 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Interchange two axes of an array. Equivalent to transpose...</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.swapaxes.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.swapaxes.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -6492,8 +6295,8 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td></td></tr>
-    <tr><td class="paramname">Separator</td><td>between array items for text output. If "" (empty), a binary file is written </td></tr>
+    <tr><td class="paramname">inFilename</td><td></td></tr>
+    <tr><td class="paramname">inSep</td><td>Separator between array items for text output. If "" (empty), a binary file is written </td></tr>
   </table>
   </dd>
 </dl>
@@ -6526,13 +6329,7 @@ template&lt;typename dtype = double&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Write flattened array to an STL vector</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector </dd></dl>
 
 </div>
 </div>
@@ -6577,12 +6374,12 @@ template&lt;typename dtypeOut  = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.trace.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.trace.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Offset</td><td>of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. </td></tr>
-    <tr><td class="paramname">(Optional)</td><td><a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> to offset from</td></tr>
+    <tr><td class="paramname">inOffset</td><td>Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default ROW) <a class="el" href="struct_n_c_1_1_axis.html" title="Enum To describe an axis. ">Axis</a> to offset from</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>
@@ -6612,12 +6409,6 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Tranpose the rows and columns of an array</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.transpose.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.transpose.html</a></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
@@ -6651,7 +6442,7 @@ template&lt;typename dtype = double&gt; </div>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.var.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.var.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">(Optional)</td><td>Axes </td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
   </table>
   </dd>
 </dl>
@@ -6683,14 +6474,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Fills the array with zeros</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<p>Fills the array with zeros </p>
 
 </div>
 </div>
@@ -6733,11 +6517,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Bitshifts left the elements of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">lhs</td><td></td></tr>
+    <tr><td class="paramname">inNumBits</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -6779,11 +6564,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>io operator for the <a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> class</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">inOStream</td><td></td></tr>
+    <tr><td class="paramname">inArray</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::ostream </dd></dl>
 
 </div>
 </div>
@@ -6825,11 +6611,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Bitshifts left the elements of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">lhs</td><td></td></tr>
+    <tr><td class="paramname">inNumBits</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -6871,11 +6658,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Bitshifts right the elements of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">lhs</td><td></td></tr>
+    <tr><td class="paramname">inNumBits</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
 </div>
@@ -6917,11 +6705,12 @@ template&lt;typename dtype = double&gt; </div>
 <p>Bitshifts right the elements of the array</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">None</td><td></td></tr>
+    <tr><td class="paramname">lhs</td><td></td></tr>
+    <tr><td class="paramname">inNumBits</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
 </div>

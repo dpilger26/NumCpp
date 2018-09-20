@@ -187,7 +187,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diagonal(NdArray<dtype>& self, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+    np::ndarray diagonal(NdArray<dtype>& self, int32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
     {
         return numCToBoost(self.diagonal(inOffset, inAxis));
     }
@@ -2394,7 +2394,7 @@ namespace DataCubeInterface
 
 //================================================================================
 
-BOOST_PYTHON_MODULE(NC)
+BOOST_PYTHON_MODULE(NumCpp)
 {
     Py_Initialize();
     np::initialize(); // needs to be called first thing in the BOOST_PYTHON_MODULE for numpy

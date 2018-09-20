@@ -42,7 +42,7 @@ var class_n_c_1_1_nd_array =
     [ "cSlice", "class_n_c_1_1_nd_array.html#a1a2d3b89ca74ad0cd1433cbc04178003", null ],
     [ "cumprod", "class_n_c_1_1_nd_array.html#afb35cb0b3603a40e18aaea2b6e8336eb", null ],
     [ "cumsum", "class_n_c_1_1_nd_array.html#ae94e7bbe02bde29deabcc16a9fedf27d", null ],
-    [ "diagonal", "class_n_c_1_1_nd_array.html#a370c27a4fc96ab4b57b62b07f360b017", null ],
+    [ "diagonal", "class_n_c_1_1_nd_array.html#a2ff05e0062d9ef6fb82794fad1f42e74", null ],
     [ "dot", "class_n_c_1_1_nd_array.html#a5d3f6f224f3c1948705f04cbf0551e16", null ],
     [ "dump", "class_n_c_1_1_nd_array.html#a675381bf58e5836efe5b59e6100cd68d", null ],
     [ "end", "class_n_c_1_1_nd_array.html#ab99bae8642e2ea05a83b8bb70dc39b43", null ],

@@ -3,7 +3,7 @@
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
 /// @version 1.0
 ///
-/// @section LICENSE
+/// @section License
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
@@ -23,7 +23,7 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section DESCRIPTION
+/// @section Description
 /// A module for basic image processing
 ///
 
@@ -1188,9 +1188,8 @@ namespace NC
         // Method Description: 
         ///						Applies a threshold to an image
         ///		
-        /// @param
-        ///				inImageArray
-        ///				inThreshold
+        /// @param      inImageArray
+        ///	@param  	inThreshold
         /// @return
         ///				NdArray of booleans of pixels that exceeded the threshold
         ///
