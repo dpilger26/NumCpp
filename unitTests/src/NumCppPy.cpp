@@ -1640,6 +1640,14 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)
+    {
+        return numCToBoost(Methods<dtype>::interp(inX, inXp, inFp));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     bool isnanScalar(dtype inValue)
     {
         return Methods<dtype>::isnan(inValue);
@@ -2845,6 +2853,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("hypotArray", &MethodsInterface::hypotArray<double, double>).staticmethod("hypotArray")
         //.def("hypotArray", &MethodsInterface::hypotArray<double, float>).staticmethod("hypot")
         .def("identity", &MethodsDouble::identity).staticmethod("identity")
+        .def("interp", &MethodsInterface::interp<double>).staticmethod("interp")
         .def("intersect1d", &Methods<uint32>::intersect1d).staticmethod("intersect1d")
         .def("invert", &Methods<uint32>::invert).staticmethod("invert")
         .def("isclose", &MethodsDouble::isclose).staticmethod("isclose")

@@ -356,6 +356,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a55d8e6582eeb93f6f2d4899683cf070d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21531300b7f51d18cbef879504aec8fe"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_methods.html#a21531300b7f51d18cbef879504aec8fe">identity</a> (<a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inSquareSize)</td></tr>
 <tr class="separator:a21531300b7f51d18cbef879504aec8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9872c99abb1f0dbd8c1f45297bd510b9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_methods.html#a9872c99abb1f0dbd8c1f45297bd510b9">interp</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inX, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inXp, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inFp)</td></tr>
+<tr class="separator:a9872c99abb1f0dbd8c1f45297bd510b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac5ac53e72f6453356f001f8387eb0fb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_methods.html#aac5ac53e72f6453356f001f8387eb0fb">intersect1d</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray1, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray2)</td></tr>
 <tr class="separator:aac5ac53e72f6453356f001f8387eb0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af77e491a439d7a9fd272843231ad8ea7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_methods.html#af77e491a439d7a9fd272843231ad8ea7">invert</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray)</td></tr>
@@ -5987,6 +5989,62 @@ template&lt;typename dtype = double&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inSquareSize</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="a9872c99abb1f0dbd8c1f45297bd510b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9872c99abb1f0dbd8c1f45297bd510b9">&#9670;&nbsp;</a></span>interp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_n_c_1_1_methods.html">NC::Methods</a>&lt; dtype &gt;::interp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inXp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inFp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>One-dimensional linear interpolation.</p>
+<p>Returns the one - dimensional piecewise linear interpolant to a function with given values at discrete data - points. If input arrays are not one dimensional they will be internally flattened.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.interp.html">https://www.numpy.org/devdocs/reference/generated/numpy.interp.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inX</td><td>The x-coordinates at which to evaluate the interpolated values. </td></tr>
+    <tr><td class="paramname">inXp</td><td>The x-coordinates of the data points, must be increasing. Otherwise, xp is internally sorted. </td></tr>
+    <tr><td class="paramname">inFp</td><td>The y-coordinates of the data points, same length as inXp.</td></tr>
   </table>
   </dd>
 </dl>

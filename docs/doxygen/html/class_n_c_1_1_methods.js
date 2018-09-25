@@ -121,6 +121,7 @@ var class_n_c_1_1_methods =
     [ "hypot", "class_n_c_1_1_methods.html#acd739df80cc8b8279ba82dcc4bdd7596", null ],
     [ "hypot", "class_n_c_1_1_methods.html#a55d8e6582eeb93f6f2d4899683cf070d", null ],
     [ "identity", "class_n_c_1_1_methods.html#a21531300b7f51d18cbef879504aec8fe", null ],
+    [ "interp", "class_n_c_1_1_methods.html#a9872c99abb1f0dbd8c1f45297bd510b9", null ],
     [ "intersect1d", "class_n_c_1_1_methods.html#aac5ac53e72f6453356f001f8387eb0fb", null ],
     [ "invert", "class_n_c_1_1_methods.html#af77e491a439d7a9fd272843231ad8ea7", null ],
     [ "isclose", "class_n_c_1_1_methods.html#a490784a9c0202ae398fb8dc8f839ce50", null ],

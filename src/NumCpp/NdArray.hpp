@@ -39,8 +39,9 @@
 #include<boost/endian/conversion.hpp>
 
 #include<algorithm>
-#include<functional>
 #include<cmath>
+#include<deque>
+#include<functional>
 #include<fstream>
 #include<initializer_list>
 #include<iostream>
@@ -231,6 +232,22 @@ namespace NC
         ///						Constructor
         ///		
         /// @param
+        ///				inDeque
+        ///
+        explicit NdArray(const std::deque<dtype>& inDeque) :
+            shape_(1, static_cast<uint32>(inDeque.size())),
+            size_(shape_.size()),
+            endianess_(Endian::NATIVE),
+            array_(new dtype[size_])
+        {
+            std::copy(inDeque.begin(), inDeque.end(), array_);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Constructor
+        ///		
+        /// @param
         ///				inSet
         ///
         explicit NdArray(const std::set<dtype>& inSet) :
@@ -246,7 +263,7 @@ namespace NC
         // Method Description: 
         ///						Constructor
         ///		
-        /// @param				inFirst: 
+        /// @param				inFirst
         /// @param				inLast
         ///
         explicit NdArray(const_iterator inFirst, const_iterator inLast) :

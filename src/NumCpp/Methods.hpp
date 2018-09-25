@@ -3037,6 +3037,45 @@ namespace NC
 
         //============================================================================
         // Method Description: 
+        ///						One-dimensional linear interpolation.
+        ///
+        ///                     Returns the one - dimensional piecewise linear interpolant
+        ///                     to a function with given values at discrete data - points.
+        ///                     If input arrays are not one dimensional they will be 
+        ///                     internally flattened.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.interp.html
+        ///
+        /// @param				inX: The x-coordinates at which to evaluate the interpolated values.
+        /// @param              inXp: The x-coordinates of the data points, must be increasing. Otherwise, xp is internally sorted.
+        /// @param				inFp: The y-coordinates of the data points, same length as inXp.
+        ///				
+        /// @return
+        ///				NdArray
+        ///
+        static NdArray<dtype> interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)
+        {
+            // do some error checking first
+            if (inXp.size() != inFp.size())
+            {
+                throw std::invalid_argument("ERROR: interp: inXp and inFp need to be the same size().");
+            }
+
+            if (inX.min().item() < inXp.min().item() || inX.max().item() > inXp.max().item())
+            {
+                throw std::invalid_argument("ERROR: interp: endpoints of inX should be contained within inXp.");
+            }
+
+            NdArray<dtype> returnArray(1, inX.size());
+
+
+
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description: 
         ///						Find the intersection of two arrays.
         ///
         ///						Return the sorted, unique values that are in both of the input arrays.

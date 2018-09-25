@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"class_n_c_1_1_rotations_1_1_quaternion.html#a57a433d7eff50d7fa480613363b9d195":[2,0,0,2,1,18],
+"class_n_c_1_1_rotations_1_1_quaternion.html#a5a7d107505a4390d170c848af41200c1":[2,0,0,2,1,31],
 "class_n_c_1_1_rotations_1_1_quaternion.html#a5bcd0afa9431e7f94bcc56d87368b7b1":[2,0,0,2,1,7],
 "class_n_c_1_1_rotations_1_1_quaternion.html#a61f3897d0f9716669800fa4862cc433f":[2,0,0,2,1,19],
 "class_n_c_1_1_rotations_1_1_quaternion.html#a67cce9868a426d4a9eb9154d572dbf21":[2,0,0,2,1,14],
@@ -63,8 +65,8 @@ var NAVTREEINDEX3 =
 "class_n_c_1_1_utils.html#adf4e597f3164221c7e9624cde5eb41e7":[2,0,0,20,1],
 "classes.html":[2,1],
 "files.html":[3,0],
-"functions.html":[2,2,0],
 "functions.html":[2,2,0,0],
+"functions.html":[2,2,0],
 "functions_0x7e.html":[2,2,0,26],
 "functions_b.html":[2,2,0,1],
 "functions_c.html":[2,2,0,2],
@@ -131,8 +133,8 @@ var NAVTREEINDEX3 =
 "index.html#Description":[0,0],
 "index.html#License":[0,1],
 "index.html#Testing":[0,2],
-"namespace_n_c.html":[2,0,0],
 "namespace_n_c.html":[1,0,0],
+"namespace_n_c.html":[2,0,0],
 "namespace_n_c_1_1_constants.html":[1,0,0,0],
 "namespace_n_c_1_1_coordinates.html":[2,0,0,0],
 "namespace_n_c_1_1_coordinates.html":[1,0,0,1],
