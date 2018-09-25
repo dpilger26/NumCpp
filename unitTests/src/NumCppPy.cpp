@@ -2159,17 +2159,33 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray triSquare(uint32 inSquareSize, int32 inOffset)
+    np::ndarray triuSquare(uint32 inSquareSize, int32 inOffset)
     {
-        return numCToBoost(Methods<dtype>::tri(inSquareSize, inOffset));
+        return numCToBoost(Methods<dtype>::triu(inSquareSize, inOffset));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray triRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
+    np::ndarray triuRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
     {
-        return numCToBoost(Methods<dtype>::tri(inNumRows, inNumCols, inOffset));
+        return numCToBoost(Methods<dtype>::triu(inNumRows, inNumCols, inOffset));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray trilSquare(uint32 inSquareSize, int32 inOffset)
+    {
+        return numCToBoost(Methods<dtype>::tril(inSquareSize, inOffset));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray trilRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
+    {
+        return numCToBoost(Methods<dtype>::tril(inNumRows, inNumCols, inOffset));
     }
 
     //================================================================================
@@ -2202,6 +2218,15 @@ namespace MethodsInterface
     np::ndarray truncArray(const NdArray<dtype>& inArray)
     {
         return numCToBoost(Methods<dtype>::trunc(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, NC::Axis::Type inAxis)
+    {
+        return numCToBoost(Methods<dtype>::stack({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
 
     //================================================================================
@@ -2389,6 +2414,21 @@ namespace DataCubeInterface
     NdArray<dtype>& getItem(DataCube<dtype>& self, uint32 inIndex)
     {
         return self[inIndex];
+    }
+}
+
+namespace RandomInterface
+{
+    template<typename dtype>
+    dtype choiceSingle(const NdArray<dtype>& inArray)
+    {
+        return NC::Random<dtype>::choice(inArray);
+    }
+
+    template<typename dtype>
+    np::ndarray choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
+    {
+        return numCToBoost(NC::Random<dtype>::choice(inArray, inNum));
     }
 }
 
@@ -2927,6 +2967,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("sqrtArray", &MethodsInterface::sqrtArray<double>).staticmethod("sqrtArray")
         .def("squareScalar", &MethodsInterface::squareScalar<double>).staticmethod("squareScalar")
         .def("squareArray", &MethodsInterface::squareArray<double>).staticmethod("squareArray")
+        .def("stack", &MethodsInterface::stack<double>).staticmethod("stack")
         .def("std", &MethodsDouble::std).staticmethod("std")
         .def("sum", &MethodsDouble::sum<double>).staticmethod("sum")
         //.def("sum", &MethodsDouble::sum<float>).staticmethod("sum")
@@ -2945,8 +2986,10 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("transpose", &MethodsDouble::transpose).staticmethod("transpose")
         .def("trapzDx", &MethodsInterface::trapzDx<double>).staticmethod("trapzDx")
         .def("trapz", &MethodsInterface::trapz<double>).staticmethod("trapz")
-        .def("triSquare", &MethodsInterface::triSquare<double>).staticmethod("triSquare")
-        .def("triRect", &MethodsInterface::triRect<double>).staticmethod("triRect")
+        .def("trilSquare", &MethodsInterface::trilSquare<double>).staticmethod("trilSquare")
+        .def("trilRect", &MethodsInterface::trilRect<double>).staticmethod("trilRect")
+        .def("triuSquare", &MethodsInterface::triuSquare<double>).staticmethod("triuSquare")
+        .def("triuRect", &MethodsInterface::triuRect<double>).staticmethod("triuRect")
         .def("trim_zeros", &MethodsDouble::trim_zeros).staticmethod("trim_zeros")
         .def("truncScalar", &MethodsInterface::truncScalar<double>).staticmethod("truncScalar")
         .def("truncArray", &MethodsInterface::truncArray<double>).staticmethod("truncArray")
@@ -3051,7 +3094,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("beta", &RandomDouble::beta).staticmethod("beta")
         .def("binomial", &RandomInt32::binomial).staticmethod("binomial")
         .def("chiSquare", &RandomDouble::chiSquare).staticmethod("chiSquare")
-        .def("choice", &RandomDouble::choice).staticmethod("choice")
+        .def("choiceSingle", &RandomInterface::choiceSingle<double>).staticmethod("choiceSingle")
+        .def("choiceMultiple", &RandomInterface::choiceMultiple<double>).staticmethod("choiceMultiple")
         .def("cauchy", &RandomDouble::cauchy).staticmethod("cauchy")
         .def("discrete", &RandomInt32::discrete).staticmethod("discrete")
         .def("exponential", &RandomDouble::exponential).staticmethod("exponential")

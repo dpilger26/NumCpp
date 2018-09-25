@@ -184,10 +184,9 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						Generates a random sample from an input array
+        ///						Chooses a random sample from an input array.
         ///		
-        /// @param
-        ///				inArray
+        /// @param      inArray
         /// @return
         ///				NdArray
         ///
@@ -195,6 +194,28 @@ namespace NC
         {
             uint32 randIdx = Random<uint32>::randInt(Shape(1), 0, inArray.size()).item();
             return inArray[randIdx];
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Chooses inNum random samples from an input array. Samples
+        ///                     are in no way guarunteed to be unique.
+        ///		
+        /// @param      inArray
+        /// @param      inNum (default 0)
+        /// @return
+        ///				NdArray
+        ///
+        static NdArray<dtype> choice(const NdArray<dtype>& inArray, uint32 inNum)
+        {
+            NdArray<dtype> outArray(1, inNum);
+            for (uint32 i = 0; i < inNum; ++i)
+            {
+                uint32 randIdx = Random<uint32>::randInt(Shape(1), 0, inArray.size()).item();
+                outArray[i] = inArray[randIdx];
+            }
+
+            return std::move(outArray);
         }
 
         //============================================================================

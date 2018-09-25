@@ -4136,6 +4136,48 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing stack: Axis::ROW', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArray(shape)
+    cArray2 = NumCpp.NdArray(shape)
+    cArray3 = NumCpp.NdArray(shape)
+    cArray4 = NumCpp.NdArray(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data3 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data4 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    if np.array_equal(NumCpp.MethodsDouble.stack(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.ROW),
+                      np.vstack([data1, data2, data3, data4])):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing stack: Axis::COL', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArray(shape)
+    cArray2 = NumCpp.NdArray(shape)
+    cArray3 = NumCpp.NdArray(shape)
+    cArray4 = NumCpp.NdArray(shape)
+    data1 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data2 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data3 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    data4 = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    cArray3.setArray(data3)
+    cArray4.setArray(data4)
+    if np.array_equal(NumCpp.MethodsDouble.stack(cArray1, cArray2, cArray3, cArray4, NumCpp.Axis.COL),
+                      np.hstack([data1, data2, data3, data4])):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+    return
     print(colored('Testing std: Axis = None', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4448,19 +4490,36 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing tri: square', 'cyan'))
+    print(colored('Testing tril: square', 'cyan'))
     squareSize = np.random.randint(10, 100, [1, ]).item()
     offset = np.random.randint(0, squareSize, [1, ]).item()
-    if np.array_equal(NumCpp.MethodsDouble.triSquare(squareSize, offset), np.tri(squareSize, k=offset)):
+    if np.array_equal(NumCpp.MethodsDouble.trilSquare(squareSize, offset), np.tri(squareSize, k=offset)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing tri: rectangle', 'cyan'))
+    print(colored('Testing tril: rectangle', 'cyan'))
     shapeInput = np.random.randint(10, 100, [2, ])
     offset = np.random.randint(0, squareSize, [1, ]).item()
-    if np.array_equal(NumCpp.MethodsDouble.triRect(shapeInput[0].item(), shapeInput[1].item(), offset),
+    if np.array_equal(NumCpp.MethodsDouble.trilRect(shapeInput[0].item(), shapeInput[1].item(), offset),
                       np.tri(shapeInput[0].item(), shapeInput[1].item(), k=offset)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing triu: square', 'cyan'))
+    squareSize = np.random.randint(10, 100, [1, ]).item()
+    offset = np.random.randint(0, squareSize, [1, ]).item()
+    if np.array_equal(NumCpp.MethodsDouble.triuSquare(squareSize, offset), np.tri(squareSize, k=offset).T):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing triu: rectangle', 'cyan'))
+    shapeInput = np.random.randint(10, 100, [2, ])
+    offset = np.random.randint(0, squareSize, [1, ]).item()
+    if np.array_equal(NumCpp.MethodsDouble.triuRect(shapeInput[0].item(), shapeInput[1].item(), offset),
+                      np.tri(shapeInput[0].item(), shapeInput[1].item(), k=offset).T):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

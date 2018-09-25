@@ -2954,7 +2954,7 @@ namespace NC
         ///
         static NdArray<dtype> hstack(const std::initializer_list<NdArray<dtype> >& inArrayList)
         {
-            return std::move(column_stack(inArrayList));
+            return std::move(Methods<dtype>::column_stack(inArrayList));
         }
 
         //============================================================================
@@ -5899,6 +5899,36 @@ namespace NC
 
         //============================================================================
         // Method Description: 
+        ///						Compute the variance along the specified axis.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.stack.html
+        ///		
+        /// @param      inArrayList: {list} of arrays to stack
+        /// @param      inAxis: axis to stack the input NdArrays
+        /// @return
+        ///				NdArray
+        ///
+        static NdArray<dtype> stack(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis::Type inAxis = Axis::ROW)
+        {
+            switch (inAxis)
+            {
+                case Axis::ROW:
+                {
+                    return std::move(Methods<dtype>::row_stack(inArrayList));
+                }
+                case Axis::COL:
+                {
+                    return std::move(Methods<dtype>::column_stack(inArrayList));
+                }
+                default:
+                {
+                    throw std::invalid_argument("ERROR: stack: inAxis must be either ROW or COL.");
+                }
+            }
+        }
+
+        //============================================================================
+        // Method Description: 
         ///						Compute the standard deviation along the specified axis.
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.std.html
@@ -6274,7 +6304,7 @@ namespace NC
         // Method Description: 
         ///						An array with ones at and below the given diagonal and zeros elsewhere.
         ///
-        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tri.html
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
         ///		
         /// @param				inN: number of rows and cols
         /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
@@ -6285,7 +6315,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> tri(uint32 inN, int32 inOffset = 0)
+        static NdArray<dtype> tril(uint32 inN, int32 inOffset = 0)
         {
             uint32 rowStart = 0;
             uint32 colStart = 0;
@@ -6320,7 +6350,7 @@ namespace NC
         // Method Description: 
         ///						An array with ones at and below the given diagonal and zeros elsewhere.
         ///
-        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tri.html
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tril.html
         ///		
         /// @param				inN: number of rows
         /// @param				inM: number of columns
@@ -6332,7 +6362,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> tri(uint32 inN, uint32 inM, int32 inOffset = 0)
+        static NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0)
         {
             uint32 rowStart = 0;
             uint32 colStart = 0;
@@ -6361,6 +6391,47 @@ namespace NC
             }
 
             return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						An array with ones at and above the given diagonal and zeros elsewhere.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
+        ///		
+        /// @param				inN: number of rows and cols
+        /// @param				inOffset: (the sub-diagonal at and above which the array is filled. 
+        ///						k = 0 is the main diagonal, while k < 0 is below it, 
+        ///						and k > 0 is above. The default is 0.)
+        ///				
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        static NdArray<dtype> triu(uint32 inN, int32 inOffset = 0)
+        {
+            return std::move(Methods<dtype>::tril(inN, inOffset).transpose());
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						An array with ones at and above the given diagonal and zeros elsewhere.
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
+        ///		
+        /// @param				inN: number of rows
+        /// @param				inM: number of columns
+        /// @param				inOffset: (the sub-diagonal at and above which the array is filled. 
+        ///						k = 0 is the main diagonal, while k < 0 is below it, 
+        ///						and k > 0 is above. The default is 0.)
+        ///				
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        static NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0)
+        {
+            return std::move(Methods<dtype>::tril(inN, inM, inOffset).transpose());
         }
 
         //============================================================================
@@ -6640,7 +6711,7 @@ namespace NC
         ///
         static NdArray<dtype> vstack(const std::initializer_list<NdArray<dtype> >& inArrayList)
         {
-            return std::move(row_stack(inArrayList));
+            return std::move(Methods<dtype>::row_stack(inArrayList));
         }
 
         //============================================================================

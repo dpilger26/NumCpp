@@ -26,6 +26,7 @@ var searchData=
   ['sqr',['sqr',['../class_n_c_1_1_utils.html#a2ea6b6ede2fcf5f9c5b5ff6a95a55f12',1,'NC::Utils']]],
   ['sqrt',['sqrt',['../class_n_c_1_1_methods.html#a5d89eafe4bb82277fd7488c42456a01a',1,'NC::Methods::sqrt(dtype inValue)'],['../class_n_c_1_1_methods.html#a7d3bf7df9dfdbf750c3efa8304fd47a8',1,'NC::Methods::sqrt(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['square',['square',['../class_n_c_1_1_methods.html#a276282b67eca1669c70cb4f15734676b',1,'NC::Methods::square(dtype inValue)'],['../class_n_c_1_1_methods.html#a5ff4f95e846b718f4366c4cce8b5ccc6',1,'NC::Methods::square(const NdArray&lt; dtype &gt; &amp;inArray)']]],
+  ['stack',['stack',['../class_n_c_1_1_methods.html#a6e898fc5a252807c0da615ccf17fb958',1,'NC::Methods']]],
   ['standardnormal',['standardNormal',['../class_n_c_1_1_random.html#a65d5a51dad6d11a50833ad9069606ee3',1,'NC::Random']]],
   ['start',['start',['../class_n_c_1_1_slice.html#a1fbd5d132cab52fd4c5580908a0c5195',1,'NC::Slice']]],
   ['std',['std',['../class_n_c_1_1_methods.html#a5d1d947d48af96e90d9cfdc40ab11e9d',1,'NC::Methods::std()'],['../class_n_c_1_1_nd_array.html#a3da4b46865754df4a46b68ab71ffad60',1,'NC::NdArray::std()']]],

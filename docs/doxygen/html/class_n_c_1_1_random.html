@@ -114,6 +114,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a69e206f3f1b4728f3f54bebc38e9f00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf9904423fb7c8c7e5ebae7696ea2125"><td class="memItemLeft" align="right" valign="top">static dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_random.html#aaf9904423fb7c8c7e5ebae7696ea2125">choice</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray)</td></tr>
 <tr class="separator:aaf9904423fb7c8c7e5ebae7696ea2125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2f18eab08c4ae52eff06a5be16d537c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_random.html#ae2f18eab08c4ae52eff06a5be16d537c">choice</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inNum)</td></tr>
+<tr class="separator:ae2f18eab08c4ae52eff06a5be16d537c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f50495495cf6e2261ca8e7c0a05b40b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_random.html#a6f50495495cf6e2261ca8e7c0a05b40b">discrete</a> (const <a class="el" href="class_n_c_1_1_shape.html">Shape</a> &amp;inShape, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; double &gt; &amp;inWeights)</td></tr>
 <tr class="separator:a6f50495495cf6e2261ca8e7c0a05b40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5001c56a1da1e4bef1d19fb72e2dde41"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_random.html#a5001c56a1da1e4bef1d19fb72e2dde41">exponential</a> (const <a class="el" href="class_n_c_1_1_shape.html">Shape</a> &amp;inShape, dtype inScaleValue=1)</td></tr>
@@ -433,7 +435,7 @@ template&lt;typename dtype  = int32&gt; </div>
 </div>
 </div>
 <a id="aaf9904423fb7c8c7e5ebae7696ea2125"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf9904423fb7c8c7e5ebae7696ea2125">&#9670;&nbsp;</a></span>choice()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9904423fb7c8c7e5ebae7696ea2125">&#9670;&nbsp;</a></span>choice() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -457,10 +459,57 @@ template&lt;typename dtype  = int32&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates a random sample from an input array</p>
+<p>Chooses a random sample from an input array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inArray</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae2f18eab08c4ae52eff06a5be16d537c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2f18eab08c4ae52eff06a5be16d537c">&#9670;&nbsp;</a></span>choice() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype  = int32&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_n_c_1_1_random.html">NC::Random</a>&lt; dtype &gt;::choice </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a>&#160;</td>
+          <td class="paramname"><em>inNum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Chooses inNum random samples from an input array. Samples are in no way guarunteed to be unique.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inArray</td><td></td></tr>
+    <tr><td class="paramname">inNum</td><td>(default 0) </td></tr>
   </table>
   </dd>
 </dl>
