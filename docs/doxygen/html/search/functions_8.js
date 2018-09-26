@@ -3,7 +3,7 @@ var searchData=
   ['i',['i',['../class_n_c_1_1_rotations_1_1_quaternion.html#ab37f35ab17027cd3309ad79247fe6e50',1,'NC::Rotations::Quaternion']]],
   ['identity',['identity',['../class_n_c_1_1_methods.html#a21531300b7f51d18cbef879504aec8fe',1,'NC::Methods::identity()'],['../class_n_c_1_1_rotations_1_1_quaternion.html#adc693216a7fa4c6bb31a1c84f7ad7bf6',1,'NC::Rotations::Quaternion::identity()']]],
   ['intensity',['intensity',['../class_n_c_1_1_image_processing_1_1_pixel.html#a90c330dc4ccdc17911c723a1454d6dea',1,'NC::ImageProcessing::Pixel::intensity()'],['../class_n_c_1_1_image_processing_1_1_cluster.html#a81ca540bfeddc157fafbed4514fc5f16',1,'NC::ImageProcessing::Cluster::intensity()'],['../class_n_c_1_1_image_processing_1_1_centroid.html#ad3e38597c0ab40bb71ba4dd9ce8d0af3',1,'NC::ImageProcessing::Centroid::intensity()']]],
-  ['interp',['interp',['../class_n_c_1_1_methods.html#a9872c99abb1f0dbd8c1f45297bd510b9',1,'NC::Methods']]],
+  ['interp',['interp',['../class_n_c_1_1_methods.html#a9872c99abb1f0dbd8c1f45297bd510b9',1,'NC::Methods::interp()'],['../class_n_c_1_1_utils.html#a563162ed5be38a81ba622b4afba7502b',1,'NC::Utils::interp()']]],
   ['intersect1d',['intersect1d',['../class_n_c_1_1_methods.html#aac5ac53e72f6453356f001f8387eb0fb',1,'NC::Methods']]],
   ['inv',['inv',['../class_n_c_1_1_linalg.html#a23a5f1208ef206e735898728d21c5054',1,'NC::Linalg']]],
   ['inverse',['inverse',['../class_n_c_1_1_rotations_1_1_quaternion.html#a0e542ddd20cedc68a86bb93fded76871',1,'NC::Rotations::Quaternion']]],

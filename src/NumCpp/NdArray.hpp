@@ -1199,6 +1199,18 @@ namespace NC
 
         //============================================================================
         // Method Description: 
+        ///						Returns the last element of the flattened array.
+        ///		
+        /// @return
+        ///				dtype
+        ///
+        dtype back() const
+        {
+            return *(cend() - 1);
+        }
+
+        //============================================================================
+        // Method Description: 
         ///						Swap the bytes of the array elements in place
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.byteswap.html
@@ -1644,10 +1656,7 @@ namespace NC
         ///
         void fill(dtype inFillValue)
         {
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] = inFillValue;
-            }
+            std::fill(begin(), end(), inFillValue);
         }
 
         //============================================================================
@@ -1668,6 +1677,18 @@ namespace NC
             }
 
             return std::move(outArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Returns the first element of the flattened array.
+        ///		
+        /// @return
+        ///				dtype
+        ///
+        dtype front() const
+        {
+            return *cbegin();
         }
 
         //============================================================================

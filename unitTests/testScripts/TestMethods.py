@@ -1909,6 +1909,25 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing interp', 'cyan'))
+    endPoint = np.random.randint(10, 20, [1,]).item()
+    numPoints = np.random.randint(50, 100, [1,]).item()
+    resample = np.random.randint(2, 5, [1,]).item()
+    xpData = np.linspace(0, endPoint, numPoints, endpoint=True)
+    fpData = np.sin(xpData)
+    xData = np.linspace(0, endPoint, numPoints * resample, endpoint=True)
+    cXp = NumCpp.NdArray(1, numPoints)
+    cFp = NumCpp.NdArray(1, numPoints)
+    cX = NumCpp.NdArray(1, numPoints * resample)
+    cXp.setArray(xpData)
+    cFp.setArray(fpData)
+    cX.setArray(xData)
+    if np.array_equal(np.round(NumCpp.MethodsDouble.interp(cX, cXp, cFp).flatten(), 10),
+                      np.round(np.interp(xData, xpData, fpData), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing intersect1d', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

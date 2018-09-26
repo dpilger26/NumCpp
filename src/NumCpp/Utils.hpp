@@ -91,5 +91,19 @@ namespace NC
             }
             return returnVal;
         }
+
+        //============================================================================
+        ///						Returns the linear interpolation between two points
+        ///		
+        /// @param      inValue1
+        /// @param      inValue2
+        /// @param      percent
+        ///
+        /// @return     linear interpolated point
+        ///
+        static double interp(dtype inValue1, dtype inValue2, double inPercent)
+        {
+            return static_cast<double>(inValue1) * (1.0 - inPercent) + static_cast<double>(inValue2) * inPercent;
+        }
     };
 }

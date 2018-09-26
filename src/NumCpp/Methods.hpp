@@ -670,7 +670,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						Returns the indices that would sort an array.
+        ///						Find the indices of array elements that are non-zero, grouped by element.
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argwhere.html
         ///		
@@ -3066,10 +3066,36 @@ namespace NC
                 throw std::invalid_argument("ERROR: interp: endpoints of inX should be contained within inXp.");
             }
 
+            // sort the input inXp and inFp data
+            NdArray<uint32> sortedXpIdxs = Methods<dtype>::argsort(inXp);
+            NdArray<dtype> sortedXp(1, inFp.size());
+            NdArray<dtype> sortedFp(1, inFp.size());
+            for (uint32 i = 0; i < sortedXpIdxs.size(); ++i)
+            {
+                sortedXp[i] = inXp[sortedXpIdxs[i]];
+                sortedFp[i] = inFp[sortedXpIdxs[i]];
+            }
+
+            // sort the input inX array
+            NdArray<dtype> sortedX = Methods<dtype>::sort(inX);
+
             NdArray<dtype> returnArray(1, inX.size());
 
-
-
+            uint32 currXpIdx = 0;
+            uint32 currXidx = 0;
+            while (currXidx < sortedX.size())
+            {
+                if (sortedXp[currXpIdx] <= sortedX[currXidx] && sortedX[currXidx] <= sortedXp[currXpIdx + 1])
+                {
+                    double percent = static_cast<double>(sortedX[currXidx] - sortedXp[currXpIdx]) /
+                        static_cast<double>(sortedXp[currXpIdx + 1] - sortedXp[currXpIdx]);
+                    returnArray[currXidx++] = Utils<dtype>::interp(sortedFp[currXpIdx], sortedFp[currXpIdx + 1], percent);
+                }
+                else
+                {
+                    ++currXpIdx;
+                }
+            }
 
             return std::move(returnArray);
         }

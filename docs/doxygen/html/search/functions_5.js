@@ -15,7 +15,7 @@ var searchData=
   ['fmod',['fmod',['../class_n_c_1_1_methods.html#a5a921b078ffc857990303374a4ab6528',1,'NC::Methods::fmod(dtype inValue1, dtype inValue2)'],['../class_n_c_1_1_methods.html#aafab23fed7dba3470645637dcf929b5c',1,'NC::Methods::fmod(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]],
   ['fromdcm',['fromDCM',['../class_n_c_1_1_rotations_1_1_quaternion.html#a5bcd0afa9431e7f94bcc56d87368b7b1',1,'NC::Rotations::Quaternion']]],
   ['fromfile',['fromfile',['../class_n_c_1_1_methods.html#a8c5d17fb9d251d29f53ffa2f33204db1',1,'NC::Methods']]],
-  ['front',['front',['../class_n_c_1_1_data_cube.html#ad917d09e30aa5d3bb61508f284e822de',1,'NC::DataCube']]],
+  ['front',['front',['../class_n_c_1_1_data_cube.html#ad917d09e30aa5d3bb61508f284e822de',1,'NC::DataCube::front()'],['../class_n_c_1_1_nd_array.html#a7c0308c2f8359b890ec2f01ff30b71a4',1,'NC::NdArray::front()']]],
   ['full',['full',['../class_n_c_1_1_methods.html#a74d72dfc10436797f61ab8f7455a672e',1,'NC::Methods::full(uint32 inSquareSize, dtype inFillValue)'],['../class_n_c_1_1_methods.html#a80e089ca31ddd076c820d2729f00f3b2',1,'NC::Methods::full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue)'],['../class_n_c_1_1_methods.html#af3bf368d3da9eb01a0f590db4982c5e0',1,'NC::Methods::full(const Shape &amp;inShape, dtype inFillValue)']]],
   ['full_5flike',['full_like',['../class_n_c_1_1_methods.html#adc5f599eca3fbaffb283e091f5c0310e',1,'NC::Methods']]]
 ];
