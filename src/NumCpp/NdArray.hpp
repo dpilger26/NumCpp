@@ -505,7 +505,7 @@ namespace NC
             NdArray<dtype> returnArray(1, inSliceCopy.numElements(size_));
             for (int32 i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
             {
-                returnArray[counter++] = this->at(i);
+                returnArray[counter++] = at(i);
             }
 
             return std::move(returnArray);
@@ -534,7 +534,7 @@ namespace NC
             {
                 for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
                 {
-                    returnArray(rowCounter, colCounter++) = this->at(row, col);
+                    returnArray(rowCounter, colCounter++) = at(row, col);
                 }
                 colCounter = 0;
                 ++rowCounter;
@@ -562,7 +562,7 @@ namespace NC
             uint32 rowCounter = 0;
             for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
             {
-                returnArray(rowCounter++, 0) = this->at(row, inColIndex);
+                returnArray(rowCounter++, 0) = at(row, inColIndex);
             }
 
             return std::move(returnArray);
@@ -587,7 +587,7 @@ namespace NC
             uint32 colCounter = 0;
             for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
             {
-                returnArray(0, colCounter++) = this->at(inRowIndex, col);
+                returnArray(0, colCounter++) = at(inRowIndex, col);
             }
 
             return std::move(returnArray);
@@ -1689,6 +1689,59 @@ namespace NC
         dtype front() const
         {
             return *cbegin();
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///                     Returns a new flat array with the givin flat input indices.
+        ///		
+        /// @param
+        ///				inIndices
+        /// @return
+        ///				value
+        ///
+        NdArray<dtype> getByIndices(const NdArray<uint32>& inIndices) const
+        {
+            if (inIndices.max().item() > size_ - 1)
+            {
+                throw std::invalid_argument("ERROR: getByIndices: input indices must be less than the array size.");
+            }
+
+            auto outArray = NdArray<dtype>(1, inIndices.size());
+            for (uint32 i = 0; i < inIndices.size(); ++i)
+            {
+                outArray[i] = this->operator[](inIndices[i]);
+            }
+
+            return std::move(outArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///                     Takes in a boolean mask the same size as the array
+        ///                     and returns a flattened array with the values cooresponding
+        ///                     to the input mask.
+        ///		
+        /// @param
+        ///				inMask
+        /// @return
+        ///				value
+        ///
+        NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
+        {
+            if (inMask.shape() != shape_)
+            {
+                throw std::invalid_argument("ERROR: getByMask: input inMask must have the same shape as the NdArray it will be masking.");
+            }
+
+            auto indices = inMask.nonzero();
+            auto outArray = NdArray<dtype>(1, indices.size());
+            for (uint32 i = 0; i < indices.size(); ++i)
+            {
+                outArray[i] = this->operator[](indices[i]);
+            }
+
+            return std::move(outArray);
         }
 
         //============================================================================

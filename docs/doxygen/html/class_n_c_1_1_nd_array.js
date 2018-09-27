@@ -53,6 +53,8 @@ var class_n_c_1_1_nd_array =
     [ "fill", "class_n_c_1_1_nd_array.html#ab983fb0bf475e0b6a7823bd0e8f92810", null ],
     [ "flatten", "class_n_c_1_1_nd_array.html#ad7b5b9f1f371168c22d9c385dc29309c", null ],
     [ "front", "class_n_c_1_1_nd_array.html#a7c0308c2f8359b890ec2f01ff30b71a4", null ],
+    [ "getByIndices", "class_n_c_1_1_nd_array.html#a31845e529ef5de6eca164ad7d23bc67e", null ],
+    [ "getByMask", "class_n_c_1_1_nd_array.html#a2aa4ba385432ab2488ddd1d2e41168bb", null ],
     [ "isempty", "class_n_c_1_1_nd_array.html#a46c0fbb27a0d2c37ab53cc3c29d7b92a", null ],
     [ "item", "class_n_c_1_1_nd_array.html#ad97218738e42ae072c0715d3559d7f54", null ],
     [ "max", "class_n_c_1_1_nd_array.html#a1dcfe6262801d3506c62b53f36b6475b", null ],

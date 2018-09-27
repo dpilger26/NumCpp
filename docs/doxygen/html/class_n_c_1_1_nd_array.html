@@ -217,6 +217,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad7b5b9f1f371168c22d9c385dc29309c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c0308c2f8359b890ec2f01ff30b71a4"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a7c0308c2f8359b890ec2f01ff30b71a4">front</a> () const</td></tr>
 <tr class="separator:a7c0308c2f8359b890ec2f01ff30b71a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31845e529ef5de6eca164ad7d23bc67e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a31845e529ef5de6eca164ad7d23bc67e">getByIndices</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> &gt; &amp;inIndices) const</td></tr>
+<tr class="separator:a31845e529ef5de6eca164ad7d23bc67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aa4ba385432ab2488ddd1d2e41168bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a2aa4ba385432ab2488ddd1d2e41168bb">getByMask</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;inMask) const</td></tr>
+<tr class="separator:a2aa4ba385432ab2488ddd1d2e41168bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46c0fbb27a0d2c37ab53cc3c29d7b92a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a46c0fbb27a0d2c37ab53cc3c29d7b92a">isempty</a> () const</td></tr>
 <tr class="separator:a46c0fbb27a0d2c37ab53cc3c29d7b92a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad97218738e42ae072c0715d3559d7f54"><td class="memItemLeft" align="right" valign="top">dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#ad97218738e42ae072c0715d3559d7f54">item</a> () const</td></tr>
@@ -2368,6 +2372,78 @@ template&lt;typename dtype = double&gt; </div>
 </div><div class="memdoc">
 <p>Returns the first element of the flattened array.</p>
 <dl class="section return"><dt>Returns</dt><dd>dtype </dd></dl>
+
+</div>
+</div>
+<a id="a31845e529ef5de6eca164ad7d23bc67e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31845e529ef5de6eca164ad7d23bc67e">&#9670;&nbsp;</a></span>getByIndices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::getByIndices </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inIndices</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a new flat array with the givin flat input indices.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inIndices</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
+
+</div>
+</div>
+<a id="a2aa4ba385432ab2488ddd1d2e41168bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aa4ba385432ab2488ddd1d2e41168bb">&#9670;&nbsp;</a></span>getByMask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::getByMask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inMask</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Takes in a boolean mask the same size as the array and returns a flattened array with the values cooresponding to the input mask.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inMask</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>value </dd></dl>
 
 </div>
 </div>

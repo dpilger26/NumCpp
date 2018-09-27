@@ -265,6 +265,23 @@ namespace NdArrayInterface
         return numCToBoost(self.at(inRowIndex, inColSlice));
     }
 
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray getByIndices(NdArray<dtype>& self, const NdArray<uint32>& inIndices)
+    {
+        return numCToBoost(self.getByIndices(inIndices));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray getByMask(NdArray<dtype>& self, const NdArray<bool>& inMask)
+    {
+        return numCToBoost(self.getByMask(inMask));
+    }
+
     //================================================================================
 
     template<typename dtype>
@@ -2559,6 +2576,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("get", &NdArrayInterface::getSlice2D<double>)
         .def("get", &NdArrayInterface::getSlice2DRow<double>)
         .def("get", &NdArrayInterface::getSlice2DCol<double>)
+        .def("getByIndices", &NdArrayInterface::getByIndices<double>)
+        .def("getByMask", &NdArrayInterface::getByMask<double>)
         .def("item", &NdArrayDouble::item)
         .def("max", &NdArrayInterface::max<double>)
         .def("min", &NdArrayInterface::min<double>)
