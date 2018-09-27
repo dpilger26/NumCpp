@@ -469,6 +469,27 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray putMaskSingle(NdArray<dtype>& self, np::ndarray& inMask, dtype inValue)
+    {
+        auto mask = boostToNumC<bool>(inMask);
+        self.putMask(mask, inValue);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putMaskMultiple(NdArray<dtype>& self, np::ndarray& inMask, np::ndarray& inArrayValues)
+    {
+        auto mask = boostToNumC<bool>(inMask);
+        auto inValues = boostToNumC<dtype>(inArrayValues);
+        self.putMask(mask, inValues);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray repeat(NdArray<dtype>& self, const Shape& inRepeatShape)
     {
         return numCToBoost(self.repeat(inRepeatShape));
@@ -2604,6 +2625,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("put", &NdArrayInterface::putSlice2DValues<double>)
         .def("put", &NdArrayInterface::putSlice2DValuesRow<double>)
         .def("put", &NdArrayInterface::putSlice2DValuesCol<double>)
+        .def("putMask", &NdArrayInterface::putMaskSingle<double>)
+        .def("putMask", &NdArrayInterface::putMaskMultiple<double>)
         .def("repeat", &NdArrayInterface::repeat<double>)
         .def("reshape", &NdArrayInterface::reshape<double>)
         .def("reshapeList", &NdArrayInterface::reshapeList<double>)

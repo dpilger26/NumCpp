@@ -2558,7 +2558,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						Set the slice indices to the input values.
+        ///						Set the slice indices to the input value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
@@ -2586,7 +2586,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						Set the slice indices to the input values.
+        ///						Set the slice indices to the input value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
@@ -2608,7 +2608,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						Set the slice indices to the input values.
+        ///						Set the slice indices to the input value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
@@ -2707,6 +2707,30 @@ namespace NC
             }
 
             put(NdArray<uint32>(indices), inValues);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Set the mask indices to the input value.
+        ///		
+        /// @param				inMask
+        /// @param				inValue
+        ///
+        void putMask(const NdArray<bool>& inMask, dtype inValue)
+        {
+            put(inMask.nonzero(), inValue);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Set the mask indices to the input values.
+        ///		
+        /// @param				inMask
+        /// @param				inValues
+        ///
+        void putMask(const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
+        {
+            put(inMask.nonzero(), inValues);
         }
 
         //============================================================================

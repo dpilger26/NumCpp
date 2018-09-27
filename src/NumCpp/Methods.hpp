@@ -5061,19 +5061,7 @@ namespace NC
         ///
         static NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
         {
-            if (inArray.shape() != inMask.shape())
-            {
-                throw std::invalid_argument("ERROR: putmask: input mask array should be the same shape as the input array.");
-            }
-
-            for (uint32 i = 0; i < inArray.size(); ++i)
-            {
-                if (inMask[i])
-                {
-                    inArray[i] = inValue;
-                }
-            }
-
+            inArray.putMask(inMask, inValue);
             return inArray;
         }
 
@@ -5095,22 +5083,7 @@ namespace NC
         ///
         static NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
         {
-            if (inArray.shape() != inMask.shape())
-            {
-                throw std::invalid_argument("ERROR: putmask: input mask array should be the same shape as the input array.");
-            }
-
-            uint32 valuesSize = inValues.size();
-            uint32 valueCounter = 0;
-            for (uint32 i = 0; i < inArray.size(); ++i)
-            {
-                if (inMask[i])
-                {
-                    inArray[i] = inValues[valueCounter % valuesSize];
-                    ++valueCounter;
-                }
-            }
-
+            inArray.putMask(inMask, inValues);
             return inArray;
         }
 

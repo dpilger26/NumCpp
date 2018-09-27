@@ -399,6 +399,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0dabbc16b597329ecdecf58fb15756c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b3029e5fd425e6dd8e9d3f0fad90dc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a0b3029e5fd425e6dd8e9d3f0fad90dc7">put</a> (<a class="el" href="namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc">int32</a> inRowIndex, const <a class="el" href="class_n_c_1_1_slice.html">Slice</a> &amp;inColSlice, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inValues)</td></tr>
 <tr class="separator:a0b3029e5fd425e6dd8e9d3f0fad90dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f60fe921fa90f7558c41506febab0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a95f60fe921fa90f7558c41506febab0e">putMask</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;inMask, dtype inValue)</td></tr>
+<tr class="separator:a95f60fe921fa90f7558c41506febab0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3051af88635e9fa31ebf6b996b63789b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a3051af88635e9fa31ebf6b996b63789b">putMask</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;inMask, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inValues)</td></tr>
+<tr class="separator:a3051af88635e9fa31ebf6b996b63789b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fb2494672aff970968714c64de21ff9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a1fb2494672aff970968714c64de21ff9">repeat</a> (<a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inNumRows, <a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inNumCols) const</td></tr>
 <tr class="separator:a1fb2494672aff970968714c64de21ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88592687853255f9f697981958cbdb55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a88592687853255f9f697981958cbdb55">repeat</a> (const <a class="el" href="class_n_c_1_1_shape.html">Shape</a> &amp;inRepeatShape) const</td></tr>
@@ -4134,44 +4138,8 @@ template&lt;typename dtype = double&gt; </div>
 
 </div>
 </div>
-<a id="ae4e80a558a8469c082b722eeb73d2d0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4e80a558a8469c082b722eeb73d2d0a">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename dtype = double&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;bool&gt; <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">dtype&#160;</td>
-          <td class="paramname"><em>inScalar</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns an array of booleans of element wise comparison the array and a scalar</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inScalar</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
-
-</div>
-</div>
 <a id="a163e6ed72adebfe53592ba8df2f6b167"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a163e6ed72adebfe53592ba8df2f6b167">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a163e6ed72adebfe53592ba8df2f6b167">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4199,6 +4167,42 @@ template&lt;typename dtype = double&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inOtherArray</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="ae4e80a558a8469c082b722eeb73d2d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4e80a558a8469c082b722eeb73d2d0a">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;bool&gt; <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inScalar</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison the array and a scalar</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inScalar</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -5509,7 +5513,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Set the slice indices to the input values.</p>
+<p>Set the slice indices to the input value.</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -5563,7 +5567,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Set the slice indices to the input values.</p>
+<p>Set the slice indices to the input value.</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -5617,7 +5621,7 @@ template&lt;typename dtype = double&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Set the slice indices to the input values.</p>
+<p>Set the slice indices to the input value.</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -5785,6 +5789,98 @@ template&lt;typename dtype = double&gt; </div>
   <table class="params">
     <tr><td class="paramname">inRowIndex</td><td></td></tr>
     <tr><td class="paramname">inColSlice</td><td></td></tr>
+    <tr><td class="paramname">inValues</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a95f60fe921fa90f7558c41506febab0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95f60fe921fa90f7558c41506febab0e">&#9670;&nbsp;</a></span>putMask() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::putMask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inMask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the mask indices to the input value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inMask</td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3051af88635e9fa31ebf6b996b63789b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3051af88635e9fa31ebf6b996b63789b">&#9670;&nbsp;</a></span>putMask() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::putMask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inMask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inValues</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the mask indices to the input values.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inMask</td><td></td></tr>
     <tr><td class="paramname">inValues</td><td></td></tr>
   </table>
   </dd>
