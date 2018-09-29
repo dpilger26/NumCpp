@@ -4196,7 +4196,7 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
-    return
+
     print(colored('Testing std: Axis = None', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4713,6 +4713,23 @@ def doTest():
     cArray4.setArray(data4)
     if np.array_equal(NumCpp.MethodsDouble.vstack(cArray1, cArray2, cArray3, cArray4),
                       np.vstack([data1, data2, data3, data4])):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing where', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArrayMask = NumCpp.NdArrayBool(shape)
+    cArrayA = NumCpp.NdArray(shape)
+    cArrayB = NumCpp.NdArray(shape)
+    dataMask = np.random.randint(0, 2, [shape.rows, shape.cols], dtype=bool)
+    dataA = np.random.randint(1, 100, [shape.rows, shape.cols])
+    dataB = np.random.randint(1, 100, [shape.rows, shape.cols])
+    cArrayMask.setArray(dataMask)
+    cArrayA.setArray(dataA)
+    cArrayB.setArray(dataB)
+    if np.array_equal(NumCpp.MethodsDouble.where(cArrayMask, cArrayA, cArrayB), np.where(dataMask, dataA, dataB)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

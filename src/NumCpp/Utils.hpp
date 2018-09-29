@@ -97,7 +97,7 @@ namespace NC
         ///		
         /// @param      inValue1
         /// @param      inValue2
-        /// @param      percent
+        /// @param      inPercent
         ///
         /// @return     linear interpolated point
         ///

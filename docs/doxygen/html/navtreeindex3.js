@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"class_n_c_1_1_rotations_1_1_quaternion.html#a1f3f3d03f3de67467ee53e6e8991e1f6":[2,0,0,2,1,37],
 "class_n_c_1_1_rotations_1_1_quaternion.html#a203ba03f90a869408403d6e8d82de1d6":[2,0,0,2,1,20],
 "class_n_c_1_1_rotations_1_1_quaternion.html#a29948df85f14397c1d4885b4d5ff1756":[2,0,0,2,1,0],
 "class_n_c_1_1_rotations_1_1_quaternion.html#a31433b7d2b21368d7e9b8718f997c1c9":[2,0,0,2,1,25],
@@ -82,8 +83,8 @@ var NAVTREEINDEX3 =
 "functions_enum.html":[2,2,4],
 "functions_eval.html":[2,2,5],
 "functions_f.html":[2,2,0,5],
-"functions_func.html":[2,2,1],
 "functions_func.html":[2,2,1,0],
+"functions_func.html":[2,2,1],
 "functions_func_0x7e.html":[2,2,1,26],
 "functions_func_b.html":[2,2,1,1],
 "functions_func_c.html":[2,2,1,2],
@@ -147,8 +148,8 @@ var NAVTREEINDEX3 =
 "namespace_n_c_1_1_coordinates.html":[2,0,0,0],
 "namespace_n_c_1_1_filter.html":[1,0,0,2],
 "namespace_n_c_1_1_filter.html":[2,0,0,1],
-"namespace_n_c_1_1_rotations.html":[1,0,0,3],
 "namespace_n_c_1_1_rotations.html":[2,0,0,2],
+"namespace_n_c_1_1_rotations.html":[1,0,0,3],
 "namespacemembers.html":[1,1,0],
 "namespacemembers_func.html":[1,1,1],
 "namespacemembers_type.html":[1,1,3],

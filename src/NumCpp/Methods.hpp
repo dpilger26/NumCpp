@@ -6754,6 +6754,50 @@ namespace NC
 
         //============================================================================
         // Method Description: 
+        ///						Return elements, either from x or y, depending on the input mask.
+        ///                     The output array contains elements of x where mask is True, and 
+        ///                     elements from y elsewhere. 
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
+        ///		
+        /// @param      inMask
+        /// @param      inA
+        /// @param      inB
+        /// @return     NdArray
+        ///
+        static NdArray<dtype> where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
+        {
+            auto shapeMask = inMask.shape();
+            auto shapeA = inA.shape();
+            if (shapeA != inB.shape())
+            {
+                throw std::invalid_argument("ERROR: where: input inA and inB must be the same shapes.");
+            }
+
+            if (shapeMask != shapeA)
+            {
+                throw std::invalid_argument("ERROR: where: input inMask must be the same shape as the input arrays.");
+            }
+
+            auto outArray = NdArray<dtype>(shapeMask);
+
+            for (uint32 i = 0; i < shapeMask.size(); ++i)
+            {
+                if (inMask[i])
+                {
+                    outArray[i] = inA[i];
+                }
+                else
+                {
+                    outArray[i] = inB[i];
+                }
+            }
+
+            return std::move(outArray);
+        }
+
+        //============================================================================
+        // Method Description: 
         ///						Return a new array of given shape and type, filled with zeros.
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html

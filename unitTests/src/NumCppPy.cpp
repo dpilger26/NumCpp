@@ -2287,6 +2287,14 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
+    {
+        return numCToBoost(Methods<dtype>::where(inMask, inA, inB));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray zerosSquare(uint32 inSquareSize)
     {
         return numCToBoost(Methods<dtype>::zeros(inSquareSize));
@@ -3052,6 +3060,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("unwrapArray", &MethodsInterface::unwrapArray<double>).staticmethod("unwrapArray")
         .def("var", &MethodsDouble::var).staticmethod("var")
         .def("vstack", &MethodsInterface::vstack<double>).staticmethod("vstack")
+        .def("where", &MethodsInterface::where<double>).staticmethod("where")
         .def("zerosSquare", &MethodsInterface::zerosSquare<double>).staticmethod("zerosSquare")
         .def("zerosRowCol", &MethodsInterface::zerosRowCol<double>).staticmethod("zerosRowCol")
         .def("zerosShape", &MethodsInterface::zerosShape<double>).staticmethod("zerosShape")

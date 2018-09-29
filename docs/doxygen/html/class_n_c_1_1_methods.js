@@ -261,6 +261,7 @@ var class_n_c_1_1_methods =
     [ "unwrap", "class_n_c_1_1_methods.html#a90d1a0c315c73f202f478796c5aa6967", null ],
     [ "var", "class_n_c_1_1_methods.html#a4a1ae529a033ee30a08d35227389cac3", null ],
     [ "vstack", "class_n_c_1_1_methods.html#ae3221c5c81e349a6df0318628a01df65", null ],
+    [ "where", "class_n_c_1_1_methods.html#a6ec4f0b661085ed58f6e3d2f315fbca0", null ],
     [ "zeros", "class_n_c_1_1_methods.html#a93b9bbe5b656cea4c3bd259fb260b0e9", null ],
     [ "zeros", "class_n_c_1_1_methods.html#a5bfa49800e4c1f02429032dde35431ad", null ],
     [ "zeros", "class_n_c_1_1_methods.html#ad9291392f2500c82407ce6f11f4b97c0", null ]
