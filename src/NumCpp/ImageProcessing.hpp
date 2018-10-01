@@ -57,22 +57,17 @@ namespace NC
         {
         private:
             //==================================Attributes================================///
-            int32	clusterId_;
-            uint32	row_;
-            uint32	col_;
-            dtype	intensity_;
+            int32	clusterId_{-1};
+            uint32	row_{0};
+            uint32	col_{0};
+            dtype	intensity_{0};
 
         public:
             //=============================================================================
             // Description:
             ///              defualt constructor needed by containers
             ///
-            Pixel() :
-                clusterId_(-1),
-                row_(0),
-                col_(0),
-                intensity_(0)
-            {};
+            Pixel() = default;
 
             //=============================================================================
             // Description:
@@ -83,7 +78,6 @@ namespace NC
             /// @param              inIntensity: pixel intensity
             ///
             Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) :
-                clusterId_(-1),
                 row_(inRow),
                 col_(inCol),
                 intensity_(inIntensity)
@@ -273,15 +267,15 @@ namespace NC
             uint32              clusterId_;
             std::vector<Pixel>  pixels_;
 
-            uint32              rowMin_;
-            uint32              rowMax_;
-            uint32              colMin_;
-            uint32              colMax_;
+            uint32              rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            uint32              rowMax_{0};
+            uint32              colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            uint32              colMax_{0};
 
-            dtype               intensity_;
-            dtype               peakPixelIntensity_;
+            dtype               intensity_{0};
+            dtype               peakPixelIntensity_{0};
 
-            double              eod_;
+            double              eod_{1.0};
 
         public:
             //=============================================================================
@@ -292,14 +286,7 @@ namespace NC
             ///              inClusterId
             ///
             Cluster(uint32 inClusterId) :
-                clusterId_(inClusterId),
-                rowMin_(std::numeric_limits<uint32>::max()), /// largest possible number
-                rowMax_(0),
-                colMin_(std::numeric_limits<uint32>::max()), /// largest possible number
-                colMax_(0),
-                intensity_(0),
-                peakPixelIntensity_(0),
-                eod_(1.0)
+                clusterId_(inClusterId)
             {};
 
             //=============================================================================
@@ -959,10 +946,10 @@ namespace NC
         class Centroid
         {
             //==================================Attributes================================///
-            double          row_;
-            double          col_;
-            dtype           intensity_;
-            double          eod_;
+            double          row_{0.0};
+            double          col_{0.0};
+            dtype           intensity_{0};
+            double          eod_{0.0};
 
             //=============================================================================
             // Description:
@@ -1025,12 +1012,7 @@ namespace NC
             // Description:
             ///              defualt constructor needed by containers
             ///
-            Centroid() :
-                row_(0),
-                col_(0),
-                intensity_(0),
-                eod_(0)
-            {};
+            Centroid() = default;
 
             //=============================================================================
             // Description:
@@ -1039,8 +1021,6 @@ namespace NC
             /// @param               inCluster
             ///
             Centroid(const Cluster& inCluster) :
-                row_(0),
-                col_(0),
                 intensity_(inCluster.intensity()),
                 eod_(inCluster.eod())
             {

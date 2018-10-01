@@ -45,8 +45,8 @@ namespace NC
 
     private:
         //==============================Attributes====================================
-        std::string		name_;
-        std::string		unit_;
+        std::string		name_{""};
+        std::string		unit_{""};
         TimePoint		start_;
 
         void setUnits()
@@ -85,9 +85,7 @@ namespace NC
         //============================================================================
         ///						Constructor
         ///
-        Timer() :
-            name_(""),
-            unit_("")
+        Timer()
         {
             setUnits();
         }
@@ -98,8 +96,7 @@ namespace NC
         /// @param      inName
         ///
         Timer(const std::string& inName) :
-            name_(inName + " "),
-            unit_("")
+            name_(inName + " ")
         {
             setUnits();
         }

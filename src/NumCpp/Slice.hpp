@@ -44,18 +44,14 @@ namespace NC
     {
     public:
         //====================================Attributes==============================
-        int32	start;
-        int32	stop;
-        int32	step;
+        int32	start{0};
+        int32	stop{1};
+        int32	step{1};
 
         //============================================================================
         ///						Constructor
         ///
-        Slice() :
-            start(0),
-            stop(1),
-            step(1)
-        {};
+        Slice() = default;
 
         //============================================================================
         ///						Constructor
@@ -63,9 +59,7 @@ namespace NC
         /// @param      inStop (index not included)
         ///
         explicit Slice(int32 inStop) :
-            start(0),
-            stop(inStop),
-            step(1)
+            stop(inStop)
         {};
 
         //============================================================================
@@ -76,8 +70,7 @@ namespace NC
         ///
         Slice(int32 inStart, int32 inStop) :
             start(inStart),
-            stop(inStop),
-            step(1)
+            stop(inStop)
         {};
 
         //============================================================================

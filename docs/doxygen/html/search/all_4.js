@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['datacube',['DataCube',['../class_n_c_1_1_data_cube.html',1,'NC::DataCube&lt; dtype &gt;'],['../class_n_c_1_1_data_cube.html#a7b2d6da1bcf8aa7d8b3623c41e309173',1,'NC::DataCube::DataCube()'],['../class_n_c_1_1_data_cube.html#a34fa1dbd66b31cf0d55d85e20880e54b',1,'NC::DataCube::DataCube(uint32 inSize)']]],
+  ['datacube',['DataCube',['../class_n_c_1_1_data_cube.html',1,'NC::DataCube&lt; dtype &gt;'],['../class_n_c_1_1_data_cube.html#abff8ba897b576f4442acdf4c4095a1a7',1,'NC::DataCube::DataCube()=default'],['../class_n_c_1_1_data_cube.html#a34fa1dbd66b31cf0d55d85e20880e54b',1,'NC::DataCube::DataCube(uint32 inSize)']]],
   ['datacube_2ehpp',['DataCube.hpp',['../_data_cube_8hpp.html',1,'']]],
   ['days_5fper_5fweek',['DAYS_PER_WEEK',['../namespace_n_c_1_1_constants.html#a14bf6d24a8be26317a3ef03fea032f97',1,'NC::Constants']]],
   ['dcm',['DCM',['../class_n_c_1_1_rotations_1_1_d_c_m.html',1,'NC::Rotations']]],

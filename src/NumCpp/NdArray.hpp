@@ -67,10 +67,10 @@ namespace NC
 
     private:
         //====================================Attributes==============================
-        Shape			shape_;
-        uint32			size_;
-        Endian::Type    endianess_;
-        dtype*			array_;
+        Shape			shape_{0, 0};
+        uint32			size_{0};
+        Endian::Type    endianess_{ Endian::NATIVE };
+        dtype*			array_{nullptr};
 
         //============================================================================
         // Method Description: 
@@ -109,12 +109,7 @@ namespace NC
         // Method Description: 
         ///						Defualt Constructor, not very usefull...
         ///
-        NdArray() :
-            shape_(0, 0),
-            size_(0),
-            endianess_(Endian::NATIVE),
-            array_(nullptr)
-        {};
+        NdArray() = default;
 
         //============================================================================
         // Method Description: 
@@ -126,7 +121,6 @@ namespace NC
         explicit NdArray(uint32 inSquareSize) :
             shape_(inSquareSize, inSquareSize),
             size_(inSquareSize * inSquareSize),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {};
 
@@ -140,7 +134,6 @@ namespace NC
         NdArray(uint32 inNumRows, uint32 inNumCols) :
             shape_(inNumRows, inNumCols),
             size_(inNumRows * inNumCols),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {};
 
@@ -154,7 +147,6 @@ namespace NC
         explicit NdArray(const Shape& inShape) :
             shape_(inShape),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {};
 
@@ -168,7 +160,6 @@ namespace NC
         NdArray(const std::initializer_list<dtype>& inList) :
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             std::copy(inList.begin(), inList.end(), array_);
@@ -182,10 +173,7 @@ namespace NC
         ///				inList: 2D initializer list
         ///
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
-            shape_(static_cast<uint32>(inList.size()), 0),
-            size_(0),
-            endianess_(Endian::NATIVE),
-            array_(nullptr)
+            shape_(static_cast<uint32>(inList.size()), 0)
         {
             typename std::initializer_list<std::initializer_list<dtype> >::iterator iter;
             for (iter = inList.begin(); iter < inList.end(); ++iter)
@@ -221,7 +209,6 @@ namespace NC
         explicit NdArray(const std::vector<dtype>& inVector) :
             shape_(1, static_cast<uint32>(inVector.size())),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             std::copy(inVector.begin(), inVector.end(), array_);
@@ -237,7 +224,6 @@ namespace NC
         explicit NdArray(const std::deque<dtype>& inDeque) :
             shape_(1, static_cast<uint32>(inDeque.size())),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             std::copy(inDeque.begin(), inDeque.end(), array_);
@@ -253,7 +239,6 @@ namespace NC
         explicit NdArray(const std::set<dtype>& inSet) :
             shape_(1, static_cast<uint32>(inSet.size())),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             std::copy(inSet.begin(), inSet.end(), array_);
@@ -269,7 +254,6 @@ namespace NC
         explicit NdArray(const_iterator inFirst, const_iterator inLast) :
             shape_(1, static_cast<uint32>(inLast - inFirst)),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             std::copy(inFirst, inLast, array_);
@@ -285,7 +269,6 @@ namespace NC
         NdArray(const dtype* inBeginning, uint32 inNumBytes) :
             shape_(1, inNumBytes / sizeof(dtype)),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             for (uint32 i = 0; i < size_; ++i)

@@ -52,7 +52,7 @@ namespace NC
         {
         private:
             //====================================Attributes==============================
-            double		data_[4];
+            double		data_[4] = {0.0, 0.0, 0.0, 1.0};
 
             //============================================================================
             // Method Description: 
@@ -72,13 +72,7 @@ namespace NC
             // Method Description: 
             ///						Default Constructor, not super usefull on its own
             ///		
-            Quaternion()
-            {
-                data_[0] = 0.0;
-                data_[1] = 0.0;
-                data_[2] = 0.0;
-                data_[3] = 1.0;
-            }
+            Quaternion() = default;
 
             //============================================================================
             // Method Description: 

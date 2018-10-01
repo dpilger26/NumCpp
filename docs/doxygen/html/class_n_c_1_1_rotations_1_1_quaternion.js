@@ -1,6 +1,6 @@
 var class_n_c_1_1_rotations_1_1_quaternion =
 [
-    [ "Quaternion", "class_n_c_1_1_rotations_1_1_quaternion.html#a29948df85f14397c1d4885b4d5ff1756", null ],
+    [ "Quaternion", "class_n_c_1_1_rotations_1_1_quaternion.html#ad6a0c18915a50e0bca246104d1f76695", null ],
     [ "Quaternion", "class_n_c_1_1_rotations_1_1_quaternion.html#a0581bf351632a00546080e281de1da18", null ],
     [ "Quaternion", "class_n_c_1_1_rotations_1_1_quaternion.html#ac66948c0fe860873ec697ad14f2d2ca3", null ],
     [ "angleAxisRotation", "class_n_c_1_1_rotations_1_1_quaternion.html#a068b4211857afc1593f63f254add8c6d", null ],

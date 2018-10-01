@@ -52,15 +52,13 @@ namespace NC
     private:
         //================================Attributes==================================
         std::deque<NdArray<dtype> >     cube_;
-        Shape                           elementShape_;
+        Shape                           elementShape_{0, 0};
 
     public:
         //============================================================================
         ///						Default Constructor
         ///
-        DataCube() :
-            elementShape_(0, 0)
-        {};
+        DataCube() = default;
 
         //============================================================================
         ///						Constructor, preallocates to the input size
@@ -68,8 +66,7 @@ namespace NC
         /// @param      inSize
         ///
         DataCube(uint32 inSize) :
-            cube_(inSize),
-            elementShape_(0, 0)
+            cube_(inSize)
         {};
 
         //============================================================================

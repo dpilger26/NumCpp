@@ -7,7 +7,7 @@ var searchData=
   ['percentilefilter',['percentileFilter',['../class_n_c_1_1_filters.html#a6818d55018e282d65055efcb6cb1a5ff',1,'NC::Filters']]],
   ['percentilefilter1d',['percentileFilter1d',['../class_n_c_1_1_filters.html#a4e06dae52d5e770b1575583b9142376d',1,'NC::Filters']]],
   ['permutation',['permutation',['../class_n_c_1_1_random.html#ad265e54e2bc4fc98e76846780e60721e',1,'NC::Random::permutation(dtype inValue)'],['../class_n_c_1_1_random.html#a9e509af934a0acc74848f12dee1b05c0',1,'NC::Random::permutation(const NdArray&lt; dtype &gt; &amp;inArray)']]],
-  ['pixel',['Pixel',['../class_n_c_1_1_image_processing_1_1_pixel.html#a29518fe0f2e966ad003fe554b0414f4d',1,'NC::ImageProcessing::Pixel::Pixel()'],['../class_n_c_1_1_image_processing_1_1_pixel.html#a3dd71caf12565eebed450385ac9b23f9',1,'NC::ImageProcessing::Pixel::Pixel(uint32 inRow, uint32 inCol, dtype inIntensity)']]],
+  ['pixel',['Pixel',['../class_n_c_1_1_image_processing_1_1_pixel.html#a0c329220206587e1dae2e38a8e788481',1,'NC::ImageProcessing::Pixel::Pixel()=default'],['../class_n_c_1_1_image_processing_1_1_pixel.html#a3dd71caf12565eebed450385ac9b23f9',1,'NC::ImageProcessing::Pixel::Pixel(uint32 inRow, uint32 inCol, dtype inIntensity)']]],
   ['poisson',['poisson',['../class_n_c_1_1_random.html#ab7822f0e62e4b006cf71627afadc7b7a',1,'NC::Random']]],
   ['pop_5fback',['pop_back',['../class_n_c_1_1_data_cube.html#a0a75a5d5a4363ad025d5f6b4365a0977',1,'NC::DataCube']]],
   ['pop_5ffront',['pop_front',['../class_n_c_1_1_data_cube.html#ade66b4646220fb2f20712041ae9ad9db',1,'NC::DataCube']]],

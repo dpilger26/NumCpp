@@ -52,22 +52,17 @@ namespace NC
         {
         private:
             //====================================Attributes==============================
-            uint8   hours_;
-            uint8   minutes_;
-            dtype   seconds_;
-            dtype   degrees_;
-            dtype   radians_;
+            uint8   hours_{0};
+            uint8   minutes_{0};
+            dtype   seconds_{0.0};
+            dtype   degrees_{0.0};
+            dtype   radians_{0.0};
 
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            RA() :
-                hours_(0),
-                minutes_(0),
-                seconds_(0.0),
-                degrees_(0.0),
-                radians_(0.0)
+            RA()
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
             }
@@ -78,9 +73,6 @@ namespace NC
             /// @param      inDegrees
             ///
             RA(dtype inDegrees) :
-                hours_(0),
-                minutes_(0),
-                seconds_(0.0),
                 degrees_(inDegrees),
                 radians_(static_cast<dtype>(Methods<dtype>::deg2rad(inDegrees)))
             {
@@ -107,9 +99,7 @@ namespace NC
             RA(uint8 inHours, uint8 inMinutes, dtype inSeconds) :
                 hours_(inHours),
                 minutes_(inMinutes),
-                seconds_(inSeconds),
-                degrees_(0.0),
-                radians_(0.0)
+                seconds_(inSeconds)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
 
@@ -248,24 +238,18 @@ namespace NC
         {
         private:
             //====================================Attributes==============================
-            Sign::Type      sign_;
-            uint8           degreesWhole_;
-            uint8           minutes_;
-            dtype           seconds_;
-            dtype           degrees_;
-            dtype           radians_;
+            Sign::Type      sign_{ Sign::POSITIVE };
+            uint8           degreesWhole_{0};
+            uint8           minutes_{0};
+            dtype           seconds_{0.0};
+            dtype           degrees_{0.0};
+            dtype           radians_{0.0};
 
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            Dec() :
-                sign_(Sign::POSITIVE),
-                degreesWhole_(0),
-                minutes_(0),
-                seconds_(0.0),
-                degrees_(0.0),
-                radians_(0.0)
+            Dec()
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
             }
@@ -276,9 +260,6 @@ namespace NC
             /// @param      inDegrees
             ///
             Dec(dtype inDegrees) :
-                degreesWhole_(0),
-                minutes_(0),
-                seconds_(0.0),
                 degrees_(inDegrees),
                 radians_(static_cast<dtype>(Methods<dtype>::deg2rad(inDegrees)))
             {
@@ -310,9 +291,7 @@ namespace NC
                 sign_(inSign),
                 degreesWhole_(inDegrees),
                 minutes_(inMinutes),
-                seconds_(inSeconds),
-                degrees_(0.0),
-                radians_(0.0)
+                seconds_(inSeconds)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
 
@@ -464,9 +443,9 @@ namespace NC
             //====================================Attributes==============================
             RA<dtype>       ra_;
             Dec<dtype>      dec_;
-            dtype           x_;
-            dtype           y_;
-            dtype           z_;
+            dtype           x_{1.0};
+            dtype           y_{0.0};
+            dtype           z_{0.0};
 
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
@@ -502,12 +481,7 @@ namespace NC
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            Coordinate() :
-                ra_(),
-                dec_(),
-                x_(1.0),
-                y_(0.0),
-                z_(0.0)
+            Coordinate()
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
             }
@@ -520,10 +494,7 @@ namespace NC
             ///
             Coordinate(dtype inRaDegrees, dtype inDecDegrees) :
                 ra_(inRaDegrees),
-                dec_(inDecDegrees),
-                x_(0.0),
-                y_(0.0),
-                z_(0.0)
+                dec_(inDecDegrees)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
@@ -542,10 +513,7 @@ namespace NC
             ///
             Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign::Type inSign, uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
-                dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds),
-                x_(0.0),
-                y_(0.0),
-                z_(0.0)
+                dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
@@ -559,10 +527,7 @@ namespace NC
             ///
             Coordinate(const RA<dtype>& inRA, const Dec<dtype>& inDec) :
                 ra_(inRA),
-                dec_(inDec),
-                x_(0.0),
-                y_(0.0),
-                z_(0.0)
+                dec_(inDec)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
@@ -576,8 +541,6 @@ namespace NC
             /// @param              inZ
             ///
             Coordinate(dtype inX, dtype inY, dtype inZ) :
-                ra_(),
-                dec_(),
                 x_(inX),
                 y_(inY),
                 z_(inZ)
@@ -591,12 +554,7 @@ namespace NC
             ///		
             /// @param				inCartesianVector
             ///
-            Coordinate(const NdArray<dtype> inCartesianVector) :
-                ra_(),
-                dec_(),
-                x_(1.0),
-                y_(0.0),
-                z_(0.0)
+            Coordinate(const NdArray<dtype> inCartesianVector)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
 
