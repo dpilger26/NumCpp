@@ -1690,10 +1690,12 @@ namespace NC
                 throw std::invalid_argument("ERROR: getByIndices: input indices must be less than the array size.");
             }
 
-            auto outArray = NdArray<dtype>(1, inIndices.size());
-            for (uint32 i = 0; i < inIndices.size(); ++i)
+            auto uniqueIndices = std::set<uint32>(inIndices.cbegin(), inIndices.cend());
+            auto outArray = NdArray<dtype>(1, static_cast<uint32>(uniqueIndices.size()));
+            uint32 i{ 0 };
+            for (auto& index : uniqueIndices)
             {
-                outArray[i] = this->operator[](inIndices[i]);
+                outArray[i++] = this->operator[](index);
             }
 
             return std::move(outArray);
@@ -2701,6 +2703,11 @@ namespace NC
         ///
         void putMask(const NdArray<bool>& inMask, dtype inValue)
         {
+            if (inMask.shape() != shape_)
+            {
+                throw std::invalid_argument("ERROR: putMask: input inMask must be the same shape as the array it is masking.");
+            }
+
             put(inMask.nonzero(), inValue);
         }
 
@@ -2713,6 +2720,11 @@ namespace NC
         ///
         void putMask(const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
         {
+            if (inMask.shape() != shape_)
+            {
+                throw std::invalid_argument("ERROR: putMask: input inMask must be the same shape as the array it is masking.");
+            }
+
             put(inMask.nonzero(), inValues);
         }
 
