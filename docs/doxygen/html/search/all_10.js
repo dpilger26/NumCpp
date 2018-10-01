@@ -10,7 +10,6 @@ var searchData=
   ['pi',['pi',['../namespace_n_c_1_1_constants.html#a4cf95bf5673b59405b102822ed3e0cd2',1,'NC::Constants']]],
   ['pixel',['Pixel',['../class_n_c_1_1_image_processing_1_1_pixel.html',1,'NC::ImageProcessing&lt; dtype &gt;::Pixel'],['../class_n_c_1_1_image_processing_1_1_pixel.html#a0c329220206587e1dae2e38a8e788481',1,'NC::ImageProcessing::Pixel::Pixel()=default'],['../class_n_c_1_1_image_processing_1_1_pixel.html#a3dd71caf12565eebed450385ac9b23f9',1,'NC::ImageProcessing::Pixel::Pixel(uint32 inRow, uint32 inCol, dtype inIntensity)']]],
   ['poisson',['poisson',['../class_n_c_1_1_random.html#ab7822f0e62e4b006cf71627afadc7b7a',1,'NC::Random']]],
-  ['polynomial',['Polynomial',['../class_n_c_1_1_polynomial.html',1,'NC']]],
   ['polynomial_2ehpp',['Polynomial.hpp',['../_polynomial_8hpp.html',1,'']]],
   ['pop_5fback',['pop_back',['../class_n_c_1_1_data_cube.html#a0a75a5d5a4363ad025d5f6b4365a0977',1,'NC::DataCube']]],
   ['pop_5ffront',['pop_front',['../class_n_c_1_1_data_cube.html#ade66b4646220fb2f20712041ae9ad9db',1,'NC::DataCube']]],

@@ -1534,12 +1534,7 @@ namespace NC
         {
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
             {
-                dtypeOut dotProduct = 0;
-                for (uint32 i = 0; i < size_; ++i)
-                {
-                    dotProduct += static_cast<dtypeOut>(array_[i]) * static_cast<dtypeOut>(inOtherArray.array_[i]);
-                }
-
+                dtypeOut dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), static_cast<dtype>(0));             
                 NdArray<dtypeOut> returnArray = { dotProduct };
                 return std::move(returnArray);
             }

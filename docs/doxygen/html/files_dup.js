@@ -9,9 +9,7 @@ var files_dup =
     [ "DtypeInfo.hpp", "_dtype_info_8hpp.html", [
       [ "DtypeInfo", "class_n_c_1_1_dtype_info.html", "class_n_c_1_1_dtype_info" ]
     ] ],
-    [ "FFT.hpp", "_f_f_t_8hpp.html", [
-      [ "FFT", "class_n_c_1_1_f_f_t.html", null ]
-    ] ],
+    [ "FFT.hpp", "_f_f_t_8hpp.html", null ],
     [ "Filter.hpp", "_filter_8hpp.html", "_filter_8hpp" ],
     [ "ImageProcessing.hpp", "_image_processing_8hpp.html", [
       [ "ImageProcessing", "class_n_c_1_1_image_processing.html", "class_n_c_1_1_image_processing" ],
@@ -29,9 +27,7 @@ var files_dup =
       [ "NdArray", "class_n_c_1_1_nd_array.html", "class_n_c_1_1_nd_array" ]
     ] ],
     [ "NumCpp.hpp", "_num_cpp_8hpp.html", "_num_cpp_8hpp" ],
-    [ "Polynomial.hpp", "_polynomial_8hpp.html", [
-      [ "Polynomial", "class_n_c_1_1_polynomial.html", null ]
-    ] ],
+    [ "Polynomial.hpp", "_polynomial_8hpp.html", null ],
     [ "Random.hpp", "_random_8hpp.html", "_random_8hpp" ],
     [ "Rotations.hpp", "_rotations_8hpp.html", [
       [ "DCM", "class_n_c_1_1_rotations_1_1_d_c_m.html", "class_n_c_1_1_rotations_1_1_d_c_m" ],

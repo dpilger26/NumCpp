@@ -2,6 +2,7 @@ var searchData=
 [
   ['constants',['Constants',['../namespace_n_c_1_1_constants.html',1,'NC']]],
   ['coordinates',['Coordinates',['../namespace_n_c_1_1_coordinates.html',1,'NC']]],
+  ['fft',['FFT',['../namespace_n_c_1_1_f_f_t.html',1,'NC']]],
   ['filter',['Filter',['../namespace_n_c_1_1_filter.html',1,'NC']]],
   ['numcpp_20documentation',['NumCpp Documentation',['../index.html',1,'']]],
   ['nan',['nan',['../namespace_n_c_1_1_constants.html#a6c318329162c036f1101da9022f6ac1b',1,'NC::Constants']]],
@@ -42,6 +43,7 @@ var searchData=
   ['numctoboost',['numCToBoost',['../namespace_n_c.html#a32ab7e9bc10a4c3cee96426e34d9d00f',1,'NC']]],
   ['numdimensions',['numDimensions',['../class_n_c_1_1_boost_ndarray_helper.html#a7d35d15b2bb7d1cdcf5b215215ce5a80',1,'NC::BoostNdarrayHelper']]],
   ['numelements',['numElements',['../class_n_c_1_1_slice.html#aebb4080ea55bb036d0acb9edc42c8075',1,'NC::Slice']]],
+  ['polynomial',['Polynomial',['../namespace_n_c_1_1_polynomial.html',1,'NC']]],
   ['rotations',['Rotations',['../namespace_n_c_1_1_rotations.html',1,'NC']]],
   ['utils',['Utils',['../namespace_n_c_1_1_utils.html',1,'NC']]]
 ];

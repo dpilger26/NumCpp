@@ -1,7 +1,6 @@
 var searchData=
 [
   ['f',['f',['../class_n_c_1_1_random.html#a4da09a382c5c8c106cdcf349d2d183a6',1,'NC::Random::f()'],['../namespace_n_c.html#aa3639abc11f4256e0a07c72035c0c513a800618943025315f869e4e1f09471012',1,'NC::F()']]],
-  ['fft',['FFT',['../class_n_c_1_1_f_f_t.html',1,'NC']]],
   ['fft_2ehpp',['FFT.hpp',['../_f_f_t_8hpp.html',1,'']]],
   ['fill',['fill',['../class_n_c_1_1_nd_array.html#ab983fb0bf475e0b6a7823bd0e8f92810',1,'NC::NdArray']]],
   ['filter_2ehpp',['Filter.hpp',['../_filter_8hpp.html',1,'']]],
