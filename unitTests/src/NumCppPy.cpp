@@ -107,7 +107,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray all(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray all(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.all(inAxis));
     }
@@ -115,7 +115,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray any(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray any(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.any(inAxis));
     }
@@ -123,7 +123,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argmax(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argmax(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.argmax(inAxis));
     }
@@ -131,7 +131,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argmin(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argmin(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.argmin(inAxis));
     }
@@ -139,7 +139,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argsort(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argsort(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.argsort(inAxis));
     }
@@ -163,7 +163,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray contains(NdArray<dtype>& self, dtype inValue, Axis::Type inAxis = Axis::NONE)
+    np::ndarray contains(NdArray<dtype>& self, dtype inValue, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.contains(inValue, inAxis));
     }
@@ -171,7 +171,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype, typename dtypeOut>
-    np::ndarray cumprod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray cumprod(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.cumprod<dtypeOut>(inAxis));
     }
@@ -179,7 +179,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype, typename dtypeOut>
-    np::ndarray cumsum(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray cumsum(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.cumsum<dtypeOut>(inAxis));
     }
@@ -187,7 +187,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diagonal(NdArray<dtype>& self, int32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+    np::ndarray diagonal(NdArray<dtype>& self, int32 inOffset = 0, Axis inAxis = Axis::ROW)
     {
         return numCToBoost(self.diagonal(inOffset, inAxis));
     }
@@ -285,7 +285,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray max(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray max(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.max(inAxis));
     }
@@ -293,7 +293,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray min(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray min(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.min(inAxis));
     }
@@ -301,7 +301,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray mean(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray mean(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.mean(inAxis));
     }
@@ -309,7 +309,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray median(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray median(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.median(inAxis));
     }
@@ -317,7 +317,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray newbyteorder(NdArray<dtype>& self, Endian::Type inEndiness = Endian::NATIVE)
+    np::ndarray newbyteorder(NdArray<dtype>& self, Endian inEndiness = Endian::NATIVE)
     {
         return numCToBoost(self.newbyteorder(inEndiness));
     }
@@ -333,7 +333,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype, typename dtypeOut>
-    np::ndarray norm(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray norm(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost<dtypeOut>(self.norm<dtypeOut>(inAxis));
     }
@@ -350,7 +350,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray partition(NdArray<dtype>& self, uint32 inKth, Axis::Type inAxis = Axis::NONE)
+    np::ndarray partition(NdArray<dtype>& self, uint32 inKth, Axis inAxis = Axis::NONE)
     {
         self.partition(inKth, inAxis);
         return numCToBoost<dtype>(self);
@@ -359,7 +359,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype, typename dtypeOut>
-    np::ndarray prod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray prod(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost<dtypeOut>(self.prod<dtypeOut>(inAxis));
     }
@@ -367,7 +367,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray ptp(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray ptp(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.ptp(inAxis));
     }
@@ -560,7 +560,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray sort(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray sort(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         self.sort(inAxis);
         return numCToBoost(self);
@@ -569,7 +569,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray std(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray std(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.std(inAxis));
     }
@@ -577,7 +577,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype, typename dtypeOut>
-    np::ndarray sum(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray sum(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.sum<dtypeOut>(inAxis));
     }
@@ -601,7 +601,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray var(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray var(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.var(inAxis));
     }
@@ -916,7 +916,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray allArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray allArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::all(inArray, inAxis));
     }
@@ -924,7 +924,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray anyArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray anyArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::any(inArray, inAxis));
     }
@@ -932,7 +932,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argmaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argmaxArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::argmax(inArray, inAxis));
     }
@@ -940,7 +940,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argminArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argminArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::argmin(inArray, inAxis));
     }
@@ -948,7 +948,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argsortArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argsortArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::argsort(inArray, inAxis));
     }
@@ -964,7 +964,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray amaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray amaxArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::amax(inArray, inAxis));
     }
@@ -972,7 +972,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray aminArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray aminArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::amin(inArray, inAxis));
     }
@@ -1132,7 +1132,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray average(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::average(inArray, inAxis));
     }
@@ -1140,7 +1140,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::NONE)
+    np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::average(inArray, inWeights, inAxis));
     }
@@ -1262,7 +1262,7 @@ namespace MethodsInterface
 
     template<typename dtype>
     np::ndarray concatenate(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, Axis::Type inAxis)
+        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, Axis inAxis)
     {
         return numCToBoost(Methods<dtype>::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
@@ -1326,7 +1326,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray count_nonzero(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
+    np::ndarray count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
     {
         return numCToBoost(Methods<dtype>::count_nonzero(inArray, inAxis));
     }
@@ -1342,7 +1342,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype, typename dtypeOut>
-    np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::cumprod<dtypeOut>(inArray, inAxis));
     }
@@ -1350,7 +1350,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype, typename dtypeOut>
-    np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::cumsum<dtypeOut>(inArray, inAxis));
     }
@@ -1374,7 +1374,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray deleteIndicesScalar(const NdArray<dtype>& inArray, uint32 inIndex, Axis::Type inAxis)
+    np::ndarray deleteIndicesScalar(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis)
     {
         return numCToBoost(Methods<dtype>::deleteIndices(inArray, inIndex, inAxis));
     }
@@ -1382,7 +1382,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray deleteIndicesSlice(const NdArray<dtype>& inArray, const Slice& inIndices, Axis::Type inAxis)
+    np::ndarray deleteIndicesSlice(const NdArray<dtype>& inArray, const Slice& inIndices, Axis inAxis)
     {
         return numCToBoost(Methods<dtype>::deleteIndices(inArray, inIndices, inAxis));
     }
@@ -1398,7 +1398,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+    np::ndarray diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis inAxis = Axis::ROW)
     {
         return numCToBoost(Methods<dtype>::diagonal(inArray, inOffset, inAxis));
     }
@@ -1406,7 +1406,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diff(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
+    np::ndarray diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
     {
         return numCToBoost(Methods<dtype>::diff(inArray, inAxis));
     }
@@ -1820,7 +1820,7 @@ namespace MethodsInterface
     }
 
     template<typename dtype>
-    dtype newbyteorderScalar(dtype inValue, Endian::Type inEndianess)
+    dtype newbyteorderScalar(dtype inValue, Endian inEndianess)
     {
         return Methods<dtype>::newbyteorder(inValue, inEndianess);
     }
@@ -1828,7 +1828,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray newbyteorderArray(const NdArray<dtype>& inArray, Endian::Type inEndianess)
+    np::ndarray newbyteorderArray(const NdArray<dtype>& inArray, Endian inEndianess)
     {
         return numCToBoost(Methods<dtype>::newbyteorder(inArray, inEndianess));
     }
@@ -2189,7 +2189,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray trapzDx(const NdArray<dtype>& inY, double dx = 1.0, Axis::Type inAxis = Axis::NONE)
+    np::ndarray trapzDx(const NdArray<dtype>& inY, double dx = 1.0, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::trapz(inY, dx, inAxis));
     }
@@ -2197,7 +2197,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray trapz(const NdArray<dtype>& inY, const NdArray<dtype>& inX, Axis::Type inAxis = Axis::NONE)
+    np::ndarray trapz(const NdArray<dtype>& inY, const NdArray<dtype>& inX, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(Methods<dtype>::trapz(inY, inX, inAxis));
     }
@@ -2270,7 +2270,7 @@ namespace MethodsInterface
 
     template<typename dtype>
     np::ndarray stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, NC::Axis::Type inAxis)
+        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, NC::Axis inAxis)
     {
         return numCToBoost(Methods<dtype>::stack({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
@@ -2555,12 +2555,12 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("toc", &MicroTimer::toc);
 
     // Types.hpp
-    bp::enum_<Axis::Type>("Axis")
+    bp::enum_<Axis>("Axis")
         .value("NONE", Axis::NONE)
         .value("ROW", Axis::ROW)
         .value("COL", Axis::COL);
 
-    bp::enum_<Endian::Type>("Endian")
+    bp::enum_<Endian>("Endian")
         .value("NATIVE", Endian::NATIVE)
         .value("BIG", Endian::BIG)
         .value("LITTLE", Endian::LITTLE);
@@ -3246,7 +3246,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("zRotation", &DCMDouble::zRotation).staticmethod("zRotation");
 
     // Filters.hpp
-    bp::enum_<Filter::Boundary::Mode>("Mode")
+    bp::enum_<Filter::Boundary>("Mode")
         .value("REFLECT", Filter::Boundary::REFLECT)
         .value("CONSTANT", Filter::Boundary::CONSTANT)
         .value("NEAREST", Filter::Boundary::NEAREST)
@@ -3388,14 +3388,14 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__ne__", &RaFloat::operator!=)
         .def("print", &RaInterface::print<float>);
 
-    bp::enum_<Coordinates::Sign::Type>("Sign")
+    bp::enum_<Coordinates::Sign>("Sign")
         .value("POSITIVE", Coordinates::Sign::POSITIVE)
         .value("NEGATIVE", Coordinates::Sign::NEGATIVE);
 
     bp::class_<DecDouble>
         ("DecDouble", bp::init<>())
         .def(bp::init<double>())
-        .def(bp::init<Coordinates::Sign::Type, uint8, uint8, double>())
+        .def(bp::init<Coordinates::Sign, uint8, uint8, double>())
         .def(bp::init<DecDouble>())
         .def("asFloat", &DecDouble::astype<float>)
         .def("sign", &DecDouble::sign)
@@ -3413,7 +3413,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<DecFloat>
         ("DecFloat", bp::init<>())
         .def(bp::init<float>())
-        .def(bp::init<Coordinates::Sign::Type, uint8, uint8, float>())
+        .def(bp::init<Coordinates::Sign, uint8, uint8, float>())
         .def(bp::init<DecFloat>())
         .def("asDouble", &DecFloat::astype<double>)
         .def("sign", &DecFloat::sign)
@@ -3431,7 +3431,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<CoordinateDouble>
         ("CoordinateDouble", bp::init<>())
         .def(bp::init<double, double>())
-        .def(bp::init<uint8, uint8, double, Coordinates::Sign::Type, uint8, uint8, double>())
+        .def(bp::init<uint8, uint8, double, Coordinates::Sign, uint8, uint8, double>())
         .def(bp::init<double, double, double>())
         .def(bp::init<RaDouble, DecDouble>())
         .def(bp::init<NdArrayDouble>())
@@ -3456,7 +3456,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<CoordinateFloat>
         ("CoordinateFloat", bp::init<>())
         .def(bp::init<float, float>())
-        .def(bp::init<uint8, uint8, float, Coordinates::Sign::Type, uint8, uint8, float>())
+        .def(bp::init<uint8, uint8, float, Coordinates::Sign, uint8, uint8, float>())
         .def(bp::init<float, float, float>())
         .def(bp::init<RaFloat, DecFloat>())
         .def(bp::init<NdArrayFloat>())

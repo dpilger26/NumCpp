@@ -45,7 +45,7 @@ namespace NC
         //================================================================================
         // Enum Description:
         ///						Boundary condition to apply to the image filter
-        struct Boundary { enum Mode { REFLECT = 0, CONSTANT, NEAREST, MIRROR, WRAP }; };
+        enum class Boundary { REFLECT = 0, CONSTANT, NEAREST, MIRROR, WRAP };
     }
 
     //================================================================================
@@ -511,13 +511,13 @@ namespace NC
         ///						Wrap boundary
         ///		
         /// @param				inImage
-        /// @param              inMode
+        /// @param              inBoundaryType
         /// @param              inKernalSize
         /// @param              inConstantValue (default 0)
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> addBoundary(const NdArray<dtype>& inImage, Filter::Boundary::Mode inMode, uint32 inKernalSize, dtype inConstantValue = 0)
+        static NdArray<dtype> addBoundary(const NdArray<dtype>& inImage, Filter::Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
         {
             if (inKernalSize % 2 == 0)
             {
@@ -526,7 +526,7 @@ namespace NC
 
             uint32 boundarySize = inKernalSize / 2; // integer division
 
-            switch (inMode)
+            switch (inBoundaryType)
             {
                 case Filter::Boundary::REFLECT:
                 {
@@ -561,13 +561,13 @@ namespace NC
         ///						Wrap boundary
         ///		
         /// @param				inImage
-        /// @param              inMode
+        /// @param              inBoundaryType
         /// @param              inKernalSize
         /// @param              inConstantValue (default 0)
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> addBoundary1d(const NdArray<dtype>& inImage, Filter::Boundary::Mode inMode, uint32 inKernalSize, dtype inConstantValue = 0)
+        static NdArray<dtype> addBoundary1d(const NdArray<dtype>& inImage, Filter::Boundary inMode, uint32 inKernalSize, dtype inConstantValue = 0)
         {
             if (inKernalSize % 2 == 0)
             {
@@ -650,13 +650,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> inImageArrayCopy(inImageArray);
             inImageArrayCopy -= medianFilter(inImageArray, inSize, inMode, inConstantValue);
@@ -670,13 +670,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> inImageArrayCopy(inImageArray);
             inImageArrayCopy -= medianFilter1d(inImageArray, inSize, inMode, inConstantValue);
@@ -693,13 +693,13 @@ namespace NC
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inWeights
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
-            const NdArray<dtype>& inWeights, Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            const NdArray<dtype>& inWeights, Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inWeights.size() != Utils<uint32>::sqr(inSize))
             {
@@ -737,13 +737,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param              inWeights
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             uint32 boundarySize = inWeights.size() / 2; // integer division
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inWeights.size(), inConstantValue);
@@ -771,13 +771,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSigma: Standard deviation for Gaussian kernel
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inSigma <= 0)
             {
@@ -825,13 +825,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSigma: Standard deviation for Gaussian kernel
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inSigma <= 0)
             {
@@ -875,13 +875,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
@@ -913,13 +913,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> maximumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -945,13 +945,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> medianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
@@ -983,13 +983,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -1015,13 +1015,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> minimumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
@@ -1053,13 +1053,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> minumumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -1086,13 +1086,13 @@ namespace NC
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inPercentile: percentile [0, 100]
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
@@ -1125,13 +1125,13 @@ namespace NC
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
         /// @param              inPercentile: percentile [0, 100]
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -1158,13 +1158,13 @@ namespace NC
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inRank: ([0, inSize^2 - 1])
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inRank < 0 || inRank >= Utils<uint32>::sqr(inSize))
             {
@@ -1202,13 +1202,13 @@ namespace NC
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
         /// @param              inRank: ([0, inSize^2 - 1])
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -1234,13 +1234,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
@@ -1272,13 +1272,13 @@ namespace NC
         ///		
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
-        /// @param              inMode: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
+        /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
         /// @param				inConstantValue: contant value if boundary = 'constant' (default 0)
         /// @return
         ///				NdArray
         ///
         static NdArray<dtype> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary::Mode inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());

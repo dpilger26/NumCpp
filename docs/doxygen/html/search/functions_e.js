@@ -30,5 +30,5 @@ var searchData=
   ['operator_7c',['operator|',['../class_n_c_1_1_nd_array.html#ab30e13ec56d9b827a89426e439ed0a09',1,'NC::NdArray::operator|(const NdArray&lt; dtype &gt; &amp;inOtherArray) const'],['../class_n_c_1_1_nd_array.html#a23e61e3fc0c3d514e61f277029a93a86',1,'NC::NdArray::operator|(dtype inScalar) const']]],
   ['operator_7c_3d',['operator|=',['../class_n_c_1_1_nd_array.html#a5da71354451367b59abc932279ae86fe',1,'NC::NdArray::operator|=(const NdArray&lt; dtype &gt; &amp;inOtherArray)'],['../class_n_c_1_1_nd_array.html#a6d29b6a56c2a529524f40568e7d22fdd',1,'NC::NdArray::operator|=(dtype inScalar)']]],
   ['operator_7e',['operator~',['../class_n_c_1_1_nd_array.html#a34c9f26415b8f4a372c8aa3e1e7dc838',1,'NC::NdArray']]],
-  ['order',['order',['../class_n_c_1_1_boost_ndarray_helper.html#a5adb733450e8d84fc3902a1e42649731',1,'NC::BoostNdarrayHelper']]]
+  ['order',['order',['../class_n_c_1_1_boost_ndarray_helper.html#a60d8b284a0cc876534907b59d8a1eaaf',1,'NC::BoostNdarrayHelper']]]
 ];

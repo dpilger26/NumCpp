@@ -35,7 +35,8 @@ var NAVTREE =
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Data Structures", "annotated.html", [
@@ -46,8 +47,6 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Enumerator", "functions_eval.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -64,9 +63,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_boost_numpy_ndarray_helper_8hpp.html",
-"class_n_c_1_1_image_processing_1_1_pixel.html#ae835bd548472f581e9f87e3a41c61994",
-"class_n_c_1_1_methods.html#ae3585aa75d525cb97b2eb01d52685547",
-"class_n_c_1_1_rotations_1_1_quaternion.html#a1f3f3d03f3de67467ee53e6e8991e1f6"
+"class_n_c_1_1_image_processing_1_1_cluster.html#a8fd2ce4e30237291b47566a8a4f65048",
+"class_n_c_1_1_methods.html#abd458bf0237dacfdc12fbfc4e7c06c8a",
+"class_n_c_1_1_random.html#ad265e54e2bc4fc98e76846780e60721e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

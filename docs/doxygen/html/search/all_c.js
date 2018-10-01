@@ -8,7 +8,7 @@ var searchData=
   ['linalg',['Linalg',['../class_n_c_1_1_linalg.html',1,'NC']]],
   ['linalg_2ehpp',['Linalg.hpp',['../_linalg_8hpp.html',1,'']]],
   ['linspace',['linspace',['../class_n_c_1_1_methods.html#a0bd1e6d6c354aef4c3ce6ef10354dd9e',1,'NC::Methods']]],
-  ['little',['LITTLE',['../struct_n_c_1_1_endian.html#a03765f6248fbbfdd0db77b98309d62b4a82aed72b594932766b9bf6f1fb5fab0a',1,'NC::Endian']]],
+  ['little',['LITTLE',['../namespace_n_c.html#a4fd17afc98e4ce4216110d30e92ebb42a1314341b466dcb5e2c880b76414c49fe',1,'NC']]],
   ['load',['load',['../class_n_c_1_1_methods.html#ab4d2ecff0608b5727af0c53b9dad3ec5',1,'NC::Methods']]],
   ['log',['log',['../class_n_c_1_1_methods.html#a0a4bbb64247912a9eca52d3b857ff4e2',1,'NC::Methods::log(dtype inValue)'],['../class_n_c_1_1_methods.html#a9bdb9b2d6631d6c84007b4240429d9ff',1,'NC::Methods::log(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['log10',['log10',['../class_n_c_1_1_methods.html#a2bd3cf005196ce46a1e22e30d272376b',1,'NC::Methods::log10(dtype inValue)'],['../class_n_c_1_1_methods.html#a5a78e824d94f5b5c81baf2f49a7ad01f',1,'NC::Methods::log10(const NdArray&lt; dtype &gt; &amp;inArray)']]],

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['boostndarrayhelper',['BoostNdarrayHelper',['../class_n_c_1_1_boost_ndarray_helper.html',1,'NC']]],
-  ['boundary',['Boundary',['../struct_n_c_1_1_filter_1_1_boundary.html',1,'NC::Filter']]]
+  ['centroid',['Centroid',['../class_n_c_1_1_image_processing_1_1_centroid.html',1,'NC::ImageProcessing']]],
+  ['cluster',['Cluster',['../class_n_c_1_1_image_processing_1_1_cluster.html',1,'NC::ImageProcessing']]],
+  ['coordinate',['Coordinate',['../class_n_c_1_1_coordinates_1_1_coordinate.html',1,'NC::Coordinates']]]
 ];

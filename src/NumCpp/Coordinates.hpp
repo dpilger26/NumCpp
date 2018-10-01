@@ -229,7 +229,7 @@ namespace NC
 
         //================================================================================
         ///						Struct Enum for positive or negative Dec angle
-        struct Sign { enum Type { NEGATIVE = 0, POSITIVE }; };
+        enum class Sign { NEGATIVE = 0, POSITIVE };
 
         //================================================================================
         ///						Holds a Declination object
@@ -238,7 +238,7 @@ namespace NC
         {
         private:
             //====================================Attributes==============================
-            Sign::Type      sign_{ Sign::POSITIVE };
+            Sign            sign_{ Sign::POSITIVE };
             uint8           degreesWhole_{0};
             uint8           minutes_{0};
             dtype           seconds_{0.0};
@@ -287,7 +287,7 @@ namespace NC
             /// @param      inMinutes
             /// @param      inSeconds
             ///
-            Dec(Sign::Type inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds) :
+            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds) :
                 sign_(inSign),
                 degreesWhole_(inDegrees),
                 minutes_(inMinutes),
@@ -317,9 +317,9 @@ namespace NC
             //============================================================================
             ///						Get the sign of the degrees (positive or negative)
             ///
-            /// @return     Sign::Type
+            /// @return     Sign
             ///
-            Sign::Type sign() const
+            Sign sign() const
             {
                 return sign_;
             }
@@ -511,7 +511,7 @@ namespace NC
             /// @param              inDecMinutes
             /// @param              inDecSeconds
             ///
-            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign::Type inSign, uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
+            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign inSign, uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
                 dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds)
             {

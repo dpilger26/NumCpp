@@ -1,8 +1,8 @@
 var searchData=
 [
   ['gamma',['gamma',['../class_n_c_1_1_random.html#a78d93ea5550152d1a8d3086b5a08f43b',1,'NC::Random']]],
-  ['gaussianfilter',['gaussianFilter',['../class_n_c_1_1_filters.html#ac166e6a7dea4a2e5ee0e76d8f511f0a8',1,'NC::Filters']]],
-  ['gaussianfilter1d',['gaussianFilter1d',['../class_n_c_1_1_filters.html#a2f5f96231dffc8495c0f2aeb5c174b98',1,'NC::Filters']]],
+  ['gaussianfilter',['gaussianFilter',['../class_n_c_1_1_filters.html#aa1f0a4332d664313aab5592d1a4f7dfb',1,'NC::Filters']]],
+  ['gaussianfilter1d',['gaussianFilter1d',['../class_n_c_1_1_filters.html#a10d9d3be67c81fc44554e4144e406a94',1,'NC::Filters']]],
   ['generatecentroids',['generateCentroids',['../class_n_c_1_1_image_processing.html#a2cea37af61637aeedff510fec568ab15',1,'NC::ImageProcessing']]],
   ['generatethreshold',['generateThreshold',['../class_n_c_1_1_image_processing.html#a95f85fac6aa333b12c3fdaf326a8b7c6',1,'NC::ImageProcessing']]],
   ['geometric',['geometric',['../class_n_c_1_1_random.html#acfc3fcfe141e9000f041f53287da0009',1,'NC::Random']]],

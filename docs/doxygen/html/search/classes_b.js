@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pixel',['Pixel',['../class_n_c_1_1_image_processing_1_1_pixel.html',1,'NC::ImageProcessing']]],
-  ['polynomial',['Polynomial',['../class_n_c_1_1_polynomial.html',1,'NC']]]
+  ['shape',['Shape',['../class_n_c_1_1_shape.html',1,'NC']]],
+  ['slice',['Slice',['../class_n_c_1_1_slice.html',1,'NC']]]
 ];

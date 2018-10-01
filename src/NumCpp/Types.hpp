@@ -44,9 +44,9 @@ namespace NC
 
     //================================================================================
     ///						Enum To describe an axis
-    struct Axis { enum Type { NONE = 0, ROW, COL }; };
+    enum class Axis { NONE = 0, ROW, COL };
 
     //================================================================================
     ///						Enum for endianess
-    struct Endian { enum Type { NATIVE = 0, BIG, LITTLE }; };
+    enum class Endian { NATIVE = 0, BIG, LITTLE };
 }

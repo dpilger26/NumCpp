@@ -69,7 +69,7 @@ namespace NC
         //====================================Attributes==============================
         Shape			shape_{0, 0};
         uint32			size_{0};
-        Endian::Type    endianess_{ Endian::NATIVE };
+        Endian    endianess_{ Endian::NATIVE };
         dtype*			array_{nullptr};
 
         //============================================================================
@@ -913,7 +913,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> all(Axis::Type inAxis = Axis::NONE) const
+        NdArray<bool> all(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -961,7 +961,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> any(Axis::Type inAxis = Axis::NONE) const
+        NdArray<bool> any(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1010,7 +1010,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argmax(Axis::Type inAxis = Axis::NONE) const
+        NdArray<uint32> argmax(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1059,7 +1059,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argmin(Axis::Type inAxis = Axis::NONE) const
+        NdArray<uint32> argmin(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1107,7 +1107,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argsort(Axis::Type inAxis = Axis::NONE) const
+        NdArray<uint32> argsort(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1268,7 +1268,7 @@ namespace NC
         /// @return
         ///				bool
         ///
-        NdArray<bool> contains(dtype inValue, Axis::Type inAxis = Axis::NONE) const
+        NdArray<bool> contains(dtype inValue, Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1333,7 +1333,7 @@ namespace NC
         ///				NdArray
         ///
         template<typename dtypeOut = double>
-        NdArray<dtypeOut> cumprod(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtypeOut> cumprod(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1397,7 +1397,7 @@ namespace NC
         ///				NdArray
         ///
         template<typename dtypeOut = double>
-        NdArray<dtypeOut> cumsum(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtypeOut> cumsum(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1460,7 +1460,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> diagonal(int32 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
+        NdArray<dtype> diagonal(int32 inOffset = 0, Axis inAxis = Axis::ROW) const
         {
             switch (inAxis)
             {
@@ -1619,9 +1619,9 @@ namespace NC
         ///						Return the NdArrays endianess
         ///		
         /// @return
-        ///				Endian::Type
+        ///				Endian
         ///
-        Endian::Type endianess() const
+        Endian endianess() const
         {
             return endianess_;
         }
@@ -1759,7 +1759,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> max(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtype> max(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1809,7 +1809,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> min(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtype> min(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1859,7 +1859,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<double> mean(Axis::Type inAxis = Axis::NONE) const
+        NdArray<double> mean(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1912,7 +1912,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> median(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtype> median(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -2000,7 +2000,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> newbyteorder(Endian::Type inEndianess) const
+        NdArray<dtype> newbyteorder(Endian inEndianess) const
         {
             // only works with integer types
             static_assert(DtypeInfo<dtype>::isInteger(), "Type Error in newbyteorder: Can only compile newbyteorder method of NdArray<T> with integer types.");
@@ -2169,7 +2169,7 @@ namespace NC
         ///				norm
         ///
         template<typename dtypeOut = double>
-        NdArray<dtypeOut> norm(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtypeOut> norm(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -2249,7 +2249,7 @@ namespace NC
         /// @return
         ///				None
         ///
-        void partition(uint32 inKth, Axis::Type inAxis = Axis::NONE)
+        void partition(uint32 inKth, Axis inAxis = Axis::NONE)
         {
             switch (inAxis)
             {
@@ -2321,7 +2321,7 @@ namespace NC
         ///				NdArray
         ///
         template<typename dtypeOut = double>
-        NdArray<dtypeOut> prod(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtypeOut> prod(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -2386,7 +2386,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> ptp(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -2967,7 +2967,7 @@ namespace NC
         /// @return
         ///				size
         ///
-        void sort(Axis::Type inAxis = Axis::NONE)
+        void sort(Axis inAxis = Axis::NONE)
         {
             switch (inAxis)
             {
@@ -3008,7 +3008,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<double> std(Axis::Type inAxis = Axis::NONE) const
+        NdArray<double> std(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -3109,7 +3109,7 @@ namespace NC
         ///				NdArray
         ///
         template<typename dtypeOut = double>
-        NdArray<dtypeOut> sum(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtypeOut> sum(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -3237,7 +3237,7 @@ namespace NC
         ///				value
         ///
         template<typename dtypeOut = double>
-        dtypeOut trace(uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
+        dtypeOut trace(uint16 inOffset = 0, Axis inAxis = Axis::ROW) const
         {
             uint16 rowStart = 0;
             uint16 colStart = 0;
@@ -3313,7 +3313,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<double> var(Axis::Type inAxis = Axis::NONE) const
+        NdArray<double> var(Axis inAxis = Axis::NONE) const
         {
             NdArray<double> stdValues = std(inAxis);
             for (uint32 i = 0; i < stdValues.size(); ++i)

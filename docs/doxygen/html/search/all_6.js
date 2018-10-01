@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['f',['F',['../struct_n_c_1_1_order.html#a1cff1979cd50c6497f2a02fd1765dd6da73e8fcd22d236405798da0a74c184276',1,'NC::Order::F()'],['../class_n_c_1_1_random.html#a4da09a382c5c8c106cdcf349d2d183a6',1,'NC::Random::f()']]],
+  ['f',['f',['../class_n_c_1_1_random.html#a4da09a382c5c8c106cdcf349d2d183a6',1,'NC::Random::f()'],['../namespace_n_c.html#aa3639abc11f4256e0a07c72035c0c513a800618943025315f869e4e1f09471012',1,'NC::F()']]],
   ['fft',['FFT',['../class_n_c_1_1_f_f_t.html',1,'NC']]],
   ['fft_2ehpp',['FFT.hpp',['../_f_f_t_8hpp.html',1,'']]],
   ['fill',['fill',['../class_n_c_1_1_nd_array.html#ab983fb0bf475e0b6a7823bd0e8f92810',1,'NC::NdArray']]],
@@ -9,7 +9,7 @@ var searchData=
   ['fix',['fix',['../class_n_c_1_1_methods.html#a80fc383ace1afb4bb6b6016f5ca6780d',1,'NC::Methods::fix(dtype inValue)'],['../class_n_c_1_1_methods.html#aca3dfa1f3796023931a960bd076a9bd9',1,'NC::Methods::fix(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['flatnonzero',['flatnonzero',['../class_n_c_1_1_methods.html#a53ad554cc1cba63e09e85a8142f5534b',1,'NC::Methods']]],
   ['flatten',['flatten',['../class_n_c_1_1_methods.html#af4b70b39f2c1f98a8f9dd435dca5fa3f',1,'NC::Methods::flatten()'],['../class_n_c_1_1_nd_array.html#ad7b5b9f1f371168c22d9c385dc29309c',1,'NC::NdArray::flatten()']]],
-  ['flip',['flip',['../class_n_c_1_1_methods.html#aea23ec3911aabb16baf6bac53b1a6e63',1,'NC::Methods']]],
+  ['flip',['flip',['../class_n_c_1_1_methods.html#ab8e7cd2a623195b8f820871d30333bda',1,'NC::Methods']]],
   ['fliplr',['fliplr',['../class_n_c_1_1_methods.html#a955a4a3bda42d509998ed47f51d953a0',1,'NC::Methods']]],
   ['flipud',['flipud',['../class_n_c_1_1_methods.html#ab3cf5dd80eba234d59244df29f40c220',1,'NC::Methods']]],
   ['floor',['floor',['../class_n_c_1_1_methods.html#a18981cdae1c3f390f687e00b7d483c82',1,'NC::Methods::floor(dtype inValue)'],['../class_n_c_1_1_methods.html#a43f2389ddec009358bd50cbf0b57354c',1,'NC::Methods::floor(const NdArray&lt; dtype &gt; &amp;inArray)']]],

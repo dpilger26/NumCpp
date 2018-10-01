@@ -12,10 +12,7 @@ var files_dup =
     [ "FFT.hpp", "_f_f_t_8hpp.html", [
       [ "FFT", "class_n_c_1_1_f_f_t.html", null ]
     ] ],
-    [ "Filter.hpp", "_filter_8hpp.html", [
-      [ "Boundary", "struct_n_c_1_1_filter_1_1_boundary.html", "struct_n_c_1_1_filter_1_1_boundary" ],
-      [ "Filters", "class_n_c_1_1_filters.html", "class_n_c_1_1_filters" ]
-    ] ],
+    [ "Filter.hpp", "_filter_8hpp.html", "_filter_8hpp" ],
     [ "ImageProcessing.hpp", "_image_processing_8hpp.html", [
       [ "ImageProcessing", "class_n_c_1_1_image_processing.html", "class_n_c_1_1_image_processing" ],
       [ "Centroid", "class_n_c_1_1_image_processing_1_1_centroid.html", "class_n_c_1_1_image_processing_1_1_centroid" ],
