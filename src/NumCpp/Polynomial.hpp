@@ -33,12 +33,8 @@
 
 namespace NC
 {
-    //================================Polynomial Class=============================
-    /// Class for dealing with common polynomials
-    template<typename dtype = double>
-    class Polynomial
+    namespace Polynomial
     {
-    public:
         /// \todo Complete This Module
-    };
+    }
 }
