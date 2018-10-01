@@ -15,6 +15,5 @@ var namespace_n_c =
     [ "Random", "class_n_c_1_1_random.html", "class_n_c_1_1_random" ],
     [ "Shape", "class_n_c_1_1_shape.html", "class_n_c_1_1_shape" ],
     [ "Slice", "class_n_c_1_1_slice.html", "class_n_c_1_1_slice" ],
-    [ "Timer", "class_n_c_1_1_timer.html", "class_n_c_1_1_timer" ],
-    [ "Utils", "class_n_c_1_1_utils.html", "class_n_c_1_1_utils" ]
+    [ "Timer", "class_n_c_1_1_timer.html", "class_n_c_1_1_timer" ]
 ];

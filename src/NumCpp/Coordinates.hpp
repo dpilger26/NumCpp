@@ -177,8 +177,8 @@ namespace NC
             ///
             std::string str() const
             {
-                std::string out = "RA hms: " + Utils<uint8>::num2str(hours_) + " hours, " + Utils<uint8>::num2str(minutes_) + " minutes, ";
-                out += Utils<dtype>::num2str(seconds_) + " seconds\nRA degrees: " + Utils<dtype>::num2str(degrees_) + "\n";
+                std::string out = "RA hms: " + Utils::num2str(hours_) + " hours, " + Utils::num2str(minutes_) + " minutes, ";
+                out += Utils::num2str(seconds_) + " seconds\nRA degrees: " + Utils::num2str(degrees_) + "\n";
                 return out;
             }
 
@@ -382,8 +382,8 @@ namespace NC
             std::string str() const
             {
                 std::string strSign = sign_ == Sign::NEGATIVE ? "-" : "+";
-                std::string out = "Dec dms: " + strSign + Utils<dtype>::num2str(degreesWhole_) + " degrees, " + Utils<uint8>::num2str(minutes_) + " minutes, ";
-                out += Utils<dtype>::num2str(seconds_) + " seconds\nDec degrees = " + Utils<dtype>::num2str(degrees_) + "\n";
+                std::string out = "Dec dms: " + strSign + Utils::num2str(degreesWhole_) + " degrees, " + Utils::num2str(minutes_) + " minutes, ";
+                out += Utils::num2str(seconds_) + " seconds\nDec degrees = " + Utils::num2str(degrees_) + "\n";
                 return out;
             }
 
@@ -459,7 +459,7 @@ namespace NC
                 }
                 ra_ = RA<dtype>(degreesRa);
 
-                double r = std::sqrt(static_cast<double>(Utils<dtype>::sqr(x_)) + static_cast<double>(Utils<dtype>::sqr(y_)) + static_cast<double>(Utils<dtype>::sqr(z_)));
+                double r = std::sqrt(static_cast<double>(Utils::sqr(x_)) + static_cast<double>(Utils::sqr(y_)) + static_cast<double>(Utils::sqr(z_)));
                 dtype degreesDec = static_cast<dtype>(Methods<double>::rad2deg(std::asin(static_cast<double>(z_) / r)));
                 dec_ = Dec<dtype>(degreesDec);
             }

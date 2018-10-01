@@ -37,10 +37,11 @@ var searchData=
   ['norm',['norm',['../class_n_c_1_1_methods.html#aae647e4e5fe1deb78ce49c01a982d33f',1,'NC::Methods::norm()'],['../class_n_c_1_1_nd_array.html#a19f3d702a175e262e560038f71e045bc',1,'NC::NdArray::norm()']]],
   ['normal',['normal',['../class_n_c_1_1_random.html#aa97bac9f7f36d08b6855d37e62d9ebce',1,'NC::Random']]],
   ['not_5fequal',['not_equal',['../class_n_c_1_1_methods.html#a84ed635fda8134f14fd6c40021a30ee2',1,'NC::Methods']]],
-  ['num2str',['num2str',['../class_n_c_1_1_utils.html#adf4e597f3164221c7e9624cde5eb41e7',1,'NC::Utils']]],
+  ['num2str',['num2str',['../namespace_n_c_1_1_utils.html#af356e67b5501b8b6f2ffdb5325fca1a4',1,'NC::Utils']]],
   ['numcpp_2ehpp',['NumCpp.hpp',['../_num_cpp_8hpp.html',1,'']]],
   ['numctoboost',['numCToBoost',['../namespace_n_c.html#a32ab7e9bc10a4c3cee96426e34d9d00f',1,'NC']]],
   ['numdimensions',['numDimensions',['../class_n_c_1_1_boost_ndarray_helper.html#a7d35d15b2bb7d1cdcf5b215215ce5a80',1,'NC::BoostNdarrayHelper']]],
   ['numelements',['numElements',['../class_n_c_1_1_slice.html#aebb4080ea55bb036d0acb9edc42c8075',1,'NC::Slice']]],
-  ['rotations',['Rotations',['../namespace_n_c_1_1_rotations.html',1,'NC']]]
+  ['rotations',['Rotations',['../namespace_n_c_1_1_rotations.html',1,'NC']]],
+  ['utils',['Utils',['../namespace_n_c_1_1_utils.html',1,'NC']]]
 ];

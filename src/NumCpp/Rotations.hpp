@@ -60,7 +60,7 @@ namespace NC
             ///		
             void normalize()
             {
-                double norm = std::sqrt(Utils<double>::sqr(data_[0]) + Utils<double>::sqr(data_[1]) + Utils<double>::sqr(data_[2]) + Utils<double>::sqr(data_[3]));
+                double norm = std::sqrt(Utils::sqr(data_[0]) + Utils::sqr(data_[1]) + Utils::sqr(data_[2]) + Utils::sqr(data_[3]));
                 data_[0] /= norm;
                 data_[1] /= norm;
                 data_[2] /= norm;
@@ -85,7 +85,7 @@ namespace NC
             ///				
             Quaternion(double inI, double inJ, double inK, double inS)
             {
-                double norm = std::sqrt(Utils<double>::sqr(inI) + Utils<double>::sqr(inJ) + Utils<double>::sqr(inK) + Utils<double>::sqr(inS));
+                double norm = std::sqrt(Utils::sqr(inI) + Utils::sqr(inJ) + Utils::sqr(inK) + Utils::sqr(inS));
                 data_[0] = inI / norm;
                 data_[1] = inJ / norm;
                 data_[2] = inK / norm;
@@ -510,8 +510,8 @@ namespace NC
             ///
             std::string str() const
             {
-                std::string output = "[" + Utils<double>::num2str(i()) + ", " + Utils<double>::num2str(j()) +
-                    ", " + Utils<double>::num2str(k()) + ", " + Utils<double>::num2str(s()) + "]\n";
+                std::string output = "[" + Utils::num2str(i()) + ", " + Utils::num2str(j()) +
+                    ", " + Utils::num2str(k()) + ", " + Utils::num2str(s()) + "]\n";
 
                 return output;
             }
@@ -532,15 +532,15 @@ namespace NC
                 double q2 = k();
                 double q3 = s();
 
-                dcm(0, 0) = Utils<double>::sqr(q3) + Utils<double>::sqr(q0) - Utils<double>::sqr(q1) - Utils<double>::sqr(q2);
+                dcm(0, 0) = Utils::sqr(q3) + Utils::sqr(q0) - Utils::sqr(q1) - Utils::sqr(q2);
                 dcm(0, 1) = 2 * (q0 * q1 + q3 * q2);
                 dcm(0, 2) = 2 * (q0 * q2 - q3 * q1);
                 dcm(1, 0) = 2 * (q0 * q1 - q3 * q2);
-                dcm(1, 1) = Utils<double>::sqr(q3) - Utils<double>::sqr(q0) + Utils<double>::sqr(q1) - Utils<double>::sqr(q2);;
+                dcm(1, 1) = Utils::sqr(q3) - Utils::sqr(q0) + Utils::sqr(q1) - Utils::sqr(q2);;
                 dcm(1, 2) = 2 * (q1 * q2 + q3 * q0);
                 dcm(2, 0) = 2 * (q0 * q2 + q3 * q1);
                 dcm(2, 1) = 2 * (q1 * q2 - q3 * q0);
-                dcm(2, 2) = Utils<double>::sqr(q3) - Utils<double>::sqr(q0) - Utils<double>::sqr(q1) + Utils<double>::sqr(q2);;
+                dcm(2, 2) = Utils::sqr(q3) - Utils::sqr(q0) - Utils::sqr(q1) + Utils::sqr(q2);;
 
                 return std::move(dcm);
             }

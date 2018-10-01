@@ -3067,85 +3067,55 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("zerosList", &MethodsInterface::zerosList<double>).staticmethod("zerosList");
 
     // Utils.hpp
-    typedef Utils<double> UtilsDouble;
-    bp::class_<UtilsDouble>
-        ("UtilsDouble", bp::init<>())
-        .def("num2str", &UtilsDouble::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsDouble::sqr).staticmethod("sqr")
-        .def("cube", &UtilsDouble::cube).staticmethod("cube")
-        .def("power", &UtilsDouble::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<double>);
+    bp::def("sqr", &Utils::sqr<double>);
+    bp::def("cube", &Utils::cube<double>);
+    bp::def("power", &Utils::power<double>);
 
-    typedef Utils<float> UtilsFloat;
-    bp::class_<UtilsFloat>
-        ("UtilsFloat", bp::init<>())
-        .def("num2str", &UtilsFloat::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsFloat::sqr).staticmethod("sqr")
-        .def("cube", &UtilsFloat::cube).staticmethod("cube")
-        .def("power", &UtilsFloat::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<float>);
+    bp::def("sqr", &Utils::sqr<float>);
+    bp::def("cube", &Utils::cube<float>);
+    bp::def("power", &Utils::power<float>);
 
-    typedef Utils<int8> UtilsInt8;
-    bp::class_<UtilsInt8>
-        ("UtilsInt8", bp::init<>())
-        .def("num2str", &UtilsInt8::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsInt8::sqr).staticmethod("sqr")
-        .def("cube", &UtilsInt8::cube).staticmethod("cube")
-        .def("power", &UtilsInt8::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<int8>);
+    bp::def("sqr", &Utils::sqr<int8>);
+    bp::def("cube", &Utils::cube<int8>);
+    bp::def("power", &Utils::power<int8>);
 
-    typedef Utils<int16> UtilsInt16;
-    bp::class_<UtilsInt16>
-        ("UtilsInt16", bp::init<>())
-        .def("num2str", &UtilsInt16::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsInt16::sqr).staticmethod("sqr")
-        .def("cube", &UtilsInt16::cube).staticmethod("cube")
-        .def("power", &UtilsInt16::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<int16>);
+    bp::def("sqr", &Utils::sqr<int16>);
+    bp::def("cube", &Utils::cube<int16>);
+    bp::def("power", &Utils::power<int16>);
 
-    typedef Utils<int32> UtilsInt32;
-    bp::class_<UtilsInt32>
-        ("UtilsInt32", bp::init<>())
-        .def("num2str", &UtilsInt32::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsInt32::sqr).staticmethod("sqr")
-        .def("cube", &UtilsInt32::cube).staticmethod("cube")
-        .def("power", &UtilsInt32::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<int32>);
+    bp::def("sqr", &Utils::sqr<int32>);
+    bp::def("cube", &Utils::cube<int32>);
+    bp::def("power", &Utils::power<int32>);
 
-    typedef Utils<int64> UtilsInt64;
-    bp::class_<UtilsInt64>
-        ("UtilsInt64", bp::init<>())
-        .def("num2str", &UtilsInt64::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsInt64::sqr).staticmethod("sqr")
-        .def("cube", &UtilsInt64::cube).staticmethod("cube")
-        .def("power", &UtilsInt64::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<int64>);
+    bp::def("sqr", &Utils::sqr<int64>);
+    bp::def("cube", &Utils::cube<int64>);
+    bp::def("power", &Utils::power<int64>);
 
-    typedef Utils<uint8> UtilsUint8;
-    bp::class_<UtilsUint8>
-        ("UtilsUint8", bp::init<>())
-        .def("num2str", &UtilsUint8::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsUint8::sqr).staticmethod("sqr")
-        .def("cube", &UtilsUint8::cube).staticmethod("cube")
-        .def("power", &UtilsUint8::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<uint8>);
+    bp::def("sqr", &Utils::sqr<uint8>);
+    bp::def("cube", &Utils::cube<uint8>);
+    bp::def("power", &Utils::power<uint8>);
 
-    typedef Utils<uint16> UtilsUint16;
-    bp::class_<UtilsUint16>
-        ("UtilsUint16", bp::init<>())
-        .def("num2str", &UtilsUint16::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsUint16::sqr).staticmethod("sqr")
-        .def("cube", &UtilsUint16::cube).staticmethod("cube")
-        .def("power", &UtilsUint16::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<uint16>);
+    bp::def("sqr", &Utils::sqr<uint16>);
+    bp::def("cube", &Utils::cube<uint16>);
+    bp::def("power", &Utils::power<uint16>);
 
-    typedef Utils<uint32> UtilsUint32;
-    bp::class_<UtilsUint32>
-        ("UtilsUint32", bp::init<>())
-        .def("num2str", &UtilsUint32::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsUint32::sqr).staticmethod("sqr")
-        .def("cube", &UtilsUint32::cube).staticmethod("cube")
-        .def("power", &UtilsUint32::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<uint32>);
+    bp::def("sqr", &Utils::sqr<uint32>);
+    bp::def("cube", &Utils::cube<uint32>);
+    bp::def("power", &Utils::power<uint32>);
 
-    typedef Utils<uint64> UtilsUint64;
-    bp::class_<UtilsUint64>
-        ("UtilsUint64", bp::init<>())
-        .def("num2str", &UtilsUint64::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsUint64::sqr).staticmethod("sqr")
-        .def("cube", &UtilsUint64::cube).staticmethod("cube")
-        .def("power", &UtilsUint64::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<uint64>);
+    bp::def("sqr", &Utils::sqr<uint64>);
+    bp::def("cube", &Utils::cube<uint64>);
+    bp::def("power", &Utils::power<uint64>);
 
     // Random.hpp
     typedef NC::Random<double> RandomDouble;

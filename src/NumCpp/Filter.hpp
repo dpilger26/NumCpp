@@ -67,7 +67,7 @@ namespace NC
         ///
         static dtype gaussian(dtype inX, dtype inY, dtype inSigma)
         {
-            double exponent = -(Utils<dtype>::sqr(inX) + Utils<dtype>::sqr(inY)) / (2 * Utils<dtype>::sqr(inSigma));
+            double exponent = -(Utils::sqr(inX) + Utils::sqr(inY)) / (2 * Utils::sqr(inSigma));
             return static_cast<dtype>(std::exp(exponent));
         }
 
@@ -567,7 +567,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> addBoundary1d(const NdArray<dtype>& inImage, Filter::Boundary inMode, uint32 inKernalSize, dtype inConstantValue = 0)
+        static NdArray<dtype> addBoundary1d(const NdArray<dtype>& inImage, Filter::Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
         {
             if (inKernalSize % 2 == 0)
             {
@@ -576,7 +576,7 @@ namespace NC
 
             uint32 boundarySize = inKernalSize / 2; // integer division
 
-            switch (inMode)
+            switch (inBoundaryType)
             {
                 case Filter::Boundary::REFLECT:
                 {
@@ -656,10 +656,10 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> inImageArrayCopy(inImageArray);
-            inImageArrayCopy -= medianFilter(inImageArray, inSize, inMode, inConstantValue);
+            inImageArrayCopy -= medianFilter(inImageArray, inSize, inBoundaryType, inConstantValue);
 
             return std::move(inImageArrayCopy);
         }
@@ -676,10 +676,10 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> inImageArrayCopy(inImageArray);
-            inImageArrayCopy -= medianFilter1d(inImageArray, inSize, inMode, inConstantValue);
+            inImageArrayCopy -= medianFilter1d(inImageArray, inSize, inBoundaryType, inConstantValue);
 
             return std::move(inImageArrayCopy);
         }
@@ -699,14 +699,14 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
-            const NdArray<dtype>& inWeights, Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            const NdArray<dtype>& inWeights, Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            if (inWeights.size() != Utils<uint32>::sqr(inSize))
+            if (inWeights.size() != Utils::sqr(inSize))
             {
                 throw std::invalid_argument("ERROR: NC::Filters::convolve: input weights do no match input kernal size.");
             }
 
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
             NdArray<dtype> weightsFlat = Methods<dtype>::rot90(inWeights, 2).flatten();
@@ -743,10 +743,10 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             uint32 boundarySize = inWeights.size() / 2; // integer division
-            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inWeights.size(), inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             NdArray<dtype> weightsFlat = Methods<dtype>::fliplr(inWeights.flatten());
@@ -777,7 +777,7 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inSigma <= 0)
             {
@@ -811,7 +811,7 @@ namespace NC
             NdArray<dtype> output = convolve(inImageArray.template astype<double>(),
                 kernelSize,
                 kernel,
-                inMode,
+                inBoundaryType,
                 inConstantValue).template astype<dtype>();
 
             return std::move(output);
@@ -831,7 +831,7 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inSigma <= 0)
             {
@@ -861,7 +861,7 @@ namespace NC
             // perform the convolution
             NdArray<dtype> output = convolve1d(inImageArray.template astype<double>(),
                 kernel,
-                inMode,
+                inBoundaryType,
                 inConstantValue).template astype<dtype>();
 
             return std::move(output);
@@ -881,9 +881,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
             Shape inShape = inImageArray.shape();
@@ -919,9 +919,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> maximumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             uint32 boundarySize = inSize / 2; // integer division
@@ -951,9 +951,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> medianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
             Shape inShape = inImageArray.shape();
@@ -989,9 +989,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             uint32 boundarySize = inSize / 2; // integer division
@@ -1021,9 +1021,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> minimumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
             Shape inShape = inImageArray.shape();
@@ -1059,9 +1059,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> minumumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             uint32 boundarySize = inSize / 2; // integer division
@@ -1092,9 +1092,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
             Shape inShape = inImageArray.shape();
@@ -1131,9 +1131,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             uint32 boundarySize = inSize / 2; // integer division
@@ -1164,14 +1164,14 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            if (inRank < 0 || inRank >= Utils<uint32>::sqr(inSize))
+            if (inRank < 0 || inRank >= Utils::sqr(inSize))
             {
                 std::invalid_argument("ERROR: NC::Filters::rankFilter: rank not within filter footprint size.");
             }
 
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
             Shape inShape = inImageArray.shape();
@@ -1208,9 +1208,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             uint32 boundarySize = inSize / 2; // integer division
@@ -1240,9 +1240,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
             Shape inShape = inImageArray.shape();
@@ -1278,9 +1278,9 @@ namespace NC
         ///				NdArray
         ///
         static NdArray<dtype> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inMode = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inMode, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             uint32 boundarySize = inSize / 2; // integer division

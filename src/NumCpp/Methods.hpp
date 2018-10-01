@@ -1650,6 +1650,21 @@ namespace NC
 
         //============================================================================
         // Method Description: 
+        ///						Cubes the input
+        ///		
+        /// @param
+        ///				inValue
+        /// @return
+        ///				cubed value
+        ///
+        template<typename dtypeOut = double>
+        dtypeOut cube(dtype inValue)
+        {
+            return Utils::cube(static_cast<dtypeOut>(inValue));
+        }
+
+        //============================================================================
+        // Method Description: 
         ///						Cubes the elements of the array
         ///		
         /// @param
@@ -1661,7 +1676,7 @@ namespace NC
         static NdArray<dtypeOut> cube(const NdArray<dtype>& inArray)
         {
             NdArray<dtypeOut> returnArray(inArray.shape());
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return Utils<dtypeOut>::cube(static_cast<dtypeOut>(inValue)); });
+            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return Utils::cube(static_cast<dtypeOut>(inValue)); });
 
             return std::move(returnArray);
         }
@@ -3036,6 +3051,21 @@ namespace NC
         }
 
         //============================================================================
+        ///						Returns the linear interpolation between two points
+        ///		
+        /// @param      inValue1
+        /// @param      inValue2
+        /// @param      inPercent
+        ///
+        /// @return     linear interpolated point
+        ///
+        template<typename dtype = double>
+        static double interp(dtype inValue1, dtype inValue2, double inPercent)
+        {
+            return Utils::interp(inValue1, inValue2, inPercent);
+        }
+
+        //============================================================================
         // Method Description: 
         ///						One-dimensional linear interpolation.
         ///
@@ -3089,7 +3119,7 @@ namespace NC
                 {
                     double percent = static_cast<double>(sortedX[currXidx] - sortedXp[currXpIdx]) /
                         static_cast<double>(sortedXp[currXpIdx + 1] - sortedXp[currXpIdx]);
-                    returnArray[currXidx++] = Utils<dtype>::interp(sortedFp[currXpIdx], sortedFp[currXpIdx + 1], percent);
+                    returnArray[currXidx++] = Utils::interp(sortedFp[currXpIdx], sortedFp[currXpIdx + 1], percent);
                 }
                 else
                 {
@@ -4435,7 +4465,7 @@ namespace NC
                             continue;
                         }
 
-                        sum += Utils<double>::sqr(static_cast<double>(inArray[i]) - meanValue);
+                        sum += Utils::sqr(static_cast<double>(inArray[i]) - meanValue);
                         ++counter;
                     }
                     NdArray<double> returnArray = { std::sqrt(sum / counter) };
@@ -4457,7 +4487,7 @@ namespace NC
                                 continue;
                             }
 
-                            sum += Utils<double>::sqr(static_cast<double>(inArray(row, col)) - meanValue[row]);
+                            sum += Utils::sqr(static_cast<double>(inArray(row, col)) - meanValue[row]);
                             ++counter;
                         }
                         returnArray(0, row) = std::sqrt(sum / counter);
@@ -4482,7 +4512,7 @@ namespace NC
                                 continue;
                             }
 
-                            sum += Utils<double>::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
+                            sum += Utils::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
                             ++counter;
                         }
                         returnArray(0, row) = std::sqrt(sum / counter);
@@ -4936,6 +4966,23 @@ namespace NC
         ///
         ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
         ///		
+        /// @param				inValue
+        /// @param				inExponent
+        /// @return
+        ///				value raised to the power
+        ///
+        template<typename dtypeOut = double>
+        dtypeOut power(dtype inValue, uint8 inExponent)
+        {
+            return Utils::power(static_cast<dtypeOut>(inValue), inExponent);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Raises the elements of the array to the input power
+        ///
+        ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
+        ///		
         /// @param				inArray
         /// @param				inExponent
         /// @return
@@ -4946,7 +4993,7 @@ namespace NC
         {
             NdArray<dtypeOut> returnArray(inArray.shape());
             std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [inExponent](dtype inValue) { return Utils<dtypeOut>::power(static_cast<dtypeOut>(inValue), inExponent); });
+                [inExponent](dtype inValue) { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
 
             return std::move(returnArray);
         }
@@ -4972,7 +5019,7 @@ namespace NC
 
             NdArray<dtypeOut> returnArray(inArray.shape());
             std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
-                [](dtype inValue, uint8 inExponent) { return Utils<dtypeOut>::power(static_cast<dtypeOut>(inValue), inExponent); });
+                [](dtype inValue, uint8 inExponent) { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
 
             return std::move(returnArray);
         }
@@ -5913,7 +5960,7 @@ namespace NC
         ///
         static dtype square(dtype inValue)
         {
-            return Utils<dtype>::sqr(inValue);
+            return Utils::sqr(inValue);
         }
 
         //============================================================================

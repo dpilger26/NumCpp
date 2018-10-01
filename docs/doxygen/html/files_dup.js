@@ -47,7 +47,5 @@ var files_dup =
       [ "Timer", "class_n_c_1_1_timer.html", "class_n_c_1_1_timer" ]
     ] ],
     [ "Types.hpp", "_types_8hpp.html", "_types_8hpp" ],
-    [ "Utils.hpp", "_utils_8hpp.html", [
-      [ "Utils", "class_n_c_1_1_utils.html", "class_n_c_1_1_utils" ]
-    ] ]
+    [ "Utils.hpp", "_utils_8hpp.html", "_utils_8hpp" ]
 ];

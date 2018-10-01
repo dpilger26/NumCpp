@@ -223,8 +223,8 @@ namespace NC
             ///
             std::string str() const
             {
-                std::string out = "row = " + Utils<uint32>::num2str(row_) + " col = " + Utils<uint32>::num2str(col_);
-                out += " intensity = " + Utils<dtype>::num2str(intensity_) + "\n";
+                std::string out = "row = " + Utils::num2str(row_) + " col = " + Utils::num2str(col_);
+                out += " intensity = " + Utils::num2str(intensity_) + "\n";
                 return out;
             }
 
@@ -576,7 +576,7 @@ namespace NC
                 std::string out;
                 for (uint32 i = 0; i < size(); ++i)
                 {
-                    out += "Pixel " + Utils<uint32>::num2str(i) + ":" + pixels_[i].str();
+                    out += "Pixel " + Utils::num2str(i) + ":" + pixels_[i].str();
                 }
 
                 return out;
@@ -1085,8 +1085,8 @@ namespace NC
             std::string str() const
             {
                 std::string out;
-                out += "row = " + Utils<double>::num2str(row_) + " col = " + Utils<double>::num2str(col_);
-                out += " intensity = " + Utils<dtype>::num2str(intensity_) + " eod = " + Utils<double>::num2str(eod_) + "\n";
+                out += "row = " + Utils::num2str(row_) + " col = " + Utils::num2str(col_);
+                out += " intensity = " + Utils::num2str(intensity_) + " eod = " + Utils::num2str(eod_) + "\n";
 
                 return out;
             }
