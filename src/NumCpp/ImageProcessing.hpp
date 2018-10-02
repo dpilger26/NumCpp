@@ -46,13 +46,12 @@ namespace NC
     //================================================================================
     // Class Description:
     ///						Class for basic image processing
-    template<typename dtype = double>
-    class ImageProcessing
+    namespace ImageProcessing
     {
-    public:
         //================================================================================
         // Class Description:
         ///						Holds the information for a single pixel
+        template<typename dtype = double>
         class Pixel
         {
         private:
@@ -93,7 +92,7 @@ namespace NC
             /// @return
             ///              bool
             ///
-            bool operator==(const Pixel& rhs) const
+            bool operator==(const Pixel<dtype>& rhs) const
             {
                 return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_;
             }
@@ -108,7 +107,7 @@ namespace NC
             /// @return
             ///              bool
             ///
-            bool operator!=(const Pixel& rhs) const
+            bool operator!=(const Pixel<dtype>& rhs) const
             {
                 return !(*this == rhs);
             }
@@ -126,7 +125,7 @@ namespace NC
             /// @return 
             ///              bool
             ///
-            bool operator<(const Pixel& rhs) const
+            bool operator<(const Pixel<dtype>& rhs) const
             {
                 if (row_ < rhs.row_)
                 {
@@ -246,7 +245,7 @@ namespace NC
             /// @return
             ///              std::ostream
             ///
-            friend std::ostream& operator<<(std::ostream& inStream, const Pixel& inPixel)
+            friend std::ostream& operator<<(std::ostream& inStream, const Pixel<dtype>& inPixel)
             {
                 inStream << inPixel.str();
                 return inStream;
@@ -256,26 +255,27 @@ namespace NC
         //================================================================================
         // Class Description:
         ///						Holds the information for a cluster of pixels
+        template<typename dtype = double>
         class Cluster
         {
         public:
             //================================Typedefs===============================
-            typedef typename std::vector<Pixel>::const_iterator    const_iterator;
+            typedef typename std::vector<Pixel<dtype> >::const_iterator    const_iterator;
 
         private:
             //================================Attributes===============================
-            uint32              clusterId_;
-            std::vector<Pixel>  pixels_;
+            uint32                      clusterId_;
+            std::vector<Pixel<dtype> >  pixels_;
 
-            uint32              rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
-            uint32              rowMax_{0};
-            uint32              colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
-            uint32              colMax_{0};
+            uint32                      rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            uint32                      rowMax_{0};
+            uint32                      colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
+            uint32                      colMax_{0};
 
-            dtype               intensity_{0};
-            dtype               peakPixelIntensity_{0};
+            dtype                       intensity_{0};
+            dtype                       peakPixelIntensity_{0};
 
-            double              eod_{1.0};
+            double                      eod_{1.0};
 
         public:
             //=============================================================================
@@ -299,7 +299,7 @@ namespace NC
             /// @return 
             ///              bool
             ///
-            bool operator==(const Cluster& rhs) const
+            bool operator==(const Cluster<dtype>& rhs) const
             {
                 if (pixels_.size() != rhs.pixels_.size())
                 {
@@ -327,7 +327,7 @@ namespace NC
             /// @return 
             ///              bool
             ///
-            bool operator!=(const Cluster& rhs) const
+            bool operator!=(const Cluster<dtype>& rhs) const
             {
                 return !(*this == rhs);
             }
@@ -342,7 +342,7 @@ namespace NC
             /// @return 
             ///              Pixel
             ///
-            const Pixel& operator[](uint32 inIndex) const
+            const Pixel<dtype>& operator[](uint32 inIndex) const
             {
                 return pixels_[inIndex];
             }
@@ -357,7 +357,7 @@ namespace NC
             /// @return 
             ///              Pixel
             ///
-            const Pixel& at(uint32 inIndex) const
+            const Pixel<dtype>& at(uint32 inIndex) const
             {
                 if (inIndex >= pixels_.size())
                 {
@@ -529,7 +529,7 @@ namespace NC
             /// @param 
             ///              inPixel
             ///
-            void addPixel(const Pixel& inPixel)
+            void addPixel(const Pixel<dtype>& inPixel)
             {
                 pixels_.push_back(inPixel);
                 intensity_ += inPixel.intensity();
@@ -600,28 +600,28 @@ namespace NC
             /// @return 
             ///              std::ostream
             ///
-            friend std::ostream& operator<<(std::ostream& inStream, const Cluster& inCluster)
+            friend std::ostream& operator<<(std::ostream& inStream, const Cluster<dtype>& inCluster)
             {
                 inStream << inCluster.str();
                 return inStream;
             }
         };
 
-        private:
         //=============================================================================
         // Class Description:
         ///              Clusters exceedance data into contiguous groups
+        template<typename dtype = double>
         class ClusterMaker
         {
         private:
             //==================================Attributes=================================
             const NdArray<bool>* const      xcds_;
             const NdArray<dtype>* const     intensities_;
-            std::vector<Pixel>              xcdsVec_;
+            std::vector<Pixel<dtype> >      xcdsVec_;
 
             Shape                           shape_;
 
-            std::vector<Cluster>            clusters_;
+            std::vector<Cluster<dtype> >    clusters_;
 
             //=============================================================================
             // Description:
@@ -633,7 +633,7 @@ namespace NC
             /// @return 
             ///              returns a pixel object clipped to the image boundaries
             ///
-            Pixel makePixel(int32 inRow, int32 inCol)
+            Pixel<dtype> makePixel(int32 inRow, int32 inCol)
             {
                 // Make sure that on the edges after i've added or subtracted 1 from the row and col that 
                 // i haven't gone over the edge
@@ -641,7 +641,7 @@ namespace NC
                 uint32 col = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols - 1);
                 dtype intensity = intensities_->operator()(row, col);
 
-                return Pixel(row, col, intensity);
+                return Pixel<dtype>(row, col, intensity);
             }
 
             //=============================================================================
@@ -653,7 +653,7 @@ namespace NC
             /// @return 
             ///              None
             ///
-            void findNeighbors(const Pixel& inPixel, std::set<Pixel>& outNeighbors)
+            void findNeighbors(const Pixel<dtype>& inPixel, std::set<Pixel<dtype> >& outNeighbors)
             {
                 // using a set will auto take care of adding duplicate pixels on the edges
 
@@ -681,9 +681,9 @@ namespace NC
             /// @return 
             ///              vector of non exceedance neighboring pixels
             ///
-            void findNeighborNotXcds(const Pixel& inPixel, std::vector<Pixel>& outNeighbors)
+            void findNeighborNotXcds(const Pixel<dtype>& inPixel, std::vector<Pixel<dtype> >& outNeighbors)
             {
-                std::set<Pixel> neighbors;
+                std::set<Pixel<dtype> > neighbors;
                 findNeighbors(inPixel, neighbors);
 
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
@@ -706,11 +706,11 @@ namespace NC
             /// @return 
             ///              vector of neighboring pixel indices
             ///
-            void findNeighborXcds(const Pixel& inPixel, std::vector<uint32>& outNeighbors)
+            void findNeighborXcds(const Pixel<dtype>& inPixel, std::vector<uint32>& outNeighbors)
             {
-                std::set<Pixel> neighbors;
+                std::set<Pixel<dtype> > neighbors;
                 findNeighbors(inPixel, neighbors);
-                std::vector<Pixel> neighborXcds;
+                std::vector<Pixel<dtype> > neighborXcds;
 
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
                 for (auto pixelIter = neighbors.begin(); pixelIter != neighbors.end(); ++pixelIter)
@@ -739,12 +739,12 @@ namespace NC
 
                 for (uint32 xcdIdx = 0; xcdIdx < xcdsVec_.size(); ++xcdIdx)
                 {
-                    Pixel& currentPixel = xcdsVec_[xcdIdx];
+                    Pixel<dtype>& currentPixel = xcdsVec_[xcdIdx];
 
                     // not already visited
                     if (currentPixel.clusterId() == -1)
                     {
-                        Cluster newCluster(clusterId);    // a new cluster
+                        Cluster<dtype> newCluster(clusterId);    // a new cluster
                         currentPixel.setClusterId(clusterId);
                         newCluster.addPixel(currentPixel);  // assign pixel to cluster
 
@@ -761,7 +761,7 @@ namespace NC
                         // loop through the neighbors
                         for (uint32 neighborsIdx = 0; neighborsIdx < neighborIds.size(); ++neighborsIdx)
                         {
-                            Pixel& currentNeighborPixel = xcdsVec_[neighborIds[neighborsIdx]];
+                            Pixel<dtype>& currentNeighborPixel = xcdsVec_[neighborIds[neighborsIdx]];
 
                             // go to neighbors
                             std::vector<uint32> newNeighborIds;
@@ -801,12 +801,12 @@ namespace NC
                 for (auto clusterIter = clusters_.begin(); clusterIter < clusters_.end(); ++clusterIter)
                 {
                     // loop through the pixels of the cluster 
-                    Cluster& theCluster = *clusterIter;
+                    Cluster<dtype>& theCluster = *clusterIter;
                     uint32 clusterSize = static_cast<uint32>(theCluster.size());
                     for (uint32 iPixel = 0; iPixel < clusterSize; ++iPixel)
                     {
-                        const Pixel& thePixel = theCluster[iPixel];
-                        std::vector<Pixel> neighborsNotXcds;
+                        const Pixel<dtype>& thePixel = theCluster[iPixel];
+                        std::vector<Pixel<dtype> > neighborsNotXcds;
                         findNeighborNotXcds(thePixel, neighborsNotXcds);
 
                         // loop through the neighbors and if they haven't already been added to the cluster, add them
@@ -823,7 +823,7 @@ namespace NC
 
         public:
             //================================Typedefs=====================================
-            typedef typename std::vector<Cluster>::const_iterator   const_iterator;
+            typedef typename std::vector<Cluster<dtype> >::const_iterator   const_iterator;
 
             //=============================================================================
             // Description:
@@ -854,7 +854,7 @@ namespace NC
                     {
                         if (xcds_->operator()(row, col))
                         {
-                            Pixel thePixel(row, col, intensities_->operator()(row, col));
+                            Pixel<dtype> thePixel(row, col, intensities_->operator()(row, col));
                             xcdsVec_.push_back(thePixel);
                         }
                     }
@@ -890,7 +890,7 @@ namespace NC
             /// @return 
             ///              Cluster
             ///
-            const Cluster& operator[](uint32 inIndex) const
+            const Cluster<dtype>& operator[](uint32 inIndex) const
             {
                 return clusters_[inIndex];
             }
@@ -905,7 +905,7 @@ namespace NC
             /// @return 
             ///              Cluster
             ///
-            const Cluster& at(uint32 inIndex) const
+            const Cluster<dtype>& at(uint32 inIndex) const
             {
                 if (inIndex >= clusters_.size())
                 {
@@ -939,10 +939,10 @@ namespace NC
             }
         };
 
-        public:
         //================================================================================
         // Class Description:
         ///						holds the information for a centroid
+        template<typename dtype = double>
         class Centroid
         {
             //==================================Attributes================================///
@@ -960,7 +960,7 @@ namespace NC
             /// @param 
             ///              inCluster
             ///
-            void centerOfMass(const Cluster& inCluster)
+            void centerOfMass(const Cluster<dtype>& inCluster)
             {
                 Shape clusterShape(inCluster.height(), inCluster.width());
                 NdArray<dtype> clusterArray(clusterShape);
@@ -1020,7 +1020,7 @@ namespace NC
             /// 
             /// @param               inCluster
             ///
-            Centroid(const Cluster& inCluster) :
+            Centroid(const Cluster<dtype>& inCluster) :
                 intensity_(inCluster.intensity()),
                 eod_(inCluster.eod())
             {
@@ -1110,7 +1110,7 @@ namespace NC
             /// @return 
             ///              bool
             ///
-            bool operator==(const Centroid& rhs) const
+            bool operator==(const Centroid<dtype>& rhs) const
             {
                 return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ && eod_ == rhs.eod_;
             }
@@ -1125,7 +1125,7 @@ namespace NC
             /// @return 
             ///              bool
             ///
-            bool operator!=(const Centroid& rhs) const
+            bool operator!=(const Centroid<dtype>& rhs) const
             {
                 return !(*this == rhs);
             }
@@ -1143,7 +1143,7 @@ namespace NC
             /// @return 
             ///              bool
             ///
-            bool operator<(const Centroid& rhs) const
+            bool operator<(const Centroid<dtype>& rhs) const
             {
                 return intensity_ < rhs.intensity_ ? false : true;
             }
@@ -1157,7 +1157,7 @@ namespace NC
             /// @return 
             ///              std::ostream
             ///
-            friend std::ostream& operator<<(std::ostream& inStream, const Centroid& inCentriod)
+            friend std::ostream& operator<<(std::ostream& inStream, const Centroid<dtype>& inCentriod)
             {
                 inStream << inCentriod.str();
                 return inStream;
@@ -1173,7 +1173,8 @@ namespace NC
         /// @return
         ///				NdArray of booleans of pixels that exceeded the threshold
         ///
-        static NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold)
+        template<typename dtype = double>
+        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold)
         {
             return std::move(inImageArray > inThreshold);
         }
@@ -1186,13 +1187,14 @@ namespace NC
         /// @return
         ///				std::vector<Centroid>
         ///
-        static std::vector<Centroid> centroidClusters(const std::vector<Cluster>& inClusters)
+        template<typename dtype = double>
+        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters)
         {
-            std::vector<Centroid> centroids(inClusters.size());
+            std::vector<Centroid<dtype> > centroids(inClusters.size());
 
             for (uint32 i = 0; i < inClusters.size(); ++i)
             {
-                centroids[i] = std::move(Centroid(inClusters[i]));
+                centroids[i] = std::move(Centroid<dtype>(inClusters[i]));
             }
 
             return std::move(centroids);
@@ -1208,10 +1210,11 @@ namespace NC
         /// @return
         ///				std::vector<Cluster>
         ///
-        static std::vector<Cluster> clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
+        template<typename dtype = double>
+        std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
         {
-            ClusterMaker clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
-            return std::move(std::vector<Cluster>(clusterMaker.begin(), clusterMaker.end()));
+            ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
+            return std::move(std::vector<Cluster<dtype> >(clusterMaker.begin(), clusterMaker.end()));
         }
 
         //============================================================================
@@ -1226,7 +1229,8 @@ namespace NC
         /// @return
         ///				std::vector<Centroid>
         ///
-        static std::vector<Centroid> generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
+        template<typename dtype = double>
+        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
         {
             uint8 borderWidthPre = 0;
             uint8 borderWidthPost = 0;
@@ -1256,7 +1260,7 @@ namespace NC
             }
 
             // cluster the exceedances
-            std::vector<Cluster> clusters = clusterPixels(inImageArray, xcds, borderWidthPost);
+            std::vector<Cluster<dtype> > clusters = clusterPixels(inImageArray, xcds, borderWidthPost);
 
             // centroid the clusters
             return std::move(centroidClusters(clusters));
@@ -1273,7 +1277,8 @@ namespace NC
         /// @return
         ///				dtype
         ///
-        static dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
+        template<typename dtype = double>
+        dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
         {
             if (inRate < 0 || inRate > 1)
             {
@@ -1372,7 +1377,7 @@ namespace NC
         /// @return
         ///				NdArray<bool>
         ///
-        static NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth)
+        NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth)
         {
             // not the most efficient way to do things, but the easist...
             NdArray<bool> xcds(inExceedances);
@@ -1402,5 +1407,5 @@ namespace NC
 
             return std::move(xcds);
         }
-    };
+    }
 }

@@ -36,7 +36,7 @@ def doTest():
     cScene = NumCpp.NdArray(imageSize)
     cScene.setArray(scene)
 
-    threshold = NumCpp.ImageProcessing.generateThreshold(cScene, thresholdRate)
+    threshold = NumCpp.generateThreshold(cScene, thresholdRate)
     print(f'Scene Min = {scene.min()}')
     print(f'Scene Max = {scene.max()}')
     print(f'Threshold = {threshold}')
@@ -44,7 +44,7 @@ def doTest():
     print(f'Actual Rate(Threshold) = {np.count_nonzero(scene > threshold) / scene.size}')
     print(f'Actual Rate(Threshold - 1) = {np.count_nonzero(scene > threshold - 1) / scene.size}')
 
-    centroids = list(NumCpp.ImageProcessing.generateCentroids(cScene, thresholdRate, 'pre', borderWidth))
+    centroids = list(NumCpp.generateCentroids(cScene, thresholdRate, 'pre', borderWidth))
     print(f'Window Pre Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
 
     # plt the results
@@ -77,7 +77,7 @@ def doTest():
     plt.ylabel('EOD (%)')
     plt.show()
 
-    centroids = list(NumCpp.ImageProcessing.generateCentroids(cScene, thresholdRate, 'post', borderWidth))
+    centroids = list(NumCpp.generateCentroids(cScene, thresholdRate, 'post', borderWidth))
     print(f'Window Post Number of Centroids (Border = {borderWidth}) = {len(centroids)}')
 
     # plt the results

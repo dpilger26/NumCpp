@@ -4,6 +4,7 @@ var searchData=
   ['coordinates',['Coordinates',['../namespace_n_c_1_1_coordinates.html',1,'NC']]],
   ['fft',['FFT',['../namespace_n_c_1_1_f_f_t.html',1,'NC']]],
   ['filter',['Filter',['../namespace_n_c_1_1_filter.html',1,'NC']]],
+  ['imageprocessing',['ImageProcessing',['../namespace_n_c_1_1_image_processing.html',1,'NC']]],
   ['numcpp_20documentation',['NumCpp Documentation',['../index.html',1,'']]],
   ['linalg',['Linalg',['../namespace_n_c_1_1_linalg.html',1,'NC']]],
   ['nan',['nan',['../namespace_n_c_1_1_constants.html#a6c318329162c036f1101da9022f6ac1b',1,'NC::Constants']]],

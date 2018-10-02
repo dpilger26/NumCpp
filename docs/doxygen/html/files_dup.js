@@ -11,12 +11,7 @@ var files_dup =
     ] ],
     [ "FFT.hpp", "_f_f_t_8hpp.html", null ],
     [ "Filter.hpp", "_filter_8hpp.html", "_filter_8hpp" ],
-    [ "ImageProcessing.hpp", "_image_processing_8hpp.html", [
-      [ "ImageProcessing", "class_n_c_1_1_image_processing.html", "class_n_c_1_1_image_processing" ],
-      [ "Centroid", "class_n_c_1_1_image_processing_1_1_centroid.html", "class_n_c_1_1_image_processing_1_1_centroid" ],
-      [ "Cluster", "class_n_c_1_1_image_processing_1_1_cluster.html", "class_n_c_1_1_image_processing_1_1_cluster" ],
-      [ "Pixel", "class_n_c_1_1_image_processing_1_1_pixel.html", "class_n_c_1_1_image_processing_1_1_pixel" ]
-    ] ],
+    [ "ImageProcessing.hpp", "_image_processing_8hpp.html", "_image_processing_8hpp" ],
     [ "Linalg.hpp", "_linalg_8hpp.html", "_linalg_8hpp" ],
     [ "Methods.hpp", "_methods_8hpp.html", [
       [ "Methods", "class_n_c_1_1_methods.html", "class_n_c_1_1_methods" ]

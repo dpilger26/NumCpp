@@ -3240,9 +3240,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("uniformFilter1d", &Filter::uniformFilter1d<double>);
 
     // Image Processing
-    typedef ImageProcessing<double> ImageProcessingDouble;
-
-    typedef ImageProcessingDouble::Pixel PixelDouble;
+    typedef ImageProcessing::Pixel<double> PixelDouble;
     bp::class_<PixelDouble>
         ("Pixel", bp::init<>())
         .def(bp::init<uint32, uint32, double>())
@@ -3258,7 +3256,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__str__", &PixelDouble::str)
         .def("print", &PixelDouble::print);
 
-    typedef ImageProcessingDouble::Cluster ClusterDouble;
+    typedef ImageProcessing::Cluster<double> ClusterDouble;
     bp::class_<ClusterDouble>
         ("Cluster", bp::init<uint32>())
         .def(bp::init<ClusterDouble>())
@@ -3279,7 +3277,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__str__", &ClusterDouble::str)
         .def("print", &ClusterDouble::print);
 
-    typedef ImageProcessingDouble::Centroid CentroidDouble;
+    typedef ImageProcessing::Centroid<double> CentroidDouble;
     bp::class_<CentroidDouble>
         ("Centroid", bp::init<>())
         .def(bp::init<ClusterDouble>())
@@ -3300,14 +3298,12 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<std::vector<CentroidDouble> >("centroid_vector")
         .def(bp::vector_indexing_suite<std::vector<CentroidDouble> >());
 
-    bp::class_<ImageProcessingDouble>
-        ("ImageProcessing", bp::init<>())
-        .def("applyThreshold", &ImageProcessingDouble::applyThreshold).staticmethod("applyThreshold")
-        .def("centroidClusters", &ImageProcessingDouble::centroidClusters).staticmethod("centroidClusters")
-        .def("clusterPixels", &ImageProcessingDouble::clusterPixels).staticmethod("clusterPixels")
-        .def("generateThreshold", &ImageProcessingDouble::generateThreshold).staticmethod("generateThreshold")
-        .def("generateCentroids", &ImageProcessingDouble::generateCentroids).staticmethod("generateCentroids")
-        .def("windowExceedances", &ImageProcessingDouble::windowExceedances).staticmethod("windowExceedances");
+    bp::def("applyThreshold", &ImageProcessing::applyThreshold<double>);
+    bp::def("centroidClusters", &ImageProcessing::centroidClusters<double>);
+    bp::def("clusterPixels", &ImageProcessing::clusterPixels<double>);
+    bp::def("generateThreshold", &ImageProcessing::generateThreshold<double>);
+    bp::def("generateCentroids", &ImageProcessing::generateCentroids<double>);
+    bp::def("windowExceedances", &ImageProcessing::windowExceedances);
 
     // Coordinates.hpp
     typedef Coordinates::RA<double> RaDouble;
