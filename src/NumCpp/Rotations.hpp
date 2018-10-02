@@ -106,7 +106,7 @@ namespace NC
                     throw std::invalid_argument("ERROR: Rotations:::Quaternion::Quaternion(NdArray): input array must be of size = 4;");
                 }
 
-                double norm = std::sqrt(Methods<double>::square(inArray).sum().item());
+                double norm = std::sqrt(square(inArray).sum<double>().item());
                 data_[0] = inArray[0] / norm;
                 data_[1] = inArray[1] / norm;
                 data_[2] = inArray[2] / norm;
@@ -131,7 +131,7 @@ namespace NC
                 }
 
                 // normalize the input vector
-                NdArray<double> normAxis = inAxis.astype() / inAxis.norm().item();
+                NdArray<double> normAxis = inAxis.astype<double>() / inAxis.norm<double>().item();
 
                 double i = static_cast<double>(normAxis[0]) * std::sin(inAngle / 2.0);
                 double j = static_cast<double>(normAxis[1]) * std::sin(inAngle / 2.0);
@@ -283,7 +283,7 @@ namespace NC
                     throw std::invalid_argument("ERROR: Rotations::Quaternion::fromDcm: input direction cosine matrix must have shape = (3,3).");
                 }
 
-                NdArray<double> dcm = inDcm.astype();
+                NdArray<double> dcm = inDcm.astype<double>();
 
                 NdArray<double> checks(1, 4);
                 checks[0] = dcm(0, 0) + dcm(1, 1) + dcm(2, 2);
@@ -291,7 +291,7 @@ namespace NC
                 checks[2] = dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
                 checks[3] = dcm(0, 0) + dcm(1, 1) - dcm(2, 2);
 
-                uint32 maxIdx = Methods<double>::argmax(checks).item();
+                uint32 maxIdx = argmax(checks).item();
 
                 double q0 = 0;
                 double q1 = 0;
@@ -457,7 +457,7 @@ namespace NC
                     return inQuat2;
                 }
 
-                double dotProduct = Methods<double>::dot<double>(inQuat1.toNdArray(), inQuat2.toNdArray()).item();
+                double dotProduct = dot<double, double>(inQuat1.toNdArray(), inQuat2.toNdArray()).item();
 
                 // If the dot product is negative, the quaternions
                 // have opposite handed-ness and slerp won't take
@@ -476,7 +476,7 @@ namespace NC
                     return nlerp(inQuat1, inQuat2, inPercent);
                 }
 
-                dotProduct = Methods<double>::clip(dotProduct, -1.0, 1.0);	// Robustness: Stay within domain of acos()
+                dotProduct = clip(dotProduct, -1.0, 1.0);	// Robustness: Stay within domain of acos()
                 double theta0 = std::acos(dotProduct);		// angle between input vectors
                 double theta = theta0 * inPercent;			// angle between v0 and result
 
@@ -745,7 +745,7 @@ namespace NC
                     throw std::invalid_argument("ERROR: Rotations::Quaternion::operator*: input vector must be a cartesion vector of length = 3.");
                 }
 
-                return toDCM().dot(inVec.astype());
+                return toDCM().dot<double>(inVec.astype<double>());
             }
 
             //============================================================================
@@ -878,8 +878,8 @@ namespace NC
             {
                 Shape inShape = inArray.shape();
                 if (!(inShape.rows == inShape.cols &&
-                    Methods<dtype>::round(Linalg::det<dtype>(inArray), 2) == 1 &&
-                    Methods<dtype>::round(Linalg::det<dtype>(inArray.transpose()), 2) == 1))
+                    round(Linalg::det<dtype>(inArray), 2) == 1 &&
+                    round(Linalg::det<dtype>(inArray.transpose()), 2) == 1))
                 {
                     return false;
                 }

@@ -167,12 +167,12 @@ namespace NC
             }
 
             // now fill in the corners
-            NdArray<dtype> lowerLeft = Methods<dtype>::flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(0, inBoundarySize)));
-            NdArray<dtype> lowerRight = Methods<dtype>::flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+            NdArray<dtype> lowerLeft = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(0, inBoundarySize)));
+            NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
             uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
-            NdArray<dtype> upperLeft = Methods<dtype>::flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize)));
-            NdArray<dtype> upperRight = Methods<dtype>::flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+            NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize)));
+            NdArray<dtype> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
             outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), lowerLeft);
             outArray.put(Slice(0, inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols), lowerRight);
@@ -200,10 +200,10 @@ namespace NC
             outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
 
             // left
-            outArray.put(Slice(0, inBoundarySize), Methods<dtype>::fliplr(inImage[Slice(0, inBoundarySize)]));
+            outArray.put(Slice(0, inBoundarySize), fliplr(inImage[Slice(0, inBoundarySize)]));
 
             // right
-            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), Methods<dtype>::fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize), inImage.size())]));
+            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize), inImage.size())]));
 
             return std::move(outArray);
         }
@@ -388,12 +388,12 @@ namespace NC
             }
 
             // now fill in the corners
-            NdArray<dtype> lowerLeft = Methods<dtype>::flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1), Slice(0, inBoundarySize)));
-            NdArray<dtype> lowerRight = Methods<dtype>::flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+            NdArray<dtype> lowerLeft = flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1), Slice(0, inBoundarySize)));
+            NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1), Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
             uint32 upperRowStart = outShape.rows - 2 * inBoundarySize - 1;
-            NdArray<dtype> upperLeft = Methods<dtype>::flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize)));
-            NdArray<dtype> upperRight = Methods<dtype>::flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
+            NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(0, inBoundarySize)));
+            NdArray<dtype> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
             outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), lowerLeft);
             outArray.put(Slice(0, inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols), lowerRight);
@@ -421,10 +421,10 @@ namespace NC
             outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
 
             // left
-            outArray.put(Slice(0, inBoundarySize), Methods<dtype>::fliplr(inImage[Slice(1, inBoundarySize + 1)]));
+            outArray.put(Slice(0, inBoundarySize), fliplr(inImage[Slice(1, inBoundarySize + 1)]));
 
             // right
-            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), Methods<dtype>::fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize) - 1, -1)]));
+            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize) - 1, -1)]));
 
             return std::move(outArray);
         }
@@ -720,7 +720,7 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
-            NdArray<dtype> weightsFlat = Methods<dtype>::rot90(inWeights, 2).flatten();
+            NdArray<dtype> weightsFlat = rot90(inWeights, 2).flatten();
             Shape inShape = inImageArray.shape();
             uint32 boundarySize = inSize / 2; // integer division
             uint32 endPointRow = boundarySize + inShape.rows;
@@ -733,7 +733,7 @@ namespace NC
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1)).flatten();
 
-                    output(row - boundarySize, col - boundarySize) = Methods<dtype>::dot(window, weightsFlat).item();
+                    output(row - boundarySize, col - boundarySize) = dot<dtype, dtype>(window, weightsFlat).item();
                 }
             }
 
@@ -761,7 +761,7 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
-            NdArray<dtype> weightsFlat = Methods<dtype>::fliplr(inWeights.flatten());
+            NdArray<dtype> weightsFlat = fliplr(inWeights.flatten());
 
             uint32 endPointRow = boundarySize + inImageArray.size();
 
@@ -769,7 +769,7 @@ namespace NC
             {
                 NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)].flatten();
 
-                output[i - boundarySize] = Methods<dtype>::dot(window, weightsFlat).item();
+                output[i - boundarySize] = dot<dtype, dtype>(window, weightsFlat).item();
             }
 
             return std::move(output);
@@ -818,14 +818,14 @@ namespace NC
             }
 
             // normalize the kernel
-            kernel /= kernel.sum().item();
+            kernel /= kernel.sum<double>().item();
 
             // perform the convolution
-            NdArray<dtype> output = convolve(inImageArray.template astype<double>(),
+            NdArray<dtype> output = convolve(inImageArray.astype<double>(),
                 kernelSize,
                 kernel,
                 inBoundaryType,
-                inConstantValue).template astype<dtype>();
+                inConstantValue).astype<dtype>();
 
             return std::move(output);
         }
@@ -870,13 +870,13 @@ namespace NC
             }
 
             // normalize the kernel
-            kernel /= kernel.sum().item();
+            kernel /= kernel.sum<double>().item();
 
             // perform the convolution
-            NdArray<dtype> output = convolve1d(inImageArray.template astype<double>(),
+            NdArray<dtype> output = convolve1d(inImageArray.astype<double>(),
                 kernel,
                 inBoundaryType,
-                inConstantValue).template astype<dtype>();
+                inConstantValue).astype<dtype>();
 
             return std::move(output);
         }
@@ -1130,7 +1130,7 @@ namespace NC
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1));
 
-                    output(row - boundarySize, col - boundarySize) = Methods<dtype>::percentile(window, inPercentile, Axis::NONE, "nearest").item();
+                    output(row - boundarySize, col - boundarySize) = percentile<dtype, dtype>(window, inPercentile, Axis::NONE, "nearest").item();
                 }
             }
 
@@ -1165,7 +1165,7 @@ namespace NC
             {
                 NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
 
-                output[i - boundarySize] = Methods<dtype>::percentile(window, inPercentile).item();
+                output[i - boundarySize] = percentile<dtype>(window, inPercentile).item();
             }
 
             return std::move(output);
@@ -1209,7 +1209,7 @@ namespace NC
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1));
 
-                    output(row - boundarySize, col - boundarySize) = Methods<dtype>::sort(window)[inRank];
+                    output(row - boundarySize, col - boundarySize) = sort(window)[inRank];
                 }
             }
 
@@ -1244,7 +1244,7 @@ namespace NC
             {
                 NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
 
-                output[i - boundarySize] = Methods<dtype>::sort(window)[inRank];
+                output[i - boundarySize] = sort(window)[inRank];
             }
 
             return std::move(output);

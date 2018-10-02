@@ -13,9 +13,7 @@ var files_dup =
     [ "Filter.hpp", "_filter_8hpp.html", "_filter_8hpp" ],
     [ "ImageProcessing.hpp", "_image_processing_8hpp.html", "_image_processing_8hpp" ],
     [ "Linalg.hpp", "_linalg_8hpp.html", "_linalg_8hpp" ],
-    [ "Methods.hpp", "_methods_8hpp.html", [
-      [ "Methods", "class_n_c_1_1_methods.html", "class_n_c_1_1_methods" ]
-    ] ],
+    [ "Methods.hpp", "_methods_8hpp.html", "_methods_8hpp" ],
     [ "NdArray.hpp", "_nd_array_8hpp.html", [
       [ "NdArray", "class_n_c_1_1_nd_array.html", "class_n_c_1_1_nd_array" ]
     ] ],

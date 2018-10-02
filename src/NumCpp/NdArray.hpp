@@ -3122,13 +3122,13 @@ namespace NC
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtypeOut> arrayCopy = astype<dtypeOut>();
+                    NdArray<dtypeOut> arrayCopy = this->astype<dtypeOut>();
                     NdArray<dtypeOut> returnArray = { std::accumulate(arrayCopy.cbegin(), arrayCopy.cend(), static_cast<dtypeOut>(0)) };
                     return std::move(returnArray);
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtypeOut> arrayCopy = astype<dtypeOut>();
+                    NdArray<dtypeOut> arrayCopy = this->astype<dtypeOut>();
                     NdArray<dtypeOut> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {

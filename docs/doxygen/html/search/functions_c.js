@@ -1,24 +1,24 @@
 var searchData=
 [
   ['makepositiveandvalidate',['makePositiveAndValidate',['../class_n_c_1_1_slice.html#a5408caf85f8641f62a1fba6bcbb4f84a',1,'NC::Slice']]],
-  ['matmul',['matmul',['../class_n_c_1_1_methods.html#a5b3c4ff2b8339129c12c5d87b47e0938',1,'NC::Methods']]],
+  ['matmul',['matmul',['../namespace_n_c.html#a43fff47e959c263c04a2f52a0927090e',1,'NC']]],
   ['matrix_5fpower',['matrix_power',['../namespace_n_c_1_1_linalg.html#a13d302328defbce33ba4cc2413ceb33b',1,'NC::Linalg']]],
-  ['max',['max',['../class_n_c_1_1_dtype_info.html#a69e6ccba7816762cda4c5f5b812de271',1,'NC::DtypeInfo::max()'],['../class_n_c_1_1_methods.html#a82ae6e8b1f9cb08cafb96b248518c468',1,'NC::Methods::max()'],['../class_n_c_1_1_nd_array.html#a27519f0580b9c5a9a752e21011d2dbd6',1,'NC::NdArray::max()']]],
-  ['maximum',['maximum',['../class_n_c_1_1_methods.html#a88172ec37733a1739b873c949c60b6db',1,'NC::Methods']]],
+  ['max',['max',['../class_n_c_1_1_dtype_info.html#a69e6ccba7816762cda4c5f5b812de271',1,'NC::DtypeInfo::max()'],['../class_n_c_1_1_nd_array.html#a27519f0580b9c5a9a752e21011d2dbd6',1,'NC::NdArray::max()'],['../namespace_n_c.html#a4d5332c70998f4f71407e10789dc4760',1,'NC::max()']]],
+  ['maximum',['maximum',['../namespace_n_c.html#a80b4fbb120e6b04802bbdc7c412f02e6',1,'NC']]],
   ['maximumfilter',['maximumFilter',['../namespace_n_c_1_1_filter.html#a4684695d33d43f08679c37d0c099b3f6',1,'NC::Filter']]],
   ['maximumfilter1d',['maximumFilter1d',['../namespace_n_c_1_1_filter.html#ab7f3b77f540ab0794a534c43c02d1aa8',1,'NC::Filter']]],
-  ['mean',['mean',['../class_n_c_1_1_methods.html#a28c831268843b973a1bb5d2fee240d3e',1,'NC::Methods::mean()'],['../class_n_c_1_1_nd_array.html#a05108aa4221e38b877097a46efbe5178',1,'NC::NdArray::mean()']]],
-  ['median',['median',['../class_n_c_1_1_methods.html#aa2ca00f89b464c5730b9fb87d09ffc8d',1,'NC::Methods::median()'],['../class_n_c_1_1_nd_array.html#a218c92c1dba11240ced14adb302880bc',1,'NC::NdArray::median()']]],
+  ['mean',['mean',['../class_n_c_1_1_nd_array.html#a05108aa4221e38b877097a46efbe5178',1,'NC::NdArray::mean()'],['../namespace_n_c.html#a3ba124fd2b188e20cf771cbd85e6b681',1,'NC::mean()']]],
+  ['median',['median',['../class_n_c_1_1_nd_array.html#a218c92c1dba11240ced14adb302880bc',1,'NC::NdArray::median()'],['../namespace_n_c.html#a4c42fb402e156def6effd90cb5ae650e',1,'NC::median()']]],
   ['medianfilter',['medianFilter',['../namespace_n_c_1_1_filter.html#a78959d51d3a07ad97326ec3811c1be2d',1,'NC::Filter']]],
   ['medianfilter1d',['medianFilter1d',['../namespace_n_c_1_1_filter.html#a49b3b7d95bd213c5f5059d33ff83e9d7',1,'NC::Filter']]],
-  ['min',['min',['../class_n_c_1_1_dtype_info.html#a646f3f1684ab1b67c227005924589048',1,'NC::DtypeInfo::min()'],['../class_n_c_1_1_methods.html#a8a76655593e2b620dd1f4d9a049405ed',1,'NC::Methods::min()'],['../class_n_c_1_1_nd_array.html#a6b68f61a525ac71754d90f1285cb31d1',1,'NC::NdArray::min()']]],
-  ['minimum',['minimum',['../class_n_c_1_1_methods.html#a5ea97dbbe01a68ffd78e00ada9c4a57e',1,'NC::Methods']]],
+  ['min',['min',['../class_n_c_1_1_dtype_info.html#a646f3f1684ab1b67c227005924589048',1,'NC::DtypeInfo::min()'],['../class_n_c_1_1_nd_array.html#a6b68f61a525ac71754d90f1285cb31d1',1,'NC::NdArray::min()'],['../namespace_n_c.html#a45b7462c9a29e1431f48151af79e6e0d',1,'NC::min()']]],
+  ['minimum',['minimum',['../namespace_n_c.html#a9d0d36046b35b3cb8d6ee879f8ae75ad',1,'NC']]],
   ['minimumfilter',['minimumFilter',['../namespace_n_c_1_1_filter.html#ae5b0793401bb473d30cf1311fb7a8b64',1,'NC::Filter']]],
   ['minumumfilter1d',['minumumFilter1d',['../namespace_n_c_1_1_filter.html#acc86c258ede6d2ebf57cba2fecbcd18d',1,'NC::Filter']]],
   ['minutes',['minutes',['../class_n_c_1_1_coordinates_1_1_r_a.html#a1d6d2f8cf62141ce74575d150930556c',1,'NC::Coordinates::RA::minutes()'],['../class_n_c_1_1_coordinates_1_1_dec.html#a35da9c8b067b39d35d5cf3b5b635edf4',1,'NC::Coordinates::Dec::minutes()']]],
   ['mirrorboundary',['mirrorBoundary',['../namespace_n_c_1_1_filter.html#a82dc3c9f8ae0d4c8cf6c2f6e6a110acf',1,'NC::Filter']]],
   ['mirrorboundary1d',['mirrorBoundary1d',['../namespace_n_c_1_1_filter.html#a0d7de24f7bbef6260e3a88e8cdeac20f',1,'NC::Filter']]],
-  ['mod',['mod',['../class_n_c_1_1_methods.html#a7e251983fb63455db496b1daabfb2ad8',1,'NC::Methods']]],
+  ['mod',['mod',['../namespace_n_c.html#ac08e28e146676e14ee30fa5fe97f81b9',1,'NC']]],
   ['multi_5fdot',['multi_dot',['../namespace_n_c_1_1_linalg.html#a971c8d233fa6dfa5bd39fc580d8088b3',1,'NC::Linalg']]],
-  ['multiply',['multiply',['../class_n_c_1_1_methods.html#ac6a66ee08392d25f93d593e9b243a8a4',1,'NC::Methods']]]
+  ['multiply',['multiply',['../namespace_n_c.html#ac4711d6b45206b06ef2f148c66ab2802',1,'NC']]]
 ];

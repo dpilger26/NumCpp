@@ -300,32 +300,32 @@ namespace NC
 
             if (inPower == 0)
             {
-                return std::move(Methods<dtypeOut>::identity(inShape.rows));
+                return std::move(identity(inShape.rows));
             }
             else if (inPower == 1)
             {
-                return std::move(inArray.template astype<dtypeOut>());
+                return std::move(inArray.astype<dtypeOut>());
             }
             else if (inPower == -1)
             {
-                return std::move(inv(inArray).template astype<dtypeOut>());
+                return std::move(inv(inArray).astype<dtypeOut>());
             }
             else if (inPower > 1)
             {
-                NdArray<dtypeOut> returnArray = Methods<dtype>::template dot<dtypeOut>(inArray, inArray);
+                NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(inArray, inArray);
                 for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = std::move(Methods<dtypeOut>::template dot<dtypeOut>(returnArray, inArray.template astype<dtypeOut>()));
+                    returnArray = std::move(dot<dtype, dtypeOut>(returnArray, inArray.astype<dtypeOut>()));
                 }
                 return std::move(returnArray);
             }
             else
             {
                 NdArray<double> inverse = inv(inArray);
-                NdArray<double> returnArray = Methods<double>::dot<double>(inverse, inverse);
+                NdArray<double> returnArray = dot<double, double>(inverse, inverse);
                 for (int16 i = 2; i < std::abs(inPower); ++i)
                 {
-                    returnArray = std::move(Methods<double>::dot<double>(returnArray, inverse));
+                    returnArray = std::move(dot<double, double>(returnArray, inverse));
                 }
                 return std::move(returnArray.astype<dtypeOut>());
             }
@@ -355,14 +355,14 @@ namespace NC
             }
             else if (inList.size() == 1)
             {
-                return std::move(iter->template astype<dtypeOut>());
+                return std::move(iter->astype<dtypeOut>());
             }
 
-            NdArray<dtypeOut> returnArray = Methods<dtype>::template dot<dtypeOut>(*iter, *(iter + 1));
+            NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(*iter, *(iter + 1));
             iter += 2;
             for (; iter < inList.end(); ++iter)
             {
-                returnArray = std::move(Methods<dtypeOut>::template dot<dtypeOut>(returnArray, iter->template astype<dtypeOut>()));
+                returnArray = std::move(dot<dtype, dtypeOut>(returnArray, iter->astype<dtypeOut>()));
             }
 
             return std::move(returnArray);
@@ -386,7 +386,7 @@ namespace NC
             outU = std::move(svdSolver.u());
             outVt = std::move(svdSolver.v());
 
-            NdArray<double> s = Methods<double>::diagflat(svdSolver.s());
+            NdArray<double> s = diagflat(svdSolver.s());
             outS = std::move(s);
         }
 

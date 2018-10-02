@@ -74,7 +74,7 @@ namespace NC
             ///
             RA(dtype inDegrees) :
                 degrees_(inDegrees),
-                radians_(static_cast<dtype>(Methods<dtype>::deg2rad(inDegrees)))
+                radians_(static_cast<dtype>(deg2rad(inDegrees)))
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
 
@@ -104,7 +104,7 @@ namespace NC
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
 
                 degrees_ = static_cast<dtype>(static_cast<double>(hours_) * 15.0 + static_cast<double>(minutes_) / 4.0 + static_cast<double>(seconds_) / 240.0);
-                radians_ = static_cast<dtype>(Methods<dtype>::deg2rad(degrees_));
+                radians_ = static_cast<dtype>(deg2rad(degrees_));
             }
 
             //============================================================================
@@ -261,7 +261,7 @@ namespace NC
             ///
             Dec(dtype inDegrees) :
                 degrees_(inDegrees),
-                radians_(static_cast<dtype>(Methods<dtype>::deg2rad(inDegrees)))
+                radians_(static_cast<dtype>(deg2rad(inDegrees)))
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
 
@@ -298,7 +298,7 @@ namespace NC
                 degrees_ = static_cast<dtype>(static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + static_cast<double>(seconds_) / 3600.0);
                 degrees_ *= sign_ == Sign::NEGATIVE ? -1 : 1;
                 
-                radians_ = static_cast<dtype>(Methods<dtype>::deg2rad(degrees_));
+                radians_ = static_cast<dtype>(deg2rad(degrees_));
             }
 
             //============================================================================
@@ -452,7 +452,7 @@ namespace NC
             ///
             void cartesianToPolar()
             {
-                dtype degreesRa = static_cast<dtype>(Methods<dtype>::rad2deg(std::atan2(y_, x_)));
+                dtype degreesRa = static_cast<dtype>(rad2deg(std::atan2(y_, x_)));
                 if (degreesRa < 0)
                 {
                     degreesRa += 360;
@@ -460,7 +460,7 @@ namespace NC
                 ra_ = RA<dtype>(degreesRa);
 
                 double r = std::sqrt(static_cast<double>(Utils::sqr(x_)) + static_cast<double>(Utils::sqr(y_)) + static_cast<double>(Utils::sqr(z_)));
-                dtype degreesDec = static_cast<dtype>(Methods<double>::rad2deg(std::asin(static_cast<double>(z_) / r)));
+                dtype degreesDec = static_cast<dtype>(rad2deg(std::asin(static_cast<double>(z_) / r)));
                 dec_ = Dec<dtype>(degreesDec);
             }
 
@@ -469,8 +469,8 @@ namespace NC
             ///
             void polarToCartesian()
             {
-                double raRadians = Methods<double>::deg2rad(static_cast<double>(ra_.degrees()));
-                double decRadians = Methods<double>::deg2rad(static_cast<double>(dec_.degrees()));
+                double raRadians = deg2rad(static_cast<double>(ra_.degrees()));
+                double decRadians = deg2rad(static_cast<double>(dec_.degrees()));
 
                 x_ = static_cast<dtype>(std::cos(raRadians) * std::cos(decRadians));
                 y_ = static_cast<dtype>(std::sin(raRadians) * std::cos(decRadians));
@@ -651,7 +651,7 @@ namespace NC
             ///
             dtype degreeSeperation(const Coordinate<dtype>& inOtherCoordinate) const
             {
-                return static_cast<dtype>(Methods<dtype>::rad2deg(radianSeperation(inOtherCoordinate)));
+                return static_cast<dtype>(rad2deg(radianSeperation(inOtherCoordinate)));
             }
 
             //============================================================================
@@ -664,7 +664,7 @@ namespace NC
             ///
             dtype degreeSeperation(const NdArray<dtype>& inVector) const
             {
-                return static_cast<dtype>(Methods<dtype>::rad2deg(radianSeperation(inVector)));
+                return static_cast<dtype>(rad2deg(radianSeperation(inVector)));
             }
 
             //============================================================================
@@ -676,7 +676,7 @@ namespace NC
             ///
             dtype radianSeperation(const Coordinate<dtype>& inOtherCoordinate) const
             {
-                return static_cast<dtype>(std::acos(Methods<dtype>::dot(xyz(), inOtherCoordinate.xyz()).item()));
+                return static_cast<dtype>(std::acos(dot<dtype, double>(xyz(), inOtherCoordinate.xyz()).item()));
             }
 
             //============================================================================
@@ -694,7 +694,7 @@ namespace NC
                     throw std::invalid_argument("ERROR: NC::Coordinates::Coordinate::radianSeperation: input vector must be of length 3.");
                 }
 
-                return static_cast<dtype>(std::acos(Methods<dtype>::dot(xyz(), inVector.flatten()).item()));
+                return static_cast<dtype>(std::acos(dot(xyz(), inVector.flatten()).item()));
             }
 
             //============================================================================

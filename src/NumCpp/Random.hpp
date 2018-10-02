@@ -616,7 +616,7 @@ namespace NC
         ///
         static NdArray<dtype> permutation(dtype inValue)
         {
-            NdArray<dtype> returnArray = Methods<dtype>::arange(inValue);
+            NdArray<dtype> returnArray = arange(inValue);
             std::random_shuffle(returnArray.begin(), returnArray.end());
             return std::move(returnArray);
         }
