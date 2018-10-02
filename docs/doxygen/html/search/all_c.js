@@ -5,7 +5,6 @@ var searchData=
   ['left_5fshift',['left_shift',['../class_n_c_1_1_methods.html#a4b5f912f84c170c26a0a1cbfa41a7b88',1,'NC::Methods']]],
   ['less',['less',['../class_n_c_1_1_methods.html#a6bd3935c0deaa336081ef170ac30133b',1,'NC::Methods']]],
   ['less_5fequal',['less_equal',['../class_n_c_1_1_methods.html#a32653c1dcc4a0b6ec1143286e4727517',1,'NC::Methods']]],
-  ['linalg',['Linalg',['../class_n_c_1_1_linalg.html',1,'NC']]],
   ['linalg_2ehpp',['Linalg.hpp',['../_linalg_8hpp.html',1,'']]],
   ['linspace',['linspace',['../class_n_c_1_1_methods.html#a0bd1e6d6c354aef4c3ce6ef10354dd9e',1,'NC::Methods']]],
   ['little',['LITTLE',['../namespace_n_c.html#a4fd17afc98e4ce4216110d30e92ebb42a1314341b466dcb5e2c880b76414c49fe',1,'NC']]],
@@ -19,5 +18,5 @@ var searchData=
   ['logical_5for',['logical_or',['../class_n_c_1_1_methods.html#a3eebb498117679a179f2868eea6719b7',1,'NC::Methods']]],
   ['logical_5fxor',['logical_xor',['../class_n_c_1_1_methods.html#a5d0a69423759a02a544be5d2d1d91d4b',1,'NC::Methods']]],
   ['lognormal',['lognormal',['../class_n_c_1_1_random.html#a6c83ea7fbd891928e17b568a23ca0349',1,'NC::Random']]],
-  ['lstsq',['lstsq',['../class_n_c_1_1_linalg.html#af9d0591af1a4b4204e68702fedda0dae',1,'NC::Linalg']]]
+  ['lstsq',['lstsq',['../namespace_n_c_1_1_linalg.html#a341eba2b27e2f2ba0521eda6ca8a0160',1,'NC::Linalg']]]
 ];

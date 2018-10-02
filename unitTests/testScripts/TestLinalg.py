@@ -14,7 +14,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if round(NumCpp.Linalg.det(cArray)) == round(np.linalg.det(data).item()):
+    if round(NumCpp.det(cArray)) == round(np.linalg.det(data).item()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -25,7 +25,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if round(NumCpp.Linalg.det(cArray)) == round(np.linalg.det(data).item()):
+    if round(NumCpp.det(cArray)) == round(np.linalg.det(data).item()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -36,7 +36,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if round(NumCpp.Linalg.det(cArray)) == round(np.linalg.det(data).item()):
+    if round(NumCpp.det(cArray)) == round(np.linalg.det(data).item()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -46,7 +46,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).flatten()
     cArray.setArray(data)
-    if np.array_equal(NumCpp.Linalg.hat(cArray), hat(data)):
+    if np.array_equal(NumCpp.hat(cArray), hat(data)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -57,7 +57,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.Linalg.inv(cArray).getNumpyArray(), 9), np.round(np.linalg.inv(data), 9)):
+    if np.array_equal(np.round(NumCpp.inv(cArray).getNumpyArray(), 9), np.round(np.linalg.inv(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -68,7 +68,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(NumCpp.Linalg.matrix_power(cArray, 0).getNumpyArray(), np.linalg.matrix_power(data, 0)):
+    if np.array_equal(NumCpp.matrix_power(cArray, 0).getNumpyArray(), np.linalg.matrix_power(data, 0)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -79,7 +79,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(NumCpp.Linalg.matrix_power(cArray, 1).getNumpyArray(), np.linalg.matrix_power(data, 1)):
+    if np.array_equal(NumCpp.matrix_power(cArray, 1).getNumpyArray(), np.linalg.matrix_power(data, 1)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -90,7 +90,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.Linalg.matrix_power(cArray, -1).getNumpyArray(), 8), np.round(np.linalg.matrix_power(data, -1), 8)):
+    if np.array_equal(np.round(NumCpp.matrix_power(cArray, -1).getNumpyArray(), 8), np.round(np.linalg.matrix_power(data, -1), 8)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -102,7 +102,7 @@ def doTest():
     data = np.random.randint(1, 5, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
     power = np.random.randint(2, 9, [1,]).item()
-    if np.array_equal(NumCpp.Linalg.matrix_power(cArray, power).getNumpyArray(), np.linalg.matrix_power(data, power)):
+    if np.array_equal(NumCpp.matrix_power(cArray, power).getNumpyArray(), np.linalg.matrix_power(data, power)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -114,7 +114,7 @@ def doTest():
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     power = np.random.randint(2, 9, [1, ]).item() * -1
-    if np.array_equal(np.round(NumCpp.Linalg.matrix_power(cArray, power).getNumpyArray(), 9), np.round(np.linalg.matrix_power(data, power), 9)):
+    if np.array_equal(np.round(NumCpp.matrix_power(cArray, power).getNumpyArray(), 9), np.round(np.linalg.matrix_power(data, power), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -137,7 +137,7 @@ def doTest():
     cArray2.setArray(data2)
     cArray3.setArray(data3)
     cArray4.setArray(data4)
-    if np.array_equal(np.round(NumCpp.Linalg.multi_dot(cArray1, cArray2, cArray3, cArray4), 9), np.round(np.linalg.multi_dot([data1, data2, data3, data4]), 9)):
+    if np.array_equal(np.round(NumCpp.multi_dot(cArray1, cArray2, cArray3, cArray4), 9), np.round(np.linalg.multi_dot([data1, data2, data3, data4]), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -151,8 +151,8 @@ def doTest():
     bData = np.random.randint(1, 100, [shape.rows,])
     aArray.setArray(aData)
     bArray.setArray(bData)
-    x = NumCpp.Linalg.lstsq(aArray, bArray, 1e-12).getNumpyArray().flatten()
-    if np.array_equal(np.round(x, 9), np.round(np.linalg.lstsq(aData, bData)[0], 9)):
+    x = NumCpp.lstsq(aArray, bArray, 1e-12).getNumpyArray().flatten()
+    if np.array_equal(np.round(x, 9), np.round(np.linalg.lstsq(aData, bData, rcond=None)[0], 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -166,7 +166,7 @@ def doTest():
     uArray = NumCpp.NdArray()
     sArray = NumCpp.NdArray()
     vArray = NumCpp.NdArray()
-    NumCpp.Linalg.svd(cArray, uArray, sArray, vArray)
+    NumCpp.svd(cArray, uArray, sArray, vArray)
     data2 = np.dot(uArray.getNumpyArray(), np.dot(sArray.getNumpyArray(), vArray.getNumpyArray().T))
     if np.array_equal(np.round(data, 9), np.round(data2, 9)):
         print(colored('\tPASS', 'green'))

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['u',['u',['../class_n_c_1_1_linalg_1_1_s_v_d.html#a39d792bb57866283d25479da4792026d',1,'NC::Linalg::SVD']]],
   ['uniform',['uniform',['../class_n_c_1_1_random.html#a5480ee93f58b5ab1b135ceed2694e750',1,'NC::Random']]],
   ['uniformfilter',['uniformFilter',['../class_n_c_1_1_filters.html#add557336ee853cb48f64bbcd89f84bc7',1,'NC::Filters']]],
   ['uniformfilter1d',['uniformFilter1d',['../class_n_c_1_1_filters.html#aa6fdaf07c9c4d1a9f0876142a89f2b5b',1,'NC::Filters']]],

@@ -166,7 +166,7 @@ namespace NC
                 eyeTimesScalar(1, 1) = inQuat2.s();
                 eyeTimesScalar(2, 2) = inQuat2.s();
 
-                NdArray<double> epsilonHat = Linalg<double>::hat(inQuat2.i(), inQuat2.j(), inQuat2.k());
+                NdArray<double> epsilonHat = Linalg::hat<double>(inQuat2.i(), inQuat2.j(), inQuat2.k());
                 NdArray<double> q(4, 3);
                 q.put(Slice(0, 3), Slice(0, 3), eyeTimesScalar + epsilonHat);
                 q(3, 0) = -inQuat2.i();
@@ -878,8 +878,8 @@ namespace NC
             {
                 Shape inShape = inArray.shape();
                 if (!(inShape.rows == inShape.cols &&
-                    Methods<dtype>::round(Linalg<dtype>::det(inArray), 2) == 1 &&
-                    Methods<dtype>::round(Linalg<dtype>::det(inArray.transpose()), 2) == 1))
+                    Methods<dtype>::round(Linalg::det<dtype>(inArray), 2) == 1 &&
+                    Methods<dtype>::round(Linalg::det<dtype>(inArray.transpose()), 2) == 1))
                 {
                     return false;
                 }

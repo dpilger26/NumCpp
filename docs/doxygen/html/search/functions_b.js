@@ -16,5 +16,5 @@ var searchData=
   ['logical_5for',['logical_or',['../class_n_c_1_1_methods.html#a3eebb498117679a179f2868eea6719b7',1,'NC::Methods']]],
   ['logical_5fxor',['logical_xor',['../class_n_c_1_1_methods.html#a5d0a69423759a02a544be5d2d1d91d4b',1,'NC::Methods']]],
   ['lognormal',['lognormal',['../class_n_c_1_1_random.html#a6c83ea7fbd891928e17b568a23ca0349',1,'NC::Random']]],
-  ['lstsq',['lstsq',['../class_n_c_1_1_linalg.html#af9d0591af1a4b4204e68702fedda0dae',1,'NC::Linalg']]]
+  ['lstsq',['lstsq',['../namespace_n_c_1_1_linalg.html#a341eba2b27e2f2ba0521eda6ca8a0160',1,'NC::Linalg']]]
 ];

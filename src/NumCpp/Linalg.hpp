@@ -41,12 +41,8 @@
 
 namespace NC
 {
-    //================================Linalg Class=============================
-    /// Class for doing linear algebra operations
-    template<typename dtype = double>
-    class Linalg
+    namespace Linalg
     {
-    public:
         //============================================================================
         // Method Description: 
         ///						matrix determinant.
@@ -59,7 +55,8 @@ namespace NC
         /// @return
         ///				matrix determinant
         ///
-        static dtype det(const NdArray<dtype>& inArray)
+        template<typename dtype = double>
+        dtype det(const NdArray<dtype>& inArray)
         {
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
@@ -125,7 +122,8 @@ namespace NC
         /// @return
         ///				3x3 NdArray
         ///
-        static NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
+        template<typename dtype = double>
+        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
         {
             NdArray<dtype> returnArray(3);
             returnArray(0, 0) = 0.0;
@@ -150,7 +148,8 @@ namespace NC
         /// @return
         ///				3x3 NdArray
         ///
-        static NdArray<dtype> hat(const NdArray<dtype>& inVec)
+        template<typename dtype = double>
+        NdArray<dtype> hat(const NdArray<dtype>& inVec)
         {
             if (inVec.size() != 3)
             {
@@ -171,7 +170,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<double> inv(const NdArray<dtype>& inArray)
+        template<typename dtype = double>
+        NdArray<double> inv(const NdArray<dtype>& inArray)
         {
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
@@ -263,7 +263,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
+        template<typename dtype = double>
+        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
         {
             SVD svdSolver(inA);
             double threshold = inTolerance * svdSolver.s()[0];
@@ -288,8 +289,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
-        static NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
+        template<typename dtype = double, typename dtypeOut = double>
+        NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
@@ -343,8 +344,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
-        static NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
+        template<typename dtype = double, typename dtypeOut = double>
+        NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
         {
             typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
 
@@ -378,7 +379,8 @@ namespace NC
         /// @param				outS: NdArray output S
         /// @param				outVt: NdArray output V transpose
         ///
-        static void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
+        template<typename dtype = double>
+        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
         {
             SVD svdSolver(inArray);
             outU = std::move(svdSolver.u());
@@ -388,7 +390,6 @@ namespace NC
             outS = std::move(s);
         }
 
-    private:
         // =============================================================================
         // Class Description:
         ///              performs the singular value decomposition of a general matrix,
@@ -1000,5 +1001,5 @@ namespace NC
                 return (absa > absb ? absa * std::sqrt(1.0 + Utils::sqr(absb / absa)) : (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + Utils::sqr(absa / absb))));
             }
         };
-    };
+    }
 }

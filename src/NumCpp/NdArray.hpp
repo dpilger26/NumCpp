@@ -2784,7 +2784,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						Returns an array containing the same data with a new shape.
+        ///						Resizes the array to a new shape.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
         ///		
@@ -2806,7 +2806,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						Returns an array containing the same data with a new shape.
+        ///						Resizes the array to a new shape.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///		

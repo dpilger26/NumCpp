@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['s',['s',['../class_n_c_1_1_rotations_1_1_quaternion.html#a508e3db3b334235ae9dcf8aeb3a04ce0',1,'NC::Rotations::Quaternion']]],
+  ['s',['s',['../class_n_c_1_1_linalg_1_1_s_v_d.html#ab9d595209a9d92df65cc23aa294f32a9',1,'NC::Linalg::SVD::s()'],['../class_n_c_1_1_rotations_1_1_quaternion.html#a508e3db3b334235ae9dcf8aeb3a04ce0',1,'NC::Rotations::Quaternion::s()']]],
   ['seconds',['seconds',['../class_n_c_1_1_coordinates_1_1_r_a.html#a8dbb1273e974c0d3217d99a73cd0a52c',1,'NC::Coordinates::RA::seconds()'],['../class_n_c_1_1_coordinates_1_1_dec.html#a288be6095fe2275bf23cdd67881c1852',1,'NC::Coordinates::Dec::seconds()']]],
   ['seed',['seed',['../class_n_c_1_1_random.html#a61cf9bea5df2e60fbdd86b1edd1e6962',1,'NC::Random']]],
   ['setclusterid',['setClusterId',['../class_n_c_1_1_image_processing_1_1_pixel.html#a647d1fdef9dc2f09280fdcdb91a027ed',1,'NC::ImageProcessing::Pixel']]],
@@ -16,6 +16,7 @@ var searchData=
   ['size',['size',['../class_n_c_1_1_boost_ndarray_helper.html#a8c674d8e3dc8317ca67cdc2228faa425',1,'NC::BoostNdarrayHelper::size()'],['../class_n_c_1_1_data_cube.html#a12f69aa8d51273b2da197d60afb9bcd4',1,'NC::DataCube::size()'],['../class_n_c_1_1_image_processing_1_1_cluster.html#a194154f0abc7bce1ac00fb0126d242c2',1,'NC::ImageProcessing::Cluster::size()'],['../class_n_c_1_1_methods.html#a691ca2463cf02a3c169f338b59edbec4',1,'NC::Methods::size()'],['../class_n_c_1_1_nd_array.html#ac3124b6287b61248753f83327a6fc64d',1,'NC::NdArray::size()'],['../class_n_c_1_1_shape.html#a3f0eb4735ed2cd943385dee4c6683b83',1,'NC::Shape::size()']]],
   ['slerp',['slerp',['../class_n_c_1_1_rotations_1_1_quaternion.html#a5a7d107505a4390d170c848af41200c1',1,'NC::Rotations::Quaternion::slerp(const Quaternion &amp;inQuat1, const Quaternion &amp;inQuat2, double inPercent)'],['../class_n_c_1_1_rotations_1_1_quaternion.html#ab47c834482a39353f3ccd7b6bc9eeeaa',1,'NC::Rotations::Quaternion::slerp(const Quaternion &amp;inQuat2, double inPercent) const']]],
   ['slice',['Slice',['../class_n_c_1_1_slice.html#a870f0e324349d1ec8a2803d4b1810890',1,'NC::Slice::Slice()=default'],['../class_n_c_1_1_slice.html#a16ea454a6aa3b7aa4da321aa08b6244f',1,'NC::Slice::Slice(int32 inStop)'],['../class_n_c_1_1_slice.html#ad7bf63b9dc81a4bbbc76b39649651863',1,'NC::Slice::Slice(int32 inStart, int32 inStop)'],['../class_n_c_1_1_slice.html#aa595f1c5c64435804c5add4b2b921496',1,'NC::Slice::Slice(int32 inStart, int32 inStop, int32 inStep)']]],
+  ['solve',['solve',['../class_n_c_1_1_linalg_1_1_s_v_d.html#a0133f1b4d2003cd09744920b2374b7a1',1,'NC::Linalg::SVD']]],
   ['sort',['sort',['../class_n_c_1_1_methods.html#a236f0e967aa0c2eca0ac132237c876b7',1,'NC::Methods::sort()'],['../class_n_c_1_1_nd_array.html#a02a09dd5bc33bd5b61e01896f2949e27',1,'NC::NdArray::sort()']]],
   ['sqr',['sqr',['../namespace_n_c_1_1_utils.html#aff9c1931ebdc9f07d9363850dbc4bc94',1,'NC::Utils']]],
   ['sqrt',['sqrt',['../class_n_c_1_1_methods.html#a5d89eafe4bb82277fd7488c42456a01a',1,'NC::Methods::sqrt(dtype inValue)'],['../class_n_c_1_1_methods.html#a7d3bf7df9dfdbf750c3efa8304fd47a8',1,'NC::Methods::sqrt(const NdArray&lt; dtype &gt; &amp;inArray)']]],
@@ -27,6 +28,6 @@ var searchData=
   ['strides',['strides',['../class_n_c_1_1_boost_ndarray_helper.html#ab32a5858fcb3384cca166ce5714efec3',1,'NC::BoostNdarrayHelper']]],
   ['studentt',['studentT',['../class_n_c_1_1_random.html#a23d1581cc46b2b585de40f600b8fdc6d',1,'NC::Random']]],
   ['sum',['sum',['../class_n_c_1_1_methods.html#a2ca0171037edf076088f3fd513764906',1,'NC::Methods::sum()'],['../class_n_c_1_1_nd_array.html#a39e9c3b32f6fe55d2abb1ece8ef8ec48',1,'NC::NdArray::sum()']]],
-  ['svd',['svd',['../class_n_c_1_1_linalg.html#a49ad16a180ce67f48710892e0d7d4fce',1,'NC::Linalg']]],
+  ['svd',['SVD',['../class_n_c_1_1_linalg_1_1_s_v_d.html#ac747e6b253d5e800313698c83b2d5a7e',1,'NC::Linalg::SVD::SVD()'],['../namespace_n_c_1_1_linalg.html#aaf95b5921d0ed46fe1c28673963e092f',1,'NC::Linalg::svd()']]],
   ['swapaxes',['swapaxes',['../class_n_c_1_1_methods.html#a4328542c83bcc2b5b8b1cdccdbd7f536',1,'NC::Methods::swapaxes()'],['../class_n_c_1_1_nd_array.html#a7e69b82aef1cf8000406a8721342919a',1,'NC::NdArray::swapaxes()']]]
 ];

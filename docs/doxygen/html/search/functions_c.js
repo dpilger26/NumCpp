@@ -2,7 +2,7 @@ var searchData=
 [
   ['makepositiveandvalidate',['makePositiveAndValidate',['../class_n_c_1_1_slice.html#a5408caf85f8641f62a1fba6bcbb4f84a',1,'NC::Slice']]],
   ['matmul',['matmul',['../class_n_c_1_1_methods.html#a5b3c4ff2b8339129c12c5d87b47e0938',1,'NC::Methods']]],
-  ['matrix_5fpower',['matrix_power',['../class_n_c_1_1_linalg.html#a92f5c47b363441bbb8ef4a7b2194a0bb',1,'NC::Linalg']]],
+  ['matrix_5fpower',['matrix_power',['../namespace_n_c_1_1_linalg.html#a13d302328defbce33ba4cc2413ceb33b',1,'NC::Linalg']]],
   ['max',['max',['../class_n_c_1_1_dtype_info.html#a69e6ccba7816762cda4c5f5b812de271',1,'NC::DtypeInfo::max()'],['../class_n_c_1_1_methods.html#a82ae6e8b1f9cb08cafb96b248518c468',1,'NC::Methods::max()'],['../class_n_c_1_1_nd_array.html#a27519f0580b9c5a9a752e21011d2dbd6',1,'NC::NdArray::max()']]],
   ['maximum',['maximum',['../class_n_c_1_1_methods.html#a88172ec37733a1739b873c949c60b6db',1,'NC::Methods']]],
   ['maximumfilter',['maximumFilter',['../class_n_c_1_1_filters.html#a0370c2d2caac592c130f9fd0afaae7f3',1,'NC::Filters']]],
@@ -17,6 +17,6 @@ var searchData=
   ['minumumfilter1d',['minumumFilter1d',['../class_n_c_1_1_filters.html#a1890d263dfb11986b990176bbc544dc3',1,'NC::Filters']]],
   ['minutes',['minutes',['../class_n_c_1_1_coordinates_1_1_r_a.html#a1d6d2f8cf62141ce74575d150930556c',1,'NC::Coordinates::RA::minutes()'],['../class_n_c_1_1_coordinates_1_1_dec.html#a35da9c8b067b39d35d5cf3b5b635edf4',1,'NC::Coordinates::Dec::minutes()']]],
   ['mod',['mod',['../class_n_c_1_1_methods.html#a7e251983fb63455db496b1daabfb2ad8',1,'NC::Methods']]],
-  ['multi_5fdot',['multi_dot',['../class_n_c_1_1_linalg.html#ade6eed3874e2ffd93487d66adfe9e89c',1,'NC::Linalg']]],
+  ['multi_5fdot',['multi_dot',['../namespace_n_c_1_1_linalg.html#a971c8d233fa6dfa5bd39fc580d8088b3',1,'NC::Linalg']]],
   ['multiply',['multiply',['../class_n_c_1_1_methods.html#ac6a66ee08392d25f93d593e9b243a8a4',1,'NC::Methods']]]
 ];

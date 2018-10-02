@@ -17,9 +17,7 @@ var files_dup =
       [ "Cluster", "class_n_c_1_1_image_processing_1_1_cluster.html", "class_n_c_1_1_image_processing_1_1_cluster" ],
       [ "Pixel", "class_n_c_1_1_image_processing_1_1_pixel.html", "class_n_c_1_1_image_processing_1_1_pixel" ]
     ] ],
-    [ "Linalg.hpp", "_linalg_8hpp.html", [
-      [ "Linalg", "class_n_c_1_1_linalg.html", "class_n_c_1_1_linalg" ]
-    ] ],
+    [ "Linalg.hpp", "_linalg_8hpp.html", "_linalg_8hpp" ],
     [ "Methods.hpp", "_methods_8hpp.html", [
       [ "Methods", "class_n_c_1_1_methods.html", "class_n_c_1_1_methods" ]
     ] ],

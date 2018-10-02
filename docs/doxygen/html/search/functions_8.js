@@ -5,7 +5,7 @@ var searchData=
   ['intensity',['intensity',['../class_n_c_1_1_image_processing_1_1_pixel.html#a90c330dc4ccdc17911c723a1454d6dea',1,'NC::ImageProcessing::Pixel::intensity()'],['../class_n_c_1_1_image_processing_1_1_cluster.html#a81ca540bfeddc157fafbed4514fc5f16',1,'NC::ImageProcessing::Cluster::intensity()'],['../class_n_c_1_1_image_processing_1_1_centroid.html#ad3e38597c0ab40bb71ba4dd9ce8d0af3',1,'NC::ImageProcessing::Centroid::intensity()']]],
   ['interp',['interp',['../class_n_c_1_1_methods.html#a6607b77ebc5c9b9fd3e8c53603ea64ab',1,'NC::Methods::interp(dtype inValue1, dtype inValue2, double inPercent)'],['../class_n_c_1_1_methods.html#a9872c99abb1f0dbd8c1f45297bd510b9',1,'NC::Methods::interp(const NdArray&lt; dtype &gt; &amp;inX, const NdArray&lt; dtype &gt; &amp;inXp, const NdArray&lt; dtype &gt; &amp;inFp)'],['../namespace_n_c_1_1_utils.html#a46e728e592cc0d19a4c41a0cd29166f6',1,'NC::Utils::interp()']]],
   ['intersect1d',['intersect1d',['../class_n_c_1_1_methods.html#aac5ac53e72f6453356f001f8387eb0fb',1,'NC::Methods']]],
-  ['inv',['inv',['../class_n_c_1_1_linalg.html#a23a5f1208ef206e735898728d21c5054',1,'NC::Linalg']]],
+  ['inv',['inv',['../namespace_n_c_1_1_linalg.html#a28bfad2d6e53b26ed13e97e946aa6438',1,'NC::Linalg']]],
   ['inverse',['inverse',['../class_n_c_1_1_rotations_1_1_quaternion.html#a0e542ddd20cedc68a86bb93fded76871',1,'NC::Rotations::Quaternion']]],
   ['invert',['invert',['../class_n_c_1_1_methods.html#af77e491a439d7a9fd272843231ad8ea7',1,'NC::Methods']]],
   ['isclose',['isclose',['../class_n_c_1_1_methods.html#a490784a9c0202ae398fb8dc8f839ce50',1,'NC::Methods']]],

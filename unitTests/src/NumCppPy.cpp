@@ -2347,13 +2347,13 @@ namespace LinalgInterface
     template<typename dtype>
     np::ndarray hatArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Linalg<dtype>::hat(inArray));
+        return numCToBoost(Linalg::hat<dtype>(inArray));
     }
 
     template<typename dtype, typename dtypeOut>
     np::ndarray multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(Linalg<dtype>::multi_dot<dtypeOut>({ inArray1 ,inArray2, inArray3, inArray4 }));
+        return numCToBoost(Linalg::multi_dot<dtype ,dtypeOut>({ inArray1 ,inArray2, inArray3, inArray4 }));
     }
 }
 
@@ -3157,18 +3157,15 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("weibull", &RandomDouble::weibull).staticmethod("weibull");
 
     // Linalg.hpp
-    typedef NC::Linalg<double> LinalgDouble;
-    bp::class_<LinalgDouble>
-        ("Linalg", bp::init<>())
-        .def("det", &LinalgDouble::det).staticmethod("det")
-        .def("hat", &LinalgInterface::hatArray<double>).staticmethod("hat")
-        .def("inv", &LinalgDouble::inv).staticmethod("inv")
-        .def("lstsq", &LinalgDouble::lstsq).staticmethod("lstsq")
-        .def("matrix_power", &LinalgDouble::matrix_power<double>).staticmethod("matrix_power")
-        //.def("matrix_power", &LinalgDouble::matrix_power<float>).staticmethod("matrix_power")
-        .def("multi_dot", &LinalgInterface::multi_dot<double, double>).staticmethod("multi_dot")
-        //.def("multi_dot", &LinalgInterface::multi_dot<float, float>).staticmethod("multi_dot")
-        .def("svd", &LinalgDouble::svd).staticmethod("svd");
+    bp::def("det", &Linalg::det<double>);
+    bp::def("hat", &LinalgInterface::hatArray<double>);
+    bp::def("inv", &Linalg::inv<double>);
+    bp::def("lstsq", &Linalg::lstsq<double>);
+    bp::def("matrix_power", &Linalg::matrix_power<double, double>);
+    //bp::def("matrix_power", &Linalg::matrix_power<float, float>);
+    bp::def("multi_dot", &LinalgInterface::multi_dot<double, double>);
+    //bp::def("multi_dot", &LinalgInterface::multi_dot<float, float>);
+    bp::def("svd", &Linalg::svd<double>);
 
     // Rotations.hpp
     bp::class_<Rotations::Quaternion>
