@@ -3220,28 +3220,24 @@ BOOST_PYTHON_MODULE(NumCpp)
         .value("MIRROR", Filter::Boundary::MIRROR)
         .value("WRAP", Filter::Boundary::WRAP);
 
-    typedef Filters<double> FiltersDouble;
-
-    bp::class_<FiltersDouble>
-        ("Filters", bp::init<>())
-        .def("complementaryMedianFilter", &FiltersDouble::complementaryMedianFilter).staticmethod("complementaryMedianFilter")
-        .def("complementaryMedianFilter1d", &FiltersDouble::complementaryMedianFilter1d).staticmethod("complementaryMedianFilter1d")
-        .def("convolve", &FiltersDouble::convolve).staticmethod("convolve")
-        .def("convolve1d", &FiltersDouble::convolve1d).staticmethod("convolve1d")
-        .def("gaussianFilter", &FiltersDouble::gaussianFilter).staticmethod("gaussianFilter")
-        .def("gaussianFilter1d", &FiltersDouble::gaussianFilter1d).staticmethod("gaussianFilter1d")
-        .def("maximumFilter", &FiltersDouble::maximumFilter).staticmethod("maximumFilter")
-        .def("maximumFilter1d", &FiltersDouble::maximumFilter1d).staticmethod("maximumFilter1d")
-        .def("medianFilter", &FiltersDouble::medianFilter).staticmethod("medianFilter")
-        .def("medianFilter1d", &FiltersDouble::medianFilter1d).staticmethod("medianFilter1d")
-        .def("minimumFilter", &FiltersDouble::minimumFilter).staticmethod("minimumFilter")
-        .def("minumumFilter1d", &FiltersDouble::minumumFilter1d).staticmethod("minumumFilter1d")
-        .def("percentileFilter", &FiltersDouble::percentileFilter).staticmethod("percentileFilter")
-        .def("percentileFilter1d", &FiltersDouble::percentileFilter1d).staticmethod("percentileFilter1d")
-        .def("rankFilter", &FiltersDouble::rankFilter).staticmethod("rankFilter")
-        .def("rankFilter1d", &FiltersDouble::rankFilter1d).staticmethod("rankFilter1d")
-        .def("uniformFilter", &FiltersDouble::uniformFilter).staticmethod("uniformFilter")
-        .def("uniformFilter1d", &FiltersDouble::uniformFilter1d).staticmethod("uniformFilter1d");
+    bp::def("complementaryMedianFilter", &Filter::complementaryMedianFilter<double>);
+    bp::def("complementaryMedianFilter1d", &Filter::complementaryMedianFilter1d<double>);
+    bp::def("convolve", &Filter::convolve<double>);
+    bp::def("convolve1d", &Filter::convolve1d<double>);
+    bp::def("gaussianFilter", &Filter::gaussianFilter<double>);
+    bp::def("gaussianFilter1d", &Filter::gaussianFilter1d<double>);
+    bp::def("maximumFilter", &Filter::maximumFilter<double>);
+    bp::def("maximumFilter1d", &Filter::maximumFilter1d<double>);
+    bp::def("medianFilter", &Filter::medianFilter<double>);
+    bp::def("medianFilter1d", &Filter::medianFilter1d<double>);
+    bp::def("minimumFilter", &Filter::minimumFilter<double>);
+    bp::def("minumumFilter1d", &Filter::minumumFilter1d<double>);
+    bp::def("percentileFilter", &Filter::percentileFilter<double>);
+    bp::def("percentileFilter1d", &Filter::percentileFilter1d<double>);
+    bp::def("rankFilter", &Filter::rankFilter<double>);
+    bp::def("rankFilter1d", &Filter::rankFilter1d<double>);
+    bp::def("uniformFilter", &Filter::uniformFilter<double>);
+    bp::def("uniformFilter1d", &Filter::uniformFilter1d<double>);
 
     // Image Processing
     typedef ImageProcessing<double> ImageProcessingDouble;

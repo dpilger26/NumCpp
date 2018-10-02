@@ -2,6 +2,8 @@ var searchData=
 [
   ['abs',['abs',['../class_n_c_1_1_methods.html#a8b92069ca4a59b8ebf13a04ddb161b21',1,'NC::Methods::abs(dtype inValue)'],['../class_n_c_1_1_methods.html#a54abd309955ee55a53083a54823e8695',1,'NC::Methods::abs(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['add',['add',['../class_n_c_1_1_methods.html#a674f34dd467a271682dbb59469529bcf',1,'NC::Methods']]],
+  ['addboundary',['addBoundary',['../namespace_n_c_1_1_filter.html#af8bc26a9e234cc6a079b6189a0be4a27',1,'NC::Filter']]],
+  ['addboundary1d',['addBoundary1d',['../namespace_n_c_1_1_filter.html#a2958ea492e87542546cc0e4aa2c1c682',1,'NC::Filter']]],
   ['addpixel',['addPixel',['../class_n_c_1_1_image_processing_1_1_cluster.html#a3c4f0a241e1d8e804bbea2358e56946d',1,'NC::ImageProcessing::Cluster']]],
   ['alen',['alen',['../class_n_c_1_1_methods.html#a0b9e5441539c3789e28f0a496c9385dd',1,'NC::Methods']]],
   ['all',['all',['../class_n_c_1_1_methods.html#a5c4d5ffa05daff804b2b4dca2313a9bc',1,'NC::Methods::all()'],['../class_n_c_1_1_nd_array.html#a854351df845f4bc957876f97660fd91f',1,'NC::NdArray::all()']]],

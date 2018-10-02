@@ -46,15 +46,7 @@ namespace NC
         // Enum Description:
         ///						Boundary condition to apply to the image filter
         enum class Boundary { REFLECT = 0, CONSTANT, NEAREST, MIRROR, WRAP };
-    }
 
-    //================================================================================
-    // Class Description:
-    ///						Class for performing many types of image filtering
-    template<typename dtype = double>
-    class Filters
-    {
-    private:
         //============================================================================
         // Method Description: 
         ///						samples a gaussian of mean zero and input STD sigma
@@ -65,7 +57,8 @@ namespace NC
         ///              
         /// @return             dtype
         ///
-        static dtype gaussian(dtype inX, dtype inY, dtype inSigma)
+        template<typename dtype = double>
+        dtype gaussian(dtype inX, dtype inY, dtype inSigma)
         {
             double exponent = -(Utils::sqr(inX) + Utils::sqr(inY)) / (2 * Utils::sqr(inSigma));
             return static_cast<dtype>(std::exp(exponent));
@@ -78,7 +71,8 @@ namespace NC
         /// @param				inArray
         /// @param              inBorderWidth
         ///
-        static void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth)
+        template<typename dtype = double>
+        void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth)
         {
             Shape inShape = inArray.shape();
             int32 numRows = static_cast<int32>(inShape.rows);
@@ -105,7 +99,8 @@ namespace NC
         /// @param              inBorderWidth
         /// @param				inFillValue
         ///
-        static void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)
+        template<typename dtype = double>
+        void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)
         {
             Shape inShape = inArray.shape();
             int32 numRows = static_cast<int32>(inShape.rows);
@@ -134,7 +129,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> reflectBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
+        template<typename dtype = double>
+        NdArray<dtype> reflectBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
             Shape inShape = inImage.shape();
             Shape outShape(inShape);
@@ -195,7 +191,8 @@ namespace NC
         ///
         /// @return         NdArray
         ///
-        static NdArray<dtype> reflectBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
+        template<typename dtype = double>
+        NdArray<dtype> reflectBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
             uint32 outSize = inImage.size() + inBoundarySize * 2;
 
@@ -221,7 +218,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> constantBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
+        template<typename dtype = double>
+        NdArray<dtype> constantBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
         {
             Shape inShape = inImage.shape();
             Shape outShape(inShape);
@@ -250,7 +248,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> constantBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
+        template<typename dtype = double>
+        NdArray<dtype> constantBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
         {
             uint32 outSize = inImage.size() + inBoundarySize * 2;
 
@@ -275,7 +274,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> nearestBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
+        template<typename dtype = double>
+        NdArray<dtype> nearestBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
             Shape inShape = inImage.shape();
             Shape outShape(inShape);
@@ -324,7 +324,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> nearestBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
+        template<typename dtype = double>
+        NdArray<dtype> nearestBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
             uint32 outSize = inImage.size() + inBoundarySize * 2;
 
@@ -349,7 +350,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> mirrorBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
+        template<typename dtype = double>
+        NdArray<dtype> mirrorBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
             Shape inShape = inImage.shape();
             Shape outShape(inShape);
@@ -410,7 +412,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> mirrorBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
+        template<typename dtype = double>
+        NdArray<dtype> mirrorBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
             uint32 outSize = inImage.size() + inBoundarySize * 2;
 
@@ -435,7 +438,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> wrapBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
+        template<typename dtype = double>
+        NdArray<dtype> wrapBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
             Shape inShape = inImage.shape();
             Shape outShape(inShape);
@@ -490,7 +494,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> wrapBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
+        template<typename dtype = double>
+        NdArray<dtype> wrapBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
             uint32 outSize = inImage.size() + inBoundarySize * 2;
 
@@ -517,7 +522,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> addBoundary(const NdArray<dtype>& inImage, Filter::Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> addBoundary(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
         {
             if (inKernalSize % 2 == 0)
             {
@@ -528,23 +534,23 @@ namespace NC
 
             switch (inBoundaryType)
             {
-                case Filter::Boundary::REFLECT:
+                case Boundary::REFLECT:
                 {
                     return std::move(reflectBoundary(inImage, boundarySize));
                 }
-                case Filter::Boundary::CONSTANT:
+                case Boundary::CONSTANT:
                 {
                     return std::move(constantBoundary(inImage, boundarySize, inConstantValue));
                 }
-                case Filter::Boundary::NEAREST:
+                case Boundary::NEAREST:
                 {
                     return std::move(nearestBoundary(inImage, boundarySize));
                 }
-                case Filter::Boundary::MIRROR:
+                case Boundary::MIRROR:
                 {
                     return std::move(mirrorBoundary(inImage, boundarySize));
                 }
-                case Filter::Boundary::WRAP:
+                case Boundary::WRAP:
                 {
                     return std::move(wrapBoundary(inImage, boundarySize));
                 }
@@ -567,7 +573,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> addBoundary1d(const NdArray<dtype>& inImage, Filter::Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> addBoundary1d(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
         {
             if (inKernalSize % 2 == 0)
             {
@@ -578,23 +585,23 @@ namespace NC
 
             switch (inBoundaryType)
             {
-                case Filter::Boundary::REFLECT:
+                case Boundary::REFLECT:
                 {
                     return std::move(reflectBoundary1d(inImage, boundarySize));
                 }
-                case Filter::Boundary::CONSTANT:
+                case Boundary::CONSTANT:
                 {
                     return std::move(constantBoundary1d(inImage, boundarySize, inConstantValue));
                 }
-                case Filter::Boundary::NEAREST:
+                case Boundary::NEAREST:
                 {
                     return std::move(nearestBoundary1d(inImage, boundarySize));
                 }
-                case Filter::Boundary::MIRROR:
+                case Boundary::MIRROR:
                 {
                     return std::move(mirrorBoundary1d(inImage, boundarySize));
                 }
-                case Filter::Boundary::WRAP:
+                case Boundary::WRAP:
                 {
                     return std::move(wrapBoundary1d(inImage, boundarySize));
                 }
@@ -615,7 +622,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> trimBoundary(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
+        template<typename dtype = double>
+        NdArray<dtype> trimBoundary(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
         {
             Shape inShape = inImageWithBoundary.shape();
             uint32 boundarySize = inSize / 2; /// integer division
@@ -635,7 +643,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> trimBoundary1d(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
+        template<typename dtype = double>
+        NdArray<dtype> trimBoundary1d(const NdArray<dtype>& inImageWithBoundary, uint32 inSize)
         {
             uint32 boundarySize = inSize / 2; // integer division
             uint32 imageSize = inImageWithBoundary.size() - boundarySize * 2;
@@ -643,7 +652,6 @@ namespace NC
             return std::move(inImageWithBoundary[Slice(boundarySize, boundarySize + imageSize)]);
         }
 
-    public:
         //============================================================================
         // Method Description: 
         ///						Calculates a multidimensional complemenatry median filter.
@@ -655,8 +663,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> inImageArrayCopy(inImageArray);
             inImageArrayCopy -= medianFilter(inImageArray, inSize, inBoundaryType, inConstantValue);
@@ -675,8 +684,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> inImageArrayCopy(inImageArray);
             inImageArrayCopy -= medianFilter1d(inImageArray, inSize, inBoundaryType, inConstantValue);
@@ -698,8 +708,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
-            const NdArray<dtype>& inWeights, Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
+            const NdArray<dtype>& inWeights, Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inWeights.size() != Utils::sqr(inSize))
             {
@@ -742,8 +753,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             uint32 boundarySize = inWeights.size() / 2; // integer division
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);
@@ -776,8 +788,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inSigma <= 0)
             {
@@ -830,8 +843,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inSigma <= 0)
             {
@@ -880,8 +894,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
@@ -918,8 +933,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> maximumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> maximumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -950,8 +966,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> medianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> medianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
@@ -988,8 +1005,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -1020,8 +1038,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> minimumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> minimumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
@@ -1058,8 +1077,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> minumumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> minumumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -1091,8 +1111,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
@@ -1130,8 +1151,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -1163,8 +1185,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inRank < 0 || inRank >= Utils::sqr(inSize))
             {
@@ -1207,8 +1230,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -1239,8 +1263,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
@@ -1277,8 +1302,9 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Filter::Boundary inBoundaryType = Filter::Boundary::REFLECT, dtype inConstantValue = 0)
+        template<typename dtype = double>
+        NdArray<dtype> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
@@ -1295,5 +1321,5 @@ namespace NC
 
             return std::move(output);
         }
-    };
+    }
 }

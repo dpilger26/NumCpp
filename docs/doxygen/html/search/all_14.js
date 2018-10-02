@@ -18,6 +18,8 @@ var searchData=
   ['triangle',['triangle',['../class_n_c_1_1_random.html#a3730c4ef15df93360b24e8e359fa3eb9',1,'NC::Random']]],
   ['tril',['tril',['../class_n_c_1_1_methods.html#a8f9d668209d719a0d333fb0bdbf3a427',1,'NC::Methods::tril(uint32 inN, int32 inOffset=0)'],['../class_n_c_1_1_methods.html#a92ea6bdea94b177bd425dc3f9fc86ef3',1,'NC::Methods::tril(uint32 inN, uint32 inM, int32 inOffset=0)']]],
   ['trim_5fzeros',['trim_zeros',['../class_n_c_1_1_methods.html#ab96c11f5663842d7a00c6660e7010d77',1,'NC::Methods']]],
+  ['trimboundary',['trimBoundary',['../namespace_n_c_1_1_filter.html#a4d98cb66a916a5c23f87672ce4666d30',1,'NC::Filter']]],
+  ['trimboundary1d',['trimBoundary1d',['../namespace_n_c_1_1_filter.html#a5e0f686fd527ce71e524da3ed7d3a0ce',1,'NC::Filter']]],
   ['triu',['triu',['../class_n_c_1_1_methods.html#a46a5228bca5d62beff7a523c241115e4',1,'NC::Methods::triu(uint32 inN, int32 inOffset=0)'],['../class_n_c_1_1_methods.html#ad4487d56a43f65b6165c1885dd3a2da8',1,'NC::Methods::triu(uint32 inN, uint32 inM, int32 inOffset=0)']]],
   ['trunc',['trunc',['../class_n_c_1_1_methods.html#a0f6ce550cd164703e41bcff750db881c',1,'NC::Methods::trunc(dtype inValue)'],['../class_n_c_1_1_methods.html#ac63877210078c993564916e5a3a9e262',1,'NC::Methods::trunc(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['types_2ehpp',['Types.hpp',['../_types_8hpp.html',1,'']]]

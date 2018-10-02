@@ -30,7 +30,7 @@ def test1D():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.complementaryMedianFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.complementaryMedianFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = data - filters.generic_filter(data, np.median, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -50,7 +50,7 @@ def test1D():
         cWeights = NumCpp.NdArray(1, kernalSize)
         cWeights.setArray(weights)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.convolve1d(cArray, cWeights, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.convolve1d(cArray, cWeights, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.convolve(data, weights, mode=mode, cval=constantValue)
         if np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8)):
             print(colored('\tPASS', 'green'))
@@ -68,7 +68,7 @@ def test1D():
             kernalSize = np.random.randint(5, 15)
         sigma = np.random.rand(1).item() * 2
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.gaussianFilter1d(cArray, sigma, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.gaussianFilter1d(cArray, sigma, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.gaussian_filter(data, sigma, mode=mode, cval=constantValue)
         if np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8)):
             print(colored('\tPASS', 'green'))
@@ -85,7 +85,7 @@ def test1D():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.maximumFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.maximumFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.max, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -102,7 +102,7 @@ def test1D():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.medianFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.medianFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.median, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -119,7 +119,7 @@ def test1D():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.minumumFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.minumumFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.min, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -137,7 +137,7 @@ def test1D():
             kernalSize = np.random.randint(5, 15)
         percentile = np.random.randint(0, 101, [1,]).item()
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.percentileFilter1d(cArray, kernalSize, percentile, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.percentileFilter1d(cArray, kernalSize, percentile, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.percentile, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue, extra_arguments=(percentile,))
         if np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8)):
             print(colored('\tPASS', 'green'))
@@ -155,7 +155,7 @@ def test1D():
             kernalSize = np.random.randint(5, 15)
         rank = np.random.randint(0, kernalSize - 1, [1, ]).item()
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.rankFilter1d(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.rankFilter1d(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.rank_filter(data, rank, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -172,7 +172,7 @@ def test1D():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.uniformFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
+        dataOutC = NumCpp.uniformFilter1d(cArray, kernalSize, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.mean, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -198,7 +198,7 @@ def test2D():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.complementaryMedianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.complementaryMedianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = data - filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -218,7 +218,7 @@ def test2D():
         weights = np.random.randint(-2, 3, [kernalSize, kernalSize]).astype(np.double)
         cWeights = NumCpp.NdArray(kernalSize)
         cWeights.setArray(weights)
-        dataOutC = NumCpp.Filters.convolve(cArray, kernalSize, cWeights, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.convolve(cArray, kernalSize, cWeights, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.convolve(data, weights, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -233,7 +233,7 @@ def test2D():
         cArray.setArray(data)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
         sigma = np.random.rand(1).item() * 2
-        dataOutC = NumCpp.Filters.gaussianFilter(cArray, sigma, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.gaussianFilter(cArray, sigma, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.gaussian_filter(data, sigma, mode=mode, cval=constantValue)
         if np.array_equal(np.round(dataOutC, 2), np.round(dataOutPy, 2)):
             print(colored('\tPASS', 'green'))
@@ -250,7 +250,7 @@ def test2D():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.maximumFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.maximumFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.maximum_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -267,7 +267,7 @@ def test2D():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.medianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.medianFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.median_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -284,7 +284,7 @@ def test2D():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.minimumFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.minimumFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.minimum_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -302,7 +302,7 @@ def test2D():
             kernalSize = np.random.randint(5, 15)
         percentile = np.random.randint(0, 101, [1,]).item()
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.percentileFilter(cArray, kernalSize, percentile, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.percentileFilter(cArray, kernalSize, percentile, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.percentile_filter(data, percentile, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -320,7 +320,7 @@ def test2D():
             kernalSize = np.random.randint(5, 15)
         rank = np.random.randint(0, kernalSize**2 - 1, [1,]).item()
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.rankFilter(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.rankFilter(cArray, kernalSize, rank, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.rank_filter(data, rank, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(dataOutC, dataOutPy):
             print(colored('\tPASS', 'green'))
@@ -337,7 +337,7 @@ def test2D():
         while kernalSize % 2 == 0:
             kernalSize = np.random.randint(5, 15)
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
-        dataOutC = NumCpp.Filters.uniformFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
+        dataOutC = NumCpp.uniformFilter(cArray, kernalSize, modes[mode], constantValue).getNumpyArray()
         dataOutPy = filters.uniform_filter(data, size=kernalSize, mode=mode, cval=constantValue)
         if np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8)):
             print(colored('\tPASS', 'green'))

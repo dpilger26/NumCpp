@@ -2,6 +2,7 @@ var searchData=
 [
   ['f',['f',['../class_n_c_1_1_random.html#a4da09a382c5c8c106cdcf349d2d183a6',1,'NC::Random']]],
   ['fill',['fill',['../class_n_c_1_1_nd_array.html#ab983fb0bf475e0b6a7823bd0e8f92810',1,'NC::NdArray']]],
+  ['fillcorners',['fillCorners',['../namespace_n_c_1_1_filter.html#a381e20dad8b036046413f5caece6e4f4',1,'NC::Filter::fillCorners(NdArray&lt; dtype &gt; &amp;inArray, uint32 inBorderWidth)'],['../namespace_n_c_1_1_filter.html#a9507376c23327be8db0a5ac86112b0dc',1,'NC::Filter::fillCorners(NdArray&lt; dtype &gt; &amp;inArray, uint32 inBorderWidth, dtype inFillValue)']]],
   ['fix',['fix',['../class_n_c_1_1_methods.html#a80fc383ace1afb4bb6b6016f5ca6780d',1,'NC::Methods::fix(dtype inValue)'],['../class_n_c_1_1_methods.html#aca3dfa1f3796023931a960bd076a9bd9',1,'NC::Methods::fix(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['flatnonzero',['flatnonzero',['../class_n_c_1_1_methods.html#a53ad554cc1cba63e09e85a8142f5534b',1,'NC::Methods']]],
   ['flatten',['flatten',['../class_n_c_1_1_methods.html#af4b70b39f2c1f98a8f9dd435dca5fa3f',1,'NC::Methods::flatten()'],['../class_n_c_1_1_nd_array.html#ad7b5b9f1f371168c22d9c385dc29309c',1,'NC::NdArray::flatten()']]],

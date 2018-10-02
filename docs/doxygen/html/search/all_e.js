@@ -29,6 +29,8 @@ var searchData=
   ['ndarray_3c_20bool_20_3e',['NdArray&lt; bool &gt;',['../class_n_c_1_1_nd_array.html',1,'NC']]],
   ['ndarray_3c_20double_20_3e',['NdArray&lt; double &gt;',['../class_n_c_1_1_nd_array.html',1,'NC']]],
   ['nearest',['NEAREST',['../namespace_n_c_1_1_filter.html#aacee45516a7d1cae23650ede4561f734aad135772d7cf93dd0ccf9d2474b34e6a',1,'NC::Filter']]],
+  ['nearestboundary',['nearestBoundary',['../namespace_n_c_1_1_filter.html#a6732a7c5074f11502cf39402b61ad06e',1,'NC::Filter']]],
+  ['nearestboundary1d',['nearestBoundary1d',['../namespace_n_c_1_1_filter.html#a0c89f32ec8947918ae90becba0a13992',1,'NC::Filter']]],
   ['negative',['negative',['../class_n_c_1_1_methods.html#a9defef0aa351ecdaff494ffb83308f40',1,'NC::Methods::negative()'],['../namespace_n_c_1_1_coordinates.html#a7ca8272a0ed867a0fee4d47281ad9bb6a50546bf973283065b6ccf09faf7a580a',1,'NC::Coordinates::NEGATIVE()']]],
   ['negativebinomial',['negativeBinomial',['../class_n_c_1_1_random.html#a2a6851fd5a0f3bb8ff7912058eaed4a6',1,'NC::Random']]],
   ['newbyteorder',['newbyteorder',['../class_n_c_1_1_methods.html#a8185323554e4d1693ef5e0871198ee51',1,'NC::Methods::newbyteorder(dtype inValue, Endian inEndianess)'],['../class_n_c_1_1_methods.html#a6bce95db2a65bcf57f1aed1e5f9ddd73',1,'NC::Methods::newbyteorder(const NdArray&lt; dtype &gt; &amp;inArray, Endian inEndianess)'],['../class_n_c_1_1_nd_array.html#adac697ba2897fabeab33eb0f8909d692',1,'NC::NdArray::newbyteorder()']]],
