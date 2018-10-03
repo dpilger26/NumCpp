@@ -19,17 +19,17 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.linspace(1, 10, 2)```	                           | ```NC::linspace(1, 10, 2)```                             |
-| ```np.arange(3, 7)```                                    | ```NC::arrange(3, 7)```                                  |
-| ```np.eye(4)```                                          | ```NC::eye(4)```                                         |
-| ```np.zeros([3, 4])```                                   | ```NC::zeros(3, 4)```                                    |
-|                                                          | ```NC::NdArray(3, 4) a = 0```                            |
-| ```np.ones([3, 4])```                                    | ```NC::ones(3, 4)```                                     |
-|                                                          | ```NC::NdArray(3, 4) a = 1```                            |
-| ```np.nans([3, 4])```                                    | ```NC::nans(3, 4)```                                     |
-|                                                          | ```NC::NdArray(3, 4) a = NC::Constants::nan```           |
-| ```np.empty([3, 4])```                                   | ```NC::empty(3, 4)```                                    |
-|                                                          | ```NC::NdArray(3, 4) a;```                               |
+| ```np.linspace(1, 10, 5)```	                           | ```NC::linspace<dtype>(1, 10, 5)```                      |
+| ```np.arange(3, 7)```                                    | ```NC::arrange<dtype>(3, 7)```                           |
+| ```np.eye(4)```                                          | ```NC::eye<dtype>(4)```                                  |
+| ```np.zeros([3, 4])```                                   | ```NC::zeros<dtype>(3, 4)```                             |
+|                                                          | ```NC::NdArray<dtype>(3, 4) a = 0```                     |
+| ```np.ones([3, 4])```                                    | ```NC::ones<dtype>(3, 4)```                              |
+|                                                          | ```NC::NdArray<dtype>(3, 4) a = 1```                     |
+| ```np.nans([3, 4])```                                    | ```NC::nans<double>(3, 4)```                             |
+|                                                          | ```NC::NdArray<double>(3, 4) a = NC::Constants::nan```   |
+| ```np.empty([3, 4])```                                   | ```NC::empty<dtype>(3, 4)```                             |
+|                                                          | ```NC::NdArray<dtype>(3, 4) a;```                        |
 
 ### SLICING/BROADCASTING
 **NumpCpp** offers **NumPy** style slicing and broadcasting.
@@ -38,9 +38,9 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```a[2, 3]```	                                           | ```a(2, 3)```                                            |
 | ```a[2:5, 5:8]```                                        | ```a(NC::Slice(2, 5), NC::Slice(5, 8))```                |
-| ```a[:, 7]```                                            | ```a(NC::Slice::all(), 7)```                             |
-| ```a[a > 5]```                                           | ```a[a > 5]```                                           |
-| ```a[a > 5] = 0```                                       | ```a.put(a > 5, 0)```                                    |
+| ```a[:, 7]```                                            | ```a(a.rSlice(), 7)```                                   |
+| ```a[a > 5]```                                           | ```a[a > 50]```                                          |
+| ```a[a > 5] = 0```                                       | ```a.putMask(a > 50, 666)```                             |
 
 ### RANDOM
 The random module provides simple ways to create random arrays.

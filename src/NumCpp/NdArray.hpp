@@ -350,10 +350,7 @@ namespace NC
         ///
         NdArray<dtype>& operator=(dtype inValue)
         {
-            for (auto& value : this)
-            {
-                value = inValue;
-            }
+            std::fill(begin(), end(), inValue);
 
             return *this;
         }
@@ -492,6 +489,33 @@ namespace NC
             }
 
             return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						1D Slicing access operator with bounds checking. 
+        ///						returned array is of the range [start, stop).
+        ///		
+        /// @param
+        ///				inSlice
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> operator[](const NdArray<bool> inMask) const
+        {
+            if (inMask.shape() != shape_)
+            {
+                throw std::invalid_argument("ERROR: getByMask: input inMask must have the same shape as the NdArray it will be masking.");
+            }
+
+            auto indices = inMask.nonzero();
+            auto outArray = NdArray<dtype>(1, indices.size());
+            for (uint32 i = 0; i < indices.size(); ++i)
+            {
+                outArray[i] = this->operator[](indices[i]);
+            }
+
+            return std::move(outArray);
         }
 
         //============================================================================
@@ -1709,19 +1733,7 @@ namespace NC
         ///
         NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
         {
-            if (inMask.shape() != shape_)
-            {
-                throw std::invalid_argument("ERROR: getByMask: input inMask must have the same shape as the NdArray it will be masking.");
-            }
-
-            auto indices = inMask.nonzero();
-            auto outArray = NdArray<dtype>(1, indices.size());
-            for (uint32 i = 0; i < indices.size(); ++i)
-            {
-                outArray[i] = this->operator[](indices[i]);
-            }
-
-            return std::move(outArray);
+            return std::move(this->operator[](inMask));
         }
 
         //============================================================================
@@ -2434,9 +2446,11 @@ namespace NC
         /// @param				inIndex
         /// @param				inValue
         ///
-        void put(int32 inIndex, dtype inValue)
+        NdArray<dtype>& put(int32 inIndex, dtype inValue)
         {
             at(inIndex) = inValue;
+
+            return *this;
         }
 
         //============================================================================
@@ -2449,9 +2463,11 @@ namespace NC
         /// @param				inCol
         /// @param				inValue
         ///
-        void put(int32 inRow, int32 inCol, dtype inValue)
+        NdArray<dtype>& put(int32 inRow, int32 inCol, dtype inValue)
         {
             at(inRow, inCol) = inValue;
+
+            return *this;
         }
 
         //============================================================================
@@ -2463,12 +2479,14 @@ namespace NC
         /// @param				inIndices
         /// @param				inValue
         ///
-        void put(const NdArray<uint32>& inIndices, dtype inValue)
+        NdArray<dtype>& put(const NdArray<uint32>& inIndices, dtype inValue)
         {
             for (uint32 i = 0; i < inIndices.size(); ++i)
             {
                 put(inIndices[i], inValue);
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2480,7 +2498,7 @@ namespace NC
         /// @param				inIndices
         /// @param				inValues
         ///
-        void put(const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
+        NdArray<dtype>& put(const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
         {
             if (inIndices.size() != inValues.size())
             {
@@ -2491,6 +2509,8 @@ namespace NC
             {
                 put(inIndices[i], inValues[i]);
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2502,7 +2522,7 @@ namespace NC
         /// @param				inSlice
         /// @param				inValue
         ///
-        void put(const Slice& inSlice, dtype inValue)
+        NdArray<dtype>& put(const Slice& inSlice, dtype inValue)
         {
             Slice inSliceCopy(inSlice);
             inSliceCopy.makePositiveAndValidate(size_);
@@ -2511,6 +2531,8 @@ namespace NC
             {
                 put(i, inValue);
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2522,7 +2544,7 @@ namespace NC
         /// @param				inSlice
         /// @param  			inValues
         ///
-        void put(const Slice& inSlice, const NdArray<dtype>& inValues)
+        NdArray<dtype>& put(const Slice& inSlice, const NdArray<dtype>& inValues)
         {
             Slice inSliceCopy(inSlice);
             inSliceCopy.makePositiveAndValidate(size_);
@@ -2533,7 +2555,7 @@ namespace NC
                 indices.push_back(i);
             }
 
-            put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32>(indices), inValues);
         }
 
         //============================================================================
@@ -2546,7 +2568,7 @@ namespace NC
         /// @param				inColSlice
         /// @param				inValue
         ///
-        void put(const Slice& inRowSlice, const Slice& inColSlice, dtype inValue)
+        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, dtype inValue)
         {
             Slice inRowSliceCopy(inRowSlice);
             Slice inColSliceCopy(inColSlice);
@@ -2562,6 +2584,8 @@ namespace NC
                     put(row, col, inValue);
                 }
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2574,7 +2598,7 @@ namespace NC
         /// @param				inColIndex
         /// @param				inValue
         ///
-        void put(const Slice& inRowSlice, int32 inColIndex, dtype inValue)
+        NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, dtype inValue)
         {
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
@@ -2584,6 +2608,8 @@ namespace NC
             {
                 put(row, inColIndex, inValue);
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2596,7 +2622,7 @@ namespace NC
         /// @param				inColSlice
         /// @param				inValue
         ///
-        void put(int32 inRowIndex, const Slice& inColSlice, dtype inValue)
+        NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, dtype inValue)
         {
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
@@ -2606,6 +2632,8 @@ namespace NC
             {
                 put(inRowIndex, col, inValue);
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2618,7 +2646,7 @@ namespace NC
         /// @param				inColSlice
         /// @param				inValues
         ///
-        void put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype>& inValues)
+        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype>& inValues)
         {
             Slice inRowSliceCopy(inRowSlice);
             Slice inColSliceCopy(inColSlice);
@@ -2636,7 +2664,7 @@ namespace NC
                 }
             }
 
-            put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32>(indices), inValues);
         }
 
         //============================================================================
@@ -2649,7 +2677,7 @@ namespace NC
         /// @param				inColIndex
         /// @param				inValues
         ///
-        void put(const Slice& inRowSlice, int32 inColIndex, const NdArray<dtype>& inValues)
+        NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, const NdArray<dtype>& inValues)
         {
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
@@ -2661,7 +2689,7 @@ namespace NC
                 indices.push_back(index);
             }
 
-            put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32>(indices), inValues);
         }
 
         //============================================================================
@@ -2674,7 +2702,7 @@ namespace NC
         /// @param				inColSlice
         /// @param				inValues
         ///
-        void put(int32 inRowIndex, const Slice& inColSlice, const NdArray<dtype>& inValues)
+        NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, const NdArray<dtype>& inValues)
         {
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
@@ -2686,7 +2714,7 @@ namespace NC
                 indices.push_back(index);
             }
 
-            put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32>(indices), inValues);
         }
 
         //============================================================================
@@ -2696,14 +2724,14 @@ namespace NC
         /// @param				inMask
         /// @param				inValue
         ///
-        void putMask(const NdArray<bool>& inMask, dtype inValue)
+        NdArray<dtype>& putMask(const NdArray<bool>& inMask, dtype inValue)
         {
             if (inMask.shape() != shape_)
             {
                 throw std::invalid_argument("ERROR: putMask: input inMask must be the same shape as the array it is masking.");
             }
 
-            put(inMask.nonzero(), inValue);
+            return put(inMask.nonzero(), inValue);
         }
 
         //============================================================================
@@ -2713,14 +2741,14 @@ namespace NC
         /// @param				inMask
         /// @param				inValues
         ///
-        void putMask(const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
+        NdArray<dtype>& putMask(const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
         {
             if (inMask.shape() != shape_)
             {
                 throw std::invalid_argument("ERROR: putMask: input inMask must be the same shape as the array it is masking.");
             }
 
-            put(inMask.nonzero(), inValues);
+            return put(inMask.nonzero(), inValues);
         }
 
         //============================================================================

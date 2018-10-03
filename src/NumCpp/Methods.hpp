@@ -2348,7 +2348,7 @@ namespace NC
     template<typename dtype = double>
     NdArray<dtype> eye(uint32 inN, int32 inK = 0)
     {
-        return std::move(eye(inN, inN, inK));
+        return std::move(eye<dtype>(inN, inN, inK));
     }
 
     //============================================================================
