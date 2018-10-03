@@ -56,17 +56,18 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "_boost_numpy_ndarray_helper_8hpp.html",
-"_methods_8hpp.html#a92ed0d09a544e0104897e18346e24513",
-"class_n_c_1_1_data_cube.html#a849f0d05b639fad67ddeeebab8c3afe2",
-"class_n_c_1_1_nd_array.html#af6ad8bf45d201b7c813df1ac6d047ca0",
-"namespaces.html"
+"_methods_8hpp.html#a91f6f6b154dd1b679929285204e769ff",
+"class_n_c_1_1_data_cube.html#a7a1da80055d7bbe7b6063ed2042166da",
+"class_n_c_1_1_nd_array.html#af524fa83ffb7e6cb1888bbf3b86de671",
+"namespacemembers_w.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

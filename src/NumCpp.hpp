@@ -58,3 +58,6 @@
 #include"NumCpp/Timer.hpp"
 #include"NumCpp/Types.hpp"
 #include"NumCpp/Utils.hpp"
+
+/// \example Example.cpp
+/// Examples from the Quick Start Guide in README.md at [GitHub Repository](https://github.com/dpilger26/NumCpp)

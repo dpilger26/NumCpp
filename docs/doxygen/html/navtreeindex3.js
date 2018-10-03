@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"class_n_c_1_1_nd_array.html#af524fa83ffb7e6cb1888bbf3b86de671":[2,0,0,7,18],
 "class_n_c_1_1_nd_array.html#af6ad8bf45d201b7c813df1ac6d047ca0":[2,0,0,7,33],
 "class_n_c_1_1_nd_array.html#af8ab5ad33c144b2826d747c82eca46a8":[2,0,0,7,89],
 "class_n_c_1_1_nd_array.html#af901a5aaf45884ed8d7c2dd2c0e779a5":[2,0,0,7,20],
@@ -121,6 +122,7 @@ var NAVTREEINDEX3 =
 "class_n_c_1_1_timer.html#af06f8c9f5da235c38ee0aaa4844a2926":[2,0,0,11,0],
 "class_n_c_1_1_timer.html#af09eaffc8b3e5f52c9db1a90df98e1d9":[2,0,0,11,3],
 "classes.html":[2,1],
+"examples.html":[4],
 "files.html":[3,0],
 "functions.html":[2,2,0],
 "functions.html":[2,2,0,0],
@@ -191,12 +193,12 @@ var NAVTREEINDEX3 =
 "namespace_n_c.html":[2,0,0],
 "namespace_n_c.html":[1,0,0],
 "namespace_n_c_1_1_constants.html":[1,0,0,0],
-"namespace_n_c_1_1_coordinates.html":[1,0,0,1],
 "namespace_n_c_1_1_coordinates.html":[2,0,0,0],
+"namespace_n_c_1_1_coordinates.html":[1,0,0,1],
 "namespace_n_c_1_1_f_f_t.html":[1,0,0,2],
 "namespace_n_c_1_1_filter.html":[1,0,0,3],
-"namespace_n_c_1_1_image_processing.html":[2,0,0,1],
 "namespace_n_c_1_1_image_processing.html":[1,0,0,4],
+"namespace_n_c_1_1_image_processing.html":[2,0,0,1],
 "namespace_n_c_1_1_linalg.html":[1,0,0,5],
 "namespace_n_c_1_1_linalg.html":[2,0,0,2],
 "namespace_n_c_1_1_polynomial.html":[1,0,0,6],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "namespacemembers_type.html":[1,1,3],
 "namespacemembers_u.html":[1,1,0,17],
 "namespacemembers_v.html":[1,1,0,18],
-"namespacemembers_vars.html":[1,1,2],
-"namespacemembers_w.html":[1,1,0,19],
-"namespacemembers_z.html":[1,1,0,20]
+"namespacemembers_vars.html":[1,1,2]
 };
