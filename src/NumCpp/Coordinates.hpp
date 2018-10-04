@@ -47,7 +47,7 @@ namespace NC
     {
         //================================================================================
         ///						Holds a right ascension object
-        template<typename dtype = double>
+        template<typename dtype>
         class RA
         {
         private:
@@ -233,7 +233,7 @@ namespace NC
 
         //================================================================================
         ///						Holds a Declination object
-        template<typename dtype = double>
+        template<typename dtype>
         class Dec
         {
         private:
@@ -436,7 +436,7 @@ namespace NC
 
         //================================================================================
         ///						Holds a full coordinate object
-        template<typename dtype = double>
+        template<typename dtype>
         class Coordinate
         {
         private:
@@ -694,7 +694,7 @@ namespace NC
                     throw std::invalid_argument("ERROR: NC::Coordinates::Coordinate::radianSeperation: input vector must be of length 3.");
                 }
 
-                return static_cast<dtype>(std::acos(dot(xyz(), inVector.flatten()).item()));
+                return static_cast<dtype>(std::acos(dot<dtype, dtype>(xyz(), inVector.flatten()).item()));
             }
 
             //============================================================================

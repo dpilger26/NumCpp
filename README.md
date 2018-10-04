@@ -50,7 +50,7 @@ The random module provides simple ways to create random arrays.
 | ```np.random.seed(666)```	                               | ```NC::Random<>::seed(666)```                            |
 | ```np.random.randn(3, 4)```                              | ```NC::Random<double>::randn(NC::Shape(3,4))```          |
 | ```np.random.randint(0, 10, [3, 4])```                   | ```NC::Random<int>::randInt(NC::Shape(3,4),0,10)```      |
-| ```np.random.rand(3, 4)```                               | ```NC::Random<double>::randn(NC::Shape(3,4))```          |
+| ```np.random.rand(3, 4)```                               | ```NC::Random<double>::rand(NC::Shape(3,4))```          |
 | ```np.random.choice(a, 3)```                             | ```NC::Random<dtype>::choice(a, 3)```                    |
 
 ### CONCATENATION
@@ -80,7 +80,7 @@ The following return new `NdArray`s.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```for value in a"""                                     | ```for(auto it = a.begin(); a < a.end(); ++it)```        |
+| ```for value in a"""                                     | ```for(auto it = a.begin(); it < a.end(); ++it)```        |
 |                                                          | ```for(auto& value : a)```                               |
 
 ### LOGICAL
@@ -88,7 +88,6 @@ Logical FUNCTIONS in **NumpCpp** behave the same as **NumPy**.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.where(a > 5)```                                    | ```NC::where(a > 5)```                                   |
 | ```np.where(a > 5, a, b)```                              | ```NC::where(a > 5, a, b)```                             |
 | ```np.any(a)```                                          | ```NC::any(a)```                                         |
 | ```np.all(a)```	                                       | ```NC::all(a)```                                         |
@@ -102,7 +101,9 @@ Logical FUNCTIONS in **NumpCpp** behave the same as **NumPy**.
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```np.equal(a, b)```                                     | ```NC:::equal(a, b)```                                   |
+|                                                          | ```a == b```                                             |
 | ```np.not_equal(a, b)```                                 | ```NC::not_equal(a, b)```                                |
+|                                                          | ```a != b```                                             |
 | ```np.nonzero(a)```                                      | ```NC::nonzero(a)```                                     |
 
 ### MINIMUM, MAXIMUM, SORTING
@@ -140,8 +141,8 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | print(a)                                                 | ```a.print()```                                          |
 |                                                          | ```std::cout << a```                                     |
-| ```a.tofile(filename, sep=’\n’)```                       | ````a.tofile(filename, sep=’\n’)```                      |
-| ```np.fromfile(filename, sep=’\n’)```	                   | ```NC::fromfile(filename, sep=’\n’)```                   |
+| ```a.tofile(filename, sep=’\n’)```                       | ````a.tofile(filename, "\n")```                      |
+| ```np.fromfile(filename, sep=’\n’)```	                   | ```NC::fromfile(filename, \n")```                   |
 | ```np.dump(a, filename)```                               | ```NC::dump(a, filename)```                              |
 | ```np.load(filename)```                                  | ```NC::load(filename)```                                 |
 
@@ -152,10 +153,10 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.absolute(a)```                                     | ```NC::absolute(a)```                                    |
+| ```np.abs(a)```                                          | ```NC::abs(a)```                                         |
 | ```np.sign(a)```                                         | ```NC::sign(a)```                                        |
 | ```np.remainder(a, b)```                                 | ```NC::remainder(a, b)```                                |
-| ```np.clip(a, min, max)```                               | ```NC::clip(a, min, max)```                              |
+| ```np.clip(a, 3, 8)```                                   | ```NC::clip(a, 3, 8)```                                  |
 | ```np.interp(x, xp, fp)```                               | ```NC::interp(x, xp, fp)```                              |
 
 #### EXPONENTIAL FUNCTIONS
@@ -171,7 +172,7 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.power(a, p)```                                     | ```NC::power(a)```                                       |
+| ```np.power(a, 4)```                                     | ```NC::power(a, 4)```                                    |
 | ```np.sqrt(a)```	                                       | ```NC::sqrt(a)```                                        |
 | ```np.square(a)```                                       | ```NC::square(a)```                                      |
 | ```np.cbrt(a)```                                         | ```NC::cbrt(a)```                                        |
@@ -198,7 +199,6 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```np.isnan(a)```                                        | ```NC::isnan(a)```                                       |
 | ```np.isinf(a)```	                                       | ```NC::isinf(a)```                                       |
-| ```np.isfinite(a)```                                     | ```NC::isfinite(a)```                                    |
 
 #### LINEAR ALGEBRA
 

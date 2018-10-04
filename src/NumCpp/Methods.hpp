@@ -59,7 +59,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype abs(dtype inValue)
     {
         return std::abs(inValue);
@@ -76,7 +76,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> abs(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
@@ -96,7 +96,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1.astype<dtypeOut>() + inArray2.astype<dtypeOut>());
@@ -111,7 +111,7 @@ namespace NC
     /// @return
     ///				length uint16
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     uint32 alen(const NdArray<dtype>& inArray)
     {
         return inArray.shape().rows;
@@ -128,7 +128,7 @@ namespace NC
     /// @return
     ///				bool
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> all(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.all(inAxis));
@@ -147,7 +147,7 @@ namespace NC
     /// @return
     ///				bool
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance = 1e-5)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -177,7 +177,7 @@ namespace NC
     /// @return
     ///				max value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> amax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.max(inAxis));
@@ -194,7 +194,7 @@ namespace NC
     /// @return
     ///				min value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.min(inAxis));
@@ -211,7 +211,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> any(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.any(inAxis));
@@ -231,7 +231,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
@@ -306,7 +306,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
     {
         if (inStep > 0 && inStop < inStart)
@@ -362,7 +362,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> arange(dtype inStop)
     {
         if (inStop <= 0)
@@ -384,7 +384,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double arccos(dtype inValue)
     {
         return std::acos(static_cast<double>(inValue));
@@ -401,7 +401,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> arccos(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -421,7 +421,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double arccosh(dtype inValue)
     {
         return std::acosh(static_cast<double>(inValue));
@@ -438,7 +438,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> arccosh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -458,7 +458,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double arcsin(dtype inValue)
     {
         return std::asin(static_cast<double>(inValue));
@@ -475,7 +475,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> arcsin(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -495,7 +495,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double arcsinh(dtype inValue)
     {
         return std::asinh(static_cast<double>(inValue));
@@ -512,7 +512,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> arcsinh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -532,7 +532,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double arctan(dtype inValue)
     {
         return std::atan(static_cast<double>(inValue));
@@ -549,7 +549,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> arctan(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -569,7 +569,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double arctan2(dtype inY, dtype inX)
     {
         return std::atan2(static_cast<double>(inY), static_cast<double>(inX));
@@ -586,7 +586,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
     {
         if (inX.shape() != inY.shape())
@@ -612,7 +612,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double arctanh(dtype inValue)
     {
         return std::atanh(static_cast<double>(inValue));
@@ -629,7 +629,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> arctanh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -649,7 +649,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<uint32> argmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.argmax(inAxis));
@@ -666,7 +666,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<uint32> argmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.argmin(inAxis));
@@ -683,7 +683,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<uint32> argsort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.argsort(inAxis));
@@ -699,7 +699,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<uint32> argwhere(const NdArray<dtype>& inArray)
     {
         return std::move(inArray.nonzero());
@@ -716,7 +716,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype around(dtype inValue, uint8 inNumDecimals = 0)
     {
         NdArray<dtype> value = { inValue };
@@ -734,7 +734,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> around(const NdArray<dtype>& inArray, uint8 inNumDecimals = 0)
     {
         return std::move(inArray.round(inNumDecimals));
@@ -752,7 +752,7 @@ namespace NC
     /// @return
     ///				bool
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     bool array_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -779,7 +779,7 @@ namespace NC
     /// @return
     ///				bool
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     bool array_equiv(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.size() != inArray2.size())
@@ -809,7 +809,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> asarray(const std::vector<dtype>& inVector)
     {
         return std::move(NdArray<dtype>(inVector));
@@ -827,7 +827,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> asarray(std::initializer_list<dtype>& inList)
     {
         return std::move(NdArray<dtype>(inList));
@@ -842,7 +842,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> astype(const NdArray<dtype> inArray)
     {
         return std::move(inArray.astype<dtypeOut>());
@@ -859,7 +859,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.mean(inAxis));
@@ -877,7 +877,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
@@ -968,7 +968,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
     {
         // only works with integer input types
@@ -1020,7 +1020,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
     {
         // only works with integer input types
@@ -1067,7 +1067,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 & inArray2);
@@ -1081,7 +1081,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray)
     {
         return std::move(~inArray);
@@ -1098,7 +1098,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 | inArray2);
@@ -1115,7 +1115,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 ^ inArray2);
@@ -1131,7 +1131,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> byteswap(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray);
@@ -1150,7 +1150,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double cbrt(dtype inValue)
     {
         return std::cbrt(static_cast<double>(inValue));
@@ -1166,7 +1166,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> cbrt(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -1185,7 +1185,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype ceil(dtype inValue)
     {
         return std::ceil(inValue);
@@ -1201,7 +1201,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> ceil(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
@@ -1222,7 +1222,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue)
     {
         NdArray<dtype> value = { inValue };
@@ -1241,7 +1241,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue)
     {
         return std::move(inArray.clip(inMinValue, inMaxValue));
@@ -1258,7 +1258,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
         // first loop through to calculate the final size of the array
@@ -1310,7 +1310,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
@@ -1361,7 +1361,7 @@ namespace NC
     /// @return
     ///				bool
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> contains(const NdArray<dtype>& inArray, dtype inValue, Axis inAxis = Axis::NONE)
     {
         return inArray.contains(inValue, inAxis);
@@ -1378,7 +1378,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> copy(const NdArray<dtype>& inArray)
     {
         return std::move(NdArray<dtype>(inArray));
@@ -1395,7 +1395,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -1421,7 +1421,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype>& copyto(NdArray<dtype>& inDestArray, const NdArray<dtype>& inSrcArray)
     {
         inDestArray = inSrcArray;
@@ -1439,7 +1439,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double cos(dtype inValue)
     {
         return std::cos(static_cast<double>(inValue));
@@ -1456,7 +1456,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> cos(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -1476,7 +1476,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double cosh(dtype inValue)
     {
         return std::cosh(static_cast<double>(inValue));
@@ -1493,7 +1493,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> cosh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -1513,7 +1513,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
@@ -1582,7 +1582,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis inAxis = Axis::NONE)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -1711,7 +1711,7 @@ namespace NC
     /// @return
     ///				cubed value
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     dtypeOut cube(dtype inValue)
     {
         return Utils::cube(static_cast<dtypeOut>(inValue));
@@ -1726,7 +1726,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> cube(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
@@ -1746,7 +1746,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> cumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.cumprod<dtypeOut>(inAxis));
@@ -1763,7 +1763,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> cumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.cumsum<dtypeOut>(inAxis));
@@ -1780,7 +1780,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double deg2rad(dtype inValue)
     {
         return inValue * Constants::pi / 180.0;
@@ -1797,7 +1797,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> deg2rad(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -1816,7 +1816,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis = Axis::NONE)
     {
         // make sure that the indices are unique first
@@ -1915,7 +1915,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Slice& inIndicesSlice, Axis inAxis = Axis::NONE)
     {
         Slice sliceCopy(inIndicesSlice);
@@ -1958,7 +1958,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis = Axis::NONE)
     {
         NdArray<uint32> inIndices = { inIndex };
@@ -1976,7 +1976,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> diagflat(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.size());
@@ -2001,7 +2001,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> diagonal(const NdArray<dtype>& inArray, int32 inOffset = 0, Axis inAxis = Axis::ROW)
     {
         return std::move(inArray.diagonal(inOffset, inAxis));
@@ -2019,7 +2019,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         Shape inShape = inArray.shape();
@@ -2093,7 +2093,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1.astype<dtypeOut>() / inArray2.astype<dtypeOut>());
@@ -2110,7 +2110,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1.dot<dtypeOut>(inArray2));
@@ -2126,7 +2126,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     void dump(const NdArray<dtype>& inArray, const std::string& inFilename)
     {
         inArray.dump(inFilename);
@@ -2143,7 +2143,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> empty(uint32 inNumRows, uint32 inNumCols)
     {
         return std::move(NdArray<dtype>(inNumRows, inNumCols));
@@ -2160,7 +2160,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> empty(const Shape& inShape)
     {
         return std::move(NdArray<dtype>(inShape));
@@ -2177,7 +2177,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> empty_like(const NdArray<dtype>& inArray)
     {
         return std::move(NdArray<dtypeOut>(inArray.shape()));
@@ -2192,7 +2192,7 @@ namespace NC
     /// @return
     ///				Endian
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     Endian endianess(const NdArray<dtype>& inArray)
     {
         return inArray.endianess();
@@ -2209,7 +2209,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 == inArray2);
@@ -2226,7 +2226,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double exp(dtype inValue)
     {
         return std::exp(static_cast<double>(inValue));
@@ -2243,7 +2243,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> exp(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -2265,7 +2265,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double exp2(dtype inValue)
     {
         return std::exp2(static_cast<double>(inValue));
@@ -2282,7 +2282,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> exp2(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -2304,7 +2304,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double expm1(dtype inValue)
     {
         return std::exp(static_cast<double>(inValue)) - 1.0;
@@ -2321,7 +2321,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> expm1(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -2345,7 +2345,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> eye(uint32 inN, int32 inK = 0)
     {
         return std::move(eye<dtype>(inN, inN, inK));
@@ -2365,7 +2365,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0)
     {
         NdArray<dtype> returnArray(inN, inM);
@@ -2414,10 +2414,10 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> eye(const Shape& inShape, int32 inK = 0)
     {
-        return std::move(eye(inShape.rows, inShape.cols, inK));
+        return std::move(eye<dtype>(inShape.rows, inShape.cols, inK));
     }
 
     //============================================================================
@@ -2431,7 +2431,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype fix(dtype inValue)
     {
         return inValue > 0 ? std::floor(inValue) : std::ceil(inValue);
@@ -2448,7 +2448,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> fix(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -2469,7 +2469,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> flatten(const NdArray<dtype>& inArray)
     {
         return std::move(inArray.flatten());
@@ -2486,7 +2486,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<uint32> flatnonzero(const NdArray<dtype>& inArray)
     {
         return std::move(inArray.flatten().nonzero());
@@ -2503,7 +2503,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> flip(const NdArray<dtype>& inArray, Axis inAxis)
     {
         switch (inAxis)
@@ -2550,7 +2550,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> fliplr(const NdArray<dtype>& inArray)
     {
         return std::move(flip(inArray, Axis::COL));
@@ -2567,7 +2567,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> flipud(const NdArray<dtype>& inArray)
     {
         return std::move(flip(inArray, Axis::ROW));
@@ -2584,7 +2584,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype floor(dtype inValue)
     {
         return std::floor(inValue);
@@ -2601,7 +2601,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> floor(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -2623,7 +2623,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype floor_divide(dtype inValue1, dtype inValue2)
     {
         return std::floor(inValue1 / inValue2);
@@ -2640,7 +2640,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> floor_divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(floor(inArray1 / inArray2));
@@ -2660,7 +2660,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype fmax(dtype inValue1, dtype inValue2)
     {
         return std::max(inValue1, inValue2);
@@ -2680,7 +2680,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> fmax(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -2710,7 +2710,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype fmin(dtype inValue1, dtype inValue2)
     {
         return std::min(inValue1, inValue2);
@@ -2730,7 +2730,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> fmin(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -2758,7 +2758,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype fmod(dtype inValue1, dtype inValue2)
     {
         // can only be called on integer types
@@ -2779,7 +2779,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         // can only be called on integer types
@@ -2811,7 +2811,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "")
     {
         boost::filesystem::path p(inFilename);
@@ -2893,7 +2893,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> full(uint32 inSquareSize, dtype inFillValue)
     {
         NdArray<dtype> returnArray(inSquareSize, inSquareSize);
@@ -2913,7 +2913,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue)
     {
         NdArray<dtype> returnArray(inNumRows, inNumCols);
@@ -2932,7 +2932,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> full(const Shape& inShape, dtype inFillValue)
     {
         return std::move(full(inShape.rows, inShape.cols, inFillValue));
@@ -2949,7 +2949,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue)
     {
         return std::move(full(inArray.shape(), static_cast<dtypeOut>(inFillValue)));
@@ -2967,7 +2967,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> greater(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 > inArray2);
@@ -2985,7 +2985,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> greater_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 >= inArray2);
@@ -3004,7 +3004,7 @@ namespace NC
     /// @return
     ///				std::pair of NdArrays; first is histogram counts, seconds is the bin edges
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
     {
         if (inNumBins == 0)
@@ -3067,7 +3067,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> hstack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
         return std::move(column_stack(inArrayList));
@@ -3088,7 +3088,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     dtypeOut hypot(dtype inValue1, dtype inValue2)
     {
         return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2));
@@ -3109,7 +3109,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -3139,7 +3139,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> identity(uint32 inSquareSize)
     {
         NdArray<dtype> returnArray(inSquareSize);
@@ -3161,7 +3161,7 @@ namespace NC
     ///
     /// @return     linear interpolated point
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double interp(dtype inValue1, dtype inValue2, double inPercent)
     {
         return Utils::interp(inValue1, inValue2, inPercent);
@@ -3185,7 +3185,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)
     {
         // do some error checking first
@@ -3247,7 +3247,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> intersect1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         std::vector<dtype> res(inArray1.size() + inArray2.size());
@@ -3272,7 +3272,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> invert(const NdArray<dtype>& inArray)
     {
         return std::move(~inArray);
@@ -3296,7 +3296,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -3323,7 +3323,7 @@ namespace NC
     /// @return
     ///				bool
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     bool isnan(dtype inValue)
     {
         return std::isnan(inValue);
@@ -3341,7 +3341,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> isnan(const NdArray<dtype>& inArray)
     {
         NdArray<bool> returnArray(inArray.shape());
@@ -3363,7 +3363,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype ldexp(dtype inValue1, uint8 inValue2)
     {
         return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2));
@@ -3381,7 +3381,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> ldexp(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -3408,7 +3408,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> left_shift(const NdArray<dtype>& inArray, uint8 inNumBits)
     {
         return std::move(inArray << inNumBits);
@@ -3426,7 +3426,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> less(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 < inArray2);
@@ -3444,7 +3444,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> less_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 <= inArray2);
@@ -3472,7 +3472,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)
     {
         if (inNum == 0)
@@ -3548,10 +3548,10 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> load(const std::string& inFilename)
     {
-        return std::move(fromfile(inFilename, ""));
+        return std::move(fromfile<dtype>(inFilename, ""));
     }
 
     //============================================================================
@@ -3566,7 +3566,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double log(dtype inValue)
     {
         return std::log(static_cast<double>(inValue));
@@ -3584,7 +3584,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> log(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -3606,7 +3606,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double log10(dtype inValue)
     {
         return std::log10(static_cast<double>(inValue));
@@ -3624,7 +3624,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> log10(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -3648,7 +3648,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double log1p(dtype inValue)
     {
         return std::log1p(static_cast<double>(inValue));
@@ -3668,7 +3668,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> log1p(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -3690,7 +3690,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double log2(dtype inValue)
     {
         return std::log2(static_cast<double>(inValue));
@@ -3708,7 +3708,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> log2(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -3730,7 +3730,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> logical_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -3758,7 +3758,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> logical_not(const NdArray<dtype>& inArray)
     {
         NdArray<bool> returnArray(inArray.shape());
@@ -3780,7 +3780,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> logical_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -3808,7 +3808,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> logical_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -3836,7 +3836,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1.dot<dtypeOut>(inArray2));
@@ -3852,7 +3852,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> max(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.max(inAxis));
@@ -3871,7 +3871,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> maximum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -3899,7 +3899,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> mean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.mean(inAxis));
@@ -3917,7 +3917,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.median(inAxis));
@@ -3933,7 +3933,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> min(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.min(inAxis));
@@ -3951,7 +3951,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> minimum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -3979,7 +3979,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> mod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 % inArray2);
@@ -3997,7 +3997,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> multiply(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 * inArray2);
@@ -4014,7 +4014,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<uint32> nanargmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4040,7 +4040,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4066,7 +4066,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> nancumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4092,7 +4092,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> nancumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4119,7 +4119,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> nanmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4146,7 +4146,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
@@ -4219,7 +4219,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
@@ -4307,7 +4307,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4335,7 +4335,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
         if (inPercentile < 0 || inPercentile > 100)
@@ -4432,7 +4432,7 @@ namespace NC
                     double diff1 = percent - percent1;
                     double diff2 = percent2 - percent;
 
-                    switch (argmin({ diff1, diff2 }).item())
+                    switch (argmin<double>({ diff1, diff2 }).item())
                     {
                         case 0:
                         {
@@ -4459,7 +4459,7 @@ namespace NC
                 NdArray<dtypeOut> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    NdArray<dtypeOut> outValue = nanpercentile<dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
+                    NdArray<dtypeOut> outValue = nanpercentile<dtype, dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
                         inPercentile, Axis::NONE, inInterpMethod);
 
                     if (outValue.size() == 1)
@@ -4482,7 +4482,7 @@ namespace NC
                 NdArray<dtypeOut> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    NdArray<dtypeOut> outValue = nanpercentile<dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
+                    NdArray<dtypeOut> outValue = nanpercentile<dtype, dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
                         inPercentile, Axis::NONE, inInterpMethod);
 
                     if (outValue.size() == 1)
@@ -4518,7 +4518,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> nanprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4543,7 +4543,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> nans(uint32 inSquareSize)
     {
         return std::move(full(inSquareSize, static_cast<dtype>(Constants::nan)));
@@ -4559,7 +4559,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> nans(uint32 inNumRows, uint32 inNumCols)
     {
         return std::move(full(inNumRows, inNumCols, static_cast<dtype>(Constants::nan)));
@@ -4575,7 +4575,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NC::NdArray<dtype> nans(const NC::Shape& inShape)
     {
         return std::move(full(inShape, static_cast<dtype>(Constants::nan)));
@@ -4590,7 +4590,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> nans_like(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -4610,7 +4610,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> nanstd(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
@@ -4703,7 +4703,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4730,7 +4730,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<double> stdValues = nanstd(inArray, inAxis);
@@ -4750,7 +4750,7 @@ namespace NC
     /// @return
     ///				number of bytes
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     uint64 nbytes(const NdArray<dtype>& inArray)
     {
         return inArray.nbytes();
@@ -4770,7 +4770,7 @@ namespace NC
     /// @return
     ///				inValue
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype newbyteorder(dtype inValue, Endian inEndianess)
     {
         NdArray<dtype> valueArray = { inValue };
@@ -4791,7 +4791,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian inEndianess)
     {
         return std::move(inArray.newbyteorder(inEndianess));
@@ -4809,7 +4809,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> negative(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray = inArray.astype<dtypeOut>();
@@ -4829,7 +4829,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<uint32> nonzero(const NdArray<dtype>& inArray)
     {
         return std::move(inArray.nonzero());
@@ -4845,7 +4845,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.norm<dtypeOut>(inAxis));
@@ -4863,7 +4863,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> not_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1 != inArray2);
@@ -4880,7 +4880,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> ones(uint32 inSquareSize)
     {
         return std::move(full(inSquareSize, static_cast<dtype>(1)));
@@ -4897,7 +4897,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> ones(uint32 inNumRows, uint32 inNumCols)
     {
         return std::move(full(inNumRows, inNumCols, static_cast<dtype>(1)));
@@ -4914,7 +4914,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> ones(const Shape& inShape)
     {
         return std::move(full(inShape, static_cast<dtype>(1)));
@@ -4931,7 +4931,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
@@ -4951,7 +4951,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> pad(const NdArray<dtype>& inArray, uint16 inPadWidth, dtype inPadValue)
     {
         Shape inShape = inArray.shape();
@@ -4983,7 +4983,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> returnArray(inArray);
@@ -5009,7 +5009,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
         if (inPercentile < 0 || inPercentile > 100)
@@ -5077,7 +5077,7 @@ namespace NC
                     double diff1 = percent - percent1;
                     double diff2 = percent2 - percent;
 
-                    switch (argmin({ diff1, diff2 }).item())
+                    switch (argmin<double>({ diff1, diff2 }).item())
                     {
                         case 0:
                         {
@@ -5144,7 +5144,7 @@ namespace NC
     /// @return
     ///				value raised to the power
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     dtypeOut power(dtype inValue, uint8 inExponent)
     {
         return Utils::power(static_cast<dtypeOut>(inValue), inExponent);
@@ -5161,7 +5161,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> power(const NdArray<dtype>& inArray, uint8 inExponent)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
@@ -5182,7 +5182,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> power(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
     {
         if (inArray.shape() != inExponents.shape())
@@ -5206,7 +5206,7 @@ namespace NC
     /// @return
     ///				None
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     void print(const NdArray<dtype>& inArray)
     {
         std::cout << inArray;
@@ -5223,7 +5223,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> prod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.prod<dtypeOut>(inAxis));
@@ -5240,7 +5240,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.ptp(inAxis));
@@ -5259,7 +5259,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype>& put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
     {
         inArray.put(inIndices, inValues);
@@ -5282,7 +5282,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
     {
         inArray.putMask(inMask, inValue);
@@ -5305,7 +5305,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
     {
         inArray.putMask(inMask, inValues);
@@ -5324,7 +5324,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double rad2deg(dtype inValue)
     {
         return inValue * 180.0 / Constants::pi;
@@ -5342,7 +5342,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> rad2deg(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -5365,7 +5365,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
@@ -5389,7 +5389,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     dtypeOut remainder(dtype inValue1, dtype inValue2)
     {
         return std::remainder(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2));
@@ -5407,7 +5407,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -5435,7 +5435,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> repeat(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         return std::move(inArray.repeat(inNumRows, inNumCols));
@@ -5453,7 +5453,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> repeat(const NdArray<dtype>& inArray, const Shape& inRepeatShape)
     {
         return std::move(inArray.repeat(inRepeatShape));
@@ -5472,7 +5472,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         inArray.reshape(inNumRows, inNumCols);
@@ -5491,7 +5491,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
         inArray.reshape(inNewShape);
@@ -5512,7 +5512,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         inArray.resizeFast(inNumRows, inNumCols);
@@ -5532,7 +5532,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
         inArray.resizeFast(inNewShape);
@@ -5555,7 +5555,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         inArray.resizeSlow(inNumRows, inNumCols);
@@ -5577,7 +5577,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
         inArray.resizeSlow(inNewShape);
@@ -5596,7 +5596,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> right_shift(const NdArray<dtype>& inArray, uint8 inNumBits)
     {
         return std::move(inArray >> inNumBits);
@@ -5614,7 +5614,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype rint(dtype inValue)
     {
         return std::rint(inValue);
@@ -5632,7 +5632,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> rint(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -5654,7 +5654,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis inAxis = Axis::NONE)
     {
         switch (inAxis)
@@ -5729,7 +5729,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1)
     {
         inK %= 4;
@@ -5766,7 +5766,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype round(dtype inValue, uint8 inDecimals)
     {
         NdArray<dtype> input = { inValue };
@@ -5783,7 +5783,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals)
     {
         return std::move(inArray.round(inDecimals));
@@ -5799,7 +5799,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
         // first loop through to calculate the final size of the array
@@ -5853,7 +5853,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> setdiff1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         std::vector<dtype> res(inArray1.size() + inArray2.size());
@@ -5875,7 +5875,7 @@ namespace NC
     /// @return
     ///				Shape
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     Shape shape(const NdArray<dtype>& inArray)
     {
         return inArray.shape();
@@ -5895,7 +5895,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     int8 sign(dtype inValue)
     {
         if (inValue < 0)
@@ -5926,7 +5926,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<int8> sign(const NdArray<dtype>& inArray)
     {
         NdArray<int8> returnArray(inArray.shape());
@@ -5946,7 +5946,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     bool signbit(dtype inValue)
     {
         return inValue < 0 ? true : false;
@@ -5963,7 +5963,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<bool> signbit(const NdArray<dtype>& inArray)
     {
         NdArray<bool> returnArray(inArray.shape());
@@ -5983,7 +5983,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double sin(dtype inValue)
     {
         return std::sin(static_cast<double>(inValue));
@@ -6000,7 +6000,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> sin(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -6022,7 +6022,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double sinc(dtype inValue)
     {
         double input = static_cast<double>(inValue);
@@ -6042,7 +6042,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> sinc(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -6062,7 +6062,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double sinh(dtype inValue)
     {
         return std::sinh(static_cast<double>(inValue));
@@ -6079,7 +6079,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> sinh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -6097,7 +6097,7 @@ namespace NC
     /// @return
     ///				uint32 size
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     uint32 size(const NdArray<dtype>& inArray)
     {
         return inArray.size();
@@ -6114,7 +6114,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> sort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> returnArray(inArray);
@@ -6133,7 +6133,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double sqrt(dtype inValue)
     {
         return std::sqrt(static_cast<double>(inValue));
@@ -6150,7 +6150,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> sqrt(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -6170,7 +6170,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype square(dtype inValue)
     {
         return Utils::sqr(inValue);
@@ -6187,7 +6187,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> square(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
@@ -6207,7 +6207,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> stack(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::ROW)
     {
         switch (inAxis)
@@ -6238,7 +6238,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> std(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.std(inAxis));
@@ -6255,7 +6255,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.sum<dtypeOut>(inAxis));
@@ -6272,7 +6272,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> swapaxes(const NdArray<dtype>& inArray)
     {
         return std::move(inArray.swapaxes());
@@ -6289,7 +6289,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double tan(dtype inValue)
     {
         return std::tan(static_cast<double>(inValue));
@@ -6306,7 +6306,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> tan(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -6326,7 +6326,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     double tanh(dtype inValue)
     {
         return std::tanh(static_cast<double>(inValue));
@@ -6343,7 +6343,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> tanh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -6364,7 +6364,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> tile(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
         return std::move(inArray.repeat(inNumRows, inNumCols));
@@ -6381,7 +6381,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps)
     {
         return std::move(inArray.repeat(inReps));
@@ -6399,7 +6399,7 @@ namespace NC
     /// @return
     ///				None
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const std::string& inSep = "")
     {
         return inArray.tofile(inFilename, inSep);
@@ -6414,7 +6414,7 @@ namespace NC
     /// @return
     ///				std::vector
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     std::vector<dtype> toStlVector(const NdArray<dtype>& inArray)
     {
         return std::move(inArray.toStlVector());
@@ -6432,7 +6432,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW)
     {
         return std::move(inArray.trace<dtypeOut>(inOffset, inAxis));
@@ -6450,7 +6450,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> transpose(const NdArray<dtype>& inArray)
     {
         return std::move(inArray.transpose());
@@ -6469,7 +6469,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE)
     {
         Shape inShape = inArray.shape();
@@ -6542,7 +6542,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis inAxis = Axis::NONE)
     {
         Shape inShapeY = inArrayY.shape();
@@ -6617,7 +6617,7 @@ namespace NC
     // Method Description: 
     ///						An array with ones at and below the given diagonal and zeros elsewhere.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tril.html
     ///		
     /// @param				inN: number of rows and cols
     /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
@@ -6628,7 +6628,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> tril(uint32 inN, int32 inOffset = 0)
     {
         uint32 rowStart = 0;
@@ -6676,7 +6676,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0)
     {
         uint32 rowStart = 0;
@@ -6723,7 +6723,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> triu(uint32 inN, int32 inOffset = 0)
     {
         return std::move(tril<dtype>(inN, inOffset).transpose());
@@ -6745,7 +6745,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0)
     {
         return std::move(tril<dtype>(inN, inM, inOffset).transpose());
@@ -6763,7 +6763,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim = "fb")
     {
         if (inTrim == "f")
@@ -6877,7 +6877,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype trunc(dtype inValue)
     {
         return std::trunc(inValue);
@@ -6895,7 +6895,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> trunc(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
@@ -6919,7 +6919,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> union1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
@@ -6946,7 +6946,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> unique(const NdArray<dtype>& inArray)
     {
         std::set<dtype> theSet(inArray.cbegin(), inArray.cend());
@@ -6965,7 +6965,7 @@ namespace NC
     /// @return
     ///				value
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     dtype unwrap(dtype inValue)
     {
         if (inValue < 0)
@@ -6994,7 +6994,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> unwrap(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
@@ -7016,7 +7016,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<double> var(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.var(inAxis));
@@ -7034,7 +7034,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> vstack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
         return std::move(row_stack(inArrayList));
@@ -7053,7 +7053,7 @@ namespace NC
     /// @param      inB
     /// @return     NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
     {
         auto shapeMask = inMask.shape();
@@ -7096,7 +7096,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> zeros(uint32 inSquareSize)
     {
         return std::move(full(inSquareSize, static_cast<dtype>(0)));
@@ -7113,7 +7113,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NdArray<dtype> zeros(uint32 inNumRows, uint32 inNumCols)
     {
         return std::move(full(inNumRows, inNumCols, static_cast<dtype>(0)));
@@ -7130,7 +7130,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double>
+    template<typename dtype>
     NC::NdArray<dtype> zeros(const NC::Shape& inShape)
     {
         return std::move(full(inShape, static_cast<dtype>(0)));
@@ -7147,7 +7147,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype = double, typename dtypeOut = double>
+    template<typename dtype, typename dtypeOut>
     NdArray<dtypeOut> zeros_like(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());

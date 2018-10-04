@@ -57,7 +57,7 @@ namespace NC
     //================================================================================
     // Class Description:
     ///						Holds 1D and 2D arrays, the main work horse of the NumCpp library
-    template<typename dtype = double>
+    template<typename dtype>
     class NdArray
     {
     public:
@@ -1193,7 +1193,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
+        template<typename dtypeOut>
         NdArray<dtypeOut> astype() const
         {
             NdArray<dtypeOut> outArray(shape_);
@@ -1356,7 +1356,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
+        template<typename dtypeOut>
         NdArray<dtypeOut> cumprod(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
@@ -1420,7 +1420,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
+        template<typename dtypeOut>
         NdArray<dtypeOut> cumsum(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
@@ -1553,7 +1553,7 @@ namespace NC
         /// @return
         ///				dot product
         ///
-        template<typename dtypeOut = double>
+        template<typename dtypeOut>
         NdArray<dtypeOut> dot(const NdArray<dtype>& inOtherArray) const
         {
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
@@ -2177,7 +2177,7 @@ namespace NC
         /// @return
         ///				norm
         ///
-        template<typename dtypeOut = double>
+        template<typename dtypeOut>
         NdArray<dtypeOut> norm(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
@@ -2329,7 +2329,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
+        template<typename dtypeOut>
         NdArray<dtypeOut> prod(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
@@ -3143,7 +3143,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
+        template<typename dtypeOut>
         NdArray<dtypeOut> sum(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
@@ -3271,7 +3271,7 @@ namespace NC
         /// @return
         ///				value
         ///
-        template<typename dtypeOut = double>
+        template<typename dtypeOut>
         dtypeOut trace(uint16 inOffset = 0, Axis inAxis = Axis::ROW) const
         {
             uint16 rowStart = 0;

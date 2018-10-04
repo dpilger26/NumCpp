@@ -51,7 +51,7 @@ namespace NC
         //================================================================================
         // Class Description:
         ///						Holds the information for a single pixel
-        template<typename dtype = double>
+        template<typename dtype>
         class Pixel
         {
         private:
@@ -255,7 +255,7 @@ namespace NC
         //================================================================================
         // Class Description:
         ///						Holds the information for a cluster of pixels
-        template<typename dtype = double>
+        template<typename dtype>
         class Cluster
         {
         public:
@@ -610,7 +610,7 @@ namespace NC
         //=============================================================================
         // Class Description:
         ///              Clusters exceedance data into contiguous groups
-        template<typename dtype = double>
+        template<typename dtype>
         class ClusterMaker
         {
         private:
@@ -942,7 +942,7 @@ namespace NC
         //================================================================================
         // Class Description:
         ///						holds the information for a centroid
-        template<typename dtype = double>
+        template<typename dtype>
         class Centroid
         {
             //==================================Attributes================================///
@@ -1173,7 +1173,7 @@ namespace NC
         /// @return
         ///				NdArray of booleans of pixels that exceeded the threshold
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold)
         {
             return std::move(inImageArray > inThreshold);
@@ -1187,7 +1187,7 @@ namespace NC
         /// @return
         ///				std::vector<Centroid>
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters)
         {
             std::vector<Centroid<dtype> > centroids(inClusters.size());
@@ -1210,7 +1210,7 @@ namespace NC
         /// @return
         ///				std::vector<Cluster>
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
         {
             ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
@@ -1229,7 +1229,7 @@ namespace NC
         /// @return
         ///				std::vector<Centroid>
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
         {
             uint8 borderWidthPre = 0;
@@ -1277,7 +1277,7 @@ namespace NC
         /// @return
         ///				dtype
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
         {
             if (inRate < 0 || inRate > 1)

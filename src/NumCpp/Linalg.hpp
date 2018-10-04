@@ -55,7 +55,7 @@ namespace NC
         /// @return
         ///				matrix determinant
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         dtype det(const NdArray<dtype>& inArray)
         {
             Shape inShape = inArray.shape();
@@ -122,7 +122,7 @@ namespace NC
         /// @return
         ///				3x3 NdArray
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
         {
             NdArray<dtype> returnArray(3);
@@ -148,7 +148,7 @@ namespace NC
         /// @return
         ///				3x3 NdArray
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         NdArray<dtype> hat(const NdArray<dtype>& inVec)
         {
             if (inVec.size() != 3)
@@ -170,7 +170,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         NdArray<double> inv(const NdArray<dtype>& inArray)
         {
             Shape inShape = inArray.shape();
@@ -263,7 +263,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
         {
             SVD svdSolver(inA);
@@ -289,7 +289,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtype = double, typename dtypeOut = double>
+        template<typename dtype, typename dtypeOut>
         NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
             Shape inShape = inArray.shape();
@@ -300,7 +300,7 @@ namespace NC
 
             if (inPower == 0)
             {
-                return std::move(identity(inShape.rows));
+                return std::move(identity<dtypeOut>(inShape.rows));
             }
             else if (inPower == 1)
             {
@@ -344,7 +344,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtype = double, typename dtypeOut = double>
+        template<typename dtype, typename dtypeOut>
         NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
         {
             typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
@@ -379,7 +379,7 @@ namespace NC
         /// @param				outS: NdArray output S
         /// @param				outVt: NdArray output V transpose
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
         {
             SVD svdSolver(inArray);

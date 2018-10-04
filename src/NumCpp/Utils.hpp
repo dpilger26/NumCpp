@@ -41,7 +41,7 @@ namespace NC
         ///
         /// @return     std::string
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         static std::string num2str(dtype inNumber)
         {
             return std::to_string(inNumber);
@@ -54,7 +54,7 @@ namespace NC
         ///
         /// @return     squared value
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         static dtype sqr(dtype inValue)
         {
             return inValue * inValue;
@@ -67,7 +67,7 @@ namespace NC
         ///
         /// @return     cubed value
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         static dtype cube(dtype inValue)
         {
             return inValue * inValue * inValue;
@@ -81,7 +81,7 @@ namespace NC
         ///
         /// @return     inValue raised to inPower
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         static dtype power(dtype inValue, uint8 inPower)
         {
             dtype returnVal = 1;
@@ -101,7 +101,7 @@ namespace NC
         ///
         /// @return     linear interpolated point
         ///
-        template<typename dtype = double>
+        template<typename dtype>
         static double interp(dtype inValue1, dtype inValue2, double inPercent)
         {
             return static_cast<double>(inValue1) * (1.0 - inPercent) + static_cast<double>(inValue2) * inPercent;
