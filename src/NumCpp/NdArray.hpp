@@ -1357,7 +1357,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> copy()
+        NdArray<dtype> copy() const
         {
             return std::move(NdArray<dtype>(*this));
         }

@@ -2237,6 +2237,14 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray triuArray(const NdArray<dtype>& inArray, int32 inOffset)
+    {
+        return numCToBoost(triu(inArray, inOffset));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray trilSquare(uint32 inSquareSize, int32 inOffset)
     {
         return numCToBoost(tril<dtype>(inSquareSize, inOffset));
@@ -2248,6 +2256,14 @@ namespace MethodsInterface
     np::ndarray trilRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
     {
         return numCToBoost(tril<dtype>(inNumRows, inNumCols, inOffset));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray trilArray(const NdArray<dtype>& inArray, int32 inOffset)
+    {
+        return numCToBoost(tril(inArray, inOffset));
     }
 
     //================================================================================
@@ -3065,8 +3081,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("trapz", &MethodsInterface::trapz<double>);
     bp::def("trilSquare", &MethodsInterface::trilSquare<double>);
     bp::def("trilRect", &MethodsInterface::trilRect<double>);
+    bp::def("trilArray", &MethodsInterface::trilArray<double>);
     bp::def("triuSquare", &MethodsInterface::triuSquare<double>);
     bp::def("triuRect", &MethodsInterface::triuRect<double>);
+    bp::def("triuArray", &MethodsInterface::triuArray<double>);
     bp::def("trim_zeros", &trim_zeros<double>);
     bp::def("truncScalar", &MethodsInterface::truncScalar<double>);
     bp::def("truncArray", &MethodsInterface::truncArray<double>);

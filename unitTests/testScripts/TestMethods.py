@@ -4550,9 +4550,21 @@ def doTest():
 
     print(colored('Testing tril: rectangle', 'cyan'))
     shapeInput = np.random.randint(10, 100, [2, ])
-    offset = np.random.randint(0, squareSize, [1, ]).item()
+    offset = np.random.randint(0, shapeInput.min(), [1, ]).item()
     if np.array_equal(NumCpp.trilRect(shapeInput[0].item(), shapeInput[1].item(), offset),
                       np.tri(shapeInput[0].item(), shapeInput[1].item(), k=offset)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing tril: array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    cArray.setArray(data)
+    offset = np.random.randint(0, shape.rows, [1, ]).item()
+    if np.array_equal(NumCpp.trilArray(cArray, offset), np.tril(data, k=offset)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4560,19 +4572,33 @@ def doTest():
     print(colored('Testing triu: square', 'cyan'))
     squareSize = np.random.randint(10, 100, [1, ]).item()
     offset = np.random.randint(0, squareSize, [1, ]).item()
-    if np.array_equal(NumCpp.triuSquare(squareSize, offset), np.tri(squareSize, k=offset).T):
+    if np.array_equal(NumCpp.triuSquare(squareSize, offset), np.tri(squareSize, k=-offset).T):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing triu: rectangle', 'cyan'))
-    shapeInput = np.random.randint(10, 100, [2, ])
-    offset = np.random.randint(0, squareSize, [1, ]).item()
-    if np.array_equal(NumCpp.triuRect(shapeInput[0].item(), shapeInput[1].item(), offset),
-                      np.tri(shapeInput[0].item(), shapeInput[1].item(), k=offset).T):
+    # print(colored('Testing triu: rectangle', 'cyan'))
+    # shapeInput = np.random.randint(10, 100, [2, ])
+    # offset = np.random.randint(0, shapeInput.min(), [1, ]).item()
+    # if np.array_equal(NumCpp.triuRect(shapeInput[0].item(), shapeInput[1].item(), offset),
+    #                   np.tri(shapeInput[0].item(), shapeInput[1].item(), k=-offset)):
+    #     print(colored('\tPASS', 'green'))
+    # else:
+    #     print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing triu: array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
+    cArray.setArray(data)
+    offset = np.random.randint(0, shape.rows, [1, ]).item()
+    if np.array_equal(NumCpp.triuArray(cArray, offset), np.triu(data, k=offset)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
+
+    return
 
     print(colored('Testing trim_zeros: "f"', 'cyan'))
     numElements = np.random.randint(50, 100, [1, ]).item()
