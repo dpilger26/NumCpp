@@ -34,9 +34,11 @@
 #include"NumCpp/Types.hpp"
 
 #include<cmath>
+#include<iostream>
 #include<initializer_list>
 #include<limits>
 #include<stdexcept>
+#include<string>
 #include<utility>
 
 namespace NC
@@ -61,7 +63,9 @@ namespace NC
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                throw std::runtime_error("ERROR: Linalg::determinant: input array must be square with size no larger than 3x3.");
+                std::string errStr = "ERROR: Linalg::determinant: input array must be square with size no larger than 3x3.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inShape.rows == 1)
@@ -153,7 +157,9 @@ namespace NC
         {
             if (inVec.size() != 3)
             {
-                throw std::invalid_argument("ERROR: Linalg::hat: input vector must be a length 3 cartesian vector.");
+                std::string errStr = "ERROR: Linalg::hat: input vector must be a length 3 cartesian vector.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             return std::move(hat(inVec[0], inVec[1], inVec[2]));
@@ -176,7 +182,9 @@ namespace NC
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                throw std::runtime_error("ERROR: Linalg::inv: input array must be square.");
+                std::string errStr = "ERROR: Linalg::inv: input array must be square.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             uint32 order = inShape.rows;
@@ -295,7 +303,9 @@ namespace NC
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                throw std::invalid_argument("ERROR: Linalg::matrix_power: input matrix must be square.");
+                std::string errStr = "ERROR: Linalg::matrix_power: input matrix must be square.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inPower == 0)
@@ -351,7 +361,9 @@ namespace NC
 
             if (inList.size() == 0)
             {
-                throw std::invalid_argument("ERROR: Linalg::multi_dot: input empty list of arrays.");
+                std::string errStr = "ERROR: Linalg::multi_dot: input empty list of arrays.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
             else if (inList.size() == 1)
             {
@@ -479,7 +491,9 @@ namespace NC
 
                 if (inInput.size() != m_)
                 {
-                    throw std::runtime_error("ERROR: SVD::solve bad sizes.");
+                    std::string errStr = "ERROR: SVD::solve bad sizes.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 NdArray<double> returnArray(1, n_);
@@ -808,7 +822,9 @@ namespace NC
 
                         if (its == 29)
                         {
-                            throw std::runtime_error("ERROR: no convergence in 30 svdcmp iterations");
+                            std::string errStr = "ERROR: no convergence in 30 svdcmp iterations";
+                            std::cerr << errStr << std::endl;
+                            throw std::invalid_argument(errStr);
                         }
 
                         x = s_[l];

@@ -127,6 +127,8 @@ var _methods_8hpp =
     [ "intersect1d", "_methods_8hpp.html#acfeeb28c6b1177fd12ec77e1387660ba", null ],
     [ "invert", "_methods_8hpp.html#add5709ba8bcb9fc1464c53527071da2d", null ],
     [ "isclose", "_methods_8hpp.html#a1c3423718bd9fbc1ddc68f50d1824e91", null ],
+    [ "isinf", "_methods_8hpp.html#ad78f96d498eaf334fad3662c1885aa57", null ],
+    [ "isinf", "_methods_8hpp.html#a2577151e9cac2d3af2b5dbba62e4b8dd", null ],
     [ "isnan", "_methods_8hpp.html#aa628fc7d20e07e5d0384ef5692f13bee", null ],
     [ "isnan", "_methods_8hpp.html#af30efd3cf85be1b357de7f9604516d54", null ],
     [ "ldexp", "_methods_8hpp.html#a96a17b4a710f3a844227b2d18acb0c2d", null ],

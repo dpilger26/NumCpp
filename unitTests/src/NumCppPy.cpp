@@ -1686,6 +1686,22 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    bool isinfScalar(dtype inValue)
+    {
+        return NC::isinf(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray isinfArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(NC::isinf(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     bool isnanScalar(dtype inValue)
     {
         return NC::isnan(inValue);
@@ -2906,6 +2922,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("intersect1d", &intersect1d<uint32>);
     bp::def("invert", &invert<uint32>);
     bp::def("isclose", &isclose<double>);
+    bp::def("isinfScalar", &MethodsInterface::isinfScalar<double>);
+    bp::def("isinfArray", &MethodsInterface::isinfArray<double>);
     bp::def("isnanScalar", &MethodsInterface::isnanScalar<double>);
     bp::def("isnanArray", &MethodsInterface::isnanArray<double>);
     bp::def("ldexpScalar", &MethodsInterface::ldexpScalar<double>);

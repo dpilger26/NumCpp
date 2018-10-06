@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"class_n_c_1_1_nd_array.html#aedd1d68599eca51518f458cc9eea7687":[2,0,0,7,15],
+"class_n_c_1_1_nd_array.html#af0d0641de6b53927bf06feab34855c66":[2,0,0,7,80],
 "class_n_c_1_1_nd_array.html#af39e0612e292423bae5c7bb518f3b722":[2,0,0,7,6],
 "class_n_c_1_1_nd_array.html#af524fa83ffb7e6cb1888bbf3b86de671":[2,0,0,7,18],
 "class_n_c_1_1_nd_array.html#af6ad8bf45d201b7c813df1ac6d047ca0":[2,0,0,7,33],
@@ -133,8 +135,8 @@ var NAVTREEINDEX3 =
 "functions_d.html":[2,2,0,3],
 "functions_e.html":[2,2,0,4],
 "functions_f.html":[2,2,0,5],
-"functions_func.html":[2,2,1],
 "functions_func.html":[2,2,1,0],
+"functions_func.html":[2,2,1],
 "functions_func_0x7e.html":[2,2,1,26],
 "functions_func_b.html":[2,2,1,1],
 "functions_func_c.html":[2,2,1,2],
@@ -194,8 +196,8 @@ var NAVTREEINDEX3 =
 "namespace_n_c.html":[2,0,0],
 "namespace_n_c.html":[1,0,0],
 "namespace_n_c_1_1_constants.html":[1,0,0,0],
-"namespace_n_c_1_1_coordinates.html":[1,0,0,1],
 "namespace_n_c_1_1_coordinates.html":[2,0,0,0],
+"namespace_n_c_1_1_coordinates.html":[1,0,0,1],
 "namespace_n_c_1_1_f_f_t.html":[1,0,0,2],
 "namespace_n_c_1_1_filter.html":[1,0,0,3],
 "namespace_n_c_1_1_image_processing.html":[2,0,0,1],
@@ -203,11 +205,11 @@ var NAVTREEINDEX3 =
 "namespace_n_c_1_1_linalg.html":[1,0,0,5],
 "namespace_n_c_1_1_linalg.html":[2,0,0,2],
 "namespace_n_c_1_1_polynomial.html":[1,0,0,6],
-"namespace_n_c_1_1_rotations.html":[1,0,0,7],
 "namespace_n_c_1_1_rotations.html":[2,0,0,3],
+"namespace_n_c_1_1_rotations.html":[1,0,0,7],
 "namespace_n_c_1_1_utils.html":[1,0,0,8],
-"namespacemembers.html":[1,1,0],
 "namespacemembers.html":[1,1,0,0],
+"namespacemembers.html":[1,1,0],
 "namespacemembers_b.html":[1,1,0,1],
 "namespacemembers_c.html":[1,1,0,2],
 "namespacemembers_d.html":[1,1,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "namespacemembers_r.html":[1,1,0,14],
 "namespacemembers_s.html":[1,1,0,15],
 "namespacemembers_t.html":[1,1,0,16],
-"namespacemembers_type.html":[1,1,3],
-"namespacemembers_u.html":[1,1,0,17],
-"namespacemembers_v.html":[1,1,0,18]
+"namespacemembers_type.html":[1,1,3]
 };

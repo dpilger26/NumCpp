@@ -34,6 +34,8 @@
 #include<NumCpp/Utils.hpp>
 
 #include<cmath>
+#include<iostream>
+#include<string>
 #include<utility>
 
 namespace NC
@@ -527,7 +529,9 @@ namespace NC
         {
             if (inKernalSize % 2 == 0)
             {
-                throw std::invalid_argument("ERROR: ImageProcessing::Filter::addBoundary: input kernal size must be an odd value.");
+                std::string errStr = "ERROR: ImageProcessing::Filter::addBoundary: input kernal size must be an odd value.";
+                std::cout << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             uint32 boundarySize = inKernalSize / 2; // integer division
@@ -578,7 +582,9 @@ namespace NC
         {
             if (inKernalSize % 2 == 0)
             {
-                throw std::invalid_argument("ERROR: ImageProcessing::Filter::addBoundary1d: input kernal size must be an odd value.");
+                std::string errStr = "ERROR: ImageProcessing::Filter::addBoundary1d: input kernal size must be an odd value.";
+                std::cout << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             uint32 boundarySize = inKernalSize / 2; // integer division
@@ -714,7 +720,9 @@ namespace NC
         {
             if (inWeights.size() != Utils::sqr(inSize))
             {
-                throw std::invalid_argument("ERROR: NC::Filters::convolve: input weights do no match input kernal size.");
+                std::string errStr = "ERROR: NC::Filters::convolve: input weights do no match input kernal size.";
+                std::cout << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
@@ -794,7 +802,9 @@ namespace NC
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("ERROR: NC::Filters::gaussianFilter: input sigma value must be greater than zero.");
+                std::string errStr = "ERROR: NC::Filters::gaussianFilter: input sigma value must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             // calculate the kernel size based off of the input sigma value
@@ -849,7 +859,9 @@ namespace NC
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("ERROR: NC::Filters::gaussianFilter: input sigma value must be greater than zero.");
+                std::string errStr = "ERROR: NC::Filters::gaussianFilter: input sigma value must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             // calculate the kernel size based off of the input sigma value

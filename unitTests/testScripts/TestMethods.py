@@ -1969,6 +1969,25 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing isinf scalar', 'cyan'))
+    value = np.random.randn(1).item() * 100 + 1000
+    if NumCpp.isinfScalar(value) == np.isinf(value):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing isinf array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data[data > 1000] = np.inf
+    cArray.setArray(data)
+    if np.array_equal(NumCpp.isinfArray(cArray), np.isinf(data)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing isnan scalar', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
     if NumCpp.isnanScalar(value) == np.isnan(value):
@@ -1981,6 +2000,7 @@ def doTest():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
+    data[data > 1000] = np.nan
     cArray.setArray(data)
     if np.array_equal(NumCpp.isnanArray(cArray), np.isnan(data)):
         print(colored('\tPASS', 'green'))

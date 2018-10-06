@@ -34,8 +34,10 @@
 #include"boost/filesystem.hpp"
 
 #include<deque>
+#include<iostream>
 #include<limits>
 #include<stdexcept>
+#include<string>
 
 namespace NC
 {
@@ -134,6 +136,7 @@ namespace NC
             if (!boost::filesystem::exists(p.parent_path()))
             {
                 std::string errStr = "ERROR: DataCube::dump: Input path does not exist:\n\t" + p.parent_path().string();
+                std::cerr << errStr << std::endl;
                 throw std::runtime_error(errStr);
             }
 
@@ -246,7 +249,9 @@ namespace NC
 
             if (inputShape != elementShape_)
             {
-                throw std::invalid_argument("ERROR: NC::DataCube::push_back: element arrays must all be the same shape.");
+                std::string errStr = "ERROR: NC::DataCube::push_back: element arrays must all be the same shape.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             cube_.push_back(inArray);
@@ -270,7 +275,9 @@ namespace NC
 
             if (inputShape != elementShape_)
             {
-                throw std::invalid_argument("ERROR: NC::DataCube::push_front: element arrays must all be the same shape.");
+                std::string errStr = "ERROR: NC::DataCube::push_front: element arrays must all be the same shape.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             cube_.push_front(inArray);

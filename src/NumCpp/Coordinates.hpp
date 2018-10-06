@@ -80,7 +80,9 @@ namespace NC
 
                 if (inDegrees < 0 || inDegrees >= 360)
                 {
-                    throw std::invalid_argument("ERROR: NC::Coordinates::RA: input degrees must be of the range [0, 360)");
+                    std::string errStr = "ERROR: NC::Coordinates::RA: input degrees must be of the range [0, 360)";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 hours_ = static_cast<uint8>(std::floor(degrees_ / 15.0));
@@ -267,7 +269,9 @@ namespace NC
 
                 if (inDegrees < -90 || inDegrees > 90)
                 {
-                    throw std::invalid_argument("ERROR: NC::Coordinates::Dec: input degrees must be of the range [-90, 90]");
+                    std::string errStr = "ERROR: NC::Coordinates::Dec: input degrees must be of the range [-90, 90]";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;
@@ -560,7 +564,9 @@ namespace NC
 
                 if (inCartesianVector.size() != 3)
                 {
-                    throw std::invalid_argument("ERROR: NC::Coordinates::Dec: constructor NdArray input must be of length 3.");
+                    std::string errStr = "ERROR: NC::Coordinates::Dec: constructor NdArray input must be of length 3.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 x_ = inCartesianVector[0];
@@ -691,7 +697,9 @@ namespace NC
             {
                 if (inVector.size() != 3)
                 {
-                    throw std::invalid_argument("ERROR: NC::Coordinates::Coordinate::radianSeperation: input vector must be of length 3.");
+                    std::string errStr = "ERROR: NC::Coordinates::Coordinate::radianSeperation: input vector must be of length 3.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 return static_cast<dtype>(std::acos(dot<dtype, dtype>(xyz(), inVector.flatten()).item()));

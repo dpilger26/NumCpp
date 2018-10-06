@@ -28,5 +28,5 @@ var searchData=
   ['row_5fstack',['row_stack',['../namespace_n_c.html#ade434f294eb61c45a92674445ecc4a1c',1,'NC']]],
   ['rowmax',['rowMax',['../class_n_c_1_1_image_processing_1_1_cluster.html#a2fb15745ecef63803a7a53a6f4671917',1,'NC::ImageProcessing::Cluster']]],
   ['rowmin',['rowMin',['../class_n_c_1_1_image_processing_1_1_cluster.html#ae4748a4289658db11ac5707a6d9a41cc',1,'NC::ImageProcessing::Cluster']]],
-  ['rslice',['rSlice',['../class_n_c_1_1_nd_array.html#a3ca2a0d18cdae883b127687de6d1d1a4',1,'NC::NdArray']]]
+  ['rslice',['rSlice',['../class_n_c_1_1_nd_array.html#a9ba459df8136a5e27dd113d2800294ab',1,'NC::NdArray']]]
 ];

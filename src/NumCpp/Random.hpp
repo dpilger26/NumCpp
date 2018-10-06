@@ -36,6 +36,8 @@
 #include"boost/random.hpp"
 
 #include<algorithm>
+#include<iostream>
+#include<string>
 #include<vector>
 
 namespace NC
@@ -63,7 +65,9 @@ namespace NC
         {
             if (inP < 0 || inP > 1)
             {
-                throw std::invalid_argument("Error: bernoulli: input probability of sucess must be of the range [0, 1].");
+                std::string errStr = "Error: bernoulli: input probability of sucess must be of the range [0, 1].";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -94,12 +98,16 @@ namespace NC
         {
             if (inAlpha < 0)
             {
-                throw std::invalid_argument("Error: beta: input alpha must be greater than zero.");
+                std::string errStr = "Error: beta: input alpha must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inBeta < 0)
             {
-                throw std::invalid_argument("Error: beta: input beta must be greater than zero.");
+                std::string errStr = "Error: beta: input beta must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -133,12 +141,16 @@ namespace NC
 
             if (inN < 0)
             {
-                throw std::invalid_argument("Error: binomial: input number of trials must be greater than or equal to zero.");
+                std::string errStr = "Error: binomial: input number of trials must be greater than or equal to zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inP < 0 || inP > 1)
             {
-                throw std::invalid_argument("Error: binomial: input probability of sucess must be of the range [0, 1].");
+                std::string errStr = "Error: binomial: input probability of sucess must be of the range [0, 1].";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -168,7 +180,9 @@ namespace NC
         {
             if (inDof <= 0)
             {
-                throw std::invalid_argument("Error: chisquare: numerator degrees of freedom must be greater than zero.");
+                std::string errStr = "Error: chisquare: numerator degrees of freedom must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -233,7 +247,9 @@ namespace NC
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("Error: cauchy: input sigma must be greater than zero.");
+                std::string errStr = "Error: cauchy: input sigma must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -316,12 +332,16 @@ namespace NC
         {
             if (inA <= 0)
             {
-                throw std::invalid_argument("Error: extremeValue: input a must be greater than zero.");
+                std::string errStr = "Error: extremeValue: input a must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inB <= 0)
             {
-                throw std::invalid_argument("Error: extremeValue: input b must be greater than zero.");
+                std::string errStr = "Error: extremeValue: input b must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -352,12 +372,16 @@ namespace NC
         {
             if (inDofN <= 0)
             {
-                throw std::invalid_argument("Error: f: numerator degrees of freedom should be greater than zero.");
+                std::string errStr = "Error: f: numerator degrees of freedom should be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inDofD <= 0)
             {
-                throw std::invalid_argument("Error: f: denominator degrees of freedom should be greater than zero.");
+                std::string errStr = "Error: f: denominator degrees of freedom should be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -388,12 +412,16 @@ namespace NC
         {
             if (inGammaShape <= 0)
             {
-                throw std::invalid_argument("Error: gamma: input gamma shape should be greater than zero.");
+                std::string errStr = "Error: gamma: input gamma shape should be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inScaleValue <= 0)
             {
-                throw std::invalid_argument("Error: gamma: input scale should be greater than zero.");
+                std::string errStr = "Error: gamma: input scale should be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -426,7 +454,9 @@ namespace NC
 
             if (inP < 0 || inP > 1)
             {
-                throw std::invalid_argument("Error: geometric: input probability of sucess must be of the range [0, 1].");
+                std::string errStr = "Error: geometric: input probability of sucess must be of the range [0, 1].";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -483,7 +513,9 @@ namespace NC
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("Error: lognormal: input sigma must be greater than zero.");
+                std::string errStr = "Error: lognormal: input sigma must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -517,12 +549,16 @@ namespace NC
 
             if (inN < 0)
             {
-                throw std::invalid_argument("Error: negativeBinomial: input number of trials must be greater than or equal to zero.");
+                std::string errStr = "Error: negativeBinomial: input number of trials must be greater than or equal to zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inP < 0 || inP > 1)
             {
-                throw std::invalid_argument("Error: negativeBinomial: input probability of sucess must be of the range [0, 1].");
+                std::string errStr = "Error: negativeBinomial: input probability of sucess must be of the range [0, 1].";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -553,12 +589,16 @@ namespace NC
         {
             if (inK <= 0)
             {
-                throw std::invalid_argument("Error: nonCentralChiSquared: input k must be greater than zero.");
+                std::string errStr = "Error: nonCentralChiSquared: input k must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inLambda <= 0)
             {
-                throw std::invalid_argument("Error: nonCentralChiSquared: input lambda must be greater than zero.");
+                std::string errStr = "Error: nonCentralChiSquared: input lambda must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -589,7 +629,9 @@ namespace NC
         {
             if (inSigma <= 0)
             {
-                throw std::invalid_argument("Error: cauchy: input sigma must be greater than zero.");
+                std::string errStr = "Error: cauchy: input sigma must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -655,7 +697,9 @@ namespace NC
         {
             if (inMean <= 0)
             {
-                throw std::invalid_argument("Error: poisson: input mean must be greater than zero.");
+                std::string errStr = "Error: poisson: input mean must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -711,7 +755,9 @@ namespace NC
         {
             if (inLow == inHigh)
             {
-                throw std::invalid_argument("Error: randFloat: input low value must be less than the input high value.");
+                std::string errStr = "Error: randFloat: input low value must be less than the input high value.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
             else if (inLow > inHigh - DtypeInfo<dtype>::epsilon())
             {
@@ -749,7 +795,9 @@ namespace NC
 
             if (inLow == inHigh)
             {
-                throw std::invalid_argument("Error: randint: input low value must be less than the input high value.");
+                std::string errStr = "Error: randint: input low value must be less than the input high value.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
             else if (inLow > inHigh - 1)
             {
@@ -852,7 +900,9 @@ namespace NC
         {
             if (inDof <= 0)
             {
-                throw std::invalid_argument("Error: studentT: degrees of freedom must be greater than zero.");
+                std::string errStr = "Error: studentT: degrees of freedom must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -884,24 +934,32 @@ namespace NC
         {
             if (inA < 0)
             {
-                throw std::invalid_argument("Error: triangle: input A must be greater than or equal to zero.");
+                std::string errStr = "Error: triangle: input A must be greater than or equal to zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inB < 0)
             {
-                throw std::invalid_argument("Error: triangle: input B must be greater than or equal to zero.");
+                std::string errStr = "Error: triangle: input B must be greater than or equal to zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inC < 0)
             {
-                throw std::invalid_argument("Error: triangle: input C must be greater than or equal to zero.");
+                std::string errStr = "Error: triangle: input C must be greater than or equal to zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             bool aLessB = inA <= inB;
             bool bLessC = inB <= inC;
             if (!(aLessB && bLessC))
             {
-                throw std::invalid_argument("Error: triangle: inputs must be a <= b <= c.");
+                std::string errStr = "Error: triangle: inputs must be a <= b <= c.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
@@ -949,7 +1007,9 @@ namespace NC
         {
             if (inDims < 0)
             {
-                throw std::invalid_argument("Error: uniformOnSphere: input dimension must be greater than or equal to zero.");
+                std::string errStr = "Error: uniformOnSphere: input dimension must be greater than or equal to zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             boost::random::uniform_on_sphere<dtype> dist(inDims);
@@ -984,12 +1044,16 @@ namespace NC
         {
             if (inA <= 0)
             {
-                throw std::invalid_argument("Error: weibull: input a must be greater than zero.");
+                std::string errStr = "Error: weibull: input a must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inB <= 0)
             {
-                throw std::invalid_argument("Error: weibull: input b must be greater than zero.");
+                std::string errStr = "Error: weibull: input b must be greater than zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);

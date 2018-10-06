@@ -35,7 +35,7 @@ var searchData=
   ['cosh',['cosh',['../namespace_n_c.html#aca07295a4b52dcdda04d0bfbb5b0db25',1,'NC::cosh(dtype inValue)'],['../namespace_n_c.html#a84dd9aed217685b7349be7b607f3bab5',1,'NC::cosh(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['count_5fnonzero',['count_nonzero',['../namespace_n_c.html#a8ed12e04ab81b29fd1624cb2b0c8c690',1,'NC']]],
   ['cross',['cross',['../namespace_n_c.html#aa7fbe3de7804bf56c9c19e2c258b1c5c',1,'NC']]],
-  ['cslice',['cSlice',['../class_n_c_1_1_nd_array.html#a1a2d3b89ca74ad0cd1433cbc04178003',1,'NC::NdArray']]],
+  ['cslice',['cSlice',['../class_n_c_1_1_nd_array.html#a3bd21acf81f9015184da66ab75744f26',1,'NC::NdArray']]],
   ['cube',['cube',['../namespace_n_c.html#ab7014d3b96bc7f5c7515ddac62b7ba1c',1,'NC::cube(dtype inValue)'],['../namespace_n_c.html#a79c035a9432237d12f41c5c321eadfdb',1,'NC::cube(const NdArray&lt; dtype &gt; &amp;inArray)'],['../namespace_n_c_1_1_utils.html#a45a4cf7f0d3253c9eede9d550655a63b',1,'NC::Utils::cube()']]],
   ['cumprod',['cumprod',['../class_n_c_1_1_nd_array.html#a308cee97bec3274eaa23ba978855d006',1,'NC::NdArray::cumprod()'],['../namespace_n_c.html#afc095f58e6e9bfde61f6705e8be9cfdd',1,'NC::cumprod()']]],
   ['cumsum',['cumsum',['../class_n_c_1_1_nd_array.html#a9641246f73e1fd7a4e59729f6273e9b4',1,'NC::NdArray::cumsum()'],['../namespace_n_c.html#a197a286f0bcbd4accfdba0f0b6a01a11',1,'NC::cumsum()']]]
