@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['positive',['POSITIVE',['../struct_n_c_1_1_coordinates_1_1_sign.html#a9b8f8010223ff122c9cec25ea415d1ffad556714ac7fb4486fb5e9e9cff6d6725',1,'NC::Coordinates::Sign']]]
+  ['positive',['POSITIVE',['../namespace_n_c_1_1_coordinates.html#a7ca8272a0ed867a0fee4d47281ad9bb6aab6c31432785221bae58327ef5f6ea58',1,'NC::Coordinates']]]
 ];

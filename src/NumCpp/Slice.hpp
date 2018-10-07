@@ -44,18 +44,14 @@ namespace NC
     {
     public:
         //====================================Attributes==============================
-        int32	start;
-        int32	stop;
-        int32	step;
+        int32	start{0};
+        int32	stop{1};
+        int32	step{1};
 
         //============================================================================
         ///						Constructor
         ///
-        Slice() :
-            start(0),
-            stop(1),
-            step(1)
-        {};
+        Slice() = default;
 
         //============================================================================
         ///						Constructor
@@ -63,9 +59,7 @@ namespace NC
         /// @param      inStop (index not included)
         ///
         explicit Slice(int32 inStop) :
-            start(0),
-            stop(inStop),
-            step(1)
+            stop(inStop)
         {};
 
         //============================================================================
@@ -76,8 +70,7 @@ namespace NC
         ///
         Slice(int32 inStart, int32 inStop) :
             start(inStart),
-            stop(inStop),
-            step(1)
+            stop(inStop)
         {};
 
         //============================================================================
@@ -100,7 +93,7 @@ namespace NC
         ///
         std::string str() const
         {
-            std::string out = "[" + Utils<int32>::num2str(start) + ":" + Utils<int32>::num2str(stop) + ":" + Utils<int32>::num2str(step) + "]\n";
+            std::string out = "[" + Utils::num2str(start) + ":" + Utils::num2str(stop) + ":" + Utils::num2str(step) + "]\n";
             return out;
         }
 
@@ -140,7 +133,9 @@ namespace NC
             }
             if (start > static_cast<int32>(inArraySize - 1))
             {
-                throw std::invalid_argument("ERROR: Invalid start value for array of size " + Utils<uint32>::num2str(inArraySize) + ".");
+                std::string errStr = "ERROR: Invalid start value for array of size " + Utils::num2str(inArraySize) + ".";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             /// convert the stop value
@@ -150,7 +145,9 @@ namespace NC
             }
             if (stop > static_cast<int32>(inArraySize))
             {
-                throw std::invalid_argument("ERROR: Invalid stop value for array of size " + Utils<uint32>::num2str(inArraySize) + ".");
+                std::string errStr = "ERROR: Invalid stop value for array of size " + Utils::num2str(inArraySize) + ".";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             /// do some error checking
@@ -158,7 +155,9 @@ namespace NC
             {
                 if (step < 0)
                 {
-                    throw std::invalid_argument("ERROR: Invalid slice values.");
+                    std::string errStr = "ERROR: Invalid slice values.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
             }
 
@@ -166,7 +165,9 @@ namespace NC
             {
                 if (step > 0)
                 {
-                    throw std::invalid_argument("ERROR: Invalid slice values.");
+                    std::string errStr = "ERROR: Invalid slice values.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 /// otherwise flip things around for my own sanity

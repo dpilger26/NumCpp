@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mode',['Mode',['../struct_n_c_1_1_filter_1_1_boundary.html#ac4390669f01016fa73d8b5e314ccf11b',1,'NC::Filter::Boundary']]]
+  ['axis',['Axis',['../namespace_n_c.html#a307d8657b76e8483752e4697dfd26822',1,'NC']]]
 ];

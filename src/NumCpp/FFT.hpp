@@ -33,12 +33,8 @@
 
 namespace NC
 {
-    //================================FFT Class=============================
-    /// Class for performing fast forrier tranforms
-    template<typename dtype = double>
-    class FFT
+    namespace FFT
     {
-    public:
         /// \todo Complete This Module
-    };
+    }
 }

@@ -32,10 +32,11 @@ var NAVTREE =
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "Functions", "namespacemembers_func.html", "namespacemembers_func" ],
         [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Data Structures", "annotated.html", [
@@ -46,8 +47,6 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Enumerator", "functions_eval.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -57,16 +56,18 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "_boost_numpy_ndarray_helper_8hpp.html",
-"class_n_c_1_1_image_processing_1_1_pixel.html#ae835bd548472f581e9f87e3a41c61994",
-"class_n_c_1_1_methods.html#ae5522bec371cf809ec59506bbc8094b7",
-"class_n_c_1_1_rotations_1_1_quaternion.html#a74d4317b78d9196f0ef0b4b298468d30"
+"_methods_8hpp.html#a91770bb7180d8371f1e33cfcd47b9c3b",
+"class_n_c_1_1_data_cube.html#a5763d8da6fcc154e3d63c83ade1d6324",
+"class_n_c_1_1_nd_array.html#aed963b85458a1207aa67ff3a67a5a61e",
+"namespacemembers_t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

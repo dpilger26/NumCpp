@@ -304,6 +304,12 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing back', 'cyan'))
+    if cArray.back() == data.flatten()[-1]:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing byteswap', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -539,6 +545,41 @@ def doTest():
     data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     if np.array_equal(cArray.flatten().astype(np.uint32), data.reshape([1, data.size])):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing front', 'cyan'))
+    if cArray.front() == data.flatten()[0]:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing getByIndices', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, shapeInput)
+    cArray.setArray(data)
+    numIndices = np.random.randint(0, shape.size(), [1, ]).item()
+    indices = np.random.randint(0, shape.size(), [numIndices, ])
+    cIndices = NumCpp.NdArrayInt(1, numIndices)
+    cIndices.setArray(indices)
+    if np.array_equal(cArray.getByIndices(cIndices).flatten(), data.flatten()[np.unique(indices)]):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing getByMask', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2,])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 100, shapeInput)
+    cArray.setArray(data)
+    mask = data > np.random.randint(1, data.max(), [1, ]).item()
+    cMask = NumCpp.NdArrayBool(shape)
+    cMask.setArray(mask)
+    if np.array_equal(cArray.getByMask(cMask).flatten(), data[mask].flatten()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1010,6 +1051,36 @@ def doTest():
     randomValues = np.random.randint(1, 500, [inputRowSlice.numElements(shape.rows), inputColSlice.numElements(shape.cols)])
     cArray.put(inputRowSlice, inputColSlice, randomValues)
     if np.array_equal(cArray.get(inputRowSlice, inputColSlice).astype(np.uint32), randomValues):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing putMask: Single Value', 'cyan'))
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    mask = data > np.random.randint(0, data.max(), [1, ]).item()
+    inputValue = np.random.randint(0, 666, [1, ]).item()
+    cArray.putMask(mask, inputValue)
+    data[mask] = inputValue
+    if np.array_equal(cArray.getNumpyArray().astype(np.uint32), data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing putMask: Multiple Values', 'cyan'))
+    shapeInput = np.random.randint(100, 500, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 50, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    mask = data > np.random.randint(0, data.max(), [1, ]).item()
+    inputValues = np.random.randint(0, 666, [np.count_nonzero(mask), ])
+    cArray.putMask(mask, inputValues)
+    data[mask] = inputValues
+    if np.array_equal(cArray.getNumpyArray().astype(np.uint32), data):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

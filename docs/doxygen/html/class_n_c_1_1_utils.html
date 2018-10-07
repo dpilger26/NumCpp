@@ -104,6 +104,8 @@ $(document).ready(function(){initNavTree('class_n_c_1_1_utils.html','');});
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad6b88c81333e0325a0d7484330666a07"><td class="memItemLeft" align="right" valign="top">static dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_utils.html#ad6b88c81333e0325a0d7484330666a07">cube</a> (dtype inValue)</td></tr>
 <tr class="separator:ad6b88c81333e0325a0d7484330666a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a563162ed5be38a81ba622b4afba7502b"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_utils.html#a563162ed5be38a81ba622b4afba7502b">interp</a> (dtype inValue1, dtype inValue2, double inPercent)</td></tr>
+<tr class="separator:a563162ed5be38a81ba622b4afba7502b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf4e597f3164221c7e9624cde5eb41e7"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_utils.html#adf4e597f3164221c7e9624cde5eb41e7">num2str</a> (dtype inNumber)</td></tr>
 <tr class="separator:adf4e597f3164221c7e9624cde5eb41e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44d14f0622f15a0bbb6a0835d82b93ec"><td class="memItemLeft" align="right" valign="top">static dtype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_utils.html#a44d14f0622f15a0bbb6a0835d82b93ec">power</a> (dtype inValue, <a class="el" href="namespace_n_c.html#a939a5d01867b6ec5ae4d3932e96ddb4b">uint8</a> inPower)</td></tr>
@@ -150,6 +152,60 @@ template&lt;typename dtype  = double&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>cubed value </dd></dl>
+
+</div>
+</div>
+<a id="a563162ed5be38a81ba622b4afba7502b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a563162ed5be38a81ba622b4afba7502b">&#9670;&nbsp;</a></span>interp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype  = double&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double <a class="el" href="class_n_c_1_1_utils.html">NC::Utils</a>&lt; dtype &gt;::interp </td>
+          <td>(</td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inValue1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inValue2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>inPercent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the linear interpolation between two points</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inValue1</td><td></td></tr>
+    <tr><td class="paramname">inValue2</td><td></td></tr>
+    <tr><td class="paramname">inPercent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>linear interpolated point </dd></dl>
 
 </div>
 </div>

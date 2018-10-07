@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['c',['C',['../struct_n_c_1_1_order.html#a1cff1979cd50c6497f2a02fd1765dd6dac10b9d6ef9a52dc931d884c307272775',1,'NC::Order']]],
-  ['col',['COL',['../struct_n_c_1_1_axis.html#acaeb67c883cf3aae11a2b54096285d94ad5a60efeee82d6d344d964f77aaacf30',1,'NC::Axis']]],
-  ['constant',['CONSTANT',['../struct_n_c_1_1_filter_1_1_boundary.html#ac4390669f01016fa73d8b5e314ccf11bad687c6e65c942dd0b95647e1d2c87ae4',1,'NC::Filter::Boundary']]]
+  ['c',['C',['../namespace_n_c.html#aa3639abc11f4256e0a07c72035c0c513a0d61f8370cad1d412f80b84d143e1257',1,'NC']]],
+  ['col',['COL',['../namespace_n_c.html#a307d8657b76e8483752e4697dfd26822aa44a065875f5d66d41474bb9bfb0ce05',1,'NC']]],
+  ['constant',['CONSTANT',['../namespace_n_c_1_1_filter.html#aacee45516a7d1cae23650ede4561f734a8d6b5cada83510220f59e00ce86d4d92',1,'NC::Filter']]]
 ];

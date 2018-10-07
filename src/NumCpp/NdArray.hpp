@@ -39,8 +39,9 @@
 #include<boost/endian/conversion.hpp>
 
 #include<algorithm>
-#include<functional>
 #include<cmath>
+#include<deque>
+#include<functional>
 #include<fstream>
 #include<initializer_list>
 #include<iostream>
@@ -56,7 +57,7 @@ namespace NC
     //================================================================================
     // Class Description:
     ///						Holds 1D and 2D arrays, the main work horse of the NumCpp library
-    template<typename dtype = double>
+    template<typename dtype>
     class NdArray
     {
     public:
@@ -66,10 +67,10 @@ namespace NC
 
     private:
         //====================================Attributes==============================
-        Shape			shape_;
-        uint32			size_;
-        Endian::Type    endianess_;
-        dtype*			array_;
+        Shape			shape_{0, 0};
+        uint32			size_{0};
+        Endian    endianess_{ Endian::NATIVE };
+        dtype*			array_{nullptr};
 
         //============================================================================
         // Method Description: 
@@ -108,12 +109,7 @@ namespace NC
         // Method Description: 
         ///						Defualt Constructor, not very usefull...
         ///
-        NdArray() :
-            shape_(0, 0),
-            size_(0),
-            endianess_(Endian::NATIVE),
-            array_(nullptr)
-        {};
+        NdArray() = default;
 
         //============================================================================
         // Method Description: 
@@ -125,7 +121,6 @@ namespace NC
         explicit NdArray(uint32 inSquareSize) :
             shape_(inSquareSize, inSquareSize),
             size_(inSquareSize * inSquareSize),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {};
 
@@ -139,7 +134,6 @@ namespace NC
         NdArray(uint32 inNumRows, uint32 inNumCols) :
             shape_(inNumRows, inNumCols),
             size_(inNumRows * inNumCols),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {};
 
@@ -153,7 +147,6 @@ namespace NC
         explicit NdArray(const Shape& inShape) :
             shape_(inShape),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {};
 
@@ -167,7 +160,6 @@ namespace NC
         NdArray(const std::initializer_list<dtype>& inList) :
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             std::copy(inList.begin(), inList.end(), array_);
@@ -181,10 +173,7 @@ namespace NC
         ///				inList: 2D initializer list
         ///
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
-            shape_(static_cast<uint32>(inList.size()), 0),
-            size_(0),
-            endianess_(Endian::NATIVE),
-            array_(nullptr)
+            shape_(static_cast<uint32>(inList.size()), 0)
         {
             typename std::initializer_list<std::initializer_list<dtype> >::iterator iter;
             for (iter = inList.begin(); iter < inList.end(); ++iter)
@@ -197,7 +186,9 @@ namespace NC
                 }
                 else if (iter->size() != shape_.cols)
                 {
-                    throw std::runtime_error("ERROR: NdArray::Constructor: All rows of the initializer list needs to have the same number of elements");
+                    std::string errStr = "ERROR: NdArray::Constructor: All rows of the initializer list needs to have the same number of elements";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
             }
 
@@ -220,10 +211,24 @@ namespace NC
         explicit NdArray(const std::vector<dtype>& inVector) :
             shape_(1, static_cast<uint32>(inVector.size())),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             std::copy(inVector.begin(), inVector.end(), array_);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Constructor
+        ///		
+        /// @param
+        ///				inDeque
+        ///
+        explicit NdArray(const std::deque<dtype>& inDeque) :
+            shape_(1, static_cast<uint32>(inDeque.size())),
+            size_(shape_.size()),
+            array_(new dtype[size_])
+        {
+            std::copy(inDeque.begin(), inDeque.end(), array_);
         }
 
         //============================================================================
@@ -236,7 +241,6 @@ namespace NC
         explicit NdArray(const std::set<dtype>& inSet) :
             shape_(1, static_cast<uint32>(inSet.size())),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             std::copy(inSet.begin(), inSet.end(), array_);
@@ -246,13 +250,12 @@ namespace NC
         // Method Description: 
         ///						Constructor
         ///		
-        /// @param				inFirst: 
+        /// @param				inFirst
         /// @param				inLast
         ///
         explicit NdArray(const_iterator inFirst, const_iterator inLast) :
             shape_(1, static_cast<uint32>(inLast - inFirst)),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             std::copy(inFirst, inLast, array_);
@@ -268,7 +271,6 @@ namespace NC
         NdArray(const dtype* inBeginning, uint32 inNumBytes) :
             shape_(1, inNumBytes / sizeof(dtype)),
             size_(shape_.size()),
-            endianess_(Endian::NATIVE),
             array_(new dtype[size_])
         {
             for (uint32 i = 0; i < size_; ++i)
@@ -350,10 +352,7 @@ namespace NC
         ///
         NdArray<dtype>& operator=(dtype inValue)
         {
-            for (auto& value : this)
-            {
-                value = inValue;
-            }
+            std::fill(begin(), end(), inValue);
 
             return *this;
         }
@@ -488,10 +487,39 @@ namespace NC
             NdArray<dtype> returnArray(1, inSliceCopy.numElements(size_));
             for (int32 i = inSliceCopy.start; i < inSliceCopy.stop; i += inSliceCopy.step)
             {
-                returnArray[counter++] = this->at(i);
+                returnArray[counter++] = at(i);
             }
 
             return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						1D Slicing access operator with bounds checking. 
+        ///						returned array is of the range [start, stop).
+        ///		
+        /// @param
+        ///				inSlice
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> operator[](const NdArray<bool> inMask) const
+        {
+            if (inMask.shape() != shape_)
+            {
+                std::string errStr = "ERROR: getByMask: input inMask must have the same shape as the NdArray it will be masking.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            auto indices = inMask.nonzero();
+            auto outArray = NdArray<dtype>(1, indices.size());
+            for (uint32 i = 0; i < indices.size(); ++i)
+            {
+                outArray[i] = this->operator[](indices[i]);
+            }
+
+            return std::move(outArray);
         }
 
         //============================================================================
@@ -517,7 +545,7 @@ namespace NC
             {
                 for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
                 {
-                    returnArray(rowCounter, colCounter++) = this->at(row, col);
+                    returnArray(rowCounter, colCounter++) = at(row, col);
                 }
                 colCounter = 0;
                 ++rowCounter;
@@ -545,7 +573,7 @@ namespace NC
             uint32 rowCounter = 0;
             for (int32 row = inRowSliceCopy.start; row < inRowSliceCopy.stop; row += inRowSliceCopy.step)
             {
-                returnArray(rowCounter++, 0) = this->at(row, inColIndex);
+                returnArray(rowCounter++, 0) = at(row, inColIndex);
             }
 
             return std::move(returnArray);
@@ -570,7 +598,7 @@ namespace NC
             uint32 colCounter = 0;
             for (int32 col = inColSliceCopy.start; col < inColSliceCopy.stop; col += inColSliceCopy.step)
             {
-                returnArray(0, colCounter++) = this->at(inRowIndex, col);
+                returnArray(0, colCounter++) = at(inRowIndex, col);
             }
 
             return std::move(returnArray);
@@ -581,14 +609,14 @@ namespace NC
         ///						Returns a Slice object for slicing a row to the end of 
         ///                     array.
         ///		
-        /// @param
-        ///				inStartIdx
+        /// @param      inStartIdx (default 0)
+        /// @param      inStepSize (default 1)
         /// @return
         ///				Slice
         ///
-        const Slice rSlice(int32 inStartIdx = 0) const
+        const Slice rSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const
         {
-            return Slice(inStartIdx, shape_.rows);
+            return Slice(inStartIdx, shape_.rows, inStepSize);
         }
 
         //============================================================================
@@ -596,14 +624,14 @@ namespace NC
         ///						Returns a Slice object for slicing a column to the end
         ///                     of the array.
         ///		
-        /// @param
-        ///				inStartIdx
+        /// @param      inStartIdx (default 0)
+        /// @param      inStepSize (default 1)
         /// @return
         ///				Slice
         ///
-        const Slice cSlice(int32 inStartIdx = 0) const
+        const Slice cSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const
         {
-            return Slice(inStartIdx, shape_.cols);
+            return Slice(inStartIdx, shape_.cols, inStepSize);
         }
 
         //============================================================================
@@ -621,8 +649,9 @@ namespace NC
             // but why would you really want to do that anyway?
             if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Input index " + Utils<int32>::num2str(inIndex);
-                errStr += " is out of bounds for array of size " + Utils<uint32>::num2str(size_) + ".";
+                std::string errStr = "ERROR: NdArray::at: Input index " + Utils::num2str(inIndex);
+                errStr += " is out of bounds for array of size " + Utils::num2str(size_) + ".";
+                std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
 
@@ -644,8 +673,9 @@ namespace NC
             // but why would you really want to do that anyway?
             if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Input index " + Utils<int32>::num2str(inIndex);
-                errStr += " is out of bounds for array of size " + Utils<uint32>::num2str(size_) + ".";
+                std::string errStr = "ERROR: NdArray::at: Input index " + Utils::num2str(inIndex);
+                errStr += " is out of bounds for array of size " + Utils::num2str(size_) + ".";
+                std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
 
@@ -667,8 +697,9 @@ namespace NC
             // but why would you really want to do that anyway?
             if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Row index " + Utils<int32>::num2str(inRowIndex);
-                errStr += " is out of bounds for array of size " + Utils<uint32>::num2str(shape_.rows) + ".";
+                std::string errStr = "ERROR: NdArray::at: Row index " + Utils::num2str(inRowIndex);
+                errStr += " is out of bounds for array of size " + Utils::num2str(shape_.rows) + ".";
+                std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
 
@@ -676,8 +707,9 @@ namespace NC
             // but why would you really want to that anyway?
             if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Column index " + Utils<int32>::num2str(inColIndex);
-                errStr += " is out of bounds for array of size " + Utils<uint32>::num2str(shape_.cols) + ".";
+                std::string errStr = "ERROR: NdArray::at: Column index " + Utils::num2str(inColIndex);
+                errStr += " is out of bounds for array of size " + Utils::num2str(shape_.cols) + ".";
+                std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
 
@@ -699,8 +731,9 @@ namespace NC
             // but why would you really want to do that anyway?
             if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Row index " + Utils<int32>::num2str(inRowIndex);
-                errStr += " is out of bounds for array of size " + Utils<uint32>::num2str(shape_.rows) + ".";
+                std::string errStr = "ERROR: NdArray::at: Row index " + Utils::num2str(inRowIndex);
+                errStr += " is out of bounds for array of size " + Utils::num2str(shape_.rows) + ".";
+                std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
 
@@ -708,8 +741,9 @@ namespace NC
             // but why would you really want to do that anyway?
             if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Column index " + Utils<int32>::num2str(inColIndex);
-                errStr += " is out of bounds for array of size " + Utils<uint32>::num2str(shape_.cols) + ".";
+                std::string errStr = "ERROR: NdArray::at: Column index " + Utils::num2str(inColIndex);
+                errStr += " is out of bounds for array of size " + Utils::num2str(shape_.cols) + ".";
+                std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
 
@@ -804,7 +838,9 @@ namespace NC
         {
             if (inRow >= shape_.rows)
             {
-                throw std::invalid_argument("ERROR: NdArray::begin: input row is greater than the number of rows in the array.");
+                std::string errStr = "ERROR: NdArray::begin: input row is greater than the number of rows in the array.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             return array_ + inRow * shape_.cols;
@@ -834,7 +870,9 @@ namespace NC
         {
             if (inRow >= shape_.rows)
             {
-                throw std::invalid_argument("ERROR: NdArray::begin: input row is greater than the number of rows in the array.");
+                std::string errStr = "ERROR: NdArray::begin: input row is greater than the number of rows in the array.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             return array_ + inRow * shape_.cols + shape_.cols;
@@ -865,7 +903,9 @@ namespace NC
         {
             if (inRow >= shape_.rows)
             {
-                throw std::invalid_argument("ERROR: NdArray::begin: input row is greater than the number of rows in the array.");
+                std::string errStr = "ERROR: NdArray::begin: input row is greater than the number of rows in the array.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             return array_ + inRow * shape_.cols;
@@ -896,8 +936,9 @@ namespace NC
         {
             if (inRow >= shape_.rows)
             {
-                throw std::invalid_argument("ERROR: NdArray::begin: input row is greater than the number of rows in the array.");
-
+                std::string errStr = "ERROR: NdArray::begin: input row is greater than the number of rows in the array.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
             return array_ + inRow * shape_.cols + shape_.cols;
         }
@@ -913,7 +954,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> all(Axis::Type inAxis = Axis::NONE) const
+        NdArray<bool> all(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -961,7 +1002,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> any(Axis::Type inAxis = Axis::NONE) const
+        NdArray<bool> any(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1010,7 +1051,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argmax(Axis::Type inAxis = Axis::NONE) const
+        NdArray<uint32> argmax(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1059,7 +1100,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argmin(Axis::Type inAxis = Axis::NONE) const
+        NdArray<uint32> argmin(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1107,7 +1148,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<uint32> argsort(Axis::Type inAxis = Axis::NONE) const
+        NdArray<uint32> argsort(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1169,7 +1210,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
+        template<typename dtypeOut>
         NdArray<dtypeOut> astype() const
         {
             NdArray<dtypeOut> outArray(shape_);
@@ -1178,6 +1219,18 @@ namespace NC
                 outArray[i] = static_cast<dtypeOut>(array_[i]);
             }
             return std::move(outArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Returns the last element of the flattened array.
+        ///		
+        /// @return
+        ///				dtype
+        ///
+        dtype back() const
+        {
+            return *(cend() - 1);
         }
 
         //============================================================================
@@ -1256,7 +1309,7 @@ namespace NC
         /// @return
         ///				bool
         ///
-        NdArray<bool> contains(dtype inValue, Axis::Type inAxis = Axis::NONE) const
+        NdArray<bool> contains(dtype inValue, Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1304,7 +1357,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> copy()
+        NdArray<dtype> copy() const
         {
             return std::move(NdArray<dtype>(*this));
         }
@@ -1320,8 +1373,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
-        NdArray<dtypeOut> cumprod(Axis::Type inAxis = Axis::NONE) const
+        template<typename dtypeOut>
+        NdArray<dtypeOut> cumprod(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1384,8 +1437,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
-        NdArray<dtypeOut> cumsum(Axis::Type inAxis = Axis::NONE) const
+        template<typename dtypeOut>
+        NdArray<dtypeOut> cumsum(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1448,7 +1501,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> diagonal(int32 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
+        NdArray<dtype> diagonal(int32 inOffset = 0, Axis inAxis = Axis::ROW) const
         {
             switch (inAxis)
             {
@@ -1517,17 +1570,12 @@ namespace NC
         /// @return
         ///				dot product
         ///
-        template<typename dtypeOut = double>
+        template<typename dtypeOut>
         NdArray<dtypeOut> dot(const NdArray<dtype>& inOtherArray) const
         {
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
             {
-                dtypeOut dotProduct = 0;
-                for (uint32 i = 0; i < size_; ++i)
-                {
-                    dotProduct += static_cast<dtypeOut>(array_[i]) * static_cast<dtypeOut>(inOtherArray.array_[i]);
-                }
-
+                dtypeOut dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), static_cast<dtype>(0));             
                 NdArray<dtypeOut> returnArray = { dotProduct };
                 return std::move(returnArray);
             }
@@ -1552,9 +1600,10 @@ namespace NC
             }
             else
             {
-                std::string errStr = "ERROR: NdArray::Array shapes of [" + Utils<uint32>::num2str(shape_.rows) + ", " + Utils<uint32>::num2str(shape_.cols) + "]";
-                errStr += " and [" + Utils<uint32>::num2str(inOtherArray.shape_.rows) + ", " + Utils<uint32>::num2str(inOtherArray.shape_.cols) + "]";
+                std::string errStr = "ERROR: NdArray::Array shapes of [" + Utils::num2str(shape_.rows) + ", " + Utils::num2str(shape_.cols) + "]";
+                errStr += " and [" + Utils::num2str(inOtherArray.shape_.rows) + ", " + Utils::num2str(inOtherArray.shape_.cols) + "]";
                 errStr += " are not consistent.";
+                std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
         }
@@ -1575,6 +1624,7 @@ namespace NC
             if (!boost::filesystem::exists(p.parent_path()))
             {
                 std::string errStr = "ERROR: NdArray::dump: Input path does not exist:\n\t" + p.parent_path().string();
+                std::cerr << errStr << std::endl;
                 throw std::runtime_error(errStr);
             }
 
@@ -1607,9 +1657,9 @@ namespace NC
         ///						Return the NdArrays endianess
         ///		
         /// @return
-        ///				Endian::Type
+        ///				Endian
         ///
-        Endian::Type endianess() const
+        Endian endianess() const
         {
             return endianess_;
         }
@@ -1627,10 +1677,7 @@ namespace NC
         ///
         void fill(dtype inFillValue)
         {
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] = inFillValue;
-            }
+            std::fill(begin(), end(), inFillValue);
         }
 
         //============================================================================
@@ -1655,6 +1702,63 @@ namespace NC
 
         //============================================================================
         // Method Description: 
+        ///						Returns the first element of the flattened array.
+        ///		
+        /// @return
+        ///				dtype
+        ///
+        dtype front() const
+        {
+            return *cbegin();
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///                     Returns a new flat array with the givin flat input indices.
+        ///		
+        /// @param
+        ///				inIndices
+        /// @return
+        ///				value
+        ///
+        NdArray<dtype> getByIndices(const NdArray<uint32>& inIndices) const
+        {
+            if (inIndices.max().item() > size_ - 1)
+            {
+                std::string errStr = "ERROR: getByIndices: input indices must be less than the array size.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            auto uniqueIndices = std::set<uint32>(inIndices.cbegin(), inIndices.cend());
+            auto outArray = NdArray<dtype>(1, static_cast<uint32>(uniqueIndices.size()));
+            uint32 i{ 0 };
+            for (auto& index : uniqueIndices)
+            {
+                outArray[i++] = this->operator[](index);
+            }
+
+            return std::move(outArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///                     Takes in a boolean mask the same size as the array
+        ///                     and returns a flattened array with the values cooresponding
+        ///                     to the input mask.
+        ///		
+        /// @param
+        ///				inMask
+        /// @return
+        ///				value
+        ///
+        NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
+        {
+            return std::move(this->operator[](inMask));
+        }
+
+        //============================================================================
+        // Method Description: 
         ///						Copy an element of an array to a standard C++ scalar and return it.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.item.html
@@ -1670,7 +1774,9 @@ namespace NC
             }
             else
             {
-                throw std::runtime_error("ERROR: NdArray::item: Can only convert an array of size 1 to a C++ scalar");
+                std::string errStr = "ERROR: NdArray::item: Can only convert an array of size 1 to a C++ scalar";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
         }
 
@@ -1685,7 +1791,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> max(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtype> max(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1735,7 +1841,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> min(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtype> min(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1785,7 +1891,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<double> mean(Axis::Type inAxis = Axis::NONE) const
+        NdArray<double> mean(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1838,7 +1944,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> median(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtype> median(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -1926,7 +2032,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> newbyteorder(Endian::Type inEndianess) const
+        NdArray<dtype> newbyteorder(Endian inEndianess) const
         {
             // only works with integer types
             static_assert(DtypeInfo<dtype>::isInteger(), "Type Error in newbyteorder: Can only compile newbyteorder method of NdArray<T> with integer types.");
@@ -2094,8 +2200,8 @@ namespace NC
         /// @return
         ///				norm
         ///
-        template<typename dtypeOut = double>
-        NdArray<dtypeOut> norm(Axis::Type inAxis = Axis::NONE) const
+        template<typename dtypeOut>
+        NdArray<dtypeOut> norm(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -2104,9 +2210,9 @@ namespace NC
                     dtypeOut sumOfSquares = 0;
                     for (uint32 i = 0; i < size_; ++i)
                     {
-                        sumOfSquares += static_cast<dtypeOut>(Utils<dtype>::sqr(array_[i]));
+                        sumOfSquares += static_cast<dtypeOut>(Utils::sqr(array_[i]));
                     }
-                    NdArray<dtypeOut> returnArray = { std::sqrt(sumOfSquares) };
+                    NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(std::sqrt(sumOfSquares)) };
                     return std::move(returnArray);
                 }
                 case Axis::COL:
@@ -2117,9 +2223,9 @@ namespace NC
                         dtypeOut sumOfSquares = 0;
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
-                            sumOfSquares += static_cast<dtypeOut>(Utils<dtype>::sqr(this->operator()(row, col)));
+                            sumOfSquares += static_cast<dtypeOut>(Utils::sqr(this->operator()(row, col)));
                         }
-                        returnArray(0, row) = std::sqrt(sumOfSquares);
+                        returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
                     }
 
                     return std::move(returnArray);
@@ -2133,9 +2239,9 @@ namespace NC
                         dtypeOut sumOfSquares = 0;
                         for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
                         {
-                            sumOfSquares += static_cast<dtypeOut>(Utils<dtype>::sqr(transposedArray(row, col)));
+                            sumOfSquares += static_cast<dtypeOut>(Utils::sqr(transposedArray(row, col)));
                         }
-                        returnArray(0, row) = std::sqrt(sumOfSquares);
+                        returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
                     }
 
                     return std::move(returnArray);
@@ -2175,7 +2281,7 @@ namespace NC
         /// @return
         ///				None
         ///
-        void partition(uint32 inKth, Axis::Type inAxis = Axis::NONE)
+        void partition(uint32 inKth, Axis inAxis = Axis::NONE)
         {
             switch (inAxis)
             {
@@ -2183,8 +2289,8 @@ namespace NC
                 {
                     if (inKth >= size_)
                     {
-                        std::string errStr = "ERROR: NdArray::partition: kth(=" + Utils<uint32>::num2str(inKth);
-                        errStr += ") out of bounds (" + Utils<uint32>::num2str(size_) + ")";
+                        std::string errStr = "ERROR: NdArray::partition: kth(=" + Utils::num2str(inKth);
+                        errStr += ") out of bounds (" + Utils::num2str(size_) + ")";
                         throw std::invalid_argument(errStr);
                     }
                     std::nth_element(begin(), begin() + inKth, end());
@@ -2194,8 +2300,9 @@ namespace NC
                 {
                     if (inKth >= shape_.cols)
                     {
-                        std::string errStr = "ERROR: NdArray::partition: kth(=" + Utils<uint32>::num2str(inKth);
-                        errStr += ") out of bounds (" + Utils<uint32>::num2str(shape_.cols) + ")";
+                        std::string errStr = "ERROR: NdArray::partition: kth(=" + Utils::num2str(inKth);
+                        errStr += ") out of bounds (" + Utils::num2str(shape_.cols) + ")";
+                        std::cerr << errStr << std::endl;
                         throw std::invalid_argument(errStr);
                     }
 
@@ -2209,8 +2316,9 @@ namespace NC
                 {
                     if (inKth >= shape_.rows)
                     {
-                        std::string errStr = "ERROR: NdArray::partition: kth(=" + Utils<uint32>::num2str(inKth);
-                        errStr += ") out of bounds (" + Utils<uint32>::num2str(shape_.rows) + ")";
+                        std::string errStr = "ERROR: NdArray::partition: kth(=" + Utils::num2str(inKth);
+                        errStr += ") out of bounds (" + Utils::num2str(shape_.rows) + ")";
+                        std::cerr << errStr << std::endl;
                         throw std::invalid_argument(errStr);
                     }
 
@@ -2246,8 +2354,8 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
-        NdArray<dtypeOut> prod(Axis::Type inAxis = Axis::NONE) const
+        template<typename dtypeOut>
+        NdArray<dtypeOut> prod(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -2312,7 +2420,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> ptp(Axis::Type inAxis = Axis::NONE) const
+        NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -2363,9 +2471,11 @@ namespace NC
         /// @param				inIndex
         /// @param				inValue
         ///
-        void put(int32 inIndex, dtype inValue)
+        NdArray<dtype>& put(int32 inIndex, dtype inValue)
         {
             at(inIndex) = inValue;
+
+            return *this;
         }
 
         //============================================================================
@@ -2378,9 +2488,11 @@ namespace NC
         /// @param				inCol
         /// @param				inValue
         ///
-        void put(int32 inRow, int32 inCol, dtype inValue)
+        NdArray<dtype>& put(int32 inRow, int32 inCol, dtype inValue)
         {
             at(inRow, inCol) = inValue;
+
+            return *this;
         }
 
         //============================================================================
@@ -2392,12 +2504,14 @@ namespace NC
         /// @param				inIndices
         /// @param				inValue
         ///
-        void put(const NdArray<uint32>& inIndices, dtype inValue)
+        NdArray<dtype>& put(const NdArray<uint32>& inIndices, dtype inValue)
         {
             for (uint32 i = 0; i < inIndices.size(); ++i)
             {
                 put(inIndices[i], inValue);
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2409,17 +2523,21 @@ namespace NC
         /// @param				inIndices
         /// @param				inValues
         ///
-        void put(const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
+        NdArray<dtype>& put(const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues)
         {
             if (inIndices.size() != inValues.size())
             {
-                throw std::invalid_argument("ERROR: NdArray::put: Input indices do not match values dimensions.");
+                std::string errStr = "ERROR: NdArray::put: Input indices do not match values dimensions.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             for (uint32 i = 0; i < inIndices.size(); ++i)
             {
                 put(inIndices[i], inValues[i]);
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2431,7 +2549,7 @@ namespace NC
         /// @param				inSlice
         /// @param				inValue
         ///
-        void put(const Slice& inSlice, dtype inValue)
+        NdArray<dtype>& put(const Slice& inSlice, dtype inValue)
         {
             Slice inSliceCopy(inSlice);
             inSliceCopy.makePositiveAndValidate(size_);
@@ -2440,6 +2558,8 @@ namespace NC
             {
                 put(i, inValue);
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2451,7 +2571,7 @@ namespace NC
         /// @param				inSlice
         /// @param  			inValues
         ///
-        void put(const Slice& inSlice, const NdArray<dtype>& inValues)
+        NdArray<dtype>& put(const Slice& inSlice, const NdArray<dtype>& inValues)
         {
             Slice inSliceCopy(inSlice);
             inSliceCopy.makePositiveAndValidate(size_);
@@ -2462,12 +2582,12 @@ namespace NC
                 indices.push_back(i);
             }
 
-            put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32>(indices), inValues);
         }
 
         //============================================================================
         // Method Description: 
-        ///						Set the slice indices to the input values.
+        ///						Set the slice indices to the input value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
@@ -2475,7 +2595,7 @@ namespace NC
         /// @param				inColSlice
         /// @param				inValue
         ///
-        void put(const Slice& inRowSlice, const Slice& inColSlice, dtype inValue)
+        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, dtype inValue)
         {
             Slice inRowSliceCopy(inRowSlice);
             Slice inColSliceCopy(inColSlice);
@@ -2491,11 +2611,13 @@ namespace NC
                     put(row, col, inValue);
                 }
             }
+
+            return *this;
         }
 
         //============================================================================
         // Method Description: 
-        ///						Set the slice indices to the input values.
+        ///						Set the slice indices to the input value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
@@ -2503,7 +2625,7 @@ namespace NC
         /// @param				inColIndex
         /// @param				inValue
         ///
-        void put(const Slice& inRowSlice, int32 inColIndex, dtype inValue)
+        NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, dtype inValue)
         {
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
@@ -2513,11 +2635,13 @@ namespace NC
             {
                 put(row, inColIndex, inValue);
             }
+
+            return *this;
         }
 
         //============================================================================
         // Method Description: 
-        ///						Set the slice indices to the input values.
+        ///						Set the slice indices to the input value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
         ///		
@@ -2525,7 +2649,7 @@ namespace NC
         /// @param				inColSlice
         /// @param				inValue
         ///
-        void put(int32 inRowIndex, const Slice& inColSlice, dtype inValue)
+        NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, dtype inValue)
         {
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
@@ -2535,6 +2659,8 @@ namespace NC
             {
                 put(inRowIndex, col, inValue);
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2547,7 +2673,7 @@ namespace NC
         /// @param				inColSlice
         /// @param				inValues
         ///
-        void put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype>& inValues)
+        NdArray<dtype>& put(const Slice& inRowSlice, const Slice& inColSlice, const NdArray<dtype>& inValues)
         {
             Slice inRowSliceCopy(inRowSlice);
             Slice inColSliceCopy(inColSlice);
@@ -2565,7 +2691,7 @@ namespace NC
                 }
             }
 
-            put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32>(indices), inValues);
         }
 
         //============================================================================
@@ -2578,7 +2704,7 @@ namespace NC
         /// @param				inColIndex
         /// @param				inValues
         ///
-        void put(const Slice& inRowSlice, int32 inColIndex, const NdArray<dtype>& inValues)
+        NdArray<dtype>& put(const Slice& inRowSlice, int32 inColIndex, const NdArray<dtype>& inValues)
         {
             Slice inRowSliceCopy(inRowSlice);
             inRowSliceCopy.makePositiveAndValidate(shape_.rows);
@@ -2590,7 +2716,7 @@ namespace NC
                 indices.push_back(index);
             }
 
-            put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32>(indices), inValues);
         }
 
         //============================================================================
@@ -2603,7 +2729,7 @@ namespace NC
         /// @param				inColSlice
         /// @param				inValues
         ///
-        void put(int32 inRowIndex, const Slice& inColSlice, const NdArray<dtype>& inValues)
+        NdArray<dtype>& put(int32 inRowIndex, const Slice& inColSlice, const NdArray<dtype>& inValues)
         {
             Slice inColSliceCopy(inColSlice);
             inColSliceCopy.makePositiveAndValidate(shape_.cols);
@@ -2615,7 +2741,45 @@ namespace NC
                 indices.push_back(index);
             }
 
-            put(NdArray<uint32>(indices), inValues);
+            return put(NdArray<uint32>(indices), inValues);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Set the mask indices to the input value.
+        ///		
+        /// @param				inMask
+        /// @param				inValue
+        ///
+        NdArray<dtype>& putMask(const NdArray<bool>& inMask, dtype inValue)
+        {
+            if (inMask.shape() != shape_)
+            {
+                std::string errStr = "ERROR: putMask: input inMask must be the same shape as the array it is masking.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            return put(inMask.nonzero(), inValue);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Set the mask indices to the input values.
+        ///		
+        /// @param				inMask
+        /// @param				inValues
+        ///
+        NdArray<dtype>& putMask(const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
+        {
+            if (inMask.shape() != shape_)
+            {
+                std::string errStr = "ERROR: putMask: input inMask must be the same shape as the array it is masking.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            return put(inMask.nonzero(), inValues);
         }
 
         //============================================================================
@@ -2679,7 +2843,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						Returns an array containing the same data with a new shape.
+        ///						Resizes the array to a new shape.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
         ///		
@@ -2690,8 +2854,9 @@ namespace NC
         {
             if (inNumRows * inNumCols != size_)
             {
-                std::string errStr = "ERROR: NdArray::reshape: Cannot reshape array of size " + Utils<uint32>::num2str(size_) + " into shape ";
-                errStr += "[" + Utils<uint32>::num2str(inNumRows) + ", " + Utils<uint32>::num2str(inNumCols) + "]";
+                std::string errStr = "ERROR: NdArray::reshape: Cannot reshape array of size " + Utils::num2str(size_) + " into shape ";
+                errStr += "[" + Utils::num2str(inNumRows) + ", " + Utils::num2str(inNumCols) + "]";
+                std::cerr << errStr << std::endl;
                 throw std::runtime_error(errStr);
             }
 
@@ -2701,7 +2866,7 @@ namespace NC
 
         //============================================================================
         // Method Description: 
-        ///						Returns an array containing the same data with a new shape.
+        ///						Resizes the array to a new shape.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///		
@@ -2820,7 +2985,7 @@ namespace NC
             else
             {
                 NdArray<dtype> returnArray(shape_);
-                double multFactor = Utils<double>::power(10.0, inNumDecimals);
+                double multFactor = Utils::power(10.0, inNumDecimals);
                 for (uint32 i = 0; i < size_; ++i)
                 {
                     returnArray[i] = static_cast<dtype>(std::round(static_cast<double>(array_[i]) * multFactor) / multFactor);
@@ -2869,7 +3034,7 @@ namespace NC
         /// @return
         ///				size
         ///
-        void sort(Axis::Type inAxis = Axis::NONE)
+        void sort(Axis inAxis = Axis::NONE)
         {
             switch (inAxis)
             {
@@ -2910,7 +3075,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<double> std(Axis::Type inAxis = Axis::NONE) const
+        NdArray<double> std(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -2920,7 +3085,7 @@ namespace NC
                     double sum = 0;
                     for (uint32 i = 0; i < size_; ++i)
                     {
-                        sum += Utils<double>::sqr(static_cast<double>(array_[i]) - meanValue);
+                        sum += Utils::sqr(static_cast<double>(array_[i]) - meanValue);
                     }
                     NdArray<double> returnArray = { std::sqrt(sum / size_) };
                     return std::move(returnArray);
@@ -2934,7 +3099,7 @@ namespace NC
                         double sum = 0;
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
-                            sum += Utils<double>::sqr(static_cast<double>(this->operator()(row, col)) - meanValue[row]);
+                            sum += Utils::sqr(static_cast<double>(this->operator()(row, col)) - meanValue[row]);
                         }
                         returnArray(0, row) = std::sqrt(sum / shape_.cols);
                     }
@@ -2951,7 +3116,7 @@ namespace NC
                         double sum = 0;
                         for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
                         {
-                            sum += Utils<double>::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
+                            sum += Utils::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
                         }
                         returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
                     }
@@ -2983,7 +3148,7 @@ namespace NC
                 out += "[";
                 for (uint16 col = 0; col < shape_.cols; ++col)
                 {
-                    out += Utils<dtype>::num2str(this->operator()(row, col)) + ", ";
+                    out += Utils::num2str(this->operator()(row, col)) + ", ";
                 }
 
                 if (row == shape_.rows - 1)
@@ -3010,20 +3175,20 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double>
-        NdArray<dtypeOut> sum(Axis::Type inAxis = Axis::NONE) const
+        template<typename dtypeOut>
+        NdArray<dtypeOut> sum(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtypeOut> arrayCopy = astype<dtypeOut>();
+                    NdArray<dtypeOut> arrayCopy = this->astype<dtypeOut>();
                     NdArray<dtypeOut> returnArray = { std::accumulate(arrayCopy.cbegin(), arrayCopy.cend(), static_cast<dtypeOut>(0)) };
                     return std::move(returnArray);
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtypeOut> arrayCopy = astype<dtypeOut>();
+                    NdArray<dtypeOut> arrayCopy = this->astype<dtypeOut>();
                     NdArray<dtypeOut> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
@@ -3092,6 +3257,7 @@ namespace NC
                 if (!boost::filesystem::exists(p.parent_path()))
                 {
                     std::string errStr = "ERROR: NdArray::tofile: Input path does not exist:\n\t" + p.parent_path().string();
+                    std::cerr << errStr << std::endl;
                     throw std::runtime_error(errStr);
                 }
 
@@ -3138,8 +3304,8 @@ namespace NC
         /// @return
         ///				value
         ///
-        template<typename dtypeOut = double>
-        dtypeOut trace(uint16 inOffset = 0, Axis::Type inAxis = Axis::ROW) const
+        template<typename dtypeOut>
+        dtypeOut trace(uint16 inOffset = 0, Axis inAxis = Axis::ROW) const
         {
             uint16 rowStart = 0;
             uint16 colStart = 0;
@@ -3215,7 +3381,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<double> var(Axis::Type inAxis = Axis::NONE) const
+        NdArray<double> var(Axis inAxis = Axis::NONE) const
         {
             NdArray<double> stdValues = std(inAxis);
             for (uint32 i = 0; i < stdValues.size(); ++i)
@@ -3276,7 +3442,9 @@ namespace NC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator+=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator+=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::plus<dtype>());
@@ -3344,7 +3512,9 @@ namespace NC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator-=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator-=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
@@ -3412,7 +3582,9 @@ namespace NC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator*=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator*=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::multiplies<dtype>());
@@ -3480,7 +3652,9 @@ namespace NC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator/=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator/=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::divides<dtype>());
@@ -3551,7 +3725,9 @@ namespace NC
 
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator%=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator%=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::modulus<dtype>());
@@ -3575,7 +3751,9 @@ namespace NC
 
             if (inScalar == 0)
             {
-                throw std::runtime_error("ERROR: NdArray::operator%=: modulus by zero.");
+                std::string errStr = "ERROR: NdArray::operator%=: modulus by zero.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             for (uint32 i = 0; i < size_; ++i)
@@ -3630,7 +3808,9 @@ namespace NC
 
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator|=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator|=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_or<dtype>());
@@ -3704,7 +3884,9 @@ namespace NC
 
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator&=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator&=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_and<dtype>());
@@ -3778,7 +3960,9 @@ namespace NC
 
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator^=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator^=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_xor<dtype>());
@@ -3864,7 +4048,9 @@ namespace NC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator==: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator==: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);
@@ -3908,7 +4094,9 @@ namespace NC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator!=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator!=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);
@@ -3952,7 +4140,9 @@ namespace NC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator<: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator<: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);
@@ -3996,7 +4186,9 @@ namespace NC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator>: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator>: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);
@@ -4040,7 +4232,9 @@ namespace NC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator<=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator<=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);
@@ -4084,7 +4278,9 @@ namespace NC
         {
             if (shape_ != inOtherArray.shape_)
             {
-                throw std::invalid_argument("ERROR: NdArray::operator>=: Array dimensions do not match.");
+                std::string errStr = "ERROR: NdArray::operator>=: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);

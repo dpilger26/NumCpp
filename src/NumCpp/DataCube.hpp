@@ -34,14 +34,16 @@
 #include"boost/filesystem.hpp"
 
 #include<deque>
+#include<iostream>
 #include<limits>
 #include<stdexcept>
+#include<string>
 
 namespace NC
 {
     //================================================================================
     ///						Convenience container for holding a uniform array of NdArrays
-    template<typename dtype = double>
+    template<typename dtype>
     class DataCube
     {
     public:
@@ -52,15 +54,13 @@ namespace NC
     private:
         //================================Attributes==================================
         std::deque<NdArray<dtype> >     cube_;
-        Shape                           elementShape_;
+        Shape                           elementShape_{0, 0};
 
     public:
         //============================================================================
         ///						Default Constructor
         ///
-        DataCube() :
-            elementShape_(0, 0)
-        {};
+        DataCube() = default;
 
         //============================================================================
         ///						Constructor, preallocates to the input size
@@ -68,8 +68,7 @@ namespace NC
         /// @param      inSize
         ///
         DataCube(uint32 inSize) :
-            cube_(inSize),
-            elementShape_(0, 0)
+            cube_(inSize)
         {};
 
         //============================================================================
@@ -137,6 +136,7 @@ namespace NC
             if (!boost::filesystem::exists(p.parent_path()))
             {
                 std::string errStr = "ERROR: DataCube::dump: Input path does not exist:\n\t" + p.parent_path().string();
+                std::cerr << errStr << std::endl;
                 throw std::runtime_error(errStr);
             }
 
@@ -249,7 +249,9 @@ namespace NC
 
             if (inputShape != elementShape_)
             {
-                throw std::invalid_argument("ERROR: NC::DataCube::push_back: element arrays must all be the same shape.");
+                std::string errStr = "ERROR: NC::DataCube::push_back: element arrays must all be the same shape.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             cube_.push_back(inArray);
@@ -273,7 +275,9 @@ namespace NC
 
             if (inputShape != elementShape_)
             {
-                throw std::invalid_argument("ERROR: NC::DataCube::push_front: element arrays must all be the same shape.");
+                std::string errStr = "ERROR: NC::DataCube::push_front: element arrays must all be the same shape.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             cube_.push_front(inArray);

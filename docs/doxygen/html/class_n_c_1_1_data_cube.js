@@ -2,7 +2,7 @@ var class_n_c_1_1_data_cube =
 [
     [ "const_iterator", "class_n_c_1_1_data_cube.html#a64b7bb7b5fda3df9a7942ea6981de8eb", null ],
     [ "iterator", "class_n_c_1_1_data_cube.html#ab3d5a3286c962f4503ed7fc717ef77a1", null ],
-    [ "DataCube", "class_n_c_1_1_data_cube.html#a7b2d6da1bcf8aa7d8b3623c41e309173", null ],
+    [ "DataCube", "class_n_c_1_1_data_cube.html#abff8ba897b576f4442acdf4c4095a1a7", null ],
     [ "DataCube", "class_n_c_1_1_data_cube.html#a34fa1dbd66b31cf0d55d85e20880e54b", null ],
     [ "at", "class_n_c_1_1_data_cube.html#a585e01949622f89cc81c9cccd7ebf4ae", null ],
     [ "at", "class_n_c_1_1_data_cube.html#a3c9df1e4c4e7367384c8a245bacc849d", null ],

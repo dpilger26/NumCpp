@@ -110,8 +110,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7b2d6da1bcf8aa7d8b3623c41e309173"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_data_cube.html#a7b2d6da1bcf8aa7d8b3623c41e309173">DataCube</a> ()</td></tr>
-<tr class="separator:a7b2d6da1bcf8aa7d8b3623c41e309173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff8ba897b576f4442acdf4c4095a1a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_data_cube.html#abff8ba897b576f4442acdf4c4095a1a7">DataCube</a> ()=default</td></tr>
+<tr class="separator:abff8ba897b576f4442acdf4c4095a1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34fa1dbd66b31cf0d55d85e20880e54b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_data_cube.html#a34fa1dbd66b31cf0d55d85e20880e54b">DataCube</a> (<a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inSize)</td></tr>
 <tr class="separator:a34fa1dbd66b31cf0d55d85e20880e54b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a585e01949622f89cc81c9cccd7ebf4ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_data_cube.html#a585e01949622f89cc81c9cccd7ebf4ae">at</a> (<a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inIndex)</td></tr>
@@ -152,7 +152,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a12f69aa8d51273b2da197d60afb9bcd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename dtype = double&gt;<br />
+<div class="textblock"><h3>template&lt;typename dtype&gt;<br />
 class NC::DataCube&lt; dtype &gt;</h3>
 
 <p>Convenience container for holding a uniform array of NdArrays. </p>
@@ -163,7 +163,7 @@ class NC::DataCube&lt; dtype &gt;</h3>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">typedef std::deque&lt;<a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; &gt;::<a class="el" href="class_n_c_1_1_data_cube.html#a64b7bb7b5fda3df9a7942ea6981de8eb">const_iterator</a> <a class="el" href="class_n_c_1_1_data_cube.html">NC::DataCube</a>&lt; dtype &gt;::<a class="el" href="class_n_c_1_1_data_cube.html#a64b7bb7b5fda3df9a7942ea6981de8eb">const_iterator</a></td>
@@ -179,7 +179,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">typedef std::deque&lt;<a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; &gt;::<a class="el" href="class_n_c_1_1_data_cube.html#ab3d5a3286c962f4503ed7fc717ef77a1">iterator</a> <a class="el" href="class_n_c_1_1_data_cube.html">NC::DataCube</a>&lt; dtype &gt;::<a class="el" href="class_n_c_1_1_data_cube.html#ab3d5a3286c962f4503ed7fc717ef77a1">iterator</a></td>
@@ -190,13 +190,13 @@ template&lt;typename dtype  = double&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7b2d6da1bcf8aa7d8b3623c41e309173"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b2d6da1bcf8aa7d8b3623c41e309173">&#9670;&nbsp;</a></span>DataCube() <span class="overload">[1/2]</span></h2>
+<a id="abff8ba897b576f4442acdf4c4095a1a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abff8ba897b576f4442acdf4c4095a1a7">&#9670;&nbsp;</a></span>DataCube() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -210,7 +210,7 @@ template&lt;typename dtype  = double&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -224,7 +224,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -260,7 +260,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -296,7 +296,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -332,7 +332,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -361,7 +361,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -390,7 +390,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -419,7 +419,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -448,7 +448,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -483,7 +483,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -512,7 +512,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -541,7 +541,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -570,7 +570,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -606,7 +606,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -642,7 +642,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -670,7 +670,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -698,7 +698,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -733,7 +733,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -768,7 +768,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -797,7 +797,7 @@ template&lt;typename dtype  = double&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename dtype  = double&gt; </div>
+template&lt;typename dtype &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">

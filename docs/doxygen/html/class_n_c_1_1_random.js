@@ -6,6 +6,7 @@ var class_n_c_1_1_random =
     [ "cauchy", "class_n_c_1_1_random.html#a5cf71039798aa2e8dc6fe5db7cc489fb", null ],
     [ "chiSquare", "class_n_c_1_1_random.html#a69e206f3f1b4728f3f54bebc38e9f00f", null ],
     [ "choice", "class_n_c_1_1_random.html#aaf9904423fb7c8c7e5ebae7696ea2125", null ],
+    [ "choice", "class_n_c_1_1_random.html#ae2f18eab08c4ae52eff06a5be16d537c", null ],
     [ "discrete", "class_n_c_1_1_random.html#a6f50495495cf6e2261ca8e7c0a05b40b", null ],
     [ "exponential", "class_n_c_1_1_random.html#a5001c56a1da1e4bef1d19fb72e2dde41", null ],
     [ "extremeValue", "class_n_c_1_1_random.html#ac9ca25066ca434c7ab77fa1f74b0bcf1", null ],
