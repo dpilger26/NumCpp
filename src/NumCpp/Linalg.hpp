@@ -109,7 +109,7 @@ namespace NC
                         }
                         ++subi;
                     }
-                    determinant += (std::pow(-1, c) * inArray(0, c) * det(submat));
+                    determinant += (static_cast<dtype>(std::pow(-1, c)) * inArray(0, c) * det(submat));
                 }
 
                 return determinant;
@@ -274,10 +274,10 @@ namespace NC
         template<typename dtype>
         NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
         {
-            SVD svdSolver(inA);
+            SVD svdSolver(inA.astype<double>());
             double threshold = inTolerance * svdSolver.s()[0];
 
-            return std::move(svdSolver.solve(inB, threshold));
+            return std::move(svdSolver.solve(inB.astype<double>(), threshold));
         }
 
         //============================================================================
@@ -394,7 +394,7 @@ namespace NC
         template<typename dtype>
         void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
         {
-            SVD svdSolver(inArray);
+            SVD svdSolver(inArray.astype<double>());
             outU = std::move(svdSolver.u());
             outVt = std::move(svdSolver.v());
 

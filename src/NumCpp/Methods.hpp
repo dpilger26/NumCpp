@@ -3432,6 +3432,7 @@ namespace NC
     template<typename dtype>
     bool isnan(dtype inValue)
     {
+        static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: isnan: can only be used with floating point types.");
         return std::isnan(inValue);
     }
 
@@ -3450,6 +3451,8 @@ namespace NC
     template<typename dtype>
     NdArray<bool> isnan(const NdArray<dtype>& inArray)
     {
+        static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: isnan: can only be used with floating point types.");
+
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) { return std::isnan(inValue); });

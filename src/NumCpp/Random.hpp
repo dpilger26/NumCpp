@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include"NumCpp/DtypeInfo.hpp"
 #include"NumCpp/Methods.hpp"
 #include"NumCpp/NdArray.hpp"
 #include"NumCpp/Shape.hpp"

@@ -2212,7 +2212,7 @@ namespace NC
                     {
                         sumOfSquares += static_cast<dtypeOut>(Utils::sqr(array_[i]));
                     }
-                    NdArray<dtypeOut> returnArray = { std::sqrt(sumOfSquares) };
+                    NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(std::sqrt(sumOfSquares)) };
                     return std::move(returnArray);
                 }
                 case Axis::COL:
@@ -2225,7 +2225,7 @@ namespace NC
                         {
                             sumOfSquares += static_cast<dtypeOut>(Utils::sqr(this->operator()(row, col)));
                         }
-                        returnArray(0, row) = std::sqrt(sumOfSquares);
+                        returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
                     }
 
                     return std::move(returnArray);
@@ -2241,7 +2241,7 @@ namespace NC
                         {
                             sumOfSquares += static_cast<dtypeOut>(Utils::sqr(transposedArray(row, col)));
                         }
-                        returnArray(0, row) = std::sqrt(sumOfSquares);
+                        returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
                     }
 
                     return std::move(returnArray);
