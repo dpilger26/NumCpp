@@ -682,7 +682,7 @@ namespace NC
             ///
             dtype radianSeperation(const Coordinate<dtype>& inOtherCoordinate) const
             {
-                return static_cast<dtype>(std::acos(dot<dtype, double>(xyz(), inOtherCoordinate.xyz()).item()));
+                return static_cast<dtype>(std::acos(dot<double>(xyz(), inOtherCoordinate.xyz()).item()));
             }
 
             //============================================================================
@@ -702,7 +702,7 @@ namespace NC
                     throw std::invalid_argument(errStr);
                 }
 
-                return static_cast<dtype>(std::acos(dot<dtype, dtype>(xyz(), inVector.flatten()).item()));
+                return static_cast<dtype>(std::acos(dot<dtype>(xyz(), inVector.flatten()).item()));
             }
 
             //============================================================================

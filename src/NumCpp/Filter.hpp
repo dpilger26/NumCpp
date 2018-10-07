@@ -741,7 +741,7 @@ namespace NC
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1)).flatten();
 
-                    output(row - boundarySize, col - boundarySize) = dot<dtype, dtype>(window, weightsFlat).item();
+                    output(row - boundarySize, col - boundarySize) = dot<dtype>(window, weightsFlat).item();
                 }
             }
 
@@ -777,7 +777,7 @@ namespace NC
             {
                 NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)].flatten();
 
-                output[i - boundarySize] = dot<dtype, dtype>(window, weightsFlat).item();
+                output[i - boundarySize] = dot<dtype>(window, weightsFlat).item();
             }
 
             return std::move(output);
@@ -1142,7 +1142,7 @@ namespace NC
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1));
 
-                    output(row - boundarySize, col - boundarySize) = percentile<dtype, dtype>(window, inPercentile, Axis::NONE, "nearest").item();
+                    output(row - boundarySize, col - boundarySize) = percentile<dtype>(window, inPercentile, Axis::NONE, "nearest").item();
                 }
             }
 
@@ -1177,7 +1177,7 @@ namespace NC
             {
                 NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
 
-                output[i - boundarySize] = percentile<dtype, dtype>(window, inPercentile).item();
+                output[i - boundarySize] = percentile<dtype>(window, inPercentile).item();
             }
 
             return std::move(output);

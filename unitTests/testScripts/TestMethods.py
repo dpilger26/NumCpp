@@ -4597,9 +4597,7 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
-
-    return
-
+        
     print(colored('Testing trim_zeros: "f"', 'cyan'))
     numElements = np.random.randint(50, 100, [1, ]).item()
     offsetBeg = np.random.randint(0, 10, [1, ]).item()

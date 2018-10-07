@@ -469,7 +469,7 @@ namespace NC
                     return inQuat2;
                 }
 
-                double dotProduct = dot<double, double>(inQuat1.toNdArray(), inQuat2.toNdArray()).item();
+                double dotProduct = dot<double>(inQuat1.toNdArray(), inQuat2.toNdArray()).item();
 
                 // If the dot product is negative, the quaternions
                 // have opposite handed-ness and slerp won't take
