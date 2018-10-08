@@ -49,6 +49,130 @@ namespace NC
         ///						Boundary condition to apply to the image filter
         enum class Boundary { REFLECT = 0, CONSTANT, NEAREST, MIRROR, WRAP };
 
+        // forward declare all functions
+        template<typename dtype>
+        dtype gaussian(dtype inX, dtype inY, dtype inSigma);
+
+        template<typename dtype>
+        void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth);
+
+        template<typename dtype>
+        void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue);
+
+        template<typename dtype>
+        NdArray<dtype> reflectBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize);
+
+        template<typename dtype>
+        NdArray<dtype> reflectBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize);
+
+        template<typename dtype>
+        NdArray<dtype> constantBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> constantBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> nearestBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize);
+
+        template<typename dtype>
+        NdArray<dtype> nearestBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize);
+
+        template<typename dtype>
+        NdArray<dtype> mirrorBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize);
+
+        template<typename dtype>
+        NdArray<dtype> mirrorBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize);
+
+        template<typename dtype>
+        NdArray<dtype> wrapBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize);
+
+        template<typename dtype>
+        NdArray<dtype> wrapBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize);
+
+        template<typename dtype>
+        NdArray<dtype> addBoundary(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> addBoundary1d(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> trimBoundary(const NdArray<dtype>& inImageWithBoundary, uint32 inSize);
+
+        template<typename dtype>
+        NdArray<dtype> trimBoundary1d(const NdArray<dtype>& inImageWithBoundary, uint32 inSize);
+
+        template<typename dtype>
+        NdArray<dtype> complementaryMedianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
+            const NdArray<dtype>& inWeights, Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> maximumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> maximumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> medianFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> medianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> minimumFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> minumumFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> uniformFilter(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType, dtype inConstantValue);
+
+        template<typename dtype>
+        NdArray<dtype> uniformFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
+            Boundary inBoundaryType, dtype inConstantValue);
+
         //============================================================================
         // Method Description: 
         ///						samples a gaussian of mean zero and input STD sigma
