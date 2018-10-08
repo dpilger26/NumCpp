@@ -96,7 +96,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1.astype<dtypeOut>() + inArray2.astype<dtypeOut>());
@@ -152,7 +152,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: allclose: input array dimensions are not consistant.");
+            std::string errStr = "ERROR: allclose: input array dimensions are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         for (uint32 i = 0; i < inArray1.size(); ++i)
@@ -250,7 +252,9 @@ namespace NC
                 Shape appendShape = inAppendValues.shape();
                 if (inShape.cols != appendShape.cols)
                 {
-                    throw std::invalid_argument("ERROR: append: all the input array dimensions except for the concatenation axis must match exactly");
+                    std::string errStr = "ERROR: append: all the input array dimensions except for the concatenation axis must match exactly";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 NdArray<dtype> returnArray(inShape.rows + appendShape.rows, inShape.cols);
@@ -265,7 +269,9 @@ namespace NC
                 Shape appendShape = inAppendValues.shape();
                 if (inShape.rows != appendShape.rows)
                 {
-                    throw std::invalid_argument("ERROR: append: all the input array dimensions except for the concatenation axis must match exactly");
+                    std::string errStr = "ERROR: append: all the input array dimensions except for the concatenation axis must match exactly";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 NdArray<dtype> returnArray(inShape.rows, inShape.cols + appendShape.cols);
@@ -311,12 +317,16 @@ namespace NC
     {
         if (inStep > 0 && inStop < inStart)
         {
-            throw std::invalid_argument("ERROR: arange: stop value must be larger than the start value for positive step.");
+            std::string errStr = "ERROR: arange: stop value must be larger than the start value for positive step.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         if (inStep < 0 && inStop > inStart)
         {
-            throw std::invalid_argument("ERROR: arange: start value must be larger than the stop value for negative step.");
+            std::string errStr = "ERROR: arange: start value must be larger than the stop value for negative step.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         std::vector<dtype> values;
@@ -367,7 +377,9 @@ namespace NC
     {
         if (inStop <= 0)
         {
-            throw std::invalid_argument("ERROR: arange: stop value must ge greater than 0.");
+            std::string errStr = "ERROR: arange: stop value must ge greater than 0.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         return std::move(arange<dtype>(0, inStop, 1));
@@ -591,7 +603,9 @@ namespace NC
     {
         if (inX.shape() != inY.shape())
         {
-            throw std::invalid_argument("Error: arctan2: input array shapes are not consistant.");
+            std::string errStr = "Error: arctan2: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<double> returnArray(inY.shape());
@@ -842,7 +856,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> astype(const NdArray<dtype> inArray)
     {
         return std::move(inArray.astype<dtypeOut>());
@@ -886,7 +900,9 @@ namespace NC
             {
                 if (inWeights.shape() != inArray.shape())
                 {
-                    throw std::invalid_argument("ERROR: average: input array and weight values are not consistant.");
+                    std::string errStr = "ERROR: average: input array and weight values are not consistant.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 NdArray<double> weightedArray(inArray.shape());
@@ -902,7 +918,9 @@ namespace NC
                 Shape arrayShape = inArray.shape();
                 if (inWeights.size() != arrayShape.cols)
                 {
-                    throw std::invalid_argument("ERROR: average: input array and weights value are not consistant.");
+                    std::string errStr = "ERROR: average: input array and weights value are not consistant.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 double weightSum = inWeights.sum<double>().item();
@@ -922,7 +940,9 @@ namespace NC
             {
                 if (inWeights.size() != inArray.shape().rows)
                 {
-                    throw std::invalid_argument("ERROR: average: input array and weight values are not consistant.");
+                    std::string errStr = "ERROR: average: input array and weight values are not consistant.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 NdArray<dtype> transposedArray = inArray.transpose();
@@ -983,7 +1003,9 @@ namespace NC
 
         if (maxValue + 1 > DtypeInfo<dtype>::max())
         {
-            throw std::runtime_error("Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...");
+            std::string errStr = "Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
@@ -1028,7 +1050,9 @@ namespace NC
 
         if (inArray.shape() != inWeights.shape())
         {
-            throw std::invalid_argument("ERROR: bincount: weights array must be the same shape as the input array.");
+            std::string errStr = "ERROR: bincount: weights array must be the same shape as the input array.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         dtype maxValue = inArray.max().item();
@@ -1040,7 +1064,9 @@ namespace NC
 
         if (maxValue + 1 > DtypeInfo<dtype>::max())
         {
-            throw std::runtime_error("Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...");
+            std::string errStr = "Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
@@ -1272,7 +1298,9 @@ namespace NC
             }
             else if (iter->shape().rows != finalShape.rows)
             {
-                throw std::invalid_argument("ERROR: column_stack: input arrays must have the same number of rows.");
+                std::string errStr = "ERROR: column_stack: input arrays must have the same number of rows.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
             else
             {
@@ -1400,7 +1428,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: copysign: input arrays are not consistant.");
+            std::string errStr = "ERROR: copysign: input arrays are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<dtype> returnArray(inArray1.shape());
@@ -1582,12 +1612,14 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis inAxis = Axis::NONE)
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: cross: the input array dimensions are not consistant.");
+            std::string errStr = "ERROR: cross: the input array dimensions are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         switch (inAxis)
@@ -1597,7 +1629,9 @@ namespace NC
                 uint32 arraySize = inArray1.size();
                 if (arraySize != inArray2.size() || arraySize < 2 || arraySize > 3)
                 {
-                    throw std::invalid_argument("ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)");
+                    std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 NdArray<dtype> in1 = inArray1.flatten();
@@ -1636,7 +1670,9 @@ namespace NC
                 Shape arrayShape = inArray1.shape();
                 if (arrayShape != inArray2.shape() || arrayShape.rows < 2 || arrayShape.rows > 3)
                 {
-                    throw std::invalid_argument("ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)");
+                    std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 Shape returnArrayShape;
@@ -1655,7 +1691,7 @@ namespace NC
                     int32 theCol = static_cast<int32>(col);
                     NdArray<dtype> vec1 = inArray1({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
                     NdArray<dtype> vec2 = inArray2({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
-                    NdArray<dtypeOut> vecCross = cross<dtype, dtypeOut>(vec1, vec2, Axis::NONE);
+                    NdArray<dtypeOut> vecCross = cross<dtypeOut>(vec1, vec2, Axis::NONE);
 
                     returnArray.put({ 0, static_cast<int32>(returnArrayShape.rows) }, { theCol, theCol + 1 }, vecCross);
                 }
@@ -1667,7 +1703,9 @@ namespace NC
                 Shape arrayShape = inArray1.shape();
                 if (arrayShape != inArray2.shape() || arrayShape.cols < 2 || arrayShape.cols > 3)
                 {
-                    throw std::invalid_argument("ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)");
+                    std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 Shape returnArrayShape;
@@ -1686,7 +1724,7 @@ namespace NC
                     int32 theRow = static_cast<int32>(row);
                     NdArray<dtype> vec1 = inArray1({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
                     NdArray<dtype> vec2 = inArray2({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
-                    NdArray<dtypeOut> vecCross = cross<dtype, dtypeOut>(vec1, vec2, Axis::NONE);
+                    NdArray<dtypeOut> vecCross = cross<dtypeOut>(vec1, vec2, Axis::NONE);
 
                     returnArray.put({ theRow, theRow + 1 }, { 0, static_cast<int32>(returnArrayShape.cols) }, vecCross);
                 }
@@ -1711,7 +1749,7 @@ namespace NC
     /// @return
     ///				cubed value
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     dtypeOut cube(dtype inValue)
     {
         return Utils::cube(static_cast<dtypeOut>(inValue));
@@ -1726,7 +1764,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> cube(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
@@ -1746,7 +1784,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> cumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.cumprod<dtypeOut>(inAxis));
@@ -1763,7 +1801,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> cumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.cumsum<dtypeOut>(inAxis));
@@ -1844,7 +1882,9 @@ namespace NC
                 Shape inShape = inArray.shape();
                 if (indices.max().item() >= inShape.rows)
                 {
-                    throw std::runtime_error("ERROR: deleteIndices: input index value is greater than the number of rows in the array.");
+                    std::string errStr = "ERROR: deleteIndices: input index value is greater than the number of rows in the array.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 uint32 numNewRows = inShape.rows - indices.size();
@@ -1872,7 +1912,9 @@ namespace NC
                 Shape inShape = inArray.shape();
                 if (indices.max().item() >= inShape.cols)
                 {
-                    throw std::runtime_error("ERROR: deleteIndices: input index value is greater than the number of cols in the array.");
+                    std::string errStr = "ERROR: deleteIndices: input index value is greater than the number of cols in the array.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 uint32 numNewCols = inShape.cols - indices.size();
@@ -2093,7 +2135,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1.astype<dtypeOut>() / inArray2.astype<dtypeOut>());
@@ -2110,7 +2152,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1.dot<dtypeOut>(inArray2));
@@ -2177,7 +2219,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> empty_like(const NdArray<dtype>& inArray)
     {
         return std::move(NdArray<dtypeOut>(inArray.shape()));
@@ -2685,7 +2727,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: fmax: input array shapes are not consistant.");
+            std::string errStr = "ERROR: fmax: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<double> returnArray(inArray1.shape());
@@ -2735,7 +2779,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: fmin: input array shapes are not consistant.");
+            std::string errStr = "ERROR: fmin: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<double> returnArray(inArray1.shape());
@@ -2787,7 +2833,9 @@ namespace NC
 
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: fmod: input array shapes are not consistant.");
+            std::string errStr = "ERROR: fmod: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<dtype> returnArray(inArray1.shape());
@@ -2817,7 +2865,9 @@ namespace NC
         boost::filesystem::path p(inFilename);
         if (!boost::filesystem::exists(inFilename))
         {
-            throw std::invalid_argument("ERROR: fromfile: input filename does not exist.\n\t" + inFilename);
+            std::string errStr = "ERROR: fromfile: input filename does not exist.\n\t" + inFilename;
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         if (inSep.compare("") == 0)
@@ -2830,7 +2880,9 @@ namespace NC
             FILE* filePtr = fopen(inFilename.c_str(), "rb");
             if (filePtr == NULL)
             {
-                throw std::runtime_error("ERROR: fromfile: unable to open the file.");
+                std::string errStr = "ERROR: fromfile: unable to open the file.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             char* fileBuffer = new char[fileSize];
@@ -2847,7 +2899,9 @@ namespace NC
             // read in as txt file
             if (!(inSep.compare(" ") == 0 || inSep.compare("\t") == 0 || inSep.compare("\n") == 0))
             {
-                throw std::invalid_argument("ERROR: fromfile: only [' ', '\\t', '\\n'] seperators are supported");
+                std::string errStr = "ERROR: fromfile: only [' ', '\\t', '\\n'] seperators are supported";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             std::vector<dtype> values;
@@ -2875,7 +2929,9 @@ namespace NC
             }
             else
             {
-                throw std::runtime_error("ERROR: fromfile: unable to open file.");
+                std::string errStr = "ERROR: fromfile: unable to open file.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             return std::move(NdArray<dtype>(values));
@@ -2949,7 +3005,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue)
     {
         return std::move(full(inArray.shape(), static_cast<dtypeOut>(inFillValue)));
@@ -3009,7 +3065,9 @@ namespace NC
     {
         if (inNumBins == 0)
         {
-            throw std::invalid_argument("ERROR: histogram: number of bins must be positive.");
+            std::string errStr = "ERROR: histogram: number of bins must be positive.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<uint32> histo = zeros<uint32>(1, inNumBins);
@@ -3088,7 +3146,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     dtypeOut hypot(dtype inValue1, dtype inValue2)
     {
         return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2));
@@ -3109,12 +3167,14 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: hypot: input array shapes are not consistant.");
+            std::string errStr = "ERROR: hypot: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<dtypeOut> returnArray(inArray1.shape());
@@ -3191,12 +3251,16 @@ namespace NC
         // do some error checking first
         if (inXp.size() != inFp.size())
         {
-            throw std::invalid_argument("ERROR: interp: inXp and inFp need to be the same size().");
+            std::string errStr = "ERROR: interp: inXp and inFp need to be the same size().";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         if (inX.min().item() < inXp.min().item() || inX.max().item() > inXp.max().item())
         {
-            throw std::invalid_argument("ERROR: interp: endpoints of inX should be contained within inXp.");
+            std::string errStr = "ERROR: interp: endpoints of inX should be contained within inXp.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         // sort the input inXp and inFp data
@@ -3301,12 +3365,54 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: isclose: input array shapes are not consistant.");
+            std::string errStr = "ERROR: isclose: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<bool> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [inRtol, inAtol](dtype inValueA, dtype inValueB) { return std::abs(inValueA - inValueB) <= (inAtol + inRtol * std::abs(inValueB)); });
+
+        return std::move(returnArray);
+    }
+
+    //============================================================================
+// Method Description: 
+///						Test for inf and return result as a boolean.
+///
+///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html
+///		
+/// @param
+///				inValue
+///				
+/// @return
+///				bool
+///
+    template<typename dtype>
+    bool isinf(dtype inValue)
+    {
+        return std::isinf(inValue);
+    }
+
+    //============================================================================
+    // Method Description: 
+    ///						Test element-wise for inf and return result as a boolean array.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html
+    ///		
+    /// @param
+    ///				inArray
+    ///				
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<bool> isinf(const NdArray<dtype>& inArray)
+    {
+        NdArray<bool> returnArray(inArray.shape());
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) { return std::isinf(inValue); });
 
         return std::move(returnArray);
     }
@@ -3326,6 +3432,7 @@ namespace NC
     template<typename dtype>
     bool isnan(dtype inValue)
     {
+        static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: isnan: can only be used with floating point types.");
         return std::isnan(inValue);
     }
 
@@ -3344,6 +3451,8 @@ namespace NC
     template<typename dtype>
     NdArray<bool> isnan(const NdArray<dtype>& inArray)
     {
+        static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: isnan: can only be used with floating point types.");
+
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) { return std::isnan(inValue); });
@@ -3386,7 +3495,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: ldexp: input array shapes are not consistant.");
+            std::string errStr = "ERROR: ldexp: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<dtype> returnArray(inArray1.shape());
@@ -3487,7 +3598,9 @@ namespace NC
 
         if (inStop <= inStart)
         {
-            throw std::invalid_argument("ERROR: linspace: stop value must be greater than the start value.");
+            std::string errStr = "ERROR: linspace: stop value must be greater than the start value.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         if (endPoint)
@@ -3735,8 +3848,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: logical_and: input array shapes are not consistant.");
-
+            std::string errStr = "ERROR: logical_and: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<bool> returnArray(inArray1.shape());
@@ -3785,8 +3899,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: logical_or: input array shapes are not consistant.");
-
+            std::string errStr = "ERROR: logical_or: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<bool> returnArray(inArray1.shape());
@@ -3813,8 +3928,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: logical_xor: input array shapes are not consistant.");
-
+            std::string errStr = "ERROR: logical_xor: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<bool> returnArray(inArray1.shape());
@@ -3836,7 +3952,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return std::move(inArray1.dot<dtypeOut>(inArray2));
@@ -3876,8 +3992,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: maximum: input array shapes are not consistant.");
-
+            std::string errStr = "ERROR: maximum: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<dtype> returnArray(inArray1.shape());
@@ -3956,8 +4073,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: minimum: input array shapes are not consistant.");
-
+            std::string errStr = "ERROR: minimum: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<dtype> returnArray(inArray1.shape());
@@ -4066,7 +4184,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> nancumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4078,7 +4196,7 @@ namespace NC
             }
         }
 
-        return std::move(cumprod<dtype, dtypeOut>(arrayCopy, inAxis));
+        return std::move(cumprod<dtypeOut>(arrayCopy, inAxis));
     }
 
     //============================================================================
@@ -4092,7 +4210,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> nancumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4104,7 +4222,7 @@ namespace NC
             }
         }
 
-        return std::move(cumsum<dtype, dtypeOut>(arrayCopy, inAxis));
+        return std::move(cumsum<dtypeOut>(arrayCopy, inAxis));
     }
 
     //============================================================================
@@ -4335,12 +4453,14 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
         if (inPercentile < 0 || inPercentile > 100)
         {
-            throw std::invalid_argument("ERROR: percentile: input percentile value must be of the range [0, 100].");
+            std::string errStr = "ERROR: percentile: input percentile value must be of the range [0, 100].";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         if (inInterpMethod.compare("linear") != 0 &&
@@ -4351,6 +4471,7 @@ namespace NC
         {
             std::string errStr = "ERROR: percentile: input interpolation method is not a vaid option.\n";
             errStr += "\tValid options are 'linear', 'lower', 'higher', 'nearest', 'midpoint'.";
+            std::cerr << errStr << std::endl;
             throw std::invalid_argument(errStr);
         }
 
@@ -4459,7 +4580,7 @@ namespace NC
                 NdArray<dtypeOut> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    NdArray<dtypeOut> outValue = nanpercentile<dtype, dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
+                    NdArray<dtypeOut> outValue = nanpercentile<dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
                         inPercentile, Axis::NONE, inInterpMethod);
 
                     if (outValue.size() == 1)
@@ -4482,7 +4603,7 @@ namespace NC
                 NdArray<dtypeOut> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    NdArray<dtypeOut> outValue = nanpercentile<dtype, dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
+                    NdArray<dtypeOut> outValue = nanpercentile<dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
                         inPercentile, Axis::NONE, inInterpMethod);
 
                     if (outValue.size() == 1)
@@ -4518,7 +4639,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> nanprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4530,7 +4651,7 @@ namespace NC
             }
         }
 
-        return std::move(prod<dtype, dtypeOut>(arrayCopy, inAxis));
+        return std::move(prod<dtypeOut>(arrayCopy, inAxis));
     }
 
     //============================================================================
@@ -4703,7 +4824,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> arrayCopy(inArray);
@@ -4715,7 +4836,7 @@ namespace NC
             }
         }
 
-        return std::move(sum<dtype, dtypeOut>(arrayCopy, inAxis));
+        return std::move(sum<dtypeOut>(arrayCopy, inAxis));
     }
 
     //============================================================================
@@ -4809,7 +4930,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> negative(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray = inArray.astype<dtypeOut>();
@@ -4845,7 +4966,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.norm<dtypeOut>(inAxis));
@@ -4931,7 +5052,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
@@ -5009,12 +5130,14 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
         if (inPercentile < 0 || inPercentile > 100)
         {
-            throw std::invalid_argument("ERROR: percentile: input percentile value must be of the range [0, 100].");
+            std::string errStr = "ERROR: percentile: input percentile value must be of the range [0, 100].";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         if (inInterpMethod.compare("linear") != 0 &&
@@ -5025,6 +5148,7 @@ namespace NC
         {
             std::string errStr = "ERROR: percentile: input interpolation method is not a vaid option.\n";
             errStr += "\tValid options are 'linear', 'lower', 'higher', 'nearest', 'midpoint'.";
+            std::cerr << errStr << std::endl;
             throw std::invalid_argument(errStr);
         }
 
@@ -5104,7 +5228,7 @@ namespace NC
                 NdArray<dtypeOut> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    returnArray[row] = percentile<dtype, dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
+                    returnArray[row] = percentile<dtypeOut>(NdArray<dtype>(inArray.cbegin(row), inArray.cend(row)),
                         inPercentile, Axis::NONE, inInterpMethod).item();
                 }
 
@@ -5118,7 +5242,7 @@ namespace NC
                 NdArray<dtypeOut> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    returnArray[row] = percentile<dtype, dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
+                    returnArray[row] = percentile<dtypeOut>(NdArray<dtype>(arrayTrans.cbegin(row), arrayTrans.cend(row)),
                         inPercentile, Axis::NONE, inInterpMethod).item();
                 }
 
@@ -5144,7 +5268,7 @@ namespace NC
     /// @return
     ///				value raised to the power
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     dtypeOut power(dtype inValue, uint8 inExponent)
     {
         return Utils::power(static_cast<dtypeOut>(inValue), inExponent);
@@ -5161,7 +5285,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> power(const NdArray<dtype>& inArray, uint8 inExponent)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
@@ -5182,12 +5306,14 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> power(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
     {
         if (inArray.shape() != inExponents.shape())
         {
-            throw std::invalid_argument("ERROR: power: input array shapes are not consistant.");
+            std::string errStr = "ERROR: power: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<dtypeOut> returnArray(inArray.shape());
@@ -5223,7 +5349,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> prod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.prod<dtypeOut>(inAxis));
@@ -5365,7 +5491,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
@@ -5389,7 +5515,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     dtypeOut remainder(dtype inValue1, dtype inValue2)
     {
         return std::remainder(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2));
@@ -5407,12 +5533,14 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: remainder: input array shapes are not consistant.");
+            std::string errStr = "ERROR: remainder: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         NdArray<dtypeOut> returnArray(inArray1.shape());
@@ -5813,7 +5941,9 @@ namespace NC
             }
             else if (iter->shape().cols != finalShape.cols)
             {
-                throw std::invalid_argument("ERROR: row_stack: input arrays must have the same number of columns.");
+                std::string errStr = "ERROR: row_stack: input arrays must have the same number of columns.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
             else
             {
@@ -6222,7 +6352,9 @@ namespace NC
             }
             default:
             {
-                throw std::invalid_argument("ERROR: stack: inAxis must be either ROW or COL.");
+                std::string errStr = "ERROR: stack: inAxis must be either ROW or COL.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
         }
     }
@@ -6255,7 +6387,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return std::move(inArray.sum<dtypeOut>(inAxis));
@@ -6432,7 +6564,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW)
     {
         return std::move(inArray.trace<dtypeOut>(inOffset, inAxis));
@@ -6550,7 +6682,9 @@ namespace NC
 
         if (inShapeY != inShapeX)
         {
-            throw std::invalid_argument("ERROR: trapz: input x and y arrays should be the same shape.");
+            std::string errStr = "ERROR: trapz: input x and y arrays should be the same shape.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         switch (inAxis)
@@ -6616,8 +6750,6 @@ namespace NC
     //============================================================================
     // Method Description: 
     ///						An array with ones at and below the given diagonal and zeros elsewhere.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tril.html
     ///		
     /// @param				inN: number of rows and cols
     /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
@@ -6663,8 +6795,6 @@ namespace NC
     //============================================================================
     // Method Description: 
     ///						An array with ones at and below the given diagonal and zeros elsewhere.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tril.html
     ///		
     /// @param				inN: number of rows
     /// @param				inM: number of columns
@@ -6710,9 +6840,33 @@ namespace NC
 
     //============================================================================
     // Method Description: 
-    ///						An array with ones at and above the given diagonal and zeros elsewhere.
+    ///                     Lower triangle of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
+    ///                     Return a copy of an array with elements above the k - th diagonal zeroed.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tril.html
+    ///		
+    /// @param				inN: number of rows and cols
+    /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
+    ///						k = 0 is the main diagonal, while k < 0 is below it, 
+    ///						and k > 0 is above. The default is 0.)
+    ///				
+    ///
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0)
+    {
+        Shape inShape = inArray.shape();
+        auto outArray = inArray.copy();
+        outArray.putMask(triu<bool>(inShape.rows, inShape.cols, inOffset + 1), 0);
+        return std::move(outArray);
+    }
+
+    //============================================================================
+    // Method Description: 
+    ///						An array with ones at and above the given diagonal and zeros elsewhere.
     ///		
     /// @param				inN: number of rows and cols
     /// @param				inOffset: (the sub-diagonal at and above which the array is filled. 
@@ -6726,14 +6880,12 @@ namespace NC
     template<typename dtype>
     NdArray<dtype> triu(uint32 inN, int32 inOffset = 0)
     {
-        return std::move(tril<dtype>(inN, inOffset).transpose());
+        return std::move(tril<dtype>(inN, -inOffset).transpose());
     }
 
     //============================================================================
     // Method Description: 
     ///						An array with ones at and above the given diagonal and zeros elsewhere.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
     ///		
     /// @param				inN: number of rows
     /// @param				inM: number of columns
@@ -6748,7 +6900,62 @@ namespace NC
     template<typename dtype>
     NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0)
     {
-        return std::move(tril<dtype>(inN, inM, inOffset).transpose());
+        // because i'm stealing the lines of code from tril and reversing it, this is necessary
+        inOffset -= 1;
+
+        uint32 rowStart = 0;
+        uint32 colStart = 0;
+        if (inOffset > 0)
+        {
+            colStart = inOffset;
+        }
+        else if (inOffset < 0)
+        {
+            rowStart = inOffset * -1;
+        }
+
+        NdArray<dtype> returnArray(inN, inM);
+        returnArray.ones();
+        for (uint32 row = rowStart; row < inN; ++row)
+        {
+            for (uint32 col = 0; col < row + colStart + 1 - rowStart; ++col)
+            {
+                if (col == inM)
+                {
+                    break;
+                }
+
+                returnArray(row, col) = static_cast<dtype>(0);
+            }
+        }
+
+        return std::move(returnArray);
+    }
+
+    //============================================================================
+    // Method Description: 
+    ///                     Upper triangle of an array.
+    ///
+    ///                     Return a copy of an array with elements below the k - th diagonal zeroed.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
+    ///		
+    /// @param				inN: number of rows and cols
+    /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
+    ///						k = 0 is the main diagonal, while k < 0 is below it, 
+    ///						and k > 0 is above. The default is 0.)
+    ///				
+    ///
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0)
+    {
+        Shape inShape = inArray.shape();
+        auto outArray = inArray.copy();
+        outArray.putMask(tril<bool>(inShape.rows, inShape.cols, inOffset - 1), 0);
+        return std::move(outArray);
     }
 
     //============================================================================
@@ -6861,7 +7068,9 @@ namespace NC
         }
         else
         {
-            throw std::invalid_argument("ERROR: trim_zeros: trim options are 'f' = front, 'b' = back, 'fb' = front and back.");
+            std::string errStr = "ERROR: trim_zeros: trim options are 'f' = front, 'b' = back, 'fb' = front and back.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
     }
 
@@ -6924,7 +7133,9 @@ namespace NC
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            throw std::invalid_argument("ERROR: union1d: input array shapes are not consistant.");
+            std::string errStr = "ERROR: union1d: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         std::set<dtype> theSet(inArray1.cbegin(), inArray1.cend());
@@ -7060,12 +7271,16 @@ namespace NC
         auto shapeA = inA.shape();
         if (shapeA != inB.shape())
         {
-            throw std::invalid_argument("ERROR: where: input inA and inB must be the same shapes.");
+            std::string errStr = "ERROR: where: input inA and inB must be the same shapes.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         if (shapeMask != shapeA)
         {
-            throw std::invalid_argument("ERROR: where: input inMask must be the same shape as the input arrays.");
+            std::string errStr = "ERROR: where: input inMask must be the same shape as the input arrays.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
         }
 
         auto outArray = NdArray<dtype>(shapeMask);
@@ -7147,7 +7362,7 @@ namespace NC
     /// @return
     ///				NdArray
     ///
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> zeros_like(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());

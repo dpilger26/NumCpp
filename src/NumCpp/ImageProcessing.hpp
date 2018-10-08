@@ -171,7 +171,9 @@ namespace NC
             {
                 if (inClusterId < 0)
                 {
-                    throw std::invalid_argument("ERROR: ImageProcessing::Pixel::setClusterId: input cluster id must be greater than or equal to 0.");
+                    std::string errStr = "ERROR: ImageProcessing::Pixel::setClusterId: input cluster id must be greater than or equal to 0.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 clusterId_ = inClusterId;
@@ -361,7 +363,9 @@ namespace NC
             {
                 if (inIndex >= pixels_.size())
                 {
-                    throw std::invalid_argument("ERROR: ImageProcessing::Cluster::at: index exceeds cluster size.");
+                    std::string errStr = "ERROR: ImageProcessing::Cluster::at: index exceeds cluster size.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
                 return pixels_[inIndex];
             }
@@ -842,7 +846,9 @@ namespace NC
             {
                 if (xcds_->shape() != intensities_->shape())
                 {
-                    throw std::invalid_argument("ERROR: ImageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.");
+                    std::string errStr = "ERROR: ImageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 shape_ = xcds_->shape();
@@ -909,7 +915,9 @@ namespace NC
             {
                 if (inIndex >= clusters_.size())
                 {
-                    throw std::invalid_argument("ERROR: ImageProcessing::ClusterMaker::at: index exceeds cluster size.");
+                    std::string errStr = "ERROR: ImageProcessing::ClusterMaker::at: index exceeds cluster size.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
                 return clusters_[inIndex];
             }
@@ -1244,7 +1252,9 @@ namespace NC
             }
             else
             {
-                throw std::invalid_argument("ERROR ImageProcessing::generateCentroids: input window type options are ['pre', 'post']");
+                std::string errStr = "ERROR ImageProcessing::generateCentroids: input window type options are ['pre', 'post']";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             // generate the threshold
@@ -1282,7 +1292,9 @@ namespace NC
         {
             if (inRate < 0 || inRate > 1)
             {
-                throw std::invalid_argument("ERROR: ImageProcessing::generateThreshold: input rate must be of the range [0, 1]");
+                std::string errStr = "ERROR: ImageProcessing::generateThreshold: input rate must be of the range [0, 1]";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             // first build a histogram

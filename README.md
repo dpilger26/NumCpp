@@ -10,8 +10,8 @@ The main data structure in **NumpCpp** is the `NdArray`.  It is inherently a 2D 
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```a = np.array([[3, 4], [5, 6]])```                     | ```NC::NdArray<int> a{{3, 4}, {5, 6}}```                 |
-| ```a.reshape([3, 4])```                                  | ```a.reshape(3, 4)```                                    |
+| ```a = np.array([[1, 2], [3, 4], [5, 6]])```             | ```NC::NdArray<int> a = { {1, 2}, {3, 4}, {5, 6} }```    |
+| ```a.reshape([2, 3])```                                  | ```a.reshape(2, 3)```                                    |
 | ```a.astype(np.double)```                                | ```a.astype<double>()```                                 |
 
 ### INITIALIZERS
@@ -50,7 +50,7 @@ The random module provides simple ways to create random arrays.
 | ```np.random.seed(666)```	                               | ```NC::Random<>::seed(666)```                            |
 | ```np.random.randn(3, 4)```                              | ```NC::Random<double>::randn(NC::Shape(3,4))```          |
 | ```np.random.randint(0, 10, [3, 4])```                   | ```NC::Random<int>::randInt(NC::Shape(3,4),0,10)```      |
-| ```np.random.rand(3, 4)```                               | ```NC::Random<double>::rand(NC::Shape(3,4))```          |
+| ```np.random.rand(3, 4)```                               | ```NC::Random<double>::rand(NC::Shape(3,4))```           |
 | ```np.random.choice(a, 3)```                             | ```NC::Random<dtype>::choice(a, 3)```                    |
 
 ### CONCATENATION
@@ -125,10 +125,10 @@ Reducers accumulate values of `NdArray`s along specified axes. When no axis is s
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.sum(a)```                                          | ```NC::sum(a)```                                         |
-| ```np.sum(a, axis=0)```                                  | ```NC::sum(a, NC::Axis::ROW)```                          |
-| ```np.prod(a)```                                         | ```NC::prod(a)```                                        |
-| ```np.prod(a, axis=0)```	                               | ```NC::prod(a, NC::Axis::ROW)```                         |
+| ```np.sum(a)```                                          | ```NC::sum<dtypeOut>(a)```                               |
+| ```np.sum(a, axis=0)```                                  | ```NC::sum<dtypeOut>(a, NC::Axis::ROW)```                |
+| ```np.prod(a)```                                         | ```NC::prod<dtypeOut>(a)```                              |
+| ```np.prod(a, axis=0)```	                               | ```NC::prod<dtypeOut>(a, NC::Axis::ROW)```               |
 | ```np.mean(a)```                                         | ```NC::mean(a)```                                        |
 | ```np.mean(a, axis=0)```                                 | ```NC::mean(a, NC::Axis::ROW)```                         |
 | ```np.count_nonzero(a)```                                | ```NC::count_nonzero(a)```                               |
@@ -141,10 +141,10 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | print(a)                                                 | ```a.print()```                                          |
 |                                                          | ```std::cout << a```                                     |
-| ```a.tofile(filename, sep=’\n’)```                       | ````a.tofile(filename, "\n")```                      |
-| ```np.fromfile(filename, sep=’\n’)```	                   | ```NC::fromfile(filename, \n")```                   |
+| ```a.tofile(filename, sep=’\n’)```                       | ```a.tofile(filename, "\n")```                          |
+| ```np.fromfile(filename, sep=’\n’)```	                   | ```NC::fromfile<dtype>(filename, \n")```                 |
 | ```np.dump(a, filename)```                               | ```NC::dump(a, filename)```                              |
-| ```np.load(filename)```                                  | ```NC::load(filename)```                                 |
+| ```np.load(filename)```                                  | ```NC::load<dtype>(filename)```                          |
 
 ### MATHEMATICAL FUNCTIONS
 **NumpCpp** universal functions are provided for a large set number of mathematical functions.
@@ -155,7 +155,7 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```np.abs(a)```                                          | ```NC::abs(a)```                                         |
 | ```np.sign(a)```                                         | ```NC::sign(a)```                                        |
-| ```np.remainder(a, b)```                                 | ```NC::remainder(a, b)```                                |
+| ```np.remainder(a, b)```                                 | ```NC::remainder<dtypeOut>(a, b)```                      |
 | ```np.clip(a, 3, 8)```                                   | ```NC::clip(a, 3, 8)```                                  |
 | ```np.interp(x, xp, fp)```                               | ```NC::interp(x, xp, fp)```                              |
 
@@ -172,7 +172,7 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.power(a, 4)```                                     | ```NC::power(a, 4)```                                    |
+| ```np.power(a, 4)```                                     | ```NC::power<dtypeOut>(a, 4)```                          |
 | ```np.sqrt(a)```	                                       | ```NC::sqrt(a)```                                        |
 | ```np.square(a)```                                       | ```NC::square(a)```                                      |
 | ```np.cbrt(a)```                                         | ```NC::cbrt(a)```                                        |
@@ -204,11 +204,11 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.linalg.norm(a)```                                  | ```NC::norm(a)```                                        |
-| ```np.dot(a, b)```	                                   | ```NC::dot(a, b)```                                      |
+| ```np.linalg.norm(a)```                                  | ```NC::norm<dtypeOut>(a)```                              |
+| ```np.dot(a, b)```	                                   | ```NC::dot<dtypeOut>(a, b)```                            |
 | ```np.linalg.det(a)```                                   | ```NC::Linalg::det(a)```                                 |
 | ```np.linalg.inv(a)```                                   | ```NC::Linalg::inv(a)```                                 |
 | ```np.linalg.lstsq(a, b)```	                           | ```NC::Linalg::lstsq(a, b)```                            |
-| ```np.linalg.matrix_power(a, 3)```                       | ```NC::Linalg::matrix_power(a, 3)```                     |
-| ```Np.linalg..multi_dot(a, b, c)```                      | ```NC::Linalg::multi_dot({a, b, c})```                   |
+| ```np.linalg.matrix_power(a, 3)```                       | ```NC::Linalg::matrix_power<dtypeOut>(a, 3)```           |
+| ```Np.linalg..multi_dot(a, b, c)```                      | ```NC::Linalg::multi_dot<dtypeOut>({a, b, c})```         |
 | ```np.linalg.svd(a)```	                               | ```NC::Linalg::svd(a)```                                 |

@@ -34,9 +34,11 @@
 #include"NumCpp/Types.hpp"
 
 #include<cmath>
+#include<iostream>
 #include<initializer_list>
 #include<limits>
 #include<stdexcept>
+#include<string>
 #include<utility>
 
 namespace NC
@@ -61,7 +63,9 @@ namespace NC
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                throw std::runtime_error("ERROR: Linalg::determinant: input array must be square with size no larger than 3x3.");
+                std::string errStr = "ERROR: Linalg::determinant: input array must be square with size no larger than 3x3.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inShape.rows == 1)
@@ -105,7 +109,7 @@ namespace NC
                         }
                         ++subi;
                     }
-                    determinant += (std::pow(-1, c) * inArray(0, c) * det(submat));
+                    determinant += (static_cast<dtype>(std::pow(-1, c)) * inArray(0, c) * det(submat));
                 }
 
                 return determinant;
@@ -153,7 +157,9 @@ namespace NC
         {
             if (inVec.size() != 3)
             {
-                throw std::invalid_argument("ERROR: Linalg::hat: input vector must be a length 3 cartesian vector.");
+                std::string errStr = "ERROR: Linalg::hat: input vector must be a length 3 cartesian vector.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             return std::move(hat(inVec[0], inVec[1], inVec[2]));
@@ -176,7 +182,9 @@ namespace NC
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                throw std::runtime_error("ERROR: Linalg::inv: input array must be square.");
+                std::string errStr = "ERROR: Linalg::inv: input array must be square.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             uint32 order = inShape.rows;
@@ -266,10 +274,10 @@ namespace NC
         template<typename dtype>
         NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
         {
-            SVD svdSolver(inA);
+            SVD svdSolver(inA.astype<double>());
             double threshold = inTolerance * svdSolver.s()[0];
 
-            return std::move(svdSolver.solve(inB, threshold));
+            return std::move(svdSolver.solve(inB.astype<double>(), threshold));
         }
 
         //============================================================================
@@ -289,13 +297,15 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, typename dtypeOut>
+        template<typename dtypeOut, typename dtype>
         NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
             Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                throw std::invalid_argument("ERROR: Linalg::matrix_power: input matrix must be square.");
+                std::string errStr = "ERROR: Linalg::matrix_power: input matrix must be square.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
 
             if (inPower == 0)
@@ -312,20 +322,20 @@ namespace NC
             }
             else if (inPower > 1)
             {
-                NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(inArray, inArray);
+                NdArray<dtypeOut> returnArray = dot<dtypeOut>(inArray, inArray);
                 for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = std::move(dot<dtype, dtypeOut>(returnArray, inArray.astype<dtypeOut>()));
+                    returnArray = std::move(dot<dtypeOut>(returnArray, inArray.astype<dtypeOut>()));
                 }
                 return std::move(returnArray);
             }
             else
             {
                 NdArray<double> inverse = inv(inArray);
-                NdArray<double> returnArray = dot<double, double>(inverse, inverse);
+                NdArray<double> returnArray = dot<double>(inverse, inverse);
                 for (int16 i = 2; i < std::abs(inPower); ++i)
                 {
-                    returnArray = std::move(dot<double, double>(returnArray, inverse));
+                    returnArray = std::move(dot<double>(returnArray, inverse));
                 }
                 return std::move(returnArray.astype<dtypeOut>());
             }
@@ -344,25 +354,27 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtype, typename dtypeOut>
+        template<typename dtypeOut, typename dtype>
         NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
         {
             typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
 
             if (inList.size() == 0)
             {
-                throw std::invalid_argument("ERROR: Linalg::multi_dot: input empty list of arrays.");
+                std::string errStr = "ERROR: Linalg::multi_dot: input empty list of arrays.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
             }
             else if (inList.size() == 1)
             {
                 return std::move(iter->astype<dtypeOut>());
             }
 
-            NdArray<dtypeOut> returnArray = dot<dtype, dtypeOut>(*iter, *(iter + 1));
+            NdArray<dtypeOut> returnArray = dot<dtypeOut>(*iter, *(iter + 1));
             iter += 2;
             for (; iter < inList.end(); ++iter)
             {
-                returnArray = std::move(dot<dtype, dtypeOut>(returnArray, iter->astype<dtypeOut>()));
+                returnArray = std::move(dot<dtypeOut>(returnArray, iter->astype<dtypeOut>()));
             }
 
             return std::move(returnArray);
@@ -382,7 +394,7 @@ namespace NC
         template<typename dtype>
         void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
         {
-            SVD svdSolver(inArray);
+            SVD svdSolver(inArray.astype<double>());
             outU = std::move(svdSolver.u());
             outVt = std::move(svdSolver.v());
 
@@ -479,7 +491,9 @@ namespace NC
 
                 if (inInput.size() != m_)
                 {
-                    throw std::runtime_error("ERROR: SVD::solve bad sizes.");
+                    std::string errStr = "ERROR: SVD::solve bad sizes.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 NdArray<double> returnArray(1, n_);
@@ -808,7 +822,9 @@ namespace NC
 
                         if (its == 29)
                         {
-                            throw std::runtime_error("ERROR: no convergence in 30 svdcmp iterations");
+                            std::string errStr = "ERROR: no convergence in 30 svdcmp iterations";
+                            std::cerr << errStr << std::endl;
+                            throw std::invalid_argument(errStr);
                         }
 
                         x = s_[l];

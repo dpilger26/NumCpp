@@ -10,6 +10,7 @@ var searchData=
   ['invert',['invert',['../namespace_n_c.html#add5709ba8bcb9fc1464c53527071da2d',1,'NC']]],
   ['isclose',['isclose',['../namespace_n_c.html#a1c3423718bd9fbc1ddc68f50d1824e91',1,'NC']]],
   ['isempty',['isempty',['../class_n_c_1_1_data_cube.html#a49e7d48a296400e005593e631189b0f7',1,'NC::DataCube::isempty()'],['../class_n_c_1_1_nd_array.html#a46c0fbb27a0d2c37ab53cc3c29d7b92a',1,'NC::NdArray::isempty()']]],
+  ['isinf',['isinf',['../namespace_n_c.html#ad78f96d498eaf334fad3662c1885aa57',1,'NC::isinf(dtype inValue)'],['../namespace_n_c.html#a2577151e9cac2d3af2b5dbba62e4b8dd',1,'NC::isinf(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['isinteger',['isInteger',['../class_n_c_1_1_dtype_info.html#a865db491574ef82c0cd3d6c494e3a10b',1,'NC::DtypeInfo']]],
   ['isnan',['isnan',['../namespace_n_c.html#aa628fc7d20e07e5d0384ef5692f13bee',1,'NC::isnan(dtype inValue)'],['../namespace_n_c.html#af30efd3cf85be1b357de7f9604516d54',1,'NC::isnan(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['isnull',['isnull',['../class_n_c_1_1_shape.html#a8c61246b18bb149ea80221a88b424c5b',1,'NC::Shape']]],
