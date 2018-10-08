@@ -1172,6 +1172,24 @@ namespace NC
             }
         };
 
+        // forward declare all functions
+        template<typename dtype>
+        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold);
+
+        template<typename dtype>
+        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters);
+
+        template<typename dtype>
+        std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth );
+
+        template<typename dtype>
+        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth);
+
+        template<typename dtype>
+        dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate);
+
+        NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth);
+
         //============================================================================
         // Method Description: 
         ///						Applies a threshold to an image
