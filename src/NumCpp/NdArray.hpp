@@ -7,20 +7,20 @@
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-/// software and associated documentation files(the "Software"), to deal in the Software 
-/// without restriction, including without limitation the rights to use, copy, modify, 
-/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
 /// conditions :
 ///
-/// The above copyright notice and this permission notice shall be included in all copies 
+/// The above copyright notice and this permission notice shall be included in all copies
 /// or substantial portions of the Software.
 ///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
@@ -73,7 +73,7 @@ namespace NC
         dtype*			array_{nullptr};
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Deletes the internal array
         ///
         void deleteArray()
@@ -88,9 +88,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Creates a new internal array
-        ///		
+        ///
         /// @param
         ///				inShape
         ///
@@ -106,15 +106,15 @@ namespace NC
 
     public:
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Defualt Constructor, not very usefull...
         ///
         NdArray() = default;
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constructor
-        ///		
+        ///
         /// @param
         ///				inSquareSize: square number of rows and columns
         ///
@@ -125,9 +125,9 @@ namespace NC
         {};
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constructor
-        ///		
+        ///
         /// @param				inNumRows
         /// @param				inNumCols
         ///
@@ -138,11 +138,11 @@ namespace NC
         {};
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constructor
-        ///		
+        ///
         /// @param
-        ///				inShape 
+        ///				inShape
         ///
         explicit NdArray(const Shape& inShape) :
             shape_(inShape),
@@ -151,9 +151,9 @@ namespace NC
         {};
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constructor
-        ///		
+        ///
         /// @param
         ///				inList
         ///
@@ -166,9 +166,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constructor
-        ///		
+        ///
         /// @param
         ///				inList: 2D initializer list
         ///
@@ -202,9 +202,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constructor
-        ///		
+        ///
         /// @param
         ///				inVector
         ///
@@ -217,9 +217,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constructor
-        ///		
+        ///
         /// @param
         ///				inDeque
         ///
@@ -232,9 +232,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constructor
-        ///		
+        ///
         /// @param
         ///				inSet
         ///
@@ -247,9 +247,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constructor
-        ///		
+        ///
         /// @param				inFirst
         /// @param				inLast
         ///
@@ -262,10 +262,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constructor
-        ///		
-        /// @param				inBeginning: dtype* to beginning of buffer 
+        ///
+        /// @param				inBeginning: dtype* to beginning of buffer
         /// @param				inNumBytes: number of bytes
         ///
         NdArray(const dtype* inBeginning, uint32 inNumBytes) :
@@ -280,9 +280,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Copy Constructor
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         ///
@@ -296,9 +296,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Move Constructor
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         ///
@@ -313,7 +313,7 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Destructor
         ///
         ~NdArray()
@@ -322,9 +322,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Assignment operator, performs a deep copy
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -341,10 +341,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Assignment operator, sets the entire array to a single 
-        ///                     scalar value.  
-        ///		
+        // Method Description:
+        ///						Assignment operator, sets the entire array to a single
+        ///                     scalar value.
+        ///
         /// @param
         ///				inValue
         /// @return
@@ -358,9 +358,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Move operator, performs a deep move
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -384,9 +384,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						1D access operator with no bounds checking
-        ///		
+        ///
         /// @param
         ///				inIndex
         /// @return
@@ -403,9 +403,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const 1D access operator with no bounds checking
-        ///		
+        ///
         /// @param
         ///				inIndex
         /// @return
@@ -422,9 +422,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						2D access operator with no bounds checking
-        ///		
+        ///
         /// @param				inRowIndex
         /// @param				inColIndex
         /// @return
@@ -446,9 +446,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const 2D access operator with no bounds checking
-        ///		
+        ///
         /// @param				inRowIndex
         /// @param				inColIndex
         /// @return
@@ -470,10 +470,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						1D Slicing access operator with bounds checking. 
+        // Method Description:
+        ///						1D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
-        ///		
+        ///
         /// @param
         ///				inSlice
         /// @return
@@ -494,10 +494,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						1D Slicing access operator with bounds checking. 
+        // Method Description:
+        ///						1D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
-        ///		
+        ///
         /// @param
         ///				inSlice
         /// @return
@@ -523,10 +523,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						2D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
-        ///		
+        ///
         /// @param				inRowSlice
         /// @param				inColSlice
         /// @return
@@ -555,10 +555,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						2D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
-        ///		
+        ///
         /// @param				inRowSlice
         /// @param				inColIndex
         /// @return
@@ -580,10 +580,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						2D Slicing access operator with bounds checking.
         ///						returned array is of the range [start, stop).
-        ///		
+        ///
         /// @param				inRowIndex
         /// @param				inColSlice
         /// @return
@@ -605,10 +605,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Returns a Slice object for slicing a row to the end of 
+        // Method Description:
+        ///						Returns a Slice object for slicing a row to the end of
         ///                     array.
-        ///		
+        ///
         /// @param      inStartIdx (default 0)
         /// @param      inStepSize (default 1)
         /// @return
@@ -620,10 +620,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns a Slice object for slicing a column to the end
         ///                     of the array.
-        ///		
+        ///
         /// @param      inStartIdx (default 0)
         /// @param      inStepSize (default 1)
         /// @return
@@ -635,9 +635,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						1D access method with bounds checking
-        ///		
+        ///
         /// @param
         ///				inIndex
         /// @return
@@ -645,7 +645,7 @@ namespace NC
         ///
         dtype& at(int32 inIndex)
         {
-            // this doesn't allow for calling the first element as -size_... 
+            // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
             if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
             {
@@ -659,9 +659,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const 1D access method with bounds checking
-        ///		
+        ///
         /// @param
         ///				inIndex
         /// @return
@@ -669,7 +669,7 @@ namespace NC
         ///
         const dtype& at(int32 inIndex) const
         {
-            // this doesn't allow for calling the first element as -size_... 
+            // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
             if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
             {
@@ -683,9 +683,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						2D access method with bounds checking
-        ///		
+        ///
         /// @param				inRowIndex
         /// @param				inColIndex
         /// @return
@@ -693,7 +693,7 @@ namespace NC
         ///
         dtype& at(int32 inRowIndex, int32 inColIndex)
         {
-            // this doesn't allow for calling the first element as -size_... 
+            // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
             if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
             {
@@ -703,7 +703,7 @@ namespace NC
                 throw std::invalid_argument(errStr);
             }
 
-            // this doesn't allow for calling the first element as -size_... 
+            // this doesn't allow for calling the first element as -size_...
             // but why would you really want to that anyway?
             if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
             {
@@ -717,9 +717,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const 2D access method with bounds checking
-        ///		
+        ///
         /// @param				inRowIndex
         /// @param				inColIndex
         /// @return
@@ -727,7 +727,7 @@ namespace NC
         ///
         const dtype& at(int32 inRowIndex, int32 inColIndex) const
         {
-            // this doesn't allow for calling the first element as -size_... 
+            // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
             if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
             {
@@ -737,7 +737,7 @@ namespace NC
                 throw std::invalid_argument(errStr);
             }
 
-            // this doesn't allow for calling the first element as -size_... 
+            // this doesn't allow for calling the first element as -size_...
             // but why would you really want to do that anyway?
             if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
             {
@@ -751,9 +751,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const 1D access method with bounds checking
-        ///		
+        ///
         /// @param
         ///				inSlice
         /// @return
@@ -767,9 +767,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const 2D access method with bounds checking
-        ///		
+        ///
         /// @param				inRowSlice
         /// @param				inColSlice
         /// @return
@@ -783,9 +783,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const 2D access method with bounds checking
-        ///		
+        ///
         /// @param				inRowSlice
         /// @param				inColIndex
         /// @return
@@ -799,9 +799,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const 2D access method with bounds checking
-        ///		
+        ///
         /// @param				inRowIndex
         /// @param				inColSlice
         /// @return
@@ -815,7 +815,7 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						iterator to the beginning of the flattened array	None
         /// @return
         ///				iterator
@@ -826,9 +826,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						iterator to the beginning of the input row
-        ///		
+        ///
         /// @param
         ///				inRow
         /// @return
@@ -847,7 +847,7 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						iterator to 1 past the end of the flattened array
         /// @return
         ///				iterator
@@ -858,9 +858,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						iterator to the 1 past end of the row
-        ///		
+        ///
         /// @param
         ///				inRow
         /// @return
@@ -879,7 +879,7 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const iterator to the beginning of the flattened array
         ///
         /// @return
@@ -891,9 +891,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const iterator to the beginning of the input row
-        ///		
+        ///
         /// @param
         ///				inRow
         /// @return
@@ -912,9 +912,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const iterator to 1 past the end of the flattened array
-        ///		
+        ///
         /// @return
         ///				const_iterator
         ///
@@ -924,9 +924,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						const iterator to 1 past the end of the input row
-        ///		
+        ///
         /// @param
         ///				inRow
         /// @return
@@ -944,11 +944,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns True if all elements evaluate to True or non zero
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.all.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -992,11 +992,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns True if any elements evaluate to True or non zero
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.any.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -1040,12 +1040,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return indices of the maximum values along the given axis.
         ///						Only the first index is returned.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmax.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -1089,12 +1089,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return indices of the minimum values along the given axis.
         ///						Only the first index is returned.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argmin.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -1138,11 +1138,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns the indices that would sort this array.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.argsort.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -1202,11 +1202,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns a copy of the array, cast to a specified type.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -1222,9 +1222,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns the last element of the flattened array.
-        ///		
+        ///
         /// @return
         ///				dtype
         ///
@@ -1234,11 +1234,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Swap the bytes of the array elements in place
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.byteswap.html
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -1258,7 +1258,7 @@ namespace NC
                 }
                 case Endian::NATIVE:
                 {
-#if defined(BOOST_BIG_ENDIAN) 
+#if defined(BOOST_BIG_ENDIAN)
                     *this = newbyteorder(Endian::LITTLE);
 #elif defined(BOOST_LITTLE_ENDIAN)
                     *this = newbyteorder(Endian::BIG);
@@ -1269,11 +1269,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array whose values are limited to [min, max].
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.clip.html
-        ///		
+        ///
         /// @param				inMin: min value to clip to
         /// @param				inMax: max value to clip to
         /// @return
@@ -1301,9 +1301,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						returns whether or not a value is included the array
-        ///		
+        ///
         /// @param				inValue
         /// @param				inAxis (Optional, default NONE)
         /// @return
@@ -1349,11 +1349,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return a copy of the array
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.copy.html
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -1363,11 +1363,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the cumulative product of the elements along the given axis.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumprod.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -1427,11 +1427,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the cumulative sum of the elements along the given axis.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.cumsum.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -1491,12 +1491,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return specified diagonals.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.diagonal.html
-        ///		
-        /// @param				inOffset: Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0. 
+        ///
+        /// @param				inOffset: Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.
         /// @param				inAxis: (Optional, default ROW) axis the offset is applied to
         /// @return
         ///				NdArray
@@ -1557,14 +1557,14 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Dot product of two arrays.
         ///
-        ///						For 2-D arrays it is equivalent to matrix multiplication, 
-        ///						and for 1-D arrays to inner product of vectors. 
+        ///						For 2-D arrays it is equivalent to matrix multiplication,
+        ///						and for 1-D arrays to inner product of vectors.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dot.html
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -1575,7 +1575,7 @@ namespace NC
         {
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
             {
-                dtypeOut dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), static_cast<dtype>(0));             
+                dtypeOut dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), static_cast<dtype>(0));
                 NdArray<dtypeOut> returnArray = { dotProduct };
                 return std::move(returnArray);
             }
@@ -1609,12 +1609,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Dump a binary file of the array to the specified file. 
+        // Method Description:
+        ///						Dump a binary file of the array to the specified file.
         ///						The array can be read back with or NC::load.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.dump.html
-        ///		
+        ///
         /// @param
         ///				inFilename
         ///
@@ -1640,10 +1640,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return if the NdArray is empty. ie the default construtor
         ///						was used.
-        ///		
+        ///
         /// @return
         ///				boolean
         ///
@@ -1653,9 +1653,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the NdArrays endianess
-        ///		
+        ///
         /// @return
         ///				Endian
         ///
@@ -1665,11 +1665,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Fill the array with a scalar value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.fill.html
-        ///		
+        ///
         /// @param
         ///				inFillValue
         /// @return
@@ -1681,11 +1681,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return a copy of the array collapsed into one dimension.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.flatten.html
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -1701,9 +1701,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns the first element of the flattened array.
-        ///		
+        ///
         /// @return
         ///				dtype
         ///
@@ -1713,9 +1713,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///                     Returns a new flat array with the givin flat input indices.
-        ///		
+        ///
         /// @param
         ///				inIndices
         /// @return
@@ -1742,11 +1742,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///                     Takes in a boolean mask the same size as the array
         ///                     and returns a flattened array with the values cooresponding
         ///                     to the input mask.
-        ///		
+        ///
         /// @param
         ///				inMask
         /// @return
@@ -1758,11 +1758,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Copy an element of an array to a standard C++ scalar and return it.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.item.html
-        ///		
+        ///
         /// @return
         ///				array element
         ///
@@ -1781,11 +1781,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the maximum along a given axis.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.max.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -1831,11 +1831,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the minimum along a given axis.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.min.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -1881,11 +1881,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the mean along a given axis.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.mean.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -1935,10 +1935,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the median along a given axis. Does NOT average
         ///						if array has even number of elements!
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -1994,10 +1994,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Fills the array with nans; only really works with.
         ///                     Only really works for dtype = float/double
-        ///		
+        ///
         ///
         void nans()
         {
@@ -2005,7 +2005,7 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns the number of bytes held by the array
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nbytes.html
@@ -2019,14 +2019,14 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Return the array with the same data viewed with a 
-        ///						different byte order. only works for integer types, 
+        // Method Description:
+        ///						Return the array with the same data viewed with a
+        ///						different byte order. only works for integer types,
         ///						floating point types will not compile and you will
         ///						be confused as to why...
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.newbyteorder.html
-        ///		
+        ///
         /// @param
         ///				inEndianess
         /// @return
@@ -2166,12 +2166,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Return the indices of the flattened array of the 
+        // Method Description:
+        ///						Return the indices of the flattened array of the
         ///						elements that are non-zero.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nonzero.html
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -2190,11 +2190,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns the norm of the array
         ///
         ///                     Numpy Reference: http://www.numpy.org/devdocs/reference/generated/numpy.linalg.norm.html?highlight=norm#numpy.linalg.norm
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -2256,9 +2256,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Fills the array with ones
-        ///		
+        ///
         ///
         void ones()
         {
@@ -2266,16 +2266,16 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Rearranges the elements in the array in such a way that 
-        ///						value of the element in kth position is in the position it 
-        ///						would be in a sorted array. All elements smaller than the kth 
-        ///						element are moved before this element and all equal or greater 
-        ///						are moved behind it. The ordering of the elements in the two 
+        // Method Description:
+        ///						Rearranges the elements in the array in such a way that
+        ///						value of the element in kth position is in the position it
+        ///						would be in a sorted array. All elements smaller than the kth
+        ///						element are moved before this element and all equal or greater
+        ///						are moved behind it. The ordering of the elements in the two
         ///						partitions is undefined.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.partition.html
-        ///		
+        ///
         /// @param				inKth: kth element
         /// @param				inAxis (Optional, default NONE)
         /// @return
@@ -2334,9 +2334,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Prints the array to the console.
-        ///		
+        ///
         ///
         void print() const
         {
@@ -2344,11 +2344,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the product of the array elements over the given axis
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.prod.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -2410,11 +2410,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Peak to peak (maximum - minimum) value along a given axis.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.ptp.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -2463,11 +2463,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						set the flat index element to the value
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inIndex
         /// @param				inValue
         ///
@@ -2479,11 +2479,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						set the 2D row/col index element to the value
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inRow
         /// @param				inCol
         /// @param				inValue
@@ -2496,11 +2496,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set a.flat[n] = values for all n in indices.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inIndices
         /// @param				inValue
         ///
@@ -2515,11 +2515,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set a.flat[n] = values[n] for all n in indices.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inIndices
         /// @param				inValues
         ///
@@ -2541,11 +2541,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set the slice indices to the input value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inSlice
         /// @param				inValue
         ///
@@ -2563,11 +2563,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set the slice indices to the input values.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inSlice
         /// @param  			inValues
         ///
@@ -2586,11 +2586,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set the slice indices to the input value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inRowSlice
         /// @param				inColSlice
         /// @param				inValue
@@ -2616,11 +2616,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set the slice indices to the input value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inRowSlice
         /// @param				inColIndex
         /// @param				inValue
@@ -2640,11 +2640,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set the slice indices to the input value.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inRowIndex
         /// @param				inColSlice
         /// @param				inValue
@@ -2664,11 +2664,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set the slice indices to the input values.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inRowSlice
         /// @param				inColSlice
         /// @param				inValues
@@ -2695,11 +2695,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set the slice indices to the input values.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inRowSlice
         /// @param				inColIndex
         /// @param				inValues
@@ -2720,11 +2720,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set the slice indices to the input values.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.put.html
-        ///		
+        ///
         /// @param				inRowIndex
         /// @param				inColSlice
         /// @param				inValues
@@ -2745,9 +2745,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set the mask indices to the input value.
-        ///		
+        ///
         /// @param				inMask
         /// @param				inValue
         ///
@@ -2764,9 +2764,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Set the mask indices to the input values.
-        ///		
+        ///
         /// @param				inMask
         /// @param				inValues
         ///
@@ -2783,11 +2783,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Repeat elements of an array.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
-        ///		
+        ///
         /// @param				inNumRows
         /// @param				inNumCols
         /// @return
@@ -2826,11 +2826,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Repeat elements of an array.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
-        ///		
+        ///
         /// @param
         ///				inRepeatShape
         /// @return
@@ -2842,11 +2842,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Resizes the array to a new shape.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
-        ///		
+        ///
         /// @param      inNumRows
         /// @param      inNumCols
         ///
@@ -2865,11 +2865,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Resizes the array to a new shape.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
-        ///		
+        ///
         /// @param
         ///				inShape
         ///
@@ -2879,12 +2879,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Change shape and size of array in-place. All previous
         ///						data of the array is lost.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
-        ///		
+        ///
         /// @param      inNumRows
         /// @param      inNumCols
         ///
@@ -2895,12 +2895,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Change shape and size of array in-place. All previous
         ///						data of the array is lost.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
-        ///		
+        ///
         /// @param
         ///				inShape
         ///
@@ -2910,14 +2910,14 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return a new array with the specified shape. If new shape
         ///						is larger than old shape then array will be padded with zeros.
         ///						If new shape is smaller than the old shape then the data will
         ///						be discarded.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
-        ///		
+        ///
         /// @param				inNumRows
         /// @param				inNumCols
         ///
@@ -2948,14 +2948,14 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return a new array with the specified shape. If new shape
         ///						is larger than old shape then array will be padded with zeros.
         ///						If new shape is smaller than the old shape then the data will
         ///						be discarded.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.resize.html
-        ///		
+        ///
         /// @param
         ///				inShape
         ///
@@ -2965,12 +2965,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return a with each element rounded to the given number
         ///						of decimals.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.round.html
-        ///		
+        ///
         /// @param
         ///				inNumDecimals (default 0)
         /// @return
@@ -2996,11 +2996,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the shape of the array
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.shape.html
-        ///		
+        ///
         /// @return
         ///				Shape
         ///
@@ -3010,11 +3010,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the size of the array
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.size.html
-        ///		
+        ///
         /// @return
         ///				size
         ///
@@ -3024,11 +3024,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Sort an array, in-place.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sort.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -3065,11 +3065,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the std along a given axis.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.std.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -3133,9 +3133,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						returns the NdArray as a string representation
-        ///		
+        ///
         /// @return
         ///				string
         ///
@@ -3165,11 +3165,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the sum of the array elements over the given axis.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.sum.html
-        ///		
+        ///
         /// @param
         ///				inAxis (Optional, default NONE)
         /// @return
@@ -3199,7 +3199,7 @@ namespace NC
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtypeOut> transposedArray = transpose().astype<dtypeOut>();
+                    NdArray<dtypeOut> transposedArray = transpose().template astype<dtypeOut>();
                     Shape transShape = transposedArray.shape();
                     NdArray<dtypeOut> returnArray(1, transShape.rows);
                     for (uint32 row = 0; row < transShape.rows; ++row)
@@ -3219,11 +3219,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Interchange two axes of an array. Equivalent to transpose...
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.swapaxes.html
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -3233,15 +3233,15 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Write array to a file as text or binary (default)..
-        ///						The data produced by this method can be recovered 
+        ///						The data produced by this method can be recovered
         ///						using the function fromfile().
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html
-        ///		
+        ///
         /// @param				inFilename
-        /// @param				inSep: Separator between array items for text output. If "" (empty), a binary file is written 
+        /// @param				inSep: Separator between array items for text output. If "" (empty), a binary file is written
         /// @return
         ///				None
         ///
@@ -3281,9 +3281,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Write flattened array to an STL vector
-        ///		
+        ///
         /// @return
         ///				std::vector
         ///
@@ -3293,14 +3293,14 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Return the sum along diagonals of the array.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.trace.html
-        ///		
+        ///
         /// @param				inOffset: Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.
         /// @param				inAxis: (Optional, default ROW) Axis to offset from
-        ///				
+        ///
         /// @return
         ///				value
         ///
@@ -3349,11 +3349,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Tranpose the rows and columns of an array
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.transpose.html
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -3371,7 +3371,7 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns the variance of the array elements, along given axis.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.var.html
@@ -3392,9 +3392,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Fills the array with zeros
-        ///		
+        ///
         ///
         void zeros()
         {
@@ -3402,9 +3402,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Adds the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3416,9 +3416,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Adds the scalar to the array
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3430,9 +3430,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Adds the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3453,9 +3453,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Adds the scalar to the array
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3472,9 +3472,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Subtracts the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3486,9 +3486,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Subtracts the scalar from the array
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3500,9 +3500,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Subtracts the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3523,9 +3523,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Subtracts the scalar from the array
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3542,9 +3542,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Multiplies the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3556,9 +3556,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Muliplies the scalar to the array
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3570,9 +3570,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Multiplies the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3593,9 +3593,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Muliplies the scalar to the array
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3612,9 +3612,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Divides the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3626,9 +3626,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Divides the array by the scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3640,9 +3640,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Divides the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3663,9 +3663,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Divides the array by the scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3682,9 +3682,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the modulus of the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3696,9 +3696,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Modulus of the array and the scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3710,9 +3710,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the modulus of the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3736,9 +3736,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Modulus of the array and the scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3765,9 +3765,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise or of the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3779,9 +3779,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise or of the array and the scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3793,9 +3793,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise or of the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3819,9 +3819,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise or of the array and the scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3841,9 +3841,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise and of the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3855,9 +3855,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise and of the array and the scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3869,9 +3869,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise and of the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3895,9 +3895,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise and of the array and the scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3917,9 +3917,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise xor of the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3931,9 +3931,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise xor of the array and the scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3945,9 +3945,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise xor of the elements of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -3971,9 +3971,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise xor of the array and the scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -3993,9 +3993,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Takes the bitwise not of the array
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -4014,10 +4014,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						of two arrays
-        ///		
+        ///
         /// @param
         ///				inValue
         /// @return
@@ -4035,10 +4035,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -4060,10 +4060,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						of two arrays
-        ///		
+        ///
         /// @param
         ///				inValue
         /// @return
@@ -4081,10 +4081,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -4106,10 +4106,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						the array and a scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -4127,10 +4127,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -4152,10 +4152,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						the array and a scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -4173,10 +4173,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -4198,10 +4198,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						the array and a scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -4219,10 +4219,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -4244,10 +4244,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						the array and a scalar
-        ///		
+        ///
         /// @param
         ///				inScalar
         /// @return
@@ -4265,10 +4265,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Returns an array of booleans of element wise comparison
         ///						of two arrays
-        ///		
+        ///
         /// @param
         ///				inOtherArray
         /// @return
@@ -4290,9 +4290,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Bitshifts left the elements of the array
-        ///		
+        ///
         /// @param      lhs
         /// @param      inNumBits
         /// @return
@@ -4306,9 +4306,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Bitshifts left the elements of the array
-        ///		
+        ///
         /// @param      lhs
         /// @param      inNumBits
         /// @return
@@ -4325,9 +4325,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Bitshifts right the elements of the array
-        ///		
+        ///
         /// @param      lhs
         /// @param      inNumBits
         /// @return
@@ -4341,9 +4341,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Bitshifts right the elements of the array
-        ///		
+        ///
         /// @param      lhs
         /// @param      inNumBits
         /// @return
@@ -4360,9 +4360,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						prefix incraments the elements of an array
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -4378,9 +4378,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						prefix decrements the elements of an array
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -4395,9 +4395,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						postfix increments the elements of an array
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -4413,9 +4413,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						postfix decrements the elements of an array
-        ///		
+        ///
         /// @return
         ///				NdArray
         ///
@@ -4431,9 +4431,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						io operator for the NdArray class
-        ///		
+        ///
         /// @param      inOStream
         /// @param      inArray
         /// @return
