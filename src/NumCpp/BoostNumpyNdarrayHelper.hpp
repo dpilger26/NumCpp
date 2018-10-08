@@ -45,7 +45,7 @@ namespace NC
 {
     //================================================================================
     ///						C or Fortran ordering from python
-    struct Order { enum Type { F, C }; };
+    enum class Order { F, C };
 
     //================================================================================
     ///						Helper class for ndarray
@@ -57,7 +57,7 @@ namespace NC
         uint8							numDimensions_;
         std::vector<Py_intptr_t>		shape_;
         std::vector<uint32>				strides_;
-        Order::Type						order_;
+        Order   						order_;
 
         //============================================================================
         ///						Generic check of input indices
@@ -231,7 +231,7 @@ namespace NC
         ///
         /// @return     Order
         ///
-        Order::Type order()
+        Order order()
         {
             return order_;
         }
@@ -384,7 +384,9 @@ namespace NC
         BoostNdarrayHelper helper(&inArray);
         if (helper.numDimensions() > 2)
         {
-            throw std::runtime_error("ERROR: Can only convert 1 and 2 dimensional arrays.");
+            std::string errStr = "ERROR: Can only convert 1 and 2 dimensional arrays.";
+            std::cerr << errStr << std::endl;
+            throw std::runtime_error(errStr);
         }
 
         NC::Shape arrayShape;

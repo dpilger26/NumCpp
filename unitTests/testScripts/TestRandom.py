@@ -41,14 +41,25 @@ def doTest():
     r = NumCpp.Random.chiSquare(inShape, dof)
     print(colored('\tPASS', 'green'))
 
-    print(colored('Testing choice', 'cyan'))
+    print(colored('Testing choice: Single', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    r = NumCpp.Random.choice(cArray)
+    r = NumCpp.Random.choiceSingle(cArray)
     print(colored('\tPASS', 'green'))
+
+    print(colored('Testing choice: Multiple', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    num = np.random.randint(1, data.size, [1,]).item()
+    r = NumCpp.Random.choiceMultiple(cArray, num)
+    if r.size == num:
+        print(colored('\tPASS', 'green'))
 
     print(colored('Testing cauchy', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])

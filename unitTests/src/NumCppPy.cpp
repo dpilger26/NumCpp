@@ -107,7 +107,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray all(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray all(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.all(inAxis));
     }
@@ -115,7 +115,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray any(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray any(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.any(inAxis));
     }
@@ -123,7 +123,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argmax(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argmax(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.argmax(inAxis));
     }
@@ -131,7 +131,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argmin(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argmin(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.argmin(inAxis));
     }
@@ -139,7 +139,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argsort(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argsort(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.argsort(inAxis));
     }
@@ -163,23 +163,23 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray contains(NdArray<dtype>& self, dtype inValue, Axis::Type inAxis = Axis::NONE)
+    np::ndarray contains(NdArray<dtype>& self, dtype inValue, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.contains(inValue, inAxis));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
-    np::ndarray cumprod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    template<typename dtypeOut, typename dtype>
+    np::ndarray cumprod(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.cumprod<dtypeOut>(inAxis));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
-    np::ndarray cumsum(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    template<typename dtypeOut, typename dtype>
+    np::ndarray cumsum(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.cumsum<dtypeOut>(inAxis));
     }
@@ -187,14 +187,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diagonal(NdArray<dtype>& self, int32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+    np::ndarray diagonal(NdArray<dtype>& self, int32 inOffset = 0, Axis inAxis = Axis::ROW)
     {
         return numCToBoost(self.diagonal(inOffset, inAxis));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray dot(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
     {
         return numCToBoost(self.dot<dtypeOut>(inOtherArray));
@@ -265,10 +265,27 @@ namespace NdArrayInterface
         return numCToBoost(self.at(inRowIndex, inColSlice));
     }
 
+
     //================================================================================
 
     template<typename dtype>
-    np::ndarray max(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray getByIndices(NdArray<dtype>& self, const NdArray<uint32>& inIndices)
+    {
+        return numCToBoost(self.getByIndices(inIndices));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray getByMask(NdArray<dtype>& self, const NdArray<bool>& inMask)
+    {
+        return numCToBoost(self.getByMask(inMask));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray max(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.max(inAxis));
     }
@@ -276,7 +293,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray min(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray min(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.min(inAxis));
     }
@@ -284,7 +301,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray mean(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray mean(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.mean(inAxis));
     }
@@ -292,7 +309,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray median(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray median(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.median(inAxis));
     }
@@ -300,7 +317,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray newbyteorder(NdArray<dtype>& self, Endian::Type inEndiness = Endian::NATIVE)
+    np::ndarray newbyteorder(NdArray<dtype>& self, Endian inEndiness = Endian::NATIVE)
     {
         return numCToBoost(self.newbyteorder(inEndiness));
     }
@@ -315,8 +332,8 @@ namespace NdArrayInterface
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
-    np::ndarray norm(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    template<typename dtypeOut, typename dtype>
+    np::ndarray norm(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost<dtypeOut>(self.norm<dtypeOut>(inAxis));
     }
@@ -333,7 +350,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray partition(NdArray<dtype>& self, uint32 inKth, Axis::Type inAxis = Axis::NONE)
+    np::ndarray partition(NdArray<dtype>& self, uint32 inKth, Axis inAxis = Axis::NONE)
     {
         self.partition(inKth, inAxis);
         return numCToBoost<dtype>(self);
@@ -341,8 +358,8 @@ namespace NdArrayInterface
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
-    np::ndarray prod(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    template<typename dtypeOut, typename dtype>
+    np::ndarray prod(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost<dtypeOut>(self.prod<dtypeOut>(inAxis));
     }
@@ -350,7 +367,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray ptp(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray ptp(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.ptp(inAxis));
     }
@@ -452,6 +469,27 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray putMaskSingle(NdArray<dtype>& self, np::ndarray& inMask, dtype inValue)
+    {
+        auto mask = boostToNumC<bool>(inMask);
+        self.putMask(mask, inValue);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray putMaskMultiple(NdArray<dtype>& self, np::ndarray& inMask, np::ndarray& inArrayValues)
+    {
+        auto mask = boostToNumC<bool>(inMask);
+        auto inValues = boostToNumC<dtype>(inArrayValues);
+        self.putMask(mask, inValues);
+        return numCToBoost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray repeat(NdArray<dtype>& self, const Shape& inRepeatShape)
     {
         return numCToBoost(self.repeat(inRepeatShape));
@@ -522,7 +560,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray sort(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray sort(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         self.sort(inAxis);
         return numCToBoost(self);
@@ -531,15 +569,15 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray std(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray std(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.std(inAxis));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
-    np::ndarray sum(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    template<typename dtypeOut, typename dtype>
+    np::ndarray sum(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.sum<dtypeOut>(inAxis));
     }
@@ -563,7 +601,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray var(NdArray<dtype>& self, Axis::Type inAxis = Axis::NONE)
+    np::ndarray var(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.var(inAxis));
     }
@@ -856,7 +894,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype absScalar(dtype inValue)
     {
-        return Methods<dtype>::abs(inValue);
+        return abs(inValue);
     }
 
     //================================================================================
@@ -864,55 +902,55 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray absArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::abs(inArray));
+        return numCToBoost(abs(inArray));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray addArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::add<dtypeOut>(inArray1, inArray2));
+        return numCToBoost(add<dtypeOut>(inArray1, inArray2));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray allArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray allArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::all(inArray, inAxis));
+        return numCToBoost(all(inArray, inAxis));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray anyArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray anyArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::any(inArray, inAxis));
+        return numCToBoost(any(inArray, inAxis));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argmaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argmaxArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::argmax(inArray, inAxis));
+        return numCToBoost(argmax(inArray, inAxis));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argminArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argminArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::argmin(inArray, inAxis));
+        return numCToBoost(argmin(inArray, inAxis));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray argsortArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray argsortArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::argsort(inArray, inAxis));
+        return numCToBoost(argsort(inArray, inAxis));
     }
 
     //================================================================================
@@ -920,23 +958,23 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray argwhere(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::argwhere(inArray));
+        return numCToBoost(NC::argwhere(inArray));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray amaxArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray amaxArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::amax(inArray, inAxis));
+        return numCToBoost(amax(inArray, inAxis));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray aminArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray aminArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::amin(inArray, inAxis));
+        return numCToBoost(amin(inArray, inAxis));
     }
 
     //================================================================================
@@ -944,7 +982,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arangeArray(dtype inStart, dtype inStop, dtype inStep)
     {
-        return numCToBoost(Methods<dtype>::arange(inStart, inStop, inStep));
+        return numCToBoost(arange(inStart, inStop, inStep));
     }
 
     //================================================================================
@@ -952,7 +990,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype arccosScalar(dtype inValue)
     {
-        return Methods<dtype>::arccos(inValue);
+        return arccos(inValue);
     }
 
     //================================================================================
@@ -960,7 +998,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arccosArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::arccos(inArray));
+        return numCToBoost(arccos(inArray));
     }
 
     //================================================================================
@@ -968,7 +1006,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype arccoshScalar(dtype inValue)
     {
-        return Methods<dtype>::arccosh(inValue);
+        return arccosh(inValue);
     }
 
     //================================================================================
@@ -976,7 +1014,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arccoshArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::arccosh(inArray));
+        return numCToBoost(arccosh(inArray));
     }
 
     //================================================================================
@@ -984,7 +1022,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype arcsinScalar(dtype inValue)
     {
-        return Methods<dtype>::arcsin(inValue);
+        return arcsin(inValue);
     }
 
     //================================================================================
@@ -992,7 +1030,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arcsinArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::arcsin(inArray));
+        return numCToBoost(arcsin(inArray));
     }
 
     //================================================================================
@@ -1000,7 +1038,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype arcsinhScalar(dtype inValue)
     {
-        return Methods<dtype>::arcsinh(inValue);
+        return arcsinh(inValue);
     }
 
     //================================================================================
@@ -1008,7 +1046,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arcsinhArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::arcsinh(inArray));
+        return numCToBoost(arcsinh(inArray));
     }
 
     //================================================================================
@@ -1016,7 +1054,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype arctanScalar(dtype inValue)
     {
-        return Methods<dtype>::arctan(inValue);
+        return arctan(inValue);
     }
 
     //================================================================================
@@ -1024,7 +1062,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arctanArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::arctan(inArray));
+        return numCToBoost(arctan(inArray));
     }
 
     //================================================================================
@@ -1032,7 +1070,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype arctan2Scalar(dtype inY, dtype inX)
     {
-        return Methods<dtype>::arctan2(inY, inX);
+        return arctan2(inY, inX);
     }
 
     //================================================================================
@@ -1040,7 +1078,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arctan2Array(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
     {
-        return numCToBoost(Methods<dtype>::arctan2(inY, inX));
+        return numCToBoost(arctan2(inY, inX));
     }
 
     //================================================================================
@@ -1048,7 +1086,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype arctanhScalar(dtype inValue)
     {
-        return Methods<dtype>::arctanh(inValue);
+        return arctanh(inValue);
     }
 
     //================================================================================
@@ -1056,7 +1094,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arctanhArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::arctanh(inArray));
+        return numCToBoost(arctanh(inArray));
     }
 
     //================================================================================
@@ -1064,7 +1102,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype aroundScalar(dtype inValue, uint8 inNumDecimals)
     {
-        return Methods<dtype>::around(inValue, inNumDecimals);
+        return around(inValue, inNumDecimals);
     }
 
     //================================================================================
@@ -1072,7 +1110,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray aroundArray(const NdArray<dtype>& inArray, uint8 inNumDecimals)
     {
-        return numCToBoost(Methods<dtype>::around(inArray, inNumDecimals));
+        return numCToBoost(around(inArray, inNumDecimals));
     }
 
     //================================================================================
@@ -1080,7 +1118,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray asarrayVector(const std::vector<double>& inVec)
     {
-        return numCToBoost(Methods<dtype>::asarray(inVec));
+        return numCToBoost(asarray(inVec));
     }
 
     //================================================================================
@@ -1088,23 +1126,23 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray asarrayList(dtype inValue1, dtype inValue2)
     {
-        return numCToBoost(Methods<dtype>::asarray({ inValue1, inValue2 }));
+        return numCToBoost(asarray<dtype>({ inValue1, inValue2 }));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray average(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    np::ndarray average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::average(inArray, inAxis));
+        return numCToBoost(NC::average(inArray, inAxis));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis::Type inAxis = Axis::NONE)
+    np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::average(inArray, inWeights, inAxis));
+        return numCToBoost(average(inArray, inWeights, inAxis));
     }
 
     //================================================================================
@@ -1112,7 +1150,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
     {
-        return numCToBoost(Methods<dtype>::bincount(inArray, inMinLength));
+        return numCToBoost(NC::bincount(inArray, inMinLength));
     }
 
     //================================================================================
@@ -1120,7 +1158,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bincountWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
     {
-        return numCToBoost(Methods<dtype>::bincount(inArray, inWeights, inMinLength));
+        return numCToBoost(bincount(inArray, inWeights, inMinLength));
     }
 
     //================================================================================
@@ -1128,7 +1166,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::bitwise_and(inArray1, inArray2));
+        return numCToBoost(NC::bitwise_and(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1136,7 +1174,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bitwise_not(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::bitwise_not(inArray));
+        return numCToBoost(NC::bitwise_not(inArray));
     }
 
     //================================================================================
@@ -1144,7 +1182,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::bitwise_or(inArray1, inArray2));
+        return numCToBoost(NC::bitwise_or(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1152,7 +1190,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::bitwise_xor(inArray1, inArray2));
+        return numCToBoost(NC::bitwise_xor(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1160,7 +1198,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray byteswap(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::byteswap(inArray));
+        return numCToBoost(NC::byteswap(inArray));
     }
 
     //================================================================================
@@ -1168,7 +1206,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype cbrtScalar(dtype inValue)
     {
-        return Methods<dtype>::cbrt(inValue);
+        return cbrt(inValue);
     }
 
     //================================================================================
@@ -1176,7 +1214,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray cbrtArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::cbrt(inArray));
+        return numCToBoost(cbrt(inArray));
     }
 
     //================================================================================
@@ -1184,7 +1222,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype ceilScalar(dtype inValue)
     {
-        return Methods<dtype>::ceil(inValue);
+        return ceil(inValue);
     }
 
     //================================================================================
@@ -1192,7 +1230,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray ceilArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::ceil(inArray));
+        return numCToBoost(ceil(inArray));
     }
 
     //================================================================================
@@ -1200,7 +1238,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype clipScalar(dtype inValue, dtype inMinValue, dtype inMaxValue)
     {
-        return Methods<dtype>::clip(inValue, inMinValue, inMaxValue);
+        return clip(inValue, inMinValue, inMaxValue);
     }
 
     //================================================================================
@@ -1208,7 +1246,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray clipArray(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue)
     {
-        return numCToBoost(Methods<dtype>::clip(inArray, inMinValue, inMaxValue));
+        return numCToBoost(clip(inArray, inMinValue, inMaxValue));
     }
 
     //================================================================================
@@ -1217,16 +1255,16 @@ namespace MethodsInterface
     np::ndarray column_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(Methods<dtype>::column_stack({ inArray1, inArray2, inArray3, inArray4 }));
+        return numCToBoost(NC::column_stack({ inArray1, inArray2, inArray3, inArray4 }));
     }
 
     //================================================================================
 
     template<typename dtype>
     np::ndarray concatenate(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
-        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, Axis::Type inAxis)
+        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, Axis inAxis)
     {
-        return numCToBoost(Methods<dtype>::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
+        return numCToBoost(NC::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
 
     //================================================================================
@@ -1234,7 +1272,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray copy(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::copy(inArray));
+        return numCToBoost(NC::copy(inArray));
     }
 
     //================================================================================
@@ -1242,7 +1280,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::copySign(inArray1, inArray2));
+        return numCToBoost(NC::copySign(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1250,7 +1288,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray copyto(NdArray<dtype>& inArrayDest, const NdArray<dtype>& inArraySrc)
     {
-        return numCToBoost(Methods<dtype>::copyto(inArrayDest, inArraySrc));
+        return numCToBoost(NC::copyto(inArrayDest, inArraySrc));
     }
 
     //================================================================================
@@ -1258,7 +1296,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype cosScalar(dtype inValue)
     {
-        return Methods<dtype>::cos(inValue);
+        return cos(inValue);
     }
 
     //================================================================================
@@ -1266,7 +1304,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray cosArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::cos(inArray));
+        return numCToBoost(cos(inArray));
     }
 
     //================================================================================
@@ -1274,7 +1312,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype coshScalar(dtype inValue)
     {
-        return Methods<dtype>::cosh(inValue);
+        return cosh(inValue);
     }
 
     //================================================================================
@@ -1282,39 +1320,39 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray coshArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::cosh(inArray));
+        return numCToBoost(cosh(inArray));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray count_nonzero(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
+    np::ndarray count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
     {
-        return numCToBoost(Methods<dtype>::count_nonzero(inArray, inAxis));
+        return numCToBoost(NC::count_nonzero(inArray, inAxis));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray cubeArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::cube<dtypeOut>(inArray));
+        return numCToBoost(cube<dtypeOut>(inArray));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
-    np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    template<typename dtypeOut, typename dtype>
+    np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::cumprod<dtypeOut>(inArray, inAxis));
+        return numCToBoost(cumprod<dtypeOut>(inArray, inAxis));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
-    np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::NONE)
+    template<typename dtypeOut, typename dtype>
+    np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::cumsum<dtypeOut>(inArray, inAxis));
+        return numCToBoost(cumsum<dtypeOut>(inArray, inAxis));
     }
 
     //================================================================================
@@ -1322,7 +1360,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype deg2radScalar(dtype inValue)
     {
-        return Methods<dtype>::deg2rad(inValue);
+        return deg2rad(inValue);
     }
 
     //================================================================================
@@ -1330,23 +1368,23 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray deg2radArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::deg2rad(inArray));
+        return numCToBoost(deg2rad(inArray));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray deleteIndicesScalar(const NdArray<dtype>& inArray, uint32 inIndex, Axis::Type inAxis)
+    np::ndarray deleteIndicesScalar(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis)
     {
-        return numCToBoost(Methods<dtype>::deleteIndices(inArray, inIndex, inAxis));
+        return numCToBoost(deleteIndices(inArray, inIndex, inAxis));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray deleteIndicesSlice(const NdArray<dtype>& inArray, const Slice& inIndices, Axis::Type inAxis)
+    np::ndarray deleteIndicesSlice(const NdArray<dtype>& inArray, const Slice& inIndices, Axis inAxis)
     {
-        return numCToBoost(Methods<dtype>::deleteIndices(inArray, inIndices, inAxis));
+        return numCToBoost(deleteIndices(inArray, inIndices, inAxis));
     }
 
     //================================================================================
@@ -1354,39 +1392,39 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray diagflat(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::diagflat(inArray));
+        return numCToBoost(NC::diagflat(inArray));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis::Type inAxis = Axis::ROW)
+    np::ndarray diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis inAxis = Axis::ROW)
     {
-        return numCToBoost(Methods<dtype>::diagonal(inArray, inOffset, inAxis));
+        return numCToBoost(NC::diagonal(inArray, inOffset, inAxis));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray diff(const NdArray<dtype>& inArray, Axis::Type inAxis = Axis::ROW)
+    np::ndarray diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
     {
-        return numCToBoost(Methods<dtype>::diff(inArray, inAxis));
+        return numCToBoost(NC::diff(inArray, inAxis));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::divide<dtypeOut>(inArray1, inArray2));
+        return numCToBoost(NC::divide<dtypeOut>(inArray1, inArray2));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::dot<dtypeOut>(inArray1, inArray2));
+        return numCToBoost(NC::dot<dtypeOut>(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1394,7 +1432,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray emptyRowCol(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(Methods<dtype>::empty(inNumRows, inNumCols));
+        return numCToBoost(NC::empty<dtype>(inNumRows, inNumCols));
     }
 
     //================================================================================
@@ -1402,7 +1440,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray emptyShape(const Shape& inShape)
     {
-        return numCToBoost(Methods<dtype>::empty(inShape));
+        return numCToBoost(empty<dtype>(inShape));
     }
 
     //================================================================================
@@ -1410,7 +1448,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::equal(inArray1, inArray2));
+        return numCToBoost(NC::equal(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1418,7 +1456,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype expScalar(dtype inValue)
     {
-        return Methods<dtype>::exp(inValue);
+        return exp(inValue);
     }
 
     //================================================================================
@@ -1426,7 +1464,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray expArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::exp(inArray));
+        return numCToBoost(exp(inArray));
     }
 
     //================================================================================
@@ -1434,7 +1472,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype exp2Scalar(dtype inValue)
     {
-        return Methods<dtype>::exp2(inValue);
+        return exp2(inValue);
     }
 
     //================================================================================
@@ -1442,7 +1480,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray exp2Array(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::exp2(inArray));
+        return numCToBoost(exp2(inArray));
     }
 
     //================================================================================
@@ -1450,7 +1488,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype expm1Scalar(dtype inValue)
     {
-        return Methods<dtype>::expm1(inValue);
+        return expm1(inValue);
     }
 
     //================================================================================
@@ -1458,7 +1496,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray expm1Array(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::expm1(inArray));
+        return numCToBoost(expm1(inArray));
     }
 
     //================================================================================
@@ -1466,7 +1504,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray eye1D(uint32 inN, int32 inK)
     {
-        return numCToBoost(Methods<dtype>::eye(inN, inK));
+        return numCToBoost(eye<dtype>(inN, inK));
     }
 
     //================================================================================
@@ -1474,7 +1512,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray eye2D(uint32 inN, uint32 inM, int32 inK)
     {
-        return numCToBoost(Methods<dtype>::eye(inN, inM, inK));
+        return numCToBoost(eye<dtype>(inN, inM, inK));
     }
 
     //================================================================================
@@ -1482,7 +1520,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray eyeShape(const Shape& inShape, int32 inK)
     {
-        return numCToBoost(Methods<dtype>::eye(inShape, inK));
+        return numCToBoost(eye<dtype>(inShape, inK));
     }
 
     //================================================================================
@@ -1490,7 +1528,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype fixScalar(dtype inValue)
     {
-        return Methods<dtype>::fix(inValue);
+        return fix(inValue);
     }
 
     //================================================================================
@@ -1498,7 +1536,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fixArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::fix(inArray));
+        return numCToBoost(fix(inArray));
     }
 
     //================================================================================
@@ -1506,7 +1544,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype floorScalar(dtype inValue)
     {
-        return Methods<dtype>::floor(inValue);
+        return floor(inValue);
     }
 
     //================================================================================
@@ -1514,7 +1552,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray floorArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::floor(inArray));
+        return numCToBoost(floor(inArray));
     }
 
     //================================================================================
@@ -1522,7 +1560,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype floor_divideScalar(dtype inValue1, dtype inValue2)
     {
-        return Methods<dtype>::floor_divide(inValue1, inValue2);
+        return floor_divide(inValue1, inValue2);
     }
 
     //================================================================================
@@ -1530,7 +1568,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray floor_divideArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::floor_divide(inArray1, inArray2));
+        return numCToBoost(floor_divide(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1538,7 +1576,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype fmaxScalar(dtype inValue1, dtype inValue2)
     {
-        return Methods<dtype>::fmax(inValue1, inValue2);
+        return fmax(inValue1, inValue2);
     }
 
     //================================================================================
@@ -1546,7 +1584,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fmaxArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::fmax(inArray1, inArray2));
+        return numCToBoost(fmax(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1554,7 +1592,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype fminScalar(dtype inValue1, dtype inValue2)
     {
-        return Methods<dtype>::fmin(inValue1, inValue2);
+        return fmin(inValue1, inValue2);
     }
 
     //================================================================================
@@ -1562,13 +1600,13 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fminArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::fmin(inArray1, inArray2));
+        return numCToBoost(fmin(inArray1, inArray2));
     }
 
     template<typename dtype>
     dtype fmodScalar(dtype inValue1, dtype inValue2)
     {
-        return Methods<dtype>::fmod(inValue1, inValue2);
+        return fmod(inValue1, inValue2);
     }
 
     //================================================================================
@@ -1576,7 +1614,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fmodArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::fmod(inArray1, inArray2));
+        return numCToBoost(fmod(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1584,7 +1622,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fullSquare(uint32 inSquareSize, dtype inValue)
     {
-        return numCToBoost(Methods<dtype>::full(inSquareSize, inValue));
+        return numCToBoost(full(inSquareSize, inValue));
     }
 
     //================================================================================
@@ -1592,7 +1630,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fullRowCol(uint32 inNumRows, uint32 inNumCols, dtype inValue)
     {
-        return numCToBoost(Methods<dtype>::full(inNumRows, inNumCols, inValue));
+        return numCToBoost(full(inNumRows, inNumCols, inValue));
     }
 
     //================================================================================
@@ -1600,7 +1638,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fullShape(const Shape& inShape, dtype inValue)
     {
-        return numCToBoost(Methods<dtype>::full(inShape, inValue));
+        return numCToBoost(full(inShape, inValue));
     }
 
     //================================================================================
@@ -1608,7 +1646,7 @@ namespace MethodsInterface
     template<typename dtype>
     bp::tuple histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
     {
-        std::pair<NdArray<uint32>, NdArray<double> > output = Methods<dtype>::histogram(inArray, inNumBins);
+        std::pair<NdArray<uint32>, NdArray<double> > output = NC::histogram(inArray, inNumBins);
         return bp::make_tuple(output.first, output.second);
     }
 
@@ -1618,23 +1656,47 @@ namespace MethodsInterface
     np::ndarray hstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(Methods<dtype>::hstack({ inArray1, inArray2, inArray3, inArray4 }));
+        return numCToBoost(NC::hstack({ inArray1, inArray2, inArray3, inArray4 }));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     dtype hypotScalar(dtype inValue1, dtype inValue2)
     {
-        return Methods<dtype>::hypot<dtypeOut>(inValue1, inValue2);
+        return hypot<dtypeOut>(inValue1, inValue2);
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray hypotArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::hypot<dtypeOut>(inArray1, inArray2));
+        return numCToBoost(hypot<dtypeOut>(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)
+    {
+        return numCToBoost(NC::interp(inX, inXp, inFp));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    bool isinfScalar(dtype inValue)
+    {
+        return NC::isinf(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray isinfArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(NC::isinf(inArray));
     }
 
     //================================================================================
@@ -1642,7 +1704,7 @@ namespace MethodsInterface
     template<typename dtype>
     bool isnanScalar(dtype inValue)
     {
-        return Methods<dtype>::isnan(inValue);
+        return NC::isnan(inValue);
     }
 
     //================================================================================
@@ -1650,7 +1712,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray isnanArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::isnan(inArray));
+        return numCToBoost(NC::isnan(inArray));
     }
 
     //================================================================================
@@ -1658,7 +1720,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype ldexpScalar(dtype inValue1, uint8 inValue2)
     {
-        return Methods<dtype>::ldexp(inValue1, inValue2);
+        return ldexp(inValue1, inValue2);
     }
 
     //================================================================================
@@ -1666,7 +1728,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray ldexpArray(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::ldexp(inArray1, inArray2));
+        return numCToBoost(ldexp(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1674,7 +1736,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray nansSquare(uint32 inSquareSize)
     {
-        return numCToBoost(Methods<dtype>::nans(inSquareSize));
+        return numCToBoost(nans<dtype>(inSquareSize));
     }
 
     //================================================================================
@@ -1682,7 +1744,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray nansRowCol(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(Methods<dtype>::nans(inNumRows, inNumCols));
+        return numCToBoost(nans<dtype>(inNumRows, inNumCols));
     }
 
     //================================================================================
@@ -1690,7 +1752,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray nansShape(const Shape& inShape)
     {
-        return numCToBoost(Methods<dtype>::nans(inShape));
+        return numCToBoost(nans<dtype>(inShape));
     }
 
     //================================================================================
@@ -1698,15 +1760,15 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray nansList(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(Methods<dtype>::nans({ inNumRows, inNumCols }));
+        return numCToBoost(nans<dtype>({ inNumRows, inNumCols }));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray negative(const NdArray<dtypeOut> inArray)
     {
-        return numCToBoost(Methods<dtype>::negative<dtypeOut>(inArray));
+        return numCToBoost(NC::negative<dtypeOut>(inArray));
     }
 
     //================================================================================
@@ -1714,7 +1776,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype logScalar(dtype inValue)
     {
-        return Methods<dtype>::log(inValue);
+        return log(inValue);
     }
 
     //================================================================================
@@ -1722,7 +1784,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray logArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::log(inArray));
+        return numCToBoost(log(inArray));
     }
 
     //================================================================================
@@ -1730,7 +1792,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype log10Scalar(dtype inValue)
     {
-        return Methods<dtype>::log10(inValue);
+        return log10(inValue);
     }
 
     //================================================================================
@@ -1738,7 +1800,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray log10Array(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::log10(inArray));
+        return numCToBoost(log10(inArray));
     }
 
     //================================================================================
@@ -1746,7 +1808,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype log1pScalar(dtype inValue)
     {
-        return Methods<dtype>::log1p(inValue);
+        return log1p(inValue);
     }
 
     //================================================================================
@@ -1754,7 +1816,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray log1pArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::log1p(inArray));
+        return numCToBoost(log1p(inArray));
     }
 
     //================================================================================
@@ -1762,7 +1824,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype log2Scalar(dtype inValue)
     {
-        return Methods<dtype>::log2(inValue);
+        return log2(inValue);
     }
 
     //================================================================================
@@ -1770,21 +1832,21 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray log2Array(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::log2(inArray));
+        return numCToBoost(log2(inArray));
     }
 
     template<typename dtype>
-    dtype newbyteorderScalar(dtype inValue, Endian::Type inEndianess)
+    dtype newbyteorderScalar(dtype inValue, Endian inEndianess)
     {
-        return Methods<dtype>::newbyteorder(inValue, inEndianess);
+        return newbyteorder(inValue, inEndianess);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray newbyteorderArray(const NdArray<dtype>& inArray, Endian::Type inEndianess)
+    np::ndarray newbyteorderArray(const NdArray<dtype>& inArray, Endian inEndianess)
     {
-        return numCToBoost(Methods<dtype>::newbyteorder(inArray, inEndianess));
+        return numCToBoost(newbyteorder(inArray, inEndianess));
     }
 
     //================================================================================
@@ -1792,7 +1854,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray onesSquare(uint32 inSquareSize)
     {
-        return numCToBoost(Methods<dtype>::ones(inSquareSize));
+        return numCToBoost(ones<dtype>(inSquareSize));
     }
 
     //================================================================================
@@ -1800,7 +1862,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray onesRowCol(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(Methods<dtype>::ones(inNumRows, inNumCols));
+        return numCToBoost(ones<dtype>(inNumRows, inNumCols));
     }
 
     //================================================================================
@@ -1808,7 +1870,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray onesShape(const Shape& inShape)
     {
-        return numCToBoost(Methods<dtype>::ones(inShape));
+        return numCToBoost(ones<dtype>(inShape));
     }
 
     //================================================================================
@@ -1816,23 +1878,23 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray sqrArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::sqr(inArray));
+        return numCToBoost(sqr(inArray));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray powerArrayScalar(const NdArray<dtype>& inArray, uint8 inExponent)
     {
-        return numCToBoost(Methods<dtype>::power<dtypeOut>(inArray, inExponent));
+        return numCToBoost(power<dtypeOut>(inArray, inExponent));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray powerArrayArray(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
     {
-        return numCToBoost(Methods<dtype>::power<dtypeOut>(inArray, inExponents));
+        return numCToBoost(power<dtypeOut>(inArray, inExponents));
     }
 
     //================================================================================
@@ -1840,7 +1902,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
     {
-        return numCToBoost(Methods<dtype>::putmask(inArray, inMask, inValues));
+        return numCToBoost(NC::putmask(inArray, inMask, inValues));
     }
 
     //================================================================================
@@ -1848,7 +1910,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray putmaskScalar(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
     {
-        return numCToBoost(Methods<dtype>::putmask(inArray, inMask, inValue));
+        return numCToBoost(putmask(inArray, inMask, inValue));
     }
 
     //================================================================================
@@ -1856,7 +1918,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype rad2degScalar(dtype inValue)
     {
-        return Methods<dtype>::rad2deg(inValue);
+        return rad2deg(inValue);
     }
 
     //================================================================================
@@ -1864,23 +1926,23 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray rad2degArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::rad2deg(inArray));
+        return numCToBoost(rad2deg(inArray));
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     dtype remainderScalar(dtype inValue1, dtype inValue2)
     {
-        return Methods<dtype>::remainder<dtypeOut>(inValue1, inValue2);
+        return remainder<dtypeOut>(inValue1, inValue2);
     }
 
     //================================================================================
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray remainderArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(Methods<dtype>::remainder<dtypeOut>(inArray1, inArray2));
+        return numCToBoost(remainder<dtypeOut>(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1888,7 +1950,7 @@ namespace MethodsInterface
     template<typename dtype>
     NdArray<dtype>& reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        return Methods<dtype>::reshape(inArray, inNewShape);
+        return NC::reshape(inArray, inNewShape);
     }
 
     //================================================================================
@@ -1896,7 +1958,7 @@ namespace MethodsInterface
     template<typename dtype>
     NdArray<dtype>& reshapeList(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        return Methods<dtype>::reshape(inArray, inNewShape.rows, inNewShape.cols);
+        return reshape(inArray, inNewShape.rows, inNewShape.cols);
     }
 
     //================================================================================
@@ -1904,7 +1966,7 @@ namespace MethodsInterface
     template<typename dtype>
     NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        return Methods<dtype>::resizeFast(inArray, inNewShape);
+        return NC::resizeFast(inArray, inNewShape);
     }
 
     //================================================================================
@@ -1912,7 +1974,7 @@ namespace MethodsInterface
     template<typename dtype>
     NdArray<dtype>& resizeFastList(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        return Methods<dtype>::resizeFast(inArray, inNewShape.rows, inNewShape.cols);
+        return resizeFast(inArray, inNewShape.rows, inNewShape.cols);
     }
 
     //================================================================================
@@ -1920,7 +1982,7 @@ namespace MethodsInterface
     template<typename dtype>
     NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        return Methods<dtype>::resizeSlow(inArray, inNewShape);
+        return NC::resizeSlow(inArray, inNewShape);
     }
 
     //================================================================================
@@ -1928,7 +1990,7 @@ namespace MethodsInterface
     template<typename dtype>
     NdArray<dtype>& resizeSlowList(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
-        return Methods<dtype>::resizeSlow(inArray, inNewShape.rows, inNewShape.cols);
+        return resizeSlow(inArray, inNewShape.rows, inNewShape.cols);
     }
 
     //================================================================================
@@ -1936,7 +1998,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype rintScalar(dtype inValue)
     {
-        return Methods<dtype>::rint(inValue);
+        return rint(inValue);
     }
 
     //================================================================================
@@ -1944,7 +2006,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray rintArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::rint(inArray));
+        return numCToBoost(rint(inArray));
     }
 
     //================================================================================
@@ -1952,7 +2014,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype roundScalar(dtype inValue, uint8 inDecimals)
     {
-        return Methods<dtype>::round(inValue, inDecimals);
+        return round(inValue, inDecimals);
     }
 
     //================================================================================
@@ -1960,7 +2022,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray roundArray(const NdArray<dtype>& inArray, uint8 inDecimals)
     {
-        return numCToBoost(Methods<dtype>::round(inArray, inDecimals));
+        return numCToBoost(round(inArray, inDecimals));
     }
 
     //================================================================================
@@ -1969,7 +2031,7 @@ namespace MethodsInterface
     np::ndarray row_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(Methods<dtype>::row_stack({ inArray1, inArray2, inArray3, inArray4 }));
+        return numCToBoost(NC::row_stack({ inArray1, inArray2, inArray3, inArray4 }));
     }
 
     //================================================================================
@@ -1977,7 +2039,7 @@ namespace MethodsInterface
     template<typename dtype>
     int8 signScalar(dtype inValue)
     {
-        return Methods<dtype>::sign(inValue);
+        return sign(inValue);
     }
 
     //================================================================================
@@ -1985,7 +2047,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray signArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::sign(inArray));
+        return numCToBoost(sign(inArray));
     }
 
     //================================================================================
@@ -1993,7 +2055,7 @@ namespace MethodsInterface
     template<typename dtype>
     bool signbitScalar(dtype inValue)
     {
-        return Methods<dtype>::signbit(inValue);
+        return signbit(inValue);
     }
 
     //================================================================================
@@ -2001,7 +2063,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray signbitArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::signbit(inArray));
+        return numCToBoost(signbit(inArray));
     }
 
     //================================================================================
@@ -2009,7 +2071,7 @@ namespace MethodsInterface
     template<typename dtype>
     double sinScalar(dtype inValue)
     {
-        return Methods<dtype>::sin(inValue);
+        return sin(inValue);
     }
 
     //================================================================================
@@ -2017,7 +2079,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray sinArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::sin(inArray));
+        return numCToBoost(sin(inArray));
     }
 
     //================================================================================
@@ -2025,7 +2087,7 @@ namespace MethodsInterface
     template<typename dtype>
     double sincScalar(dtype inValue)
     {
-        return Methods<dtype>::sinc(inValue);
+        return sinc(inValue);
     }
 
     //================================================================================
@@ -2033,7 +2095,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray sincArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::sinc(inArray));
+        return numCToBoost(sinc(inArray));
     }
 
     //================================================================================
@@ -2041,7 +2103,7 @@ namespace MethodsInterface
     template<typename dtype>
     double sinhScalar(dtype inValue)
     {
-        return Methods<dtype>::sinh(inValue);
+        return sinh(inValue);
     }
 
     //================================================================================
@@ -2049,7 +2111,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray sinhArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::sinh(inArray));
+        return numCToBoost(sinh(inArray));
     }
 
     //================================================================================
@@ -2057,7 +2119,7 @@ namespace MethodsInterface
     template<typename dtype>
     double sqrtScalar(dtype inValue)
     {
-        return Methods<dtype>::sqrt(inValue);
+        return sqrt(inValue);
     }
 
     //================================================================================
@@ -2065,7 +2127,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray sqrtArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::sqrt(inArray));
+        return numCToBoost(sqrt(inArray));
     }
 
     //================================================================================
@@ -2073,7 +2135,7 @@ namespace MethodsInterface
     template<typename dtype>
     double squareScalar(dtype inValue)
     {
-        return Methods<dtype>::square(inValue);
+        return square(inValue);
     }
 
     //================================================================================
@@ -2081,7 +2143,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray squareArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::square(inArray));
+        return numCToBoost(square(inArray));
     }
 
     //================================================================================
@@ -2089,7 +2151,7 @@ namespace MethodsInterface
     template<typename dtype>
     double tanScalar(dtype inValue)
     {
-        return Methods<dtype>::tan(inValue);
+        return tan(inValue);
     }
 
     //================================================================================
@@ -2097,7 +2159,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray tanArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::tan(inArray));
+        return numCToBoost(tan(inArray));
     }
 
     //================================================================================
@@ -2105,7 +2167,7 @@ namespace MethodsInterface
     template<typename dtype>
     double tanhScalar(dtype inValue)
     {
-        return Methods<dtype>::tanh(inValue);
+        return tanh(inValue);
     }
 
     //================================================================================
@@ -2113,7 +2175,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray tanhArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::tanh(inArray));
+        return numCToBoost(tanh(inArray));
     }
 
     //================================================================================
@@ -2121,7 +2183,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray tileRectangle(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(Methods<dtype>::tile(inArray, inNumRows, inNumCols));
+        return numCToBoost(tile(inArray, inNumRows, inNumCols));
     }
 
     //================================================================================
@@ -2129,7 +2191,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray tileShape(const NdArray<dtype>& inArray, const Shape& inRepShape)
     {
-        return numCToBoost(Methods<dtype>::tile(inArray, inRepShape));
+        return numCToBoost(tile(inArray, inRepShape));
     }
 
     //================================================================================
@@ -2137,39 +2199,71 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray tileList(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(Methods<dtype>::tile(inArray, { inNumRows, inNumCols }));
+        return numCToBoost(tile(inArray, { inNumRows, inNumCols }));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray trapzDx(const NdArray<dtype>& inY, double dx = 1.0, Axis::Type inAxis = Axis::NONE)
+    np::ndarray trapzDx(const NdArray<dtype>& inY, double dx = 1.0, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::trapz(inY, dx, inAxis));
+        return numCToBoost(trapz(inY, dx, inAxis));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray trapz(const NdArray<dtype>& inY, const NdArray<dtype>& inX, Axis::Type inAxis = Axis::NONE)
+    np::ndarray trapz(const NdArray<dtype>& inY, const NdArray<dtype>& inX, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(Methods<dtype>::trapz(inY, inX, inAxis));
+        return numCToBoost(NC::trapz(inY, inX, inAxis));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray triSquare(uint32 inSquareSize, int32 inOffset)
+    np::ndarray triuSquare(uint32 inSquareSize, int32 inOffset)
     {
-        return numCToBoost(Methods<dtype>::tri(inSquareSize, inOffset));
+        return numCToBoost(triu<dtype>(inSquareSize, inOffset));
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray triRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
+    np::ndarray triuRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
     {
-        return numCToBoost(Methods<dtype>::tri(inNumRows, inNumCols, inOffset));
+        return numCToBoost(triu<dtype>(inNumRows, inNumCols, inOffset));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray triuArray(const NdArray<dtype>& inArray, int32 inOffset)
+    {
+        return numCToBoost(triu(inArray, inOffset));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray trilSquare(uint32 inSquareSize, int32 inOffset)
+    {
+        return numCToBoost(tril<dtype>(inSquareSize, inOffset));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray trilRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
+    {
+        return numCToBoost(tril<dtype>(inNumRows, inNumCols, inOffset));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray trilArray(const NdArray<dtype>& inArray, int32 inOffset)
+    {
+        return numCToBoost(tril(inArray, inOffset));
     }
 
     //================================================================================
@@ -2177,7 +2271,7 @@ namespace MethodsInterface
     template<typename dtype>
     dtype unwrapScalar(dtype inValue)
     {
-        return Methods<dtype>::unwrap(inValue);
+        return unwrap(inValue);
     }
 
     //================================================================================
@@ -2185,7 +2279,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray unwrapArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::unwrap(inArray));
+        return numCToBoost(unwrap(inArray));
     }
 
     //================================================================================
@@ -2193,7 +2287,7 @@ namespace MethodsInterface
     template<typename dtype>
     double truncScalar(dtype inValue)
     {
-        return Methods<dtype>::trunc(inValue);
+        return trunc(inValue);
     }
 
     //================================================================================
@@ -2201,7 +2295,16 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray truncArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Methods<dtype>::trunc(inArray));
+        return numCToBoost(trunc(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
+        const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, NC::Axis inAxis)
+    {
+        return numCToBoost(NC::stack({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
 
     //================================================================================
@@ -2210,7 +2313,15 @@ namespace MethodsInterface
     np::ndarray vstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(Methods<dtype>::vstack({ inArray1, inArray2, inArray3, inArray4 }));
+        return numCToBoost(NC::vstack({ inArray1, inArray2, inArray3, inArray4 }));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
+    {
+        return numCToBoost(NC::where(inMask, inA, inB));
     }
 
     //================================================================================
@@ -2218,7 +2329,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray zerosSquare(uint32 inSquareSize)
     {
-        return numCToBoost(Methods<dtype>::zeros(inSquareSize));
+        return numCToBoost(zeros<dtype>(inSquareSize));
     }
 
     //================================================================================
@@ -2226,7 +2337,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray zerosRowCol(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(Methods<dtype>::zeros(inNumRows, inNumCols));
+        return numCToBoost(zeros<dtype>(inNumRows, inNumCols));
     }
 
     //================================================================================
@@ -2234,7 +2345,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray zerosShape(const Shape& inShape)
     {
-        return numCToBoost(Methods<dtype>::zeros(inShape));
+        return numCToBoost(zeros<dtype>(inShape));
     }
 
     //================================================================================
@@ -2242,7 +2353,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray zerosList(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(Methods<dtype>::zeros({ inNumRows, inNumCols }));
+        return numCToBoost(zeros<dtype>({ inNumRows, inNumCols }));
     }
 }
 
@@ -2268,13 +2379,13 @@ namespace LinalgInterface
     template<typename dtype>
     np::ndarray hatArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Linalg<dtype>::hat(inArray));
+        return numCToBoost(Linalg::hat<dtype>(inArray));
     }
 
-    template<typename dtype, typename dtypeOut>
+    template<typename dtypeOut, typename dtype>
     np::ndarray multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(Linalg<dtype>::multi_dot<dtypeOut>({ inArray1 ,inArray2, inArray3, inArray4 }));
+        return numCToBoost(Linalg::multi_dot<dtypeOut>({ inArray1 ,inArray2, inArray3, inArray4 }));
     }
 }
 
@@ -2392,6 +2503,21 @@ namespace DataCubeInterface
     }
 }
 
+namespace RandomInterface
+{
+    template<typename dtype>
+    dtype choiceSingle(const NdArray<dtype>& inArray)
+    {
+        return NC::Random<dtype>::choice(inArray);
+    }
+
+    template<typename dtype>
+    np::ndarray choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
+    {
+        return numCToBoost(NC::Random<dtype>::choice(inArray, inNum));
+    }
+}
+
 //================================================================================
 
 BOOST_PYTHON_MODULE(NumCpp)
@@ -2461,12 +2587,12 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("toc", &MicroTimer::toc);
 
     // Types.hpp
-    bp::enum_<Axis::Type>("Axis")
+    bp::enum_<Axis>("Axis")
         .value("NONE", Axis::NONE)
         .value("ROW", Axis::ROW)
         .value("COL", Axis::COL);
 
-    bp::enum_<Endian::Type>("Endian")
+    bp::enum_<Endian>("Endian")
         .value("NATIVE", Endian::NATIVE)
         .value("BIG", Endian::BIG)
         .value("LITTLE", Endian::LITTLE);
@@ -2490,6 +2616,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("argmax", &NdArrayInterface::argmax<double>)
         .def("argmin", &NdArrayInterface::argmin<double>)
         .def("argsort", &NdArrayInterface::argsort<double>)
+        .def("back", &NdArrayDouble::back)
         .def("clip", &NdArrayInterface::clip<double>)
         .def("copy", &NdArrayInterface::copy<double>)
         .def("contains", &NdArrayInterface::contains<double>)
@@ -2503,12 +2630,15 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("dump", &NdArrayDouble::dump)
         .def("fill", &NdArrayInterface::fill<double>)
         .def("flatten", &NdArrayInterface::flatten<double>)
+        .def("front", &NdArrayDouble::front)
         .def("get", &NdArrayInterface::getValueFlat<double>)
         .def("get", &NdArrayInterface::getValueRowCol<double>)
         .def("get", &NdArrayInterface::getSlice1D<double>)
         .def("get", &NdArrayInterface::getSlice2D<double>)
         .def("get", &NdArrayInterface::getSlice2DRow<double>)
         .def("get", &NdArrayInterface::getSlice2DCol<double>)
+        .def("getByIndices", &NdArrayInterface::getByIndices<double>)
+        .def("getByMask", &NdArrayInterface::getByMask<double>)
         .def("item", &NdArrayDouble::item)
         .def("max", &NdArrayInterface::max<double>)
         .def("min", &NdArrayInterface::min<double>)
@@ -2518,12 +2648,12 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("nbytes", &NdArrayDouble::nbytes)
         .def("nonzero", &NdArrayInterface::nonzero<double>)
         .def("norm", &NdArrayInterface::norm<double, double>)
-        //.def("norm", &NdArrayInterface::norm<double, float>)
+        //.def("norm", &NdArrayInterface::norm<float, double>)
         .def("ones", &NdArrayInterface::ones<double>)
         .def("partition", &NdArrayInterface::partition<double>)
         .def("print", &NdArrayDouble::print)
         .def("prod", &NdArrayInterface::prod<double, double>)
-        //.def("prod", &NdArrayInterface::prod<double, float>)
+        //.def("prod", &NdArrayInterface::prod<float, double>)
         .def("ptp", &NdArrayInterface::ptp<double>)
         .def("put", &NdArrayInterface::putFlat<double>)
         .def("put", &NdArrayInterface::putRowCol<double>)
@@ -2535,6 +2665,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("put", &NdArrayInterface::putSlice2DValues<double>)
         .def("put", &NdArrayInterface::putSlice2DValuesRow<double>)
         .def("put", &NdArrayInterface::putSlice2DValuesCol<double>)
+        .def("putMask", &NdArrayInterface::putMaskSingle<double>)
+        .def("putMask", &NdArrayInterface::putMaskMultiple<double>)
         .def("repeat", &NdArrayInterface::repeat<double>)
         .def("reshape", &NdArrayInterface::reshape<double>)
         .def("reshapeList", &NdArrayInterface::reshapeList<double>)
@@ -2548,7 +2680,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("sort", &NdArrayInterface::sort<double>)
         .def("std", &NdArrayInterface::std<double>)
         .def("sum", &NdArrayInterface::sum<double, double>)
-        //.def("sum", &NdArrayInterface::sum<double, float>)
+        //.def("sum", &NdArrayInterface::sum<float, double>)
         .def("swapaxes", &NdArrayInterface::swapaxes<double>)
         .def("tofile", &NdArrayDouble::tofile)
         .def("toStlVector", &NdArrayDouble::toStlVector)
@@ -2673,374 +2805,353 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("setArray", &NdArrayInterface::setArray<float>);
 
     // Methods.hpp
-    typedef Methods<double> MethodsDouble;
-    bp::class_<MethodsDouble>
-        ("MethodsDouble", bp::init<>())
-        .def("absScalar", &MethodsInterface::absScalar<double>).staticmethod("absScalar")
-        .def("absArray", &MethodsInterface::absArray<double>).staticmethod("absArray")
-        .def("add", &MethodsInterface::addArrays<double, double>).staticmethod("add")
-        //.def("add", &MethodsInterface::addArrays<double, float>).staticmethod("add")
-        .def("alen", &MethodsDouble::alen).staticmethod("alen")
-        .def("all", &MethodsInterface::allArray<double>).staticmethod("all")
-        .def("allclose", &MethodsDouble::allclose).staticmethod("allclose")
-        .def("amin", &MethodsInterface::aminArray<double>).staticmethod("amin")
-        .def("amax", &MethodsInterface::amaxArray<double>).staticmethod("amax")
-        .def("any", &MethodsInterface::anyArray<double>).staticmethod("any")
-        .def("append", &MethodsDouble::append).staticmethod("append")
-        .def("arange", &MethodsInterface::arangeArray<double>).staticmethod("arange")
-        .def("arccosScalar", &MethodsInterface::arccosScalar<double>).staticmethod("arccosScalar")
-        .def("arccosArray", &MethodsInterface::arccosArray<double>).staticmethod("arccosArray")
-        .def("arccoshScalar", &MethodsInterface::arccoshScalar<double>).staticmethod("arccoshScalar")
-        .def("arccoshArray", &MethodsInterface::arccoshArray<double>).staticmethod("arccoshArray")
-        .def("arcsinScalar", &MethodsInterface::arcsinScalar<double>).staticmethod("arcsinScalar")
-        .def("arcsinArray", &MethodsInterface::arcsinArray<double>).staticmethod("arcsinArray")
-        .def("arcsinhScalar", &MethodsInterface::arcsinhScalar<double>).staticmethod("arcsinhScalar")
-        .def("arcsinhArray", &MethodsInterface::arcsinhArray<double>).staticmethod("arcsinhArray")
-        .def("arctanScalar", &MethodsInterface::arctanScalar<double>).staticmethod("arctanScalar")
-        .def("arctanArray", &MethodsInterface::arctanArray<double>).staticmethod("arctanArray")
-        .def("arctan2Scalar", &MethodsInterface::arctan2Scalar<double>).staticmethod("arctan2Scalar")
-        .def("arctan2Array", &MethodsInterface::arctan2Array<double>).staticmethod("arctan2Array")
-        .def("arctanhScalar", &MethodsInterface::arctanhScalar<double>).staticmethod("arctanhScalar")
-        .def("arctanhArray", &MethodsInterface::arctanhArray<double>).staticmethod("arctanhArray")
-        .def("argmax", &MethodsInterface::argmaxArray<double>).staticmethod("argmax")
-        .def("argmin", &MethodsInterface::argminArray<double>).staticmethod("argmin")
-        .def("argsort", &MethodsInterface::argsortArray<double>).staticmethod("argsort")
-        .def("argwhere", &MethodsInterface::argwhere<double>).staticmethod("argwhere")
-        .def("aroundScalar", &MethodsInterface::aroundScalar<double>).staticmethod("aroundScalar")
-        .def("aroundArray", &MethodsInterface::aroundArray<double>).staticmethod("aroundArray")
-        .def("array_equal", &MethodsDouble::array_equal).staticmethod("array_equal")
-        .def("array_equiv", &MethodsDouble::array_equiv).staticmethod("array_equiv")
-        .def("asarrayVector", &MethodsInterface::asarrayVector<double>).staticmethod("asarrayVector")
-        .def("asarrayList", &MethodsInterface::asarrayList<double>).staticmethod("asarrayList")
-        .def("astype", &Methods<uint32>::astype<double>).staticmethod("astype")
-        .def("average", &MethodsInterface::average<double>).staticmethod("average")
-        .def("averageWeighted", &MethodsInterface::averageWeighted<double>).staticmethod("averageWeighted")
-        .def("bincount", &MethodsInterface::bincount<uint32>).staticmethod("bincount")
-        .def("bincountWeighted", &MethodsInterface::bincountWeighted<uint32>).staticmethod("bincountWeighted")
-        .def("bitwise_and", &MethodsInterface::bitwise_and<uint64>).staticmethod("bitwise_and")
-        .def("bitwise_not", &MethodsInterface::bitwise_not<uint64>).staticmethod("bitwise_not")
-        .def("bitwise_or", &MethodsInterface::bitwise_or<uint64>).staticmethod("bitwise_or")
-        .def("bitwise_xor", &MethodsInterface::bitwise_xor<uint64>).staticmethod("bitwise_xor")
-        .def("byteswap", &MethodsInterface::byteswap<uint64>).staticmethod("byteswap")
-        .def("cbrtScalar", &MethodsInterface::cbrtScalar<double>).staticmethod("cbrtScalar")
-        .def("cbrtArray", &MethodsInterface::cbrtArray<double>).staticmethod("cbrtArray")
-        .def("ceilScalar", &MethodsInterface::ceilScalar<double>).staticmethod("ceilScalar")
-        .def("ceilArray", &MethodsInterface::ceilArray<double>).staticmethod("ceilArray")
-        .def("clipScalar", &MethodsInterface::clipScalar<double>).staticmethod("clipScalar")
-        .def("clipArray", &MethodsInterface::clipArray<double>).staticmethod("clipArray")
-        .def("column_stack", &MethodsInterface::column_stack<double>).staticmethod("column_stack")
-        .def("concatenate", &MethodsInterface::concatenate<double>).staticmethod("concatenate")
-        .def("contains", &MethodsDouble::contains).staticmethod("contains")
-        .def("copy", &MethodsInterface::copy<double>).staticmethod("copy")
-        .def("copysign", &MethodsInterface::copySign<double>).staticmethod("copysign")
-        .def("copyto", &MethodsInterface::copyto<double>).staticmethod("copyto")
-        .def("cosScalar", &MethodsInterface::cosScalar<double>).staticmethod("cosScalar")
-        .def("cosArray", &MethodsInterface::cosArray<double>).staticmethod("cosArray")
-        .def("coshScalar", &MethodsInterface::coshScalar<double>).staticmethod("coshScalar")
-        .def("coshArray", &MethodsInterface::coshArray<double>).staticmethod("coshArray")
-        .def("count_nonzero", &MethodsInterface::count_nonzero<double>).staticmethod("count_nonzero")
-        .def("cross", &MethodsDouble::cross<double>).staticmethod("cross")
-        .def("cube", &MethodsInterface::cubeArray<double, double>).staticmethod("cube")
-        //.def("cube", &MethodsInterface::cubeArray<double, float>).staticmethod("cube")
-        .def("cumprod", &MethodsInterface::cumprodArray<double, double>).staticmethod("cumprod")
-        //.def("cumprod", &MethodsInterface::cumprodArray<double, float>).staticmethod("cumprod")
-        .def("cumsum", &MethodsInterface::cumsumArray<double, double>).staticmethod("cumsum")
-        //.def("cumsum", &MethodsInterface::cumsumArray<double, float>).staticmethod("cumsum")
-        .def("deg2radScalar", &MethodsInterface::deg2radScalar<double>).staticmethod("deg2radScalar")
-        .def("deg2radArray", &MethodsInterface::deg2radArray<double>).staticmethod("deg2radArray")
-        .def("deleteIndicesScalar", &MethodsInterface::deleteIndicesScalar<double>).staticmethod("deleteIndicesScalar")
-        .def("deleteIndicesSlice", &MethodsInterface::deleteIndicesSlice<double>).staticmethod("deleteIndicesSlice")
-        .def("diagflat", &MethodsInterface::diagflat<double>).staticmethod("diagflat")
-        .def("diagonal", &MethodsInterface::diagonal<double>).staticmethod("diagonal")
-        .def("diff", &MethodsInterface::diff<double>).staticmethod("diff")
-        .def("divide", &MethodsInterface::divide<double, double>).staticmethod("divide")
-        //.def("divide", &MethodsInterface::divide<double, float>).staticmethod("divide")
-        .def("dot", &MethodsInterface::dot<double, double>).staticmethod("dot")
-        //.def("dot", &MethodsInterface::dot<double, float>).staticmethod("dot")
-        .def("dump", &MethodsDouble::dump).staticmethod("dump")
-        .def("emptyRowCol", &MethodsInterface::emptyRowCol<double>).staticmethod("emptyRowCol")
-        .def("emptyShape", &MethodsInterface::emptyShape<double>).staticmethod("emptyShape")
-        .def("empty_like", &MethodsDouble::empty_like<double>).staticmethod("empty_like")
-        //.def("empty_like", &MethodsDouble::empty_like<float>).staticmethod("empty_like")
-        .def("endianess", &MethodsDouble::endianess).staticmethod("endianess")
-        .def("equal", &MethodsInterface::equal<double>).staticmethod("equal")
-        .def("expScalar", &MethodsInterface::expScalar<double>).staticmethod("expScalar")
-        .def("expArray", &MethodsInterface::expArray<double>).staticmethod("expArray")
-        .def("exp2Scalar", &MethodsInterface::exp2Scalar<double>).staticmethod("exp2Scalar")
-        .def("exp2Array", &MethodsInterface::exp2Array<double>).staticmethod("exp2Array")
-        .def("expm1Scalar", &MethodsInterface::expm1Scalar<double>).staticmethod("expm1Scalar")
-        .def("expm1Array", &MethodsInterface::expm1Array<double>).staticmethod("expm1Array")
-        .def("eye1D", &MethodsInterface::eye1D<double>).staticmethod("eye1D")
-        .def("eye2D", &MethodsInterface::eye2D<double>).staticmethod("eye2D")
-        .def("eyeShape", &MethodsInterface::eyeShape<double>).staticmethod("eyeShape")
-        .def("fixScalar", &MethodsInterface::fixScalar<double>).staticmethod("fixScalar")
-        .def("fixArray", &MethodsInterface::fixArray<double>).staticmethod("fixArray")
-        .def("flatten", &MethodsDouble::flatten).staticmethod("flatten")
-        .def("flatnonzero", &MethodsDouble::flatnonzero).staticmethod("flatnonzero")
-        .def("flip", &MethodsDouble::flip).staticmethod("flip")
-        .def("fliplr", &MethodsDouble::fliplr).staticmethod("fliplr")
-        .def("flipud", &MethodsDouble::flipud).staticmethod("flipud")
-        .def("floorScalar", &MethodsInterface::floorScalar<double>).staticmethod("floorScalar")
-        .def("floorArray", &MethodsInterface::floorArray<double>).staticmethod("floorArray")
-        .def("floor_divideScalar", &MethodsInterface::floor_divideScalar<double>).staticmethod("floor_divideScalar")
-        .def("floor_divideArray", &MethodsInterface::floor_divideArray<double>).staticmethod("floor_divideArray")
-        .def("fmaxScalar", &MethodsInterface::fmaxScalar<double>).staticmethod("fmaxScalar")
-        .def("fmaxArray", &MethodsInterface::fmaxArray<double>).staticmethod("fmaxArray")
-        .def("fminScalar", &MethodsInterface::fminScalar<double>).staticmethod("fminScalar")
-        .def("fminArray", &MethodsInterface::fminArray<double>).staticmethod("fminArray")
-        .def("fmodScalar", &MethodsInterface::fmodScalar<uint32>).staticmethod("fmodScalar")
-        .def("fmodArray", &MethodsInterface::fmodArray<uint32>).staticmethod("fmodArray")
-        .def("fromfile", &MethodsDouble::fromfile).staticmethod("fromfile")
-        .def("fullSquare", &MethodsInterface::fullSquare<double>).staticmethod("fullSquare")
-        .def("fullRowCol", &MethodsInterface::fullRowCol<double>).staticmethod("fullRowCol")
-        .def("fullShape", &MethodsInterface::fullShape<double>).staticmethod("fullShape")
-        .def("full_like", &MethodsDouble::full_like<double>).staticmethod("full_like")
-        //.def("full_like", &MethodsDouble::full_like<float>).staticmethod("full_like")
-        .def("greater", &MethodsDouble::greater).staticmethod("greater")
-        .def("greater_equal", &MethodsDouble::greater_equal).staticmethod("greater_equal")
-        .def("histogram", &MethodsInterface::histogram<double>).staticmethod("histogram")
-        .def("hstack", &MethodsInterface::hstack<double>).staticmethod("hstack")
-        .def("hypotScalar", &MethodsInterface::hypotScalar<double, double>).staticmethod("hypotScalar")
-        //.def("hypotScalar", &MethodsInterface::hypotScalar<double, float>).staticmethod("hypot")
-        .def("hypotArray", &MethodsInterface::hypotArray<double, double>).staticmethod("hypotArray")
-        //.def("hypotArray", &MethodsInterface::hypotArray<double, float>).staticmethod("hypot")
-        .def("identity", &MethodsDouble::identity).staticmethod("identity")
-        .def("intersect1d", &Methods<uint32>::intersect1d).staticmethod("intersect1d")
-        .def("invert", &Methods<uint32>::invert).staticmethod("invert")
-        .def("isclose", &MethodsDouble::isclose).staticmethod("isclose")
-        .def("isnanScalar", &MethodsInterface::isnanScalar<double>).staticmethod("isnanScalar")
-        .def("isnanArray", &MethodsInterface::isnanArray<double>).staticmethod("isnanArray")
-        .def("ldexpScalar", &MethodsInterface::ldexpScalar<double>).staticmethod("ldexpScalar")
-        .def("ldexpArray", &MethodsInterface::ldexpArray<double>).staticmethod("ldexpArray")
-        .def("left_shift", &Methods<uint32>::left_shift).staticmethod("left_shift")
-        .def("less", &MethodsDouble::less).staticmethod("less")
-        .def("less_equal", &MethodsDouble::less_equal).staticmethod("less_equal")
-        .def("linspace", &MethodsDouble::linspace).staticmethod("linspace")
-        .def("load", &MethodsDouble::load).staticmethod("load")
-        .def("logScalar", &MethodsInterface::logScalar<double>).staticmethod("logScalar")
-        .def("logArray", &MethodsInterface::logArray<double>).staticmethod("logArray")
-        .def("log10Scalar", &MethodsInterface::log10Scalar<double>).staticmethod("log10Scalar")
-        .def("log10Array", &MethodsInterface::log10Array<double>).staticmethod("log10Array")
-        .def("log1pScalar", &MethodsInterface::log1pScalar<double>).staticmethod("log1pScalar")
-        .def("log1pArray", &MethodsInterface::log1pArray<double>).staticmethod("log1pArray")
-        .def("log2Scalar", &MethodsInterface::log2Scalar<double>).staticmethod("log2Scalar")
-        .def("log2Array", &MethodsInterface::log2Array<double>).staticmethod("log2Array")
-        .def("logical_and", &MethodsDouble::logical_and).staticmethod("logical_and")
-        .def("logical_not", &MethodsDouble::logical_not).staticmethod("logical_not")
-        .def("logical_or", &MethodsDouble::logical_or).staticmethod("logical_or")
-        .def("logical_xor", &MethodsDouble::logical_xor).staticmethod("logical_xor")
-        .def("matmul", &MethodsDouble::matmul<double>).staticmethod("matmul")
-        //.def("matmul", &MethodsDouble::matmul<float>).staticmethod("matmul")
-        .def("max", &MethodsDouble::max).staticmethod("max")
-        .def("maximum", &MethodsDouble::maximum).staticmethod("maximum")
-        .def("mean", &MethodsDouble::mean).staticmethod("mean")
-        .def("median", &MethodsDouble::median).staticmethod("median")
-        .def("min", &MethodsDouble::min).staticmethod("min")
-        .def("minimum", &MethodsDouble::minimum).staticmethod("minimum")
-        .def("mod", &Methods<uint32>::mod).staticmethod("mod")
-        .def("multiply", &MethodsDouble::multiply).staticmethod("multiply")
-        .def("nanargmax", &MethodsDouble::nanargmax).staticmethod("nanargmax")
-        .def("nanargmin", &MethodsDouble::nanargmin).staticmethod("nanargmin")
-        .def("nancumprod", &MethodsDouble::nancumprod<double>).staticmethod("nancumprod")
-        //.def("nancumprod", &MethodsDouble::nancumprod<float>).staticmethod("nancumprod")
-        .def("nancumsum", &MethodsDouble::nancumsum<double>).staticmethod("nancumsum")
-        //.def("nancumsum", &MethodsDouble::nancumsum<float>).staticmethod("nancumsum")
-        .def("nanmax", &MethodsDouble::nanmax).staticmethod("nanmax")
-        .def("nanmean", &MethodsDouble::nanmean).staticmethod("nanmean")
-        .def("nanmedian", &MethodsDouble::nanmedian).staticmethod("nanmedian")
-        .def("nanmin", &MethodsDouble::nanmin).staticmethod("nanmin")
-        .def("nanpercentile", &MethodsDouble::nanpercentile<double>).staticmethod("nanpercentile")
-        .def("nanprod", &MethodsDouble::nanprod<double>).staticmethod("nanprod")
-        //.def("nanprod", &MethodsDouble::nanprod<float>).staticmethod("nanprod")
-        .def("nansSquare", &MethodsInterface::nansSquare<double>).staticmethod("nansSquare")
-        .def("nansRowCol", &MethodsInterface::nansRowCol<double>).staticmethod("nansRowCol")
-        .def("nansShape", &MethodsInterface::nansShape<double>).staticmethod("nansShape")
-        .def("nansList", &MethodsInterface::nansList<double>).staticmethod("nansList")
-        .def("nanstd", &MethodsDouble::nanstd).staticmethod("nanstd")
-        .def("nansum", &MethodsDouble::nansum<double>).staticmethod("nansum")
-        //.def("nansum", &MethodsDouble::nansum<float>).staticmethod("nansum")
-        .def("nanvar", &MethodsDouble::nanvar).staticmethod("nanvar")
-        .def("nbytes", &MethodsDouble::nbytes).staticmethod("nbytes")
-        .def("newbyteorderScalar", &MethodsInterface::newbyteorderScalar<uint32>).staticmethod("newbyteorderScalar")
-        .def("newbyteorderArray", &MethodsInterface::newbyteorderArray<uint32>).staticmethod("newbyteorderArray")
-        .def("negative", &MethodsDouble::negative<double>).staticmethod("negative")
-        //.def("negative", &MethodsDouble::negative<float>).staticmethod("negative")
-        .def("nonzero", &MethodsDouble::nonzero).staticmethod("nonzero")
-        .def("norm", &MethodsDouble::norm<double>).staticmethod("norm")
-        //.def("norm", &MethodsDouble::norm<float>).staticmethod("norm")
-        .def("not_equal", &MethodsDouble::not_equal).staticmethod("not_equal")
-        .def("onesSquare", &MethodsInterface::onesSquare<double>).staticmethod("onesSquare")
-        .def("onesRowCol", &MethodsInterface::onesRowCol<double>).staticmethod("onesRowCol")
-        .def("onesShape", &MethodsInterface::onesShape<double>).staticmethod("onesShape")
-        .def("ones_like", &MethodsDouble::ones_like<double>).staticmethod("ones_like")
-        //.def("ones_like", &MethodsDouble::ones_like<float>).staticmethod("ones_like")
-        .def("pad", &MethodsDouble::pad).staticmethod("pad")
-        .def("partition", &MethodsDouble::partition).staticmethod("partition")
-        .def("percentile", &MethodsDouble::percentile<double>).staticmethod("percentile")
-        //.def("percentile", &MethodsDouble::percentile<float>).staticmethod("percentile")
-        .def("powerArrayScalar", &MethodsInterface::powerArrayScalar<double, double>).staticmethod("powerArrayScalar")
-        //.def("power", &MethodsInterface::powerArrayScalar<double, float>).staticmethod("power")
-        .def("powerArrayArray", &MethodsInterface::powerArrayArray<double, double>).staticmethod("powerArrayArray")
-        //.def("power", &MethodsInterface::powerArrayArray<double, float>).staticmethod("power")
-        .def("prod", &MethodsDouble::prod<double>).staticmethod("prod")
-        //.def("prod", &MethodsDouble::prod<float>).staticmethod("prod")
-        .def("ptp", &MethodsDouble::ptp).staticmethod("ptp")
-        .def("put", &MethodsDouble::put, bp::return_internal_reference<>()).staticmethod("put")
-        .def("putmask", &MethodsInterface::putmask<double>).staticmethod("putmask")
-        .def("putmaskScalar", &MethodsInterface::putmaskScalar<double>).staticmethod("putmaskScalar")
-        .def("rad2degScalar", &MethodsInterface::rad2degScalar<double>).staticmethod("rad2degScalar")
-        .def("rad2degArray", &MethodsInterface::rad2degArray<double>).staticmethod("rad2degArray")
-        .def("reciprocal", &MethodsDouble::reciprocal<double>).staticmethod("reciprocal")
-        //.def("reciprocal", &MethodsDouble::reciprocal<float>).staticmethod("reciprocal")
-        .def("remainderScalar", &MethodsInterface::remainderScalar<double, double>).staticmethod("remainderScalar")
-        //.def("remainder", &MethodsInterface::remainderScalar<double, float>).staticmethod("remainder")
-        .def("remainderArray", &MethodsInterface::remainderArray<double, double>).staticmethod("remainderArray")
-        //.def("remainder", &MethodsInterface::remainderArray<double, float>).staticmethod("remainder")
-        .def("reshape", &MethodsInterface::reshape<double>, bp::return_internal_reference<>()).staticmethod("reshape")
-        .def("reshapeList", &MethodsInterface::reshapeList<double>, bp::return_internal_reference<>()).staticmethod("reshapeList")
-        .def("resizeFast", &MethodsInterface::resizeFast<double>, bp::return_internal_reference<>()).staticmethod("resizeFast")
-        .def("resizeFastList", &MethodsInterface::resizeFastList<double>, bp::return_internal_reference<>()).staticmethod("resizeFastList")
-        .def("resizeSlow", &MethodsInterface::resizeSlow<double>, bp::return_internal_reference<>()).staticmethod("resizeSlow")
-        .def("resizeSlowList", &MethodsInterface::resizeSlowList<double>, bp::return_internal_reference<>()).staticmethod("resizeSlowList")
-        .def("right_shift", &Methods<uint32>::right_shift).staticmethod("right_shift")
-        .def("rintScalar", &MethodsInterface::rintScalar<double>).staticmethod("rintScalar")
-        .def("rintArray", &MethodsInterface::rintArray<double>).staticmethod("rintArray")
-        .def("roll", &MethodsDouble::roll).staticmethod("roll")
-        .def("rot90", &MethodsDouble::rot90).staticmethod("rot90")
-        .def("roundScalar", &MethodsInterface::roundScalar<double>).staticmethod("roundScalar")
-        .def("roundArray", &MethodsInterface::roundArray<double>).staticmethod("roundArray")
-        .def("row_stack", &MethodsInterface::row_stack<double>).staticmethod("row_stack")
-        .def("setdiff1d", &Methods<uint32>::setdiff1d).staticmethod("setdiff1d")
-        .def("signScalar", &MethodsInterface::signScalar<double>).staticmethod("signScalar")
-        .def("signArray", &MethodsInterface::signArray<double>).staticmethod("signArray")
-        .def("signbitScalar", &MethodsInterface::signbitScalar<double>).staticmethod("signbitScalar")
-        .def("signbitArray", &MethodsInterface::signbitArray<double>).staticmethod("signbitArray")
-        .def("sinScalar", &MethodsInterface::sinScalar<double>).staticmethod("sinScalar")
-        .def("sinArray", &MethodsInterface::sinArray<double>).staticmethod("sinArray")
-        .def("sincScalar", &MethodsInterface::sincScalar<double>).staticmethod("sincScalar")
-        .def("sincArray", &MethodsInterface::sincArray<double>).staticmethod("sincArray")
-        .def("sinhScalar", &MethodsInterface::sinhScalar<double>).staticmethod("sinhScalar")
-        .def("sinhArray", &MethodsInterface::sinhArray<double>).staticmethod("sinhArray")
-        .def("size", &MethodsDouble::size).staticmethod("size")
-        .def("sort", &MethodsDouble::sort).staticmethod("sort")
-        .def("sqrtScalar", &MethodsInterface::sqrtScalar<double>).staticmethod("sqrtScalar")
-        .def("sqrtArray", &MethodsInterface::sqrtArray<double>).staticmethod("sqrtArray")
-        .def("squareScalar", &MethodsInterface::squareScalar<double>).staticmethod("squareScalar")
-        .def("squareArray", &MethodsInterface::squareArray<double>).staticmethod("squareArray")
-        .def("std", &MethodsDouble::std).staticmethod("std")
-        .def("sum", &MethodsDouble::sum<double>).staticmethod("sum")
-        //.def("sum", &MethodsDouble::sum<float>).staticmethod("sum")
-        .def("swapaxes", &MethodsDouble::swapaxes).staticmethod("swapaxes")
-        .def("tanScalar", &MethodsInterface::tanScalar<double>).staticmethod("tanScalar")
-        .def("tanArray", &MethodsInterface::tanArray<double>).staticmethod("tanArray")
-        .def("tanhScalar", &MethodsInterface::tanhScalar<double>).staticmethod("tanhScalar")
-        .def("tanhArray", &MethodsInterface::tanhArray<double>).staticmethod("tanhArray")
-        .def("tileRectangle", &MethodsInterface::tileRectangle<double>).staticmethod("tileRectangle")
-        .def("tileShape", &MethodsInterface::tileShape<double>).staticmethod("tileShape")
-        .def("tileList", &MethodsInterface::tileList<double>).staticmethod("tileList")
-        .def("tofile", &MethodsDouble::tofile).staticmethod("tofile")
-        .def("toStlVector", &MethodsDouble::toStlVector).staticmethod("toStlVector")
-        .def("trace", &MethodsDouble::trace<double>).staticmethod("trace")
-        //.def("trace", &MethodsDouble::trace<float>).staticmethod("trace")
-        .def("transpose", &MethodsDouble::transpose).staticmethod("transpose")
-        .def("trapzDx", &MethodsInterface::trapzDx<double>).staticmethod("trapzDx")
-        .def("trapz", &MethodsInterface::trapz<double>).staticmethod("trapz")
-        .def("triSquare", &MethodsInterface::triSquare<double>).staticmethod("triSquare")
-        .def("triRect", &MethodsInterface::triRect<double>).staticmethod("triRect")
-        .def("trim_zeros", &MethodsDouble::trim_zeros).staticmethod("trim_zeros")
-        .def("truncScalar", &MethodsInterface::truncScalar<double>).staticmethod("truncScalar")
-        .def("truncArray", &MethodsInterface::truncArray<double>).staticmethod("truncArray")
-        .def("union1d", &Methods<uint32>::union1d).staticmethod("union1d")
-        .def("unique", &MethodsDouble::unique).staticmethod("unique")
-        .def("unwrapScalar", &MethodsInterface::unwrapScalar<double>).staticmethod("unwrapScalar")
-        .def("unwrapArray", &MethodsInterface::unwrapArray<double>).staticmethod("unwrapArray")
-        .def("var", &MethodsDouble::var).staticmethod("var")
-        .def("vstack", &MethodsInterface::vstack<double>).staticmethod("vstack")
-        .def("zerosSquare", &MethodsInterface::zerosSquare<double>).staticmethod("zerosSquare")
-        .def("zerosRowCol", &MethodsInterface::zerosRowCol<double>).staticmethod("zerosRowCol")
-        .def("zerosShape", &MethodsInterface::zerosShape<double>).staticmethod("zerosShape")
-        .def("zerosList", &MethodsInterface::zerosList<double>).staticmethod("zerosList");
+    bp::def("absScalar", &MethodsInterface::absScalar<double>);
+    bp::def("absArray", &MethodsInterface::absArray<double>);
+    bp::def("add", &MethodsInterface::addArrays<double, double>);
+    //bp::def("add", &MethodsInterface::addArrays<float, double>);
+    bp::def("alen", &alen<double>);
+    bp::def("all", &MethodsInterface::allArray<double>);
+    bp::def("allclose", &allclose<double>);
+    bp::def("amin", &MethodsInterface::aminArray<double>);
+    bp::def("amax", &MethodsInterface::amaxArray<double>);
+    bp::def("any", &MethodsInterface::anyArray<double>);
+    bp::def("append", &append<double>);
+    bp::def("arange", &MethodsInterface::arangeArray<double>);
+    bp::def("arccosScalar", &MethodsInterface::arccosScalar<double>);
+    bp::def("arccosArray", &MethodsInterface::arccosArray<double>);
+    bp::def("arccoshScalar", &MethodsInterface::arccoshScalar<double>);
+    bp::def("arccoshArray", &MethodsInterface::arccoshArray<double>);
+    bp::def("arcsinScalar", &MethodsInterface::arcsinScalar<double>);
+    bp::def("arcsinArray", &MethodsInterface::arcsinArray<double>);
+    bp::def("arcsinhScalar", &MethodsInterface::arcsinhScalar<double>);
+    bp::def("arcsinhArray", &MethodsInterface::arcsinhArray<double>);
+    bp::def("arctanScalar", &MethodsInterface::arctanScalar<double>);
+    bp::def("arctanArray", &MethodsInterface::arctanArray<double>);
+    bp::def("arctan2Scalar", &MethodsInterface::arctan2Scalar<double>);
+    bp::def("arctan2Array", &MethodsInterface::arctan2Array<double>);
+    bp::def("arctanhScalar", &MethodsInterface::arctanhScalar<double>);
+    bp::def("arctanhArray", &MethodsInterface::arctanhArray<double>);
+    bp::def("argmax", &MethodsInterface::argmaxArray<double>);
+    bp::def("argmin", &MethodsInterface::argminArray<double>);
+    bp::def("argsort", &MethodsInterface::argsortArray<double>);
+    bp::def("argwhere", &MethodsInterface::argwhere<double>);
+    bp::def("aroundScalar", &MethodsInterface::aroundScalar<double>);
+    bp::def("aroundArray", &MethodsInterface::aroundArray<double>);
+    bp::def("array_equal", &array_equal<double>);
+    bp::def("array_equiv", &array_equiv<double>);
+    bp::def("asarrayVector", &MethodsInterface::asarrayVector<double>);
+    bp::def("asarrayList", &MethodsInterface::asarrayList<double>);
+    bp::def("astype", &astype<double, uint32>);
+    bp::def("average", &MethodsInterface::average<double>);
+    bp::def("averageWeighted", &MethodsInterface::averageWeighted<double>);
+    bp::def("bincount", &MethodsInterface::bincount<uint32>);
+    bp::def("bincountWeighted", &MethodsInterface::bincountWeighted<uint32>);
+    bp::def("bitwise_and", &MethodsInterface::bitwise_and<uint64>);
+    bp::def("bitwise_not", &MethodsInterface::bitwise_not<uint64>);
+    bp::def("bitwise_or", &MethodsInterface::bitwise_or<uint64>);
+    bp::def("bitwise_xor", &MethodsInterface::bitwise_xor<uint64>);
+    bp::def("byteswap", &MethodsInterface::byteswap<uint64>);
+    bp::def("cbrtScalar", &MethodsInterface::cbrtScalar<double>);
+    bp::def("cbrtArray", &MethodsInterface::cbrtArray<double>);
+    bp::def("ceilScalar", &MethodsInterface::ceilScalar<double>);
+    bp::def("ceilArray", &MethodsInterface::ceilArray<double>);
+    bp::def("clipScalar", &MethodsInterface::clipScalar<double>);
+    bp::def("clipArray", &MethodsInterface::clipArray<double>);
+    bp::def("column_stack", &MethodsInterface::column_stack<double>);
+    bp::def("concatenate", &MethodsInterface::concatenate<double>);
+    bp::def("contains", &contains<double>);
+    bp::def("copy", &MethodsInterface::copy<double>);
+    bp::def("copysign", &MethodsInterface::copySign<double>);
+    bp::def("copyto", &MethodsInterface::copyto<double>);
+    bp::def("cosScalar", &MethodsInterface::cosScalar<double>);
+    bp::def("cosArray", &MethodsInterface::cosArray<double>);
+    bp::def("coshScalar", &MethodsInterface::coshScalar<double>);
+    bp::def("coshArray", &MethodsInterface::coshArray<double>);
+    bp::def("count_nonzero", &MethodsInterface::count_nonzero<double>);
+    bp::def("cross", &cross<double, double>);
+    bp::def("cube", &MethodsInterface::cubeArray<double, double>);
+    //bp::def("cube", &MethodsInterface::cubeArray<float, double>);
+    bp::def("cumprod", &MethodsInterface::cumprodArray<double, double>);
+    //bp::def("cumprod", &MethodsInterface::cumprodArray<float, double>);
+    bp::def("cumsum", &MethodsInterface::cumsumArray<double, double>);
+    //bp::def("cumsum", &MethodsInterface::cumsumArray<float, double>);
+    bp::def("deg2radScalar", &MethodsInterface::deg2radScalar<double>);
+    bp::def("deg2radArray", &MethodsInterface::deg2radArray<double>);
+    bp::def("deleteIndicesScalar", &MethodsInterface::deleteIndicesScalar<double>);
+    bp::def("deleteIndicesSlice", &MethodsInterface::deleteIndicesSlice<double>);
+    bp::def("diagflat", &MethodsInterface::diagflat<double>);
+    bp::def("diagonal", &MethodsInterface::diagonal<double>);
+    bp::def("diff", &MethodsInterface::diff<double>);
+    bp::def("divide", &MethodsInterface::divide<double, double>);
+    //bp::def("divide", &MethodsInterface::divide<float, double>);
+    bp::def("dot", &MethodsInterface::dot<double, double>);
+    //bp::def("dot", &MethodsInterface::dot<float, double>);
+    bp::def("dump", &dump<double>);
+    bp::def("emptyRowCol", &MethodsInterface::emptyRowCol<double>);
+    bp::def("emptyShape", &MethodsInterface::emptyShape<double>);
+    bp::def("empty_like", &empty_like<double, double>);
+    //bp::def("empty_like", &empty_like<float, double>);
+    bp::def("endianess", &endianess<double>);
+    bp::def("equal", &MethodsInterface::equal<double>);
+    bp::def("expScalar", &MethodsInterface::expScalar<double>);
+    bp::def("expArray", &MethodsInterface::expArray<double>);
+    bp::def("exp2Scalar", &MethodsInterface::exp2Scalar<double>);
+    bp::def("exp2Array", &MethodsInterface::exp2Array<double>);
+    bp::def("expm1Scalar", &MethodsInterface::expm1Scalar<double>);
+    bp::def("expm1Array", &MethodsInterface::expm1Array<double>);
+    bp::def("eye1D", &MethodsInterface::eye1D<double>);
+    bp::def("eye2D", &MethodsInterface::eye2D<double>);
+    bp::def("eyeShape", &MethodsInterface::eyeShape<double>);
+    bp::def("fixScalar", &MethodsInterface::fixScalar<double>);
+    bp::def("fixArray", &MethodsInterface::fixArray<double>);
+    bp::def("flatten", &flatten<double>);
+    bp::def("flatnonzero", &flatnonzero<double>);
+    bp::def("flip", &flip<double>);
+    bp::def("fliplr", &fliplr<double>);
+    bp::def("flipud", &flipud<double>);
+    bp::def("floorScalar", &MethodsInterface::floorScalar<double>);
+    bp::def("floorArray", &MethodsInterface::floorArray<double>);
+    bp::def("floor_divideScalar", &MethodsInterface::floor_divideScalar<double>);
+    bp::def("floor_divideArray", &MethodsInterface::floor_divideArray<double>);
+    bp::def("fmaxScalar", &MethodsInterface::fmaxScalar<double>);
+    bp::def("fmaxArray", &MethodsInterface::fmaxArray<double>);
+    bp::def("fminScalar", &MethodsInterface::fminScalar<double>);
+    bp::def("fminArray", &MethodsInterface::fminArray<double>);
+    bp::def("fmodScalar", &MethodsInterface::fmodScalar<uint32>);
+    bp::def("fmodArray", &MethodsInterface::fmodArray<uint32>);
+    bp::def("fromfile", &fromfile<double>);
+    bp::def("fullSquare", &MethodsInterface::fullSquare<double>);
+    bp::def("fullRowCol", &MethodsInterface::fullRowCol<double>);
+    bp::def("fullShape", &MethodsInterface::fullShape<double>);
+    bp::def("full_like", &full_like<double, double>);
+    //bp::def("full_like", &full_like<float, double>);
+    bp::def("greater", &greater<double>);
+    bp::def("greater_equal", &greater_equal<double>);
+    bp::def("histogram", &MethodsInterface::histogram<double>);
+    bp::def("hstack", &MethodsInterface::hstack<double>);
+    bp::def("hypotScalar", &MethodsInterface::hypotScalar<double, double>);
+    //bp::def("hypotScalar", &MethodsInterface::hypotScalar<float, double>);
+    bp::def("hypotArray", &MethodsInterface::hypotArray<double, double>);
+    //bp::def("hypotArray", &MethodsInterface::hypotArray<float, double>);
+    bp::def("identity", &identity<double>);
+    bp::def("interp", &MethodsInterface::interp<double>);
+    bp::def("intersect1d", &intersect1d<uint32>);
+    bp::def("invert", &invert<uint32>);
+    bp::def("isclose", &isclose<double>);
+    bp::def("isinfScalar", &MethodsInterface::isinfScalar<double>);
+    bp::def("isinfArray", &MethodsInterface::isinfArray<double>);
+    bp::def("isnanScalar", &MethodsInterface::isnanScalar<double>);
+    bp::def("isnanArray", &MethodsInterface::isnanArray<double>);
+    bp::def("ldexpScalar", &MethodsInterface::ldexpScalar<double>);
+    bp::def("ldexpArray", &MethodsInterface::ldexpArray<double>);
+    bp::def("left_shift", &left_shift<uint32>);
+    bp::def("less", &less<double>);
+    bp::def("less_equal", &less_equal<double>);
+    bp::def("linspace", &linspace<double>);
+    bp::def("load", &load<double>);
+    bp::def("logScalar", &MethodsInterface::logScalar<double>);
+    bp::def("logArray", &MethodsInterface::logArray<double>);
+    bp::def("log10Scalar", &MethodsInterface::log10Scalar<double>);
+    bp::def("log10Array", &MethodsInterface::log10Array<double>);
+    bp::def("log1pScalar", &MethodsInterface::log1pScalar<double>);
+    bp::def("log1pArray", &MethodsInterface::log1pArray<double>);
+    bp::def("log2Scalar", &MethodsInterface::log2Scalar<double>);
+    bp::def("log2Array", &MethodsInterface::log2Array<double>);
+    bp::def("logical_and", &logical_and<double>);
+    bp::def("logical_not", &logical_not<double>);
+    bp::def("logical_or", &logical_or<double>);
+    bp::def("logical_xor", &logical_xor<double>);
+    bp::def("matmul", &matmul<double, double>);
+    //bp::def("matmul", &matmul<float, double>);
+    bp::def("max", &max<double>);
+    bp::def("maximum", &maximum<double>);
+    bp::def("mean", &mean<double>);
+    bp::def("median", &median<double>);
+    bp::def("min", &min<double>);
+    bp::def("minimum", &minimum<double>);
+    bp::def("mod", &mod<uint32>);
+    bp::def("multiply", &multiply<double>);
+    bp::def("nanargmax", &nanargmax<double>);
+    bp::def("nanargmin", &nanargmin<double>);
+    bp::def("nancumprod", &nancumprod<double, double>);
+    //bp::def("nancumprod", &nancumprod<float, double>);
+    bp::def("nancumsum", &nancumsum<double, double>);
+    //bp::def("nancumsum", &nancumsum<float, double>);
+    bp::def("nanmax", &nanmax<double>);
+    bp::def("nanmean", &nanmean<double>);
+    bp::def("nanmedian", &nanmedian<double>);
+    bp::def("nanmin", &nanmin<double>);
+    bp::def("nanpercentile", &nanpercentile<double, double>);
+    bp::def("nanprod", &nanprod<double, double>);
+    //bp::def("nanprod", &nanprod<float, double>);
+    bp::def("nansSquare", &MethodsInterface::nansSquare<double>);
+    bp::def("nansRowCol", &MethodsInterface::nansRowCol<double>);
+    bp::def("nansShape", &MethodsInterface::nansShape<double>);
+    bp::def("nansList", &MethodsInterface::nansList<double>);
+    bp::def("nans_like", &nans_like<double>);
+    bp::def("nanstd", &nanstd<double>);
+    bp::def("nansum", &nansum<double, double>);
+    //bp::def("nansum", &nansum<float, double>);
+    bp::def("nanvar", &nanvar<double>);
+    bp::def("nbytes", &nbytes<double>);
+    bp::def("newbyteorderScalar", &MethodsInterface::newbyteorderScalar<uint32>);
+    bp::def("newbyteorderArray", &MethodsInterface::newbyteorderArray<uint32>);
+    bp::def("negative", &negative<double, double>);
+    //bp::def("negative", &negative<float, double>);
+    bp::def("nonzero", &nonzero<double>);
+    bp::def("norm", &norm<double, double>);
+    //bp::def("norm", &norm<float, double>);norm")
+    bp::def("not_equal", &not_equal<double>);
+    bp::def("onesSquare", &MethodsInterface::onesSquare<double>);
+    bp::def("onesRowCol", &MethodsInterface::onesRowCol<double>);
+    bp::def("onesShape", &MethodsInterface::onesShape<double>);
+    bp::def("ones_like", &ones_like<double, double>);
+    //bp::def("ones_like", &ones_like<float, double>);
+    bp::def("pad", &pad<double>);
+    bp::def("partition", &partition<double>);
+    bp::def("percentile", &percentile<double, double>);
+    //bp::def("percentile", &percentile<float, double>);
+    bp::def("powerArrayScalar", &MethodsInterface::powerArrayScalar<double, double>);
+    //bp::def("power", &MethodsInterface::powerArrayScalar<float, double>);
+    bp::def("powerArrayArray", &MethodsInterface::powerArrayArray<double, double>);
+    //bp::def("power", &MethodsInterface::powerArrayArray<float, double>);
+    bp::def("prod", &prod<double, double>);
+    //bp::def("prod", &prod<float>);
+    bp::def("ptp", &ptp<double>);
+    bp::def("put", &put<double>, bp::return_internal_reference<>());
+    bp::def("putmask", &MethodsInterface::putmask<double>);
+    bp::def("putmaskScalar", &MethodsInterface::putmaskScalar<double>);
+    bp::def("rad2degScalar", &MethodsInterface::rad2degScalar<double>);
+    bp::def("rad2degArray", &MethodsInterface::rad2degArray<double>);
+    bp::def("reciprocal", &reciprocal<double, double>);
+    //bp::def("reciprocal", &reciprocal<float, double>);
+    bp::def("remainderScalar", &MethodsInterface::remainderScalar<double, double>);
+    //bp::def("remainder", &MethodsInterface::remainderScalar<float, double>);
+    bp::def("remainderArray", &MethodsInterface::remainderArray<double, double>);
+    //bp::def("remainder", &MethodsInterface::remainderArray<float, double>);
+    bp::def("reshape", &MethodsInterface::reshape<double>, bp::return_internal_reference<>());
+    bp::def("reshapeList", &MethodsInterface::reshapeList<double>, bp::return_internal_reference<>());
+    bp::def("resizeFast", &MethodsInterface::resizeFast<double>, bp::return_internal_reference<>());
+    bp::def("resizeFastList", &MethodsInterface::resizeFastList<double>, bp::return_internal_reference<>());
+    bp::def("resizeSlow", &MethodsInterface::resizeSlow<double>, bp::return_internal_reference<>());
+    bp::def("resizeSlowList", &MethodsInterface::resizeSlowList<double>, bp::return_internal_reference<>());
+    bp::def("right_shift", &right_shift<uint32>);
+    bp::def("rintScalar", &MethodsInterface::rintScalar<double>);
+    bp::def("rintArray", &MethodsInterface::rintArray<double>);
+    bp::def("roll", &roll<double>);
+    bp::def("rot90", &rot90<double>);
+    bp::def("roundScalar", &MethodsInterface::roundScalar<double>);
+    bp::def("roundArray", &MethodsInterface::roundArray<double>);
+    bp::def("row_stack", &MethodsInterface::row_stack<double>);
+    bp::def("setdiff1d", &setdiff1d<uint32>);
+    bp::def("signScalar", &MethodsInterface::signScalar<double>);
+    bp::def("signArray", &MethodsInterface::signArray<double>);
+    bp::def("signbitScalar", &MethodsInterface::signbitScalar<double>);
+    bp::def("signbitArray", &MethodsInterface::signbitArray<double>);
+    bp::def("sinScalar", &MethodsInterface::sinScalar<double>);
+    bp::def("sinArray", &MethodsInterface::sinArray<double>);
+    bp::def("sincScalar", &MethodsInterface::sincScalar<double>);
+    bp::def("sincArray", &MethodsInterface::sincArray<double>);
+    bp::def("sinhScalar", &MethodsInterface::sinhScalar<double>);
+    bp::def("sinhArray", &MethodsInterface::sinhArray<double>);
+    bp::def("size", &size<double>);
+    bp::def("sort", &sort<double>);
+    bp::def("sqrtScalar", &MethodsInterface::sqrtScalar<double>);
+    bp::def("sqrtArray", &MethodsInterface::sqrtArray<double>);
+    bp::def("squareScalar", &MethodsInterface::squareScalar<double>);
+    bp::def("squareArray", &MethodsInterface::squareArray<double>);
+    bp::def("stack", &MethodsInterface::stack<double>);
+    bp::def("std", &NC::std<double>);
+    bp::def("sum", &sum<double, double>);
+    //bp::def("sum", &sum<float, double>);
+    bp::def("swapaxes", &swapaxes<double>);
+    bp::def("tanScalar", &MethodsInterface::tanScalar<double>);
+    bp::def("tanArray", &MethodsInterface::tanArray<double>);
+    bp::def("tanhScalar", &MethodsInterface::tanhScalar<double>);
+    bp::def("tanhArray", &MethodsInterface::tanhArray<double>);
+    bp::def("tileRectangle", &MethodsInterface::tileRectangle<double>);
+    bp::def("tileShape", &MethodsInterface::tileShape<double>);
+    bp::def("tileList", &MethodsInterface::tileList<double>);
+    bp::def("tofile", &tofile<double>);
+    bp::def("toStlVector", &toStlVector<double>);
+    bp::def("trace", &trace<double, double>);
+    //bp::def("trace", &trace<float, double>);
+    bp::def("transpose", &transpose<double>);
+    bp::def("trapzDx", &MethodsInterface::trapzDx<double>);
+    bp::def("trapz", &MethodsInterface::trapz<double>);
+    bp::def("trilSquare", &MethodsInterface::trilSquare<double>);
+    bp::def("trilRect", &MethodsInterface::trilRect<double>);
+    bp::def("trilArray", &MethodsInterface::trilArray<double>);
+    bp::def("triuSquare", &MethodsInterface::triuSquare<double>);
+    bp::def("triuRect", &MethodsInterface::triuRect<double>);
+    bp::def("triuArray", &MethodsInterface::triuArray<double>);
+    bp::def("trim_zeros", &trim_zeros<double>);
+    bp::def("truncScalar", &MethodsInterface::truncScalar<double>);
+    bp::def("truncArray", &MethodsInterface::truncArray<double>);
+    bp::def("union1d", &union1d<uint32>);
+    bp::def("unique", &unique<double>);
+    bp::def("unwrapScalar", &MethodsInterface::unwrapScalar<double>);
+    bp::def("unwrapArray", &MethodsInterface::unwrapArray<double>);
+    bp::def("var", &var<double>);
+    bp::def("vstack", &MethodsInterface::vstack<double>);
+    bp::def("where", &MethodsInterface::where<double>);
+    bp::def("zerosSquare", &MethodsInterface::zerosSquare<double>);
+    bp::def("zerosRowCol", &MethodsInterface::zerosRowCol<double>);
+    bp::def("zerosShape", &MethodsInterface::zerosShape<double>);
+    bp::def("zerosList", &MethodsInterface::zerosList<double>);
+    bp::def("zeros_like", &zeros_like<double, double>);
+    //bp::def("zeros_like", &zeros_like<float, double>);
 
     // Utils.hpp
-    typedef Utils<double> UtilsDouble;
-    bp::class_<UtilsDouble>
-        ("UtilsDouble", bp::init<>())
-        .def("num2str", &UtilsDouble::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsDouble::sqr).staticmethod("sqr")
-        .def("cube", &UtilsDouble::cube).staticmethod("cube")
-        .def("power", &UtilsDouble::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<double>);
+    bp::def("sqr", &Utils::sqr<double>);
+    bp::def("cube", &Utils::cube<double>);
+    bp::def("power", &Utils::power<double>);
 
-    typedef Utils<float> UtilsFloat;
-    bp::class_<UtilsFloat>
-        ("UtilsFloat", bp::init<>())
-        .def("num2str", &UtilsFloat::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsFloat::sqr).staticmethod("sqr")
-        .def("cube", &UtilsFloat::cube).staticmethod("cube")
-        .def("power", &UtilsFloat::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<float>);
+    bp::def("sqr", &Utils::sqr<float>);
+    bp::def("cube", &Utils::cube<float>);
+    bp::def("power", &Utils::power<float>);
 
-    typedef Utils<int8> UtilsInt8;
-    bp::class_<UtilsInt8>
-        ("UtilsInt8", bp::init<>())
-        .def("num2str", &UtilsInt8::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsInt8::sqr).staticmethod("sqr")
-        .def("cube", &UtilsInt8::cube).staticmethod("cube")
-        .def("power", &UtilsInt8::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<int8>);
+    bp::def("sqr", &Utils::sqr<int8>);
+    bp::def("cube", &Utils::cube<int8>);
+    bp::def("power", &Utils::power<int8>);
 
-    typedef Utils<int16> UtilsInt16;
-    bp::class_<UtilsInt16>
-        ("UtilsInt16", bp::init<>())
-        .def("num2str", &UtilsInt16::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsInt16::sqr).staticmethod("sqr")
-        .def("cube", &UtilsInt16::cube).staticmethod("cube")
-        .def("power", &UtilsInt16::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<int16>);
+    bp::def("sqr", &Utils::sqr<int16>);
+    bp::def("cube", &Utils::cube<int16>);
+    bp::def("power", &Utils::power<int16>);
 
-    typedef Utils<int32> UtilsInt32;
-    bp::class_<UtilsInt32>
-        ("UtilsInt32", bp::init<>())
-        .def("num2str", &UtilsInt32::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsInt32::sqr).staticmethod("sqr")
-        .def("cube", &UtilsInt32::cube).staticmethod("cube")
-        .def("power", &UtilsInt32::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<int32>);
+    bp::def("sqr", &Utils::sqr<int32>);
+    bp::def("cube", &Utils::cube<int32>);
+    bp::def("power", &Utils::power<int32>);
 
-    typedef Utils<int64> UtilsInt64;
-    bp::class_<UtilsInt64>
-        ("UtilsInt64", bp::init<>())
-        .def("num2str", &UtilsInt64::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsInt64::sqr).staticmethod("sqr")
-        .def("cube", &UtilsInt64::cube).staticmethod("cube")
-        .def("power", &UtilsInt64::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<int64>);
+    bp::def("sqr", &Utils::sqr<int64>);
+    bp::def("cube", &Utils::cube<int64>);
+    bp::def("power", &Utils::power<int64>);
 
-    typedef Utils<uint8> UtilsUint8;
-    bp::class_<UtilsUint8>
-        ("UtilsUint8", bp::init<>())
-        .def("num2str", &UtilsUint8::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsUint8::sqr).staticmethod("sqr")
-        .def("cube", &UtilsUint8::cube).staticmethod("cube")
-        .def("power", &UtilsUint8::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<uint8>);
+    bp::def("sqr", &Utils::sqr<uint8>);
+    bp::def("cube", &Utils::cube<uint8>);
+    bp::def("power", &Utils::power<uint8>);
 
-    typedef Utils<uint16> UtilsUint16;
-    bp::class_<UtilsUint16>
-        ("UtilsUint16", bp::init<>())
-        .def("num2str", &UtilsUint16::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsUint16::sqr).staticmethod("sqr")
-        .def("cube", &UtilsUint16::cube).staticmethod("cube")
-        .def("power", &UtilsUint16::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<uint16>);
+    bp::def("sqr", &Utils::sqr<uint16>);
+    bp::def("cube", &Utils::cube<uint16>);
+    bp::def("power", &Utils::power<uint16>);
 
-    typedef Utils<uint32> UtilsUint32;
-    bp::class_<UtilsUint32>
-        ("UtilsUint32", bp::init<>())
-        .def("num2str", &UtilsUint32::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsUint32::sqr).staticmethod("sqr")
-        .def("cube", &UtilsUint32::cube).staticmethod("cube")
-        .def("power", &UtilsUint32::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<uint32>);
+    bp::def("sqr", &Utils::sqr<uint32>);
+    bp::def("cube", &Utils::cube<uint32>);
+    bp::def("power", &Utils::power<uint32>);
 
-    typedef Utils<uint64> UtilsUint64;
-    bp::class_<UtilsUint64>
-        ("UtilsUint64", bp::init<>())
-        .def("num2str", &UtilsUint64::num2str).staticmethod("num2str")
-        .def("sqr", &UtilsUint64::sqr).staticmethod("sqr")
-        .def("cube", &UtilsUint64::cube).staticmethod("cube")
-        .def("power", &UtilsUint64::power).staticmethod("power");
+    bp::def("num2str", &Utils::num2str<uint64>);
+    bp::def("sqr", &Utils::sqr<uint64>);
+    bp::def("cube", &Utils::cube<uint64>);
+    bp::def("power", &Utils::power<uint64>);
 
     // Random.hpp
     typedef NC::Random<double> RandomDouble;
@@ -3051,7 +3162,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("beta", &RandomDouble::beta).staticmethod("beta")
         .def("binomial", &RandomInt32::binomial).staticmethod("binomial")
         .def("chiSquare", &RandomDouble::chiSquare).staticmethod("chiSquare")
-        .def("choice", &RandomDouble::choice).staticmethod("choice")
+        .def("choiceSingle", &RandomInterface::choiceSingle<double>).staticmethod("choiceSingle")
+        .def("choiceMultiple", &RandomInterface::choiceMultiple<double>).staticmethod("choiceMultiple")
         .def("cauchy", &RandomDouble::cauchy).staticmethod("cauchy")
         .def("discrete", &RandomInt32::discrete).staticmethod("discrete")
         .def("exponential", &RandomDouble::exponential).staticmethod("exponential")
@@ -3081,18 +3193,15 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("weibull", &RandomDouble::weibull).staticmethod("weibull");
 
     // Linalg.hpp
-    typedef NC::Linalg<double> LinalgDouble;
-    bp::class_<LinalgDouble>
-        ("Linalg", bp::init<>())
-        .def("det", &LinalgDouble::det).staticmethod("det")
-        .def("hat", &LinalgInterface::hatArray<double>).staticmethod("hat")
-        .def("inv", &LinalgDouble::inv).staticmethod("inv")
-        .def("lstsq", &LinalgDouble::lstsq).staticmethod("lstsq")
-        .def("matrix_power", &LinalgDouble::matrix_power<double>).staticmethod("matrix_power")
-        //.def("matrix_power", &LinalgDouble::matrix_power<float>).staticmethod("matrix_power")
-        .def("multi_dot", &LinalgInterface::multi_dot<double, double>).staticmethod("multi_dot")
-        //.def("multi_dot", &LinalgInterface::multi_dot<float, float>).staticmethod("multi_dot")
-        .def("svd", &LinalgDouble::svd).staticmethod("svd");
+    bp::def("det", &Linalg::det<double>);
+    bp::def("hat", &LinalgInterface::hatArray<double>);
+    bp::def("inv", &Linalg::inv<double>);
+    bp::def("lstsq", &Linalg::lstsq<double>);
+    bp::def("matrix_power", &Linalg::matrix_power<double, double>);
+    //bp::def("matrix_power", &Linalg::matrix_power<float, float>);
+    bp::def("multi_dot", &LinalgInterface::multi_dot<double, double>);
+    //bp::def("multi_dot", &LinalgInterface::multi_dot<float, float>);
+    bp::def("svd", &Linalg::svd<double>);
 
     // Rotations.hpp
     bp::class_<Rotations::Quaternion>
@@ -3140,40 +3249,34 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("zRotation", &DCMDouble::zRotation).staticmethod("zRotation");
 
     // Filters.hpp
-    bp::enum_<Filter::Boundary::Mode>("Mode")
+    bp::enum_<Filter::Boundary>("Mode")
         .value("REFLECT", Filter::Boundary::REFLECT)
         .value("CONSTANT", Filter::Boundary::CONSTANT)
         .value("NEAREST", Filter::Boundary::NEAREST)
         .value("MIRROR", Filter::Boundary::MIRROR)
         .value("WRAP", Filter::Boundary::WRAP);
 
-    typedef Filters<double> FiltersDouble;
-
-    bp::class_<FiltersDouble>
-        ("Filters", bp::init<>())
-        .def("complementaryMedianFilter", &FiltersDouble::complementaryMedianFilter).staticmethod("complementaryMedianFilter")
-        .def("complementaryMedianFilter1d", &FiltersDouble::complementaryMedianFilter1d).staticmethod("complementaryMedianFilter1d")
-        .def("convolve", &FiltersDouble::convolve).staticmethod("convolve")
-        .def("convolve1d", &FiltersDouble::convolve1d).staticmethod("convolve1d")
-        .def("gaussianFilter", &FiltersDouble::gaussianFilter).staticmethod("gaussianFilter")
-        .def("gaussianFilter1d", &FiltersDouble::gaussianFilter1d).staticmethod("gaussianFilter1d")
-        .def("maximumFilter", &FiltersDouble::maximumFilter).staticmethod("maximumFilter")
-        .def("maximumFilter1d", &FiltersDouble::maximumFilter1d).staticmethod("maximumFilter1d")
-        .def("medianFilter", &FiltersDouble::medianFilter).staticmethod("medianFilter")
-        .def("medianFilter1d", &FiltersDouble::medianFilter1d).staticmethod("medianFilter1d")
-        .def("minimumFilter", &FiltersDouble::minimumFilter).staticmethod("minimumFilter")
-        .def("minumumFilter1d", &FiltersDouble::minumumFilter1d).staticmethod("minumumFilter1d")
-        .def("percentileFilter", &FiltersDouble::percentileFilter).staticmethod("percentileFilter")
-        .def("percentileFilter1d", &FiltersDouble::percentileFilter1d).staticmethod("percentileFilter1d")
-        .def("rankFilter", &FiltersDouble::rankFilter).staticmethod("rankFilter")
-        .def("rankFilter1d", &FiltersDouble::rankFilter1d).staticmethod("rankFilter1d")
-        .def("uniformFilter", &FiltersDouble::uniformFilter).staticmethod("uniformFilter")
-        .def("uniformFilter1d", &FiltersDouble::uniformFilter1d).staticmethod("uniformFilter1d");
+    bp::def("complementaryMedianFilter", &Filter::complementaryMedianFilter<double>);
+    bp::def("complementaryMedianFilter1d", &Filter::complementaryMedianFilter1d<double>);
+    bp::def("convolve", &Filter::convolve<double>);
+    bp::def("convolve1d", &Filter::convolve1d<double>);
+    bp::def("gaussianFilter", &Filter::gaussianFilter<double>);
+    bp::def("gaussianFilter1d", &Filter::gaussianFilter1d<double>);
+    bp::def("maximumFilter", &Filter::maximumFilter<double>);
+    bp::def("maximumFilter1d", &Filter::maximumFilter1d<double>);
+    bp::def("medianFilter", &Filter::medianFilter<double>);
+    bp::def("medianFilter1d", &Filter::medianFilter1d<double>);
+    bp::def("minimumFilter", &Filter::minimumFilter<double>);
+    bp::def("minumumFilter1d", &Filter::minumumFilter1d<double>);
+    bp::def("percentileFilter", &Filter::percentileFilter<double>);
+    bp::def("percentileFilter1d", &Filter::percentileFilter1d<double>);
+    bp::def("rankFilter", &Filter::rankFilter<double>);
+    bp::def("rankFilter1d", &Filter::rankFilter1d<double>);
+    bp::def("uniformFilter", &Filter::uniformFilter<double>);
+    bp::def("uniformFilter1d", &Filter::uniformFilter1d<double>);
 
     // Image Processing
-    typedef ImageProcessing<double> ImageProcessingDouble;
-
-    typedef ImageProcessingDouble::Pixel PixelDouble;
+    typedef ImageProcessing::Pixel<double> PixelDouble;
     bp::class_<PixelDouble>
         ("Pixel", bp::init<>())
         .def(bp::init<uint32, uint32, double>())
@@ -3189,7 +3292,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__str__", &PixelDouble::str)
         .def("print", &PixelDouble::print);
 
-    typedef ImageProcessingDouble::Cluster ClusterDouble;
+    typedef ImageProcessing::Cluster<double> ClusterDouble;
     bp::class_<ClusterDouble>
         ("Cluster", bp::init<uint32>())
         .def(bp::init<ClusterDouble>())
@@ -3210,7 +3313,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__str__", &ClusterDouble::str)
         .def("print", &ClusterDouble::print);
 
-    typedef ImageProcessingDouble::Centroid CentroidDouble;
+    typedef ImageProcessing::Centroid<double> CentroidDouble;
     bp::class_<CentroidDouble>
         ("Centroid", bp::init<>())
         .def(bp::init<ClusterDouble>())
@@ -3231,14 +3334,12 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<std::vector<CentroidDouble> >("centroid_vector")
         .def(bp::vector_indexing_suite<std::vector<CentroidDouble> >());
 
-    bp::class_<ImageProcessingDouble>
-        ("ImageProcessing", bp::init<>())
-        .def("applyThreshold", &ImageProcessingDouble::applyThreshold).staticmethod("applyThreshold")
-        .def("centroidClusters", &ImageProcessingDouble::centroidClusters).staticmethod("centroidClusters")
-        .def("clusterPixels", &ImageProcessingDouble::clusterPixels).staticmethod("clusterPixels")
-        .def("generateThreshold", &ImageProcessingDouble::generateThreshold).staticmethod("generateThreshold")
-        .def("generateCentroids", &ImageProcessingDouble::generateCentroids).staticmethod("generateCentroids")
-        .def("windowExceedances", &ImageProcessingDouble::windowExceedances).staticmethod("windowExceedances");
+    bp::def("applyThreshold", &ImageProcessing::applyThreshold<double>);
+    bp::def("centroidClusters", &ImageProcessing::centroidClusters<double>);
+    bp::def("clusterPixels", &ImageProcessing::clusterPixels<double>);
+    bp::def("generateThreshold", &ImageProcessing::generateThreshold<double>);
+    bp::def("generateCentroids", &ImageProcessing::generateCentroids<double>);
+    bp::def("windowExceedances", &ImageProcessing::windowExceedances);
 
     // Coordinates.hpp
     typedef Coordinates::RA<double> RaDouble;
@@ -3282,14 +3383,14 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__ne__", &RaFloat::operator!=)
         .def("print", &RaInterface::print<float>);
 
-    bp::enum_<Coordinates::Sign::Type>("Sign")
+    bp::enum_<Coordinates::Sign>("Sign")
         .value("POSITIVE", Coordinates::Sign::POSITIVE)
         .value("NEGATIVE", Coordinates::Sign::NEGATIVE);
 
     bp::class_<DecDouble>
         ("DecDouble", bp::init<>())
         .def(bp::init<double>())
-        .def(bp::init<Coordinates::Sign::Type, uint8, uint8, double>())
+        .def(bp::init<Coordinates::Sign, uint8, uint8, double>())
         .def(bp::init<DecDouble>())
         .def("asFloat", &DecDouble::astype<float>)
         .def("sign", &DecDouble::sign)
@@ -3307,7 +3408,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<DecFloat>
         ("DecFloat", bp::init<>())
         .def(bp::init<float>())
-        .def(bp::init<Coordinates::Sign::Type, uint8, uint8, float>())
+        .def(bp::init<Coordinates::Sign, uint8, uint8, float>())
         .def(bp::init<DecFloat>())
         .def("asDouble", &DecFloat::astype<double>)
         .def("sign", &DecFloat::sign)
@@ -3325,7 +3426,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<CoordinateDouble>
         ("CoordinateDouble", bp::init<>())
         .def(bp::init<double, double>())
-        .def(bp::init<uint8, uint8, double, Coordinates::Sign::Type, uint8, uint8, double>())
+        .def(bp::init<uint8, uint8, double, Coordinates::Sign, uint8, uint8, double>())
         .def(bp::init<double, double, double>())
         .def(bp::init<RaDouble, DecDouble>())
         .def(bp::init<NdArrayDouble>())
@@ -3350,7 +3451,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::class_<CoordinateFloat>
         ("CoordinateFloat", bp::init<>())
         .def(bp::init<float, float>())
-        .def(bp::init<uint8, uint8, float, Coordinates::Sign::Type, uint8, uint8, float>())
+        .def(bp::init<uint8, uint8, float, Coordinates::Sign, uint8, uint8, float>())
         .def(bp::init<float, float, float>())
         .def(bp::init<RaFloat, DecFloat>())
         .def(bp::init<NdArrayFloat>())

@@ -52,7 +52,7 @@ namespace NC
         {
         private:
             //====================================Attributes==============================
-            double		data_[4];
+            double		data_[4] = {0.0, 0.0, 0.0, 1.0};
 
             //============================================================================
             // Method Description: 
@@ -60,7 +60,7 @@ namespace NC
             ///		
             void normalize()
             {
-                double norm = std::sqrt(Utils<double>::sqr(data_[0]) + Utils<double>::sqr(data_[1]) + Utils<double>::sqr(data_[2]) + Utils<double>::sqr(data_[3]));
+                double norm = std::sqrt(Utils::sqr(data_[0]) + Utils::sqr(data_[1]) + Utils::sqr(data_[2]) + Utils::sqr(data_[3]));
                 data_[0] /= norm;
                 data_[1] /= norm;
                 data_[2] /= norm;
@@ -72,13 +72,7 @@ namespace NC
             // Method Description: 
             ///						Default Constructor, not super usefull on its own
             ///		
-            Quaternion()
-            {
-                data_[0] = 0.0;
-                data_[1] = 0.0;
-                data_[2] = 0.0;
-                data_[3] = 1.0;
-            }
+            Quaternion() = default;
 
             //============================================================================
             // Method Description: 
@@ -91,7 +85,7 @@ namespace NC
             ///				
             Quaternion(double inI, double inJ, double inK, double inS)
             {
-                double norm = std::sqrt(Utils<double>::sqr(inI) + Utils<double>::sqr(inJ) + Utils<double>::sqr(inK) + Utils<double>::sqr(inS));
+                double norm = std::sqrt(Utils::sqr(inI) + Utils::sqr(inJ) + Utils::sqr(inK) + Utils::sqr(inS));
                 data_[0] = inI / norm;
                 data_[1] = inJ / norm;
                 data_[2] = inK / norm;
@@ -109,10 +103,12 @@ namespace NC
             {
                 if (inArray.size() != 4)
                 {
-                    throw std::invalid_argument("ERROR: Rotations:::Quaternion::Quaternion(NdArray): input array must be of size = 4;");
+                    std::string errStr = "ERROR: Rotations:::Quaternion::Quaternion(NdArray): input array must be of size = 4.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
-                double norm = std::sqrt(Methods<double>::square(inArray).sum().item());
+                double norm = std::sqrt(square(inArray).sum<double>().item());
                 data_[0] = inArray[0] / norm;
                 data_[1] = inArray[1] / norm;
                 data_[2] = inArray[2] / norm;
@@ -133,11 +129,13 @@ namespace NC
             {
                 if (inAxis.size() != 3)
                 {
-                    throw std::invalid_argument("ERROR: Rotations::Quaternion::angleAxisRotation: input axis must be a cartesion vector of length = 3.");
+                    std::string errStr = "ERROR: Rotations::Quaternion::angleAxisRotation: input axis must be a cartesion vector of length = 3.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 // normalize the input vector
-                NdArray<double> normAxis = inAxis.astype() / inAxis.norm().item();
+                NdArray<double> normAxis = inAxis.astype<double>() / inAxis.norm<double>().item();
 
                 double i = static_cast<double>(normAxis[0]) * std::sin(inAngle / 2.0);
                 double j = static_cast<double>(normAxis[1]) * std::sin(inAngle / 2.0);
@@ -172,7 +170,7 @@ namespace NC
                 eyeTimesScalar(1, 1) = inQuat2.s();
                 eyeTimesScalar(2, 2) = inQuat2.s();
 
-                NdArray<double> epsilonHat = Linalg<double>::hat(inQuat2.i(), inQuat2.j(), inQuat2.k());
+                NdArray<double> epsilonHat = Linalg::hat<double>(inQuat2.i(), inQuat2.j(), inQuat2.k());
                 NdArray<double> q(4, 3);
                 q.put(Slice(0, 3), Slice(0, 3), eyeTimesScalar + epsilonHat);
                 q(3, 0) = -inQuat2.i();
@@ -286,10 +284,12 @@ namespace NC
                 Shape inShape = inDcm.shape();
                 if (!(inShape.rows == 3 && inShape.cols == 3))
                 {
-                    throw std::invalid_argument("ERROR: Rotations::Quaternion::fromDcm: input direction cosine matrix must have shape = (3,3).");
+                    std::string errStr = "ERROR: Rotations::Quaternion::fromDcm: input direction cosine matrix must have shape = (3,3).";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
-                NdArray<double> dcm = inDcm.astype();
+                NdArray<double> dcm = inDcm.astype<double>();
 
                 NdArray<double> checks(1, 4);
                 checks[0] = dcm(0, 0) + dcm(1, 1) + dcm(2, 2);
@@ -297,7 +297,7 @@ namespace NC
                 checks[2] = dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
                 checks[3] = dcm(0, 0) + dcm(1, 1) - dcm(2, 2);
 
-                uint32 maxIdx = Methods<double>::argmax(checks).item();
+                uint32 maxIdx = argmax(checks).item();
 
                 double q0 = 0;
                 double q1 = 0;
@@ -361,7 +361,9 @@ namespace NC
             {
                 if (inPercent < 0 || inPercent > 1)
                 {
-                    throw std::invalid_argument("ERROR: Rotations::Quaternion::nlerp: input percent must be of the range [0,1].");
+                    std::string errStr = "ERROR: Rotations::Quaternion::nlerp: input percent must be of the range [0,1].";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 if (inPercent == 0)
@@ -419,7 +421,9 @@ namespace NC
             {
                 if (inVector.size() != 3)
                 {
-                    throw std::invalid_argument("ERROR: Rotations::Quaternion::rotate: input inVector must be a cartesion vector of length = 3.");
+                    std::string errStr = "ERROR: Rotations::Quaternion::rotate: input inVector must be a cartesion vector of length = 3.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 return *this * inVector;
@@ -451,7 +455,9 @@ namespace NC
             {
                 if (inPercent < 0 || inPercent > 1)
                 {
-                    throw std::invalid_argument("ERROR: Rotations::Quaternion::slerp: input percent must be of the range [0, 1]");
+                    std::string errStr = "ERROR: Rotations::Quaternion::slerp: input percent must be of the range [0, 1]";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 if (inPercent == 0)
@@ -463,7 +469,7 @@ namespace NC
                     return inQuat2;
                 }
 
-                double dotProduct = Methods<double>::dot<double>(inQuat1.toNdArray(), inQuat2.toNdArray()).item();
+                double dotProduct = dot<double>(inQuat1.toNdArray(), inQuat2.toNdArray()).item();
 
                 // If the dot product is negative, the quaternions
                 // have opposite handed-ness and slerp won't take
@@ -482,7 +488,7 @@ namespace NC
                     return nlerp(inQuat1, inQuat2, inPercent);
                 }
 
-                dotProduct = Methods<double>::clip(dotProduct, -1.0, 1.0);	// Robustness: Stay within domain of acos()
+                dotProduct = clip(dotProduct, -1.0, 1.0);	// Robustness: Stay within domain of acos()
                 double theta0 = std::acos(dotProduct);		// angle between input vectors
                 double theta = theta0 * inPercent;			// angle between v0 and result
 
@@ -516,8 +522,8 @@ namespace NC
             ///
             std::string str() const
             {
-                std::string output = "[" + Utils<double>::num2str(i()) + ", " + Utils<double>::num2str(j()) +
-                    ", " + Utils<double>::num2str(k()) + ", " + Utils<double>::num2str(s()) + "]\n";
+                std::string output = "[" + Utils::num2str(i()) + ", " + Utils::num2str(j()) +
+                    ", " + Utils::num2str(k()) + ", " + Utils::num2str(s()) + "]\n";
 
                 return output;
             }
@@ -538,15 +544,15 @@ namespace NC
                 double q2 = k();
                 double q3 = s();
 
-                dcm(0, 0) = Utils<double>::sqr(q3) + Utils<double>::sqr(q0) - Utils<double>::sqr(q1) - Utils<double>::sqr(q2);
+                dcm(0, 0) = Utils::sqr(q3) + Utils::sqr(q0) - Utils::sqr(q1) - Utils::sqr(q2);
                 dcm(0, 1) = 2 * (q0 * q1 + q3 * q2);
                 dcm(0, 2) = 2 * (q0 * q2 - q3 * q1);
                 dcm(1, 0) = 2 * (q0 * q1 - q3 * q2);
-                dcm(1, 1) = Utils<double>::sqr(q3) - Utils<double>::sqr(q0) + Utils<double>::sqr(q1) - Utils<double>::sqr(q2);;
+                dcm(1, 1) = Utils::sqr(q3) - Utils::sqr(q0) + Utils::sqr(q1) - Utils::sqr(q2);;
                 dcm(1, 2) = 2 * (q1 * q2 + q3 * q0);
                 dcm(2, 0) = 2 * (q0 * q2 + q3 * q1);
                 dcm(2, 1) = 2 * (q1 * q2 - q3 * q0);
-                dcm(2, 2) = Utils<double>::sqr(q3) - Utils<double>::sqr(q0) - Utils<double>::sqr(q1) + Utils<double>::sqr(q2);;
+                dcm(2, 2) = Utils::sqr(q3) - Utils::sqr(q0) - Utils::sqr(q1) + Utils::sqr(q2);;
 
                 return std::move(dcm);
             }
@@ -748,10 +754,12 @@ namespace NC
             {
                 if (inVec.size() != 3)
                 {
-                    throw std::invalid_argument("ERROR: Rotations::Quaternion::operator*: input vector must be a cartesion vector of length = 3.");
+                    std::string errStr = "ERROR: Rotations::Quaternion::operator*: input vector must be a cartesion vector of length = 3.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
-                return toDCM().dot(inVec.astype());
+                return toDCM().dot<double>(inVec.astype<double>());
             }
 
             //============================================================================
@@ -846,7 +854,7 @@ namespace NC
 
         //================================================================================
         /// Factory methods for generating direction cosine matrices and vectors
-        template<typename dtype = double>
+        template<typename dtype>
         class DCM
         {
         public:
@@ -864,7 +872,9 @@ namespace NC
             {
                 if (inArray.size() != 3)
                 {
-                    throw std::invalid_argument("ERROR: Rotations::Quaternion::angleAxisRotationDcm: input array must be of size = 3.");
+                    std::string errStr = "ERROR: Rotations::Quaternion::angleAxisRotationDcm: input array must be of size = 3.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 return std::move(Quaternion::angleAxisRotation(inArray, inAngle).toDCM());
@@ -884,8 +894,8 @@ namespace NC
             {
                 Shape inShape = inArray.shape();
                 if (!(inShape.rows == inShape.cols &&
-                    Methods<dtype>::round(Linalg<dtype>::det(inArray), 2) == 1 &&
-                    Methods<dtype>::round(Linalg<dtype>::det(inArray.transpose()), 2) == 1))
+                    round(Linalg::det<dtype>(inArray), 2) == 1 &&
+                    round(Linalg::det<dtype>(inArray.transpose()), 2) == 1))
                 {
                     return false;
                 }

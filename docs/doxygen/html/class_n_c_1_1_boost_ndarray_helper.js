@@ -8,7 +8,7 @@ var class_n_c_1_1_boost_ndarray_helper =
     [ "operator()", "class_n_c_1_1_boost_ndarray_helper.html#a9ed71d539292196afcf9ed6c1e152922", null ],
     [ "operator()", "class_n_c_1_1_boost_ndarray_helper.html#af9a8d26fca4a0bf1f694198150fd92aa", null ],
     [ "operator()", "class_n_c_1_1_boost_ndarray_helper.html#a538be84f006091482c18568038d467b4", null ],
-    [ "order", "class_n_c_1_1_boost_ndarray_helper.html#a5adb733450e8d84fc3902a1e42649731", null ],
+    [ "order", "class_n_c_1_1_boost_ndarray_helper.html#a60d8b284a0cc876534907b59d8a1eaaf", null ],
     [ "printArray1D", "class_n_c_1_1_boost_ndarray_helper.html#ad0ba5ef7c261d6f289db33345e7436af", null ],
     [ "printArray2D", "class_n_c_1_1_boost_ndarray_helper.html#a2b9364d8707c9c2dfea32540203df3f3", null ],
     [ "printArray3D", "class_n_c_1_1_boost_ndarray_helper.html#abcba9e0f9aae905258df36228f4d1b8b", null ],

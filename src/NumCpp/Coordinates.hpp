@@ -47,27 +47,22 @@ namespace NC
     {
         //================================================================================
         ///						Holds a right ascension object
-        template<typename dtype = double>
+        template<typename dtype>
         class RA
         {
         private:
             //====================================Attributes==============================
-            uint8   hours_;
-            uint8   minutes_;
-            dtype   seconds_;
-            dtype   degrees_;
-            dtype   radians_;
+            uint8   hours_{0};
+            uint8   minutes_{0};
+            dtype   seconds_{0.0};
+            dtype   degrees_{0.0};
+            dtype   radians_{0.0};
 
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            RA() :
-                hours_(0),
-                minutes_(0),
-                seconds_(0.0),
-                degrees_(0.0),
-                radians_(0.0)
+            RA()
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
             }
@@ -78,17 +73,16 @@ namespace NC
             /// @param      inDegrees
             ///
             RA(dtype inDegrees) :
-                hours_(0),
-                minutes_(0),
-                seconds_(0.0),
                 degrees_(inDegrees),
-                radians_(static_cast<dtype>(Methods<dtype>::deg2rad(inDegrees)))
+                radians_(static_cast<dtype>(deg2rad(inDegrees)))
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
 
                 if (inDegrees < 0 || inDegrees >= 360)
                 {
-                    throw std::invalid_argument("ERROR: NC::Coordinates::RA: input degrees must be of the range [0, 360)");
+                    std::string errStr = "ERROR: NC::Coordinates::RA: input degrees must be of the range [0, 360)";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 hours_ = static_cast<uint8>(std::floor(degrees_ / 15.0));
@@ -107,14 +101,12 @@ namespace NC
             RA(uint8 inHours, uint8 inMinutes, dtype inSeconds) :
                 hours_(inHours),
                 minutes_(inMinutes),
-                seconds_(inSeconds),
-                degrees_(0.0),
-                radians_(0.0)
+                seconds_(inSeconds)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
 
                 degrees_ = static_cast<dtype>(static_cast<double>(hours_) * 15.0 + static_cast<double>(minutes_) / 4.0 + static_cast<double>(seconds_) / 240.0);
-                radians_ = static_cast<dtype>(Methods<dtype>::deg2rad(degrees_));
+                radians_ = static_cast<dtype>(deg2rad(degrees_));
             }
 
             //============================================================================
@@ -187,8 +179,8 @@ namespace NC
             ///
             std::string str() const
             {
-                std::string out = "RA hms: " + Utils<uint8>::num2str(hours_) + " hours, " + Utils<uint8>::num2str(minutes_) + " minutes, ";
-                out += Utils<dtype>::num2str(seconds_) + " seconds\nRA degrees: " + Utils<dtype>::num2str(degrees_) + "\n";
+                std::string out = "RA hms: " + Utils::num2str(hours_) + " hours, " + Utils::num2str(minutes_) + " minutes, ";
+                out += Utils::num2str(seconds_) + " seconds\nRA degrees: " + Utils::num2str(degrees_) + "\n";
                 return out;
             }
 
@@ -239,33 +231,27 @@ namespace NC
 
         //================================================================================
         ///						Struct Enum for positive or negative Dec angle
-        struct Sign { enum Type { NEGATIVE = 0, POSITIVE }; };
+        enum class Sign { NEGATIVE = 0, POSITIVE };
 
         //================================================================================
         ///						Holds a Declination object
-        template<typename dtype = double>
+        template<typename dtype>
         class Dec
         {
         private:
             //====================================Attributes==============================
-            Sign::Type      sign_;
-            uint8           degreesWhole_;
-            uint8           minutes_;
-            dtype           seconds_;
-            dtype           degrees_;
-            dtype           radians_;
+            Sign            sign_{ Sign::POSITIVE };
+            uint8           degreesWhole_{0};
+            uint8           minutes_{0};
+            dtype           seconds_{0.0};
+            dtype           degrees_{0.0};
+            dtype           radians_{0.0};
 
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            Dec() :
-                sign_(Sign::POSITIVE),
-                degreesWhole_(0),
-                minutes_(0),
-                seconds_(0.0),
-                degrees_(0.0),
-                radians_(0.0)
+            Dec()
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
             }
@@ -276,17 +262,16 @@ namespace NC
             /// @param      inDegrees
             ///
             Dec(dtype inDegrees) :
-                degreesWhole_(0),
-                minutes_(0),
-                seconds_(0.0),
                 degrees_(inDegrees),
-                radians_(static_cast<dtype>(Methods<dtype>::deg2rad(inDegrees)))
+                radians_(static_cast<dtype>(deg2rad(inDegrees)))
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
 
                 if (inDegrees < -90 || inDegrees > 90)
                 {
-                    throw std::invalid_argument("ERROR: NC::Coordinates::Dec: input degrees must be of the range [-90, 90]");
+                    std::string errStr = "ERROR: NC::Coordinates::Dec: input degrees must be of the range [-90, 90]";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;
@@ -306,20 +291,18 @@ namespace NC
             /// @param      inMinutes
             /// @param      inSeconds
             ///
-            Dec(Sign::Type inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds) :
+            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds) :
                 sign_(inSign),
                 degreesWhole_(inDegrees),
                 minutes_(inMinutes),
-                seconds_(inSeconds),
-                degrees_(0.0),
-                radians_(0.0)
+                seconds_(inSeconds)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
 
                 degrees_ = static_cast<dtype>(static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + static_cast<double>(seconds_) / 3600.0);
                 degrees_ *= sign_ == Sign::NEGATIVE ? -1 : 1;
                 
-                radians_ = static_cast<dtype>(Methods<dtype>::deg2rad(degrees_));
+                radians_ = static_cast<dtype>(deg2rad(degrees_));
             }
 
             //============================================================================
@@ -338,9 +321,9 @@ namespace NC
             //============================================================================
             ///						Get the sign of the degrees (positive or negative)
             ///
-            /// @return     Sign::Type
+            /// @return     Sign
             ///
-            Sign::Type sign() const
+            Sign sign() const
             {
                 return sign_;
             }
@@ -403,8 +386,8 @@ namespace NC
             std::string str() const
             {
                 std::string strSign = sign_ == Sign::NEGATIVE ? "-" : "+";
-                std::string out = "Dec dms: " + strSign + Utils<dtype>::num2str(degreesWhole_) + " degrees, " + Utils<uint8>::num2str(minutes_) + " minutes, ";
-                out += Utils<dtype>::num2str(seconds_) + " seconds\nDec degrees = " + Utils<dtype>::num2str(degrees_) + "\n";
+                std::string out = "Dec dms: " + strSign + Utils::num2str(degreesWhole_) + " degrees, " + Utils::num2str(minutes_) + " minutes, ";
+                out += Utils::num2str(seconds_) + " seconds\nDec degrees = " + Utils::num2str(degrees_) + "\n";
                 return out;
             }
 
@@ -457,31 +440,31 @@ namespace NC
 
         //================================================================================
         ///						Holds a full coordinate object
-        template<typename dtype = double>
+        template<typename dtype>
         class Coordinate
         {
         private:
             //====================================Attributes==============================
             RA<dtype>       ra_;
             Dec<dtype>      dec_;
-            dtype           x_;
-            dtype           y_;
-            dtype           z_;
+            dtype           x_{1.0};
+            dtype           y_{0.0};
+            dtype           z_{0.0};
 
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
             ///
             void cartesianToPolar()
             {
-                dtype degreesRa = static_cast<dtype>(Methods<dtype>::rad2deg(std::atan2(y_, x_)));
+                dtype degreesRa = static_cast<dtype>(rad2deg(std::atan2(y_, x_)));
                 if (degreesRa < 0)
                 {
                     degreesRa += 360;
                 }
                 ra_ = RA<dtype>(degreesRa);
 
-                double r = std::sqrt(static_cast<double>(Utils<dtype>::sqr(x_)) + static_cast<double>(Utils<dtype>::sqr(y_)) + static_cast<double>(Utils<dtype>::sqr(z_)));
-                dtype degreesDec = static_cast<dtype>(Methods<double>::rad2deg(std::asin(static_cast<double>(z_) / r)));
+                double r = std::sqrt(static_cast<double>(Utils::sqr(x_)) + static_cast<double>(Utils::sqr(y_)) + static_cast<double>(Utils::sqr(z_)));
+                dtype degreesDec = static_cast<dtype>(rad2deg(std::asin(static_cast<double>(z_) / r)));
                 dec_ = Dec<dtype>(degreesDec);
             }
 
@@ -490,8 +473,8 @@ namespace NC
             ///
             void polarToCartesian()
             {
-                double raRadians = Methods<double>::deg2rad(static_cast<double>(ra_.degrees()));
-                double decRadians = Methods<double>::deg2rad(static_cast<double>(dec_.degrees()));
+                double raRadians = deg2rad(static_cast<double>(ra_.degrees()));
+                double decRadians = deg2rad(static_cast<double>(dec_.degrees()));
 
                 x_ = static_cast<dtype>(std::cos(raRadians) * std::cos(decRadians));
                 y_ = static_cast<dtype>(std::sin(raRadians) * std::cos(decRadians));
@@ -502,12 +485,7 @@ namespace NC
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            Coordinate() :
-                ra_(),
-                dec_(),
-                x_(1.0),
-                y_(0.0),
-                z_(0.0)
+            Coordinate()
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
             }
@@ -520,10 +498,7 @@ namespace NC
             ///
             Coordinate(dtype inRaDegrees, dtype inDecDegrees) :
                 ra_(inRaDegrees),
-                dec_(inDecDegrees),
-                x_(0.0),
-                y_(0.0),
-                z_(0.0)
+                dec_(inDecDegrees)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
@@ -540,12 +515,9 @@ namespace NC
             /// @param              inDecMinutes
             /// @param              inDecSeconds
             ///
-            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign::Type inSign, uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
+            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign inSign, uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
-                dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds),
-                x_(0.0),
-                y_(0.0),
-                z_(0.0)
+                dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
@@ -559,10 +531,7 @@ namespace NC
             ///
             Coordinate(const RA<dtype>& inRA, const Dec<dtype>& inDec) :
                 ra_(inRA),
-                dec_(inDec),
-                x_(0.0),
-                y_(0.0),
-                z_(0.0)
+                dec_(inDec)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
@@ -576,8 +545,6 @@ namespace NC
             /// @param              inZ
             ///
             Coordinate(dtype inX, dtype inY, dtype inZ) :
-                ra_(),
-                dec_(),
                 x_(inX),
                 y_(inY),
                 z_(inZ)
@@ -591,18 +558,15 @@ namespace NC
             ///		
             /// @param				inCartesianVector
             ///
-            Coordinate(const NdArray<dtype> inCartesianVector) :
-                ra_(),
-                dec_(),
-                x_(1.0),
-                y_(0.0),
-                z_(0.0)
+            Coordinate(const NdArray<dtype> inCartesianVector)
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
 
                 if (inCartesianVector.size() != 3)
                 {
-                    throw std::invalid_argument("ERROR: NC::Coordinates::Dec: constructor NdArray input must be of length 3.");
+                    std::string errStr = "ERROR: NC::Coordinates::Dec: constructor NdArray input must be of length 3.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
                 x_ = inCartesianVector[0];
@@ -693,7 +657,7 @@ namespace NC
             ///
             dtype degreeSeperation(const Coordinate<dtype>& inOtherCoordinate) const
             {
-                return static_cast<dtype>(Methods<dtype>::rad2deg(radianSeperation(inOtherCoordinate)));
+                return static_cast<dtype>(rad2deg(radianSeperation(inOtherCoordinate)));
             }
 
             //============================================================================
@@ -706,7 +670,7 @@ namespace NC
             ///
             dtype degreeSeperation(const NdArray<dtype>& inVector) const
             {
-                return static_cast<dtype>(Methods<dtype>::rad2deg(radianSeperation(inVector)));
+                return static_cast<dtype>(rad2deg(radianSeperation(inVector)));
             }
 
             //============================================================================
@@ -718,7 +682,7 @@ namespace NC
             ///
             dtype radianSeperation(const Coordinate<dtype>& inOtherCoordinate) const
             {
-                return static_cast<dtype>(std::acos(Methods<dtype>::dot(xyz(), inOtherCoordinate.xyz()).item()));
+                return static_cast<dtype>(std::acos(dot<double>(xyz(), inOtherCoordinate.xyz()).item()));
             }
 
             //============================================================================
@@ -733,10 +697,12 @@ namespace NC
             {
                 if (inVector.size() != 3)
                 {
-                    throw std::invalid_argument("ERROR: NC::Coordinates::Coordinate::radianSeperation: input vector must be of length 3.");
+                    std::string errStr = "ERROR: NC::Coordinates::Coordinate::radianSeperation: input vector must be of length 3.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
                 }
 
-                return static_cast<dtype>(std::acos(Methods<dtype>::dot(xyz(), inVector.flatten()).item()));
+                return static_cast<dtype>(std::acos(dot<dtype>(xyz(), inVector.flatten()).item()));
             }
 
             //============================================================================

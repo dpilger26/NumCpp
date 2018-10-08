@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['little',['LITTLE',['../struct_n_c_1_1_endian.html#a03765f6248fbbfdd0db77b98309d62b4a82aed72b594932766b9bf6f1fb5fab0a',1,'NC::Endian']]]
+  ['little',['LITTLE',['../namespace_n_c.html#a4fd17afc98e4ce4216110d30e92ebb42a1314341b466dcb5e2c880b76414c49fe',1,'NC']]]
 ];

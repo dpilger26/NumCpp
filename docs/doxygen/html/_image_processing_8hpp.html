@@ -90,7 +90,8 @@ $(document).ready(function(){initNavTree('_image_processing_8hpp.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ImageProcessing.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -111,16 +112,16 @@ $(document).ready(function(){initNavTree('_image_processing_8hpp.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_image_processing.html">NC::ImageProcessing&lt; dtype &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for basic image processing.  <a href="class_n_c_1_1_image_processing.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_image_processing_1_1_centroid.html">NC::ImageProcessing&lt; dtype &gt;::Centroid</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_image_processing_1_1_centroid.html">NC::ImageProcessing::Centroid&lt; dtype &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">holds the information for a centroid  <a href="class_n_c_1_1_image_processing_1_1_centroid.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_image_processing_1_1_cluster.html">NC::ImageProcessing&lt; dtype &gt;::Cluster</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_image_processing_1_1_cluster.html">NC::ImageProcessing::Cluster&lt; dtype &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the information for a cluster of pixels.  <a href="class_n_c_1_1_image_processing_1_1_cluster.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_image_processing_1_1_pixel.html">NC::ImageProcessing&lt; dtype &gt;::Pixel</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_image_processing_1_1_cluster_maker.html">NC::ImageProcessing::ClusterMaker&lt; dtype &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clusters exceedance data into contiguous groups.  <a href="class_n_c_1_1_image_processing_1_1_cluster_maker.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_image_processing_1_1_pixel.html">NC::ImageProcessing::Pixel&lt; dtype &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds the information for a single pixel.  <a href="class_n_c_1_1_image_processing_1_1_pixel.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -128,6 +129,29 @@ Data Structures</h2></td></tr>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_n_c"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_n_c.html">NC</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_n_c_1_1_image_processing"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_image_processing.html">NC::ImageProcessing</a></td></tr>
+<tr class="memdesc:namespace_n_c_1_1_image_processing"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for basic image processing. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ad02d44abc315540daf750aecf88b63d5"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ad02d44abc315540daf750aecf88b63d5"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; bool &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_image_processing.html#ad02d44abc315540daf750aecf88b63d5">NC::ImageProcessing::applyThreshold</a> (const NdArray&lt; dtype &gt; &amp;inImageArray, dtype inThreshold)</td></tr>
+<tr class="separator:ad02d44abc315540daf750aecf88b63d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3768647895292291c446f21e8278f985"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a3768647895292291c446f21e8278f985"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; Centroid&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_image_processing.html#a3768647895292291c446f21e8278f985">NC::ImageProcessing::centroidClusters</a> (const std::vector&lt; Cluster&lt; dtype &gt; &gt; &amp;inClusters)</td></tr>
+<tr class="separator:a3768647895292291c446f21e8278f985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2276eb493b8963373f91b2361654e4d3"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a2276eb493b8963373f91b2361654e4d3"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; Cluster&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_image_processing.html#a2276eb493b8963373f91b2361654e4d3">NC::ImageProcessing::clusterPixels</a> (const NdArray&lt; dtype &gt; &amp;inImageArray, const NdArray&lt; bool &gt; &amp;inExceedances, uint8 inBorderWidth=0)</td></tr>
+<tr class="separator:a2276eb493b8963373f91b2361654e4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30f6d6bfd1053a90d225c7791097c94c"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a30f6d6bfd1053a90d225c7791097c94c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; Centroid&lt; dtype &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_image_processing.html#a30f6d6bfd1053a90d225c7791097c94c">NC::ImageProcessing::generateCentroids</a> (const NdArray&lt; dtype &gt; &amp;inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth=0)</td></tr>
+<tr class="separator:a30f6d6bfd1053a90d225c7791097c94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e4f1fbe0653b27d7b76ca6485ab3a00"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a1e4f1fbe0653b27d7b76ca6485ab3a00"><td class="memTemplItemLeft" align="right" valign="top">dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_image_processing.html#a1e4f1fbe0653b27d7b76ca6485ab3a00">NC::ImageProcessing::generateThreshold</a> (const NdArray&lt; dtype &gt; &amp;inImageArray, double inRate)</td></tr>
+<tr class="separator:a1e4f1fbe0653b27d7b76ca6485ab3a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e2014633956a9f7b95228b0ae507d88"><td class="memItemLeft" align="right" valign="top">NdArray&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_image_processing.html#a5e2014633956a9f7b95228b0ae507d88">NC::ImageProcessing::windowExceedances</a> (const NdArray&lt; bool &gt; &amp;inExceedances, uint8 inBorderWidth)</td></tr>
+<tr class="separator:a5e2014633956a9f7b95228b0ae507d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>David Pilger <a href="#" onclick="location.href='mai'+'lto:'+'dpi'+'lg'+'er2'+'6@'+'gma'+'il'+'.co'+'m'; return false;">dpilg<span style="display: none;">.nosp@m.</span>er26<span style="display: none;">.nosp@m.</span>@gmai<span style="display: none;">.nosp@m.</span>l.co<span style="display: none;">.nosp@m.</span>m</a> <a href="https://github.com/dpilger26/NumCpp">GitHub Repository</a> </dd></dl>

@@ -43,16 +43,13 @@ namespace NC
     {
     public:
         //====================================Attributes==============================
-        uint32	rows;
-        uint32	cols;
+        uint32	rows{0};
+        uint32	cols{0};
 
         //============================================================================
         ///						Constructor
         ///
-        Shape() :
-            rows(0),
-            cols(0)
-        {};
+        Shape() = default;
 
         //============================================================================
         ///						Constructor
@@ -127,7 +124,7 @@ namespace NC
         ///
         std::string str() const
         {
-            std::string out = "[" + Utils<uint32>::num2str(rows) + ", " + Utils<uint32>::num2str(cols) + "]\n";
+            std::string out = "[" + Utils::num2str(rows) + ", " + Utils::num2str(cols) + "]\n";
             return out;
         }
 
