@@ -45,6 +45,31 @@ namespace NC
 {
     namespace Linalg
     {
+        // forward declare all functions
+        template<typename dtype>
+        dtype det(const NdArray<dtype>& inArray);
+
+        template<typename dtype>
+        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ);
+
+        template<typename dtype>
+        NdArray<dtype> hat(const NdArray<dtype>& inVec);
+
+        template<typename dtype>
+        NdArray<double> inv(const NdArray<dtype>& inArray);
+
+        template<typename dtype>
+        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance);
+
+        template<typename dtypeOut, typename dtype>
+        NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower);
+
+        template<typename dtypeOut, typename dtype>
+        NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList);
+
+        template<typename dtype>
+        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt);
+
         //============================================================================
         // Method Description: 
         ///						matrix determinant.
