@@ -1180,10 +1180,10 @@ namespace NC
         std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters);
 
         template<typename dtype>
-        std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth );
+        std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0);
 
         template<typename dtype>
-        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth);
+        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0);
 
         template<typename dtype>
         dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate);
@@ -1237,7 +1237,7 @@ namespace NC
         ///				std::vector<Cluster>
         ///
         template<typename dtype>
-        std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
+        std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth)
         {
             ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
             return std::move(std::vector<Cluster<dtype> >(clusterMaker.begin(), clusterMaker.end()));
@@ -1256,7 +1256,7 @@ namespace NC
         ///				std::vector<Centroid>
         ///
         template<typename dtype>
-        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
+        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth)
         {
             uint8 borderWidthPre = 0;
             uint8 borderWidthPost = 0;

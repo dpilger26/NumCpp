@@ -2379,7 +2379,7 @@ namespace LinalgInterface
     template<typename dtype>
     np::ndarray hatArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Linalg::hat<dtype>(inArray));
+        return numCToBoost(Linalg::hat(inArray));
     }
 
     template<typename dtypeOut = double, typename dtype>
@@ -2428,12 +2428,6 @@ namespace RotationsInterface
     {
         Rotations::Quaternion returnQuat = inQuat1 * inQuat2;
         return numCToBoost(returnQuat.toNdArray());
-    }
-
-    template<typename dtype>
-    np::ndarray hatArray(const NdArray<dtype>& inArray)
-    {
-        return numCToBoost(Rotations::hat(inArray));
     }
 }
 

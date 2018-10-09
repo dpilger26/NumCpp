@@ -13,6 +13,8 @@ include_directories(${NUMCPP_INCLUDES})
 include_directories(${PYTHON_INCLUDES})
 include_directories(${PYTHON_INCLUDES_SUBDIR})
 
-link_directories()
+add_definitions(-DINCLUDE_PYTHON_INTERFACE)
+
+# link_directories()
 
 add_executable(${PROJECT_NAME} NumCppPy.cpp)

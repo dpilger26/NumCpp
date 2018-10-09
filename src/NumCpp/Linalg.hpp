@@ -59,7 +59,7 @@ namespace NC
         NdArray<double> inv(const NdArray<dtype>& inArray);
 
         template<typename dtype>
-        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance);
+        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12);
 
         template<typename dtypeOut, typename dtype>
         NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower);
@@ -69,363 +69,6 @@ namespace NC
 
         template<typename dtype>
         void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt);
-
-        //============================================================================
-        // Method Description: 
-        ///						matrix determinant.
-        ///						NOTE: can get verrrrry slow for large matrices (order > 10)
-        ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det
-        ///		
-        /// @param
-        ///				inArray
-        /// @return
-        ///				matrix determinant
-        ///
-        template<typename dtype>
-        dtype det(const NdArray<dtype>& inArray)
-        {
-            Shape inShape = inArray.shape();
-            if (inShape.rows != inShape.cols)
-            {
-                std::string errStr = "ERROR: Linalg::determinant: input array must be square with size no larger than 3x3.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
-            }
-
-            if (inShape.rows == 1)
-            {
-                return inArray[0];
-            }
-            else if (inShape.rows == 2)
-            {
-                return inArray(0, 0) * inArray(1, 1) - inArray(0, 1) * inArray(1, 0);
-            }
-            else if (inShape.rows == 3)
-            {
-                dtype aei = inArray(0, 0) * inArray(1, 1) * inArray(2, 2);
-                dtype bfg = inArray(0, 1) * inArray(1, 2) * inArray(2, 0);
-                dtype cdh = inArray(0, 2) * inArray(1, 0) * inArray(2, 1);
-                dtype ceg = inArray(0, 2) * inArray(1, 1) * inArray(2, 0);
-                dtype bdi = inArray(0, 1) * inArray(1, 0) * inArray(2, 2);
-                dtype afh = inArray(0, 0) * inArray(1, 2) * inArray(2, 1);
-
-                return aei + bfg + cdh - ceg - bdi - afh;
-            }
-            else
-            {
-                dtype determinant = 0;
-                NdArray<dtype> submat(inShape.rows - 1);
-
-                for (uint32 c = 0; c < inShape.rows; ++c)
-                {
-                    uint32 subi = 0;
-                    for (uint32 i = 1; i < inShape.rows; ++i)
-                    {
-                        uint32 subj = 0;
-                        for (uint32 j = 0; j < inShape.rows; ++j)
-                        {
-                            if (j == c)
-                            {
-                                continue;
-                            }
-
-                            submat(subi, subj++) = inArray(i, j);
-                        }
-                        ++subi;
-                    }
-                    determinant += (static_cast<dtype>(std::pow(-1, c)) * inArray(0, c) * det(submat));
-                }
-
-                return determinant;
-            }
-        }
-
-        //============================================================================
-        // Method Description: 
-        ///						vector hat operator
-        ///		
-        /// @param			inX
-        /// @param			inY
-        /// @param			inZ
-        /// @return
-        ///				3x3 NdArray
-        ///
-        template<typename dtype>
-        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
-        {
-            NdArray<dtype> returnArray(3);
-            returnArray(0, 0) = 0.0;
-            returnArray(0, 1) = -inZ;
-            returnArray(0, 2) = inY;
-            returnArray(1, 0) = inZ;
-            returnArray(1, 1) = 0.0;
-            returnArray(1, 2) = -inX;
-            returnArray(2, 0) = -inY;
-            returnArray(2, 1) = inX;
-            returnArray(2, 2) = 0.0;
-
-            return std::move(returnArray);
-        }
-
-        //============================================================================
-        // Method Description: 
-        ///						vector hat operator
-        ///		
-        /// @param
-        ///				inVec (3x1, or 1x3 cartesian vector)
-        /// @return
-        ///				3x3 NdArray
-        ///
-        template<typename dtype>
-        NdArray<dtype> hat(const NdArray<dtype>& inVec)
-        {
-            if (inVec.size() != 3)
-            {
-                std::string errStr = "ERROR: Linalg::hat: input vector must be a length 3 cartesian vector.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
-            }
-
-            return std::move(hat(inVec[0], inVec[1], inVec[2]));
-        }
-
-        //============================================================================
-        // Method Description: 
-        ///						matrix inverse
-        ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv
-        ///		
-        /// @param
-        ///				inArray
-        /// @return
-        ///				NdArray
-        ///
-        template<typename dtype>
-        NdArray<double> inv(const NdArray<dtype>& inArray)
-        {
-            Shape inShape = inArray.shape();
-            if (inShape.rows != inShape.cols)
-            {
-                std::string errStr = "ERROR: Linalg::inv: input array must be square.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
-            }
-
-            uint32 order = inShape.rows;
-
-            Shape newShape(inShape);
-            newShape.rows *= 2;
-            newShape.cols *= 2;
-
-            NdArray<double> tempArray(newShape);
-            for (uint32 row = 0; row < order; ++row)
-            {
-                for (uint32 col = 0; col < order; ++col)
-                {
-                    tempArray(row, col) = static_cast<double>(inArray(row, col));
-                }
-            }
-
-            for (uint32 row = 0; row < order; ++row)
-            {
-                for (uint32 col = order; col < 2 * order; ++col)
-                {
-                    if (row == col - order)
-                    {
-                        tempArray(row, col) = 1.0;
-                    }
-                    else
-                    {
-                        tempArray(row, col) = 0.0;
-                    }
-                }
-            }
-
-            for (uint32 row = 0; row < order; ++row)
-            {
-                double t = tempArray(row, row);
-                for (uint32 col = row; col < 2 * order; ++col)
-                {
-                    tempArray(row, col) /= t;
-                }
-
-                for (uint32 col = 0; col < order; ++col)
-                {
-                    if (row != col)
-                    {
-                        t = tempArray(col, row);
-                        for (uint32 k = 0; k < 2 * order; ++k)
-                        {
-                            tempArray(col, k) -= t * tempArray(row, k);
-                        }
-                    }
-                }
-            }
-
-            NdArray<double> returnArray(inShape);
-            for (uint32 row = 0; row < order; row++)
-            {
-                uint32 colCounter = 0;
-                for (uint32 col = order; col < 2 * order; ++col)
-                {
-                    returnArray(row, colCounter++) = tempArray(row, col);
-                }
-            }
-
-            return std::move(returnArray);
-        }
-
-        //============================================================================
-        // Method Description: 
-        ///						Solves the equation a x = b by computing a vector x 
-        ///						that minimizes the Euclidean 2-norm || b - a x ||^2. 
-        ///						The equation may be under-, well-, or over- determined 
-        ///						(i.e., the number of linearly independent rows of a can 
-        ///						be less than, equal to, or greater than its number of 
-        ///						linearly independent columns). If a is square and of 
-        ///						full rank, then x (but for round-off error) is the 
-        ///						"exact" solution of the equation.
-        ///
-        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq
-        ///		
-        /// @param				inA: coefficient matrix
-        /// @param  			inB: Ordinate or "dependent variable" values
-        /// @param				inTolerance (default 1e-12)
-        ///
-        /// @return
-        ///				NdArray
-        ///
-        template<typename dtype>
-        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
-        {
-            SVD svdSolver(inA.template astype<double>());
-            double threshold = inTolerance * svdSolver.s()[0];
-
-            return std::move(svdSolver.solve(inB.template astype<double>(), threshold));
-        }
-
-        //============================================================================
-        // Method Description: 
-        ///						Raise a square matrix to the (integer) power n.
-        ///
-        ///						For positive integers n, the power is computed by repeated
-        ///						matrix squarings and matrix multiplications.  If n == 0, 
-        ///						the identity matrix of the same shape as M is returned.
-        ///						If n < 0, the inverse is computed and then raised to the abs(n).
-        ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power
-        ///		
-        /// @param				inArray
-        /// @param				inPower
-        ///
-        /// @return
-        ///				NdArray
-        ///
-        template<typename dtypeOut = double, typename dtype>
-        NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
-        {
-            Shape inShape = inArray.shape();
-            if (inShape.rows != inShape.cols)
-            {
-                std::string errStr = "ERROR: Linalg::matrix_power: input matrix must be square.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
-            }
-
-            if (inPower == 0)
-            {
-                return std::move(identity<dtypeOut>(inShape.rows));
-            }
-            else if (inPower == 1)
-            {
-                return std::move(inArray.template astype<dtypeOut>());
-            }
-            else if (inPower == -1)
-            {
-                return std::move(inv(inArray).template astype<dtypeOut>());
-            }
-            else if (inPower > 1)
-            {
-                NdArray<dtypeOut> returnArray = dot<dtypeOut>(inArray, inArray);
-                for (int16 i = 2; i < inPower; ++i)
-                {
-                    returnArray = std::move(dot<dtypeOut>(returnArray, inArray.template astype<dtypeOut>()));
-                }
-                return std::move(returnArray);
-            }
-            else
-            {
-                NdArray<double> inverse = inv(inArray);
-                NdArray<double> returnArray = dot<double>(inverse, inverse);
-                for (int16 i = 2; i < std::abs(inPower); ++i)
-                {
-                    returnArray = std::move(dot<double>(returnArray, inverse));
-                }
-                return std::move(returnArray.template astype<dtypeOut>());
-            }
-        }
-
-        //============================================================================
-        // Method Description: 
-        ///						Compute the dot product of two or more arrays in a single 
-        ///						function call..
-        ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot
-        ///		
-        /// @param
-        ///				inList: list of arrays
-        ///
-        /// @return
-        ///				NdArray
-        ///
-        template<typename dtypeOut = double, typename dtype>
-        NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
-        {
-            typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
-
-            if (inList.size() == 0)
-            {
-                std::string errStr = "ERROR: Linalg::multi_dot: input empty list of arrays.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
-            }
-            else if (inList.size() == 1)
-            {
-                return std::move(iter->astype<dtypeOut>());
-            }
-
-            NdArray<dtypeOut> returnArray = dot<dtypeOut>(*iter, *(iter + 1));
-            iter += 2;
-            for (; iter < inList.end(); ++iter)
-            {
-                returnArray = std::move(dot<dtypeOut>(returnArray, iter->astype<dtypeOut>()));
-            }
-
-            return std::move(returnArray);
-        }
-
-        //============================================================================
-        // Method Description: 
-        ///						matrix svd
-        ///
-        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
-        ///		
-        /// @param				inArray: NdArray to be SVDed
-        /// @param				outU: NdArray output U
-        /// @param				outS: NdArray output S
-        /// @param				outVt: NdArray output V transpose
-        ///
-        template<typename dtype>
-        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
-        {
-            SVD svdSolver(inArray.template astype<double>());
-            outU = std::move(svdSolver.u());
-            outVt = std::move(svdSolver.v());
-
-            NdArray<double> s = diagflat(svdSolver.s());
-            outS = std::move(s);
-        }
 
         // =============================================================================
         // Class Description:
@@ -447,16 +90,16 @@ namespace NC
             // =============================================================================
             // Description:
             ///              Constructor
-            /// 
-            /// @param 
+            ///
+            /// @param
             ///              inMatrix: matrix to perform SVD on
             ///
             SVD(const NdArray<double>& inMatrix) :
-                m_(inMatrix.shape().rows),
-                n_(inMatrix.shape().cols),
-                u_(inMatrix),
-                v_(n_, n_),
-                s_(1, n_)
+                    m_(inMatrix.shape().rows),
+                    n_(inMatrix.shape().cols),
+                    u_(inMatrix),
+                    v_(n_, n_),
+                    s_(1, n_)
             {
                 eps_ = std::numeric_limits<double>::epsilon();
                 decompose();
@@ -467,8 +110,8 @@ namespace NC
             // =============================================================================
             // Description:
             ///              the resultant u matrix
-            /// 
-            /// @return 
+            ///
+            /// @return
             ///              u matrix
             ///
             const NdArray<double>& u()
@@ -479,8 +122,8 @@ namespace NC
             // =============================================================================
             // Description:
             ///              the resultant v matrix
-            /// 
-            /// @return 
+            ///
+            /// @return
             ///              v matrix
             ///
             const NdArray<double>& v()
@@ -491,8 +134,8 @@ namespace NC
             // =============================================================================
             // Description:
             ///              the resultant w matrix
-            /// 
-            /// @return 
+            ///
+            /// @return
             ///              s matrix
             ///
             const NdArray<double>& s()
@@ -503,11 +146,11 @@ namespace NC
             // =============================================================================
             // Description:
             ///              solves the linear least squares problem
-            /// 
+            ///
             /// @param      inInput
             /// @param      inThresh (default -1.0)
-            /// 
-            /// @return 
+            ///
+            /// @return
             ///              NdArray
             ///
             NdArray<double> solve(const NdArray<double>& inInput, double inThresh = -1.0)
@@ -559,11 +202,11 @@ namespace NC
             // =============================================================================
             // Description:
             ///              returns the SIGN of two values
-            ///  
+            ///
             /// @param              inA
             /// @param              inB
-            /// 
-            /// @return 
+            ///
+            /// @return
             ///              value
             ///
             double SIGN(double inA, double inB)
@@ -1028,11 +671,11 @@ namespace NC
             // =============================================================================
             // Description:
             ///              performs pythag of input values
-            ///  
+            ///
             /// @param              inA
             /// @param              inB
-            /// 
-            /// @return 
+            ///
+            /// @return
             ///              resultant value
             ///
             double pythag(double inA, double inB)
@@ -1042,5 +685,362 @@ namespace NC
                 return (absa > absb ? absa * std::sqrt(1.0 + Utils::sqr(absb / absa)) : (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + Utils::sqr(absa / absb))));
             }
         };
+
+        //============================================================================
+        // Method Description: 
+        ///						matrix determinant.
+        ///						NOTE: can get verrrrry slow for large matrices (order > 10)
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.det.html#scipy.linalg.det
+        ///		
+        /// @param
+        ///				inArray
+        /// @return
+        ///				matrix determinant
+        ///
+        template<typename dtype>
+        dtype det(const NdArray<dtype>& inArray)
+        {
+            Shape inShape = inArray.shape();
+            if (inShape.rows != inShape.cols)
+            {
+                std::string errStr = "ERROR: Linalg::determinant: input array must be square with size no larger than 3x3.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            if (inShape.rows == 1)
+            {
+                return inArray[0];
+            }
+            else if (inShape.rows == 2)
+            {
+                return inArray(0, 0) * inArray(1, 1) - inArray(0, 1) * inArray(1, 0);
+            }
+            else if (inShape.rows == 3)
+            {
+                dtype aei = inArray(0, 0) * inArray(1, 1) * inArray(2, 2);
+                dtype bfg = inArray(0, 1) * inArray(1, 2) * inArray(2, 0);
+                dtype cdh = inArray(0, 2) * inArray(1, 0) * inArray(2, 1);
+                dtype ceg = inArray(0, 2) * inArray(1, 1) * inArray(2, 0);
+                dtype bdi = inArray(0, 1) * inArray(1, 0) * inArray(2, 2);
+                dtype afh = inArray(0, 0) * inArray(1, 2) * inArray(2, 1);
+
+                return aei + bfg + cdh - ceg - bdi - afh;
+            }
+            else
+            {
+                dtype determinant = 0;
+                NdArray<dtype> submat(inShape.rows - 1);
+
+                for (uint32 c = 0; c < inShape.rows; ++c)
+                {
+                    uint32 subi = 0;
+                    for (uint32 i = 1; i < inShape.rows; ++i)
+                    {
+                        uint32 subj = 0;
+                        for (uint32 j = 0; j < inShape.rows; ++j)
+                        {
+                            if (j == c)
+                            {
+                                continue;
+                            }
+
+                            submat(subi, subj++) = inArray(i, j);
+                        }
+                        ++subi;
+                    }
+                    determinant += (static_cast<dtype>(std::pow(-1, c)) * inArray(0, c) * det(submat));
+                }
+
+                return determinant;
+            }
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						vector hat operator
+        ///		
+        /// @param			inX
+        /// @param			inY
+        /// @param			inZ
+        /// @return
+        ///				3x3 NdArray
+        ///
+        template<typename dtype>
+        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
+        {
+            NdArray<dtype> returnArray(3);
+            returnArray(0, 0) = 0.0;
+            returnArray(0, 1) = -inZ;
+            returnArray(0, 2) = inY;
+            returnArray(1, 0) = inZ;
+            returnArray(1, 1) = 0.0;
+            returnArray(1, 2) = -inX;
+            returnArray(2, 0) = -inY;
+            returnArray(2, 1) = inX;
+            returnArray(2, 2) = 0.0;
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						vector hat operator
+        ///		
+        /// @param
+        ///				inVec (3x1, or 1x3 cartesian vector)
+        /// @return
+        ///				3x3 NdArray
+        ///
+        template<typename dtype>
+        NdArray<dtype> hat(const NdArray<dtype>& inVec)
+        {
+            if (inVec.size() != 3)
+            {
+                std::string errStr = "ERROR: Linalg::hat: input vector must be a length 3 cartesian vector.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            return std::move(hat(inVec[0], inVec[1], inVec[2]));
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						matrix inverse
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.inv.html#scipy.linalg.inv
+        ///		
+        /// @param
+        ///				inArray
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        NdArray<double> inv(const NdArray<dtype>& inArray)
+        {
+            Shape inShape = inArray.shape();
+            if (inShape.rows != inShape.cols)
+            {
+                std::string errStr = "ERROR: Linalg::inv: input array must be square.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            uint32 order = inShape.rows;
+
+            Shape newShape(inShape);
+            newShape.rows *= 2;
+            newShape.cols *= 2;
+
+            NdArray<double> tempArray(newShape);
+            for (uint32 row = 0; row < order; ++row)
+            {
+                for (uint32 col = 0; col < order; ++col)
+                {
+                    tempArray(row, col) = static_cast<double>(inArray(row, col));
+                }
+            }
+
+            for (uint32 row = 0; row < order; ++row)
+            {
+                for (uint32 col = order; col < 2 * order; ++col)
+                {
+                    if (row == col - order)
+                    {
+                        tempArray(row, col) = 1.0;
+                    }
+                    else
+                    {
+                        tempArray(row, col) = 0.0;
+                    }
+                }
+            }
+
+            for (uint32 row = 0; row < order; ++row)
+            {
+                double t = tempArray(row, row);
+                for (uint32 col = row; col < 2 * order; ++col)
+                {
+                    tempArray(row, col) /= t;
+                }
+
+                for (uint32 col = 0; col < order; ++col)
+                {
+                    if (row != col)
+                    {
+                        t = tempArray(col, row);
+                        for (uint32 k = 0; k < 2 * order; ++k)
+                        {
+                            tempArray(col, k) -= t * tempArray(row, k);
+                        }
+                    }
+                }
+            }
+
+            NdArray<double> returnArray(inShape);
+            for (uint32 row = 0; row < order; row++)
+            {
+                uint32 colCounter = 0;
+                for (uint32 col = order; col < 2 * order; ++col)
+                {
+                    returnArray(row, colCounter++) = tempArray(row, col);
+                }
+            }
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Solves the equation a x = b by computing a vector x 
+        ///						that minimizes the Euclidean 2-norm || b - a x ||^2. 
+        ///						The equation may be under-, well-, or over- determined 
+        ///						(i.e., the number of linearly independent rows of a can 
+        ///						be less than, equal to, or greater than its number of 
+        ///						linearly independent columns). If a is square and of 
+        ///						full rank, then x (but for round-off error) is the 
+        ///						"exact" solution of the equation.
+        ///
+        ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq
+        ///		
+        /// @param				inA: coefficient matrix
+        /// @param  			inB: Ordinate or "dependent variable" values
+        /// @param				inTolerance (default 1e-12)
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtype>
+        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance)
+        {
+            SVD svdSolver(inA.template astype<double>());
+            double threshold = inTolerance * svdSolver.s()[0];
+
+            return std::move(svdSolver.solve(inB.template astype<double>(), threshold));
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Raise a square matrix to the (integer) power n.
+        ///
+        ///						For positive integers n, the power is computed by repeated
+        ///						matrix squarings and matrix multiplications.  If n == 0, 
+        ///						the identity matrix of the same shape as M is returned.
+        ///						If n < 0, the inverse is computed and then raised to the abs(n).
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power
+        ///		
+        /// @param				inArray
+        /// @param				inPower
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtypeOut = double, typename dtype>
+        NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
+        {
+            Shape inShape = inArray.shape();
+            if (inShape.rows != inShape.cols)
+            {
+                std::string errStr = "ERROR: Linalg::matrix_power: input matrix must be square.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            if (inPower == 0)
+            {
+                return std::move(identity<dtypeOut>(inShape.rows));
+            }
+            else if (inPower == 1)
+            {
+                return std::move(inArray.template astype<dtypeOut>());
+            }
+            else if (inPower == -1)
+            {
+                return std::move(inv(inArray).template astype<dtypeOut>());
+            }
+            else if (inPower > 1)
+            {
+                NdArray<dtypeOut> returnArray = dot<dtypeOut>(inArray, inArray);
+                for (int16 i = 2; i < inPower; ++i)
+                {
+                    returnArray = std::move(dot<dtypeOut>(returnArray, inArray.template astype<dtypeOut>()));
+                }
+                return std::move(returnArray);
+            }
+            else
+            {
+                NdArray<double> inverse = inv(inArray);
+                NdArray<double> returnArray = dot<double>(inverse, inverse);
+                for (int16 i = 2; i < std::abs(inPower); ++i)
+                {
+                    returnArray = std::move(dot<double>(returnArray, inverse));
+                }
+                return std::move(returnArray.template astype<dtypeOut>());
+            }
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						Compute the dot product of two or more arrays in a single 
+        ///						function call..
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot
+        ///		
+        /// @param
+        ///				inList: list of arrays
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        template<typename dtypeOut = double, typename dtype>
+        NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
+        {
+            typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
+
+            if (inList.size() == 0)
+            {
+                std::string errStr = "ERROR: Linalg::multi_dot: input empty list of arrays.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+            else if (inList.size() == 1)
+            {
+                return std::move(iter->template astype<dtypeOut>());
+            }
+
+            NdArray<dtypeOut> returnArray = dot<dtypeOut>(*iter, *(iter + 1));
+            iter += 2;
+            for (; iter < inList.end(); ++iter)
+            {
+                returnArray = std::move(dot<dtypeOut>(returnArray, iter->template astype<dtypeOut>()));
+            }
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description: 
+        ///						matrix svd
+        ///
+        ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd
+        ///		
+        /// @param				inArray: NdArray to be SVDed
+        /// @param				outU: NdArray output U
+        /// @param				outS: NdArray output S
+        /// @param				outVt: NdArray output V transpose
+        ///
+        template<typename dtype>
+        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
+        {
+            SVD svdSolver(inArray.template astype<double>());
+            outU = std::move(svdSolver.u());
+            outVt = std::move(svdSolver.v());
+
+            NdArray<double> s = diagflat(svdSolver.s());
+            outS = std::move(s);
+        }
     }
 }
