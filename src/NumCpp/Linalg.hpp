@@ -297,7 +297,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut, typename dtype>
+        template<typename dtypeOut = double, typename dtype>
         NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
             Shape inShape = inArray.shape();
@@ -354,7 +354,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut, typename dtype>
+        template<typename dtypeOut = double, typename dtype>
         NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
         {
             typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
