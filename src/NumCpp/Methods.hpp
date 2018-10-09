@@ -6175,7 +6175,7 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> prod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return std::move(inArray.prod<dtypeOut>(inAxis));
+        return std::move(inArray.template prod<dtypeOut>(inAxis));
     }
 
     //============================================================================
@@ -7213,7 +7213,7 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return std::move(inArray.sum<dtypeOut>(inAxis));
+        return std::move(inArray.template sum<dtypeOut>(inAxis));
     }
 
     //============================================================================
@@ -7390,7 +7390,7 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW)
     {
-        return std::move(inArray.trace<dtypeOut>(inOffset, inAxis));
+        return std::move(inArray.template trace<dtypeOut>(inOffset, inAxis));
     }
 
     //============================================================================

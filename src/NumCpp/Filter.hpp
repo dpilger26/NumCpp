@@ -952,14 +952,14 @@ namespace NC
             }
 
             // normalize the kernel
-            kernel /= kernel.sum<double>().item();
+            kernel /= kernel.template sum<double>().item();
 
             // perform the convolution
-            NdArray<dtype> output = convolve(inImageArray.astype<double>(),
+            NdArray<dtype> output = convolve(inImageArray.template astype<double>(),
                 kernelSize,
                 kernel,
                 inBoundaryType,
-                inConstantValue).astype<dtype>();
+                inConstantValue).template astype<dtype>();
 
             return std::move(output);
         }
@@ -1006,13 +1006,13 @@ namespace NC
             }
 
             // normalize the kernel
-            kernel /= kernel.sum<double>().item();
+            kernel /= kernel.template sum<double>().item();
 
             // perform the convolution
-            NdArray<dtype> output = convolve1d(inImageArray.astype<double>(),
+            NdArray<dtype> output = convolve1d(inImageArray.template astype<double>(),
                 kernel,
                 inBoundaryType,
-                inConstantValue).astype<dtype>();
+                inConstantValue).template astype<dtype>();
 
             return std::move(output);
         }

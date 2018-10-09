@@ -108,7 +108,7 @@ namespace NC
                     throw std::invalid_argument(errStr);
                 }
 
-                double norm = std::sqrt(square(inArray).sum<double>().item());
+                double norm = std::sqrt(square(inArray).template sum<double>().item());
                 data_[0] = inArray[0] / norm;
                 data_[1] = inArray[1] / norm;
                 data_[2] = inArray[2] / norm;
@@ -135,7 +135,7 @@ namespace NC
                 }
 
                 // normalize the input vector
-                NdArray<double> normAxis = inAxis.astype<double>() / inAxis.norm<double>().item();
+                NdArray<double> normAxis = inAxis.template astype<double>() / inAxis.template norm<double>().item();
 
                 double i = static_cast<double>(normAxis[0]) * std::sin(inAngle / 2.0);
                 double j = static_cast<double>(normAxis[1]) * std::sin(inAngle / 2.0);
@@ -177,7 +177,7 @@ namespace NC
                 q(3, 1) = -inQuat2.j();
                 q(3, 2) = -inQuat2.k();
 
-                NdArray<double> omega = q.transpose().dot<double>(qDot.transpose());
+                NdArray<double> omega = q.transpose().template dot<double>(qDot.transpose());
                 return std::move(omega *= 2);
             }
 
@@ -289,7 +289,7 @@ namespace NC
                     throw std::invalid_argument(errStr);
                 }
 
-                NdArray<double> dcm = inDcm.astype<double>();
+                NdArray<double> dcm = inDcm.template astype<double>();
 
                 NdArray<double> checks(1, 4);
                 checks[0] = dcm(0, 0) + dcm(1, 1) + dcm(2, 2);
@@ -759,7 +759,7 @@ namespace NC
                     throw std::invalid_argument(errStr);
                 }
 
-                return toDCM().dot<double>(inVec.astype<double>());
+                return toDCM().template dot<double>(inVec.template astype<double>());
             }
 
             //============================================================================

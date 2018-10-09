@@ -299,10 +299,10 @@ namespace NC
         template<typename dtype>
         NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12)
         {
-            SVD svdSolver(inA.astype<double>());
+            SVD svdSolver(inA.template astype<double>());
             double threshold = inTolerance * svdSolver.s()[0];
 
-            return std::move(svdSolver.solve(inB.astype<double>(), threshold));
+            return std::move(svdSolver.solve(inB.template astype<double>(), threshold));
         }
 
         //============================================================================
@@ -339,18 +339,18 @@ namespace NC
             }
             else if (inPower == 1)
             {
-                return std::move(inArray.astype<dtypeOut>());
+                return std::move(inArray.template astype<dtypeOut>());
             }
             else if (inPower == -1)
             {
-                return std::move(inv(inArray).astype<dtypeOut>());
+                return std::move(inv(inArray).template astype<dtypeOut>());
             }
             else if (inPower > 1)
             {
                 NdArray<dtypeOut> returnArray = dot<dtypeOut>(inArray, inArray);
                 for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = std::move(dot<dtypeOut>(returnArray, inArray.astype<dtypeOut>()));
+                    returnArray = std::move(dot<dtypeOut>(returnArray, inArray.template astype<dtypeOut>()));
                 }
                 return std::move(returnArray);
             }
@@ -362,7 +362,7 @@ namespace NC
                 {
                     returnArray = std::move(dot<double>(returnArray, inverse));
                 }
-                return std::move(returnArray.astype<dtypeOut>());
+                return std::move(returnArray.template astype<dtypeOut>());
             }
         }
 
@@ -419,7 +419,7 @@ namespace NC
         template<typename dtype>
         void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
         {
-            SVD svdSolver(inArray.astype<double>());
+            SVD svdSolver(inArray.template astype<double>());
             outU = std::move(svdSolver.u());
             outVt = std::move(svdSolver.v());
 
