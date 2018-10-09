@@ -170,7 +170,7 @@ namespace NdArrayInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray cumprod(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.cumprod<dtypeOut>(inAxis));
@@ -178,7 +178,7 @@ namespace NdArrayInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray cumsum(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.cumsum<dtypeOut>(inAxis));
@@ -194,7 +194,7 @@ namespace NdArrayInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray dot(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
     {
         return numCToBoost(self.dot<dtypeOut>(inOtherArray));
@@ -332,7 +332,7 @@ namespace NdArrayInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray norm(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost<dtypeOut>(self.norm<dtypeOut>(inAxis));
@@ -358,7 +358,7 @@ namespace NdArrayInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray prod(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost<dtypeOut>(self.prod<dtypeOut>(inAxis));
@@ -576,7 +576,7 @@ namespace NdArrayInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray sum(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(self.sum<dtypeOut>(inAxis));
@@ -907,7 +907,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray addArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return numCToBoost(add<dtypeOut>(inArray1, inArray2));
@@ -1333,7 +1333,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray cubeArray(const NdArray<dtype>& inArray)
     {
         return numCToBoost(cube<dtypeOut>(inArray));
@@ -1341,7 +1341,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(cumprod<dtypeOut>(inArray, inAxis));
@@ -1349,7 +1349,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
         return numCToBoost(cumsum<dtypeOut>(inArray, inAxis));
@@ -1413,7 +1413,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return numCToBoost(NC::divide<dtypeOut>(inArray1, inArray2));
@@ -1421,7 +1421,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return numCToBoost(NC::dot<dtypeOut>(inArray1, inArray2));
@@ -1661,7 +1661,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     dtype hypotScalar(dtype inValue1, dtype inValue2)
     {
         return hypot<dtypeOut>(inValue1, inValue2);
@@ -1669,7 +1669,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray hypotArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return numCToBoost(hypot<dtypeOut>(inArray1, inArray2));
@@ -1765,7 +1765,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray negative(const NdArray<dtypeOut> inArray)
     {
         return numCToBoost(NC::negative<dtypeOut>(inArray));
@@ -1883,7 +1883,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray powerArrayScalar(const NdArray<dtype>& inArray, uint8 inExponent)
     {
         return numCToBoost(power<dtypeOut>(inArray, inExponent));
@@ -1891,7 +1891,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray powerArrayArray(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
     {
         return numCToBoost(power<dtypeOut>(inArray, inExponents));
@@ -1931,7 +1931,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     dtype remainderScalar(dtype inValue1, dtype inValue2)
     {
         return remainder<dtypeOut>(inValue1, inValue2);
@@ -1939,7 +1939,7 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray remainderArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return numCToBoost(remainder<dtypeOut>(inArray1, inArray2));
@@ -2382,7 +2382,7 @@ namespace LinalgInterface
         return numCToBoost(Linalg::hat<dtype>(inArray));
     }
 
-    template<typename dtypeOut, typename dtype>
+    template<typename dtypeOut = double, typename dtype>
     np::ndarray multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
         return numCToBoost(Linalg::multi_dot<dtypeOut>({ inArray1 ,inArray2, inArray3, inArray4 }));
