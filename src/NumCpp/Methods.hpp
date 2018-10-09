@@ -7,20 +7,20 @@
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-/// software and associated documentation files(the "Software"), to deal in the Software 
-/// without restriction, including without limitation the rights to use, copy, modify, 
-/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
 /// conditions :
 ///
-/// The above copyright notice and this permission notice shall be included in all copies 
+/// The above copyright notice and this permission notice shall be included in all copies
 /// or substantial portions of the Software.
 ///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
@@ -48,12 +48,835 @@
 
 namespace NC
 {
+    // forward declare all functions
+    template<typename dtype>
+    dtype abs(dtype inValue);
+
+    template<typename dtype>
+    NdArray<dtype> abs(const NdArray<dtype>& inArray);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    uint32 alen(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<bool> all(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance = 1e-5);
+
+    template<typename dtype>
+    NdArray<dtype> amax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<bool> any(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1);
+
+    template<typename dtype>
+    NdArray<dtype> arange(dtype inStop);
+
+    template<typename dtype>
+    double arccos(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> arccos(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double arccosh(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> arccosh(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double arcsin(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> arcsin(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double arcsinh(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> arcsinh(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double arctan(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> arctan(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double arctan2(dtype inY, dtype inX);
+
+    template<typename dtype>
+    NdArray<double> arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX);
+
+    template<typename dtype>
+    double arctanh(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> arctanh(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<uint32> argmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<uint32> argmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<uint32> argsort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<uint32> argwhere(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    dtype around(dtype inValue, uint8 inNumDecimals = 0);
+
+    template<typename dtype>
+    NdArray<dtype> around(const NdArray<dtype>& inArray, uint8 inNumDecimals = 0);
+
+    template<typename dtype>
+    bool array_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    bool array_equiv(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> asarray(const std::vector<dtype>& inVector);
+
+    template<typename dtype>
+    NdArray<dtype> asarray(std::initializer_list<dtype>& inList);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> astype(const NdArray<dtype> inArray);
+
+    template<typename dtype>
+    NdArray<double> average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0);
+
+    template<typename dtype>
+    NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0);
+
+    template<typename dtype>
+    NdArray<dtype> bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> bitwise_not(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> byteswap(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double cbrt(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> cbrt(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    dtype ceil(dtype inValue);
+
+    template<typename dtype>
+    NdArray<dtype> ceil(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue);
+
+    template<typename dtype>
+    NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue);
+
+    template<typename dtype>
+    NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype> >& inArrayList);
+
+    template<typename dtype>
+    NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<bool> contains(const NdArray<dtype>& inArray, dtype inValue, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> copy(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype>& copyto(NdArray<dtype>& inDestArray, const NdArray<dtype>& inSrcArray);
+
+    template<typename dtype>
+    double cos(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> cos(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double cosh(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> cosh(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis inAxis = Axis::NONE);
+
+    template<typename dtypeOut, typename dtype>
+    dtypeOut cube(dtype inValue);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> cube(const NdArray<dtype>& inArray);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> cumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> cumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    double deg2rad(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> deg2rad(const NdArray<dtype>& inArray = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Slice& inIndicesSlice, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> diagflat(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> diagonal(const NdArray<dtype>& inArray, int32 inOffset = 0, Axis inAxis = Axis::ROW);
+
+    template<typename dtype>
+    NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    void dump(const NdArray<dtype>& inArray, const std::string& inFilename);
+
+    template<typename dtype>
+    NdArray<dtype> empty(uint32 inNumRows, uint32 inNumCols);
+
+    template<typename dtype>
+    NdArray<dtype> empty(const Shape& inShape);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> empty_like(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    Endian endianess(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<bool> equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    double exp(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> exp(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double exp2(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> exp2(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double expm1(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> expm1(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> eye(uint32 inN, int32 inK = 0);
+
+    template<typename dtype>
+    NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0);
+
+    template<typename dtype>
+    NdArray<dtype> eye(const Shape& inShape, int32 inK = 0);
+
+    template<typename dtype>
+    dtype fix(dtype inValue);
+
+    template<typename dtype>
+    NdArray<dtype> fix(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> flatten(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<uint32> flatnonzero(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> flip(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> fliplr(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> flipud(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    dtype floor(dtype inValue);
+
+    template<typename dtype>
+    NdArray<dtype> floor(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    dtype floor_divide(dtype inValue1, dtype inValue2);
+
+    template<typename dtype>
+    NdArray<dtype> floor_divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    dtype fmax(dtype inValue1, dtype inValue2);
+
+    template<typename dtype>
+    NdArray<dtype> fmax(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    dtype fmin(dtype inValue1, dtype inValue2);
+
+    template<typename dtype>
+    NdArray<dtype> fmin(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    dtype fmod(dtype inValue1, dtype inValue2);
+
+    template<typename dtype>
+    NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "");
+
+    template<typename dtype>
+    NdArray<dtype> full(uint32 inSquareSize, dtype inFillValue);
+
+    template<typename dtype>
+    NdArray<dtype> full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue);
+
+    template<typename dtype>
+    NdArray<dtype> full(const Shape& inShape, dtype inFillValue);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue);
+
+    template<typename dtype>
+    NdArray<bool> greater(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<bool> greater_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10);
+
+    template<typename dtype>
+    NdArray<dtype> hstack(const std::initializer_list<NdArray<dtype> >& inArrayList);
+
+    template<typename dtypeOut, typename dtype>
+    dtypeOut hypot(dtype inValue1, dtype inValue2);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> identity(uint32 inSquareSize);
+
+    template<typename dtype>
+    double interp(dtype inValue1, dtype inValue2, double inPercent);
+
+    template<typename dtype>
+    NdArray<dtype> interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp);
+
+    template<typename dtype>
+    NdArray<dtype> intersect1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> invert(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08);
+
+    template<typename dtype>
+    bool isinf(dtype inValue);
+
+    template<typename dtype>
+    NdArray<bool> isinf(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    bool isnan(dtype inValue);
+
+    template<typename dtype>
+    NdArray<bool> isnan(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    dtype ldexp(dtype inValue1, uint8 inValue2);
+
+    template<typename dtype>
+    NdArray<dtype> ldexp(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> left_shift(const NdArray<dtype>& inArray, uint8 inNumBits);
+
+    template<typename dtype>
+    NdArray<bool> less(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<bool> less_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true);
+
+    template<typename dtype>
+    NdArray<dtype> load(const std::string& inFilename);
+
+    template<typename dtype>
+    double log(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> log(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double log10(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> log10(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double log1p(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> log1p(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double log2(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> log2(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<bool> logical_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<bool> logical_not(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<bool> logical_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<bool> logical_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> max(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> maximum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<double> mean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> min(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> minimum(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> mod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> multiply(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<uint32> nanargmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> nancumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> nancumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> nanmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear");
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> nanprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> nans(uint32 inSquareSize);
+
+    template<typename dtype>
+    NdArray<dtype> nans(uint32 inNumRows, uint32 inNumCols);
+
+    template<typename dtype>
+    NC::NdArray<dtype> nans(const NC::Shape& inShape);
+
+    template<typename dtype>
+    NdArray<double> nans_like(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<double> nanstd(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    uint64 nbytes(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    dtype newbyteorder(dtype inValue, Endian inEndianess);
+
+    template<typename dtype>
+    NdArray<dtype> newbyteorder(const NdArray<dtype>& inArray, Endian inEndianess);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> negative(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<uint32> nonzero(const NdArray<dtype>& inArray);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<bool> not_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> ones(uint32 inSquareSize);
+
+    template<typename dtype>
+    NdArray<dtype> ones(uint32 inNumRows, uint32 inNumCols);
+
+    template<typename dtype>
+    NdArray<dtype> ones(const Shape& inShape);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> ones_like(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> pad(const NdArray<dtype>& inArray, uint16 inPadWidth, dtype inPadValue);
+
+    template<typename dtype>
+    NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis inAxis = Axis::NONE);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear");
+
+    template<typename dtypeOut, typename dtype>
+    dtypeOut power(dtype inValue, uint8 inExponent);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> power(const NdArray<dtype>& inArray, uint8 inExponent);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> power(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents);
+
+    template<typename dtype>
+    void print(const NdArray<dtype>& inArray);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> prod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype>& put(NdArray<dtype>& inArray, const NdArray<uint32>& inIndices, const NdArray<dtype>& inValues);
+
+    template<typename dtype>
+    NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue);
+
+    template<typename dtype>
+    NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues);
+
+    template<typename dtype>
+    double rad2deg(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> rad2deg(const NdArray<dtype>& inArray);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray);
+
+    template<typename dtypeOut, typename dtype>
+    dtypeOut remainder(dtype inValue1, dtype inValue2);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> repeat(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols);
+
+    template<typename dtype>
+    NdArray<dtype> repeat(const NdArray<dtype>& inArray, const Shape& inRepeatShape);
+
+    template<typename dtype>
+    NdArray<dtype>& reshape(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols);
+
+    template<typename dtype>
+    NdArray<dtype>& reshape(NdArray<dtype>& inArray, const Shape& inNewShape);
+
+    template<typename dtype>
+    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols);
+
+    template<typename dtype>
+    NdArray<dtype>& resizeFast(NdArray<dtype>& inArray, const Shape& inNewShape);
+
+    template<typename dtype>
+    NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols);
+
+    template<typename dtype>
+    NdArray<dtype>& resizeSlow(NdArray<dtype>& inArray, const Shape& inNewShape);
+
+    template<typename dtype>
+    NdArray<dtype> right_shift(const NdArray<dtype>& inArray, uint8 inNumBits);
+
+    template<typename dtype>
+    dtype rint(dtype inValue);
+
+    template<typename dtype>
+    NdArray<dtype> rint(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1);
+
+    template<typename dtype>
+    dtype round(dtype inValue, uint8 inDecimals);
+
+    template<typename dtype>
+    NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals);
+
+    template<typename dtype>
+    NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype> >& inArrayList);
+
+    template<typename dtype>
+    NdArray<dtype> setdiff1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    Shape shape(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    int8 sign(dtype inValue);
+
+    template<typename dtype>
+    NdArray<int8> sign(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    bool signbit(dtype inValue);
+
+    template<typename dtype>
+    NdArray<bool> signbit(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double sin(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> sin(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double sinc(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> sinc(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double sinh(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> sinh(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    uint32 size(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> sort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    double sqrt(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> sqrt(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    dtype square(dtype inValue);
+
+    template<typename dtype>
+    NdArray<dtype> square(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> stack(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::ROW);
+
+    template<typename dtype>
+    NdArray<double> std(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> swapaxes(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double tan(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> tan(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double tanh(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> tanh(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> tile(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols);
+
+    template<typename dtype>
+    NdArray<dtype> tile(const NdArray<dtype>& inArray, const Shape& inReps);
+
+    template<typename dtype>
+    void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const std::string& inSep = "");
+
+    template<typename dtype>
+    std::vector<dtype> toStlVector(const NdArray<dtype>& inArray);
+
+    template<typename dtypeOut, typename dtype>
+    dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW);
+
+    template<typename dtype>
+    NdArray<dtype> transpose(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> tril(uint32 inN, int32 inOffset = 0);
+
+    template<typename dtype>
+    NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0);
+
+    template<typename dtype>
+    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0);
+
+    template<typename dtype>
+    NdArray<dtype> triu(uint32 inN, int32 inOffset = 0);
+
+    template<typename dtype>
+    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0);
+
+    template<typename dtype>
+    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0);
+
+    template<typename dtype>
+    NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim = "fb");
+
+    template<typename dtype>
+    dtype trunc(dtype inValue);
+
+    template<typename dtype>
+    NdArray<dtype> trunc(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<dtype> union1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    NdArray<dtype> unique(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    dtype unwrap(dtype inValue);
+
+    template<typename dtype>
+    NdArray<dtype> unwrap(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<double> var(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> vstack(const std::initializer_list<NdArray<dtype> >& inArrayList);
+
+    template<typename dtype>
+    NdArray<dtype> where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB);
+
+    template<typename dtype>
+    NdArray<dtype> zeros(uint32 inSquareSize);
+
+    template<typename dtype>
+    NdArray<dtype> zeros(uint32 inNumRows, uint32 inNumCols);
+
+    template<typename dtype>
+    NC::NdArray<dtype> zeros(const NC::Shape& inShape);
+
+    template<typename dtypeOut, typename dtype>
+    NdArray<dtypeOut> zeros_like(const NdArray<dtype>& inArray);
+
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Calculate the absolute value.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -66,11 +889,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Calculate the absolute value element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.absolute.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -86,11 +909,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Add arguments element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.add.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -99,13 +922,13 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return std::move(inArray1.astype<dtypeOut>() + inArray2.astype<dtypeOut>());
+        return std::move(inArray1.template astype<dtypeOut>() + inArray2.template astype<dtypeOut>());
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the length of the first dimension of the input array.
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -118,29 +941,29 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Test whether all array elements along a given axis evaluate to True.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.all.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				bool
     ///
     template<typename dtype>
-    NdArray<bool> all(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<bool> all(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.all(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns True if two arrays are element-wise equal within a tolerance.
     ///						inTolerance must be a positive number
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.allclose.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @param				inTolerance: (Optional, default 1e-5)
@@ -148,7 +971,7 @@ namespace NC
     ///				bool
     ///
     template<typename dtype>
-    bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance = 1e-5)
+    bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance)
     {
         if (inArray1.shape() != inArray2.shape())
         {
@@ -169,72 +992,72 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the maximum of an array or maximum along an axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.amax.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				max value
     ///
     template<typename dtype>
-    NdArray<dtype> amax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> amax(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.max(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the minimum of an array or minimum along an axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.amin.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				min value
     ///
     template<typename dtype>
-    NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.min(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Test whether any array element along a given axis evaluates to True.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.any.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<bool> any(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<bool> any(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.any(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Append values to the end of an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.append.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAppendValues
-    /// @param				inAxis (Optional, default NONE): The axis along which values are appended. 
-    ///									If axis is not given, both inArray and inAppendValues 
-    ///									are flattened before use.	
+    /// @param				inAxis (Optional, default NONE): The axis along which values are appended.
+    ///									If axis is not given, both inArray and inAppendValues
+    ///									are flattened before use.
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis inAxis = Axis::NONE)
+    NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -293,7 +1116,7 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return evenly spaced values within a given interval.
     ///
     ///						Values are generated within the half - open interval[start, stop)
@@ -301,11 +1124,11 @@ namespace NC
     ///						For integer arguments the function is equivalent to the Python built - in
     ///						range function, but returns an ndarray rather than a list.
     ///
-    ///						When using a non - integer step, such as 0.1, the results will often 
+    ///						When using a non - integer step, such as 0.1, the results will often
     ///						not be consistent.It is better to use linspace for these cases.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
-    ///		
+    ///
     /// @param				inStart
     /// @param				inStop
     /// @param				inStep: (Optional, defaults to 1)
@@ -313,7 +1136,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
+    NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep)
     {
         if (inStep > 0 && inStop < inStart)
         {
@@ -354,7 +1177,7 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return evenly spaced values within a given interval.
     ///
     ///						Values are generated within the half - open interval[start, stop)
@@ -362,11 +1185,11 @@ namespace NC
     ///						For integer arguments the function is equivalent to the Python built - in
     ///						range function, but returns an ndarray rather than a list.
     ///
-    ///						When using a non - integer step, such as 0.1, the results will often 
+    ///						When using a non - integer step, such as 0.1, the results will often
     ///						not be consistent.It is better to use linspace for these cases.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
-    ///		
+    ///
     /// @param
     ///				inStop: start is 0 and step is 1
     /// @return
@@ -386,11 +1209,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse cosine
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -403,11 +1226,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse cosine, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccos.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -423,11 +1246,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse hyperbolic cosine.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -440,11 +1263,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse hyperbolic cosine, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arccosh.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -460,11 +1283,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse sine.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -477,11 +1300,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse sine, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsin.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -497,11 +1320,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse hyperbolic sine.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsinh.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -514,11 +1337,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse hyperbolic sine, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arcsinh.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -534,11 +1357,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse tangent.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -551,11 +1374,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse tangent, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -571,11 +1394,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse tangent.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
-    ///		
+    ///
     /// @param				inY
     /// @param				inX
     /// @return
@@ -588,11 +1411,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse tangent, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctan2.html
-    ///		
+    ///
     /// @param				inY
     /// @param				inX
     /// @return
@@ -616,11 +1439,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse hyperbolic tangent.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -633,11 +1456,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric inverse hyperbolic tangent, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -653,62 +1476,62 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns the indices of the maximum values along an axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argmax.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> argmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<uint32> argmax(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.argmax(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns the indices of the minimum values along an axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argmin.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> argmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<uint32> argmin(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.argmin(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns the indices that would sort an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argsort.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> argsort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<uint32> argsort(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.argsort(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Find the indices of array elements that are non-zero, grouped by element.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.argwhere.html
-    ///		
+    ///
     /// @param				inArray
     /// @return
     ///				NdArray
@@ -720,49 +1543,49 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Evenly round to the given number of decimals.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
-    ///		
+    ///
     /// @param			inValue
     /// @param			inNumDecimals: (Optional, default = 0)
     /// @return
     ///				value
     ///
     template<typename dtype>
-    dtype around(dtype inValue, uint8 inNumDecimals = 0)
+    dtype around(dtype inValue, uint8 inNumDecimals)
     {
         NdArray<dtype> value = { inValue };
         return value.round(inNumDecimals).item();
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Evenly round to the given number of decimals.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.around.html
-    ///		
+    ///
     /// @param			inArray
     /// @param			inNumDecimals: (Optional, default = 0)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> around(const NdArray<dtype>& inArray, uint8 inNumDecimals = 0)
+    NdArray<dtype> around(const NdArray<dtype>& inArray, uint8 inNumDecimals)
     {
         return std::move(inArray.round(inNumDecimals));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						True if two arrays have the same shape and elements, False otherwise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.array_equal.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				bool
     ///
@@ -779,17 +1602,17 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns True if input arrays are shape consistent and all elements equal.
     ///
-    ///						Shape consistent means they are either the same shape, or one input array 
+    ///						Shape consistent means they are either the same shape, or one input array
     ///						can be broadcasted to create the same shape as the other one.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.array_equiv.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				bool
     ///
@@ -813,11 +1636,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Convert the vector to an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
-    ///		
+    ///
     /// @param
     ///				inVector
     /// @return
@@ -830,12 +1653,12 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Convert the list initializer to an array.
     ///						eg: NdArray<int> myArray = NC::asarray<int>({1,2,3});
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
-    ///		
+    ///
     /// @param
     ///				inList
     /// @return
@@ -848,9 +1671,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns a copy of the array, cast to a specified type.
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -859,32 +1682,32 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> astype(const NdArray<dtype> inArray)
     {
-        return std::move(inArray.astype<dtypeOut>());
+        return std::move(inArray.template astype<dtypeOut>());
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the average along the specified axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<double> average(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.mean(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the weighted average along the specified axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.average.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inWeights
     /// @param  			inAxis (Optional, default NONE)
@@ -892,7 +1715,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
+    NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -909,7 +1732,7 @@ namespace NC
                 std::transform(inArray.cbegin(), inArray.cend(), inWeights.cbegin(), weightedArray.begin(), std::multiplies<double>());
 
                 double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
-                NdArray<double> returnArray = { sum /= inWeights.sum<double>().item() };
+                NdArray<double> returnArray = { sum /= inWeights.template sum<double>().item() };
 
                 return std::move(returnArray);
             }
@@ -923,7 +1746,7 @@ namespace NC
                     throw std::invalid_argument(errStr);
                 }
 
-                double weightSum = inWeights.sum<double>().item();
+                double weightSum = inWeights.template sum<double>().item();
                 NdArray<double> returnArray(1, arrayShape.rows);
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
@@ -948,7 +1771,7 @@ namespace NC
                 NdArray<dtype> transposedArray = inArray.transpose();
 
                 Shape transShape = transposedArray.shape();
-                double weightSum = inWeights.sum<double>().item();
+                double weightSum = inWeights.template sum<double>().item();
                 NdArray<double> returnArray(1, transShape.rows);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
@@ -971,25 +1794,25 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Count number of occurrences of each value in array of non-negative ints.
     ///						Negative values will be counted in the zero bin.
     ///
     ///						The number of bins(of size 1) is one larger than the largest value in x.
-    ///						If minlength is specified, there will be at least this number of bins in 
-    ///						the output array(though it will be longer if necessary, depending on the 
-    ///						contents of x).Each bin gives the number of occurrences of its index value 
+    ///						If minlength is specified, there will be at least this number of bins in
+    ///						the output array(though it will be longer if necessary, depending on the
+    ///						contents of x).Each bin gives the number of occurrences of its index value
     ///						in x.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inMinLength
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
+    NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength)
     {
         // only works with integer input types
         static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: bincount: can only use with integer types.");
@@ -1022,20 +1845,20 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Count number of occurrences of each value in array of non-negative ints.
     ///						Negative values will be counted in the zero bin.
     ///
     ///						The number of bins(of size 1) is one larger than the largest value in x.
-    ///						If minlength is specified, there will be at least this number of bins in 
-    ///						the output array(though it will be longer if necessary, depending on the 
-    ///						contents of x).Each bin gives the number of occurrences of its index value 
-    ///						in x.If weights is specified the input array is weighted by it, i.e. if a 
+    ///						If minlength is specified, there will be at least this number of bins in
+    ///						the output array(though it will be longer if necessary, depending on the
+    ///						contents of x).Each bin gives the number of occurrences of its index value
+    ///						in x.If weights is specified the input array is weighted by it, i.e. if a
     ///						value n is found at position i, out[n] += weight[i] instead of out[n] += 1.
     ///						Weights array shall be of the same shape as inArray.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bincount.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inWeights
     /// @param				inMinLength
@@ -1043,7 +1866,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
+    NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength)
     {
         // only works with integer input types
         static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: bincount: can only use with integer types.");
@@ -1083,11 +1906,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the bit-wise AND of two arrays element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bitwise_and.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -1100,9 +1923,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the bit-wise NOT the input array element-wise.
-    ///		
+    ///
     ///				inArray
     /// @return
     ///				NdArray
@@ -1114,11 +1937,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the bit-wise OR of two arrays element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bitwise_or.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -1131,11 +1954,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the bit-wise XOR of two arrays element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.bitwise_xor.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -1148,11 +1971,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array with the bytes of the array elements
     ///						swapped.
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     ///
     /// @return
     ///				NdArray
@@ -1166,12 +1989,12 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
-    ///						Return the cube-root of an array. Not super usefull 
+    // Method Description:
+    ///						Return the cube-root of an array. Not super usefull
     ///						if not using a floating point type
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
-    ///		
+    ///
     /// @param				inValue
     /// @return
     ///				value
@@ -1183,11 +2006,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the cube-root of an array, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
-    ///		
+    ///
     /// @param				inArray
     /// @return
     ///				NdArray
@@ -1202,11 +2025,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the ceiling of the input.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
-    ///		
+    ///
     /// @param				inValue
     /// @return
     ///				value
@@ -1218,11 +2041,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the ceiling of the input, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
-    ///		
+    ///
     /// @param				inArray
     /// @return
     ///				NdArray
@@ -1237,11 +2060,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Clip (limit) the value.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
-    ///		
+    ///
     /// @param				inValue
     /// @param				inMinValue
     /// @param				inMaxValue
@@ -1256,11 +2079,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Clip (limit) the values in an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inMinValue
     /// @param				inMaxValue
@@ -1274,11 +2097,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Stack 1-D arrays as columns into a 2-D array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.column_stack.html
-    ///		
+    ///
     /// @param
     ///				inArrayList: {list} of arrays to stack
     /// @return
@@ -1328,18 +2151,18 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Join a sequence of arrays along an existing axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.concatenate.html
-    ///		
+    ///
     /// @param				inArrayList
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::NONE)
+    NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -1380,29 +2203,29 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						returns whether or not a value is included the array
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inValue
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				bool
     ///
     template<typename dtype>
-    NdArray<bool> contains(const NdArray<dtype>& inArray, dtype inValue, Axis inAxis = Axis::NONE)
+    NdArray<bool> contains(const NdArray<dtype>& inArray, dtype inValue, Axis inAxis)
     {
         return inArray.contains(inValue, inAxis);
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return an array copy of the given object.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copy.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     /// @return
     ///				NdArray
     ///
@@ -1413,11 +2236,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Change the sign of x1 to that of x2, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copysign.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -1441,11 +2264,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Copies values from one array to another
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copyto.html
-    ///		
+    ///
     /// @param				inDestArray
     /// @param				inSrcArray
     /// @return
@@ -1459,11 +2282,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Cosine
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -1476,11 +2299,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Cosine element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cos.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -1496,11 +2319,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Hyperbolic Cosine.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -1513,11 +2336,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Hyperbolic Cosine element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cosh.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -1533,18 +2356,18 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Counts the number of non-zero values in the array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.count_nonzero.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<uint32> count_nonzero(const NdArray<dtype>& inArray, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -1601,11 +2424,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the cross product of two (arrays of) vectors.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cross.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @param  			inAxis (Optional, default NONE)
@@ -1613,7 +2436,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis inAxis = Axis::NONE)
+    NdArray<dtypeOut> cross(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, Axis inAxis)
     {
         if (inArray1.shape() != inArray2.shape())
         {
@@ -1741,9 +2564,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Cubes the input
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -1756,9 +2579,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Cubes the elements of the array
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -1774,45 +2597,45 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the cumulative product of elements along a given axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cumprod.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> cumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtypeOut> cumprod(const NdArray<dtype>& inArray, Axis inAxis)
     {
-        return std::move(inArray.cumprod<dtypeOut>(inAxis));
+        return std::move(inArray.template cumprod<dtypeOut>(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the cumulative sum of the elements along a given axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cumsum.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> cumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtypeOut> cumsum(const NdArray<dtype>& inArray, Axis inAxis)
     {
-        return std::move(inArray.cumsum<dtypeOut>(inAxis));
+        return std::move(inArray.template cumsum<dtypeOut>(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Convert angles from degrees to radians.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.deg2rad.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -1825,11 +2648,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Convert angles from degrees to radians.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.deg2rad.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -1845,9 +2668,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array with sub-arrays along an axis deleted.
-    ///		
+    ///
     /// @param				inArray
     /// @param				inArrayIdxs
     /// @param				inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
@@ -1855,7 +2678,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis = Axis::NONE)
+    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis)
     {
         // make sure that the indices are unique first
         NdArray<uint32> indices = unique(inArrayIdxs);
@@ -1948,9 +2771,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array with sub-arrays along an axis deleted.
-    ///		
+    ///
     /// @param				inArray
     /// @param				inIndicesSlice
     /// @param  			inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
@@ -1958,7 +2781,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Slice& inIndicesSlice, Axis inAxis = Axis::NONE)
+    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const Slice& inIndicesSlice, Axis inAxis)
     {
         Slice sliceCopy(inIndicesSlice);
 
@@ -1991,9 +2814,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array with sub-arrays along an axis deleted.
-    ///		
+    ///
     /// @param				inArray
     /// @param				inIndex
     /// @param				inAxis (Optional, default NONE) if none the indices will be applied to the flattened array
@@ -2001,18 +2824,18 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis = Axis::NONE)
+    NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis)
     {
         NdArray<uint32> inIndices = { inIndex };
         return std::move(deleteIndices(inArray, inIndices, inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Create a two-dimensional array with the flattened input as a diagonal.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagflat.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2032,11 +2855,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return specified diagonals.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diagonal.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inOffset (Defaults to 0)
     /// @param				inAxis (Optional, default NONE) axis the offset is applied to
@@ -2044,25 +2867,25 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diagonal(const NdArray<dtype>& inArray, int32 inOffset = 0, Axis inAxis = Axis::ROW)
+    NdArray<dtype> diagonal(const NdArray<dtype>& inArray, int32 inOffset, Axis inAxis)
     {
         return std::move(inArray.diagonal(inOffset, inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Calculate the n-th discrete difference along given axis.
     ///						Unsigned dtypes will give you weird results...obviously.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.diff.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis)
     {
         Shape inShape = inArray.shape();
 
@@ -2125,11 +2948,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns a true division of the inputs, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.divide.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -2138,15 +2961,15 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return std::move(inArray1.astype<dtypeOut>() / inArray2.astype<dtypeOut>());
+        return std::move(inArray1.template astype<dtypeOut>() / inArray2.template astype<dtypeOut>());
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Dot product of two arrays.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.dot.html
-    ///		
+    ///
     /// @param			inArray1
     /// @param			inArray2
     /// @return
@@ -2155,14 +2978,14 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return std::move(inArray1.dot<dtypeOut>(inArray2));
+        return std::move(inArray1.template dot<dtypeOut>(inArray2));
     }
 
     //============================================================================
-    // Method Description: 
-    ///						Dump a binary file of the array to the specified file. 
+    // Method Description:
+    ///						Dump a binary file of the array to the specified file.
     ///						The array can be read back with or NC::load.
-    ///		
+    ///
     /// @param				inArray
     /// @param				inFilename
     /// @return
@@ -2175,11 +2998,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, without initializing entries.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
-    ///		
+    ///
     /// @param				inNumRows
     /// @param				inNumCols
     /// @return
@@ -2192,11 +3015,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, without initializing entries.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
-    ///		
+    ///
     /// @param
     ///				inShape
     /// @return
@@ -2209,11 +3032,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array with the same shape as a given array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty_like.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2226,9 +3049,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the endianess of the array values.
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2241,11 +3064,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return (x1 == x2) element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.equal.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -2258,11 +3081,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Calculate the exponential of the input value.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -2275,11 +3098,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Calculate the exponential of all elements in the input array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2297,11 +3120,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Calculate 2**p for all p in the input value.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -2314,11 +3137,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Calculate 2**p for all p in the input array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp2.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2336,11 +3159,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Calculate exp(x) - 1 for the input value.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -2353,11 +3176,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Calculate exp(x) - 1 for all elements in the array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.expm1.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2375,40 +3198,40 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
-    ///		
+    ///
     /// @param				inN: number of rows and columns (N)
     /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
     ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(uint32 inN, int32 inK = 0)
+    NdArray<dtype> eye(uint32 inN, int32 inK)
     {
         return std::move(eye<dtype>(inN, inN, inK));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
-    ///		
+    ///
     /// @param				inN: number of rows (N)
     /// @param				inM: number of columns (M)
     /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
     ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0)
+    NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK)
     {
         NdArray<dtype> returnArray(inN, inM);
         returnArray.zeros();
@@ -2444,30 +3267,30 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
-    ///		
+    ///
     /// @param				inShape
     /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
     ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(const Shape& inShape, int32 inK = 0)
+    NdArray<dtype> eye(const Shape& inShape, int32 inK)
     {
         return std::move(eye<dtype>(inShape.rows, inShape.cols, inK));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Round to nearest integer towards zero.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -2480,11 +3303,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Round to nearest integer towards zero.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2502,9 +3325,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a copy of the array collapsed into one dimension.
-    ///		
+    ///
     /// @param
     ///				inArray
     ///
@@ -2518,11 +3341,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return indices that are non-zero in the flattened version of a.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flatnonzero.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2535,11 +3358,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Reverse the order of elements in an array along the given axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flip.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis
     /// @return
@@ -2582,11 +3405,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Flip array in the left/right direction.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fliplr.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2599,11 +3422,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Flip array in the up/down direction.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.flipud.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2616,11 +3439,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the floor of the input.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -2633,11 +3456,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the floor of the input, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -2655,11 +3478,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the largest integer smaller or equal to the division of the inputs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
-    ///		
+    ///
     /// @param				inValue1
     /// @param				inValue2
     /// @return
@@ -2672,11 +3495,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the largest integer smaller or equal to the division of the inputs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -2689,14 +3512,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						maximum of inputs.
     ///
-    ///						Compare two value and returns a value containing the 
+    ///						Compare two value and returns a value containing the
     ///						maxima
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
-    ///		
+    ///
     /// @param				inValue1
     /// @param				inValue2
     /// @return
@@ -2709,14 +3532,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Element-wise maximum of array elements.
     ///
-    ///						Compare two arrays and returns a new array containing the 
+    ///						Compare two arrays and returns a new array containing the
     ///						element - wise maxima
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmax.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -2741,14 +3564,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						minimum of inputs.
     ///
-    ///						Compare two value and returns a value containing the 
+    ///						Compare two value and returns a value containing the
     ///						minima
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
-    ///		
+    ///
     /// @param				inValue1
     /// @param				inValue2
     /// @return
@@ -2761,14 +3584,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Element-wise minimum of array elements.
     ///
-    ///						Compare two arrays and returns a new array containing the 
+    ///						Compare two arrays and returns a new array containing the
     ///						element - wise minima
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -2793,12 +3616,12 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the remainder of division.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
     ///
-    ///		
+    ///
     /// @param				inValue1
     /// @param				inValue2
     /// @return
@@ -2814,12 +3637,12 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the element-wise remainder of division.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmod.html
     ///
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -2847,20 +3670,20 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Construct an array from data in a text or binary file.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
-    ///		
+    ///
     /// @param				inFilename
-    /// @param				inSep: Separator between items if file is a text file. Empty ("") 
+    /// @param				inSep: Separator between items if file is a text file. Empty ("")
     ///							separator means the file should be treated as binary.
     ///							Right now the only supported seperators are " ", "\t", "\n"
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "")
+    NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep)
     {
         boost::filesystem::path p(inFilename);
         if (!boost::filesystem::exists(inFilename))
@@ -2939,11 +3762,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with inFillValue
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
-    ///		
+    ///
     /// @param				inSquareSize
     /// @param				inFillValue
     /// @return
@@ -2958,11 +3781,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with inFillValue
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
-    ///		
+    ///
     /// @param				inNumRows
     /// @param				inNumCols
     /// @param				inFillValue
@@ -2978,11 +3801,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with inFillValue
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
-    ///		
+    ///
     /// @param				inShape
     /// @param				inFillValue
     /// @return
@@ -2995,11 +3818,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a full array with the same shape and type as a given array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full_like.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inFillValue
     /// @return
@@ -3012,12 +3835,12 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the truth value of (x1 > x2) element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.greater.html
     ///
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -3030,12 +3853,12 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the truth value of (x1 >= x2) element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.greater_equal.html
     ///
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -3048,20 +3871,20 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the histogram of a set of data.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.histogram.html
     ///
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inNumBins( default 10)
-    ///				
+    ///
     /// @return
     ///				std::pair of NdArrays; first is histogram counts, seconds is the bin edges
     ///
     template<typename dtype>
-    std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
+    std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins)
     {
         if (inNumBins == 0)
         {
@@ -3113,15 +3936,15 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Stack arrays in sequence horizontally (column wise).
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hstack.html
     ///
-    ///		
+    ///
     /// @param
     ///				inArrayList: {list} of arrays to stack
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3132,17 +3955,17 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Given the "legs" of a right triangle, return its hypotenuse.
     ///
     ///						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
     ///
-    ///		
+    ///
     /// @param				inValue1
     /// @param				inValue2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3153,17 +3976,17 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Given the "legs" of a right triangle, return its hypotenuse.
     ///
     ///						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
     ///
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3186,7 +4009,7 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the identity array.
     ///
     ///						The identity array is a square array with ones on the main diagonal.
@@ -3195,7 +4018,7 @@ namespace NC
     ///
     /// @param
     ///				inSquareSize
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3214,7 +4037,7 @@ namespace NC
 
     //============================================================================
     ///						Returns the linear interpolation between two points
-    ///		
+    ///
     /// @param      inValue1
     /// @param      inValue2
     /// @param      inPercent
@@ -3228,12 +4051,12 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						One-dimensional linear interpolation.
     ///
     ///                     Returns the one - dimensional piecewise linear interpolant
     ///                     to a function with given values at discrete data - points.
-    ///                     If input arrays are not one dimensional they will be 
+    ///                     If input arrays are not one dimensional they will be
     ///                     internally flattened.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.interp.html
@@ -3241,7 +4064,7 @@ namespace NC
     /// @param				inX: The x-coordinates at which to evaluate the interpolated values.
     /// @param              inXp: The x-coordinates of the data points, must be increasing. Otherwise, xp is internally sorted.
     /// @param				inFp: The y-coordinates of the data points, same length as inXp.
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3298,7 +4121,7 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Find the intersection of two arrays.
     ///
     ///						Return the sorted, unique values that are in both of the input arrays.
@@ -3307,7 +4130,7 @@ namespace NC
     ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3325,14 +4148,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute bit-wise inversion, or bit-wise NOT, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.invert.html
-    ///	
+    ///
     /// @param
     ///				inArray
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3343,8 +4166,8 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
-    ///						Returns a boolean array where two arrays are element-wise 
+    // Method Description:
+    ///						Returns a boolean array where two arrays are element-wise
     ///						equal within a tolerance.
     ///
     ///						For finite values, isclose uses the following equation to test whether two floating point values are equivalent.
@@ -3356,12 +4179,12 @@ namespace NC
     /// @param				inArray2
     /// @param				inRtol: relative tolerance (default 1e-5)
     /// @param				inAtol: absolute tolerance (default 1e-9)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08)
+    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol, double inAtol)
     {
         if (inArray1.shape() != inArray2.shape())
         {
@@ -3378,14 +4201,14 @@ namespace NC
     }
 
     //============================================================================
-// Method Description: 
+// Method Description:
 ///						Test for inf and return result as a boolean.
 ///
 ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html
-///		
+///
 /// @param
 ///				inValue
-///				
+///
 /// @return
 ///				bool
 ///
@@ -3396,14 +4219,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Test element-wise for inf and return result as a boolean array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html
-    ///		
+    ///
     /// @param
     ///				inArray
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3418,14 +4241,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Test for NaN and return result as a boolean.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
-    ///		
+    ///
     /// @param
     ///				inValue
-    ///				
+    ///
     /// @return
     ///				bool
     ///
@@ -3437,14 +4260,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Test element-wise for NaN and return result as a boolean array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
-    ///		
+    ///
     /// @param
     ///				inArray
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3461,14 +4284,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns x1 * 2^x2.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
-    ///		
+    ///
     /// @param				inValue1
     /// @param				inValue2
-    ///				
+    ///
     /// @return
     ///				value
     ///
@@ -3479,14 +4302,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns x1 * 2^x2, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3508,14 +4331,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Shift the bits of an integer to the left.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.left_shift.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inNumBits
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3526,14 +4349,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the truth value of (x1 < x2) element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.less.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3544,14 +4367,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the truth value of (x1 <= x2) element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.less_equal.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3562,15 +4385,15 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return evenly spaced numbers over a specified interval.
     ///
-    ///						Returns num evenly spaced samples, calculated over the 
+    ///						Returns num evenly spaced samples, calculated over the
     ///						interval[start, stop].
     ///
     ///						The endpoint of the interval can optionally be excluded.
     ///
-    ///						Mostly only usefull if called with a floating point type 
+    ///						Mostly only usefull if called with a floating point type
     ///						for the template argument.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.linspace.html
@@ -3579,12 +4402,12 @@ namespace NC
     /// @param				inStop
     /// @param				inNum: number of points (default = 50)
     /// @param				endPoint: include endPoint (default = true)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)
+    NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum, bool endPoint)
     {
         if (inNum == 0)
         {
@@ -3650,14 +4473,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						loads a .bin file from the dump() method into an NdArray
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.load.html
-    ///		
+    ///
     /// @param
     ///				inFilename
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3668,14 +4491,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Natural logarithm.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
-    ///		
+    ///
     /// @param
     ///				inValue
-    ///				
+    ///
     /// @return
     ///				value
     ///
@@ -3686,14 +4509,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Natural logarithm, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log.html
-    ///		
+    ///
     /// @param
     ///				inArray
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3708,14 +4531,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the base 10 logarithm of the input array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
-    ///		
+    ///
     /// @param
     ///				inValue
-    ///				
+    ///
     /// @return
     ///				value
     ///
@@ -3726,14 +4549,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the base 10 logarithm of the input array, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log10.html
-    ///		
+    ///
     /// @param
     ///				inArray
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3748,16 +4571,16 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the natural logarithm of one plus the input array.
     ///
     ///						Calculates log(1 + x).
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
-    ///		
+    ///
     /// @param
     ///				inValue
-    ///				
+    ///
     /// @return
     ///				value
     ///
@@ -3768,16 +4591,16 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the natural logarithm of one plus the input array, element-wise.
     ///
     ///						Calculates log(1 + x).
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log1p.html
-    ///		
+    ///
     /// @param
     ///				inArray
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3792,14 +4615,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Base-2 logarithm of x.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
-    ///		
+    ///
     /// @param
     ///				inValue
-    ///				
+    ///
     /// @return
     ///				value
     ///
@@ -3810,14 +4633,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Base-2 logarithm of x.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
-    ///		
+    ///
     /// @param
     ///				inArray
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3832,14 +4655,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the truth value of x1 AND x2 element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_and.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3861,14 +4684,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the truth value of NOT x element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_not.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
-    ///				
+    ///				inArray
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3883,14 +4706,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the truth value of x1 OR x2 element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_or.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3912,14 +4735,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the truth value of x1 XOR x2 element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_xor.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -3941,49 +4764,49 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Matrix product of two arrays.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.matmul.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return std::move(inArray1.dot<dtypeOut>(inArray2));
+        return std::move(inArray1.template dot<dtypeOut>(inArray2));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the maximum of an array or maximum along an axis.
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> max(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> max(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.max(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Element-wise maximum of array elements.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.maximum.html
     ///
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -4005,66 +4828,66 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the mean along the specified axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mean.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> mean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<double> mean(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.mean(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the median along the specified axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.median.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param  			inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.median(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the minimum of an array or maximum along an axis.
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> min(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> min(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.min(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Element-wise minimum of array elements.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.minimum.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -4086,14 +4909,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return element-wise remainder of division.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.mod.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -4104,14 +4927,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Multiply arguments element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.multiply.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -4122,18 +4945,18 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns the indices of the maximum values along an axis ignoring NaNs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanargmax.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> nanargmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<uint32> nanargmax(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
         for (uint32 i = 0; i < arrayCopy.size(); ++i)
@@ -4148,18 +4971,18 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns the indices of the minimum values along an axis ignoring NaNs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanargmin.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
         for (uint32 i = 0; i < arrayCopy.size(); ++i)
@@ -4174,18 +4997,18 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the cumulative product of elements along a given axis ignoring NaNs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumprod.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> nancumprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtypeOut> nancumprod(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
         for (uint32 i = 0; i < arrayCopy.size(); ++i)
@@ -4200,18 +5023,18 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the cumulative sum of the elements along a given axis ignoring NaNs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nancumsum.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> nancumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtypeOut> nancumsum(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
         for (uint32 i = 0; i < arrayCopy.size(); ++i)
@@ -4226,19 +5049,19 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the maximum of an array or maximum along an axis ignoring NaNs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmax.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> nanmax(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> nanmax(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
         for (uint32 i = 0; i < arrayCopy.size(); ++i)
@@ -4253,19 +5076,19 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the mean along the specified axis ignoring NaNs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmean.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -4326,19 +5149,19 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the median along the specified axis ignoring NaNs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmedian.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> nanmedian(const NdArray<dtype>& inArray, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -4414,19 +5237,19 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the minimum of an array or maximum along an axis ignoring NaNs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanmin.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
         for (uint32 i = 0; i < arrayCopy.size(); ++i)
@@ -4441,11 +5264,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the qth percentile of the data along the specified axis, while ignoring nan values.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanpercentile.html
-    ///		
+    ///
     /// @param				inArray
     /// @param              inPercentile
     /// @param				inAxis (Optional, default NONE)
@@ -4454,7 +5277,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
+    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis, const std::string& inInterpMethod)
     {
         if (inPercentile < 0 || inPercentile > 100)
         {
@@ -4628,19 +5451,19 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the product of array elements over a given axis treating Not a Numbers (NaNs) as ones.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanprod.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> nanprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtypeOut> nanprod(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
         for (uint32 i = 0; i < arrayCopy.size(); ++i)
@@ -4655,10 +5478,10 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with nans.
     ///                     Only really works for dtype = float/double
-    ///		
+    ///
     /// @param
     ///				inSquareSize
     /// @return
@@ -4671,10 +5494,10 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with nans.
     ///                     Only really works for dtype = float/double
-    ///		
+    ///
     /// @param				inNumRows
     /// @param				inNumCols
     /// @return
@@ -4687,10 +5510,10 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with nans.
     ///                     Only really works for dtype = float/double
-    ///		
+    ///
     /// @param
     ///				inShape
     /// @return
@@ -4703,9 +5526,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with nans.
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -4720,19 +5543,19 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the standard deviation along the specified axis, while ignoring NaNs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanstd.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> nanstd(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<double> nanstd(const NdArray<dtype>& inArray, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -4813,19 +5636,19 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nansum.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
         for (uint32 i = 0; i < arrayCopy.size(); ++i)
@@ -4840,19 +5663,19 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the variance along the specified axis, while ignoring NaNs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nanvar.html
-    ///		
+    ///
     /// @param			inArray
     /// @param			inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<double> stdValues = nanstd(inArray, inAxis);
         for (uint32 i = 0; i < stdValues.size(); ++i)
@@ -4863,9 +5686,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns the number of bytes held by the array
-    ///	
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -4878,16 +5701,16 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
-    ///						Return the array with the same data viewed with a 
-    ///						different byte order. only works for integer types, 
+    // Method Description:
+    ///						Return the array with the same data viewed with a
+    ///						different byte order. only works for integer types,
     ///						floating point types will not compile and you will
     ///						be confused as to why...
     ///
-    ///		
+    ///
     /// @param				inValue
     /// @param				inEndianess
-    ///				
+    ///
     /// @return
     ///				inValue
     ///
@@ -4899,16 +5722,16 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
-    ///						Return the array with the same data viewed with a 
-    ///						different byte order. only works for integer types, 
+    // Method Description:
+    ///						Return the array with the same data viewed with a
+    ///						different byte order. only works for integer types,
     ///						floating point types will not compile and you will
     ///						be confused as to why...
     ///
-    ///		
+    ///
     /// @param				inArray
     /// @param				inEndianess
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -4919,34 +5742,34 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Numerical negative, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.negative.html
-    ///		
+    ///
     /// @param
     ///				inArray
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> negative(const NdArray<dtype>& inArray)
     {
-        NdArray<dtypeOut> returnArray = inArray.astype<dtypeOut>();
+        NdArray<dtypeOut> returnArray = inArray.template astype<dtypeOut>();
         return std::move(returnArray *= -1);
     }
 
     //============================================================================
-    // Method Description: 
-    ///						Return the indices of the flattened array of the 
+    // Method Description:
+    ///						Return the indices of the flattened array of the
     ///						elements that are non-zero.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.nonzero.html
-    ///		
+    ///
     /// @param
     ///				inArray
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -4957,30 +5780,30 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Matrix or vector norm.
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtypeOut> norm(const NdArray<dtype>& inArray, Axis inAxis)
     {
-        return std::move(inArray.norm<dtypeOut>(inAxis));
+        return std::move(inArray.template norm<dtypeOut>(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return (x1 != x2) element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.not_equal.html
-    ///		
+    ///
     /// @param			inArray1
     /// @param			inArray2
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -4991,11 +5814,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with ones.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
-    ///		
+    ///
     /// @param
     ///				inSquareSize
     /// @return
@@ -5008,11 +5831,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with ones.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
-    ///		
+    ///
     /// @param			inNumRows
     /// @param			inNumCols
     /// @return
@@ -5025,11 +5848,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with ones.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
-    ///		
+    ///
     /// @param
     ///				inShape
     /// @return
@@ -5042,11 +5865,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with ones.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones_like.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -5061,11 +5884,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Pads an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.pad.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inPadWidth
     /// @param				inPadValue
@@ -5088,16 +5911,16 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
-    ///						Rearranges the elements in the array in such a way that 
-    ///						value of the element in kth position is in the position it 
-    ///						would be in a sorted array. All elements smaller than the kth 
-    ///						element are moved before this element and all equal or greater 
-    ///						are moved behind it. The ordering of the elements in the two 
+    // Method Description:
+    ///						Rearranges the elements in the array in such a way that
+    ///						value of the element in kth position is in the position it
+    ///						would be in a sorted array. All elements smaller than the kth
+    ///						element are moved before this element and all equal or greater
+    ///						are moved behind it. The ordering of the elements in the two
     ///						partitions is undefined.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.partition.html
-    ///		
+    ///
     /// @param              inArray
     /// @param				inKth: kth element
     /// @param				inAxis (Optional, default NONE)
@@ -5105,7 +5928,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis inAxis = Axis::NONE)
+    NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis inAxis)
     {
         NdArray<dtype> returnArray(inArray);
         returnArray.partition(inKth, inAxis);
@@ -5113,11 +5936,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the qth percentile of the data along the specified axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.percentile.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inPercentile: percentile must be in the range [0, 100]
     /// @param				inAxis (Optional, default NONE)
@@ -5131,7 +5954,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
+    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis, const std::string& inInterpMethod)
     {
         if (inPercentile < 0 || inPercentile > 100)
         {
@@ -5170,7 +5993,7 @@ namespace NC
                 int32 i = static_cast<int32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
                 uint32 indexLower = static_cast<uint32>(clip<uint32>(i, 0, inArray.size() - 2));
 
-                NdArray<double> arrayCopy = inArray.astype<double>();
+                NdArray<double> arrayCopy = inArray.template astype<double>();
                 std::sort(arrayCopy.begin(), arrayCopy.end());
 
                 if (inInterpMethod.compare("linear") == 0)
@@ -5258,11 +6081,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Raises the elements of the array to the input power
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
-    ///		
+    ///
     /// @param				inValue
     /// @param				inExponent
     /// @return
@@ -5275,11 +6098,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Raises the elements of the array to the input power
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inExponent
     /// @return
@@ -5296,11 +6119,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Raises the elements of the array to the input powers
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inExponents
     /// @return
@@ -5324,9 +6147,9 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Prints the array to the console.
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -5339,46 +6162,46 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the product of array elements over a given axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.prod.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> prod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtypeOut> prod(const NdArray<dtype>& inArray, Axis inAxis)
     {
-        return std::move(inArray.prod<dtypeOut>(inAxis));
+        return std::move(inArray.template prod<dtypeOut>(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Range of values (maximum - minimum) along an axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ptp.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> ptp(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.ptp(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Replaces specified elements of an array with given values.
     ///						The indexing works on the flattened target array
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.put.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inIndices
     /// @param				inValues
@@ -5393,7 +6216,7 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Changes elements of an array based on conditional and input values.
     ///
     ///						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
@@ -5401,7 +6224,7 @@ namespace NC
     ///						If values is not the same size as a and mask then it will repeat.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inMask
     /// @param				inValue
@@ -5416,7 +6239,7 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Changes elements of an array based on conditional and input values.
     ///
     ///						Sets a.flat[n] = values[n] for each n where mask.flat[n] == True.
@@ -5424,7 +6247,7 @@ namespace NC
     ///						If values is not the same size as a and mask then it will repeat.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.putmask.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inMask
     /// @param				inValues
@@ -5439,11 +6262,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Convert angles from radians to degrees.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
-    ///		
+    ///
     /// @param
     ///				inValue
     ///
@@ -5457,11 +6280,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Convert angles from radians to degrees.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rad2deg.html
-    ///		
+    ///
     /// @param
     ///				inArray
     ///
@@ -5478,13 +6301,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the reciprocal of the argument, element-wise.
     ///
     ///						Calculates 1 / x.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reciprocal.html
-    ///		
+    ///
     /// @param
     ///				inArray
     ///
@@ -5504,11 +6327,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return remainder of division.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html
-    ///		
+    ///
     /// @param				inValue1
     /// @param				inValue2
     ///
@@ -5522,11 +6345,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return element-wise remainder of division.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.remainder.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     ///
@@ -5551,11 +6374,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Repeat elements of an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inNumRows
     /// @param				inNumCols
@@ -5570,11 +6393,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Repeat elements of an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.repeat.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inRepeatShape
     ///
@@ -5588,11 +6411,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Gives a new shape to an array without changing its data.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reshape.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inNumRows
     /// @param				inNumCols
@@ -5608,11 +6431,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Gives a new shape to an array without changing its data.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.reshape.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inNewShape
     ///
@@ -5627,12 +6450,12 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Change shape and size of array in-place. All previous
     ///						data of the array is lost.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inNumRows
     /// @param				inNumCols
@@ -5648,13 +6471,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Change shape and size of array in-place. All previous
     ///						data of the array is lost.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inNewShape
     ///
     /// @return
@@ -5668,14 +6491,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array with the specified shape. If new shape
     ///						is larger than old shape then array will be padded with zeros.
     ///						If new shape is smaller than the old shape then the data will
     ///						be discarded.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inNumRows
     /// @param				inNumCols
@@ -5691,15 +6514,15 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array with the specified shape. If new shape
     ///						is larger than old shape then array will be padded with zeros.
     ///						If new shape is smaller than the old shape then the data will
     ///						be discarded.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.resize.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inNewShape
     ///
     /// @return
@@ -5713,14 +6536,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Shift the bits of an integer to the right.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.right_shift.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inNumBits
-    ///				
+    ///
     /// @return
     ///				NdArray
     ///
@@ -5731,13 +6554,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Round value to the nearest integer.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
-    ///		
+    ///
     /// @param
-    ///				inValue 
+    ///				inValue
     ///
     /// @return
     ///				value
@@ -5749,13 +6572,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Round elements of the array to the nearest integer.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rint.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     ///
     /// @return
     ///				NdArray
@@ -5770,12 +6593,12 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Roll array elements along a given axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.roll.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inShift: (elements to shift, positive means forward, negative means backwards)
     /// @param				inAxis (Optional, default NONE)
     ///
@@ -5783,7 +6606,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis inAxis = Axis::NONE)
+    NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -5846,19 +6669,19 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Rotate an array by 90 degrees counter clockwise in the plane.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.rot90.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inK: the number of times to rotate 90 degrees
     ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1)
+    NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK)
     {
         inK %= 4;
         switch (inK)
@@ -5885,10 +6708,10 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Round value to the given number of decimals.
-    ///		
-    /// @param				inValue 
+    ///
+    /// @param				inValue
     /// @param				inDecimals
     ///
     /// @return
@@ -5902,10 +6725,10 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Round an array to the given number of decimals.
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inDecimals
     ///
     /// @return
@@ -5918,7 +6741,7 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Stack arrays in sequence vertically (row wise).
     ///
     /// @param
@@ -5971,13 +6794,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Find the set difference of two arrays.
     ///
     ///						Return the sorted, unique values in ar1 that are not in ar2.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.setdiff1d.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     /// @return
@@ -5997,11 +6820,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the shape of the array
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     /// @return
     ///				Shape
     ///
@@ -6012,16 +6835,16 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns an element-wise indication of the sign of a number.
     ///
-    ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0. 
+    ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0.
     ///						nan is returned for nan inputs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
-    ///		
+    ///
     /// @param
-    ///				inValue 
+    ///				inValue
     /// @return
     ///				NdArray
     ///
@@ -6043,16 +6866,16 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns an element-wise indication of the sign of a number.
     ///
-    ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0. 
+    ///						The sign function returns - 1 if x < 0, 0 if x == 0, 1 if x > 0.
     ///						nan is returned for nan inputs.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sign.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     /// @return
     ///				NdArray
     ///
@@ -6066,13 +6889,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns element-wise True where signbit is set (less than zero).
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
-    ///		
+    ///
     /// @param
-    ///				inValue 
+    ///				inValue
     /// @return
     ///				NdArray
     ///
@@ -6083,13 +6906,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Returns element-wise True where signbit is set (less than zero).
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.signbit.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     /// @return
     ///				NdArray
     ///
@@ -6103,13 +6926,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric sine.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sin.html
-    ///		
+    ///
     /// @param
-    ///				inValue 
+    ///				inValue
     /// @return
     ///				value
     ///
@@ -6120,13 +6943,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trigonometric sine, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sin.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     /// @return
     ///				NdArray
     ///
@@ -6140,15 +6963,15 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the sinc function.
     ///
     ///						The sinc function is sin(pi*x) / (pi*x).
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html
-    ///		
+    ///
     /// @param
-    ///				inValue 
+    ///				inValue
     /// @return
     ///				value
     ///
@@ -6160,15 +6983,15 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the sinc function.
     ///
     ///						The sinc function is sin(pi*x) / (pi*x).
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinc.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     /// @return
     ///				NdArray
     ///
@@ -6182,13 +7005,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Hyperbolic sine.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html
-    ///		
+    ///
     /// @param
-    ///				inValue 
+    ///				inValue
     /// @return
     ///				value
     ///
@@ -6199,13 +7022,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Hyperbolic sine, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sinh.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     /// @return
     ///				NdArray
     ///
@@ -6219,11 +7042,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the number of elements.
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     /// @return
     ///				uint32 size
     ///
@@ -6234,18 +7057,18 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a sorted copy of an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sort.html
-    ///		
-    /// @param				inArray 
+    ///
+    /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> sort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtype> sort(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> returnArray(inArray);
         returnArray.sort(inAxis);
@@ -6253,11 +7076,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the positive square-root of a value.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -6270,11 +7093,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the positive square-root of an array, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sqrt.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -6290,11 +7113,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the square of an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.square.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -6307,11 +7130,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the square of an array, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.square.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -6327,18 +7150,18 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the variance along the specified axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.stack.html
-    ///		
+    ///
     /// @param      inArrayList: {list} of arrays to stack
     /// @param      inAxis: axis to stack the input NdArrays
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> stack(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::ROW)
+    NdArray<dtype> stack(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -6360,45 +7183,45 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the standard deviation along the specified axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.std.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> std(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<double> std(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.std(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Sum of array elements over a given axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.sum.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis inAxis)
     {
-        return std::move(inArray.sum<dtypeOut>(inAxis));
+        return std::move(inArray.template sum<dtypeOut>(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Interchange two axes of an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.swapaxes.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -6411,11 +7234,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute tangent.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -6428,11 +7251,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute tangent element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tan.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -6448,11 +7271,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute hyperbolic tangent.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html
-    ///		
+    ///
     /// @param
     ///				inValue
     /// @return
@@ -6465,11 +7288,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute hyperbolic tangent element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tanh.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return
@@ -6485,11 +7308,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Construct an array by repeating A the number of times given by reps.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inNumRows
     /// @param				inNumCols
@@ -6503,11 +7326,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Construct an array by repeating A the number of times given by reps.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tile.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inReps
     /// @return
@@ -6520,29 +7343,29 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Write array to a file as text or binary (default)..
-    ///						The data produced by this method can be recovered 
+    ///						The data produced by this method can be recovered
     ///						using the function fromfile().
-    ///		
+    ///
     /// @param				inArray
     /// @param				inFilename
-    /// @param				inSep: (Separator between array items for text output. If “” (empty), a binary file is written)
+    /// @param				inSep: (Separator between array items for text output. If ï¿½ï¿½ (empty), a binary file is written)
     /// @return
     ///				None
     ///
     template<typename dtype>
-    void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const std::string& inSep = "")
+    void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const std::string& inSep)
     {
         return inArray.tofile(inFilename, inSep);
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Write flattened array to an STL vector
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     /// @return
     ///				std::vector
     ///
@@ -6553,11 +7376,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the sum along diagonals of the array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trace.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inOffset: (Offset from main diaganol, default = 0, negative=above, positve=below)
     /// @param				inAxis (Optional, default ROW)
@@ -6565,17 +7388,17 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW)
+    dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset, Axis inAxis)
     {
-        return std::move(inArray.trace<dtypeOut>(inOffset, inAxis));
+        return std::move(inArray.template trace<dtypeOut>(inOffset, inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Permute the dimensions of an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.transpose.html
-    ///		
+    ///
     /// @param
     ///				inArray
     ///
@@ -6589,11 +7412,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Integrate along the given axis using the composite trapezoidal rule.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
-    ///		
+    ///
     /// @param				inArray
     /// @param              dx: (Optional defaults to 1.0)
     /// @param				inAxis (Optional, default NONE)
@@ -6602,7 +7425,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE)
+    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx, Axis inAxis)
     {
         Shape inShape = inArray.shape();
         switch (inAxis)
@@ -6662,11 +7485,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Integrate along the given axis using the composite trapezoidal rule.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trapz.html
-    ///		
+    ///
     /// @param				inArrayY
     /// @param				inArrayX
     /// @param				inAxis (Optional, default NONE)
@@ -6675,7 +7498,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis inAxis = Axis::NONE)
+    NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis inAxis)
     {
         Shape inShapeY = inArrayY.shape();
         Shape inShapeX = inArrayX.shape();
@@ -6748,20 +7571,20 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						An array with ones at and below the given diagonal and zeros elsewhere.
-    ///		
+    ///
     /// @param				inN: number of rows and cols
-    /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
-    ///						k = 0 is the main diagonal, while k < 0 is below it, 
+    /// @param				inOffset: (the sub-diagonal at and below which the array is filled.
+    ///						k = 0 is the main diagonal, while k < 0 is below it,
     ///						and k > 0 is above. The default is 0.)
-    ///				
+    ///
     ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(uint32 inN, int32 inOffset = 0)
+    NdArray<dtype> tril(uint32 inN, int32 inOffset)
     {
         uint32 rowStart = 0;
         uint32 colStart = 0;
@@ -6793,21 +7616,21 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						An array with ones at and below the given diagonal and zeros elsewhere.
-    ///		
+    ///
     /// @param				inN: number of rows
     /// @param				inM: number of columns
-    /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
-    ///						k = 0 is the main diagonal, while k < 0 is below it, 
+    /// @param				inOffset: (the sub-diagonal at and below which the array is filled.
+    ///						k = 0 is the main diagonal, while k < 0 is below it,
     ///						and k > 0 is above. The default is 0.)
-    ///				
+    ///
     ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0)
+    NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset)
     {
         uint32 rowStart = 0;
         uint32 colStart = 0;
@@ -6839,24 +7662,24 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///                     Lower triangle of an array.
     ///
     ///                     Return a copy of an array with elements above the k - th diagonal zeroed.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tril.html
-    ///		
-    /// @param				inN: number of rows and cols
-    /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
-    ///						k = 0 is the main diagonal, while k < 0 is below it, 
+    ///
+    /// @param				inArray: number of rows and cols
+    /// @param				inOffset: (the sub-diagonal at and below which the array is filled.
+    ///						k = 0 is the main diagonal, while k < 0 is below it,
     ///						and k > 0 is above. The default is 0.)
-    ///				
+    ///
     ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0)
+    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset)
     {
         Shape inShape = inArray.shape();
         auto outArray = inArray.copy();
@@ -6865,40 +7688,40 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						An array with ones at and above the given diagonal and zeros elsewhere.
-    ///		
+    ///
     /// @param				inN: number of rows and cols
-    /// @param				inOffset: (the sub-diagonal at and above which the array is filled. 
-    ///						k = 0 is the main diagonal, while k < 0 is below it, 
+    /// @param				inOffset: (the sub-diagonal at and above which the array is filled.
+    ///						k = 0 is the main diagonal, while k < 0 is below it,
     ///						and k > 0 is above. The default is 0.)
-    ///				
+    ///
     ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, int32 inOffset = 0)
+    NdArray<dtype> triu(uint32 inN, int32 inOffset)
     {
         return std::move(tril<dtype>(inN, -inOffset).transpose());
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						An array with ones at and above the given diagonal and zeros elsewhere.
-    ///		
+    ///
     /// @param				inN: number of rows
     /// @param				inM: number of columns
-    /// @param				inOffset: (the sub-diagonal at and above which the array is filled. 
-    ///						k = 0 is the main diagonal, while k < 0 is below it, 
+    /// @param				inOffset: (the sub-diagonal at and above which the array is filled.
+    ///						k = 0 is the main diagonal, while k < 0 is below it,
     ///						and k > 0 is above. The default is 0.)
-    ///				
+    ///
     ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0)
+    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset)
     {
         // because i'm stealing the lines of code from tril and reversing it, this is necessary
         inOffset -= 1;
@@ -6933,24 +7756,24 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///                     Upper triangle of an array.
     ///
     ///                     Return a copy of an array with elements below the k - th diagonal zeroed.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
-    ///		
-    /// @param				inN: number of rows and cols
-    /// @param				inOffset: (the sub-diagonal at and below which the array is filled. 
-    ///						k = 0 is the main diagonal, while k < 0 is below it, 
+    ///
+    /// @param				inArray: number of rows and cols
+    /// @param				inOffset: (the sub-diagonal at and below which the array is filled.
+    ///						k = 0 is the main diagonal, while k < 0 is below it,
     ///						and k > 0 is above. The default is 0.)
-    ///				
+    ///
     ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0)
+    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset)
     {
         Shape inShape = inArray.shape();
         auto outArray = inArray.copy();
@@ -6959,11 +7782,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Trim the leading and/or trailing zeros from a 1-D array or sequence.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trim_zeros.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inTrim: ("f" = front, "b" = back, "fb" = front and back)
     ///
@@ -6971,7 +7794,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim = "fb")
+    NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim)
     {
         if (inTrim == "f")
         {
@@ -7075,13 +7898,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the truncated value of the input.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html
-    ///		
+    ///
     /// @param
-    ///				inValue 
+    ///				inValue
     ///
     /// @return
     ///				value
@@ -7093,13 +7916,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return the truncated value of the input, element-wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.trunc.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     ///
     /// @return
     ///				NdArray
@@ -7114,14 +7937,14 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Find the union of two arrays.
     ///
-    ///						Return the unique, sorted array of values that are in 
+    ///						Return the unique, sorted array of values that are in
     ///						either of the two input arrays.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.union1d.html
-    ///		
+    ///
     /// @param				inArray1
     /// @param				inArray2
     ///
@@ -7144,15 +7967,15 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Find the unique elements of an array.
     ///
     ///						Returns the sorted unique elements of an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unique.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     ///
     /// @return
     ///				NdArray
@@ -7165,13 +7988,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Unwrap by changing deltas between values to 2*pi complement.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
-    ///		
+    ///
     /// @param
-    ///				inValue 
+    ///				inValue
     ///
     /// @return
     ///				value
@@ -7194,13 +8017,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Unwrap by changing deltas between values to 2*pi complement.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
-    ///		
+    ///
     /// @param
-    ///				inArray 
+    ///				inArray
     ///
     /// @return
     ///				NdArray
@@ -7216,11 +8039,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the variance along the specified axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.var.html
-    ///		
+    ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)
     ///
@@ -7228,17 +8051,17 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> var(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    NdArray<double> var(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.var(inAxis));
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Compute the variance along the specified axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.vstack.html
-    ///		
+    ///
     /// @param
     ///				inArrayList: {list} of arrays to stack
     ///
@@ -7252,13 +8075,13 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return elements, either from x or y, depending on the input mask.
-    ///                     The output array contains elements of x where mask is True, and 
-    ///                     elements from y elsewhere. 
+    ///                     The output array contains elements of x where mask is True, and
+    ///                     elements from y elsewhere.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.where.html
-    ///		
+    ///
     /// @param      inMask
     /// @param      inA
     /// @param      inB
@@ -7301,11 +8124,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with zeros.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
-    ///		
+    ///
     /// @param
     ///				inSquareSize
     /// @return
@@ -7318,11 +8141,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with zeros.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
-    ///		
+    ///
     /// @param				inNumRows
     /// @param				inNumCols
     /// @return
@@ -7335,11 +8158,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with zeros.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros.html
-    ///		
+    ///
     /// @param
     ///				inShape
     /// @return
@@ -7352,11 +8175,11 @@ namespace NC
     }
 
     //============================================================================
-    // Method Description: 
+    // Method Description:
     ///						Return a new array of given shape and type, filled with zeros.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.zeros_like.html
-    ///		
+    ///
     /// @param
     ///				inArray
     /// @return

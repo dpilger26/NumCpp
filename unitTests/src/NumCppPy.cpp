@@ -173,7 +173,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray cumprod(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.cumprod<dtypeOut>(inAxis));
+        return numCToBoost(self.template cumprod<dtypeOut>(inAxis));
     }
 
     //================================================================================
@@ -181,7 +181,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray cumsum(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.cumsum<dtypeOut>(inAxis));
+        return numCToBoost(self.template cumsum<dtypeOut>(inAxis));
     }
 
     //================================================================================
@@ -197,7 +197,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray dot(NdArray<dtype>& self, NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self.dot<dtypeOut>(inOtherArray));
+        return numCToBoost(self.template dot<dtypeOut>(inOtherArray));
     }
 
     //================================================================================
@@ -335,7 +335,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray norm(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost<dtypeOut>(self.norm<dtypeOut>(inAxis));
+        return numCToBoost<dtypeOut>(self.template norm<dtypeOut>(inAxis));
     }
 
     //================================================================================
@@ -361,7 +361,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray prod(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost<dtypeOut>(self.prod<dtypeOut>(inAxis));
+        return numCToBoost<dtypeOut>(self.template prod<dtypeOut>(inAxis));
     }
 
     //================================================================================
@@ -579,7 +579,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray sum(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.sum<dtypeOut>(inAxis));
+        return numCToBoost(self.template sum<dtypeOut>(inAxis));
     }
 
     //================================================================================
@@ -2379,7 +2379,7 @@ namespace LinalgInterface
     template<typename dtype>
     np::ndarray hatArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Linalg::hat<dtype>(inArray));
+        return numCToBoost(Linalg::hat(inArray));
     }
 
     template<typename dtypeOut = double, typename dtype>
@@ -2428,12 +2428,6 @@ namespace RotationsInterface
     {
         Rotations::Quaternion returnQuat = inQuat1 * inQuat2;
         return numCToBoost(returnQuat.toNdArray());
-    }
-
-    template<typename dtype>
-    np::ndarray hatArray(const NdArray<dtype>& inArray)
-    {
-        return numCToBoost(Rotations::hat(inArray));
     }
 }
 
@@ -2520,7 +2514,11 @@ namespace RandomInterface
 
 //================================================================================
 
+#ifdef WIN32
 BOOST_PYTHON_MODULE(NumCpp)
+#else
+BOOST_PYTHON_MODULE(libNumCpp)
+#endif
 {
     Py_Initialize();
     np::initialize(); // needs to be called first thing in the BOOST_PYTHON_MODULE for numpy

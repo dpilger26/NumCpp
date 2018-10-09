@@ -1,9 +1,14 @@
 import os
+import getpass
 import numpy as np
 from termcolor import colored
 import sys
-sys.path.append(r'../build/x64/Release')
-import NumCpp
+if sys.platform == 'linux':
+    sys.path.append(r'../src/cmake-build-release')
+    import libNumCpp as NumCpp
+else:
+    sys.path.append(r'../build/x64/Release')
+    import NumCpp
 
 ####################################################################################
 def doTest():
@@ -4373,7 +4378,11 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    filename = r'C:\Temp\temp'
+    if sys.platform == 'linux':
+        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
+        filename = os.path.join(tempDir, 'temp.bin')
+    else:
+        filename = r'C:\Temp\temp.bin'
     NumCpp.tofile(cArray, filename, '')
     if os.path.exists(filename + '.bin'):
         data2 = np.fromfile(filename + '.bin', np.double).reshape(shapeInput)
@@ -4391,7 +4400,11 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    filename = r'C:\Temp\temp'
+    if sys.platform == 'linux':
+        tempDir = r'/home/' + getpass.getuser() + r'/Desktop/'
+        filename = os.path.join(tempDir, 'temp.txt')
+    else:
+        filename = r'C:\Temp\temp.txt'
     NumCpp.tofile(cArray, filename, '\n')
     if os.path.exists(filename + '.txt'):
         data2 = np.fromfile(filename + '.txt', dtype=np.double, sep='\n').reshape(shapeInput)
