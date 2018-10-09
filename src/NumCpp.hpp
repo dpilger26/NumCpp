@@ -29,7 +29,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Testing
-/// Compiled and tested with Visual Studio 2017, and MinGW gcc-6.3.0, with Boost version 1.63.
+/// Compiled and tested with Visual Studio 2017, and g++ 7.3.0, with Boost version 1.63.
 ///
 #pragma once
 
