@@ -2810,8 +2810,7 @@ def doTest():
     data = data.reshape(shapeInput)
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    if NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, 'lower').item() == np.nanpercentile(data, percentile, axis=None,
-                                                                                            interpolation='lower'):
+    if NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, 'lower').item() == np.nanpercentile(data, percentile, axis=None, interpolation='lower'):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2827,8 +2826,8 @@ def doTest():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     if NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.NONE, 'higher').item() == np.nanpercentile(data, percentile,
-                                                                                             axis=None,
-                                                                                             interpolation='higher'):
+                                                                                                       axis=None,
+                                                                                                       interpolation='higher'):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4384,13 +4383,13 @@ def doTest():
     else:
         filename = r'C:\Temp\temp.bin'
     NumCpp.tofile(cArray, filename, '')
-    if os.path.exists(filename + '.bin'):
-        data2 = np.fromfile(filename + '.bin', np.double).reshape(shapeInput)
+    if os.path.exists(filename):
+        data2 = np.fromfile(filename, np.double).reshape(shapeInput)
         if np.array_equal(data, data2):
             print(colored('\tPASS', 'green'))
         else:
             print(colored('\tFAIL', 'red'))
-        os.remove(filename + '.bin')
+        os.remove(filename)
     else:
         print(colored('\tFAIL', 'red'))
 
@@ -4406,13 +4405,13 @@ def doTest():
     else:
         filename = r'C:\Temp\temp.txt'
     NumCpp.tofile(cArray, filename, '\n')
-    if os.path.exists(filename + '.txt'):
-        data2 = np.fromfile(filename + '.txt', dtype=np.double, sep='\n').reshape(shapeInput)
+    if os.path.exists(filename):
+        data2 = np.fromfile(filename, dtype=np.double, sep='\n').reshape(shapeInput)
         if np.array_equal(data, data2):
             print(colored('\tPASS', 'green'))
         else:
             print(colored('\tFAIL', 'red'))
-        os.remove(filename + '.txt')
+        os.remove(filename)
     else:
         print(colored('\tFAIL', 'red'))
 

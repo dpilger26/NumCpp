@@ -1288,9 +1288,9 @@ def doTest():
     else:
         filename = r'C:\Temp\temp.bin'
     cArray.tofile(filename, '')
-    if os.path.exists(filename + '.bin'):
+    if os.path.exists(filename):
         print(colored('\tPASS', 'green'))
-        os.remove(filename + '.bin')
+        os.remove(filename)
     else:
         print(colored('\tFAIL', 'red'))
 
@@ -1306,9 +1306,9 @@ def doTest():
     else:
         filename = r'C:\Temp\temp.txt'
     cArray.tofile(filename, '\n')
-    if os.path.exists(filename + '.txt'):
+    if os.path.exists(filename):
         print(colored('\tPASS', 'green'))
-        os.remove(filename + '.txt')
+        os.remove(filename)
     else:
         print(colored('\tFAIL', 'red'))
 

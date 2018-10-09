@@ -143,7 +143,7 @@ def test1D():
         constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
         dataOutC = NumCpp.percentileFilter1d(cArray, kernalSize, percentile, modes[mode], constantValue).getNumpyArray().flatten()
         dataOutPy = filters.generic_filter(data, np.percentile, footprint=np.ones([kernalSize,]), mode=mode, cval=constantValue, extra_arguments=(percentile,))
-        if np.array_equal(np.round(dataOutC, 8), np.round(dataOutPy, 8)):
+        if np.array_equal(np.round(dataOutC, 7), np.round(dataOutPy, 7)):
             print(colored('\tPASS', 'green'))
         else:
             print(colored('\tFAIL', 'red'))
