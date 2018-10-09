@@ -499,7 +499,7 @@ namespace NC
         ///						returned array is of the range [start, stop).
         ///
         /// @param
-        ///				inSlice
+        ///				inMask
         /// @return
         ///				NdArray
         ///

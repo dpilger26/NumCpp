@@ -8,7 +8,7 @@ var searchData=
   ['inv',['inv',['../namespace_n_c_1_1_linalg.html#a6d474dcc2119306069b97a6fb194cf29',1,'NC::Linalg']]],
   ['inverse',['inverse',['../class_n_c_1_1_rotations_1_1_quaternion.html#a0e542ddd20cedc68a86bb93fded76871',1,'NC::Rotations::Quaternion']]],
   ['invert',['invert',['../namespace_n_c.html#a66fe67c8b485d11c6496fd5bde0e53a8',1,'NC']]],
-  ['isclose',['isclose',['../namespace_n_c.html#a0b59003942d9d7f1f4c0c15e3bec7fb0',1,'NC']]],
+  ['isclose',['isclose',['../namespace_n_c.html#a8cc802110a2c947986661d797af86f12',1,'NC']]],
   ['isempty',['isempty',['../class_n_c_1_1_data_cube.html#a49e7d48a296400e005593e631189b0f7',1,'NC::DataCube::isempty()'],['../class_n_c_1_1_nd_array.html#a46c0fbb27a0d2c37ab53cc3c29d7b92a',1,'NC::NdArray::isempty()']]],
   ['isinf',['isinf',['../namespace_n_c.html#ad78f96d498eaf334fad3662c1885aa57',1,'NC::isinf(dtype inValue)'],['../namespace_n_c.html#a8e26b8da03923a0243de906f4fe0d603',1,'NC::isinf(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['isinteger',['isInteger',['../class_n_c_1_1_dtype_info.html#a865db491574ef82c0cd3d6c494e3a10b',1,'NC::DtypeInfo']]],

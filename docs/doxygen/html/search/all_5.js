@@ -14,5 +14,5 @@ var searchData=
   ['expm1',['expm1',['../namespace_n_c.html#a0a7a710fdcd2accb6df0476896df0eb7',1,'NC::expm1(dtype inValue)'],['../namespace_n_c.html#a02f80a961a9f773b810d49d1aa309188',1,'NC::expm1(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['exponential',['exponential',['../class_n_c_1_1_random.html#a5001c56a1da1e4bef1d19fb72e2dde41',1,'NC::Random']]],
   ['extremevalue',['extremeValue',['../class_n_c_1_1_random.html#ac9ca25066ca434c7ab77fa1f74b0bcf1',1,'NC::Random']]],
-  ['eye',['eye',['../namespace_n_c.html#a97c89d85899aaf410c95ddbd3969b4cb',1,'NC::eye(uint32 inN, int32 inK)'],['../namespace_n_c.html#a93676683431bdeac3ab6e6a0f1c856de',1,'NC::eye(uint32 inN, uint32 inM, int32 inK)'],['../namespace_n_c.html#a9cc847da4c3ca7f452e2cede5c995575',1,'NC::eye(const Shape &amp;inShape, int32 inK)']]]
+  ['eye',['eye',['../namespace_n_c.html#a6cfdc9baa031da7ab5345f5beae34511',1,'NC::eye(uint32 inN, int32 inK=0)'],['../namespace_n_c.html#af5b263652639e546ff80228630d883af',1,'NC::eye(uint32 inN, uint32 inM, int32 inK=0)'],['../namespace_n_c.html#a51cd840b389be28e18bdf483d7296e19',1,'NC::eye(const Shape &amp;inShape, int32 inK=0)']]]
 ];

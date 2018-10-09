@@ -7669,7 +7669,7 @@ namespace NC
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.tril.html
     ///
-    /// @param				inN: number of rows and cols
+    /// @param				inArray: number of rows and cols
     /// @param				inOffset: (the sub-diagonal at and below which the array is filled.
     ///						k = 0 is the main diagonal, while k < 0 is below it,
     ///						and k > 0 is above. The default is 0.)
@@ -7763,7 +7763,7 @@ namespace NC
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.triu.html
     ///
-    /// @param				inN: number of rows and cols
+    /// @param				inArray: number of rows and cols
     /// @param				inOffset: (the sub-diagonal at and below which the array is filled.
     ///						k = 0 is the main diagonal, while k < 0 is below it,
     ///						and k > 0 is above. The default is 0.)
