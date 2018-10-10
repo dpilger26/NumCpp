@@ -319,11 +319,11 @@ def doTest():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayInt(shape)
-    data = np.random.randint(0, 100, [shape.rows, shape.cols], dtype=np.uint)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
     oldEndianess = cArray.endianess()
     cArray.byteswap()
-    if np.array_equal(cArray.getNumpyArray(), data.byteswap()) and cArray.endianess() != oldEndianess:
+    if np.array_equal(cArray.getNumpyArray().astype(np.uint32), data.byteswap()) and cArray.endianess() != oldEndianess:
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -764,9 +764,9 @@ def doTest():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayInt(shape)
-    data = np.random.randint(0, 100, [shape.rows, shape.cols], dtype=np.uint)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols], dtype=np.uint32)
     cArray.setArray(data)
-    if np.array_equal(cArray.newbyteorder(NumCpp.Endian.BIG), data.newbyteorder()):
+    if np.array_equal(cArray.newbyteorder(NumCpp.Endian.BIG).astype(np.uint32), data.newbyteorder()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1288,9 +1288,9 @@ def doTest():
     else:
         filename = r'C:\Temp\temp.bin'
     cArray.tofile(filename, '')
-    if os.path.exists(filename + '.bin'):
+    if os.path.exists(filename):
         print(colored('\tPASS', 'green'))
-        os.remove(filename + '.bin')
+        os.remove(filename)
     else:
         print(colored('\tFAIL', 'red'))
 
@@ -1306,9 +1306,9 @@ def doTest():
     else:
         filename = r'C:\Temp\temp.txt'
     cArray.tofile(filename, '\n')
-    if os.path.exists(filename + '.txt'):
+    if os.path.exists(filename):
         print(colored('\tPASS', 'green'))
-        os.remove(filename + '.txt')
+        os.remove(filename)
     else:
         print(colored('\tFAIL', 'red'))
 

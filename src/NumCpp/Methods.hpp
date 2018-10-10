@@ -3709,10 +3709,10 @@ namespace NC
             }
 
             char* fileBuffer = new char[fileSize];
-            fread(fileBuffer, sizeof(char), fileSize, filePtr);
+            size_t bytesRead = fread(fileBuffer, sizeof(char), fileSize, filePtr);
             fclose(filePtr);
 
-            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer), fileSize);
+            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer), bytesRead);
             delete[] fileBuffer;
 
             return std::move(returnArray);
