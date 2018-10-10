@@ -3271,7 +3271,7 @@ def doTest():
 
     print(colored('Testing newbyteorder scalar', 'cyan'))
     value = np.random.randint(1, 100, [1,]).item()
-    if NumCpp.newbyteorderScalar(value, NumCpp.Endian.BIG) == np.asarray([value]).newbyteorder().item():
+    if NumCpp.newbyteorderScalar(value, NumCpp.Endian.BIG) == np.asarray([value], dtype=np.uint32).newbyteorder().item():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
