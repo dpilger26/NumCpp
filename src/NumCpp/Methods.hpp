@@ -263,6 +263,12 @@ namespace NC
     NdArray<double> deg2rad(const NdArray<dtype>& inArray = Axis::NONE);
 
     template<typename dtype>
+    double degrees(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> degrees(const NdArray<dtype>& inArray = Axis::NONE);
+
+    template<typename dtype>
     NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis = Axis::NONE);
 
     template<typename dtype>
@@ -302,7 +308,7 @@ namespace NC
     Endian endianess(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double erf(double inValue);
+    double erf(dtype inValue);
 
     template<typename dtype>
     NdArray<double> erf(const NdArray<dtype>& inArray);
@@ -672,6 +678,12 @@ namespace NC
 
     template<typename dtype>
     NdArray<double> rad2deg(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double radians(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> radians(const NdArray<dtype>& inArray);
 
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray);
@@ -2690,6 +2702,40 @@ namespace NC
 
     //============================================================================
     // Method Description:
+    ///						Convert angles from degrees to radians.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
+    ///
+    /// @param
+    ///				inValue
+    /// @return
+    ///				value
+    ///
+    template<typename dtype>
+    double degrees(dtype inValue)
+    {
+        return rad2deg(inValue);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Convert angles from degrees to radians.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
+    ///
+    /// @param
+    ///				inArray
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> degrees(const NdArray<dtype>& inArray)
+    {
+        return rad2deg(inArray);
+    }
+
+    //============================================================================
+    // Method Description:
     ///						Return a new array with sub-arrays along an axis deleted.
     ///
     /// @param				inArray
@@ -3932,6 +3978,8 @@ namespace NC
     // Method Description:
     ///						Returns the greatest common divisor of |x1| and |x2|
     ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
+    ///
     /// @param      inValue1
     /// @param      inValue1
     /// @return
@@ -3949,6 +3997,7 @@ namespace NC
     ///						Returns the element wise greatest common divisor of 
     ///                     arrays |x1| and |x2|. 
     ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
     /// @param      inArray1
     /// @param      inArray2
     /// @return
@@ -4425,6 +4474,8 @@ namespace NC
     // Method Description:
     ///						Returns the least common multiple of |x1| and |x2|
     ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
+    ///
     /// @param      inValue1
     /// @param      inValue2
     /// @return
@@ -4442,6 +4493,7 @@ namespace NC
     ///						Returns the element wise Returns the least 
     ///                     common multiple of |x1| and |x2| 
     ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
     /// @param      inArray1
     /// @param      inArray2
     /// @return
@@ -6480,6 +6532,40 @@ namespace NC
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return rad2deg(inValue); });
 
         return std::move(returnArray);
+    }
+
+    //============================================================================
+// Method Description:
+///						Convert angles from degrees to radians.
+///
+///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.radians.html
+///
+/// @param
+///				inValue
+/// @return
+///				value
+///
+    template<typename dtype>
+    double radians(dtype inValue)
+    {
+        return deg2rad(inValue);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Convert angles from degrees to radians.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.radians.html
+    ///
+    /// @param
+    ///				inArray
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> radians(const NdArray<dtype>& inArray)
+    {
+        return deg2rad(inArray);
     }
 
     //============================================================================

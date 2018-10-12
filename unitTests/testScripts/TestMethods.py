@@ -1218,6 +1218,24 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing degrees scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item()) * 2 * np.pi
+    if np.round(NumCpp.degreesScaler(value), 10) == np.round(np.degrees(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing degrees array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols) * 2 * np.pi
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumCpp.degreesArray(cArray), 10), np.round(np.degrees(data), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing deleteIndices Slice: Axis = NONE', 'cyan'))
     shapeInput = np.asarray([100,100])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -2091,8 +2109,6 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
-
-    return
 
     print(colored('Testing ldexp scalar', 'cyan'))
     value1 = np.random.randn(1).item() * 100
@@ -3870,6 +3886,24 @@ def doTest():
     data = np.random.rand(shape.rows, shape.cols) * 2 * np.pi
     cArray.setArray(data)
     if np.array_equal(np.round(NumCpp.rad2degArray(cArray), 9), np.round(np.rad2deg(data), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing radians scalar', 'cyan'))
+    value = np.abs(np.random.rand(1).item()) * 360
+    if np.round(NumCpp.radiansScaler(value), 10) == np.round(np.radians(value), 10):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing radians array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols) * 360
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumCpp.radiansArray(cArray), 9), np.round(np.radians(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

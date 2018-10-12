@@ -1374,6 +1374,22 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    dtype degreesScaler(dtype inValue)
+    {
+        return degrees(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray degreesArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(degrees(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray deleteIndicesScaler(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis)
     {
         return numCToBoost(deleteIndices(inArray, inIndex, inAxis));
@@ -1991,6 +2007,22 @@ namespace MethodsInterface
     np::ndarray rad2degArray(const NdArray<dtype>& inArray)
     {
         return numCToBoost(rad2deg(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype radiansScaler(dtype inValue)
+    {
+        return radians(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray radiansArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(radians(inArray));
     }
 
     //================================================================================
@@ -2940,6 +2972,8 @@ BOOST_PYTHON_MODULE(libNumCpp)
     //bp::def("cumsum", &MethodsInterface::cumsumArray<float, double>);
     bp::def("deg2radScaler", &MethodsInterface::deg2radScaler<double>);
     bp::def("deg2radArray", &MethodsInterface::deg2radArray<double>);
+    bp::def("degreesScaler", &MethodsInterface::degreesScaler<double>);
+    bp::def("degreesArray", &MethodsInterface::degreesArray<double>);
     bp::def("deleteIndicesScaler", &MethodsInterface::deleteIndicesScaler<double>);
     bp::def("deleteIndicesSlice", &MethodsInterface::deleteIndicesSlice<double>);
     bp::def("diagflat", &MethodsInterface::diagflat<double>);
@@ -3094,6 +3128,8 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("putmaskScaler", &MethodsInterface::putmaskScaler<double>);
     bp::def("rad2degScaler", &MethodsInterface::rad2degScaler<double>);
     bp::def("rad2degArray", &MethodsInterface::rad2degArray<double>);
+    bp::def("radiansScaler", &MethodsInterface::radiansScaler<double>);
+    bp::def("radiansArray", &MethodsInterface::radiansArray<double>);
     bp::def("reciprocal", &reciprocal<double, double>);
     //bp::def("reciprocal", &reciprocal<float, double>);
     bp::def("remainderScaler", &MethodsInterface::remainderScaler<double, double>);
