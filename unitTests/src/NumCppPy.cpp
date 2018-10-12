@@ -609,9 +609,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorPlusScalar(NdArray<dtype>& self, dtype inScalar)
+    np::ndarray operatorPlusScaler(NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self + inScalar);
+        return numCToBoost(self + inScaler);
     }
 
     //================================================================================
@@ -625,9 +625,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorMinusScalar(NdArray<dtype>& self, dtype inScalar)
+    np::ndarray operatorMinusScaler(NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self - inScalar);
+        return numCToBoost(self - inScaler);
     }
 
     //================================================================================
@@ -641,9 +641,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorMultiplyScalar(NdArray<dtype>& self, dtype inScalar)
+    np::ndarray operatorMultiplyScaler(NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self * inScalar);
+        return numCToBoost(self * inScaler);
     }
 
     //================================================================================
@@ -657,9 +657,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorDivideScalar(NdArray<dtype>& self, dtype inScalar)
+    np::ndarray operatorDivideScaler(NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self / inScalar);
+        return numCToBoost(self / inScaler);
     }
 
     //================================================================================
@@ -673,9 +673,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorModulusScalar(NdArray<dtype>& self, dtype inScalar)
+    np::ndarray operatorModulusScaler(NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self % inScalar);
+        return numCToBoost(self % inScaler);
     }
 
     //================================================================================
@@ -689,9 +689,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseOrScalar(NdArray<dtype>& self, dtype inScalar)
+    np::ndarray operatorBitwiseOrScaler(NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self | inScalar);
+        return numCToBoost(self | inScaler);
     }
 
     //================================================================================
@@ -705,9 +705,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseAndScalar(NdArray<dtype>& self, dtype inScalar)
+    np::ndarray operatorBitwiseAndScaler(NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self & inScalar);
+        return numCToBoost(self & inScaler);
     }
 
     //================================================================================
@@ -721,9 +721,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorBitwiseXorScalar(NdArray<dtype>& self, dtype inScalar)
+    np::ndarray operatorBitwiseXorScaler(NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self ^ inScalar);
+        return numCToBoost(self ^ inScaler);
     }
 
     //================================================================================
@@ -745,7 +745,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorEqualityScalar(NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorEqualityScaler(NdArray<dtype>& self, dtype inValue)
     {
         return numCToBoost(self == inValue);
     }
@@ -761,7 +761,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessScalar(NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorLessScaler(NdArray<dtype>& self, dtype inValue)
     {
         return numCToBoost(self < inValue);
     }
@@ -777,7 +777,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterScalar(NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorGreaterScaler(NdArray<dtype>& self, dtype inValue)
     {
         return numCToBoost(self > inValue);
     }
@@ -793,7 +793,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorLessEqualScalar(NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorLessEqualScaler(NdArray<dtype>& self, dtype inValue)
     {
         return numCToBoost(self <= inValue);
     }
@@ -809,7 +809,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorGreaterEqualScalar(NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorGreaterEqualScaler(NdArray<dtype>& self, dtype inValue)
     {
         return numCToBoost(self >= inValue);
     }
@@ -825,7 +825,7 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray operatorNotEqualityScalar(NdArray<dtype>& self, dtype inValue)
+    np::ndarray operatorNotEqualityScaler(NdArray<dtype>& self, dtype inValue)
     {
         return numCToBoost(self != inValue);
     }
@@ -892,7 +892,7 @@ namespace NdArrayInterface
 namespace MethodsInterface
 {
     template<typename dtype>
-    dtype absScalar(dtype inValue)
+    dtype absScaler(dtype inValue)
     {
         return abs(inValue);
     }
@@ -988,7 +988,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arccosScalar(dtype inValue)
+    dtype arccosScaler(dtype inValue)
     {
         return arccos(inValue);
     }
@@ -1004,7 +1004,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arccoshScalar(dtype inValue)
+    dtype arccoshScaler(dtype inValue)
     {
         return arccosh(inValue);
     }
@@ -1020,7 +1020,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arcsinScalar(dtype inValue)
+    dtype arcsinScaler(dtype inValue)
     {
         return arcsin(inValue);
     }
@@ -1036,7 +1036,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arcsinhScalar(dtype inValue)
+    dtype arcsinhScaler(dtype inValue)
     {
         return arcsinh(inValue);
     }
@@ -1052,7 +1052,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arctanScalar(dtype inValue)
+    dtype arctanScaler(dtype inValue)
     {
         return arctan(inValue);
     }
@@ -1068,7 +1068,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arctan2Scalar(dtype inY, dtype inX)
+    dtype arctan2Scaler(dtype inY, dtype inX)
     {
         return arctan2(inY, inX);
     }
@@ -1084,7 +1084,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype arctanhScalar(dtype inValue)
+    dtype arctanhScaler(dtype inValue)
     {
         return arctanh(inValue);
     }
@@ -1100,7 +1100,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype aroundScalar(dtype inValue, uint8 inNumDecimals)
+    dtype aroundScaler(dtype inValue, uint8 inNumDecimals)
     {
         return around(inValue, inNumDecimals);
     }
@@ -1204,7 +1204,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype cbrtScalar(dtype inValue)
+    dtype cbrtScaler(dtype inValue)
     {
         return cbrt(inValue);
     }
@@ -1220,7 +1220,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype ceilScalar(dtype inValue)
+    dtype ceilScaler(dtype inValue)
     {
         return ceil(inValue);
     }
@@ -1236,7 +1236,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype clipScalar(dtype inValue, dtype inMinValue, dtype inMaxValue)
+    dtype clipScaler(dtype inValue, dtype inMinValue, dtype inMaxValue)
     {
         return clip(inValue, inMinValue, inMaxValue);
     }
@@ -1294,7 +1294,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype cosScalar(dtype inValue)
+    dtype cosScaler(dtype inValue)
     {
         return cos(inValue);
     }
@@ -1310,7 +1310,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype coshScalar(dtype inValue)
+    dtype coshScaler(dtype inValue)
     {
         return cosh(inValue);
     }
@@ -1358,7 +1358,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype deg2radScalar(dtype inValue)
+    dtype deg2radScaler(dtype inValue)
     {
         return deg2rad(inValue);
     }
@@ -1374,7 +1374,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray deleteIndicesScalar(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis)
+    np::ndarray deleteIndicesScaler(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis)
     {
         return numCToBoost(deleteIndices(inArray, inIndex, inAxis));
     }
@@ -1454,7 +1454,39 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype expScalar(dtype inValue)
+    dtype erfScaler(dtype inValue)
+    {
+        return erf(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray erfArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(erf(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype erfcScaler(dtype inValue)
+    {
+        return erfc(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray erfcArray(const NdArray<dtype>& inArray)
+    {
+        return numCToBoost(erfc(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype expScaler(dtype inValue)
     {
         return exp(inValue);
     }
@@ -1470,7 +1502,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype exp2Scalar(dtype inValue)
+    dtype exp2Scaler(dtype inValue)
     {
         return exp2(inValue);
     }
@@ -1486,7 +1518,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype expm1Scalar(dtype inValue)
+    dtype expm1Scaler(dtype inValue)
     {
         return expm1(inValue);
     }
@@ -1526,7 +1558,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fixScalar(dtype inValue)
+    dtype fixScaler(dtype inValue)
     {
         return fix(inValue);
     }
@@ -1542,7 +1574,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype floorScalar(dtype inValue)
+    dtype floorScaler(dtype inValue)
     {
         return floor(inValue);
     }
@@ -1558,7 +1590,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype floor_divideScalar(dtype inValue1, dtype inValue2)
+    dtype floor_divideScaler(dtype inValue1, dtype inValue2)
     {
         return floor_divide(inValue1, inValue2);
     }
@@ -1574,7 +1606,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fmaxScalar(dtype inValue1, dtype inValue2)
+    dtype fmaxScaler(dtype inValue1, dtype inValue2)
     {
         return fmax(inValue1, inValue2);
     }
@@ -1590,7 +1622,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype fminScalar(dtype inValue1, dtype inValue2)
+    dtype fminScaler(dtype inValue1, dtype inValue2)
     {
         return fmin(inValue1, inValue2);
     }
@@ -1604,7 +1636,7 @@ namespace MethodsInterface
     }
 
     template<typename dtype>
-    dtype fmodScalar(dtype inValue1, dtype inValue2)
+    dtype fmodScaler(dtype inValue1, dtype inValue2)
     {
         return fmod(inValue1, inValue2);
     }
@@ -1644,6 +1676,22 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    dtype gcdScaler(dtype inValue1, dtype inValue2)
+    {
+        return gcd(inValue1, inValue2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray gcdArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(gcd(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     bp::tuple histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
     {
         std::pair<NdArray<uint32>, NdArray<double> > output = NC::histogram(inArray, inNumBins);
@@ -1662,7 +1710,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtypeOut = double, typename dtype>
-    dtype hypotScalar(dtype inValue1, dtype inValue2)
+    dtype hypotScaler(dtype inValue1, dtype inValue2)
     {
         return hypot<dtypeOut>(inValue1, inValue2);
     }
@@ -1686,7 +1734,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isinfScalar(dtype inValue)
+    bool isinfScaler(dtype inValue)
     {
         return NC::isinf(inValue);
     }
@@ -1702,7 +1750,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    bool isnanScalar(dtype inValue)
+    bool isnanScaler(dtype inValue)
     {
         return NC::isnan(inValue);
     }
@@ -1718,7 +1766,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype ldexpScalar(dtype inValue1, uint8 inValue2)
+    dtype ldexpScaler(dtype inValue1, uint8 inValue2)
     {
         return ldexp(inValue1, inValue2);
     }
@@ -1774,7 +1822,23 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype logScalar(dtype inValue)
+    dtype lcmScaler(dtype inValue1, dtype inValue2)
+    {
+        return lcm(inValue1, inValue2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray lcmArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return numCToBoost(lcm(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype logScaler(dtype inValue)
     {
         return log(inValue);
     }
@@ -1790,7 +1854,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log10Scalar(dtype inValue)
+    dtype log10Scaler(dtype inValue)
     {
         return log10(inValue);
     }
@@ -1806,7 +1870,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log1pScalar(dtype inValue)
+    dtype log1pScaler(dtype inValue)
     {
         return log1p(inValue);
     }
@@ -1822,7 +1886,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype log2Scalar(dtype inValue)
+    dtype log2Scaler(dtype inValue)
     {
         return log2(inValue);
     }
@@ -1836,7 +1900,7 @@ namespace MethodsInterface
     }
 
     template<typename dtype>
-    dtype newbyteorderScalar(dtype inValue, Endian inEndianess)
+    dtype newbyteorderScaler(dtype inValue, Endian inEndianess)
     {
         return newbyteorder(inValue, inEndianess);
     }
@@ -1884,7 +1948,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtypeOut = double, typename dtype>
-    np::ndarray powerArrayScalar(const NdArray<dtype>& inArray, uint8 inExponent)
+    np::ndarray powerArrayScaler(const NdArray<dtype>& inArray, uint8 inExponent)
     {
         return numCToBoost(power<dtypeOut>(inArray, inExponent));
     }
@@ -1908,7 +1972,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray putmaskScalar(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
+    np::ndarray putmaskScaler(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
     {
         return numCToBoost(putmask(inArray, inMask, inValue));
     }
@@ -1916,7 +1980,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype rad2degScalar(dtype inValue)
+    dtype rad2degScaler(dtype inValue)
     {
         return rad2deg(inValue);
     }
@@ -1932,7 +1996,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtypeOut = double, typename dtype>
-    dtype remainderScalar(dtype inValue1, dtype inValue2)
+    dtype remainderScaler(dtype inValue1, dtype inValue2)
     {
         return remainder<dtypeOut>(inValue1, inValue2);
     }
@@ -1996,7 +2060,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype rintScalar(dtype inValue)
+    dtype rintScaler(dtype inValue)
     {
         return rint(inValue);
     }
@@ -2012,7 +2076,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype roundScalar(dtype inValue, uint8 inDecimals)
+    dtype roundScaler(dtype inValue, uint8 inDecimals)
     {
         return round(inValue, inDecimals);
     }
@@ -2037,7 +2101,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    int8 signScalar(dtype inValue)
+    int8 signScaler(dtype inValue)
     {
         return sign(inValue);
     }
@@ -2053,7 +2117,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    bool signbitScalar(dtype inValue)
+    bool signbitScaler(dtype inValue)
     {
         return signbit(inValue);
     }
@@ -2069,7 +2133,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    double sinScalar(dtype inValue)
+    double sinScaler(dtype inValue)
     {
         return sin(inValue);
     }
@@ -2085,7 +2149,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    double sincScalar(dtype inValue)
+    double sincScaler(dtype inValue)
     {
         return sinc(inValue);
     }
@@ -2101,7 +2165,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    double sinhScalar(dtype inValue)
+    double sinhScaler(dtype inValue)
     {
         return sinh(inValue);
     }
@@ -2117,7 +2181,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    double sqrtScalar(dtype inValue)
+    double sqrtScaler(dtype inValue)
     {
         return sqrt(inValue);
     }
@@ -2133,7 +2197,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    double squareScalar(dtype inValue)
+    double squareScaler(dtype inValue)
     {
         return square(inValue);
     }
@@ -2149,7 +2213,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    double tanScalar(dtype inValue)
+    double tanScaler(dtype inValue)
     {
         return tan(inValue);
     }
@@ -2165,7 +2229,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    double tanhScalar(dtype inValue)
+    double tanhScaler(dtype inValue)
     {
         return tanh(inValue);
     }
@@ -2269,7 +2333,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype unwrapScalar(dtype inValue)
+    dtype unwrapScaler(dtype inValue)
     {
         return unwrap(inValue);
     }
@@ -2285,7 +2349,7 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    double truncScalar(dtype inValue)
+    double truncScaler(dtype inValue)
     {
         return trunc(inValue);
     }
@@ -2360,7 +2424,7 @@ namespace MethodsInterface
 namespace RandomInterface
 {
     template<typename dtype>
-    np::ndarray permutationScalar(dtype inValue)
+    np::ndarray permutationScaler(dtype inValue)
     {
         return numCToBoost(Random<dtype>::permutation(inValue));
     }
@@ -2411,9 +2475,9 @@ namespace RotationsInterface
         return numCToBoost(inQuat.toDCM());
     }
 
-    np::ndarray multiplyScalar(const Rotations::Quaternion& inQuat, double inScalar)
+    np::ndarray multiplyScaler(const Rotations::Quaternion& inQuat, double inScaler)
     {
-        Rotations::Quaternion returnQuat = inQuat * inScalar;
+        Rotations::Quaternion returnQuat = inQuat * inScaler;
         return numCToBoost(returnQuat.toNdArray());
     }
 
@@ -2686,25 +2750,25 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("transpose", &NdArrayInterface::transpose<double>)
         .def("var", &NdArrayInterface::var<double>)
         .def("zeros", &NdArrayDouble::zeros)
-        .def("operatorPlusScalar", &NdArrayInterface::operatorPlusScalar<double>)
+        .def("operatorPlusScaler", &NdArrayInterface::operatorPlusScaler<double>)
         .def("operatorPlusArray", &NdArrayInterface::operatorPlusArray<double>)
-        .def("operatorMinusScalar", &NdArrayInterface::operatorMinusScalar<double>)
+        .def("operatorMinusScaler", &NdArrayInterface::operatorMinusScaler<double>)
         .def("operatorMinusArray", &NdArrayInterface::operatorMinusArray<double>)
-        .def("operatorMultiplyScalar", &NdArrayInterface::operatorMultiplyScalar<double>)
+        .def("operatorMultiplyScaler", &NdArrayInterface::operatorMultiplyScaler<double>)
         .def("operatorMultiplyArray", &NdArrayInterface::operatorMultiplyArray<double>)
-        .def("operatorDivideScalar", &NdArrayInterface::operatorDivideScalar<double>)
+        .def("operatorDivideScaler", &NdArrayInterface::operatorDivideScaler<double>)
         .def("operatorDivideArray", &NdArrayInterface::operatorDivideArray<double>)
-        .def("operatorEquality", &NdArrayInterface::operatorEqualityScalar<double>)
+        .def("operatorEquality", &NdArrayInterface::operatorEqualityScaler<double>)
         .def("operatorEquality", &NdArrayInterface::operatorEqualityArray<double>)
-        .def("operatorLess", &NdArrayInterface::operatorLessScalar<double>)
+        .def("operatorLess", &NdArrayInterface::operatorLessScaler<double>)
         .def("operatorLess", &NdArrayInterface::operatorLessArray<double>)
-        .def("operatorGreater", &NdArrayInterface::operatorGreaterScalar<double>)
+        .def("operatorGreater", &NdArrayInterface::operatorGreaterScaler<double>)
         .def("operatorGreater", &NdArrayInterface::operatorGreaterArray<double>)
-        .def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScalar<double>)
+        .def("operatorLessEqual", &NdArrayInterface::operatorLessEqualScaler<double>)
         .def("operatorLessEqual", &NdArrayInterface::operatorLessEqualArray<double>)
-        .def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScalar<double>)
+        .def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualScaler<double>)
         .def("operatorGreaterEqual", &NdArrayInterface::operatorGreaterEqualArray<double>)
-        .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScalar<double>)
+        .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityScaler<double>)
         .def("operatorNotEquality", &NdArrayInterface::operatorNotEqualityArray<double>)
         .def("operatorPrePlusPlus", &NdArrayInterface::operatorPrePlusPlus<double>)
         .def("operatorPostPlusPlus", &NdArrayInterface::operatorPostPlusPlus<double>)
@@ -2725,13 +2789,13 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("setArray", &NdArrayInterface::setArray<uint32>)
         .def("byteswap", &NdArrayInt::byteswap)
         .def("newbyteorder", &NdArrayInterface::newbyteorder<uint32>)
-        .def("operatorModulusScalar", &NdArrayInterface::operatorModulusScalar<uint32>)
+        .def("operatorModulusScaler", &NdArrayInterface::operatorModulusScaler<uint32>)
         .def("operatorModulusArray", &NdArrayInterface::operatorModulusArray<uint32>)
-        .def("operatorBitwiseOrScalar", &NdArrayInterface::operatorBitwiseOrScalar<uint32>)
+        .def("operatorBitwiseOrScaler", &NdArrayInterface::operatorBitwiseOrScaler<uint32>)
         .def("operatorBitwiseOrArray", &NdArrayInterface::operatorBitwiseOrArray<uint32>)
-        .def("operatorBitwiseAndScalar", &NdArrayInterface::operatorBitwiseAndScalar<uint32>)
+        .def("operatorBitwiseAndScaler", &NdArrayInterface::operatorBitwiseAndScaler<uint32>)
         .def("operatorBitwiseAndArray", &NdArrayInterface::operatorBitwiseAndArray<uint32>)
-        .def("operatorBitwiseXorScalar", &NdArrayInterface::operatorBitwiseXorScalar<uint32>)
+        .def("operatorBitwiseXorScaler", &NdArrayInterface::operatorBitwiseXorScaler<uint32>)
         .def("operatorBitwiseXorArray", &NdArrayInterface::operatorBitwiseXorArray<uint32>)
         .def("operatorBitwiseNot", &NdArrayInterface::operatorBitwiseNot<uint32>)
         .def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>)
@@ -2803,7 +2867,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("setArray", &NdArrayInterface::setArray<float>);
 
     // Methods.hpp
-    bp::def("absScalar", &MethodsInterface::absScalar<double>);
+    bp::def("absScaler", &MethodsInterface::absScaler<double>);
     bp::def("absArray", &MethodsInterface::absArray<double>);
     bp::def("add", &MethodsInterface::addArrays<double, double>);
     //bp::def("add", &MethodsInterface::addArrays<float, double>);
@@ -2815,25 +2879,25 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("any", &MethodsInterface::anyArray<double>);
     bp::def("append", &append<double>);
     bp::def("arange", &MethodsInterface::arangeArray<double>);
-    bp::def("arccosScalar", &MethodsInterface::arccosScalar<double>);
+    bp::def("arccosScaler", &MethodsInterface::arccosScaler<double>);
     bp::def("arccosArray", &MethodsInterface::arccosArray<double>);
-    bp::def("arccoshScalar", &MethodsInterface::arccoshScalar<double>);
+    bp::def("arccoshScaler", &MethodsInterface::arccoshScaler<double>);
     bp::def("arccoshArray", &MethodsInterface::arccoshArray<double>);
-    bp::def("arcsinScalar", &MethodsInterface::arcsinScalar<double>);
+    bp::def("arcsinScaler", &MethodsInterface::arcsinScaler<double>);
     bp::def("arcsinArray", &MethodsInterface::arcsinArray<double>);
-    bp::def("arcsinhScalar", &MethodsInterface::arcsinhScalar<double>);
+    bp::def("arcsinhScaler", &MethodsInterface::arcsinhScaler<double>);
     bp::def("arcsinhArray", &MethodsInterface::arcsinhArray<double>);
-    bp::def("arctanScalar", &MethodsInterface::arctanScalar<double>);
+    bp::def("arctanScaler", &MethodsInterface::arctanScaler<double>);
     bp::def("arctanArray", &MethodsInterface::arctanArray<double>);
-    bp::def("arctan2Scalar", &MethodsInterface::arctan2Scalar<double>);
+    bp::def("arctan2Scaler", &MethodsInterface::arctan2Scaler<double>);
     bp::def("arctan2Array", &MethodsInterface::arctan2Array<double>);
-    bp::def("arctanhScalar", &MethodsInterface::arctanhScalar<double>);
+    bp::def("arctanhScaler", &MethodsInterface::arctanhScaler<double>);
     bp::def("arctanhArray", &MethodsInterface::arctanhArray<double>);
     bp::def("argmax", &MethodsInterface::argmaxArray<double>);
     bp::def("argmin", &MethodsInterface::argminArray<double>);
     bp::def("argsort", &MethodsInterface::argsortArray<double>);
     bp::def("argwhere", &MethodsInterface::argwhere<double>);
-    bp::def("aroundScalar", &MethodsInterface::aroundScalar<double>);
+    bp::def("aroundScaler", &MethodsInterface::aroundScaler<double>);
     bp::def("aroundArray", &MethodsInterface::aroundArray<double>);
     bp::def("array_equal", &array_equal<double>);
     bp::def("array_equiv", &array_equiv<double>);
@@ -2849,11 +2913,11 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("bitwise_or", &MethodsInterface::bitwise_or<uint64>);
     bp::def("bitwise_xor", &MethodsInterface::bitwise_xor<uint64>);
     bp::def("byteswap", &MethodsInterface::byteswap<uint64>);
-    bp::def("cbrtScalar", &MethodsInterface::cbrtScalar<double>);
+    bp::def("cbrtScaler", &MethodsInterface::cbrtScaler<double>);
     bp::def("cbrtArray", &MethodsInterface::cbrtArray<double>);
-    bp::def("ceilScalar", &MethodsInterface::ceilScalar<double>);
+    bp::def("ceilScaler", &MethodsInterface::ceilScaler<double>);
     bp::def("ceilArray", &MethodsInterface::ceilArray<double>);
-    bp::def("clipScalar", &MethodsInterface::clipScalar<double>);
+    bp::def("clipScaler", &MethodsInterface::clipScaler<double>);
     bp::def("clipArray", &MethodsInterface::clipArray<double>);
     bp::def("column_stack", &MethodsInterface::column_stack<double>);
     bp::def("concatenate", &MethodsInterface::concatenate<double>);
@@ -2861,9 +2925,9 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("copy", &MethodsInterface::copy<double>);
     bp::def("copysign", &MethodsInterface::copySign<double>);
     bp::def("copyto", &MethodsInterface::copyto<double>);
-    bp::def("cosScalar", &MethodsInterface::cosScalar<double>);
+    bp::def("cosScaler", &MethodsInterface::cosScaler<double>);
     bp::def("cosArray", &MethodsInterface::cosArray<double>);
-    bp::def("coshScalar", &MethodsInterface::coshScalar<double>);
+    bp::def("coshScaler", &MethodsInterface::coshScaler<double>);
     bp::def("coshArray", &MethodsInterface::coshArray<double>);
     bp::def("count_nonzero", &MethodsInterface::count_nonzero<double>);
     bp::def("cross", &cross<double, double>);
@@ -2873,9 +2937,9 @@ BOOST_PYTHON_MODULE(libNumCpp)
     //bp::def("cumprod", &MethodsInterface::cumprodArray<float, double>);
     bp::def("cumsum", &MethodsInterface::cumsumArray<double, double>);
     //bp::def("cumsum", &MethodsInterface::cumsumArray<float, double>);
-    bp::def("deg2radScalar", &MethodsInterface::deg2radScalar<double>);
+    bp::def("deg2radScaler", &MethodsInterface::deg2radScaler<double>);
     bp::def("deg2radArray", &MethodsInterface::deg2radArray<double>);
-    bp::def("deleteIndicesScalar", &MethodsInterface::deleteIndicesScalar<double>);
+    bp::def("deleteIndicesScaler", &MethodsInterface::deleteIndicesScaler<double>);
     bp::def("deleteIndicesSlice", &MethodsInterface::deleteIndicesSlice<double>);
     bp::def("diagflat", &MethodsInterface::diagflat<double>);
     bp::def("diagonal", &MethodsInterface::diagonal<double>);
@@ -2891,31 +2955,35 @@ BOOST_PYTHON_MODULE(libNumCpp)
     //bp::def("empty_like", &empty_like<float, double>);
     bp::def("endianess", &endianess<double>);
     bp::def("equal", &MethodsInterface::equal<double>);
-    bp::def("expScalar", &MethodsInterface::expScalar<double>);
+    bp::def("erfScaler", &MethodsInterface::erfScaler<double>);
+    bp::def("erfArray", &MethodsInterface::erfArray<double>);
+    bp::def("erfcScaler", &MethodsInterface::erfcScaler<double>);
+    bp::def("erfcArray", &MethodsInterface::erfcArray<double>);
+    bp::def("expScaler", &MethodsInterface::expScaler<double>);
     bp::def("expArray", &MethodsInterface::expArray<double>);
-    bp::def("exp2Scalar", &MethodsInterface::exp2Scalar<double>);
+    bp::def("exp2Scaler", &MethodsInterface::exp2Scaler<double>);
     bp::def("exp2Array", &MethodsInterface::exp2Array<double>);
-    bp::def("expm1Scalar", &MethodsInterface::expm1Scalar<double>);
+    bp::def("expm1Scaler", &MethodsInterface::expm1Scaler<double>);
     bp::def("expm1Array", &MethodsInterface::expm1Array<double>);
     bp::def("eye1D", &MethodsInterface::eye1D<double>);
     bp::def("eye2D", &MethodsInterface::eye2D<double>);
     bp::def("eyeShape", &MethodsInterface::eyeShape<double>);
-    bp::def("fixScalar", &MethodsInterface::fixScalar<double>);
+    bp::def("fixScaler", &MethodsInterface::fixScaler<double>);
     bp::def("fixArray", &MethodsInterface::fixArray<double>);
     bp::def("flatten", &flatten<double>);
     bp::def("flatnonzero", &flatnonzero<double>);
     bp::def("flip", &flip<double>);
     bp::def("fliplr", &fliplr<double>);
     bp::def("flipud", &flipud<double>);
-    bp::def("floorScalar", &MethodsInterface::floorScalar<double>);
+    bp::def("floorScaler", &MethodsInterface::floorScaler<double>);
     bp::def("floorArray", &MethodsInterface::floorArray<double>);
-    bp::def("floor_divideScalar", &MethodsInterface::floor_divideScalar<double>);
+    bp::def("floor_divideScaler", &MethodsInterface::floor_divideScaler<double>);
     bp::def("floor_divideArray", &MethodsInterface::floor_divideArray<double>);
-    bp::def("fmaxScalar", &MethodsInterface::fmaxScalar<double>);
+    bp::def("fmaxScaler", &MethodsInterface::fmaxScaler<double>);
     bp::def("fmaxArray", &MethodsInterface::fmaxArray<double>);
-    bp::def("fminScalar", &MethodsInterface::fminScalar<double>);
+    bp::def("fminScaler", &MethodsInterface::fminScaler<double>);
     bp::def("fminArray", &MethodsInterface::fminArray<double>);
-    bp::def("fmodScalar", &MethodsInterface::fmodScalar<uint32>);
+    bp::def("fmodScaler", &MethodsInterface::fmodScaler<uint32>);
     bp::def("fmodArray", &MethodsInterface::fmodArray<uint32>);
     bp::def("fromfile", &fromfile<double>);
     bp::def("fullSquare", &MethodsInterface::fullSquare<double>);
@@ -2923,12 +2991,14 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("fullShape", &MethodsInterface::fullShape<double>);
     bp::def("full_like", &full_like<double, double>);
     //bp::def("full_like", &full_like<float, double>);
+    bp::def("gcdScaler", &MethodsInterface::gcdScaler<int32>);
+    bp::def("gcdArray", &MethodsInterface::gcdArray<int32>);
     bp::def("greater", &greater<double>);
     bp::def("greater_equal", &greater_equal<double>);
     bp::def("histogram", &MethodsInterface::histogram<double>);
     bp::def("hstack", &MethodsInterface::hstack<double>);
-    bp::def("hypotScalar", &MethodsInterface::hypotScalar<double, double>);
-    //bp::def("hypotScalar", &MethodsInterface::hypotScalar<float, double>);
+    bp::def("hypotScaler", &MethodsInterface::hypotScaler<double, double>);
+    //bp::def("hypotScaler", &MethodsInterface::hypotScaler<float, double>);
     bp::def("hypotArray", &MethodsInterface::hypotArray<double, double>);
     //bp::def("hypotArray", &MethodsInterface::hypotArray<float, double>);
     bp::def("identity", &identity<double>);
@@ -2936,24 +3006,26 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("intersect1d", &intersect1d<uint32>);
     bp::def("invert", &invert<uint32>);
     bp::def("isclose", &isclose<double>);
-    bp::def("isinfScalar", &MethodsInterface::isinfScalar<double>);
+    bp::def("isinfScaler", &MethodsInterface::isinfScaler<double>);
     bp::def("isinfArray", &MethodsInterface::isinfArray<double>);
-    bp::def("isnanScalar", &MethodsInterface::isnanScalar<double>);
+    bp::def("isnanScaler", &MethodsInterface::isnanScaler<double>);
     bp::def("isnanArray", &MethodsInterface::isnanArray<double>);
-    bp::def("ldexpScalar", &MethodsInterface::ldexpScalar<double>);
+    bp::def("lcmScaler", &MethodsInterface::lcmScaler<int32>);
+    bp::def("lcmArray", &MethodsInterface::lcmArray<int32>);
+    bp::def("ldexpScaler", &MethodsInterface::ldexpScaler<double>);
     bp::def("ldexpArray", &MethodsInterface::ldexpArray<double>);
     bp::def("left_shift", &left_shift<uint32>);
     bp::def("less", &less<double>);
     bp::def("less_equal", &less_equal<double>);
     bp::def("linspace", &linspace<double>);
     bp::def("load", &load<double>);
-    bp::def("logScalar", &MethodsInterface::logScalar<double>);
+    bp::def("logScaler", &MethodsInterface::logScaler<double>);
     bp::def("logArray", &MethodsInterface::logArray<double>);
-    bp::def("log10Scalar", &MethodsInterface::log10Scalar<double>);
+    bp::def("log10Scaler", &MethodsInterface::log10Scaler<double>);
     bp::def("log10Array", &MethodsInterface::log10Array<double>);
-    bp::def("log1pScalar", &MethodsInterface::log1pScalar<double>);
+    bp::def("log1pScaler", &MethodsInterface::log1pScaler<double>);
     bp::def("log1pArray", &MethodsInterface::log1pArray<double>);
-    bp::def("log2Scalar", &MethodsInterface::log2Scalar<double>);
+    bp::def("log2Scaler", &MethodsInterface::log2Scaler<double>);
     bp::def("log2Array", &MethodsInterface::log2Array<double>);
     bp::def("logical_and", &logical_and<double>);
     bp::def("logical_not", &logical_not<double>);
@@ -2992,7 +3064,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     //bp::def("nansum", &nansum<float, double>);
     bp::def("nanvar", &nanvar<double>);
     bp::def("nbytes", &nbytes<double>);
-    bp::def("newbyteorderScalar", &MethodsInterface::newbyteorderScalar<uint32>);
+    bp::def("newbyteorderScaler", &MethodsInterface::newbyteorderScaler<uint32>);
     bp::def("newbyteorderArray", &MethodsInterface::newbyteorderArray<uint32>);
     bp::def("negative", &negative<double, double>);
     //bp::def("negative", &negative<float, double>);
@@ -3009,8 +3081,8 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("partition", &partition<double>);
     bp::def("percentile", &percentile<double, double>);
     //bp::def("percentile", &percentile<float, double>);
-    bp::def("powerArrayScalar", &MethodsInterface::powerArrayScalar<double, double>);
-    //bp::def("power", &MethodsInterface::powerArrayScalar<float, double>);
+    bp::def("powerArrayScaler", &MethodsInterface::powerArrayScaler<double, double>);
+    //bp::def("power", &MethodsInterface::powerArrayScaler<float, double>);
     bp::def("powerArrayArray", &MethodsInterface::powerArrayArray<double, double>);
     //bp::def("power", &MethodsInterface::powerArrayArray<float, double>);
     bp::def("prod", &prod<double, double>);
@@ -3018,13 +3090,13 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("ptp", &ptp<double>);
     bp::def("put", &put<double>, bp::return_internal_reference<>());
     bp::def("putmask", &MethodsInterface::putmask<double>);
-    bp::def("putmaskScalar", &MethodsInterface::putmaskScalar<double>);
-    bp::def("rad2degScalar", &MethodsInterface::rad2degScalar<double>);
+    bp::def("putmaskScaler", &MethodsInterface::putmaskScaler<double>);
+    bp::def("rad2degScaler", &MethodsInterface::rad2degScaler<double>);
     bp::def("rad2degArray", &MethodsInterface::rad2degArray<double>);
     bp::def("reciprocal", &reciprocal<double, double>);
     //bp::def("reciprocal", &reciprocal<float, double>);
-    bp::def("remainderScalar", &MethodsInterface::remainderScalar<double, double>);
-    //bp::def("remainder", &MethodsInterface::remainderScalar<float, double>);
+    bp::def("remainderScaler", &MethodsInterface::remainderScaler<double, double>);
+    //bp::def("remainder", &MethodsInterface::remainderScaler<float, double>);
     bp::def("remainderArray", &MethodsInterface::remainderArray<double, double>);
     //bp::def("remainder", &MethodsInterface::remainderArray<float, double>);
     bp::def("reshape", &MethodsInterface::reshape<double>, bp::return_internal_reference<>());
@@ -3034,38 +3106,38 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("resizeSlow", &MethodsInterface::resizeSlow<double>, bp::return_internal_reference<>());
     bp::def("resizeSlowList", &MethodsInterface::resizeSlowList<double>, bp::return_internal_reference<>());
     bp::def("right_shift", &right_shift<uint32>);
-    bp::def("rintScalar", &MethodsInterface::rintScalar<double>);
+    bp::def("rintScaler", &MethodsInterface::rintScaler<double>);
     bp::def("rintArray", &MethodsInterface::rintArray<double>);
     bp::def("roll", &roll<double>);
     bp::def("rot90", &rot90<double>);
-    bp::def("roundScalar", &MethodsInterface::roundScalar<double>);
+    bp::def("roundScaler", &MethodsInterface::roundScaler<double>);
     bp::def("roundArray", &MethodsInterface::roundArray<double>);
     bp::def("row_stack", &MethodsInterface::row_stack<double>);
     bp::def("setdiff1d", &setdiff1d<uint32>);
-    bp::def("signScalar", &MethodsInterface::signScalar<double>);
+    bp::def("signScaler", &MethodsInterface::signScaler<double>);
     bp::def("signArray", &MethodsInterface::signArray<double>);
-    bp::def("signbitScalar", &MethodsInterface::signbitScalar<double>);
+    bp::def("signbitScaler", &MethodsInterface::signbitScaler<double>);
     bp::def("signbitArray", &MethodsInterface::signbitArray<double>);
-    bp::def("sinScalar", &MethodsInterface::sinScalar<double>);
+    bp::def("sinScaler", &MethodsInterface::sinScaler<double>);
     bp::def("sinArray", &MethodsInterface::sinArray<double>);
-    bp::def("sincScalar", &MethodsInterface::sincScalar<double>);
+    bp::def("sincScaler", &MethodsInterface::sincScaler<double>);
     bp::def("sincArray", &MethodsInterface::sincArray<double>);
-    bp::def("sinhScalar", &MethodsInterface::sinhScalar<double>);
+    bp::def("sinhScaler", &MethodsInterface::sinhScaler<double>);
     bp::def("sinhArray", &MethodsInterface::sinhArray<double>);
     bp::def("size", &size<double>);
     bp::def("sort", &sort<double>);
-    bp::def("sqrtScalar", &MethodsInterface::sqrtScalar<double>);
+    bp::def("sqrtScaler", &MethodsInterface::sqrtScaler<double>);
     bp::def("sqrtArray", &MethodsInterface::sqrtArray<double>);
-    bp::def("squareScalar", &MethodsInterface::squareScalar<double>);
+    bp::def("squareScaler", &MethodsInterface::squareScaler<double>);
     bp::def("squareArray", &MethodsInterface::squareArray<double>);
     bp::def("stack", &MethodsInterface::stack<double>);
     bp::def("std", &NC::std<double>);
     bp::def("sum", &sum<double, double>);
     //bp::def("sum", &sum<float, double>);
     bp::def("swapaxes", &swapaxes<double>);
-    bp::def("tanScalar", &MethodsInterface::tanScalar<double>);
+    bp::def("tanScaler", &MethodsInterface::tanScaler<double>);
     bp::def("tanArray", &MethodsInterface::tanArray<double>);
-    bp::def("tanhScalar", &MethodsInterface::tanhScalar<double>);
+    bp::def("tanhScaler", &MethodsInterface::tanhScaler<double>);
     bp::def("tanhArray", &MethodsInterface::tanhArray<double>);
     bp::def("tileRectangle", &MethodsInterface::tileRectangle<double>);
     bp::def("tileShape", &MethodsInterface::tileShape<double>);
@@ -3084,11 +3156,11 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("triuRect", &MethodsInterface::triuRect<double>);
     bp::def("triuArray", &MethodsInterface::triuArray<double>);
     bp::def("trim_zeros", &trim_zeros<double>);
-    bp::def("truncScalar", &MethodsInterface::truncScalar<double>);
+    bp::def("truncScaler", &MethodsInterface::truncScaler<double>);
     bp::def("truncArray", &MethodsInterface::truncArray<double>);
     bp::def("union1d", &union1d<uint32>);
     bp::def("unique", &unique<double>);
-    bp::def("unwrapScalar", &MethodsInterface::unwrapScalar<double>);
+    bp::def("unwrapScaler", &MethodsInterface::unwrapScaler<double>);
     bp::def("unwrapArray", &MethodsInterface::unwrapArray<double>);
     bp::def("var", &var<double>);
     bp::def("vstack", &MethodsInterface::vstack<double>);
@@ -3174,7 +3246,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("negativeBinomial", &RandomInt32::negativeBinomial).staticmethod("negativeBinomial")
         .def("nonCentralChiSquared", &RandomDouble::nonCentralChiSquared).staticmethod("nonCentralChiSquared")
         .def("normal", &RandomDouble::normal).staticmethod("normal")
-        .def("permutationScalar", &RandomInterface::permutationScalar<double>).staticmethod("permutationScalar")
+        .def("permutationScaler", &RandomInterface::permutationScaler<double>).staticmethod("permutationScaler")
         .def("permutationArray", &RandomInterface::permutationArray<double>).staticmethod("permutationArray")
         .def("poisson", &RandomInt32::poisson).staticmethod("poisson")
         .def("rand", &RandomDouble::rand).staticmethod("rand")
@@ -3231,7 +3303,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("__neq__", &Rotations::Quaternion::operator!=)
         .def("__add__", &Rotations::Quaternion::operator+)
         .def("__sub__", &Rotations::Quaternion::operator-)
-        .def("__mul__", &RotationsInterface::multiplyScalar)
+        .def("__mul__", &RotationsInterface::multiplyScaler)
         .def("__mul__", &RotationsInterface::multiplyQuaternion)
         .def("__mul__", &RotationsInterface::multiplyArray<double>)
         .def("__truediv__", &Rotations::Quaternion::operator/)
