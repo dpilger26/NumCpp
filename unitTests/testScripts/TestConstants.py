@@ -26,6 +26,12 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing inf', 'cyan'))
+    if np.isinf(NumCpp.inf):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing pi', 'cyan'))
     if round(NumCpp.pi, NUM_DECIMALS_ROUND) == round(np.pi, 10):
         print(colored('\tPASS', 'green'))

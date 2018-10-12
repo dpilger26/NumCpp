@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"class_n_c_1_1_nd_array.html#ad870c7e142d724ed1a984e4e0998d871":[2,0,0,7,169],
 "class_n_c_1_1_nd_array.html#ad97218738e42ae072c0715d3559d7f54":[2,0,0,7,56],
 "class_n_c_1_1_nd_array.html#adac697ba2897fabeab33eb0f8909d692":[2,0,0,7,63],
 "class_n_c_1_1_nd_array.html#ade039b945ab67c983741ddcb4d35ee2d":[2,0,0,7,160],
@@ -204,17 +205,17 @@ var NAVTREEINDEX3 =
 "index.html#Description":[0,0],
 "index.html#License":[0,1],
 "index.html#Testing":[0,2],
-"namespace_n_c.html":[2,0,0],
 "namespace_n_c.html":[1,0,0],
+"namespace_n_c.html":[2,0,0],
 "namespace_n_c_1_1_constants.html":[1,0,0,0],
 "namespace_n_c_1_1_coordinates.html":[2,0,0,0],
 "namespace_n_c_1_1_coordinates.html":[1,0,0,1],
 "namespace_n_c_1_1_f_f_t.html":[1,0,0,2],
 "namespace_n_c_1_1_filter.html":[1,0,0,3],
-"namespace_n_c_1_1_image_processing.html":[2,0,0,1],
 "namespace_n_c_1_1_image_processing.html":[1,0,0,4],
-"namespace_n_c_1_1_linalg.html":[2,0,0,2],
+"namespace_n_c_1_1_image_processing.html":[2,0,0,1],
 "namespace_n_c_1_1_linalg.html":[1,0,0,5],
+"namespace_n_c_1_1_linalg.html":[2,0,0,2],
 "namespace_n_c_1_1_polynomial.html":[1,0,0,6],
 "namespace_n_c_1_1_rotations.html":[2,0,0,3],
 "namespace_n_c_1_1_rotations.html":[1,0,0,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "namespacemembers_func_u.html":[1,1,1,17],
 "namespacemembers_func_v.html":[1,1,1,18],
 "namespacemembers_func_w.html":[1,1,1,19],
-"namespacemembers_func_z.html":[1,1,1,20],
-"namespacemembers_g.html":[1,1,0,6]
+"namespacemembers_func_z.html":[1,1,1,20]
 };

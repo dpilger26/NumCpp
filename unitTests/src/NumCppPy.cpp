@@ -2595,6 +2595,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     // Constants.hpp
     bp::scope().attr("c") = Constants::c;
     bp::scope().attr("e") = Constants::e;
+    bp::scope().attr("inf") = Constants::inf;
     bp::scope().attr("pi") = Constants::pi;
     bp::scope().attr("nan") = Constants::nan;
     bp::scope().attr("VERSION") = Constants::VERSION;
