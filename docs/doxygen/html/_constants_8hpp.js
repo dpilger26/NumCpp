@@ -4,6 +4,7 @@ var _constants_8hpp =
     [ "DAYS_PER_WEEK", "_constants_8hpp.html#a14bf6d24a8be26317a3ef03fea032f97", null ],
     [ "e", "_constants_8hpp.html#a4adfffbf392326da6a9e12661245abde", null ],
     [ "HOURS_PER_DAY", "_constants_8hpp.html#a18090f0522b02755fcd944ce260ba84c", null ],
+    [ "inf", "_constants_8hpp.html#a0f4e012dfafbcfa0eba81501acf4bd1a", null ],
     [ "MILLISECONDS_PER_DAY", "_constants_8hpp.html#afd852b28b0eea7c0bbda6225662ac16f", null ],
     [ "MILLISECONDS_PER_SECOND", "_constants_8hpp.html#a563988063cb6d5a679c4f1f0f2fa165f", null ],
     [ "MINUTES_PER_DAY", "_constants_8hpp.html#a6a07b0f7ba0ecc14e182cab2bfefbd8d", null ],

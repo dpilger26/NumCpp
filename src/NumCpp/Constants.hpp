@@ -31,6 +31,7 @@
 #include"NumCpp/Types.hpp"
 
 #include<cmath>
+#include<limits>
 #include<string>
 
 namespace NC
@@ -41,6 +42,7 @@ namespace NC
     {
         const double        c = 3.0e8; ///< speed of light 
         const double        e = 2.718281828459045;  ///< eulers number 
+        const double        inf = std::numeric_limits<double>::infinity();
         const double        pi = 3.14159265358979323846; ///< Pi 
         const double        nan = std::nan("1"); ///< NaN 
 

@@ -3,6 +3,7 @@ var searchData=
   ['i',['i',['../class_n_c_1_1_rotations_1_1_quaternion.html#ab37f35ab17027cd3309ad79247fe6e50',1,'NC::Rotations::Quaternion']]],
   ['identity',['identity',['../class_n_c_1_1_rotations_1_1_quaternion.html#adc693216a7fa4c6bb31a1c84f7ad7bf6',1,'NC::Rotations::Quaternion::identity()'],['../namespace_n_c.html#af4a14df555846b519ca1c67d5aa94109',1,'NC::identity()']]],
   ['imageprocessing_2ehpp',['ImageProcessing.hpp',['../_image_processing_8hpp.html',1,'']]],
+  ['inf',['inf',['../namespace_n_c_1_1_constants.html#a0f4e012dfafbcfa0eba81501acf4bd1a',1,'NC::Constants']]],
   ['int16',['int16',['../namespace_n_c.html#a535e526a19bcffbb692eec03a7a49fb6',1,'NC']]],
   ['int32',['int32',['../namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc',1,'NC']]],
   ['int64',['int64',['../namespace_n_c.html#aadd3d23e97405ab543f83e781996b4ae',1,'NC']]],

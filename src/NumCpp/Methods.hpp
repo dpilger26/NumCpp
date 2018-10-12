@@ -29,10 +29,13 @@
 #pragma once
 
 #include"NumCpp/Constants.hpp"
+#include"NumCpp/DtypeInfo.hpp"
 #include"NumCpp/NdArray.hpp"
 #include"NumCpp/Types.hpp"
 
 #include"boost/filesystem.hpp"
+#include"boost/math/common_factor_rt.hpp"
+#include"boost/math/special_functions/erf.hpp"
 
 #include<algorithm>
 #include<cmath>
@@ -260,6 +263,12 @@ namespace NC
     NdArray<double> deg2rad(const NdArray<dtype>& inArray = Axis::NONE);
 
     template<typename dtype>
+    double degrees(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> degrees(const NdArray<dtype>& inArray = Axis::NONE);
+
+    template<typename dtype>
     NdArray<dtype> deleteIndices(const NdArray<dtype>& inArray, const NdArray<uint32>& inArrayIdxs, Axis inAxis = Axis::NONE);
 
     template<typename dtype>
@@ -297,6 +306,12 @@ namespace NC
 
     template<typename dtype>
     Endian endianess(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double erf(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> erf(const NdArray<dtype>& inArray);
 
     template<typename dtype>
     NdArray<bool> equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
@@ -395,6 +410,12 @@ namespace NC
     NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue);
 
     template<typename dtype>
+    dtype gcd(dtype inValue1, dtype inValue2);
+
+    template<typename dtype>
+    NdArray<dtype> gcd(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
     NdArray<bool> greater(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
@@ -441,6 +462,12 @@ namespace NC
 
     template<typename dtype>
     NdArray<bool> isnan(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    dtype lcm(dtype inValue1, dtype inValue2);
+
+    template<typename dtype>
+    NdArray<dtype> lcm(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
     dtype ldexp(dtype inValue1, uint8 inValue2);
@@ -651,6 +678,12 @@ namespace NC
 
     template<typename dtype>
     NdArray<double> rad2deg(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    double radians(dtype inValue);
+
+    template<typename dtype>
+    NdArray<double> radians(const NdArray<dtype>& inArray);
 
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray);
@@ -2669,6 +2702,40 @@ namespace NC
 
     //============================================================================
     // Method Description:
+    ///						Convert angles from degrees to radians.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
+    ///
+    /// @param
+    ///				inValue
+    /// @return
+    ///				value
+    ///
+    template<typename dtype>
+    double degrees(dtype inValue)
+    {
+        return rad2deg(inValue);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Convert angles from degrees to radians.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
+    ///
+    /// @param
+    ///				inArray
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> degrees(const NdArray<dtype>& inArray)
+    {
+        return rad2deg(inArray);
+    }
+
+    //============================================================================
+    // Method Description:
     ///						Return a new array with sub-arrays along an axis deleted.
     ///
     /// @param				inArray
@@ -3061,6 +3128,79 @@ namespace NC
     Endian endianess(const NdArray<dtype>& inArray)
     {
         return inArray.endianess();
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Calculate the error function of all elements in the input array.
+    ///                     Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
+    ///
+    /// @param
+    ///				inValue
+    /// @return
+    ///				double
+    ///
+    template<typename dtype>
+    double erf(dtype inValue)
+    {
+        return boost::math::erf(static_cast<double>(inValue));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Calculate the error function of all elements in the input array.
+    ///                     Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
+    ///
+    /// @param
+    ///				inArray
+    /// @return
+    ///				NdArray<double>
+    ///
+    template<typename dtype>
+    NdArray<double> erf(const NdArray<dtype>& inArray)
+    {
+        NdArray<double> returnArray(inArray.shape());
+
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) { return erf(inValue); });
+
+        return std::move(returnArray);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Returns the complement of the error function of inValue.
+    ///
+    /// @param
+    ///				inValue
+    /// @return
+    ///				double
+    ///
+    template<typename dtype>
+    double erfc(dtype inValue)
+    {
+        return boost::math::erfc(static_cast<double>(inValue));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Returns the element-wise complement of the error 
+    ///                     function of inValue.
+    ///
+    /// @param
+    ///				inArray
+    /// @return
+    ///				NdArray<double>
+    ///
+    template<typename dtype>
+    NdArray<double> erfc(const NdArray<dtype>& inArray)
+    {
+        NdArray<double> returnArray(inArray.shape());
+
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) { return erfc(inValue); });
+
+        return std::move(returnArray);
     }
 
     //============================================================================
@@ -3712,7 +3852,7 @@ namespace NC
             size_t bytesRead = fread(fileBuffer, sizeof(char), fileSize, filePtr);
             fclose(filePtr);
 
-            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer), bytesRead);
+            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer), static_cast<uint32>(bytesRead));
             delete[] fileBuffer;
 
             return std::move(returnArray);
@@ -3832,6 +3972,53 @@ namespace NC
     NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue)
     {
         return std::move(full(inArray.shape(), static_cast<dtypeOut>(inFillValue)));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Returns the greatest common divisor of |x1| and |x2|
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
+    ///
+    /// @param      inValue1
+    /// @param      inValue1
+    /// @return
+    ///				dtype
+    ///
+    template<typename dtype>
+    dtype gcd(dtype inValue1, dtype inValue2)
+    {
+        static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
+        return boost::math::gcd(inValue1, inValue2);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Returns the element wise greatest common divisor of 
+    ///                     arrays |x1| and |x2|. 
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
+    /// @param      inArray1
+    /// @param      inArray2
+    /// @return
+    ///				NdArray<double>
+    ///
+    template<typename dtype>
+    NdArray<dtype> gcd(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        if (inArray1.shape() != inArray2.shape())
+        {
+            std::string errStr = "ERROR: gcd: input arrays must have the same shape.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
+        }
+
+        NdArray<dtype> returnArray(inArray1.shape());
+
+        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+            [](dtype inValue1, dtype inValue2) { return gcd(inValue1, inValue2); });
+
+        return std::move(returnArray);
     }
 
     //============================================================================
@@ -4279,6 +4466,53 @@ namespace NC
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) { return std::isnan(inValue); });
+
+        return std::move(returnArray);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Returns the least common multiple of |x1| and |x2|
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
+    ///
+    /// @param      inValue1
+    /// @param      inValue2
+    /// @return
+    ///				dtype
+    ///
+    template<typename dtype>
+    dtype lcm(dtype inValue1, dtype inValue2)
+    {
+        static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
+        return boost::math::lcm(inValue1, inValue2);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Returns the element wise Returns the least 
+    ///                     common multiple of |x1| and |x2| 
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
+    /// @param      inArray1
+    /// @param      inArray2
+    /// @return
+    ///				NdArray<double>
+    ///
+    template<typename dtype>
+    NdArray<dtype> lcm(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        if (inArray1.shape() != inArray2.shape())
+        {
+            std::string errStr = "ERROR: lcm: input arrays must have the same shape.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
+        }
+
+        NdArray<dtype> returnArray(inArray1.shape());
+
+        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+            [](dtype inValue1, dtype inValue2) { return lcm(inValue1, inValue2); });
 
         return std::move(returnArray);
     }
@@ -6298,6 +6532,40 @@ namespace NC
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return rad2deg(inValue); });
 
         return std::move(returnArray);
+    }
+
+    //============================================================================
+// Method Description:
+///						Convert angles from degrees to radians.
+///
+///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.radians.html
+///
+/// @param
+///				inValue
+/// @return
+///				value
+///
+    template<typename dtype>
+    double radians(dtype inValue)
+    {
+        return deg2rad(inValue);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Convert angles from degrees to radians.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.radians.html
+    ///
+    /// @param
+    ///				inArray
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> radians(const NdArray<dtype>& inArray)
+    {
+        return deg2rad(inArray);
     }
 
     //============================================================================
