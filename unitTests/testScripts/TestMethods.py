@@ -652,6 +652,13 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing binary', 'cyan'))
+    value = np.random.randint(0, np.iinfo(np.uint64).max, [1,], dtype=np.uint64).item()
+    if NumCpp.binaryRepr(np.uint64(value)) == np.binary_repr(value, np.iinfo(np.uint64).bits):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing bincount', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

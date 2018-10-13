@@ -2939,6 +2939,14 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("astype", &astype<double, uint32>);
     bp::def("average", &MethodsInterface::average<double>);
     bp::def("averageWeighted", &MethodsInterface::averageWeighted<double>);
+    bp::def("binaryRepr", &binaryRepr<int8>);
+    bp::def("binaryRepr", &binaryRepr<int16>);
+    bp::def("binaryRepr", &binaryRepr<int32>);
+    bp::def("binaryRepr", &binaryRepr<int64>);
+    bp::def("binaryRepr", &binaryRepr<uint8>);
+    bp::def("binaryRepr", &binaryRepr<uint16>);
+    bp::def("binaryRepr", &binaryRepr<uint32>);
+    bp::def("binaryRepr", &binaryRepr<uint64>);
     bp::def("bincount", &MethodsInterface::bincount<uint32>);
     bp::def("bincountWeighted", &MethodsInterface::bincountWeighted<uint32>);
     bp::def("bitwise_and", &MethodsInterface::bitwise_and<uint64>);

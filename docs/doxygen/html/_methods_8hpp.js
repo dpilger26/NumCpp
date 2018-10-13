@@ -39,6 +39,7 @@ var _methods_8hpp =
     [ "astype", "_methods_8hpp.html#af6de30218c3e812ccf3a93b5feb287d5", null ],
     [ "average", "_methods_8hpp.html#a44fc89f5320010831a18c13126753d29", null ],
     [ "average", "_methods_8hpp.html#a056f512f598cdf6f3248657ebb2ee8a0", null ],
+    [ "binaryRepr", "_methods_8hpp.html#a287d983aa49b717acc87e21fd7bf33a4", null ],
     [ "bincount", "_methods_8hpp.html#ac1f3a4a2d2b10bea4e967c7bd4af1456", null ],
     [ "bincount", "_methods_8hpp.html#a04f0a22f9e48897b73af3b6024c19505", null ],
     [ "bitwise_and", "_methods_8hpp.html#ac17aa0a6ce58f54b74dc88af1634a482", null ],

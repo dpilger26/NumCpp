@@ -38,6 +38,7 @@
 #include"boost/math/special_functions/erf.hpp"
 
 #include<algorithm>
+#include<bitset>
 #include<cmath>
 #include<fstream>
 #include<initializer_list>
@@ -168,6 +169,9 @@ namespace NC
 
     template<typename dtype>
     NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    std::string binaryRepr(dtype inValue);
 
     template<typename dtype>
     NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0);
@@ -1824,6 +1828,22 @@ namespace NC
                 return std::move(NdArray<double>(0));
             }
         }
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return the binary representation of the input number as a string.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.binary_repr.html
+    ///
+    /// @param				inValue
+    /// @return
+    ///				std::string
+    ///
+    template<typename dtype>
+    std::string binaryRepr(dtype inValue)
+    {
+        return std::bitset<NC::DtypeInfo<dtype>::bits()>(inValue).to_string();
     }
 
     //============================================================================

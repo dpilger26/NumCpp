@@ -311,6 +311,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a056f512f598cdf6f3248657ebb2ee8a0"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a056f512f598cdf6f3248657ebb2ee8a0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a056f512f598cdf6f3248657ebb2ee8a0">average</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inWeights, <a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822">Axis</a> inAxis=<a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</td></tr>
 <tr class="separator:a056f512f598cdf6f3248657ebb2ee8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a287d983aa49b717acc87e21fd7bf33a4"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a287d983aa49b717acc87e21fd7bf33a4"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a287d983aa49b717acc87e21fd7bf33a4">binaryRepr</a> (dtype inValue)</td></tr>
+<tr class="separator:a287d983aa49b717acc87e21fd7bf33a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1f3a4a2d2b10bea4e967c7bd4af1456"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ac1f3a4a2d2b10bea4e967c7bd4af1456"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#ac1f3a4a2d2b10bea4e967c7bd4af1456">bincount</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespace_n_c.html#a01e01d74021d3b1441af51bff8db3f1d">uint16</a> inMinLength=0)</td></tr>
 <tr class="separator:ac1f3a4a2d2b10bea4e967c7bd4af1456"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2642,6 +2645,35 @@ template&lt;typename dtype &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="a287d983aa49b717acc87e21fd7bf33a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a287d983aa49b717acc87e21fd7bf33a4">&#9670;&nbsp;</a></span>binaryRepr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string NC::binaryRepr </td>
+          <td>(</td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the binary representation of the input number as a string.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.binary_repr.html">https://www.numpy.org/devdocs/reference/generated/numpy.binary_repr.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inValue</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
 </div>
 </div>
