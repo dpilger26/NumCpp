@@ -15,8 +15,10 @@ var searchData=
   ['fmax',['fmax',['../namespace_n_c.html#ae634ea4a97e09388241b5591be5eec0a',1,'NC::fmax(dtype inValue1, dtype inValue2)'],['../namespace_n_c.html#a4c5faa4e065079961bc88e475891ac64',1,'NC::fmax(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]],
   ['fmin',['fmin',['../namespace_n_c.html#afc18d302c3998f85f59647aee0260d26',1,'NC::fmin(dtype inValue1, dtype inValue2)'],['../namespace_n_c.html#a447d377dfe5a8d91c1ffd7e971abe5a0',1,'NC::fmin(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]],
   ['fmod',['fmod',['../namespace_n_c.html#a66f8cdbfc63cad9db37833b9dd5de643',1,'NC::fmod(dtype inValue1, dtype inValue2)'],['../namespace_n_c.html#a3510030c9c12342d734a99c68af4f552',1,'NC::fmod(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]],
+  ['frombuffer',['frombuffer',['../namespace_n_c.html#a2621126f7de79af48951d538f7417e41',1,'NC']]],
   ['fromdcm',['fromDCM',['../class_n_c_1_1_rotations_1_1_quaternion.html#a5bcd0afa9431e7f94bcc56d87368b7b1',1,'NC::Rotations::Quaternion']]],
   ['fromfile',['fromfile',['../namespace_n_c.html#a9b5231383c54ba98bcee558fdb44c818',1,'NC']]],
+  ['fromiter',['fromiter',['../namespace_n_c.html#a771f476808709207c745970e4c0faa67',1,'NC']]],
   ['front',['front',['../class_n_c_1_1_data_cube.html#ad917d09e30aa5d3bb61508f284e822de',1,'NC::DataCube::front()'],['../class_n_c_1_1_nd_array.html#a7c0308c2f8359b890ec2f01ff30b71a4',1,'NC::NdArray::front()']]],
   ['full',['full',['../namespace_n_c.html#a87583613223f7e90e201d4dd5aeceb3c',1,'NC::full(uint32 inSquareSize, dtype inFillValue)'],['../namespace_n_c.html#a167e6f0d00df16f9ed9529f463c401a4',1,'NC::full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue)'],['../namespace_n_c.html#a8d4791d8e61c5791194fc8b1b21b0b73',1,'NC::full(const Shape &amp;inShape, dtype inFillValue)']]],
   ['full_5flike',['full_like',['../namespace_n_c.html#a6c6c3bf46d326358d64fe3c8a55ea492',1,'NC']]]

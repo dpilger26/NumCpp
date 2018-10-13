@@ -551,9 +551,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a3510030c9c12342d734a99c68af4f552"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a3510030c9c12342d734a99c68af4f552"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a3510030c9c12342d734a99c68af4f552">fmod</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray1, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray2)</td></tr>
 <tr class="separator:a3510030c9c12342d734a99c68af4f552"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2621126f7de79af48951d538f7417e41"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a2621126f7de79af48951d538f7417e41"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a2621126f7de79af48951d538f7417e41">frombuffer</a> (char *inBufferPtr, <a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inNumBytes)</td></tr>
+<tr class="separator:a2621126f7de79af48951d538f7417e41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b5231383c54ba98bcee558fdb44c818"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a9b5231383c54ba98bcee558fdb44c818"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a9b5231383c54ba98bcee558fdb44c818">fromfile</a> (const std::string &amp;inFilename, const std::string &amp;inSep=&quot;&quot;)</td></tr>
 <tr class="separator:a9b5231383c54ba98bcee558fdb44c818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a771f476808709207c745970e4c0faa67"><td class="memTemplParams" colspan="2">template&lt;typename dtype , typename Iter &gt; </td></tr>
+<tr class="memitem:a771f476808709207c745970e4c0faa67"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a771f476808709207c745970e4c0faa67">fromiter</a> (Iter inBegin, Iter inEnd)</td></tr>
+<tr class="separator:a771f476808709207c745970e4c0faa67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87583613223f7e90e201d4dd5aeceb3c"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a87583613223f7e90e201d4dd5aeceb3c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a87583613223f7e90e201d4dd5aeceb3c">full</a> (<a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inSquareSize, dtype inFillValue)</td></tr>
 <tr class="separator:a87583613223f7e90e201d4dd5aeceb3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -5456,6 +5462,46 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
+<a id="a2621126f7de79af48951d538f7417e41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2621126f7de79af48951d538f7417e41">&#9670;&nbsp;</a></span>frombuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; NC::frombuffer </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>inBufferPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a>&#160;</td>
+          <td class="paramname"><em>inNumBytes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Interpret a buffer as a 1-dimensional array.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.frombuffer.html">https://www.numpy.org/devdocs/reference/generated/numpy.frombuffer.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inBufferPtr</td><td></td></tr>
+    <tr><td class="paramname">inNumBytes</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
 <a id="a9b5231383c54ba98bcee558fdb44c818"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9b5231383c54ba98bcee558fdb44c818">&#9670;&nbsp;</a></span>fromfile()</h2>
 
@@ -5489,6 +5535,46 @@ template&lt;typename dtype &gt; </div>
   <table class="params">
     <tr><td class="paramname">inFilename</td><td></td></tr>
     <tr><td class="paramname">inSep</td><td>Separator between items if file is a text file. Empty ("") separator means the file should be treated as binary. Right now the only supported seperators are " ", "\t", "\n" </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="a771f476808709207c745970e4c0faa67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a771f476808709207c745970e4c0faa67">&#9670;&nbsp;</a></span>fromiter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype , typename Iter &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; NC::fromiter </td>
+          <td>(</td>
+          <td class="paramtype">Iter&#160;</td>
+          <td class="paramname"><em>inBegin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iter&#160;</td>
+          <td class="paramname"><em>inEnd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a new 1-dimensional array from an iterable object.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.fromiter.html">https://www.numpy.org/devdocs/reference/generated/numpy.fromiter.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inBegin</td><td></td></tr>
+    <tr><td class="paramname">inEnd</td><td></td></tr>
   </table>
   </dd>
 </dl>

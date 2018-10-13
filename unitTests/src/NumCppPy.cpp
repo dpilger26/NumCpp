@@ -3029,6 +3029,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("fminArray", &MethodsInterface::fminArray<double>);
     bp::def("fmodScaler", &MethodsInterface::fmodScaler<uint32>);
     bp::def("fmodArray", &MethodsInterface::fmodArray<uint32>);
+    bp::def("frombuffer", &frombuffer<double>);
     bp::def("fromfile", &fromfile<double>);
     bp::def("fullSquare", &MethodsInterface::fullSquare<double>);
     bp::def("fullRowCol", &MethodsInterface::fullRowCol<double>);

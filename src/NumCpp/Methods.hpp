@@ -402,7 +402,13 @@ namespace NC
     NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
+    NdArray<dtype> frombuffer(char* inBufferPtr, uint32 inNumBytes);
+
+    template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "");
+
+    template<typename dtype, typename Iter>
+    NdArray<dtype> fromiter(Iter inBegin, Iter inEnd);
 
     template<typename dtype>
     NdArray<dtype> full(uint32 inSquareSize, dtype inFillValue);
@@ -3856,6 +3862,23 @@ namespace NC
 
     //============================================================================
     // Method Description:
+    ///						Interpret a buffer as a 1-dimensional array.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.frombuffer.html
+    ///
+    /// @param				inBufferPtr
+    /// @param				inNumBytes
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> frombuffer(char* inBufferPtr, uint32 inNumBytes)
+    {
+        return std::move(NdArray<dtype>(reinterpret_cast<dtype*>(inBufferPtr), inNumBytes));
+    }
+       
+    //============================================================================
+    // Method Description:
     ///						Construct an array from data in a text or binary file.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
@@ -3944,6 +3967,28 @@ namespace NC
 
             return std::move(NdArray<dtype>(values));
         }
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Create a new 1-dimensional array from an iterable object.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromiter.html
+    ///
+    /// @param				inBegin
+    /// @param				inEnd
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype, typename Iter>
+    NdArray<dtype> fromiter(Iter inBegin, Iter inEnd)
+    {
+        std::vector<dtype> values;
+        for (Iter iter = inBegin; iter != inEnd; ++iter)
+        {
+            values.push_back(*iter);
+        }
+        return std::move(NdArray<dtype>(values));
     }
 
     //============================================================================
