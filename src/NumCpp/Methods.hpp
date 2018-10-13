@@ -348,6 +348,9 @@ namespace NC
     NdArray<dtype> eye(const Shape& inShape, int32 inK = 0);
 
     template<typename dtype>
+    void fillDiagonal(NdArray<dtype>& inArray, dtype inValue);
+
+    template<typename dtype>
     dtype fix(dtype inValue);
 
     template<typename dtype>
@@ -3443,6 +3446,28 @@ namespace NC
     NdArray<dtype> eye(const Shape& inShape, int32 inK)
     {
         return std::move(eye<dtype>(inShape.rows, inShape.cols, inK));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Fill the main diagonal of the given array.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html
+    ///
+    /// @param      inArray
+    /// @param      inValue
+    ///
+    template<typename dtype>
+    void fillDiagonal(NdArray<dtype>& inArray, dtype inValue)
+    {
+        auto inShape = inArray.shape();
+        for (uint32 row = 0; row < inShape.rows; ++row)
+        {
+            if (row < inShape.cols)
+            {
+                inArray(row, row) = inValue;
+            }
+        }
     }
 
     //============================================================================

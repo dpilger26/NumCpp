@@ -100,6 +100,7 @@ var _methods_8hpp =
     [ "eye", "_methods_8hpp.html#a6cfdc9baa031da7ab5345f5beae34511", null ],
     [ "eye", "_methods_8hpp.html#af5b263652639e546ff80228630d883af", null ],
     [ "eye", "_methods_8hpp.html#a51cd840b389be28e18bdf483d7296e19", null ],
+    [ "fillDiagonal", "_methods_8hpp.html#a1801454346cf69b3e9a6b759fffd9fff", null ],
     [ "fix", "_methods_8hpp.html#a738abdea7965adaf3764bb44eff7ac4c", null ],
     [ "fix", "_methods_8hpp.html#aee667442f5ec5a8613c1adf63c385225", null ],
     [ "flatnonzero", "_methods_8hpp.html#a32f6779d4429fc9a6b965868debce282", null ],

@@ -497,6 +497,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a51cd840b389be28e18bdf483d7296e19"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a51cd840b389be28e18bdf483d7296e19"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a51cd840b389be28e18bdf483d7296e19">eye</a> (const <a class="el" href="class_n_c_1_1_shape.html">Shape</a> &amp;inShape, <a class="el" href="namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc">int32</a> inK=0)</td></tr>
 <tr class="separator:a51cd840b389be28e18bdf483d7296e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1801454346cf69b3e9a6b759fffd9fff"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a1801454346cf69b3e9a6b759fffd9fff"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a1801454346cf69b3e9a6b759fffd9fff">fillDiagonal</a> (<a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, dtype inValue)</td></tr>
+<tr class="separator:a1801454346cf69b3e9a6b759fffd9fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a738abdea7965adaf3764bb44eff7ac4c"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a738abdea7965adaf3764bb44eff7ac4c"><td class="memTemplItemLeft" align="right" valign="top">dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a738abdea7965adaf3764bb44eff7ac4c">fix</a> (dtype inValue)</td></tr>
 <tr class="separator:a738abdea7965adaf3764bb44eff7ac4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4813,6 +4816,45 @@ template&lt;typename dtype &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="a1801454346cf69b3e9a6b759fffd9fff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1801454346cf69b3e9a6b759fffd9fff">&#9670;&nbsp;</a></span>fillDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void NC::fillDiagonal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fill the main diagonal of the given array.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html">https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inArray</td><td></td></tr>
+    <tr><td class="paramname">inValue</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -4,6 +4,7 @@ var searchData=
   ['fft_2ehpp',['FFT.hpp',['../_f_f_t_8hpp.html',1,'']]],
   ['fill',['fill',['../class_n_c_1_1_nd_array.html#ab983fb0bf475e0b6a7823bd0e8f92810',1,'NC::NdArray']]],
   ['fillcorners',['fillCorners',['../namespace_n_c_1_1_filter.html#a381e20dad8b036046413f5caece6e4f4',1,'NC::Filter::fillCorners(NdArray&lt; dtype &gt; &amp;inArray, uint32 inBorderWidth)'],['../namespace_n_c_1_1_filter.html#a9507376c23327be8db0a5ac86112b0dc',1,'NC::Filter::fillCorners(NdArray&lt; dtype &gt; &amp;inArray, uint32 inBorderWidth, dtype inFillValue)']]],
+  ['filldiagonal',['fillDiagonal',['../namespace_n_c.html#a1801454346cf69b3e9a6b759fffd9fff',1,'NC']]],
   ['filter_2ehpp',['Filter.hpp',['../_filter_8hpp.html',1,'']]],
   ['fix',['fix',['../namespace_n_c.html#a738abdea7965adaf3764bb44eff7ac4c',1,'NC::fix(dtype inValue)'],['../namespace_n_c.html#aee667442f5ec5a8613c1adf63c385225',1,'NC::fix(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['flatnonzero',['flatnonzero',['../namespace_n_c.html#a32f6779d4429fc9a6b965868debce282',1,'NC']]],

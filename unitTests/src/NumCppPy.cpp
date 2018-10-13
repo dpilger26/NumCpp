@@ -3011,6 +3011,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("eye1D", &MethodsInterface::eye1D<double>);
     bp::def("eye2D", &MethodsInterface::eye2D<double>);
     bp::def("eyeShape", &MethodsInterface::eyeShape<double>);
+    bp::def("fillDiagonal", &fillDiagonal<double>);
     bp::def("fixScaler", &MethodsInterface::fixScaler<double>);
     bp::def("fixArray", &MethodsInterface::fixArray<double>);
     bp::def("flatten", &flatten<double>);

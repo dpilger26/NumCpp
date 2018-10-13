@@ -1622,6 +1622,19 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing fillDiagonal', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols) * 100
+    cArray.setArray(data)
+    NumCpp.fillDiagonal(cArray, 666)
+    np.fill_diagonal(data, 666)
+    if np.array_equal(cArray.getNumpyArray(), data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing fix scalar', 'cyan'))
     value = np.random.randn(1).item() * 100
     if NumCpp.fixScaler(value) == np.fix(value):
