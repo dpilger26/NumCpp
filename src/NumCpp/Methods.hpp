@@ -429,6 +429,9 @@ namespace NC
     NdArray<dtype> gcd(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
+    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis);
+
+    template<typename dtype>
     NdArray<bool> greater(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
@@ -4109,6 +4112,104 @@ namespace NC
             [](dtype inValue1, dtype inValue2) { return gcd(inValue1, inValue2); });
 
         return std::move(returnArray);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return the gradient of the array.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html
+    ///
+    ///
+    /// @param				inArray
+    /// @param				inAxis (default ROW)
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
+    {
+        switch (inAxis)
+        {
+            case Axis::ROW:
+            {
+                auto inShape = inArray.shape();
+                if (inShape.rows < 2)
+                {
+                    std::string errStr = "ERROR: gradient: input array must have more than 1 row.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
+                }
+
+                // first do the first and last rows
+                auto returnArray = NdArray<double>(inShape);
+                for (uint32 col = 0; col < inShape.cols; ++col)
+                {
+                    returnArray(0, col) = static_cast<double>(inArray(1, col)) - static_cast<double>(inArray(0, col));
+                    returnArray(-1, col) = static_cast<double>(inArray(-1, col)) - static_cast<double>(inArray(-2, col));
+                }
+
+                // then rip through the rest of the array
+                for (uint32 col = 0; col < inShape.cols; ++col)
+                {
+                    for (uint32 row = 1; row < inShape.rows - 1; ++row)
+                    {
+                        returnArray(row, col) = (static_cast<double>(inArray(row + 1, col)) - static_cast<double>(inArray(row - 1, col))) / 2.0;
+                    }
+                }
+               
+                return std::move(returnArray);
+            }
+            case Axis::COL:
+            {
+                auto inShape = inArray.shape();
+                if (inShape.cols < 2)
+                {
+                    std::string errStr = "ERROR: gradient: input array must have more than 1 columns.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
+                }
+
+                // first do the first and last columns
+                auto returnArray = NdArray<double>(inShape);
+                for (uint32 row = 0; row < inShape.rows; ++row)
+                {
+                    returnArray(row, 0) = static_cast<double>(inArray(row, 1)) - static_cast<double>(inArray(row, 0));
+                    returnArray(row, -1) = static_cast<double>(inArray(row, -1)) - static_cast<double>(inArray(row, -2));
+                }
+
+                // then rip through the rest of the array
+                for (uint32 row = 0; row < inShape.rows; ++row)
+                {
+                    for (uint32 col = 1; col < inShape.cols - 1; ++col)
+                    {
+                        returnArray(row, col) = (static_cast<double>(inArray(row, col + 1)) - static_cast<double>(inArray(row, col - 1))) / 2.0;
+                    }
+                }
+
+                return std::move(returnArray);
+            }
+            default:
+            {
+                // will return the gradient of the flattened array
+                if (inArray.size() < 2)
+                {
+                    std::string errStr = "ERROR: gradient: input array must have more than 1 element.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
+                }
+
+                auto returnArray = NdArray<double>(1, inArray.size());
+                returnArray[0] = static_cast<double>(inArray[1]) - static_cast<double>(inArray[0]);
+                returnArray[-1] = static_cast<double>(inArray[-1]) - static_cast<double>(inArray[-2]);
+                for (uint32 i = 1; i < inArray.size() - 1; ++i)
+                {
+                    returnArray[i] = (static_cast<double>(inArray[i + 1]) - static_cast<double>(inArray[i - 1])) / 2.0;
+                }
+
+                return std::move(returnArray);
+            }
+        }
     }
 
     //============================================================================

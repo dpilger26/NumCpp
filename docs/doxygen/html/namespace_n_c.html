@@ -578,6 +578,9 @@ Functions</h2></td></tr>
 <tr class="memitem:af98fa1fe8267f60ec5cc62e00fcb9ce7"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:af98fa1fe8267f60ec5cc62e00fcb9ce7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#af98fa1fe8267f60ec5cc62e00fcb9ce7">gcd</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray1, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray2)</td></tr>
 <tr class="separator:af98fa1fe8267f60ec5cc62e00fcb9ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac28e9441fa563223ff533e5a14e731b3"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ac28e9441fa563223ff533e5a14e731b3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#ac28e9441fa563223ff533e5a14e731b3">gradient</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822">Axis</a> inAxis)</td></tr>
+<tr class="separator:ac28e9441fa563223ff533e5a14e731b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81ccf5c5d9ee4dd2b5c86806b9a4a064"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a81ccf5c5d9ee4dd2b5c86806b9a4a064"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a81ccf5c5d9ee4dd2b5c86806b9a4a064">greater</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray1, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray2)</td></tr>
 <tr class="separator:a81ccf5c5d9ee4dd2b5c86806b9a4a064"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -5825,6 +5828,46 @@ template&lt;typename dtype &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html">NdArray&lt;double&gt;</a> </dd></dl>
+
+</div>
+</div>
+<a id="ac28e9441fa563223ff533e5a14e731b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac28e9441fa563223ff533e5a14e731b3">&#9670;&nbsp;</a></span>gradient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; double &gt; NC::gradient </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822">Axis</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822a54c1ed33c810f895d48c008d89f880b7">Axis::ROW</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the gradient of the array.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html">https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inArray</td><td></td></tr>
+    <tr><td class="paramname">inAxis</td><td>(default ROW) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 
 </div>
 </div>

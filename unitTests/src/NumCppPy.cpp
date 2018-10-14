@@ -3040,6 +3040,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("gcdArray", &MethodsInterface::gcdArray<int32>);
     bp::def("greater", &greater<double>);
     bp::def("greater_equal", &greater_equal<double>);
+    bp::def("gradient", &gradient<double>);
     bp::def("histogram", &MethodsInterface::histogram<double>);
     bp::def("hstack", &MethodsInterface::hstack<double>);
     bp::def("hypotScaler", &MethodsInterface::hypotScaler<double, double>);
