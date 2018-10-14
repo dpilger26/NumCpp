@@ -1915,6 +1915,16 @@ namespace MethodsInterface
         return numCToBoost(log2(inArray));
     }
 
+    //================================================================================
+
+    template<typename dtype>
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inISlice, const Slice& inJSlice)
+    {
+        return NC::meshgrid<dtype>(inISlice, inJSlice);
+    }
+
+    //================================================================================
+
     template<typename dtype>
     dtype newbyteorderScaler(dtype inValue, Endian inEndianess)
     {
@@ -2621,8 +2631,13 @@ BOOST_PYTHON_MODULE(libNumCpp)
 
     //http://www.boost.org/doc/libs/1_60_0/libs/python/doc/html/tutorial/tutorial/exposing.html
 
-    bp::class_<std::vector<double> >("double_vector")
+    bp::class_<std::vector<double> >("doubleVector")
         .def(bp::vector_indexing_suite<std::vector<double> >());
+
+    typedef std::pair<NdArray<double>, NdArray<double> > doublePair;
+    bp::class_<doublePair>("doublePair")
+        .def_readonly("first", &doublePair::first)
+        .def_readonly("second", &doublePair::second);
 
     // Constants.hpp
     bp::scope().attr("c") = Constants::c;
@@ -3081,6 +3096,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     //bp::def("matmul", &matmul<float, double>);
     bp::def("max", &max<double>);
     bp::def("maximum", &maximum<double>);
+    bp::def("meshgrid", &MethodsInterface::meshgrid<double>);
     bp::def("mean", &mean<double>);
     bp::def("median", &median<double>);
     bp::def("min", &min<double>);

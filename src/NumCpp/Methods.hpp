@@ -94,6 +94,9 @@ namespace NC
     NdArray<dtype> arange(dtype inStop);
 
     template<typename dtype>
+    NdArray<dtype> arange(const Slice& inSlice);
+
+    template<typename dtype>
     double arccos(dtype inValue);
 
     template<typename dtype>
@@ -560,6 +563,12 @@ namespace NC
 
     template<typename dtype>
     NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inSlice1, const Slice& inSlice2);
 
     template<typename dtype>
     NdArray<dtype> min(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
@@ -1275,6 +1284,31 @@ namespace NC
         }
 
         return std::move(arange<dtype>(0, inStop, 1));
+    }
+
+    //============================================================================
+// Method Description:
+///						Return evenly spaced values within a given interval.
+///
+///						Values are generated within the half - open interval[start, stop)
+///						(in other words, the interval including start but excluding stop).
+///						For integer arguments the function is equivalent to the Python built - in
+///						range function, but returns an ndarray rather than a list.
+///
+///						When using a non - integer step, such as 0.1, the results will often
+///						not be consistent.It is better to use linspace for these cases.
+///
+///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
+///
+/// @param
+///				inSlice
+/// @return
+///				NdArray
+///
+    template<typename dtype>
+    NdArray<dtype> arange(const Slice& inSlice)
+    {
+        return std::move(arange<dtype>(inSlice.start, inSlice.stop, inSlice.step));
     }
 
     //============================================================================
@@ -5306,6 +5340,70 @@ namespace NC
     NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.median(inAxis));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return coordinate matrices from coordinate vectors.
+    ///                     Make 2D coordinate arrays for vectorized evaluations of 2D scalar
+    ///                     vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
+    ///                     If input arrays are not one dimensional they will be flattened.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
+    ///
+    /// @param				inICoords
+    /// @param  			inJCoords
+    ///
+    /// @return
+    ///				std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
+    ///
+    template<typename dtype>
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const NdArray<dtype>& inICoords, const NdArray<dtype>& inJCoords)
+    {
+        uint32 numRows = inJCoords.size();
+        uint32 numCols = inICoords.size();
+        auto returnArrayI = NdArray<dtype>(numRows, numCols);
+        auto returnArrayJ = NdArray<dtype>(numRows, numCols);
+
+        // first the I array
+        for (uint32 row = 0; row < numRows; ++row)
+        {
+            for (uint32 col = 0; col < numCols; ++col)
+            {
+                returnArrayI(row, col) = inICoords[col];
+            }
+        }
+
+        // then the I array
+        for (uint32 col = 0; col < numCols; ++col)
+        {
+            for (uint32 row = 0; row < numRows; ++row)
+            {
+                returnArrayJ(row, col) = inJCoords[row];
+            }
+        }
+
+        return std::make_pair(returnArrayI, returnArrayJ);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return coordinate matrices from coordinate vectors.
+    ///                     Make 2D coordinate arrays for vectorized evaluations of 2D scalar
+    ///                     vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
+    ///
+    /// @param				inArray1
+    /// @param  			inArray2
+    ///
+    /// @return
+    ///				std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
+    ///
+    template<typename dtype>
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inSlice1, const Slice& inSlice2)
+    {
+        return std::move(meshgrid(arange<dtype>(inSlice1), arange<dtype>(inSlice2)));
     }
 
     //============================================================================

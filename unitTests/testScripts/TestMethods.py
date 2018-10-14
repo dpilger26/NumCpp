@@ -2525,6 +2525,25 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing meshgrid', 'cyan'))
+    start = np.random.randint(0, 20, [1,]).item()
+    end = np.random.randint(30, 100, [1,]).item()
+    step = np.random.randint(1, 5, [1, ]).item()
+    dataI = np.arange(start, end, step)
+    iSlice = NumCpp.Slice(start, end, step)
+    start = np.random.randint(0, 20, [1,]).item()
+    end = np.random.randint(30, 100, [1,]).item()
+    step = np.random.randint(1, 5, [1, ]).item()
+    dataJ = np.arange(start, end, step)
+    jSlice = NumCpp.Slice(start, end, step)
+    iMesh, jMesh = np.meshgrid(dataI, dataJ)
+    meshData = NumCpp.meshgrid(iSlice, jSlice)
+    if (np.array_equal(meshData.first.getNumpyArray(), iMesh) and
+        np.array_equal(meshData.second.getNumpyArray(), jMesh)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing min: Axis = None', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

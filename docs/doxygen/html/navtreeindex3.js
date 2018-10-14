@@ -1,5 +1,8 @@
 var NAVTREEINDEX3 =
 {
+"class_n_c_1_1_nd_array.html#ac8c79ce7afd0a61ebcc3a02239ff7991":[2,0,0,7,85],
+"class_n_c_1_1_nd_array.html#ac91db7accf1ca831005e1bf4d07f8d2d":[2,0,0,7,48],
+"class_n_c_1_1_nd_array.html#ace36e1a729192de888cf2b2f85ca4870":[2,0,0,7,76],
 "class_n_c_1_1_nd_array.html#acf4c66ea018e9844dc3db7d8195b89e0":[2,0,0,7,97],
 "class_n_c_1_1_nd_array.html#acfac82582f55477428d2c5431d0a9c8b":[2,0,0,7,156],
 "class_n_c_1_1_nd_array.html#ad078e509433b7a7c4f88b8ba2e91ae76":[2,0,0,7,68],
@@ -149,8 +152,8 @@ var NAVTREEINDEX3 =
 "classes.html":[2,1],
 "examples.html":[4],
 "files.html":[3,0],
-"functions.html":[2,2,0,0],
 "functions.html":[2,2,0],
+"functions.html":[2,2,0,0],
 "functions_0x7e.html":[2,2,0,26],
 "functions_b.html":[2,2,0,1],
 "functions_c.html":[2,2,0,2],
@@ -222,13 +225,13 @@ var NAVTREEINDEX3 =
 "namespace_n_c_1_1_coordinates.html":[2,0,0,0],
 "namespace_n_c_1_1_f_f_t.html":[1,0,0,2],
 "namespace_n_c_1_1_filter.html":[1,0,0,3],
-"namespace_n_c_1_1_image_processing.html":[1,0,0,4],
 "namespace_n_c_1_1_image_processing.html":[2,0,0,1],
-"namespace_n_c_1_1_linalg.html":[1,0,0,5],
+"namespace_n_c_1_1_image_processing.html":[1,0,0,4],
 "namespace_n_c_1_1_linalg.html":[2,0,0,2],
+"namespace_n_c_1_1_linalg.html":[1,0,0,5],
 "namespace_n_c_1_1_polynomial.html":[1,0,0,6],
-"namespace_n_c_1_1_rotations.html":[2,0,0,3],
 "namespace_n_c_1_1_rotations.html":[1,0,0,7],
+"namespace_n_c_1_1_rotations.html":[2,0,0,3],
 "namespace_n_c_1_1_utils.html":[1,0,0,8],
 "namespacemembers.html":[1,1,0,0],
 "namespacemembers.html":[1,1,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX3 =
 "namespacemembers_func_e.html":[1,1,1,4],
 "namespacemembers_func_f.html":[1,1,1,5],
 "namespacemembers_func_g.html":[1,1,1,6],
-"namespacemembers_func_h.html":[1,1,1,7],
-"namespacemembers_func_i.html":[1,1,1,8],
-"namespacemembers_func_l.html":[1,1,1,9],
-"namespacemembers_func_m.html":[1,1,1,10]
+"namespacemembers_func_h.html":[1,1,1,7]
 };
