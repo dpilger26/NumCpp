@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('_python_interface_8hpp.html','');});
 <code>#include &quot;<a class="el" href="_nd_array_8hpp_source.html">NumCpp/NdArray.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_shape_8hpp_source.html">NumCpp/Shape.hpp</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
 <code>#include &quot;boost/python.hpp&quot;</code><br />
@@ -116,9 +117,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a6480f49e8c8489013935c4a1c77bc54d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a6480f49e8c8489013935c4a1c77bc54d"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a6480f49e8c8489013935c4a1c77bc54d">NC::boostToNumC</a> (boost::python::numpy::ndarray &amp;inArray)</td></tr>
 <tr class="separator:a6480f49e8c8489013935c4a1c77bc54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7135ca813cff98a6a5d086f1474a8582"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7135ca813cff98a6a5d086f1474a8582"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a7135ca813cff98a6a5d086f1474a8582">NC::list2vector</a> (const boost::python::list &amp;inList)</td></tr>
+<tr class="separator:a7135ca813cff98a6a5d086f1474a8582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8f4261d97344487b9572638cd43b80"><td class="memTemplParams" colspan="2">template&lt;class Key , class Value &gt; </td></tr>
+<tr class="memitem:aef8f4261d97344487b9572638cd43b80"><td class="memTemplItemLeft" align="right" valign="top">boost::python::dict&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#aef8f4261d97344487b9572638cd43b80">NC::map2dict</a> (const std::map&lt; Key, Value &gt; &amp;inMap)</td></tr>
+<tr class="separator:aef8f4261d97344487b9572638cd43b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32ab7e9bc10a4c3cee96426e34d9d00f"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a32ab7e9bc10a4c3cee96426e34d9d00f"><td class="memTemplItemLeft" align="right" valign="top">boost::python::numpy::ndarray&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a32ab7e9bc10a4c3cee96426e34d9d00f">NC::numCToBoost</a> (const NdArray&lt; dtype &gt; &amp;inArray)</td></tr>
 <tr class="separator:a32ab7e9bc10a4c3cee96426e34d9d00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa93168740b2d077987a020f3fe40051b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa93168740b2d077987a020f3fe40051b"><td class="memTemplItemLeft" align="right" valign="top">boost::python::list&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#aa93168740b2d077987a020f3fe40051b">NC::vector2list</a> (std::vector&lt; T &gt; &amp;inVector)</td></tr>
+<tr class="separator:aa93168740b2d077987a020f3fe40051b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>David Pilger <a href="#" onclick="location.href='mai'+'lto:'+'dpi'+'lg'+'er2'+'6@'+'gma'+'il'+'.co'+'m'; return false;">dpilg<span style="display: none;">.nosp@m.</span>er26<span style="display: none;">.nosp@m.</span>@gmai<span style="display: none;">.nosp@m.</span>l.co<span style="display: none;">.nosp@m.</span>m</a> <a href="https://github.com/dpilger26/NumCpp">GitHub Repository</a> </dd></dl>

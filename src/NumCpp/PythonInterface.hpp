@@ -33,6 +33,7 @@
 #include"NumCpp/Shape.hpp"
 
 #include<iostream>
+#include<map>
 #include<stdexcept>
 #include<utility>
 
@@ -114,5 +115,55 @@ namespace NC
             }
         }
         return *(newNdArrayHelper.getArray());
+    }
+
+    //============================================================================
+    ///						converts a boost python list to a std::vector
+    ///		
+    /// @param      inList
+    ///
+    /// @return     std::vector<T>
+    ///
+    template<typename T>
+    std::vector<T> list2vector(const boost::python::list& inList)
+    {
+        return std::vector<T>(boost::python::stl_input_iterator<T>(inList), boost::python::stl_input_iterator<T>());
+    }
+
+    //============================================================================
+    ///						converts a std::vector to a boost python list 
+    ///		
+    /// @param      inVector
+    ///
+    /// @return     boost::python::list
+    ///
+    template <typename T>
+    boost::python::list vector2list(std::vector<T>& inVector)
+    {
+        boost::python::list outList;
+        for (auto& value : inVector)
+        {
+            outList.append(value);
+        }
+
+        return outList;
+    }
+
+    //============================================================================
+    ///						converts a std::map in to a boost python dictionary 
+    ///		
+    /// @param      inMap
+    ///
+    /// @return     boost::python::dict
+    ///
+    template <class Key, class Value>
+    boost::python::dict map2dict(const std::map<Key, Value>& inMap) 
+    {
+        boost::python::dict dictionary;
+        for (auto& keyValue : inMap)
+        {
+            dictionary[keyValue.first] = keyValue.second;
+        }
+        return dictionary;
     }
 }

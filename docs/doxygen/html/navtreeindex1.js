@@ -156,8 +156,11 @@ var NAVTREEINDEX1 =
 "_polynomial_8hpp.html":[3,0,12],
 "_polynomial_8hpp_source.html":[3,0,12],
 "_python_interface_8hpp.html":[3,0,13],
-"_python_interface_8hpp.html#a32ab7e9bc10a4c3cee96426e34d9d00f":[3,0,13,1],
+"_python_interface_8hpp.html#a32ab7e9bc10a4c3cee96426e34d9d00f":[3,0,13,3],
 "_python_interface_8hpp.html#a6480f49e8c8489013935c4a1c77bc54d":[3,0,13,0],
+"_python_interface_8hpp.html#a7135ca813cff98a6a5d086f1474a8582":[3,0,13,1],
+"_python_interface_8hpp.html#aa93168740b2d077987a020f3fe40051b":[3,0,13,4],
+"_python_interface_8hpp.html#aef8f4261d97344487b9572638cd43b80":[3,0,13,2],
 "_python_interface_8hpp_source.html":[3,0,13],
 "_random_8hpp.html":[3,0,14],
 "_random_8hpp.html#a0612e00ac736d17b5ce8c9f87402f2b7":[3,0,14,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX1 =
 "class_n_c_1_1_coordinates_1_1_dec.html#a94ceed5a91d14768a69d3a6429e5abd5":[2,0,0,0,1,9],
 "class_n_c_1_1_coordinates_1_1_dec.html#a97d5636d4d3ad2eaeec7b8125449ced1":[2,0,0,0,1,1],
 "class_n_c_1_1_coordinates_1_1_dec.html#a9d1b078938c5be89fe87a9173217e047":[2,0,0,0,1,7],
-"class_n_c_1_1_coordinates_1_1_dec.html#aa501ef35ac052d5084d792bfcde2345f":[2,0,0,0,1,14],
-"class_n_c_1_1_coordinates_1_1_dec.html#ac4af64d6769e9babdd15cf07001e88da":[2,0,0,0,1,4],
-"class_n_c_1_1_coordinates_1_1_dec.html#acd9f4572a30acd230069edf97d641d04":[2,0,0,0,1,2],
-"class_n_c_1_1_coordinates_1_1_dec.html#ad053e05c7d86702ebd21a8be5b46e9e3":[2,0,0,0,1,3]
+"class_n_c_1_1_coordinates_1_1_dec.html#aa501ef35ac052d5084d792bfcde2345f":[2,0,0,0,1,14]
 };

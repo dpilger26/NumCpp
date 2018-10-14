@@ -7,6 +7,7 @@ var searchData=
   ['less',['less',['../namespace_n_c.html#aeb3ed3fcded1aebd1f3fcd3045ccf114',1,'NC']]],
   ['less_5fequal',['less_equal',['../namespace_n_c.html#a9c21a0824ada021f42a31a2dbec64df2',1,'NC']]],
   ['linspace',['linspace',['../namespace_n_c.html#ac052f2f293bf884b93c1e9011166c1bf',1,'NC']]],
+  ['list2vector',['list2vector',['../namespace_n_c.html#a7135ca813cff98a6a5d086f1474a8582',1,'NC']]],
   ['load',['load',['../namespace_n_c.html#a005ff4fd9c4d3b01be77148ae0ca58fd',1,'NC']]],
   ['log',['log',['../namespace_n_c.html#a753ce047c5a9b2d714f2342f025538d0',1,'NC::log(dtype inValue)'],['../namespace_n_c.html#a55cd5f0804bbc5b3bcd7fa42b69a8570',1,'NC::log(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['log10',['log10',['../namespace_n_c.html#a9ac466cce2abdd3b31599e02bcbc428e',1,'NC::log10(dtype inValue)'],['../namespace_n_c.html#a7adcd1ce9e70af56f182bec5f053434f',1,'NC::log10(const NdArray&lt; dtype &gt; &amp;inArray)']]],

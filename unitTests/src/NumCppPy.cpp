@@ -2647,6 +2647,11 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::scope().attr("nan") = Constants::nan;
     bp::scope().attr("VERSION") = Constants::VERSION;
 
+    // PythonInterface.hpp
+    bp::def("list2vector", &list2vector<int>);
+    bp::def("vector2list", &vector2list<int>);
+    bp::def("map2dict", &map2dict<std::string, int>);
+
     // DtypeInfo.hpp
     typedef DtypeInfo<uint32> DtypeInfoUint32;
     bp::class_<DtypeInfoUint32>

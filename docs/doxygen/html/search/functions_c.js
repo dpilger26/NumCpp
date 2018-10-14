@@ -1,6 +1,7 @@
 var searchData=
 [
   ['makepositiveandvalidate',['makePositiveAndValidate',['../class_n_c_1_1_slice.html#a5408caf85f8641f62a1fba6bcbb4f84a',1,'NC::Slice']]],
+  ['map2dict',['map2dict',['../namespace_n_c.html#aef8f4261d97344487b9572638cd43b80',1,'NC']]],
   ['matmul',['matmul',['../namespace_n_c.html#ab249822f1043f718e1799dc8cf41f1e1',1,'NC']]],
   ['matrix_5fpower',['matrix_power',['../namespace_n_c_1_1_linalg.html#a16701ef2dcef51b5fdbb71b95e3e4131',1,'NC::Linalg']]],
   ['max',['max',['../class_n_c_1_1_dtype_info.html#a69e6ccba7816762cda4c5f5b812de271',1,'NC::DtypeInfo::max()'],['../class_n_c_1_1_nd_array.html#a27519f0580b9c5a9a752e21011d2dbd6',1,'NC::NdArray::max()'],['../namespace_n_c.html#a0cca3e189531369cc346e2ba2786959c',1,'NC::max()']]],

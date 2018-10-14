@@ -5394,8 +5394,8 @@ namespace NC
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
     ///
-    /// @param				inArray1
-    /// @param  			inArray2
+    /// @param				inSlice1
+    /// @param  			inSlice2
     ///
     /// @return
     ///				std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
