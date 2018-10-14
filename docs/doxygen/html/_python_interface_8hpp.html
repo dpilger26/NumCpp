@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NumCpp: BoostNumpyNdarrayHelper.hpp File Reference</title>
+<title>NumCpp: PythonInterface.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('_boost_numpy_ndarray_helper_8hpp.html','');});
+$(document).ready(function(){initNavTree('_python_interface_8hpp.html','');});
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -89,44 +89,36 @@ $(document).ready(function(){initNavTree('_boost_numpy_ndarray_helper_8hpp.html'
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">BoostNumpyNdarrayHelper.hpp File Reference</div>  </div>
+<div class="title">PythonInterface.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_nd_array_8hpp_source.html">NumCpp/NdArray.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_types_8hpp_source.html">NumCpp/Types.hpp</a>&quot;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_boost_numpy_ndarray_helper_8hpp_source.html">NumCpp/BoostNumpyNdarrayHelper.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_nd_array_8hpp_source.html">NumCpp/NdArray.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_shape_8hpp_source.html">NumCpp/Shape.hpp</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
 <code>#include &quot;boost/python.hpp&quot;</code><br />
 <code>#include &quot;boost/python/numpy.hpp&quot;</code><br />
 </div>
-<p><a href="_boost_numpy_ndarray_helper_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="_python_interface_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_boost_ndarray_helper.html">NC::BoostNdarrayHelper</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class for ndarray.  <a href="class_n_c_1_1_boost_ndarray_helper.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespace_n_c"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_n_c.html">NC</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:aa3639abc11f4256e0a07c72035c0c513"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#aa3639abc11f4256e0a07c72035c0c513">NC::Order</a> { <a class="el" href="namespace_n_c.html#aa3639abc11f4256e0a07c72035c0c513a800618943025315f869e4e1f09471012">NC::Order::F</a>, 
-<a class="el" href="namespace_n_c.html#aa3639abc11f4256e0a07c72035c0c513a0d61f8370cad1d412f80b84d143e1257">NC::Order::C</a>
- }</td></tr>
-<tr class="memdesc:aa3639abc11f4256e0a07c72035c0c513"><td class="mdescLeft">&#160;</td><td class="mdescRight">C or Fortran ordering from python.  <a href="namespace_n_c.html#aa3639abc11f4256e0a07c72035c0c513">More...</a><br /></td></tr>
-<tr class="separator:aa3639abc11f4256e0a07c72035c0c513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6480f49e8c8489013935c4a1c77bc54d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a6480f49e8c8489013935c4a1c77bc54d"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a6480f49e8c8489013935c4a1c77bc54d">NC::boostToNumC</a> (boost::python::numpy::ndarray &amp;inArray)</td></tr>
+<tr class="separator:a6480f49e8c8489013935c4a1c77bc54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32ab7e9bc10a4c3cee96426e34d9d00f"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a32ab7e9bc10a4c3cee96426e34d9d00f"><td class="memTemplItemLeft" align="right" valign="top">boost::python::numpy::ndarray&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a32ab7e9bc10a4c3cee96426e34d9d00f">NC::numCToBoost</a> (const NdArray&lt; dtype &gt; &amp;inArray)</td></tr>
+<tr class="separator:a32ab7e9bc10a4c3cee96426e34d9d00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>David Pilger <a href="#" onclick="location.href='mai'+'lto:'+'dpi'+'lg'+'er2'+'6@'+'gma'+'il'+'.co'+'m'; return false;">dpilg<span style="display: none;">.nosp@m.</span>er26<span style="display: none;">.nosp@m.</span>@gmai<span style="display: none;">.nosp@m.</span>l.co<span style="display: none;">.nosp@m.</span>m</a> <a href="https://github.com/dpilger26/NumCpp">GitHub Repository</a> </dd></dl>
@@ -139,13 +131,13 @@ License</h1>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <h1><a class="anchor" id="Description"></a>
 Description</h1>
-<p>A module for interacting with the boost numpy arrays </p>
+<p>A module for interacting with python </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2fcd863c5241ce58f3be9e1580bcd1ab.html">NumCpp</a></li><li class="navelem"><a class="el" href="_boost_numpy_ndarray_helper_8hpp.html">BoostNumpyNdarrayHelper.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2fcd863c5241ce58f3be9e1580bcd1ab.html">NumCpp</a></li><li class="navelem"><a class="el" href="_python_interface_8hpp.html">PythonInterface.hpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>

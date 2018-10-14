@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include<NumCpp/NdArray.hpp>
-#include<NumCpp/Types.hpp>
+#include"NumCpp/NdArray.hpp"
+#include"NumCpp/Types.hpp"
 
 #include<cmath>
 #include<vector>
@@ -370,79 +370,4 @@ namespace NC
             printf("\n");
         }
     }; // class ndarrayHelper
-
-    //============================================================================
-    ///						Converts from a boost ndarray to a NumCpp NdArray<T>
-    ///		
-    /// @param      inArray
-    ///
-    /// @return     NdArray<T>
-    ///
-    template<typename dtype>
-    NdArray<dtype> boostToNumC(boost::python::numpy::ndarray& inArray)
-    {
-        BoostNdarrayHelper helper(&inArray);
-        if (helper.numDimensions() > 2)
-        {
-            std::string errStr = "ERROR: Can only convert 1 and 2 dimensional arrays.";
-            std::cerr << errStr << std::endl;
-            throw std::runtime_error(errStr);
-        }
-
-        NC::Shape arrayShape;
-        if (helper.numDimensions() == 1)
-        {
-            arrayShape.rows = 1;
-            arrayShape.cols = static_cast<uint32>(helper.shape()[0]);
-
-            NdArray<dtype> returnArray(arrayShape);
-            for (uint32 i = 0; i < arrayShape.size(); ++i)
-            {
-                returnArray[i] = static_cast<dtype>(helper(i));
-            }
-
-            return std::move(returnArray);
-        }
-        else
-        {
-            arrayShape.rows = static_cast<uint32>(helper.shape()[0]);
-            arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
-
-            NdArray<dtype> returnArray(arrayShape);
-            uint32 i = 0;
-            for (uint32 row = 0; row < arrayShape.rows; ++row)
-            {
-                for (uint32 col = 0; col < arrayShape.cols; ++col)
-                {
-                    returnArray[i++] = static_cast<dtype>(helper(row, col));
-                }
-            }
-
-            return std::move(returnArray);
-        }
-    }
-
-    //============================================================================
-    ///						Converts from a NumCpp NdArray<T> to a boost ndarray
-    ///		
-    /// @param      inArray
-    ///
-    /// @return     ndarray
-    ///
-    template<typename dtype>
-    boost::python::numpy::ndarray numCToBoost(const NdArray<dtype>& inArray)
-    {
-        Shape inShape = inArray.shape();
-        boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);
-        BoostNdarrayHelper newNdArrayHelper(shape);
-
-        for (uint32 row = 0; row < inShape.rows; ++row)
-        {
-            for (uint32 col = 0; col < inShape.cols; ++col)
-            {
-                newNdArrayHelper(row, col) = static_cast<double>(inArray(row, col));
-            }
-        }
-        return *(newNdArrayHelper.getArray());
-    }
 }

@@ -38,7 +38,7 @@
 #endif
 
 #ifdef INCLUDE_PYTHON_INTERFACE
-#include"NumCpp/BoostNumpyNdarrayHelper.hpp"
+#include"NumCpp/PythonInterface.hpp"
 #endif
 #include"NumCpp/Constants.hpp"
 #include"NumCpp/Coordinates.hpp"

@@ -28,10 +28,10 @@
 ///
 
 #pragma once
-#include<NumCpp/NdArray.hpp>
-#include<NumCpp/Methods.hpp>
-#include<NumCpp/Types.hpp>
-#include<NumCpp/Utils.hpp>
+#include"NumCpp/NdArray.hpp"
+#include"NumCpp/Methods.hpp"
+#include"NumCpp/Types.hpp"
+#include"NumCpp/Utils.hpp"
 
 #include<cmath>
 #include<iostream>
