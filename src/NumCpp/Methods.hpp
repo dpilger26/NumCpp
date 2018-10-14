@@ -41,6 +41,7 @@
 #include<bitset>
 #include<cmath>
 #include<fstream>
+#include<functional>
 #include<initializer_list>
 #include<iostream>
 #include<set>
@@ -79,6 +80,9 @@ namespace NC
 
     template<typename dtype>
     NdArray<bool> any(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    NdArray<dtype> applyFunction(const NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc);
 
     template<typename dtype>
     NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis inAxis = Axis::NONE);
@@ -1089,6 +1093,22 @@ namespace NC
     NdArray<bool> any(const NdArray<dtype>& inArray, Axis inAxis)
     {
         return std::move(inArray.any(inAxis));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Apply the input function element wise to the input
+    ///                     array in place.
+    ///
+    /// @param				inArray
+    /// @param				inFunc
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    void applyFunction(NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc)
+    {
+        std::transform(inArray.begin(), inArray.end(), inArray.begin(), inFunc);
     }
 
     //============================================================================
@@ -4074,7 +4094,7 @@ namespace NC
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
     ///
     /// @param      inValue1
-    /// @param      inValue1
+    /// @param      inValue2
     /// @return
     ///				dtype
     ///

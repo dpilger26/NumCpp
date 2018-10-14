@@ -224,6 +224,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a5f582eb3f89e41c9685d40bcecef2bce"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a5f582eb3f89e41c9685d40bcecef2bce"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a5f582eb3f89e41c9685d40bcecef2bce">append</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inAppendValues, <a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822">Axis</a> inAxis=<a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</td></tr>
 <tr class="separator:a5f582eb3f89e41c9685d40bcecef2bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4102d51b635d078f1d0e932cde4ebec5"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a4102d51b635d078f1d0e932cde4ebec5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a4102d51b635d078f1d0e932cde4ebec5">applyFunction</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, const std::function&lt; dtype(dtype)&gt; &amp;inFunc)</td></tr>
+<tr class="separator:a4102d51b635d078f1d0e932cde4ebec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22301a977ad8d98e5cd3e51fe3b218fd"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a22301a977ad8d98e5cd3e51fe3b218fd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a22301a977ad8d98e5cd3e51fe3b218fd">applyFunction</a> (<a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, const std::function&lt; dtype(dtype)&gt; &amp;inFunc)</td></tr>
+<tr class="separator:a22301a977ad8d98e5cd3e51fe3b218fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdf449706eff627feb1144f53966b37d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:afdf449706eff627feb1144f53966b37d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#afdf449706eff627feb1144f53966b37d">arange</a> (dtype inStart, dtype inStop, dtype inStep=1)</td></tr>
 <tr class="separator:afdf449706eff627feb1144f53966b37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1664,6 +1670,75 @@ template&lt;typename dtype &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_example_8cpp-example.html#a19">Example.cpp</a>.</dd>
 </dl>
+</div>
+</div>
+<a id="a4102d51b635d078f1d0e932cde4ebec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4102d51b635d078f1d0e932cde4ebec5">&#9670;&nbsp;</a></span>applyFunction() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; NC::applyFunction </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; dtype(dtype)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>inFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22301a977ad8d98e5cd3e51fe3b218fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22301a977ad8d98e5cd3e51fe3b218fd">&#9670;&nbsp;</a></span>applyFunction() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void NC::applyFunction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; dtype(dtype)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>inFunc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Apply the input function element wise to the input array in place.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inArray</td><td></td></tr>
+    <tr><td class="paramname">inFunc</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
 </div>
 </div>
 <a id="afdf449706eff627feb1144f53966b37d"></a>
@@ -5784,7 +5859,7 @@ template&lt;typename dtype &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inValue1</td><td></td></tr>
-    <tr><td class="paramname">inValue1</td><td></td></tr>
+    <tr><td class="paramname">inValue2</td><td></td></tr>
   </table>
   </dd>
 </dl>

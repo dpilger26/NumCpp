@@ -106,6 +106,7 @@ $(document).ready(function(){initNavTree('_methods_8hpp.html','');});
 <code>#include &lt;bitset&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;initializer_list&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;set&gt;</code><br />
@@ -154,6 +155,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a5f582eb3f89e41c9685d40bcecef2bce"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a5f582eb3f89e41c9685d40bcecef2bce"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a5f582eb3f89e41c9685d40bcecef2bce">NC::append</a> (const NdArray&lt; dtype &gt; &amp;inArray, const NdArray&lt; dtype &gt; &amp;inAppendValues, Axis inAxis=Axis::NONE)</td></tr>
 <tr class="separator:a5f582eb3f89e41c9685d40bcecef2bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4102d51b635d078f1d0e932cde4ebec5"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a4102d51b635d078f1d0e932cde4ebec5"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a4102d51b635d078f1d0e932cde4ebec5">NC::applyFunction</a> (const NdArray&lt; dtype &gt; &amp;inArray, const std::function&lt; dtype(dtype)&gt; &amp;inFunc)</td></tr>
+<tr class="separator:a4102d51b635d078f1d0e932cde4ebec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22301a977ad8d98e5cd3e51fe3b218fd"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a22301a977ad8d98e5cd3e51fe3b218fd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a22301a977ad8d98e5cd3e51fe3b218fd">NC::applyFunction</a> (NdArray&lt; dtype &gt; &amp;inArray, const std::function&lt; dtype(dtype)&gt; &amp;inFunc)</td></tr>
+<tr class="separator:a22301a977ad8d98e5cd3e51fe3b218fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdf449706eff627feb1144f53966b37d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:afdf449706eff627feb1144f53966b37d"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#afdf449706eff627feb1144f53966b37d">NC::arange</a> (dtype inStart, dtype inStop, dtype inStep=1)</td></tr>
 <tr class="separator:afdf449706eff627feb1144f53966b37d"><td class="memSeparator" colspan="2">&#160;</td></tr>

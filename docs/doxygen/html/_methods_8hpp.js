@@ -10,6 +10,8 @@ var _methods_8hpp =
     [ "amin", "_methods_8hpp.html#a74e004bf9e033e854a429c44b5aebee1", null ],
     [ "any", "_methods_8hpp.html#a4b133d90b8144ce3977ad4bc6ffa888e", null ],
     [ "append", "_methods_8hpp.html#a5f582eb3f89e41c9685d40bcecef2bce", null ],
+    [ "applyFunction", "_methods_8hpp.html#a4102d51b635d078f1d0e932cde4ebec5", null ],
+    [ "applyFunction", "_methods_8hpp.html#a22301a977ad8d98e5cd3e51fe3b218fd", null ],
     [ "arange", "_methods_8hpp.html#afdf449706eff627feb1144f53966b37d", null ],
     [ "arange", "_methods_8hpp.html#aeb94590231d57bc8383d051e07e90624", null ],
     [ "arccos", "_methods_8hpp.html#ab68a0b02df6ca51b4b4a0bc20edd7780", null ],
