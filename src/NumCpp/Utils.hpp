@@ -84,8 +84,13 @@ namespace NC
         template<typename dtype>
         static dtype power(dtype inValue, uint8 inPower)
         {
-            dtype returnVal = 1;
-            for (uint8 i = 0; i < inPower; ++i)
+            if (inPower == 0)
+            {
+                return static_cast<dtype>(1);
+            }
+
+            dtype returnVal = inValue;
+            for (uint8 exponent = 1; exponent < inPower; ++exponent)
             {
                 returnVal *= inValue;
             }

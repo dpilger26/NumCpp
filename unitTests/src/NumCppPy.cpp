@@ -1,7 +1,8 @@
 #include"NumCpp.hpp"
 
-#include<string>
+#include<functional>
 #include<iostream>
+#include<string>
 
 #ifndef BOOST_PYTHON_STATIC_LIB
 #define BOOST_PYTHON_STATIC_LIB    
@@ -2931,6 +2932,8 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("amax", &MethodsInterface::amaxArray<double>);
     bp::def("any", &MethodsInterface::anyArray<double>);
     bp::def("append", &append<double>);
+    //bp::def("applyFunction", &applyFunction<double>);
+    bp::def("applyPoly1d", &applyPoly1d<double>);
     bp::def("arange", &MethodsInterface::arangeArray<double>);
     bp::def("arccosScaler", &MethodsInterface::arccosScaler<double>);
     bp::def("arccosArray", &MethodsInterface::arccosArray<double>);
@@ -3629,4 +3632,24 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("pop_front", &DataCubeDouble::pop_front)
         .def("push_back", &DataCubeDouble::push_back)
         .def("push_front", &DataCubeDouble::push_front);
+
+    // Polynomial.hpp
+    typedef Poly1d<double> Poly1dDouble;
+    bp::class_<Poly1dDouble>
+        ("Poly1dDouble", bp::init<>())
+        .def(bp::init<NdArray<double>, bool>())
+        .def("coefficients", &Poly1dDouble::coefficients)
+        .def("order", &Poly1dDouble::order)
+        .def("__str__", &Poly1dDouble::str)
+        .def("__repr__", &Poly1dDouble::str)
+        .def("print", &Poly1dDouble::print)
+        .def("__getitem__", &Poly1dDouble::operator())
+        .def("__add__", &Poly1dDouble::operator+)
+        .def("__iadd__", &Poly1dDouble::operator+=, bp::return_internal_reference<>())
+        .def("__sub__", &Poly1dDouble::operator-)
+        .def("__isub__", &Poly1dDouble::operator-=, bp::return_internal_reference<>())
+        .def("__mul__", &Poly1dDouble::operator*)
+        .def("__imul__", &Poly1dDouble::operator*=, bp::return_internal_reference<>())
+        .def("__pow__", &Poly1dDouble::operator^)
+        .def("__ipow__", &Poly1dDouble::operator^=, bp::return_internal_reference<>());
 }

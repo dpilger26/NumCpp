@@ -12,6 +12,7 @@ var _methods_8hpp =
     [ "append", "_methods_8hpp.html#a5f582eb3f89e41c9685d40bcecef2bce", null ],
     [ "applyFunction", "_methods_8hpp.html#a4102d51b635d078f1d0e932cde4ebec5", null ],
     [ "applyFunction", "_methods_8hpp.html#a22301a977ad8d98e5cd3e51fe3b218fd", null ],
+    [ "applyPoly1d", "_methods_8hpp.html#ae33583e477d5af32feada3dd9e7a87f1", null ],
     [ "arange", "_methods_8hpp.html#afdf449706eff627feb1144f53966b37d", null ],
     [ "arange", "_methods_8hpp.html#aeb94590231d57bc8383d051e07e90624", null ],
     [ "arange", "_methods_8hpp.html#aafbdb6c04fc9de70753e0bb9a3cadcc7", null ],

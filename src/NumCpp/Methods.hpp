@@ -31,6 +31,7 @@
 #include"NumCpp/Constants.hpp"
 #include"NumCpp/DtypeInfo.hpp"
 #include"NumCpp/NdArray.hpp"
+#include"NumCpp/Polynomial.hpp"
 #include"NumCpp/Types.hpp"
 
 #include"boost/filesystem.hpp"
@@ -1118,6 +1119,21 @@ namespace NC
     void applyFunction(NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc)
     {
         std::transform(inArray.begin(), inArray.end(), inArray.begin(), inFunc);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Apply polynomial elemnt wise to the input values.
+    ///
+    /// @param				inArray
+    /// @param				inPoly
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    void applyPoly1d(NdArray<dtype>& inArray, const Poly1d<dtype>& inPoly)
+    {
+        applyFunction<dtype>(inArray, inPoly);
     }
 
     //============================================================================

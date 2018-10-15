@@ -98,6 +98,7 @@ $(document).ready(function(){initNavTree('_methods_8hpp.html','');});
 <div class="textblock"><code>#include &quot;<a class="el" href="_constants_8hpp_source.html">NumCpp/Constants.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_dtype_info_8hpp_source.html">NumCpp/DtypeInfo.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_nd_array_8hpp_source.html">NumCpp/NdArray.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_polynomial_8hpp_source.html">NumCpp/Polynomial.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_types_8hpp_source.html">NumCpp/Types.hpp</a>&quot;</code><br />
 <code>#include &quot;boost/filesystem.hpp&quot;</code><br />
 <code>#include &quot;boost/math/common_factor_rt.hpp&quot;</code><br />
@@ -161,6 +162,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a22301a977ad8d98e5cd3e51fe3b218fd"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a22301a977ad8d98e5cd3e51fe3b218fd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a22301a977ad8d98e5cd3e51fe3b218fd">NC::applyFunction</a> (NdArray&lt; dtype &gt; &amp;inArray, const std::function&lt; dtype(dtype)&gt; &amp;inFunc)</td></tr>
 <tr class="separator:a22301a977ad8d98e5cd3e51fe3b218fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae33583e477d5af32feada3dd9e7a87f1"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ae33583e477d5af32feada3dd9e7a87f1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#ae33583e477d5af32feada3dd9e7a87f1">NC::applyPoly1d</a> (NdArray&lt; dtype &gt; &amp;inArray, const Poly1d&lt; dtype &gt; &amp;inPoly)</td></tr>
+<tr class="separator:ae33583e477d5af32feada3dd9e7a87f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdf449706eff627feb1144f53966b37d"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:afdf449706eff627feb1144f53966b37d"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#afdf449706eff627feb1144f53966b37d">NC::arange</a> (dtype inStart, dtype inStop, dtype inStep=1)</td></tr>
 <tr class="separator:afdf449706eff627feb1144f53966b37d"><td class="memSeparator" colspan="2">&#160;</td></tr>

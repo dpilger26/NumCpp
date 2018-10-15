@@ -15,6 +15,7 @@ var searchData=
   ['any',['any',['../class_n_c_1_1_nd_array.html#aea1fb8bc5aea3ae06083218e6f4e7af0',1,'NC::NdArray::any()'],['../namespace_n_c.html#a4b133d90b8144ce3977ad4bc6ffa888e',1,'NC::any()']]],
   ['append',['append',['../namespace_n_c.html#a5f582eb3f89e41c9685d40bcecef2bce',1,'NC']]],
   ['applyfunction',['applyFunction',['../namespace_n_c.html#a4102d51b635d078f1d0e932cde4ebec5',1,'NC::applyFunction(const NdArray&lt; dtype &gt; &amp;inArray, const std::function&lt; dtype(dtype)&gt; &amp;inFunc)'],['../namespace_n_c.html#a22301a977ad8d98e5cd3e51fe3b218fd',1,'NC::applyFunction(NdArray&lt; dtype &gt; &amp;inArray, const std::function&lt; dtype(dtype)&gt; &amp;inFunc)']]],
+  ['applypoly1d',['applyPoly1d',['../namespace_n_c.html#ae33583e477d5af32feada3dd9e7a87f1',1,'NC']]],
   ['applythreshold',['applyThreshold',['../namespace_n_c_1_1_image_processing.html#a594987d99816264c65ce0a7c185ad9dc',1,'NC::ImageProcessing']]],
   ['arange',['arange',['../namespace_n_c.html#afdf449706eff627feb1144f53966b37d',1,'NC::arange(dtype inStart, dtype inStop, dtype inStep=1)'],['../namespace_n_c.html#aeb94590231d57bc8383d051e07e90624',1,'NC::arange(dtype inStop)'],['../namespace_n_c.html#aafbdb6c04fc9de70753e0bb9a3cadcc7',1,'NC::arange(const Slice &amp;inSlice)']]],
   ['arccos',['arccos',['../namespace_n_c.html#ab68a0b02df6ca51b4b4a0bc20edd7780',1,'NC::arccos(dtype inValue)'],['../namespace_n_c.html#a89997988e72d00ec11a4739345c587cc',1,'NC::arccos(const NdArray&lt; dtype &gt; &amp;inArray)']]],

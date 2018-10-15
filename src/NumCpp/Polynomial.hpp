@@ -28,11 +28,348 @@
 ///
 #pragma once
 
+#include"NumCpp/DtypeInfo.hpp"
 #include"NumCpp/Types.hpp"
 #include"NumCpp/NdArray.hpp"
+#include"NumCpp/Utils.hpp"
+
+#include<algorithm>
+#include<iostream>
+#include<stdexcept>
+#include<string>
+#include<vector>
 
 namespace NC
 {
+    //================================================================================
+    ///						A one-dimensional polynomial class.
+    ///                     A convenience class, used to encapsulate "natural"
+    ///                     operations on polynomials
+    template<typename dtype>
+    class Poly1d
+    {
+    private:
+        std::vector<dtype>      coefficients_;
+
+    public:
+        //============================================================================
+        // Method Description:
+        ///						Default Constructor (not very usefull, but needed for other
+        ///                     containers.
+        ///
+        Poly1d() = default;
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param      inValues: (polynomial coefficients in ascending order of power if second input is false,
+        ///                        polynomial roots if second input is true)
+        /// @param      isRoots
+        ///
+        Poly1d(const NdArray<dtype>& inValues, bool isRoots=false)
+        {
+            if (inValues.size() > DtypeInfo<uint8>::max())
+            {
+                std::string errStr = "Error: Poly1d: can only make a polynomial of order " + Utils::num2str(DtypeInfo<uint8>::max()) + ".";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            if (isRoots)
+            {
+                coefficients_.push_back(1);
+                for (auto iter = inValues.cbegin(); iter < inValues.cend(); ++iter)
+                {
+                    NdArray<dtype> coeffs = {-(*iter), static_cast<dtype>(1) };
+                    *this *= Poly1d<dtype>(coeffs, !isRoots);
+                }
+            }
+            else
+            {
+                for (auto iter = inValues.cbegin(); iter < inValues.cend(); ++iter)
+                {
+                    coefficients_.push_back(*iter);
+                }
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the Poly1d coefficients
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> coefficients() const
+        {
+            return std::move(NdArray<dtype>(coefficients_));
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the order of the Poly1d
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        uint32 order() const
+        {
+            return static_cast<uint32>(coefficients_.size() - 1);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Converts the polynomial to a string representation
+        ///
+        /// @return
+        ///				Poly1d
+        ///
+        std::string str() const
+        {
+            std::string repr = "";
+            uint32 power = 0;
+            for (auto& coefficient : coefficients_)
+            {
+                repr += Utils::num2str(coefficient) + " x^" + Utils::num2str(power++) + " + ";
+            }
+
+            return repr;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Prints the string representation of the Poly1d object
+        ///                     to the console
+        ///
+        void print() const
+        {
+            std::cout << *this << std::endl;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Evaluates the Poly1D object for the input value
+        ///
+        /// @param
+        ///				inValue
+        /// @return
+        ///				Poly1d
+        ///
+        dtype operator()(dtype inValue) const
+        {
+            dtype polyValue = 0;
+            uint8 power = 0;
+            for (auto& coefficient : coefficients_)
+            {
+                polyValue += coefficient * Utils::power(inValue, power++);
+            }
+
+            return polyValue;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Adds the two Poly1d objects
+        ///
+        /// @param
+        ///				inOtherPoly
+        /// @return
+        ///				Poly1d
+        ///
+        Poly1d<dtype> operator+(const Poly1d<dtype>& inOtherPoly) const
+        {
+            return Poly1d<dtype>(*this) += inOtherPoly;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Adds the two Poly1d objects
+        ///
+        /// @param
+        ///				inOtherPoly
+        /// @return
+        ///				Poly1d
+        ///
+        Poly1d<dtype>& operator+=(const Poly1d<dtype>& inOtherPoly)
+        {
+            if (this->coefficients_.size() < inOtherPoly.coefficients_.size())
+            {
+                for (size_t i = 0; i < coefficients_.size(); ++i)
+                {
+                    coefficients_[i] += inOtherPoly.coefficients_[i];
+                }
+                for (size_t i = coefficients_.size(); i < inOtherPoly.coefficients_.size(); ++i)
+                {
+                    coefficients_.push_back(inOtherPoly.coefficients_[i]);
+                }
+            }
+            else
+            {
+                for (size_t i = 0; i < inOtherPoly.coefficients_.size(); ++i)
+                {
+                    coefficients_[i] += inOtherPoly.coefficients_[i];
+                }
+            }
+
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Subtracts the two Poly1d objects
+        ///
+        /// @param
+        ///				inOtherPoly
+        /// @return
+        ///				Poly1d
+        ///
+        Poly1d<dtype> operator-(const Poly1d<dtype>& inOtherPoly) const
+        {
+            return Poly1d<dtype>(*this) -= inOtherPoly;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Subtracts the two Poly1d objects
+        ///
+        /// @param
+        ///				inOtherPoly
+        /// @return
+        ///				Poly1d
+        ///
+        Poly1d<dtype>& operator-=(const Poly1d<dtype>& inOtherPoly)
+        {
+            if (this->coefficients_.size() < inOtherPoly.coefficients_.size())
+            {
+                for (size_t i = 0; i < coefficients_.size(); ++i)
+                {
+                    coefficients_[i] -= inOtherPoly.coefficients_[i];
+                }
+                for (size_t i = coefficients_.size(); i < inOtherPoly.coefficients_.size(); ++i)
+                {
+                    coefficients_.push_back(-inOtherPoly.coefficients_[i]);
+                }
+            }
+            else
+            {
+                for (size_t i = 0; i < inOtherPoly.coefficients_.size(); ++i)
+                {
+                    coefficients_[i] -= inOtherPoly.coefficients_[i];
+                }
+            }
+
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Multiplies the two Poly1d objects
+        ///
+        /// @param
+        ///				inOtherPoly
+        /// @return
+        ///				Poly1d
+        ///
+        Poly1d<dtype> operator*(const Poly1d<dtype>& inOtherPoly) const
+        {
+            return Poly1d<dtype>(*this) *= inOtherPoly;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Multiplies the two Poly1d objects
+        ///
+        /// @param
+        ///				inOtherPoly
+        /// @return
+        ///				Poly1d
+        ///
+        Poly1d<dtype>& operator*=(const Poly1d<dtype>& inOtherPoly)
+        {
+            uint32 finalCoefficientsSize = order() + inOtherPoly.order() + 1;
+            std::vector<dtype> coeffsA(finalCoefficientsSize, 0);
+            std::vector<dtype> coeffsB(finalCoefficientsSize, 0);
+            std::copy(coefficients_.begin(), coefficients_.end(), coeffsA.begin());
+            std::copy(inOtherPoly.coefficients_.cbegin(), inOtherPoly.coefficients_.cend(), coeffsB.begin());
+
+            // now multiply out the coefficients
+            std::vector<dtype> finalCoefficients(finalCoefficientsSize, 0);
+            for (uint32 i = 0; i < finalCoefficientsSize; ++i)
+            {
+                for (uint32 k = 0; k <= i; ++k)
+                {
+                    finalCoefficients[i] += coeffsA[k] * coeffsB[i - k];
+                }
+            }
+
+            this->coefficients_ = finalCoefficients;
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Raise the Poly1d to an integer power
+        ///
+        /// @param
+        ///				inPower
+        /// @return
+        ///				Poly1d
+        ///
+        Poly1d<dtype> operator^(uint32 inPower) const
+        {
+            return Poly1d(*this) ^= inPower;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Raise the Poly1d to an integer power
+        ///
+        /// @param
+        ///				inPower
+        /// @return
+        ///				Poly1d
+        ///
+        Poly1d<dtype>& operator^=(uint32 inPower)
+        {
+            if (inPower == 0)
+            {
+                coefficients_.clear();
+                coefficients_.push_back(1);
+                return *this;
+            }
+            else if (inPower == 1)
+            {
+                return *this;
+            }
+
+            auto thisPoly(*this);
+            for (uint32 power = 1; power < inPower; ++power)
+            {
+                *this *= thisPoly;
+            }
+
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						io operator for the Poly1d class
+        ///
+        /// @param      inOStream
+        /// @param      inPoly
+        /// @return
+        ///				std::ostream
+        ///
+        friend std::ostream& operator<<(std::ostream& inOStream, const Poly1d<dtype>& inPoly)
+        {
+            inOStream << inPoly.str() << std::endl;
+            return inOStream;
+        }
+    };
+
+    //=============================================================================
+
     namespace Polynomial
     {
         /// \todo Complete This Module
