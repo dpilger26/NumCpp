@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include"NumCpp/DtypeInfo.hpp"
 #include"NumCpp/Methods.hpp"
 #include"NumCpp/Linalg.hpp"
 #include"NumCpp/NdArray.hpp"
@@ -52,7 +53,7 @@ namespace NC
         {
         private:
             //====================================Attributes==============================
-            double		data_[4] = {0.0, 0.0, 0.0, 1.0};
+            double		data_[4] = { 0.0, 0.0, 0.0, 1.0 };
 
             //============================================================================
             // Method Description: 
@@ -359,18 +360,18 @@ namespace NC
             ///
             static Quaternion nlerp(const Quaternion& inQuat1, const Quaternion& inQuat2, double inPercent)
             {
-                if (inPercent < 0 || inPercent > 1)
+                if (inPercent < 0.0 || inPercent > 1.0)
                 {
                     std::string errStr = "ERROR: Rotations::Quaternion::nlerp: input percent must be of the range [0,1].";
                     std::cerr << errStr << std::endl;
                     throw std::invalid_argument(errStr);
                 }
 
-                if (inPercent == 0)
+                if (Utils::essentiallyEqual(inPercent, 0.0))
                 {
                     return inQuat1;
                 }
-                else if (inPercent == 1)
+                else if (Utils::essentiallyEqual(inPercent, 1.0))
                 {
                     return inQuat2;
                 }
@@ -623,10 +624,10 @@ namespace NC
             ///
             bool operator==(const Quaternion& inRhs) const
             {
-                return data_[0] == inRhs.data_[0] &&
-                    data_[1] == inRhs.data_[1] &&
-                    data_[2] == inRhs.data_[2] &&
-                    data_[3] == inRhs.data_[3];
+                return Utils::essentiallyEqual(data_[0], inRhs.data_[0]) &&
+                    Utils::essentiallyEqual(data_[1], inRhs.data_[1]) &&
+                    Utils::essentiallyEqual(data_[2], inRhs.data_[2]) &&
+                    Utils::essentiallyEqual(data_[3], inRhs.data_[3]);
             }
 
             //============================================================================

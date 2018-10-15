@@ -28,12 +28,28 @@
 ///
 #pragma once
 
+#include"NumCpp/DtypeInfo.hpp"
+
 #include<string>
 
 namespace NC
 {
     namespace Utils
     {
+        //============================================================================
+        ///						tests that 2 floating point values are "essentially equal"
+        ///		
+        /// @param      inValue1
+        /// @param      inValue2
+        ///
+        /// @return     bool
+        ///
+        template<typename dtype>
+        bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon = DtypeInfo<dtype>::epsilon())
+        {
+            return fabs(inValue1 - inValue2) <= ((fabs(inValue1) > fabs(inValue2) ? fabs(inValue2) : fabs(inValue1)) * inEpsilon);
+        }
+
         //============================================================================
         ///						Converts the number into a string
         ///		

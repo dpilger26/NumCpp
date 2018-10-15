@@ -5838,7 +5838,7 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis, const std::string& inInterpMethod)
     {
-        if (inPercentile < 0 || inPercentile > 100)
+        if (inPercentile < 0.0 || inPercentile > 100.0)
         {
             std::string errStr = "ERROR: percentile: input percentile value must be of the range [0, 100].";
             std::cerr << errStr << std::endl;
@@ -5861,7 +5861,7 @@ namespace NC
         {
             case Axis::NONE:
             {
-                if (inPercentile == 0)
+                if (Utils::essentiallyEqual(inPercentile, 0.0))
                 {
                     for (uint32 i = 0; i < inArray.size(); ++i)
                     {
@@ -5873,7 +5873,7 @@ namespace NC
                     }
                     return std::move(NdArray<dtypeOut>(0));
                 }
-                else if (inPercentile == 1)
+                else if (Utils::essentiallyEqual(inPercentile, 100.0))
                 {
                     for (int32 i = static_cast<int32>(inArray.size()) - 1; i > -1; --i)
                     {
@@ -6515,7 +6515,7 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis, const std::string& inInterpMethod)
     {
-        if (inPercentile < 0 || inPercentile > 100)
+        if (inPercentile < 0.0 || inPercentile > 100.0)
         {
             std::string errStr = "ERROR: percentile: input percentile value must be of the range [0, 100].";
             std::cerr << errStr << std::endl;
@@ -6538,12 +6538,12 @@ namespace NC
         {
             case Axis::NONE:
             {
-                if (inPercentile == 0)
+                if (Utils::essentiallyEqual(inPercentile, 0.0))
                 {
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(*inArray.cbegin()) };
                     return std::move(returnArray);
                 }
-                else if (inPercentile == 1)
+                else if (Utils::essentiallyEqual(inPercentile, 100.0))
                 {
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(*inArray.cend()) };
                     return std::move(returnArray);

@@ -28,6 +28,7 @@
 ///
 
 #pragma once
+#include"NumCpp/DtypeInfo.hpp"
 #include"NumCpp/NdArray.hpp"
 #include"NumCpp/Methods.hpp"
 #include"NumCpp/Types.hpp"
@@ -976,7 +977,7 @@ namespace NC
 
                 uint32 rowMin = inCluster.rowMin();
                 uint32 colMin = inCluster.colMin();
-                dtype intensity = inCluster.intensity();
+                dtype inten = inCluster.intensity();
 
                 auto iter = inCluster.begin();
                 for (; iter < inCluster.end(); ++iter)
@@ -986,7 +987,7 @@ namespace NC
 
                 // first get the row center
                 row_ = 0;
-                uint32 row = rowMin;
+                uint32 theRow = rowMin;
                 for (uint32 rowIdx = 0; rowIdx < clusterShape.rows; ++rowIdx)
                 {
                     double rowSum = 0;
@@ -994,14 +995,14 @@ namespace NC
                     {
                         rowSum += static_cast<double>(clusterArray(rowIdx, colIdx));
                     }
-                    row_ += rowSum * static_cast<double>(row++);
+                    row_ += rowSum * static_cast<double>(theRow++);
                 }
 
-                row_ /= static_cast<double>(intensity);
+                row_ /= static_cast<double>(inten);
 
                 // then get the column center
                 col_ = 0;
-                uint32 col = colMin;
+                uint32 theCol = colMin;
                 for (uint32 colIdx = 0; colIdx < clusterShape.cols; ++colIdx)
                 {
                     double colSum = 0;
@@ -1009,10 +1010,10 @@ namespace NC
                     {
                         colSum += static_cast<double>(clusterArray(rowIdx, colIdx));
                     }
-                    col_ += colSum * static_cast<double>(col++);
+                    col_ += colSum * static_cast<double>(theCol++);
                 }
 
-                col_ /= static_cast<double>(intensity);
+                col_ /= static_cast<double>(inten);
             }
 
         public:
@@ -1308,7 +1309,7 @@ namespace NC
         template<typename dtype>
         dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate)
         {
-            if (inRate < 0 || inRate > 1)
+            if (inRate < 0.0 || inRate > 1.0)
             {
                 std::string errStr = "ERROR: ImageProcessing::generateThreshold: input rate must be of the range [0, 1]";
                 std::cerr << errStr << std::endl;
@@ -1319,11 +1320,11 @@ namespace NC
             int32 minValue = static_cast<int32>(std::floor(inImageArray.min().item()));
             int32 maxValue = static_cast<int32>(std::floor(inImageArray.max().item()));
 
-            if (inRate == 0)
+            if (Utils::essentiallyEqual(inRate, 0.0))
             {
                 return static_cast<dtype>(maxValue);
             }
-            else if (inRate == 1)
+            else if (Utils::essentiallyEqual(inRate, 1.0))
             {
                 if (DtypeInfo<dtype>::isSigned())
                 {

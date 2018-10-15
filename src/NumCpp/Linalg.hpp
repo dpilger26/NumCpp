@@ -155,7 +155,7 @@ namespace NC
             ///
             NdArray<double> solve(const NdArray<double>& inInput, double inThresh = -1.0)
             {
-                double s;
+                double ss;
 
                 if (inInput.size() != m_)
                 {
@@ -172,27 +172,27 @@ namespace NC
 
                 for (uint32 j = 0; j < n_; j++)
                 {
-                    s = 0.0;
+                    ss = 0.0;
                     if (s_[j] > tsh_)
                     {
                         for (uint32 i = 0; i < m_; i++)
                         {
-                            s += u_(i, j) * inInput[i];
+                            ss += u_(i, j) * inInput[i];
                         }
-                        s /= s_[j];
+                        ss /= s_[j];
                     }
-                    tmp[j] = s;
+                    tmp[j] = ss;
                 }
 
                 for (uint32 j = 0; j < n_; j++)
                 {
-                    s = 0.0;
+                    ss = 0.0;
                     for (uint32 jj = 0; jj < n_; jj++)
                     {
-                        s += v_(j, jj) * tmp[jj];
+                        ss += v_(j, jj) * tmp[jj];
                     }
 
-                    returnArray[j] = s;
+                    returnArray[j] = ss;
                 }
 
                 return std::move(returnArray);
@@ -234,7 +234,7 @@ namespace NC
                 double  f;
                 double  g = 0.0;
                 double  h;
-                double  s;
+                double  ss;
                 double  scale = 0.0;
                 double  x;
                 double  y;
@@ -246,7 +246,7 @@ namespace NC
                 {
                     l = i + 2;
                     rv1[i] = scale * g;
-                    g = s = scale = 0.0;
+                    g = ss = scale = 0.0;
 
                     if (i < m_)
                     {
@@ -260,22 +260,22 @@ namespace NC
                             for (k = i; k < m_; ++k)
                             {
                                 u_(k, i) /= scale;
-                                s += u_(k, i) * u_(k, i);
+                                ss += u_(k, i) * u_(k, i);
                             }
 
                             f = u_(i, i);
-                            g = -SIGN(std::sqrt(s), f);
-                            h = f * g - s;
+                            g = -SIGN(std::sqrt(ss), f);
+                            h = f * g - ss;
                             u_(i, i) = f - g;
 
                             for (j = l - 1; j < n_; ++j)
                             {
-                                for (s = 0.0, k = i; k < m_; ++k)
+                                for (ss = 0.0, k = i; k < m_; ++k)
                                 {
-                                    s += u_(k, i) * u_(k, j);
+                                    ss += u_(k, i) * u_(k, j);
                                 }
 
-                                f = s / h;
+                                f = ss / h;
 
                                 for (k = i; k < m_; ++k)
                                 {
@@ -291,7 +291,7 @@ namespace NC
                     }
 
                     s_[i] = scale * g;
-                    g = s = scale = 0.0;
+                    g = ss = scale = 0.0;
 
                     if (i + 1 <= m_ && i + 1 != n_)
                     {
@@ -305,12 +305,12 @@ namespace NC
                             for (k = l - 1; k < n_; ++k)
                             {
                                 u_(i, k) /= scale;
-                                s += u_(i, k) * u_(i, k);
+                                ss += u_(i, k) * u_(i, k);
                             }
 
                             f = u_(i, l - 1);
-                            g = -SIGN(std::sqrt(s), f);
-                            h = f * g - s;
+                            g = -SIGN(std::sqrt(ss), f);
+                            h = f * g - ss;
                             u_(i, l - 1) = f - g;
 
                             for (k = l - 1; k < n_; ++k)
@@ -320,14 +320,14 @@ namespace NC
 
                             for (j = l - 1; j < m_; ++j)
                             {
-                                for (s = 0.0, k = l - 1; k < n_; ++k)
+                                for (ss = 0.0, k = l - 1; k < n_; ++k)
                                 {
-                                    s += u_(j, k) * u_(i, k);
+                                    ss += u_(j, k) * u_(i, k);
                                 }
 
                                 for (k = l - 1; k < n_; ++k)
                                 {
-                                    u_(j, k) += s * rv1[k];
+                                    u_(j, k) += ss * rv1[k];
                                 }
                             }
 
@@ -354,14 +354,14 @@ namespace NC
 
                             for (j = l; j < n_; ++j)
                             {
-                                for (s = 0.0, k = l; k < n_; ++k)
+                                for (ss = 0.0, k = l; k < n_; ++k)
                                 {
-                                    s += u_(i, k) * v_(k, j);
+                                    ss += u_(i, k) * v_(k, j);
                                 }
 
                                 for (k = l; k < n_; ++k)
                                 {
-                                    v_(k, j) += s * v_(k, i);
+                                    v_(k, j) += ss * v_(k, i);
                                 }
                             }
                         }
@@ -393,12 +393,12 @@ namespace NC
 
                         for (j = l; j < n_; ++j)
                         {
-                            for (s = 0.0, k = l; k < m_; ++k)
+                            for (ss = 0.0, k = l; k < m_; ++k)
                             {
-                                s += u_(k, i) * u_(k, j);
+                                ss += u_(k, i) * u_(k, j);
                             }
 
-                            f = (s / u_(i, i)) * g;
+                            f = (ss / u_(i, i)) * g;
 
                             for (k = i; k < m_; ++k)
                             {
@@ -446,10 +446,10 @@ namespace NC
                         if (flag)
                         {
                             c = 0.0;
-                            s = 1.0;
+                            ss = 1.0;
                             for (i = l; i < k + 1; ++i)
                             {
-                                f = s * rv1[i];
+                                f = ss * rv1[i];
                                 rv1[i] = c * rv1[i];
 
                                 if (abs(f) <= eps_ * anorm)
@@ -462,14 +462,14 @@ namespace NC
                                 s_[i] = h;
                                 h = 1.0 / h;
                                 c = g * h;
-                                s = -f * h;
+                                ss = -f * h;
 
                                 for (j = 0; j < m_; ++j)
                                 {
                                     y = u_(j, nm);
                                     z = u_(j, i);
-                                    u_(j, nm) = y * c + z * s;
-                                    u_(j, i) = z * c - y * s;
+                                    u_(j, nm) = y * c + z * ss;
+                                    u_(j, i) = z * c - y * ss;
                                 }
                             }
                         }
@@ -503,30 +503,30 @@ namespace NC
                         f = ((y - z) * (y + z) + (g - h) * (g + h)) / (2.0 * h * y);
                         g = pythag(f, 1.0);
                         f = ((x - z) * (x + z) + h * ((y / (f + SIGN(g, f))) - h)) / x;
-                        c = s = 1.0;
+                        c = ss = 1.0;
 
                         for (j = l; j <= nm; j++)
                         {
                             i = j + 1;
                             g = rv1[i];
                             y = s_[i];
-                            h = s * g;
+                            h = ss * g;
                             g = c * g;
                             z = pythag(f, h);
                             rv1[j] = z;
                             c = f / z;
-                            s = h / z;
-                            f = x * c + g * s;
-                            g = g * c - x * s;
-                            h = y * s;
+                            ss = h / z;
+                            f = x * c + g * ss;
+                            g = g * c - x * ss;
+                            h = y * ss;
                             y *= c;
 
                             for (jj = 0; jj < n_; ++jj)
                             {
                                 x = v_(jj, j);
                                 z = v_(jj, i);
-                                v_(jj, j) = x * c + z * s;
-                                v_(jj, i) = z * c - x * s;
+                                v_(jj, j) = x * c + z * ss;
+                                v_(jj, i) = z * c - x * ss;
                             }
 
                             z = pythag(f, h);
@@ -536,18 +536,18 @@ namespace NC
                             {
                                 z = 1.0 / z;
                                 c = f * z;
-                                s = h * z;
+                                ss = h * z;
                             }
 
-                            f = c * g + s * y;
-                            x = c * y - s * g;
+                            f = c * g + ss * y;
+                            x = c * y - ss * g;
 
                             for (jj = 0; jj < m_; ++jj)
                             {
                                 y = u_(jj, j);
                                 z = u_(jj, i);
-                                u_(jj, j) = y * c + z * s;
-                                u_(jj, i) = z * c - y * s;
+                                u_(jj, j) = y * c + z * ss;
+                                u_(jj, i) = z * c - y * ss;
                             }
                         }
                         rv1[l] = 0.0;
@@ -566,7 +566,7 @@ namespace NC
                 uint32  i;
                 uint32  j;
                 uint32  k;
-                uint32  s;
+                uint32  ss;
                 uint32  inc = 1;
 
                 double			sw;
@@ -635,13 +635,13 @@ namespace NC
 
                 for (k = 0; k < n_; ++k)
                 {
-                    s = 0;
+                    ss = 0;
 
                     for (i = 0; i < m_; i++)
                     {
                         if (u_(i, k) < 0.)
                         {
-                            s++;
+                            ss++;
                         }
                     }
 
@@ -649,11 +649,11 @@ namespace NC
                     {
                         if (v_(j, k) < 0.)
                         {
-                            s++;
+                            ss++;
                         }
                     }
 
-                    if (s > (m_ + n_) / 2)
+                    if (ss > (m_ + n_) / 2)
                     {
                         for (i = 0; i < m_; ++i)
                         {

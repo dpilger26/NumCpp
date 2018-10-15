@@ -85,7 +85,8 @@ namespace NC
         //============================================================================
         ///						Constructor
         ///
-        Timer()
+        Timer():
+            start_(ChronoClock::now())
         {
             setUnits();
         }
