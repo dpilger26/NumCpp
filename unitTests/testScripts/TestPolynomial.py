@@ -29,7 +29,7 @@ def doTest():
     rootsC.setArray(roots)
     poly = np.poly1d(roots, True)
     polyC = NumCpp.Poly1d(rootsC, True)
-    if np.array_equal(np.fliplr(polyC.coefficients().getNumpyArray()).flatten(), poly.coefficients):
+    if np.array_equal(np.fliplr(polyC.coefficients().getNumpyArray()).flatten().astype(np.int), poly.coefficients):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -53,14 +53,14 @@ def doTest():
     coefficientsC = NumCpp.NdArray(1, numCoefficients)
     coefficientsC.setArray(coefficients)
     polyC2 = NumCpp.Poly1d(coefficientsC, False)
-    poly2 = np.poly1d(coefficients)
+    poly2 = np.poly1d(np.flip(coefficients))
     if np.array_equal(np.fliplr((polyC + polyC2).coefficients().getNumpyArray()).flatten(), (poly + poly2).coefficients):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing subtraction', 'cyan'))
-    if np.array_equal((polyC - polyC2).coefficients().getNumpyArray().flatten(), (poly - poly2).coefficients):
+    if np.array_equal(np.fliplr((polyC - polyC2).coefficients().getNumpyArray()).flatten(), (poly - poly2).coefficients):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -72,8 +72,8 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing power', 'cyan'))
-    exponent = np.random.randint(1, 10, [1,]).item()
-    if np.array_equal(np.fliplr((polyC ** exponent).coefficients().getNumpyArray()).flatten(), (poly ** exponent).coefficients):
+    exponent = np.random.randint(0, 5, [1,]).item()
+    if np.array_equal(np.fliplr((polyC2 ** exponent).coefficients().getNumpyArray()).flatten(), (poly2 ** exponent).coefficients):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
