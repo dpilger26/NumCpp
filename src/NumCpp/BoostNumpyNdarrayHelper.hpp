@@ -69,8 +69,9 @@ namespace NC
         {
             if (boost::python::len(indices) != numDimensions_)
             {
-                std::string errorString = "Error: BoostNdarrayHelper::checkIndicesGeneric: Array has " + Utils::num2str(numDimensions_) + " dimensions, you asked for " + Utils::num2str(static_cast<int>(boost::python::len(indices))) + "!";
-                PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
+                std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Array has " + Utils::num2str(numDimensions_);
+                errStr += " dimensions, you asked for " + Utils::num2str(static_cast<int>(boost::python::len(indices))) + "!";
+                PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
             }
 
             for (int i = 0; i < numDimensions_; ++i)
@@ -78,8 +79,9 @@ namespace NC
                 int index = boost::python::extract<int>(indices[i]);
                 if (index > shape_[i])
                 {
-                    std::string errorString = "Error: BoostNdarrayHelper::checkIndicesGeneric: Input index [" + Utils::num2str(index) + "] is larger than the size of the array [" + Utils::num2str(shape_[i]) + "].";
-                    PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
+                    std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Input index [" + Utils::num2str(index);
+                    errStr += "] is larger than the size of the array [" + Utils::num2str(shape_[i]) + "].";
+                    PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
                 }
             }
         }
