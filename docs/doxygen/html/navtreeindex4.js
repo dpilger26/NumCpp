@@ -1,13 +1,15 @@
 var NAVTREEINDEX4 =
 {
-"namespace_n_c_1_1_linalg.html":[2,0,0,2],
+"namespace_n_c_1_1_image_processing.html":[1,0,0,4],
+"namespace_n_c_1_1_image_processing.html":[2,0,0,1],
 "namespace_n_c_1_1_linalg.html":[1,0,0,5],
+"namespace_n_c_1_1_linalg.html":[2,0,0,2],
 "namespace_n_c_1_1_polynomial.html":[1,0,0,6],
-"namespace_n_c_1_1_rotations.html":[2,0,0,3],
 "namespace_n_c_1_1_rotations.html":[1,0,0,7],
+"namespace_n_c_1_1_rotations.html":[2,0,0,3],
 "namespace_n_c_1_1_utils.html":[1,0,0,8],
-"namespacemembers.html":[1,1,0,0],
 "namespacemembers.html":[1,1,0],
+"namespacemembers.html":[1,1,0,0],
 "namespacemembers_b.html":[1,1,0,1],
 "namespacemembers_c.html":[1,1,0,2],
 "namespacemembers_d.html":[1,1,0,3],

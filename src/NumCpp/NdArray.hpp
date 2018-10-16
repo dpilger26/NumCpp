@@ -3075,7 +3075,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<double> std(Axis inAxis = Axis::NONE) const
+        NdArray<double> stdev(Axis inAxis = Axis::NONE) const
         {
             switch (inAxis)
             {
@@ -3383,7 +3383,7 @@ namespace NC
         ///
         NdArray<double> var(Axis inAxis = Axis::NONE) const
         {
-            NdArray<double> stdValues = std(inAxis);
+            NdArray<double> stdValues = stdev(inAxis);
             for (uint32 i = 0; i < stdValues.size(); ++i)
             {
                 stdValues[i] *= stdValues[i];

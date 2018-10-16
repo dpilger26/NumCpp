@@ -1902,15 +1902,11 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing gcd array', 'cyan'))
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArrayInt32(shape)
-    cArray2 = NumCpp.NdArrayInt32(shape)
-    data1 = np.random.randint(1, 1000, [shape.rows, shape.cols])
-    data2 = np.random.randint(1, 1000, [shape.rows, shape.cols])
-    cArray1.setArray(data1)
-    cArray2.setArray(data2)
-    if np.array_equal(NumCpp.gcdArray(cArray1, cArray2), np.gcd(data1, data2)):
+    size = np.random.randint(20, 100, [1, ]).item()
+    cArray = NumCpp.NdArrayInt32(1, size)
+    data = np.random.randint(1, 1000, [size,])
+    cArray.setArray(data)
+    if NumCpp.gcdArray(cArray) == np.gcd.reduce(data):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2150,15 +2146,11 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing lcm array', 'cyan'))
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArrayInt32(shape)
-    cArray2 = NumCpp.NdArrayInt32(shape)
-    data1 = np.random.randint(1, 1000, [shape.rows, shape.cols])
-    data2 = np.random.randint(1, 1000, [shape.rows, shape.cols])
-    cArray1.setArray(data1)
-    cArray2.setArray(data2)
-    if np.array_equal(NumCpp.lcmArray(cArray1, cArray2), np.lcm(data1, data2)):
+    size = np.random.randint(20, 100, [1, ]).item()
+    cArray = NumCpp.NdArrayInt32(1, size)
+    data = np.random.randint(1, 1000, [size, ])
+    cArray.setArray(data)
+    if NumCpp.lcmArray(cArray) == np.lcm.reduce(data):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3298,7 +3290,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing nanstd: Axis = None', 'cyan'))
+    print(colored('Testing nanstdev: Axis = None', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -3307,12 +3299,12 @@ def doTest():
     data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    if np.round(NumCpp.nanstd(cArray, NumCpp.Axis.NONE).item(), 10) == np.round(np.nanstd(data), 10):
+    if np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.NONE).item(), 10) == np.round(np.nanstd(data), 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing nanstd: Axis = Row', 'cyan'))
+    print(colored('Testing nanstdev: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -3321,13 +3313,13 @@ def doTest():
     data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.nanstd(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 10),
+    if np.array_equal(np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 10),
                       np.round(np.nanstd(data, axis=0), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing nanstd: Axis = Column', 'cyan'))
+    print(colored('Testing nanstdev: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -3336,7 +3328,7 @@ def doTest():
     data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.nanstd(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 10),
+    if np.array_equal(np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 10),
                       np.round(np.nanstd(data, axis=1), 10)):
         print(colored('\tPASS', 'green'))
     else:
@@ -4420,35 +4412,35 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = None', 'cyan'))
+    print(colored('Testing stddev: Axis = None', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.round(NumCpp.std(cArray, NumCpp.Axis.NONE).item(), 10) == np.round(np.std(data), 10):
+    if np.round(NumCpp.stdev(cArray, NumCpp.Axis.NONE).item(), 10) == np.round(np.std(data), 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = Row', 'cyan'))
+    print(colored('Testing stddev: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.std(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 10), np.round(np.std(data, axis=0), 10)):
+    if np.array_equal(np.round(NumCpp.stdev(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 10), np.round(np.std(data, axis=0), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = Column', 'cyan'))
+    print(colored('Testing stddev: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.std(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 10), np.round(np.std(data, axis=1), 10)):
+    if np.array_equal(np.round(NumCpp.stdev(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 10), np.round(np.std(data, axis=1), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

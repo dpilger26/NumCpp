@@ -159,7 +159,7 @@ var class_n_c_1_1_nd_array =
     [ "shape", "class_n_c_1_1_nd_array.html#acfac82582f55477428d2c5431d0a9c8b", null ],
     [ "size", "class_n_c_1_1_nd_array.html#ac3124b6287b61248753f83327a6fc64d", null ],
     [ "sort", "class_n_c_1_1_nd_array.html#a02a09dd5bc33bd5b61e01896f2949e27", null ],
-    [ "std", "class_n_c_1_1_nd_array.html#a68d5669617c3de10a5b4f539b32732cd", null ],
+    [ "stdev", "class_n_c_1_1_nd_array.html#ab38f7095ad1e8f43959b194fdd446f93", null ],
     [ "str", "class_n_c_1_1_nd_array.html#ade039b945ab67c983741ddcb4d35ee2d", null ],
     [ "sum", "class_n_c_1_1_nd_array.html#a39e9c3b32f6fe55d2abb1ece8ef8ec48", null ],
     [ "swapaxes", "class_n_c_1_1_nd_array.html#a7e69b82aef1cf8000406a8721342919a", null ],

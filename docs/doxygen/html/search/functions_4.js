@@ -9,6 +9,7 @@ var searchData=
   ['equal',['equal',['../namespace_n_c.html#adcad0bebf81836990da1c88d4b590d5c',1,'NC']]],
   ['erf',['erf',['../namespace_n_c.html#aeada35dd90d48913366fbe72d3bfdd71',1,'NC::erf(dtype inValue)'],['../namespace_n_c.html#a2b9b81bd710f3842e3574ff50eea349c',1,'NC::erf(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['erfc',['erfc',['../namespace_n_c.html#a2234a273244780f342e2292c060847e0',1,'NC::erfc(dtype inValue)'],['../namespace_n_c.html#a15882fa52af5f9b91a5999534f71f07f',1,'NC::erfc(const NdArray&lt; dtype &gt; &amp;inArray)']]],
+  ['essentiallyequal',['essentiallyEqual',['../namespace_n_c_1_1_utils.html#a540c12ea82d7e501b8128705cc59ad55',1,'NC::Utils']]],
   ['exp',['exp',['../namespace_n_c.html#a8992fa65723e4049383d6429fc2cdef5',1,'NC::exp(dtype inValue)'],['../namespace_n_c.html#a6a79f88b37db1d1c36ab38b4bfbb9b48',1,'NC::exp(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['exp2',['exp2',['../namespace_n_c.html#a9a7cb5cc59257798c38a549455fee8e3',1,'NC::exp2(dtype inValue)'],['../namespace_n_c.html#af4ac83f28fbf7a61336fc93e5b8d9459',1,'NC::exp2(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['expm1',['expm1',['../namespace_n_c.html#a0a7a710fdcd2accb6df0476896df0eb7',1,'NC::expm1(dtype inValue)'],['../namespace_n_c.html#a02f80a961a9f773b810d49d1aa309188',1,'NC::expm1(const NdArray&lt; dtype &gt; &amp;inArray)']]],

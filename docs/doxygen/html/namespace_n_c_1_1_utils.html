@@ -100,6 +100,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a45a4cf7f0d3253c9eede9d550655a63b"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a45a4cf7f0d3253c9eede9d550655a63b"><td class="memTemplItemLeft" align="right" valign="top">static dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_utils.html#a45a4cf7f0d3253c9eede9d550655a63b">cube</a> (dtype inValue)</td></tr>
 <tr class="separator:a45a4cf7f0d3253c9eede9d550655a63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a540c12ea82d7e501b8128705cc59ad55"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a540c12ea82d7e501b8128705cc59ad55"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_utils.html#a540c12ea82d7e501b8128705cc59ad55">essentiallyEqual</a> (dtype inValue1, dtype inValue2, dtype inEpsilon=<a class="el" href="class_n_c_1_1_dtype_info.html">DtypeInfo</a>&lt; dtype &gt;::epsilon())</td></tr>
+<tr class="separator:a540c12ea82d7e501b8128705cc59ad55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46e728e592cc0d19a4c41a0cd29166f6"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a46e728e592cc0d19a4c41a0cd29166f6"><td class="memTemplItemLeft" align="right" valign="top">static double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_utils.html#a46e728e592cc0d19a4c41a0cd29166f6">interp</a> (dtype inValue1, dtype inValue2, double inPercent)</td></tr>
 <tr class="separator:a46e728e592cc0d19a4c41a0cd29166f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,6 +150,52 @@ template&lt;typename dtype &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>cubed value </dd></dl>
+
+</div>
+</div>
+<a id="a540c12ea82d7e501b8128705cc59ad55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a540c12ea82d7e501b8128705cc59ad55">&#9670;&nbsp;</a></span>essentiallyEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NC::Utils::essentiallyEqual </td>
+          <td>(</td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inValue1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inValue2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inEpsilon</em> = <code><a class="el" href="class_n_c_1_1_dtype_info.html">DtypeInfo</a>&lt;dtype&gt;::epsilon()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>tests that 2 floating point values are "essentially equal"</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inValue1</td><td></td></tr>
+    <tr><td class="paramname">inValue2</td><td></td></tr>
+    <tr><td class="paramname">inEpsilon</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>

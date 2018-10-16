@@ -3,6 +3,7 @@
 #include<functional>
 #include<iostream>
 #include<string>
+#include<utility>
 
 #ifndef BOOST_PYTHON_STATIC_LIB
 #define BOOST_PYTHON_STATIC_LIB    
@@ -17,7 +18,7 @@
 #include "boost/python/return_internal_reference.hpp" // needed for returning references and pointers
 #include "boost/python/numpy.hpp" // needed for working with numpy 
 // i don't know why, but google said these are needed to fix a linker error i was running into for numpy. 
-#define BOOST_LIB_NAME "boost_numpy3"
+#define BOOST_LIB_NAME "boost_numpy36"
 #include "boost/config/auto_link.hpp"
 
 namespace bp = boost::python;
@@ -570,9 +571,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray std(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray stdev(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.std(inAxis));
+        return numCToBoost(self.stdev(inAxis));
     }
 
     //================================================================================
@@ -1701,9 +1702,9 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray gcdArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    dtype gcdArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(gcd(inArray1, inArray2));
+        return gcd(inArray);
     }
 
     //================================================================================
@@ -1847,9 +1848,9 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray lcmArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    dtype lcmArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(lcm(inArray1, inArray2));
+        return lcm(inArray);
     }
 
     //================================================================================
@@ -2794,7 +2795,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("shape", &NdArrayDouble::shape)
         .def("size", &NdArrayDouble::size)
         .def("sort", &NdArrayInterface::sort<double>)
-        .def("std", &NdArrayInterface::std<double>)
+        .def("stdev", &NdArrayInterface::stdev<double>)
         .def("sum", &NdArrayInterface::sum<double, double>)
         //.def("sum", &NdArrayInterface::sum<float, double>)
         .def("swapaxes", &NdArrayInterface::swapaxes<double>)
@@ -3129,7 +3130,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("nansShape", &MethodsInterface::nansShape<double>);
     bp::def("nansList", &MethodsInterface::nansList<double>);
     bp::def("nans_like", &nans_like<double>);
-    bp::def("nanstd", &nanstd<double>);
+    bp::def("nanstdev", &nanstdev<double>);
     bp::def("nansum", &nansum<double, double>);
     //bp::def("nansum", &nansum<float, double>);
     bp::def("nanvar", &nanvar<double>);
@@ -3203,7 +3204,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("squareScaler", &MethodsInterface::squareScaler<double>);
     bp::def("squareArray", &MethodsInterface::squareArray<double>);
     bp::def("stack", &MethodsInterface::stack<double>);
-    bp::def("std", &NC::std<double>);
+    bp::def("stdev", &NC::stdev<double>);
     bp::def("sum", &sum<double, double>);
     //bp::def("sum", &sum<float, double>);
     bp::def("swapaxes", &swapaxes<double>);
@@ -3634,22 +3635,22 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("push_front", &DataCubeDouble::push_front);
 
     // Polynomial.hpp
-    typedef Poly1d<double> Poly1dDouble;
-    bp::class_<Poly1dDouble>
-        ("Poly1dDouble", bp::init<>())
+    typedef Poly1d<double> Poly1d;
+    bp::class_<Poly1d>
+        ("Poly1d", bp::init<>())
         .def(bp::init<NdArray<double>, bool>())
-        .def("coefficients", &Poly1dDouble::coefficients)
-        .def("order", &Poly1dDouble::order)
-        .def("__str__", &Poly1dDouble::str)
-        .def("__repr__", &Poly1dDouble::str)
-        .def("print", &Poly1dDouble::print)
-        .def("__getitem__", &Poly1dDouble::operator())
-        .def("__add__", &Poly1dDouble::operator+)
-        .def("__iadd__", &Poly1dDouble::operator+=, bp::return_internal_reference<>())
-        .def("__sub__", &Poly1dDouble::operator-)
-        .def("__isub__", &Poly1dDouble::operator-=, bp::return_internal_reference<>())
-        .def("__mul__", &Poly1dDouble::operator*)
-        .def("__imul__", &Poly1dDouble::operator*=, bp::return_internal_reference<>())
-        .def("__pow__", &Poly1dDouble::operator^)
-        .def("__ipow__", &Poly1dDouble::operator^=, bp::return_internal_reference<>());
+        .def("coefficients", &Poly1d::coefficients)
+        .def("order", &Poly1d::order)
+        .def("__str__", &Poly1d::str)
+        .def("__repr__", &Poly1d::str)
+        .def("print", &Poly1d::print)
+        .def("__getitem__", &Poly1d::operator())
+        .def("__add__", &Poly1d::operator+)
+        .def("__iadd__", &Poly1d::operator+=, bp::return_internal_reference<>())
+        .def("__sub__", &Poly1d::operator-)
+        .def("__isub__", &Poly1d::operator-=, bp::return_internal_reference<>())
+        .def("__mul__", &Poly1d::operator*)
+        .def("__imul__", &Poly1d::operator*=, bp::return_internal_reference<>())
+        .def("__pow__", &Poly1d::operator^)
+        .def("__ipow__", &Poly1d::operator^=, bp::return_internal_reference<>());
 }

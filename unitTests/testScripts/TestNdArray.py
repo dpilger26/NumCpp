@@ -1199,35 +1199,35 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = None', 'cyan'))
+    print(colored('Testing stddev: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.round(cArray.std(NumCpp.Axis.NONE).item(), 10) == np.round(np.std(data), 10):
+    if np.round(cArray.stdev(NumCpp.Axis.NONE).item(), 10) == np.round(np.std(data), 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = Row', 'cyan'))
+    print(colored('Testing stddev: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(cArray.std(NumCpp.Axis.ROW).flatten(), 10), np.round(np.std(data, axis=0), 10)):
+    if np.array_equal(np.round(cArray.stdev(NumCpp.Axis.ROW).flatten(), 10), np.round(np.std(data, axis=0), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = Column', 'cyan'))
+    print(colored('Testing stddev: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(cArray.std(NumCpp.Axis.COL).flatten(), 10), np.round(np.std(data, axis=1), 10)):
+    if np.array_equal(np.round(cArray.stdev(NumCpp.Axis.COL).flatten(), 10), np.round(np.std(data, axis=1), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

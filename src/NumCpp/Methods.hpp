@@ -35,7 +35,7 @@
 #include"NumCpp/Types.hpp"
 
 #include"boost/filesystem.hpp"
-#include"boost/math/common_factor_rt.hpp"
+#include"boost/integer/common_factor_rt.hpp"
 #include"boost/math/special_functions/erf.hpp"
 
 #include<algorithm>
@@ -434,7 +434,7 @@ namespace NC
     dtype gcd(dtype inValue1, dtype inValue2);
 
     template<typename dtype>
-    NdArray<dtype> gcd(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+    dtype gcd(const NdArray<dtype>& inArray);
 
     template<typename dtype>
     NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis);
@@ -626,7 +626,7 @@ namespace NC
     NdArray<double> nans_like(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    NdArray<double> nanstd(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+    NdArray<double> nanstdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
@@ -830,7 +830,7 @@ namespace NC
     NdArray<dtype> stack(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::ROW);
 
     template<typename dtype>
-    NdArray<double> std(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+    NdArray<double> stdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
@@ -4152,36 +4152,25 @@ namespace NC
     dtype gcd(dtype inValue1, dtype inValue2)
     {
         static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
-        return boost::math::gcd(inValue1, inValue2);
+        return boost::integer::gcd(inValue1, inValue2);
     }
 
     //============================================================================
     // Method Description:
-    ///						Returns the element wise greatest common divisor of 
-    ///                     arrays |x1| and |x2|. 
+    ///						Returns the greatest common divisor of the values in the
+    ///                     input array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
-    /// @param      inArray1
-    /// @param      inArray2
+    ///
+    /// @param      inArray
     /// @return
     ///				NdArray<double>
     ///
     template<typename dtype>
-    NdArray<dtype> gcd(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    dtype gcd(const NdArray<dtype>& inArray)
     {
-        if (inArray1.shape() != inArray2.shape())
-        {
-            std::string errStr = "ERROR: gcd: input arrays must have the same shape.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
-        }
-
-        NdArray<dtype> returnArray(inArray1.shape());
-
-        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return gcd(inValue1, inValue2); });
-
-        return std::move(returnArray);
+        static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
+        return boost::integer::gcd_range(inArray.cbegin(), inArray.cend()).first;
     }
 
     //============================================================================
@@ -4746,36 +4735,24 @@ namespace NC
     dtype lcm(dtype inValue1, dtype inValue2)
     {
         static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
-        return boost::math::lcm(inValue1, inValue2);
+        return boost::integer::lcm(inValue1, inValue2);
     }
 
     //============================================================================
     // Method Description:
-    ///						Returns the element wise Returns the least 
-    ///                     common multiple of |x1| and |x2| 
+    ///						Returns the least common multiple of the values of the input array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
-    /// @param      inArray1
-    /// @param      inArray2
+    ///
+    /// @param      inArray
     /// @return
     ///				NdArray<double>
     ///
     template<typename dtype>
-    NdArray<dtype> lcm(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    dtype lcm(const NdArray<dtype>& inArray)
     {
-        if (inArray1.shape() != inArray2.shape())
-        {
-            std::string errStr = "ERROR: lcm: input arrays must have the same shape.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
-        }
-
-        NdArray<dtype> returnArray(inArray1.shape());
-
-        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return lcm(inValue1, inValue2); });
-
-        return std::move(returnArray);
+        static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
+        return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
 
     //============================================================================
@@ -6114,7 +6091,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> nanstd(const NdArray<dtype>& inArray, Axis inAxis)
+    NdArray<double> nanstdev(const NdArray<dtype>& inArray, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -6236,7 +6213,7 @@ namespace NC
     template<typename dtype>
     NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis)
     {
-        NdArray<double> stdValues = nanstd(inArray, inAxis);
+        NdArray<double> stdValues = nanstdev(inArray, inAxis);
         for (uint32 i = 0; i < stdValues.size(); ++i)
         {
             stdValues[i] *= stdValues[i];
@@ -7787,9 +7764,9 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> std(const NdArray<dtype>& inArray, Axis inAxis)
+    NdArray<double> stdev(const NdArray<dtype>& inArray, Axis inAxis)
     {
-        return std::move(inArray.std(inAxis));
+        return std::move(inArray.stdev(inAxis));
     }
 
     //============================================================================
