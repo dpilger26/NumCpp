@@ -7,20 +7,20 @@
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-/// software and associated documentation files(the "Software"), to deal in the Software 
-/// without restriction, including without limitation the rights to use, copy, modify, 
-/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
 /// conditions :
 ///
-/// The above copyright notice and this permission notice shall be included in all copies 
+/// The above copyright notice and this permission notice shall be included in all copies
 /// or substantial portions of the Software.
 ///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
@@ -69,7 +69,7 @@ namespace NC
 
             //============================================================================
             ///						Constructor
-            ///		
+            ///
             /// @param      inDegrees
             ///
             RA(dtype inDegrees) :
@@ -93,7 +93,7 @@ namespace NC
 
             //============================================================================
             ///						Constructor
-            ///		
+            ///
             ///	@param			inHours
             /// @param          inMinutes
             /// @param          inSeconds
@@ -164,7 +164,7 @@ namespace NC
 
             //============================================================================
             ///						Get the seconds value
-            /// 
+            ///
             /// @return     seconds
             ///
             dtype seconds() const
@@ -194,7 +194,7 @@ namespace NC
 
             //============================================================================
             ///						Equality operator
-            ///		
+            ///
             /// @param      inRhs
             ///
             /// @return     bool
@@ -206,7 +206,7 @@ namespace NC
 
             //============================================================================
             ///						Not equality operator
-            ///		
+            ///
             /// @param      inRhs
             ///
             /// @return     bool
@@ -218,7 +218,7 @@ namespace NC
 
             //============================================================================
             ///						Ostream operator
-            ///		
+            ///
             /// @param      inStream
             /// @param      inRa
             ///
@@ -258,7 +258,7 @@ namespace NC
 
             //============================================================================
             ///						Constructor
-            ///		
+            ///
             /// @param      inDegrees
             ///
             Dec(dtype inDegrees) :
@@ -285,7 +285,7 @@ namespace NC
 
             //============================================================================
             ///						Constructor
-            ///		
+            ///
             /// @param      inSign
             ///	@param      inDegrees
             /// @param      inMinutes
@@ -301,7 +301,7 @@ namespace NC
 
                 degrees_ = static_cast<dtype>(static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + static_cast<double>(seconds_) / 3600.0);
                 degrees_ *= sign_ == Sign::NEGATIVE ? -1 : 1;
-                
+
                 radians_ = static_cast<dtype>(deg2rad(degrees_));
             }
 
@@ -401,7 +401,7 @@ namespace NC
 
             //============================================================================
             ///						Equality operator
-            ///		
+            ///
             /// @param      inRhs
             ///
             /// @return     bool
@@ -413,7 +413,7 @@ namespace NC
 
             //============================================================================
             ///						Not equality operator
-            ///		
+            ///
             /// @param      inRhs
             ///
             /// @return     bool
@@ -425,7 +425,7 @@ namespace NC
 
             //============================================================================
             ///						Ostream operator
-            ///		
+            ///
             /// @param      inStream
             /// @param      inDec
             ///
@@ -468,7 +468,7 @@ namespace NC
                 dec_ = Dec<dtype>(degreesDec);
             }
 
-            //============================================================================ 
+            //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
             ///
             void polarToCartesian()
@@ -492,7 +492,7 @@ namespace NC
 
             //============================================================================
             ///						Constructor
-            ///		
+            ///
             /// @param      inRaDegrees
             /// @param      inDecDegrees
             ///
@@ -506,7 +506,7 @@ namespace NC
 
             //============================================================================
             ///						Constructor
-            ///		
+            ///
             /// @param				inRaHours
             /// @param              inRaMinutes
             /// @param              inRaSeconds
@@ -525,8 +525,8 @@ namespace NC
 
             //============================================================================
             ///						Constructor
-            ///		
-            /// @param				inRA 
+            ///
+            /// @param				inRA
             /// @param              inDec
             ///
             Coordinate(const RA<dtype>& inRA, const Dec<dtype>& inDec) :
@@ -539,8 +539,8 @@ namespace NC
 
             //============================================================================
             ///						Constructor
-            ///		
-            /// @param				inX 
+            ///
+            /// @param				inX
             /// @param              inY
             /// @param              inZ
             ///
@@ -555,7 +555,7 @@ namespace NC
 
             //============================================================================
             ///						Constructor
-            ///		
+            ///
             /// @param				inCartesianVector
             ///
             Coordinate(const NdArray<dtype> inCartesianVector)
@@ -648,9 +648,9 @@ namespace NC
                 return std::move(out);
             }
 
-            //============================================================================  
+            //============================================================================
             ///						Returns the degree seperation between the two Coordinates
-            ///		
+            ///
             /// @param      inOtherCoordinate
             ///
             /// @return     degrees
@@ -663,7 +663,7 @@ namespace NC
             //============================================================================
             ///						Returns the degree seperation between the Coordinate
             ///                     and the input vector
-            ///		
+            ///
             /// @param      inVector
             ///
             /// @return     degrees
@@ -675,7 +675,7 @@ namespace NC
 
             //============================================================================
             ///						Returns the radian seperation between the two Coordinates
-            ///		
+            ///
             /// @param      inOtherCoordinate
             ///
             /// @return     radians
@@ -688,7 +688,7 @@ namespace NC
             //============================================================================
             ///						Returns the radian seperation between the Coordinate
             ///                     and the input vector
-            ///		
+            ///
             /// @param      inVector
             ///
             /// @return     radians
@@ -729,7 +729,7 @@ namespace NC
 
             //============================================================================
             ///						Equality operator
-            ///		
+            ///
             /// @param      inRhs
             ///
             /// @return     bool
@@ -741,7 +741,7 @@ namespace NC
 
             //============================================================================
             ///						Not equality operator
-            ///		
+            ///
             /// @param      inRhs
             ///
             /// @return     bool
@@ -753,7 +753,7 @@ namespace NC
 
             //============================================================================
             ///						Ostream operator
-            ///		
+            ///
             /// @param      inStream
             /// @param      inCoord
             ///
@@ -768,7 +768,7 @@ namespace NC
 
         //============================================================================
         ///						Returns the degree seperation between the two Coordinates
-        ///		
+        ///
         /// @param				inCoordinate1
         /// @param              inCoordinate2
         ///
@@ -783,7 +783,7 @@ namespace NC
         //============================================================================
         ///						Returns the degree seperation between the Coordinate
         ///                     and the input vector
-        ///		
+        ///
         /// @param				inVector1
         /// @param              inVector2
         ///
@@ -798,7 +798,7 @@ namespace NC
 
         //============================================================================
         ///						Returns the radian seperation between the two Coordinates
-        ///		
+        ///
         /// @param				inCoordinate1
         /// @param              inCoordinate2
         ///
@@ -813,7 +813,7 @@ namespace NC
         //============================================================================
         ///						Returns the radian seperation between the Coordinate
         ///                     and the input vector
-        ///		
+        ///
         /// @param				inVector1
         /// @param              inVector2
         ///

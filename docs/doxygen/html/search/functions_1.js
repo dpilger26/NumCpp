@@ -4,6 +4,7 @@ var searchData=
   ['begin',['begin',['../class_n_c_1_1_data_cube.html#ab22d0b61632335da1541ca37688b492d',1,'NC::DataCube::begin()'],['../class_n_c_1_1_image_processing_1_1_cluster.html#a1bbb0ff3232b0aa24fb036f423f51cc0',1,'NC::ImageProcessing::Cluster::begin()'],['../class_n_c_1_1_image_processing_1_1_cluster_maker.html#a35ca874b0f157061105f735b2f995682',1,'NC::ImageProcessing::ClusterMaker::begin()'],['../class_n_c_1_1_nd_array.html#a519432b1efea5071b11627a5be6c6a0e',1,'NC::NdArray::begin()'],['../class_n_c_1_1_nd_array.html#a0779401b75d896819e0a9b5fb536e0ad',1,'NC::NdArray::begin(uint32 inRow)']]],
   ['bernoulli',['bernoulli',['../class_n_c_1_1_random.html#ac346f5cceb659aeb546ce9e44e5273a9',1,'NC::Random']]],
   ['beta',['beta',['../class_n_c_1_1_random.html#aca7fb9c74d4ffb9736250d05fd1a2369',1,'NC::Random']]],
+  ['binaryrepr',['binaryRepr',['../namespace_n_c.html#a287d983aa49b717acc87e21fd7bf33a4',1,'NC']]],
   ['bincount',['bincount',['../namespace_n_c.html#ac1f3a4a2d2b10bea4e967c7bd4af1456',1,'NC::bincount(const NdArray&lt; dtype &gt; &amp;inArray, uint16 inMinLength=0)'],['../namespace_n_c.html#a04f0a22f9e48897b73af3b6024c19505',1,'NC::bincount(const NdArray&lt; dtype &gt; &amp;inArray, const NdArray&lt; dtype &gt; &amp;inWeights, uint16 inMinLength=0)']]],
   ['binomial',['binomial',['../class_n_c_1_1_random.html#a52c209398965a8323d77c6dede74f3ed',1,'NC::Random']]],
   ['bits',['bits',['../class_n_c_1_1_dtype_info.html#a37f859671616eea12689849c7803eb12',1,'NC::DtypeInfo']]],

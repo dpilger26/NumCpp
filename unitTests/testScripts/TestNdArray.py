@@ -4,7 +4,7 @@ import os
 import getpass
 import sys
 if sys.platform == 'linux':
-    sys.path.append(r'../src/cmake-build-release')
+    sys.path.append(r'../src/build')
     import libNumCpp as NumCpp
 else:
     sys.path.append(r'../build/x64/Release')
@@ -1199,35 +1199,35 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = None', 'cyan'))
+    print(colored('Testing stddev: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.round(cArray.std(NumCpp.Axis.NONE).item(), 10) == np.round(np.std(data), 10):
+    if np.round(cArray.stdev(NumCpp.Axis.NONE).item(), 10) == np.round(np.std(data), 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = Row', 'cyan'))
+    print(colored('Testing stddev: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(cArray.std(NumCpp.Axis.ROW).flatten(), 10), np.round(np.std(data, axis=0), 10)):
+    if np.array_equal(np.round(cArray.stdev(NumCpp.Axis.ROW).flatten(), 10), np.round(np.std(data, axis=0), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = Column', 'cyan'))
+    print(colored('Testing stddev: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(cArray.std(NumCpp.Axis.COL).flatten(), 10), np.round(np.std(data, axis=1), 10)):
+    if np.array_equal(np.round(cArray.stdev(NumCpp.Axis.COL).flatten(), 10), np.round(np.std(data, axis=1), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1404,14 +1404,14 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator + scalar', 'cyan'))
+    print(colored('Testing operator + scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    randScalar = np.random.randint(1, 100, [1,]).item()
-    if np.array_equal(cArray.operatorPlusScalar(randScalar), data + randScalar):
+    randScaler = np.random.randint(1, 100, [1,]).item()
+    if np.array_equal(cArray.operatorPlusScaler(randScaler), data + randScaler):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1430,14 +1430,14 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator - scalar', 'cyan'))
+    print(colored('Testing operator - scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    randScalar = np.random.randint(1, 100, [1,]).item()
-    if np.array_equal(cArray.operatorMinusScalar(randScalar), data - randScalar):
+    randScaler = np.random.randint(1, 100, [1,]).item()
+    if np.array_equal(cArray.operatorMinusScaler(randScaler), data - randScaler):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1456,14 +1456,14 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator * scalar', 'cyan'))
+    print(colored('Testing operator * scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    randScalar = np.random.randint(1, 100, [1,]).item()
-    if np.array_equal(cArray.operatorMultiplyScalar(randScalar), data * randScalar):
+    randScaler = np.random.randint(1, 100, [1,]).item()
+    if np.array_equal(cArray.operatorMultiplyScaler(randScaler), data * randScaler):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1482,14 +1482,14 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator / scalar', 'cyan'))
+    print(colored('Testing operator / scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    randScalar = np.random.randint(1, 100, [1,]).item()
-    if np.array_equal(cArray.operatorDivideScalar(randScalar), data / randScalar):
+    randScaler = np.random.randint(1, 100, [1,]).item()
+    if np.array_equal(cArray.operatorDivideScaler(randScaler), data / randScaler):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1508,14 +1508,14 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator % scalar', 'cyan'))
+    print(colored('Testing operator % scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayInt(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    randScalar = np.random.randint(1, 100, [1,]).item()
-    if np.array_equal(cArray.operatorModulusScalar(randScalar), data % randScalar):
+    randScaler = np.random.randint(1, 100, [1,]).item()
+    if np.array_equal(cArray.operatorModulusScaler(randScaler), data % randScaler):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1534,14 +1534,14 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator | scalar', 'cyan'))
+    print(colored('Testing operator | scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayInt(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
     cArray.setArray(data)
-    randScalar = np.random.randint(1, 100, [1,]).item()
-    if np.array_equal(cArray.operatorBitwiseOrScalar(randScalar), np.bitwise_or(data, randScalar)):
+    randScaler = np.random.randint(1, 100, [1,]).item()
+    if np.array_equal(cArray.operatorBitwiseOrScaler(randScaler), np.bitwise_or(data, randScaler)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1560,14 +1560,14 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator & scalar', 'cyan'))
+    print(colored('Testing operator & scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayInt(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
     cArray.setArray(data)
-    randScalar = np.random.randint(1, 100, [1,]).item()
-    if np.array_equal(cArray.operatorBitwiseAndScalar(randScalar), np.bitwise_and(data, randScalar)):
+    randScaler = np.random.randint(1, 100, [1,]).item()
+    if np.array_equal(cArray.operatorBitwiseAndScaler(randScaler), np.bitwise_and(data, randScaler)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1586,14 +1586,14 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator ^ scalar', 'cyan'))
+    print(colored('Testing operator ^ scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayInt(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
     cArray.setArray(data)
-    randScalar = np.random.randint(1, 100, [1,]).item()
-    if np.array_equal(cArray.operatorBitwiseXorScalar(randScalar), np.bitwise_xor(data, randScalar)):
+    randScaler = np.random.randint(1, 100, [1,]).item()
+    if np.array_equal(cArray.operatorBitwiseXorScaler(randScaler), np.bitwise_xor(data, randScaler)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1623,7 +1623,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator == scalar', 'cyan'))
+    print(colored('Testing operator == scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1649,7 +1649,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator != scalar', 'cyan'))
+    print(colored('Testing operator != scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1675,7 +1675,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator < scalar', 'cyan'))
+    print(colored('Testing operator < scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1701,7 +1701,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator > scalar', 'cyan'))
+    print(colored('Testing operator > scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1727,7 +1727,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator <= scalar', 'cyan'))
+    print(colored('Testing operator <= scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1753,7 +1753,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator >= scalar', 'cyan'))
+    print(colored('Testing operator >= scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1779,31 +1779,31 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator << scalar', 'cyan'))
+    print(colored('Testing operator << scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayInt(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
     cArray.setArray(data)
-    randScalar = np.random.randint(1, 10, [1,]).item()
-    if np.array_equal(cArray.operatorBitshiftLeft(randScalar), data << randScalar):
+    randScaler = np.random.randint(1, 10, [1,]).item()
+    if np.array_equal(cArray.operatorBitshiftLeft(randScaler), data << randScaler):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator >> scalar', 'cyan'))
+    print(colored('Testing operator >> scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArrayInt(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols]).astype(np.uint32)
     cArray.setArray(data)
-    randScalar = np.random.randint(1, 10, [1,]).item()
-    if np.array_equal(cArray.operatorBitshiftRight(randScalar), data >> randScalar):
+    randScaler = np.random.randint(1, 10, [1,]).item()
+    if np.array_equal(cArray.operatorBitshiftRight(randScaler), data >> randScaler):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator post++ scalar', 'cyan'))
+    print(colored('Testing operator post++ scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1814,7 +1814,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator post-- scalar', 'cyan'))
+    print(colored('Testing operator post-- scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1825,7 +1825,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator pre++ scalar', 'cyan'))
+    print(colored('Testing operator pre++ scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -1836,7 +1836,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator pre-- scalar', 'cyan'))
+    print(colored('Testing operator pre-- scaler', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)

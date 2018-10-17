@@ -1,1 +1,1 @@
-doxygen ..\..\..\docs\doxygen\generator\Doxyfile
+doxygen Doxyfile

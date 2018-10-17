@@ -16,6 +16,7 @@ var searchData=
   ['clusterid',['clusterId',['../class_n_c_1_1_image_processing_1_1_pixel.html#a8e5eaa588b57e31e9f1137ec1492b51e',1,'NC::ImageProcessing::Pixel::clusterId()'],['../class_n_c_1_1_image_processing_1_1_cluster.html#ad85a22d72ac04212ea96fc1f2fa1e20a',1,'NC::ImageProcessing::Cluster::clusterId()']]],
   ['clustermaker',['ClusterMaker',['../class_n_c_1_1_image_processing_1_1_cluster_maker.html',1,'NC::ImageProcessing::ClusterMaker&lt; dtype &gt;'],['../class_n_c_1_1_image_processing_1_1_cluster_maker.html#aac285296085cd662a8e6e6e94df6dc3e',1,'NC::ImageProcessing::ClusterMaker::ClusterMaker()']]],
   ['clusterpixels',['clusterPixels',['../namespace_n_c_1_1_image_processing.html#a1de0ecafc6be436d9659ce148e8f98f0',1,'NC::ImageProcessing']]],
+  ['coefficients',['coefficients',['../class_n_c_1_1_poly1d.html#a023039f12b5c677bf7a7f8a260b6fe5d',1,'NC::Poly1d']]],
   ['col',['col',['../class_n_c_1_1_image_processing_1_1_pixel.html#a476ec459324a90d866b34e3db57a3304',1,'NC::ImageProcessing::Pixel::col()'],['../class_n_c_1_1_image_processing_1_1_centroid.html#ad49e29f6656df299e340fef3bd6ac073',1,'NC::ImageProcessing::Centroid::col()'],['../namespace_n_c.html#a307d8657b76e8483752e4697dfd26822aa44a065875f5d66d41474bb9bfb0ce05',1,'NC::COL()']]],
   ['colmax',['colMax',['../class_n_c_1_1_image_processing_1_1_cluster.html#a196a2a01ff84de01e0dddd1c2921c52b',1,'NC::ImageProcessing::Cluster']]],
   ['colmin',['colMin',['../class_n_c_1_1_image_processing_1_1_cluster.html#a40714eb8a72ad24278621b460059e4bb',1,'NC::ImageProcessing::Cluster']]],

@@ -1,22 +1,23 @@
 #include"NumCpp.hpp"
 
-#include<string>
+#include<functional>
 #include<iostream>
+#include<string>
+#include<utility>
 
 #ifndef BOOST_PYTHON_STATIC_LIB
-#define BOOST_PYTHON_STATIC_LIB    
+#define BOOST_PYTHON_STATIC_LIB
 #endif
 
 #ifndef BOOST_NUMPY_STATIC_LIB
-#define BOOST_NUMPY_STATIC_LIB    
+#define BOOST_NUMPY_STATIC_LIB
 #endif
 
 #include "boost/python.hpp"
 #include "boost/python/suite/indexing/vector_indexing_suite.hpp" // needed for returning a std::vector directly
 #include "boost/python/return_internal_reference.hpp" // needed for returning references and pointers
-#include "boost/python/numpy.hpp" // needed for working with numpy 
-// i don't know why, but google said these are needed to fix a linker error i was running into for numpy. 
-#define BOOST_LIB_NAME "boost_numpy3"
+#include "boost/python/numpy.hpp" // needed for working with numpy
+#define BOOST_LIB_NAME "boost_numpy36"
 #include "boost/config/auto_link.hpp"
 
 namespace bp = boost::python;
@@ -569,9 +570,9 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray std(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    np::ndarray stdev(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.std(inAxis));
+        return numCToBoost(self.stdev(inAxis));
     }
 
     //================================================================================
@@ -1700,9 +1701,9 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray gcdArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    dtype gcdArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(gcd(inArray1, inArray2));
+        return gcd(inArray);
     }
 
     //================================================================================
@@ -1846,9 +1847,9 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray lcmArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    dtype lcmArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(lcm(inArray1, inArray2));
+        return lcm(inArray);
     }
 
     //================================================================================
@@ -1914,6 +1915,16 @@ namespace MethodsInterface
     {
         return numCToBoost(log2(inArray));
     }
+
+    //================================================================================
+
+    template<typename dtype>
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inISlice, const Slice& inJSlice)
+    {
+        return NC::meshgrid<dtype>(inISlice, inJSlice);
+    }
+
+    //================================================================================
 
     template<typename dtype>
     dtype newbyteorderScaler(dtype inValue, Endian inEndianess)
@@ -2621,8 +2632,13 @@ BOOST_PYTHON_MODULE(libNumCpp)
 
     //http://www.boost.org/doc/libs/1_60_0/libs/python/doc/html/tutorial/tutorial/exposing.html
 
-    bp::class_<std::vector<double> >("double_vector")
+    bp::class_<std::vector<double> >("doubleVector")
         .def(bp::vector_indexing_suite<std::vector<double> >());
+
+    typedef std::pair<NdArray<double>, NdArray<double> > doublePair;
+    bp::class_<doublePair>("doublePair")
+        .def_readonly("first", &doublePair::first)
+        .def_readonly("second", &doublePair::second);
 
     // Constants.hpp
     bp::scope().attr("c") = Constants::c;
@@ -2631,6 +2647,11 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::scope().attr("pi") = Constants::pi;
     bp::scope().attr("nan") = Constants::nan;
     bp::scope().attr("VERSION") = Constants::VERSION;
+
+    // PythonInterface.hpp
+    bp::def("list2vector", &list2vector<int>);
+    bp::def("vector2list", &vector2list<int>);
+    bp::def("map2dict", &map2dict<std::string, int>);
 
     // DtypeInfo.hpp
     typedef DtypeInfo<uint32> DtypeInfoUint32;
@@ -2773,7 +2794,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("shape", &NdArrayDouble::shape)
         .def("size", &NdArrayDouble::size)
         .def("sort", &NdArrayInterface::sort<double>)
-        .def("std", &NdArrayInterface::std<double>)
+        .def("stdev", &NdArrayInterface::stdev<double>)
         .def("sum", &NdArrayInterface::sum<double, double>)
         //.def("sum", &NdArrayInterface::sum<float, double>)
         .def("swapaxes", &NdArrayInterface::swapaxes<double>)
@@ -2911,6 +2932,8 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("amax", &MethodsInterface::amaxArray<double>);
     bp::def("any", &MethodsInterface::anyArray<double>);
     bp::def("append", &append<double>);
+    //bp::def("applyFunction", &applyFunction<double>);
+    bp::def("applyPoly1d", &applyPoly1d<double>);
     bp::def("arange", &MethodsInterface::arangeArray<double>);
     bp::def("arccosScaler", &MethodsInterface::arccosScaler<double>);
     bp::def("arccosArray", &MethodsInterface::arccosArray<double>);
@@ -2939,6 +2962,14 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("astype", &astype<double, uint32>);
     bp::def("average", &MethodsInterface::average<double>);
     bp::def("averageWeighted", &MethodsInterface::averageWeighted<double>);
+    bp::def("binaryRepr", &binaryRepr<int8>);
+    bp::def("binaryRepr", &binaryRepr<int16>);
+    bp::def("binaryRepr", &binaryRepr<int32>);
+    bp::def("binaryRepr", &binaryRepr<int64>);
+    bp::def("binaryRepr", &binaryRepr<uint8>);
+    bp::def("binaryRepr", &binaryRepr<uint16>);
+    bp::def("binaryRepr", &binaryRepr<uint32>);
+    bp::def("binaryRepr", &binaryRepr<uint64>);
     bp::def("bincount", &MethodsInterface::bincount<uint32>);
     bp::def("bincountWeighted", &MethodsInterface::bincountWeighted<uint32>);
     bp::def("bitwise_and", &MethodsInterface::bitwise_and<uint64>);
@@ -3003,6 +3034,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("eye1D", &MethodsInterface::eye1D<double>);
     bp::def("eye2D", &MethodsInterface::eye2D<double>);
     bp::def("eyeShape", &MethodsInterface::eyeShape<double>);
+    bp::def("fillDiagonal", &fillDiagonal<double>);
     bp::def("fixScaler", &MethodsInterface::fixScaler<double>);
     bp::def("fixArray", &MethodsInterface::fixArray<double>);
     bp::def("flatten", &flatten<double>);
@@ -3020,6 +3052,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("fminArray", &MethodsInterface::fminArray<double>);
     bp::def("fmodScaler", &MethodsInterface::fmodScaler<uint32>);
     bp::def("fmodArray", &MethodsInterface::fmodArray<uint32>);
+    bp::def("frombuffer", &frombuffer<double>);
     bp::def("fromfile", &fromfile<double>);
     bp::def("fullSquare", &MethodsInterface::fullSquare<double>);
     bp::def("fullRowCol", &MethodsInterface::fullRowCol<double>);
@@ -3030,6 +3063,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("gcdArray", &MethodsInterface::gcdArray<int32>);
     bp::def("greater", &greater<double>);
     bp::def("greater_equal", &greater_equal<double>);
+    bp::def("gradient", &gradient<double>);
     bp::def("histogram", &MethodsInterface::histogram<double>);
     bp::def("hstack", &MethodsInterface::hstack<double>);
     bp::def("hypotScaler", &MethodsInterface::hypotScaler<double, double>);
@@ -3070,6 +3104,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     //bp::def("matmul", &matmul<float, double>);
     bp::def("max", &max<double>);
     bp::def("maximum", &maximum<double>);
+    bp::def("meshgrid", &MethodsInterface::meshgrid<double>);
     bp::def("mean", &mean<double>);
     bp::def("median", &median<double>);
     bp::def("min", &min<double>);
@@ -3094,7 +3129,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("nansShape", &MethodsInterface::nansShape<double>);
     bp::def("nansList", &MethodsInterface::nansList<double>);
     bp::def("nans_like", &nans_like<double>);
-    bp::def("nanstd", &nanstd<double>);
+    bp::def("nanstdev", &nanstdev<double>);
     bp::def("nansum", &nansum<double, double>);
     //bp::def("nansum", &nansum<float, double>);
     bp::def("nanvar", &nanvar<double>);
@@ -3168,7 +3203,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("squareScaler", &MethodsInterface::squareScaler<double>);
     bp::def("squareArray", &MethodsInterface::squareArray<double>);
     bp::def("stack", &MethodsInterface::stack<double>);
-    bp::def("std", &NC::std<double>);
+    bp::def("stdev", &NC::stdev<double>);
     bp::def("sum", &sum<double, double>);
     //bp::def("sum", &sum<float, double>);
     bp::def("swapaxes", &swapaxes<double>);
@@ -3597,4 +3632,24 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("pop_front", &DataCubeDouble::pop_front)
         .def("push_back", &DataCubeDouble::push_back)
         .def("push_front", &DataCubeDouble::push_front);
+
+    // Polynomial.hpp
+    typedef Poly1d<double> Poly1d;
+    bp::class_<Poly1d>
+        ("Poly1d", bp::init<>())
+        .def(bp::init<NdArray<double>, bool>())
+        .def("coefficients", &Poly1d::coefficients)
+        .def("order", &Poly1d::order)
+        .def("__str__", &Poly1d::str)
+        .def("__repr__", &Poly1d::str)
+        .def("print", &Poly1d::print)
+        .def("__getitem__", &Poly1d::operator())
+        .def("__add__", &Poly1d::operator+)
+        .def("__iadd__", &Poly1d::operator+=, bp::return_internal_reference<>())
+        .def("__sub__", &Poly1d::operator-)
+        .def("__isub__", &Poly1d::operator-=, bp::return_internal_reference<>())
+        .def("__mul__", &Poly1d::operator*)
+        .def("__imul__", &Poly1d::operator*=, bp::return_internal_reference<>())
+        .def("__pow__", &Poly1d::operator^)
+        .def("__ipow__", &Poly1d::operator^=, bp::return_internal_reference<>());
 }

@@ -7,20 +7,20 @@
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-/// software and associated documentation files(the "Software"), to deal in the Software 
-/// without restriction, including without limitation the rights to use, copy, modify, 
-/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
 /// conditions :
 ///
-/// The above copyright notice and this permission notice shall be included in all copies 
+/// The above copyright notice and this permission notice shall be included in all copies
 /// or substantial portions of the Software.
 ///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
@@ -28,8 +28,9 @@
 ///
 #pragma once
 
-#include<NumCpp/NdArray.hpp>
-#include<NumCpp/Types.hpp>
+#include"NumCpp/NdArray.hpp"
+#include"NumCpp/Types.hpp"
+#include"NumCpp/Utils.hpp"
 
 #include<cmath>
 #include<vector>
@@ -61,15 +62,16 @@ namespace NC
 
         //============================================================================
         ///						Generic check of input indices
-        ///		
+        ///
         /// @param      indices
         ///
         void checkIndicesGeneric(boost::python::tuple indices)
         {
             if (boost::python::len(indices) != numDimensions_)
             {
-                std::string errorString = "Error: Array has " + std::to_string(numDimensions_) + " dimensions, you asked for " + std::to_string(static_cast<int>(boost::python::len(indices))) + "!";
-                PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
+                std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Array has " + Utils::num2str(numDimensions_);
+                errStr += " dimensions, you asked for " + Utils::num2str(static_cast<int>(boost::python::len(indices))) + "!";
+                PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
             }
 
             for (int i = 0; i < numDimensions_; ++i)
@@ -77,15 +79,16 @@ namespace NC
                 int index = boost::python::extract<int>(indices[i]);
                 if (index > shape_[i])
                 {
-                    std::string errorString = "Error: Input index [" + std::to_string(index) + "] is larger than the size of the array [" + std::to_string(shape_[i]) + "].";
-                    PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
+                    std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Input index [" + Utils::num2str(index);
+                    errStr += "] is larger than the size of the array [" + Utils::num2str(shape_[i]) + "].";
+                    PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
                 }
             }
         }
 
         //============================================================================
         ///						Checks 1D input indices
-        ///		
+        ///
         /// @param      index
         ///
         void checkIndices1D(uint32 index)
@@ -96,7 +99,7 @@ namespace NC
 
         //============================================================================
         ///						Checks 2D input indices
-        ///		
+        ///
         /// @param      index1
         /// @param		index2
         ///
@@ -108,7 +111,7 @@ namespace NC
 
         //============================================================================
         ///						Checks 3D input indices
-        ///		
+        ///
         /// @param      index1
         /// @param      index2
         /// @param      index3
@@ -122,20 +125,22 @@ namespace NC
     public:
         //============================================================================
         ///						Constructor
-        ///		
+        ///
         /// @param      inArray: pointer to an ndarray
         ///
         BoostNdarrayHelper(boost::python::numpy::ndarray* inArray) :
             theArray_(inArray->astype(boost::python::numpy::dtype::get_builtin<double>())),
             numDimensions_(static_cast<uint8>(inArray->get_nd())),
+            shape_(numDimensions_),
+            strides_(numDimensions_),
             order_(Order::C)
 
         {
             Py_intptr_t const * shapePtr = inArray->get_shape();
             for (uint8 i = 0; i < numDimensions_; ++i)
             {
-                strides_.push_back(static_cast<uint32>(theArray_.strides(i)));
-                shape_.push_back(shapePtr[i]);
+                strides_[i] = static_cast<uint32>(theArray_.strides(i));
+                shape_[i] = shapePtr[i];
             }
 
             if (numDimensions_ > 1 && inArray->strides(0) < inArray->strides(1))
@@ -146,17 +151,28 @@ namespace NC
 
         //============================================================================
         ///						Constructor
-        ///		
+        ///
         /// @param      inShape
         ///
         BoostNdarrayHelper(boost::python::tuple inShape) :
-            theArray_(boost::python::numpy::zeros(inShape, boost::python::numpy::dtype::get_builtin<double>()))
+            theArray_(boost::python::numpy::zeros(inShape, boost::python::numpy::dtype::get_builtin<double>())),
+            numDimensions_(static_cast<uint8>(theArray_.get_nd())),
+            shape_(numDimensions_),
+            strides_(numDimensions_),
+            order_(Order::C)
         {
-            BoostNdarrayHelper newArrayHelper(&theArray_);
-            numDimensions_ = newArrayHelper.numDimensions();
-            shape_ = newArrayHelper.shape();
-            strides_ = newArrayHelper.strides();
-            order_ = newArrayHelper.order();
+            Py_intptr_t const * shapePtr = theArray_.get_shape();
+            for (uint8 i = 0; i < numDimensions_; ++i)
+            {
+                strides_[i] = static_cast<uint32>(theArray_.strides(i));
+                shape_[i] = shapePtr[i];
+            }
+
+            if (numDimensions_ > 1 && theArray_.strides(0) < theArray_.strides(1))
+            {
+                order_ = Order::F;
+            }
+
         }
 
 
@@ -238,7 +254,7 @@ namespace NC
 
         //============================================================================
         ///						Returns if the shapes of the two array helpers are equal
-        ///		
+        ///
         /// @param      otherNdarrayHelper
         ///
         /// @return     boolean
@@ -262,7 +278,7 @@ namespace NC
 
         //============================================================================
         ///						1D access operator
-        ///		
+        ///
         /// @param      index
         ///
         /// @return     double
@@ -276,7 +292,7 @@ namespace NC
 
         //============================================================================
         ///						2D access operator
-        ///		
+        ///
         /// @param      index1
         /// @param      index2
         ///
@@ -290,7 +306,7 @@ namespace NC
 
         //============================================================================
         ///						3D access operator
-        ///		
+        ///
         /// @param      index1
         /// @param      index2
         /// @param      index3
@@ -370,79 +386,4 @@ namespace NC
             printf("\n");
         }
     }; // class ndarrayHelper
-
-    //============================================================================
-    ///						Converts from a boost ndarray to a NumCpp NdArray<T>
-    ///		
-    /// @param      inArray
-    ///
-    /// @return     NdArray<T>
-    ///
-    template<typename dtype>
-    NdArray<dtype> boostToNumC(boost::python::numpy::ndarray& inArray)
-    {
-        BoostNdarrayHelper helper(&inArray);
-        if (helper.numDimensions() > 2)
-        {
-            std::string errStr = "ERROR: Can only convert 1 and 2 dimensional arrays.";
-            std::cerr << errStr << std::endl;
-            throw std::runtime_error(errStr);
-        }
-
-        NC::Shape arrayShape;
-        if (helper.numDimensions() == 1)
-        {
-            arrayShape.rows = 1;
-            arrayShape.cols = static_cast<uint32>(helper.shape()[0]);
-
-            NdArray<dtype> returnArray(arrayShape);
-            for (uint32 i = 0; i < arrayShape.size(); ++i)
-            {
-                returnArray[i] = static_cast<dtype>(helper(i));
-            }
-
-            return std::move(returnArray);
-        }
-        else
-        {
-            arrayShape.rows = static_cast<uint32>(helper.shape()[0]);
-            arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
-
-            NdArray<dtype> returnArray(arrayShape);
-            uint32 i = 0;
-            for (uint32 row = 0; row < arrayShape.rows; ++row)
-            {
-                for (uint32 col = 0; col < arrayShape.cols; ++col)
-                {
-                    returnArray[i++] = static_cast<dtype>(helper(row, col));
-                }
-            }
-
-            return std::move(returnArray);
-        }
-    }
-
-    //============================================================================
-    ///						Converts from a NumCpp NdArray<T> to a boost ndarray
-    ///		
-    /// @param      inArray
-    ///
-    /// @return     ndarray
-    ///
-    template<typename dtype>
-    boost::python::numpy::ndarray numCToBoost(const NdArray<dtype>& inArray)
-    {
-        Shape inShape = inArray.shape();
-        boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);
-        BoostNdarrayHelper newNdArrayHelper(shape);
-
-        for (uint32 row = 0; row < inShape.rows; ++row)
-        {
-            for (uint32 col = 0; col < inShape.cols; ++col)
-            {
-                newNdArrayHelper(row, col) = static_cast<double>(inArray(row, col));
-            }
-        }
-        return *(newNdArrayHelper.getArray());
-    }
 }

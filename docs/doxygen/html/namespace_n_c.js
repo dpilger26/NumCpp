@@ -8,6 +8,7 @@ var namespace_n_c =
     [ "DataCube", "class_n_c_1_1_data_cube.html", "class_n_c_1_1_data_cube" ],
     [ "DtypeInfo", "class_n_c_1_1_dtype_info.html", "class_n_c_1_1_dtype_info" ],
     [ "NdArray", "class_n_c_1_1_nd_array.html", "class_n_c_1_1_nd_array" ],
+    [ "Poly1d", "class_n_c_1_1_poly1d.html", "class_n_c_1_1_poly1d" ],
     [ "Random", "class_n_c_1_1_random.html", "class_n_c_1_1_random" ],
     [ "Shape", "class_n_c_1_1_shape.html", "class_n_c_1_1_shape" ],
     [ "Slice", "class_n_c_1_1_slice.html", "class_n_c_1_1_slice" ],

@@ -7,20 +7,20 @@
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-/// software and associated documentation files(the "Software"), to deal in the Software 
-/// without restriction, including without limitation the rights to use, copy, modify, 
-/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
 /// conditions :
 ///
-/// The above copyright notice and this permission notice shall be included in all copies 
+/// The above copyright notice and this permission notice shall be included in all copies
 /// or substantial portions of the Software.
 ///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include<NumCpp/NdArray.hpp>
-#include<NumCpp/Methods.hpp>
-#include<NumCpp/Types.hpp>
-#include<NumCpp/Utils.hpp>
+#include"NumCpp/NdArray.hpp"
+#include"NumCpp/Methods.hpp"
+#include"NumCpp/Types.hpp"
+#include"NumCpp/Utils.hpp"
 
 #include<cmath>
 #include<iostream>
@@ -174,13 +174,13 @@ namespace NC
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0);
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						samples a gaussian of mean zero and input STD sigma
-        ///		
+        ///
         /// @param				inX
         /// @param              inY
         /// @param              inSigma
-        ///              
+        ///
         /// @return             dtype
         ///
         template<typename dtype>
@@ -191,9 +191,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						extends the corner values
-        ///		
+        ///
         /// @param				inArray
         /// @param              inBorderWidth
         ///
@@ -218,9 +218,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						extends the corner values
-        ///		
+        ///
         /// @param				inArray
         /// @param              inBorderWidth
         /// @param				inFillValue
@@ -246,9 +246,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Reflects the boundaries
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundarySize
         ///
@@ -309,9 +309,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Reflects the boundaries
-        ///	
+        ///
         /// @param			inImage
         /// @param          inBoundarySize
         ///
@@ -335,9 +335,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constant boundary
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundarySize
         /// @param              inConstantValue
@@ -365,9 +365,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Constant boundary1d
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundarySize
         /// @param              inConstantValue
@@ -392,9 +392,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Nearest boundary
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundarySize
         /// @return
@@ -442,9 +442,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Nearest boundary1d
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundarySize
         /// @return
@@ -468,9 +468,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Mirror boundary
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundarySize
         /// @return
@@ -530,9 +530,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Mirror boundary1d
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundarySize
         /// @return
@@ -556,9 +556,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Wrap boundary
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundarySize
         /// @return
@@ -612,9 +612,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Wrap boundary1d
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundarySize
         /// @return
@@ -638,9 +638,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Wrap boundary
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundaryType
         /// @param              inKernalSize
@@ -691,9 +691,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Wrap boundary
-        ///		
+        ///
         /// @param				inImage
         /// @param              inBoundaryType
         /// @param              inKernalSize
@@ -744,9 +744,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						trims the boundary off to make the image back to the original size
-        ///		
+        ///
         /// @param				inImageWithBoundary
         /// @param              inSize
         /// @return
@@ -765,9 +765,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						trims the boundary off to make the image back to the original size
-        ///		
+        ///
         /// @param				inImageWithBoundary
         /// @param              inSize
         /// @return
@@ -783,9 +783,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a multidimensional complemenatry median filter.
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -804,9 +804,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculate a one-dimensional complemenatry median filter.
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -825,11 +825,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a multidimensional kernel convolution.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html#scipy.ndimage.convolve
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inWeights
@@ -873,11 +873,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a one-dimensional kernel convolution.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d
-        ///		
+        ///
         /// @param				inImageArray
         /// @param              inWeights
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -908,11 +908,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a multidimensional gaussian filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSigma: Standard deviation for Gaussian kernel
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -965,11 +965,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculate a one-dimensional gaussian filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSigma: Standard deviation for Gaussian kernel
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -1018,11 +1018,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a multidimensional maximum filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -1057,11 +1057,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a one-dimensional maximum filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter1d.html#scipy.ndimage.maximum_filter1d
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -1090,11 +1090,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a multidimensional median filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -1129,11 +1129,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a one-dimensional median filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -1162,11 +1162,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a multidimensional minimum filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -1201,11 +1201,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a one-dimensional minumum filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter1d.html#scipy.ndimage.minimum_filter1d
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -1234,7 +1234,7 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a multidimensional percentile filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter
@@ -1274,11 +1274,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a one-dimensional percentile filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
         /// @param              inPercentile: percentile [0, 100]
@@ -1308,11 +1308,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a multidimensional rank filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inRank: ([0, inSize^2 - 1])
@@ -1353,11 +1353,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a one-dimensional rank filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
         /// @param              inRank: ([0, inSize^2 - 1])
@@ -1387,11 +1387,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a multidimensional uniform filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: square size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)
@@ -1426,11 +1426,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Calculates a one-dimensional uniform filter.
         ///
         ///                     SciPy Reference: https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d
-        ///		
+        ///
         /// @param				inImageArray
         /// @param				inSize: linear size of the kernel to apply
         /// @param              inBoundaryType: boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap)

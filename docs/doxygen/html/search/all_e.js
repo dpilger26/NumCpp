@@ -20,7 +20,7 @@ var searchData=
   ['nanprod',['nanprod',['../namespace_n_c.html#af18ec8e9b6a73e8b69d7706c2edcd3a2',1,'NC']]],
   ['nans',['nans',['../class_n_c_1_1_nd_array.html#a03c88631d96b3ee224dbf3ceba701826',1,'NC::NdArray::nans()'],['../namespace_n_c.html#a6741da555804301692533f4e2673c74a',1,'NC::nans(uint32 inSquareSize)'],['../namespace_n_c.html#a8f0ceb9455c29e44193644b2e9a2ca29',1,'NC::nans(uint32 inNumRows, uint32 inNumCols)'],['../namespace_n_c.html#aceafa1f2c17ffa4592a08526eb092f4d',1,'NC::nans(const NC::Shape &amp;inShape)']]],
   ['nans_5flike',['nans_like',['../namespace_n_c.html#af73f60eb8e96dc77aa76e4c06baa8cca',1,'NC']]],
-  ['nanstd',['nanstd',['../namespace_n_c.html#a5a668c61566385e8e3ee633610516925',1,'NC']]],
+  ['nanstdev',['nanstdev',['../namespace_n_c.html#aa475e8d62a59496f680c335596c267f9',1,'NC']]],
   ['nansum',['nansum',['../namespace_n_c.html#abc0d9d60affbc507f60cc3af7ca21ad1',1,'NC']]],
   ['nanvar',['nanvar',['../namespace_n_c.html#aa4d8dab1f17793994553c21577750f95',1,'NC']]],
   ['native',['NATIVE',['../namespace_n_c.html#a4fd17afc98e4ce4216110d30e92ebb42af78504d96ba7177dc0c6784905ac8743',1,'NC']]],

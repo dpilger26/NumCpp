@@ -2,7 +2,7 @@ import numpy as np
 from termcolor import colored
 import sys
 if sys.platform == 'linux':
-    sys.path.append(r'../src/cmake-build-release')
+    sys.path.append(r'../src/build')
     import libNumCpp as NumCpp
 else:
     sys.path.append(r'../build/x64/Release')
@@ -161,7 +161,7 @@ def doTest():
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing permutation scalar', 'cyan'))
-    r = NumCpp.Random.permutationScalar(np.random.randint(1,100, [1,]).item())
+    r = NumCpp.Random.permutationScaler(np.random.randint(1,100, [1,]).item())
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing permutation array', 'cyan'))

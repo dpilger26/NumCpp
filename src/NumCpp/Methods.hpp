@@ -31,15 +31,18 @@
 #include"NumCpp/Constants.hpp"
 #include"NumCpp/DtypeInfo.hpp"
 #include"NumCpp/NdArray.hpp"
+#include"NumCpp/Polynomial.hpp"
 #include"NumCpp/Types.hpp"
 
 #include"boost/filesystem.hpp"
-#include"boost/math/common_factor_rt.hpp"
+#include"boost/integer/common_factor_rt.hpp"
 #include"boost/math/special_functions/erf.hpp"
 
 #include<algorithm>
+#include<bitset>
 #include<cmath>
 #include<fstream>
+#include<functional>
 #include<initializer_list>
 #include<iostream>
 #include<set>
@@ -80,6 +83,9 @@ namespace NC
     NdArray<bool> any(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtype>
+    NdArray<dtype> applyFunction(const NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc);
+
+    template<typename dtype>
     NdArray<dtype> append(const NdArray<dtype>& inArray, const NdArray<dtype>& inAppendValues, Axis inAxis = Axis::NONE);
 
     template<typename dtype>
@@ -87,6 +93,9 @@ namespace NC
 
     template<typename dtype>
     NdArray<dtype> arange(dtype inStop);
+
+    template<typename dtype>
+    NdArray<dtype> arange(const Slice& inSlice);
 
     template<typename dtype>
     double arccos(dtype inValue);
@@ -168,6 +177,9 @@ namespace NC
 
     template<typename dtype>
     NdArray<double> average(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
+    std::string binaryRepr(dtype inValue);
 
     template<typename dtype>
     NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0);
@@ -344,6 +356,9 @@ namespace NC
     NdArray<dtype> eye(const Shape& inShape, int32 inK = 0);
 
     template<typename dtype>
+    void fillDiagonal(NdArray<dtype>& inArray, dtype inValue);
+
+    template<typename dtype>
     dtype fix(dtype inValue);
 
     template<typename dtype>
@@ -395,7 +410,13 @@ namespace NC
     NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
+    NdArray<dtype> frombuffer(char* inBufferPtr, uint32 inNumBytes);
+
+    template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "");
+
+    template<typename dtype, typename Iter>
+    NdArray<dtype> fromiter(Iter inBegin, Iter inEnd);
 
     template<typename dtype>
     NdArray<dtype> full(uint32 inSquareSize, dtype inFillValue);
@@ -413,7 +434,10 @@ namespace NC
     dtype gcd(dtype inValue1, dtype inValue2);
 
     template<typename dtype>
-    NdArray<dtype> gcd(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+    dtype gcd(const NdArray<dtype>& inArray);
+
+    template<typename dtype>
+    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW);
 
     template<typename dtype>
     NdArray<bool> greater(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
@@ -542,6 +566,12 @@ namespace NC
     NdArray<dtype> median(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtype>
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+
+    template<typename dtype>
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inSlice1, const Slice& inSlice2);
+
+    template<typename dtype>
     NdArray<dtype> min(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtype>
@@ -596,7 +626,7 @@ namespace NC
     NdArray<double> nans_like(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    NdArray<double> nanstd(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+    NdArray<double> nanstdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
@@ -800,7 +830,7 @@ namespace NC
     NdArray<dtype> stack(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis = Axis::ROW);
 
     template<typename dtype>
-    NdArray<double> std(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+    NdArray<double> stdev(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> sum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
@@ -1077,6 +1107,37 @@ namespace NC
 
     //============================================================================
     // Method Description:
+    ///						Apply the input function element wise to the input
+    ///                     array in place.
+    ///
+    /// @param				inArray
+    /// @param				inFunc
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    void applyFunction(NdArray<dtype>& inArray, const std::function<dtype(dtype)>& inFunc)
+    {
+        std::transform(inArray.begin(), inArray.end(), inArray.begin(), inFunc);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Apply polynomial elemnt wise to the input values.
+    ///
+    /// @param				inArray
+    /// @param				inPoly
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    void applyPoly1d(NdArray<dtype>& inArray, const Poly1d<dtype>& inPoly)
+    {
+        applyFunction<dtype>(inArray, inPoly);
+    }
+
+    //============================================================================
+    // Method Description:
     ///						Append values to the end of an array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.append.html
@@ -1239,6 +1300,31 @@ namespace NC
         }
 
         return std::move(arange<dtype>(0, inStop, 1));
+    }
+
+    //============================================================================
+// Method Description:
+///						Return evenly spaced values within a given interval.
+///
+///						Values are generated within the half - open interval[start, stop)
+///						(in other words, the interval including start but excluding stop).
+///						For integer arguments the function is equivalent to the Python built - in
+///						range function, but returns an ndarray rather than a list.
+///
+///						When using a non - integer step, such as 0.1, the results will often
+///						not be consistent.It is better to use linspace for these cases.
+///
+///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arange.html
+///
+/// @param
+///				inSlice
+/// @return
+///				NdArray
+///
+    template<typename dtype>
+    NdArray<dtype> arange(const Slice& inSlice)
+    {
+        return std::move(arange<dtype>(inSlice.start, inSlice.stop, inSlice.step));
     }
 
     //============================================================================
@@ -1824,6 +1910,22 @@ namespace NC
                 return std::move(NdArray<double>(0));
             }
         }
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return the binary representation of the input number as a string.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.binary_repr.html
+    ///
+    /// @param				inValue
+    /// @return
+    ///				std::string
+    ///
+    template<typename dtype>
+    std::string binaryRepr(dtype inValue)
+    {
+        return std::bitset<NC::DtypeInfo<dtype>::bits()>(inValue).to_string();
     }
 
     //============================================================================
@@ -3184,7 +3286,7 @@ namespace NC
 
     //============================================================================
     // Method Description:
-    ///						Returns the element-wise complement of the error 
+    ///						Returns the element-wise complement of the error
     ///                     function of inValue.
     ///
     /// @param
@@ -3423,6 +3525,28 @@ namespace NC
     NdArray<dtype> eye(const Shape& inShape, int32 inK)
     {
         return std::move(eye<dtype>(inShape.rows, inShape.cols, inK));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Fill the main diagonal of the given array.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html
+    ///
+    /// @param      inArray
+    /// @param      inValue
+    ///
+    template<typename dtype>
+    void fillDiagonal(NdArray<dtype>& inArray, dtype inValue)
+    {
+        auto inShape = inArray.shape();
+        for (uint32 row = 0; row < inShape.rows; ++row)
+        {
+            if (row < inShape.cols)
+            {
+                inArray(row, row) = inValue;
+            }
+        }
     }
 
     //============================================================================
@@ -3811,6 +3935,23 @@ namespace NC
 
     //============================================================================
     // Method Description:
+    ///						Interpret a buffer as a 1-dimensional array.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.frombuffer.html
+    ///
+    /// @param				inBufferPtr
+    /// @param				inNumBytes
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> frombuffer(char* inBufferPtr, uint32 inNumBytes)
+    {
+        return std::move(NdArray<dtype>(reinterpret_cast<dtype*>(inBufferPtr), inNumBytes));
+    }
+
+    //============================================================================
+    // Method Description:
     ///						Construct an array from data in a text or binary file.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromfile.html
@@ -3903,6 +4044,28 @@ namespace NC
 
     //============================================================================
     // Method Description:
+    ///						Create a new 1-dimensional array from an iterable object.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fromiter.html
+    ///
+    /// @param				inBegin
+    /// @param				inEnd
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype, typename Iter>
+    NdArray<dtype> fromiter(Iter inBegin, Iter inEnd)
+    {
+        std::vector<dtype> values;
+        for (Iter iter = inBegin; iter != inEnd; ++iter)
+        {
+            values.push_back(*iter);
+        }
+        return std::move(NdArray<dtype>(values));
+    }
+
+    //============================================================================
+    // Method Description:
     ///						Return a new array of given shape and type, filled with inFillValue
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.full.html
@@ -3981,7 +4144,7 @@ namespace NC
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
     ///
     /// @param      inValue1
-    /// @param      inValue1
+    /// @param      inValue2
     /// @return
     ///				dtype
     ///
@@ -3989,36 +4152,123 @@ namespace NC
     dtype gcd(dtype inValue1, dtype inValue2)
     {
         static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
-        return boost::math::gcd(inValue1, inValue2);
+        return boost::integer::gcd(inValue1, inValue2);
     }
 
     //============================================================================
     // Method Description:
-    ///						Returns the element wise greatest common divisor of 
-    ///                     arrays |x1| and |x2|. 
+    ///						Returns the greatest common divisor of the values in the
+    ///                     input array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gcd.html
-    /// @param      inArray1
-    /// @param      inArray2
+    ///
+    /// @param      inArray
     /// @return
     ///				NdArray<double>
     ///
     template<typename dtype>
-    NdArray<dtype> gcd(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    dtype gcd(const NdArray<dtype>& inArray)
     {
-        if (inArray1.shape() != inArray2.shape())
+        static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
+        return boost::integer::gcd_range(inArray.cbegin(), inArray.cend()).first;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return the gradient of the array.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.gradient.html
+    ///
+    ///
+    /// @param				inArray
+    /// @param				inAxis (default ROW)
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis)
+    {
+        switch (inAxis)
         {
-            std::string errStr = "ERROR: gcd: input arrays must have the same shape.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            case Axis::ROW:
+            {
+                auto inShape = inArray.shape();
+                if (inShape.rows < 2)
+                {
+                    std::string errStr = "ERROR: gradient: input array must have more than 1 row.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
+                }
+
+                // first do the first and last rows
+                auto returnArray = NdArray<double>(inShape);
+                for (uint32 col = 0; col < inShape.cols; ++col)
+                {
+                    returnArray(0, col) = static_cast<double>(inArray(1, col)) - static_cast<double>(inArray(0, col));
+                    returnArray(-1, col) = static_cast<double>(inArray(-1, col)) - static_cast<double>(inArray(-2, col));
+                }
+
+                // then rip through the rest of the array
+                for (uint32 col = 0; col < inShape.cols; ++col)
+                {
+                    for (uint32 row = 1; row < inShape.rows - 1; ++row)
+                    {
+                        returnArray(row, col) = (static_cast<double>(inArray(row + 1, col)) - static_cast<double>(inArray(row - 1, col))) / 2.0;
+                    }
+                }
+
+                return std::move(returnArray);
+            }
+            case Axis::COL:
+            {
+                auto inShape = inArray.shape();
+                if (inShape.cols < 2)
+                {
+                    std::string errStr = "ERROR: gradient: input array must have more than 1 columns.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
+                }
+
+                // first do the first and last columns
+                auto returnArray = NdArray<double>(inShape);
+                for (uint32 row = 0; row < inShape.rows; ++row)
+                {
+                    returnArray(row, 0) = static_cast<double>(inArray(row, 1)) - static_cast<double>(inArray(row, 0));
+                    returnArray(row, -1) = static_cast<double>(inArray(row, -1)) - static_cast<double>(inArray(row, -2));
+                }
+
+                // then rip through the rest of the array
+                for (uint32 row = 0; row < inShape.rows; ++row)
+                {
+                    for (uint32 col = 1; col < inShape.cols - 1; ++col)
+                    {
+                        returnArray(row, col) = (static_cast<double>(inArray(row, col + 1)) - static_cast<double>(inArray(row, col - 1))) / 2.0;
+                    }
+                }
+
+                return std::move(returnArray);
+            }
+            default:
+            {
+                // will return the gradient of the flattened array
+                if (inArray.size() < 2)
+                {
+                    std::string errStr = "ERROR: gradient: input array must have more than 1 element.";
+                    std::cerr << errStr << std::endl;
+                    throw std::invalid_argument(errStr);
+                }
+
+                auto returnArray = NdArray<double>(1, inArray.size());
+                returnArray[0] = static_cast<double>(inArray[1]) - static_cast<double>(inArray[0]);
+                returnArray[-1] = static_cast<double>(inArray[-1]) - static_cast<double>(inArray[-2]);
+                for (uint32 i = 1; i < inArray.size() - 1; ++i)
+                {
+                    returnArray[i] = (static_cast<double>(inArray[i + 1]) - static_cast<double>(inArray[i - 1])) / 2.0;
+                }
+
+                return std::move(returnArray);
+            }
         }
-
-        NdArray<dtype> returnArray(inArray1.shape());
-
-        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return gcd(inValue1, inValue2); });
-
-        return std::move(returnArray);
     }
 
     //============================================================================
@@ -4485,36 +4735,24 @@ namespace NC
     dtype lcm(dtype inValue1, dtype inValue2)
     {
         static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
-        return boost::math::lcm(inValue1, inValue2);
+        return boost::integer::lcm(inValue1, inValue2);
     }
 
     //============================================================================
     // Method Description:
-    ///						Returns the element wise Returns the least 
-    ///                     common multiple of |x1| and |x2| 
+    ///						Returns the least common multiple of the values of the input array.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
-    /// @param      inArray1
-    /// @param      inArray2
+    ///
+    /// @param      inArray
     /// @return
     ///				NdArray<double>
     ///
     template<typename dtype>
-    NdArray<dtype> lcm(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    dtype lcm(const NdArray<dtype>& inArray)
     {
-        if (inArray1.shape() != inArray2.shape())
-        {
-            std::string errStr = "ERROR: lcm: input arrays must have the same shape.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
-        }
-
-        NdArray<dtype> returnArray(inArray1.shape());
-
-        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return lcm(inValue1, inValue2); });
-
-        return std::move(returnArray);
+        static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
+        return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
 
     //============================================================================
@@ -5099,6 +5337,70 @@ namespace NC
 
     //============================================================================
     // Method Description:
+    ///						Return coordinate matrices from coordinate vectors.
+    ///                     Make 2D coordinate arrays for vectorized evaluations of 2D scalar
+    ///                     vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
+    ///                     If input arrays are not one dimensional they will be flattened.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
+    ///
+    /// @param				inICoords
+    /// @param  			inJCoords
+    ///
+    /// @return
+    ///				std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
+    ///
+    template<typename dtype>
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const NdArray<dtype>& inICoords, const NdArray<dtype>& inJCoords)
+    {
+        uint32 numRows = inJCoords.size();
+        uint32 numCols = inICoords.size();
+        auto returnArrayI = NdArray<dtype>(numRows, numCols);
+        auto returnArrayJ = NdArray<dtype>(numRows, numCols);
+
+        // first the I array
+        for (uint32 row = 0; row < numRows; ++row)
+        {
+            for (uint32 col = 0; col < numCols; ++col)
+            {
+                returnArrayI(row, col) = inICoords[col];
+            }
+        }
+
+        // then the I array
+        for (uint32 col = 0; col < numCols; ++col)
+        {
+            for (uint32 row = 0; row < numRows; ++row)
+            {
+                returnArrayJ(row, col) = inJCoords[row];
+            }
+        }
+
+        return std::make_pair(returnArrayI, returnArrayJ);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return coordinate matrices from coordinate vectors.
+    ///                     Make 2D coordinate arrays for vectorized evaluations of 2D scalar
+    ///                     vector fields over 2D grids, given one - dimensional coordinate arrays x1, x2, ..., xn.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.meshgrid.html
+    ///
+    /// @param				inSlice1
+    /// @param  			inSlice2
+    ///
+    /// @return
+    ///				std::pair<NdArray<dtype>, NdArray<dtype> >, i and j matrices
+    ///
+    template<typename dtype>
+    std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const Slice& inSlice1, const Slice& inSlice2)
+    {
+        return std::move(meshgrid(arange<dtype>(inSlice1), arange<dtype>(inSlice2)));
+    }
+
+    //============================================================================
+    // Method Description:
     ///						Return the minimum of an array or maximum along an axis.
     ///
     /// @param				inArray
@@ -5513,7 +5815,7 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis, const std::string& inInterpMethod)
     {
-        if (inPercentile < 0 || inPercentile > 100)
+        if (inPercentile < 0.0 || inPercentile > 100.0)
         {
             std::string errStr = "ERROR: percentile: input percentile value must be of the range [0, 100].";
             std::cerr << errStr << std::endl;
@@ -5536,7 +5838,7 @@ namespace NC
         {
             case Axis::NONE:
             {
-                if (inPercentile == 0)
+                if (Utils::essentiallyEqual(inPercentile, 0.0))
                 {
                     for (uint32 i = 0; i < inArray.size(); ++i)
                     {
@@ -5548,7 +5850,7 @@ namespace NC
                     }
                     return std::move(NdArray<dtypeOut>(0));
                 }
-                else if (inPercentile == 1)
+                else if (Utils::essentiallyEqual(inPercentile, 100.0))
                 {
                     for (int32 i = static_cast<int32>(inArray.size()) - 1; i > -1; --i)
                     {
@@ -5789,7 +6091,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> nanstd(const NdArray<dtype>& inArray, Axis inAxis)
+    NdArray<double> nanstdev(const NdArray<dtype>& inArray, Axis inAxis)
     {
         switch (inAxis)
         {
@@ -5911,7 +6213,7 @@ namespace NC
     template<typename dtype>
     NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis)
     {
-        NdArray<double> stdValues = nanstd(inArray, inAxis);
+        NdArray<double> stdValues = nanstdev(inArray, inAxis);
         for (uint32 i = 0; i < stdValues.size(); ++i)
         {
             stdValues[i] *= stdValues[i];
@@ -6190,7 +6492,7 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis, const std::string& inInterpMethod)
     {
-        if (inPercentile < 0 || inPercentile > 100)
+        if (inPercentile < 0.0 || inPercentile > 100.0)
         {
             std::string errStr = "ERROR: percentile: input percentile value must be of the range [0, 100].";
             std::cerr << errStr << std::endl;
@@ -6213,12 +6515,12 @@ namespace NC
         {
             case Axis::NONE:
             {
-                if (inPercentile == 0)
+                if (Utils::essentiallyEqual(inPercentile, 0.0))
                 {
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(*inArray.cbegin()) };
                     return std::move(returnArray);
                 }
-                else if (inPercentile == 1)
+                else if (Utils::essentiallyEqual(inPercentile, 100.0))
                 {
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(*inArray.cend()) };
                     return std::move(returnArray);
@@ -7462,9 +7764,9 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> std(const NdArray<dtype>& inArray, Axis inAxis)
+    NdArray<double> stdev(const NdArray<dtype>& inArray, Axis inAxis)
     {
-        return std::move(inArray.std(inAxis));
+        return std::move(inArray.stdev(inAxis));
     }
 
     //============================================================================

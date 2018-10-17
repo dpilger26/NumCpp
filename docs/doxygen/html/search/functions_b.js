@@ -1,12 +1,13 @@
 var searchData=
 [
   ['laplace',['laplace',['../class_n_c_1_1_random.html#a0256a00d865e303be57ef335ca969450',1,'NC::Random']]],
-  ['lcm',['lcm',['../namespace_n_c.html#a17a8619e9dd2331130d54286b2028f3c',1,'NC::lcm(dtype inValue1, dtype inValue2)'],['../namespace_n_c.html#a87fe7bcc4555bbb0bdaaaf9ed1b04a9f',1,'NC::lcm(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]],
+  ['lcm',['lcm',['../namespace_n_c.html#a17a8619e9dd2331130d54286b2028f3c',1,'NC::lcm(dtype inValue1, dtype inValue2)'],['../namespace_n_c.html#ade93bc6dc9fa1824e0e30193dd8509aa',1,'NC::lcm(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)'],['../namespace_n_c.html#a5d1323cda3da97359abf1860cc04ecb6',1,'NC::lcm(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['ldexp',['ldexp',['../namespace_n_c.html#a96a17b4a710f3a844227b2d18acb0c2d',1,'NC::ldexp(dtype inValue1, uint8 inValue2)'],['../namespace_n_c.html#a4cd1bbbcacc8a8b1cd834761780fbc61',1,'NC::ldexp(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; uint8 &gt; &amp;inArray2)']]],
   ['left_5fshift',['left_shift',['../namespace_n_c.html#ac11acec8972f92fd81fbe404e645ebd7',1,'NC']]],
   ['less',['less',['../namespace_n_c.html#aeb3ed3fcded1aebd1f3fcd3045ccf114',1,'NC']]],
   ['less_5fequal',['less_equal',['../namespace_n_c.html#a9c21a0824ada021f42a31a2dbec64df2',1,'NC']]],
   ['linspace',['linspace',['../namespace_n_c.html#ac052f2f293bf884b93c1e9011166c1bf',1,'NC']]],
+  ['list2vector',['list2vector',['../namespace_n_c.html#a7135ca813cff98a6a5d086f1474a8582',1,'NC']]],
   ['load',['load',['../namespace_n_c.html#a005ff4fd9c4d3b01be77148ae0ca58fd',1,'NC']]],
   ['log',['log',['../namespace_n_c.html#a753ce047c5a9b2d714f2342f025538d0',1,'NC::log(dtype inValue)'],['../namespace_n_c.html#a55cd5f0804bbc5b3bcd7fa42b69a8570',1,'NC::log(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['log10',['log10',['../namespace_n_c.html#a9ac466cce2abdd3b31599e02bcbc428e',1,'NC::log10(dtype inValue)'],['../namespace_n_c.html#a7adcd1ce9e70af56f182bec5f053434f',1,'NC::log10(const NdArray&lt; dtype &gt; &amp;inArray)']]],

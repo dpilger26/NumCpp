@@ -4,7 +4,7 @@ import numpy as np
 from termcolor import colored
 import sys
 if sys.platform == 'linux':
-    sys.path.append(r'../src/cmake-build-release')
+    sys.path.append(r'../src/build')
     import libNumCpp as NumCpp
 else:
     sys.path.append(r'../build/x64/Release')
@@ -14,7 +14,7 @@ else:
 def doTest():
     print(colored('Testing Methods Module', 'magenta'))
 
-    print(colored('Testing abs scalar', 'cyan'))
+    print(colored('Testing abs scaler', 'cyan'))
     randValue = np.random.randint(-100, -1, [1,]).astype(np.double).item()
     if NumCpp.absScaler(randValue) == np.abs(randValue):
         print(colored('\tPASS', 'green'))
@@ -265,7 +265,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing arccos scalar', 'cyan'))
+    print(colored('Testing arccos scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumCpp.arccosScaler(value), 10) == np.round(np.arccos(value), 10):
         print(colored('\tPASS', 'green'))
@@ -283,7 +283,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing arccosh scalar', 'cyan'))
+    print(colored('Testing arccosh scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) + 1
     if np.round(NumCpp.arccoshScaler(value), 10) == np.round(np.arccosh(value), 10):
         print(colored('\tPASS', 'green'))
@@ -301,7 +301,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing arcsin scalar', 'cyan'))
+    print(colored('Testing arcsin scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumCpp.arcsinScaler(value), 10) == np.round(np.arcsin(value), 10):
         print(colored('\tPASS', 'green'))
@@ -319,7 +319,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing arcsinh scalar', 'cyan'))
+    print(colored('Testing arcsinh scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumCpp.arcsinhScaler(value), 10) == np.round(np.arcsinh(value), 10):
         print(colored('\tPASS', 'green'))
@@ -337,7 +337,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing arctan scalar', 'cyan'))
+    print(colored('Testing arctan scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumCpp.arctanScaler(value), 10) == np.round(np.arctan(value), 10):
         print(colored('\tPASS', 'green'))
@@ -355,7 +355,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing arctan2 scalar', 'cyan'))
+    print(colored('Testing arctan2 scaler', 'cyan'))
     xy = NumCpp.Random.uniformOnSphere(1, 2).getNumpyArray().flatten()
     if np.round(NumCpp.arctan2Scaler(xy[1], xy[0]), 10) == np.round(np.arctan2(xy[1], xy[0]), 10):
         print(colored('\tPASS', 'green'))
@@ -377,7 +377,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing arctanh scalar', 'cyan'))
+    print(colored('Testing arctanh scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumCpp.arctanhScaler(value), 10) == np.round(np.arctanh(value), 10):
         print(colored('\tPASS', 'green'))
@@ -522,7 +522,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing around scalar', 'cyan'))
+    print(colored('Testing around scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * np.random.randint(1, 10, [1,]).item()
     numDecimalsRound = np.random.randint(0, 10, [1,]).astype(np.uint8).item()
     if NumCpp.aroundScaler(value, numDecimalsRound) == np.round(value, numDecimalsRound):
@@ -648,6 +648,13 @@ def doTest():
     cWeights.setArray(weights)
     cArray.setArray(data)
     if np.array_equal(NumCpp.averageWeighted(cArray, cWeights, NumCpp.Axis.COL).flatten(), np.average(data, weights=weights.flatten(), axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing binary', 'cyan'))
+    value = np.random.randint(0, np.iinfo(np.uint64).max, [1,], dtype=np.uint64).item()
+    if NumCpp.binaryRepr(np.uint64(value)) == np.binary_repr(value, np.iinfo(np.uint64).bits):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -779,7 +786,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing clip scalar', 'cyan'))
+    print(colored('Testing clip scaler', 'cyan'))
     value = np.random.randint(0, 100, [1, ]).item()
     minValue = np.random.randint(0, 10, [1, ]).item()
     maxValue = np.random.randint(90, 100, [1, ]).item()
@@ -976,7 +983,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing cos scalar', 'cyan'))
+    print(colored('Testing cos scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumCpp.cosScaler(value), 10) == np.round(np.cos(value), 10):
         print(colored('\tPASS', 'green'))
@@ -994,7 +1001,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing cosh scalar', 'cyan'))
+    print(colored('Testing cosh scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumCpp.cosScaler(value), 10) == np.round(np.cos(value), 10):
         print(colored('\tPASS', 'green'))
@@ -1200,7 +1207,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing deg2rad scalar', 'cyan'))
+    print(colored('Testing deg2rad scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * 360
     if np.round(NumCpp.deg2radScaler(value), 10) == np.round(np.deg2rad(value), 10):
         print(colored('\tPASS', 'green'))
@@ -1218,7 +1225,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing degrees scalar', 'cyan'))
+    print(colored('Testing degrees scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
     if np.round(NumCpp.degreesScaler(value), 10) == np.round(np.degrees(value), 10):
         print(colored('\tPASS', 'green'))
@@ -1500,7 +1507,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing erf scalar', 'cyan'))
+    print(colored('Testing erf scaler', 'cyan'))
     value = np.random.randn(1).item()
     if np.round(NumCpp.erfScaler(value), 10) == np.round(np.erf(value), 10):
         print(colored('\tPASS', 'green'))
@@ -1518,7 +1525,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing erfc scalar', 'cyan'))
+    print(colored('Testing erfc scaler', 'cyan'))
     value = np.random.randn(1).item()
     if np.round(NumCpp.erfcScaler(value), 10) == np.round(1 - np.erf(value), 10):
         print(colored('\tPASS', 'green'))
@@ -1536,7 +1543,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing exp scalar', 'cyan'))
+    print(colored('Testing exp scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumCpp.expScaler(value), 10) == np.round(np.exp(value), 10):
         print(colored('\tPASS', 'green'))
@@ -1554,7 +1561,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing exp2 scalar', 'cyan'))
+    print(colored('Testing exp2 scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumCpp.exp2Scaler(value), 10) == np.round(np.exp2(value), 10):
         print(colored('\tPASS', 'green'))
@@ -1572,7 +1579,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing expm1 scalar', 'cyan'))
+    print(colored('Testing expm1 scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
     if np.round(NumCpp.expm1Scaler(value), 10) == np.round(np.expm1(value), 10):
         print(colored('\tPASS', 'green'))
@@ -1615,7 +1622,20 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing fix scalar', 'cyan'))
+    print(colored('Testing fillDiagonal', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols) * 100
+    cArray.setArray(data)
+    NumCpp.fillDiagonal(cArray, 666)
+    np.fill_diagonal(data, 666)
+    if np.array_equal(cArray.getNumpyArray(), data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing fix scaler', 'cyan'))
     value = np.random.randn(1).item() * 100
     if NumCpp.fixScaler(value) == np.fix(value):
         print(colored('\tPASS', 'green'))
@@ -1688,7 +1708,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing floor scalar', 'cyan'))
+    print(colored('Testing floor scaler', 'cyan'))
     value = np.random.randn(1).item() * 100
     if NumCpp.floorScaler(value) == np.floor(value):
         print(colored('\tPASS', 'green'))
@@ -1706,7 +1726,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing floor_divide scalar', 'cyan'))
+    print(colored('Testing floor_divide scaler', 'cyan'))
     value1 = np.random.randn(1).item() * 100 + 1000
     value2 = np.random.randn(1).item() * 100 + 1000
     if NumCpp.floor_divideScaler(value1, value2) == np.floor_divide(value1, value2):
@@ -1728,7 +1748,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing fmax scalar', 'cyan'))
+    print(colored('Testing fmax scaler', 'cyan'))
     value1 = np.random.randn(1).item() * 100 + 1000
     value2 = np.random.randn(1).item() * 100 + 1000
     if NumCpp.fmaxScaler(value1, value2) == np.fmax(value1, value2):
@@ -1750,7 +1770,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing fmin scalar', 'cyan'))
+    print(colored('Testing fmin scaler', 'cyan'))
     value1 = np.random.randn(1).item() * 100 + 1000
     value2 = np.random.randn(1).item() * 100 + 1000
     if NumCpp.fminScaler(value1, value2) == np.fmin(value1, value2):
@@ -1772,7 +1792,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing fmod scalar', 'cyan'))
+    print(colored('Testing fmod scaler', 'cyan'))
     value1 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000
     value2 = np.random.randint(1, 100, [1, ]).item() * 100 + 1000
     if NumCpp.fmodScaler(value1, value2) == np.fmod(value1, value2):
@@ -1873,7 +1893,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing gcd scalar', 'cyan'))
+    print(colored('Testing gcd scaler', 'cyan'))
     value1 = np.random.randint(1, 1000, [1, ]).item()
     value2 = np.random.randint(1, 1000, [1, ]).item()
     if NumCpp.gcdScaler(value1, value2) == np.gcd(value1, value2):
@@ -1882,15 +1902,44 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing gcd array', 'cyan'))
+    size = np.random.randint(20, 100, [1, ]).item()
+    cArray = NumCpp.NdArrayInt32(1, size)
+    data = np.random.randint(1, 1000, [size,])
+    cArray.setArray(data)
+    if NumCpp.gcdArray(cArray) == np.gcd.reduce(data):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing gradient: Axis::ROW', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArrayInt32(shape)
-    cArray2 = NumCpp.NdArrayInt32(shape)
-    data1 = np.random.randint(1, 1000, [shape.rows, shape.cols])
-    data2 = np.random.randint(1, 1000, [shape.rows, shape.cols])
-    cArray1.setArray(data1)
-    cArray2.setArray(data2)
-    if np.array_equal(NumCpp.gcdArray(cArray1, cArray2), np.gcd(data1, data2)):
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 1000, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumCpp.gradient(cArray, NumCpp.Axis.ROW).getNumpyArray(), np.gradient(data, axis=0)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing gradient: Axis::COL', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 1000, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumCpp.gradient(cArray, NumCpp.Axis.COL).getNumpyArray(), np.gradient(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing gradient: Axis::None', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(1, 1000, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumCpp.gradient(cArray, NumCpp.Axis.NONE).getNumpyArray().flatten(), np.gradient(data.flatten(), axis=0)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1961,7 +2010,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing hypot scalar', 'cyan'))
+    print(colored('Testing hypot scaler', 'cyan'))
     value1 = np.random.randn(1).item() * 100 + 1000
     value2 = np.random.randn(1).item() * 100 + 1000
     if NumCpp.hypotScaler(value1, value2) == np.hypot(value1, value2):
@@ -2050,7 +2099,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing isinf scalar', 'cyan'))
+    print(colored('Testing isinf scaler', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
     if NumCpp.isinfScaler(value) == np.isinf(value):
         print(colored('\tPASS', 'green'))
@@ -2069,7 +2118,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing isnan scalar', 'cyan'))
+    print(colored('Testing isnan scaler', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
     if NumCpp.isnanScaler(value) == np.isnan(value):
         print(colored('\tPASS', 'green'))
@@ -2088,7 +2137,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing lcm scalar', 'cyan'))
+    print(colored('Testing lcm scaler', 'cyan'))
     value1 = np.random.randint(1, 1000, [1, ]).item()
     value2 = np.random.randint(1, 1000, [1, ]).item()
     if NumCpp.lcmScaler(value1, value2) == np.lcm(value1, value2):
@@ -2097,20 +2146,16 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing lcm array', 'cyan'))
-    shapeInput = np.random.randint(20, 100, [2, ])
-    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    cArray1 = NumCpp.NdArrayInt32(shape)
-    cArray2 = NumCpp.NdArrayInt32(shape)
-    data1 = np.random.randint(1, 1000, [shape.rows, shape.cols])
-    data2 = np.random.randint(1, 1000, [shape.rows, shape.cols])
-    cArray1.setArray(data1)
-    cArray2.setArray(data2)
-    if np.array_equal(NumCpp.lcmArray(cArray1, cArray2), np.lcm(data1, data2)):
+    size = np.random.randint(2, 10, [1, ]).item()
+    cArray = NumCpp.NdArrayInt32(1, size)
+    data = np.random.randint(1, 100, [size, ])
+    cArray.setArray(data)
+    if NumCpp.lcmArray(cArray) == np.lcm.reduce(data):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing ldexp scalar', 'cyan'))
+    print(colored('Testing ldexp scaler', 'cyan'))
     value1 = np.random.randn(1).item() * 100
     value2 = np.random.randint(1, 20, [1,]).item()
     if np.round(NumCpp.ldexpScaler(value1, value2), 10) == np.round(np.ldexp(value1, value2), 10):
@@ -2210,7 +2255,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing log scalar', 'cyan'))
+    print(colored('Testing log scaler', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
     if np.round(NumCpp.logScaler(value), 10) == np.round(np.log(value), 10):
         print(colored('\tPASS', 'green'))
@@ -2228,7 +2273,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing log10 scalar', 'cyan'))
+    print(colored('Testing log10 scaler', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
     if np.round(NumCpp.log10Scaler(value), 10) == np.round(np.log10(value), 10):
         print(colored('\tPASS', 'green'))
@@ -2246,7 +2291,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing log1p scalar', 'cyan'))
+    print(colored('Testing log1p scaler', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
     if np.round(NumCpp.log1pScaler(value), 10) == np.round(np.log1p(value), 10):
         print(colored('\tPASS', 'green'))
@@ -2264,7 +2309,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing log2 scalar', 'cyan'))
+    print(colored('Testing log2 scaler', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
     if np.round(NumCpp.log2Scaler(value), 10) == np.round(np.log2(value), 10):
         print(colored('\tPASS', 'green'))
@@ -2468,6 +2513,25 @@ def doTest():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     if np.array_equal(NumCpp.median(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), np.median(data, axis=1)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing meshgrid', 'cyan'))
+    start = np.random.randint(0, 20, [1,]).item()
+    end = np.random.randint(30, 100, [1,]).item()
+    step = np.random.randint(1, 5, [1, ]).item()
+    dataI = np.arange(start, end, step)
+    iSlice = NumCpp.Slice(start, end, step)
+    start = np.random.randint(0, 20, [1,]).item()
+    end = np.random.randint(30, 100, [1,]).item()
+    step = np.random.randint(1, 5, [1, ]).item()
+    dataJ = np.arange(start, end, step)
+    jSlice = NumCpp.Slice(start, end, step)
+    iMesh, jMesh = np.meshgrid(dataI, dataJ)
+    meshData = NumCpp.meshgrid(iSlice, jSlice)
+    if (np.array_equal(meshData.first.getNumpyArray(), iMesh) and
+        np.array_equal(meshData.second.getNumpyArray(), jMesh)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3226,7 +3290,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing nanstd: Axis = None', 'cyan'))
+    print(colored('Testing nanstdev: Axis = None', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -3235,12 +3299,12 @@ def doTest():
     data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    if np.round(NumCpp.nanstd(cArray, NumCpp.Axis.NONE).item(), 10) == np.round(np.nanstd(data), 10):
+    if np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.NONE).item(), 10) == np.round(np.nanstd(data), 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing nanstd: Axis = Row', 'cyan'))
+    print(colored('Testing nanstdev: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -3249,13 +3313,13 @@ def doTest():
     data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.nanstd(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 10),
+    if np.array_equal(np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 10),
                       np.round(np.nanstd(data, axis=0), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing nanstd: Axis = Column', 'cyan'))
+    print(colored('Testing nanstdev: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -3264,7 +3328,7 @@ def doTest():
     data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.nanstd(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 10),
+    if np.array_equal(np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 10),
                       np.round(np.nanstd(data, axis=1), 10)):
         print(colored('\tPASS', 'green'))
     else:
@@ -3367,7 +3431,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing newbyteorder scalar', 'cyan'))
+    print(colored('Testing newbyteorder scaler', 'cyan'))
     value = np.random.randint(1, 100, [1,]).item()
     if NumCpp.newbyteorderScaler(value, NumCpp.Endian.BIG) == np.asarray([value], dtype=np.uint32).newbyteorder().item():
         print(colored('\tPASS', 'green'))
@@ -3760,7 +3824,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing power array scalar', 'cyan'))
+    print(colored('Testing power array scaler', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
@@ -3872,7 +3936,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing rad2deg scalar', 'cyan'))
+    print(colored('Testing rad2deg scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
     if np.round(NumCpp.rad2degScaler(value), 10) == np.round(np.rad2deg(value), 10):
         print(colored('\tPASS', 'green'))
@@ -3890,7 +3954,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing radians scalar', 'cyan'))
+    print(colored('Testing radians scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * 360
     if np.round(NumCpp.radiansScaler(value), 10) == np.round(np.radians(value), 10):
         print(colored('\tPASS', 'green'))
@@ -3920,7 +3984,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     # numpy and cmath remainders are calculated differently, so convert for testing purposes
-    print(colored('Testing remainder scalar', 'cyan'))
+    print(colored('Testing remainder scaler', 'cyan'))
     values = np.random.rand(2) * 100
     values = np.sort(values)
     res = NumCpp.remainderScaler(values[1].item(), values[0].item())
@@ -4001,7 +4065,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing rint scalar', 'cyan'))
+    print(colored('Testing rint scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
     if NumCpp.rintScaler(value) == np.rint(value):
         print(colored('\tPASS', 'green'))
@@ -4067,7 +4131,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing round scalar', 'cyan'))
+    print(colored('Testing round scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
     if NumCpp.roundScaler(value, 10) == np.round(value, 10):
         print(colored('\tPASS', 'green'))
@@ -4132,7 +4196,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing sign scalar', 'cyan'))
+    print(colored('Testing sign scaler', 'cyan'))
     value = np.random.randn(1).item() * 100
     if NumCpp.signScaler(value) == np.sign(value):
         print(colored('\tPASS', 'green'))
@@ -4150,7 +4214,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing signbit scalar', 'cyan'))
+    print(colored('Testing signbit scaler', 'cyan'))
     value = np.random.randn(1).item() * 100
     if NumCpp.signbitScaler(value) == np.signbit(value):
         print(colored('\tPASS', 'green'))
@@ -4168,7 +4232,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing sin scalar', 'cyan'))
+    print(colored('Testing sin scaler', 'cyan'))
     value = np.random.randn(1).item()
     if np.round(NumCpp.sinScaler(value), 10) == np.round(np.sin(value), 10):
         print(colored('\tPASS', 'green'))
@@ -4186,7 +4250,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing sinc scalar', 'cyan'))
+    print(colored('Testing sinc scaler', 'cyan'))
     value = np.random.randn(1).item()
     if np.round(NumCpp.sincScaler(value), 10) == np.round(np.sinc(value), 10):
         print(colored('\tPASS', 'green'))
@@ -4204,7 +4268,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing sinh scalar', 'cyan'))
+    print(colored('Testing sinh scaler', 'cyan'))
     value = np.random.randn(1).item()
     if np.round(NumCpp.sinhScaler(value), 10) == np.round(np.sinh(value), 10):
         print(colored('\tPASS', 'green'))
@@ -4270,7 +4334,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing sqrt scalar', 'cyan'))
+    print(colored('Testing sqrt scaler', 'cyan'))
     value = np.random.randint(1, 100, [1,]).item()
     if np.round(NumCpp.sqrtScaler(value), 10) == np.round(np.sqrt(value), 10):
         print(colored('\tPASS', 'green'))
@@ -4288,7 +4352,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing square scalar', 'cyan'))
+    print(colored('Testing square scaler', 'cyan'))
     value = np.random.randint(1, 100, [1, ]).item()
     if np.round(NumCpp.squareScaler(value), 10) == np.round(np.square(value), 10):
         print(colored('\tPASS', 'green'))
@@ -4348,35 +4412,35 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = None', 'cyan'))
+    print(colored('Testing stddev: Axis = None', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.round(NumCpp.std(cArray, NumCpp.Axis.NONE).item(), 10) == np.round(np.std(data), 10):
+    if np.round(NumCpp.stdev(cArray, NumCpp.Axis.NONE).item(), 10) == np.round(np.std(data), 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = Row', 'cyan'))
+    print(colored('Testing stddev: Axis = Row', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.std(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 10), np.round(np.std(data, axis=0), 10)):
+    if np.array_equal(np.round(NumCpp.stdev(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 10), np.round(np.std(data, axis=0), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing std: Axis = Column', 'cyan'))
+    print(colored('Testing stddev: Axis = Column', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.std(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 10), np.round(np.std(data, axis=1), 10)):
+    if np.array_equal(np.round(NumCpp.stdev(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 10), np.round(np.std(data, axis=1), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4425,7 +4489,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing tan scalar', 'cyan'))
+    print(colored('Testing tan scaler', 'cyan'))
     value = np.random.rand(1).item() * np.pi
     if np.round(NumCpp.tanScaler(value), 10) == np.round(np.tan(value), 10):
         print(colored('\tPASS', 'green'))
@@ -4443,7 +4507,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing tanh scalar', 'cyan'))
+    print(colored('Testing tanh scaler', 'cyan'))
     value = np.random.rand(1).item() * np.pi
     if np.round(NumCpp.tanhScaler(value), 10) == np.round(np.tanh(value), 10):
         print(colored('\tPASS', 'green'))
@@ -4774,7 +4838,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing trunc scalar', 'cyan'))
+    print(colored('Testing trunc scaler', 'cyan'))
     value = np.random.rand(1).item() * np.pi
     if NumCpp.truncScaler(value) == np.trunc(value):
         print(colored('\tPASS', 'green'))
@@ -4817,7 +4881,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing unwrap scalar', 'cyan'))
+    print(colored('Testing unwrap scaler', 'cyan'))
     value = np.random.randn(1).item() * 3 * np.pi
     if value < 0:
         pValue = value + 2 * np.pi

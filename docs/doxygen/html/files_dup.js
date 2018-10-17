@@ -18,7 +18,10 @@ var files_dup =
       [ "NdArray", "class_n_c_1_1_nd_array.html", "class_n_c_1_1_nd_array" ]
     ] ],
     [ "NumCpp.hpp", "_num_cpp_8hpp.html", "_num_cpp_8hpp" ],
-    [ "Polynomial.hpp", "_polynomial_8hpp.html", null ],
+    [ "Polynomial.hpp", "_polynomial_8hpp.html", [
+      [ "Poly1d", "class_n_c_1_1_poly1d.html", "class_n_c_1_1_poly1d" ]
+    ] ],
+    [ "PythonInterface.hpp", "_python_interface_8hpp.html", "_python_interface_8hpp" ],
     [ "Random.hpp", "_random_8hpp.html", "_random_8hpp" ],
     [ "Rotations.hpp", "_rotations_8hpp.html", [
       [ "DCM", "class_n_c_1_1_rotations_1_1_d_c_m.html", "class_n_c_1_1_rotations_1_1_d_c_m" ],

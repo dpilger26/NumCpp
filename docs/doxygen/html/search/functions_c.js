@@ -1,6 +1,7 @@
 var searchData=
 [
   ['makepositiveandvalidate',['makePositiveAndValidate',['../class_n_c_1_1_slice.html#a5408caf85f8641f62a1fba6bcbb4f84a',1,'NC::Slice']]],
+  ['map2dict',['map2dict',['../namespace_n_c.html#aef8f4261d97344487b9572638cd43b80',1,'NC']]],
   ['matmul',['matmul',['../namespace_n_c.html#ab249822f1043f718e1799dc8cf41f1e1',1,'NC']]],
   ['matrix_5fpower',['matrix_power',['../namespace_n_c_1_1_linalg.html#a16701ef2dcef51b5fdbb71b95e3e4131',1,'NC::Linalg']]],
   ['max',['max',['../class_n_c_1_1_dtype_info.html#a69e6ccba7816762cda4c5f5b812de271',1,'NC::DtypeInfo::max()'],['../class_n_c_1_1_nd_array.html#a27519f0580b9c5a9a752e21011d2dbd6',1,'NC::NdArray::max()'],['../namespace_n_c.html#a0cca3e189531369cc346e2ba2786959c',1,'NC::max()']]],
@@ -11,6 +12,7 @@ var searchData=
   ['median',['median',['../class_n_c_1_1_nd_array.html#a218c92c1dba11240ced14adb302880bc',1,'NC::NdArray::median()'],['../namespace_n_c.html#a7f5de06be10c31c64ab72f62a0bfd57a',1,'NC::median()']]],
   ['medianfilter',['medianFilter',['../namespace_n_c_1_1_filter.html#a35465b3b2e957355929e6ade88d6348c',1,'NC::Filter']]],
   ['medianfilter1d',['medianFilter1d',['../namespace_n_c_1_1_filter.html#a8c5cd0aadcc3a8ef33768d316fa19ffb',1,'NC::Filter']]],
+  ['meshgrid',['meshgrid',['../namespace_n_c.html#a77b414069560f8e658ae1c1e55569169',1,'NC::meshgrid(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)'],['../namespace_n_c.html#a5863045a348a07e601e6251e99f9efb3',1,'NC::meshgrid(const Slice &amp;inSlice1, const Slice &amp;inSlice2)']]],
   ['min',['min',['../class_n_c_1_1_dtype_info.html#a646f3f1684ab1b67c227005924589048',1,'NC::DtypeInfo::min()'],['../class_n_c_1_1_nd_array.html#a6b68f61a525ac71754d90f1285cb31d1',1,'NC::NdArray::min()'],['../namespace_n_c.html#ae2ff15c5f085ce8ba36fc9e63397f6e1',1,'NC::min()']]],
   ['minimum',['minimum',['../namespace_n_c.html#af853f0b2c47535120ad29516e0b4a539',1,'NC']]],
   ['minimumfilter',['minimumFilter',['../namespace_n_c_1_1_filter.html#a8b711c566c3a57091054817177c52554',1,'NC::Filter']]],

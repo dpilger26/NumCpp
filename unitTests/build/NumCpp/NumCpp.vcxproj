@@ -35,6 +35,7 @@
     <ClInclude Include="..\..\..\src\NumCpp\Methods.hpp" />
     <ClInclude Include="..\..\..\src\NumCpp\NdArray.hpp" />
     <ClInclude Include="..\..\..\src\NumCpp\Polynomial.hpp" />
+    <ClInclude Include="..\..\..\src\NumCpp\PythonInterface.hpp" />
     <ClInclude Include="..\..\..\src\NumCpp\Random.hpp" />
     <ClInclude Include="..\..\..\src\NumCpp\Rotations.hpp" />
     <ClInclude Include="..\..\..\src\NumCpp\Shape.hpp" />
@@ -73,7 +74,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -102,6 +103,7 @@
     <TargetExt>.pyd</TargetExt>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -157,8 +159,10 @@
       <AdditionalLibraryDirectories>$(PYTHON_LIBS);$(BOOST_LIBS);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>../../../docs/doxygen/generator/GenerateDoxygenDocumentation.bat</Command>
-      <Message>Generates the doxygen documentation</Message>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

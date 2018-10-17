@@ -7,20 +7,20 @@
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-/// software and associated documentation files(the "Software"), to deal in the Software 
-/// without restriction, including without limitation the rights to use, copy, modify, 
-/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
 /// conditions :
 ///
-/// The above copyright notice and this permission notice shall be included in all copies 
+/// The above copyright notice and this permission notice shall be included in all copies
 /// or substantial portions of the Software.
 ///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include"NumCpp/DtypeInfo.hpp"
 #include"NumCpp/Methods.hpp"
 #include"NumCpp/Linalg.hpp"
 #include"NumCpp/NdArray.hpp"
@@ -52,12 +53,12 @@ namespace NC
         {
         private:
             //====================================Attributes==============================
-            double		data_[4] = {0.0, 0.0, 0.0, 1.0};
+            double		data_[4] = { 0.0, 0.0, 0.0, 1.0 };
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						renormalizes the quaternion
-            ///		
+            ///
             void normalize()
             {
                 double norm = std::sqrt(Utils::sqr(data_[0]) + Utils::sqr(data_[1]) + Utils::sqr(data_[2]) + Utils::sqr(data_[3]));
@@ -69,20 +70,20 @@ namespace NC
 
         public:
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						Default Constructor, not super usefull on its own
-            ///		
+            ///
             Quaternion() = default;
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						Constructor
-            ///		
+            ///
             /// @param				inI
             /// @param				inJ
             /// @param				inK
             /// @param				inS
-            ///				
+            ///
             Quaternion(double inI, double inJ, double inK, double inS)
             {
                 double norm = std::sqrt(Utils::sqr(inI) + Utils::sqr(inJ) + Utils::sqr(inK) + Utils::sqr(inS));
@@ -93,9 +94,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						Constructor
-            ///		
+            ///
             /// @param
             ///				inArray (size = 4)
             ///
@@ -116,9 +117,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns a quaternion to rotate about the input axis by the input angle
-            ///		
+            ///
             /// @param			inAxis (x,y,z vector components)
             /// @param			inAngle (radians)
             /// @return
@@ -146,10 +147,10 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						angular velocity vector between the two quaternions. The norm
             ///						of the array is the magnitude
-            ///		
+            ///
             /// @param				inQuat1
             /// @param				inQuat2
             /// @param				inTime (seperation time)
@@ -182,10 +183,10 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						angular velocity vector between the two quaternions. The norm
             ///						of the array is the magnitude
-            ///		
+            ///
             /// @param				inQuat2
             /// @param				inTime (seperation time)
             /// @return
@@ -197,9 +198,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						quaternion conjugate
-            ///				
+            ///
             /// @return
             ///				Quaternion
             ///
@@ -209,9 +210,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns the i component
-            ///				
+            ///
             /// @return
             ///				double
             ///
@@ -221,9 +222,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						quaternion identity (0,0,0,1)
-            ///				
+            ///
             /// @return
             ///				Quaternion
             ///
@@ -233,9 +234,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						quaternion inverse
-            ///				
+            ///
             /// @return
             ///				Quaterion
             ///
@@ -246,9 +247,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns the j component
-            ///				
+            ///
             /// @return
             ///				double
             ///
@@ -258,9 +259,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns the k component
-            ///				
+            ///
             /// @return
             ///				double
             ///
@@ -270,9 +271,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						converts from a direction cosine matrix to a quaternion
-            ///		
+            ///
             /// @param
             ///				inDcm
             /// @return
@@ -348,9 +349,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						linearly interpolates between the two quaternions
-            ///		
+            ///
             /// @param				inQuat1
             /// @param				inQuat2
             /// @param				inPercent [0, 1]
@@ -359,18 +360,18 @@ namespace NC
             ///
             static Quaternion nlerp(const Quaternion& inQuat1, const Quaternion& inQuat2, double inPercent)
             {
-                if (inPercent < 0 || inPercent > 1)
+                if (inPercent < 0.0 || inPercent > 1.0)
                 {
                     std::string errStr = "ERROR: Rotations::Quaternion::nlerp: input percent must be of the range [0,1].";
                     std::cerr << errStr << std::endl;
                     throw std::invalid_argument(errStr);
                 }
 
-                if (inPercent == 0)
+                if (Utils::essentiallyEqual(inPercent, 0.0))
                 {
                     return inQuat1;
                 }
-                else if (inPercent == 1)
+                else if (Utils::essentiallyEqual(inPercent, 1.0))
                 {
                     return inQuat2;
                 }
@@ -385,9 +386,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						linearly interpolates between the two quaternions
-            ///		
+            ///
             /// @param				inQuat2
             /// @param				inPercent (0, 1)
             /// @return
@@ -399,18 +400,18 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						prints the Quaternion to the console
-            ///				
+            ///
             void print() const
             {
                 std::cout << *this;
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						rotate a vector using the quaternion
-            ///		
+            ///
             /// @param
             ///				inVector (cartesian vector with x,y,z components)
             /// @return
@@ -430,9 +431,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns the s component
-            ///		
+            ///
             /// @return
             ///				double
             ///
@@ -442,9 +443,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						spherical linear interpolates between the two quaternions
-            ///		
+            ///
             /// @param				inQuat1
             /// @param				inQuat2
             /// @param				inPercent (0, 1)
@@ -500,9 +501,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						spherical linear interpolates between the two quaternions
-            ///		
+            ///
             /// @param				inQuat2
             /// @param				inPercent (0, 1)
             /// @return
@@ -514,9 +515,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns the quaternion as a string representation
-            ///				
+            ///
             /// @return
             ///				std::string
             ///
@@ -529,9 +530,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns the direction cosine matrix
-            ///				
+            ///
             /// @return
             ///				NdArray<double>
             ///
@@ -558,9 +559,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
-            ///						returns the quaternion as an NdArray	
-            ///				
+            // Method Description:
+            ///						returns the quaternion as an NdArray
+            ///
             /// @return
             ///				NdArray<double>
             ///
@@ -571,9 +572,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns a quaternion to rotate about the x-axis by the input angle
-            ///		
+            ///
             /// @param
             ///				inAngle (radians)
             /// @return
@@ -585,11 +586,11 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns a quaternion to rotate about the y-axis by the input angle
-            ///		
+            ///
             /// @param
-            ///				inAngle (radians) 
+            ///				inAngle (radians)
             /// @return
             ///				Quaternion
             ///
@@ -599,11 +600,11 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns a quaternion to rotate about the y-axis by the input angle
-            ///		
+            ///
             /// @param
-            ///				inAngle (radians) 
+            ///				inAngle (radians)
             /// @return
             ///				Quaternion
             ///
@@ -613,9 +614,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						equality operator
-            ///		
+            ///
             /// @param
             ///				inRhs
             /// @return
@@ -623,16 +624,16 @@ namespace NC
             ///
             bool operator==(const Quaternion& inRhs) const
             {
-                return data_[0] == inRhs.data_[0] &&
-                    data_[1] == inRhs.data_[1] &&
-                    data_[2] == inRhs.data_[2] &&
-                    data_[3] == inRhs.data_[3];
+                return Utils::essentiallyEqual(data_[0], inRhs.data_[0]) &&
+                    Utils::essentiallyEqual(data_[1], inRhs.data_[1]) &&
+                    Utils::essentiallyEqual(data_[2], inRhs.data_[2]) &&
+                    Utils::essentiallyEqual(data_[3], inRhs.data_[3]);
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						equality operator
-            ///		
+            ///
             /// @param
             ///				inRhs
             /// @return
@@ -644,9 +645,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						addition operator
-            ///		
+            ///
             /// @param
             ///				inRhs
             /// @return
@@ -658,9 +659,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						addition assignment operator
-            ///		
+            ///
             /// @param
             ///				inRhs
             /// @return
@@ -678,9 +679,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						subtraction operator
-            ///		
+            ///
             /// @param
             ///				inRhs
             /// @return
@@ -692,9 +693,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						subtraction assignment operator
-            ///		
+            ///
             /// @param
             ///				inRhs
             /// @return
@@ -712,9 +713,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						multiplication operator
-            ///		
+            ///
             /// @param
             ///				inRhs
             /// @return
@@ -726,10 +727,10 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						multiplication operator, only useful for multiplying
             ///						by negative 1, all others will be renormalized back out
-            ///		
+            ///
             /// @param
             ///				inScalar
             /// @return
@@ -741,9 +742,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						multiplication operator
-            ///		
+            ///
             /// @param
             ///				inVec
             /// @return
@@ -763,9 +764,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						multiplication assignment operator
-            ///		
+            ///
             /// @param
             ///				inRhs
             /// @return
@@ -788,10 +789,10 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						multiplication operator, only useful for multiplying
             ///						by negative 1, all others will be renormalized back out
-            ///		
+            ///
             /// @param
             ///				inScalar
             /// @return
@@ -809,9 +810,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						division operator
-            ///		
+            ///
             /// @param
             ///				inRhs
             /// @return
@@ -823,9 +824,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						division assignment operator
-            ///		
+            ///
             /// @param
             ///				inRhs
             /// @return
@@ -837,9 +838,9 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						IO operator for the Quaternion class
-            ///		
+            ///
             /// @param      inOStream
             /// @param 		inQuat
             /// @return
@@ -859,10 +860,10 @@ namespace NC
         {
         public:
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns a direction cosine matrix that rotates about
             ///						the input axis by the input angle
-            ///		
+            ///
             /// @param				inArray (cartesian vector with x,y,z)
             /// @param				inAngle (in radians)
             /// @return
@@ -881,10 +882,10 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns whether the input array is a direction cosine
             ///						matrix
-            ///		
+            ///
             /// @param
             ///				inArray
             /// @return
@@ -903,10 +904,10 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns a direction cosine matrix that rotates about
             ///						the x axis by the input angle
-            ///		
+            ///
             /// @param
             ///				inAngle (in radians)
             /// @return
@@ -918,10 +919,10 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns a direction cosine matrix that rotates about
             ///						the x axis by the input angle
-            ///		
+            ///
             /// @param
             ///				inAngle (in radians)
             /// @return
@@ -933,10 +934,10 @@ namespace NC
             }
 
             //============================================================================
-            // Method Description: 
+            // Method Description:
             ///						returns a direction cosine matrix that rotates about
             ///						the x axis by the input angle
-            ///		
+            ///
             /// @param
             ///				inAngle (in radians)
             /// @return
