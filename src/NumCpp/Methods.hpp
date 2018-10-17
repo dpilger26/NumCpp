@@ -437,7 +437,7 @@ namespace NC
     dtype gcd(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis);
+    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW);
 
     template<typename dtype>
     NdArray<bool> greater(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
@@ -4186,7 +4186,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
+    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis)
     {
         switch (inAxis)
         {

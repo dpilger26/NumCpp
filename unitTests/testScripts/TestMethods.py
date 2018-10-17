@@ -4,7 +4,7 @@ import numpy as np
 from termcolor import colored
 import sys
 if sys.platform == 'linux':
-    sys.path.append(r'../src/cmake-build-release')
+    sys.path.append(r'../src/build')
     import libNumCpp as NumCpp
 else:
     sys.path.append(r'../build/x64/Release')
@@ -2146,9 +2146,9 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing lcm array', 'cyan'))
-    size = np.random.randint(20, 100, [1, ]).item()
+    size = np.random.randint(2, 10, [1, ]).item()
     cArray = NumCpp.NdArrayInt32(1, size)
-    data = np.random.randint(1, 1000, [size, ])
+    data = np.random.randint(1, 100, [size, ])
     cArray.setArray(data)
     if NumCpp.lcmArray(cArray) == np.lcm.reduce(data):
         print(colored('\tPASS', 'green'))
