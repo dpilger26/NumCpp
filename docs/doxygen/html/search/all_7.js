@@ -13,7 +13,7 @@ var searchData=
   ['getarrayasmatrix',['getArrayAsMatrix',['../class_n_c_1_1_boost_ndarray_helper.html#a364623d5469be0e2ef832904afadfaa8',1,'NC::BoostNdarrayHelper']]],
   ['getbyindices',['getByIndices',['../class_n_c_1_1_nd_array.html#a31845e529ef5de6eca164ad7d23bc67e',1,'NC::NdArray']]],
   ['getbymask',['getByMask',['../class_n_c_1_1_nd_array.html#a2aa4ba385432ab2488ddd1d2e41168bb',1,'NC::NdArray']]],
-  ['gradient',['gradient',['../namespace_n_c.html#ac28e9441fa563223ff533e5a14e731b3',1,'NC']]],
+  ['gradient',['gradient',['../namespace_n_c.html#a75e25e585b3df44296bf9a27d0e54574',1,'NC']]],
   ['greater',['greater',['../namespace_n_c.html#a81ccf5c5d9ee4dd2b5c86806b9a4a064',1,'NC']]],
   ['greater_5fequal',['greater_equal',['../namespace_n_c.html#a93a1ae0a66fbf2d7f9d8b2c0b81d646a',1,'NC']]]
 ];

@@ -131,7 +131,7 @@ var _methods_8hpp =
     [ "full_like", "_methods_8hpp.html#a6c6c3bf46d326358d64fe3c8a55ea492", null ],
     [ "gcd", "_methods_8hpp.html#ac16fa41addd7bb0a54c72f2537e7f8b4", null ],
     [ "gcd", "_methods_8hpp.html#a8e2fbb83ddcaff77e58d4800aca494cc", null ],
-    [ "gradient", "_methods_8hpp.html#ac28e9441fa563223ff533e5a14e731b3", null ],
+    [ "gradient", "_methods_8hpp.html#a75e25e585b3df44296bf9a27d0e54574", null ],
     [ "greater", "_methods_8hpp.html#a81ccf5c5d9ee4dd2b5c86806b9a4a064", null ],
     [ "greater_equal", "_methods_8hpp.html#a93a1ae0a66fbf2d7f9d8b2c0b81d646a", null ],
     [ "histogram", "_methods_8hpp.html#af1fb98ab4741ec4925e145bb5170f732", null ],
