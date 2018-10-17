@@ -6,17 +6,17 @@
 #include<utility>
 
 #ifndef BOOST_PYTHON_STATIC_LIB
-#define BOOST_PYTHON_STATIC_LIB    
+#define BOOST_PYTHON_STATIC_LIB
 #endif
 
 #ifndef BOOST_NUMPY_STATIC_LIB
-#define BOOST_NUMPY_STATIC_LIB    
+#define BOOST_NUMPY_STATIC_LIB
 #endif
 
 #include "boost/python.hpp"
 #include "boost/python/suite/indexing/vector_indexing_suite.hpp" // needed for returning a std::vector directly
 #include "boost/python/return_internal_reference.hpp" // needed for returning references and pointers
-#include "boost/python/numpy.hpp" // needed for working with numpy 
+#include "boost/python/numpy.hpp" // needed for working with numpy
 #define BOOST_LIB_NAME "boost_numpy36"
 #include "boost/config/auto_link.hpp"
 

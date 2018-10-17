@@ -7,20 +7,20 @@
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-/// software and associated documentation files(the "Software"), to deal in the Software 
-/// without restriction, including without limitation the rights to use, copy, modify, 
-/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
 /// conditions :
 ///
-/// The above copyright notice and this permission notice shall be included in all copies 
+/// The above copyright notice and this permission notice shall be included in all copies
 /// or substantial portions of the Software.
 ///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
@@ -53,10 +53,10 @@ namespace NC
     {
     public:
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
-        ///						random samples from the “bernoulli” distribution.
-        ///		
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
+        ///						random samples from the ï¿½bernoulliï¿½ distribution.
+        ///
         /// @param				inShape
         /// @param				inP (probability of success [0, 1])
         /// @return
@@ -83,12 +83,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
-        ///						random samples from the “beta” distribution.
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
+        ///						random samples from the ï¿½betaï¿½ distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
-        ///		
+        ///
         /// @param				inShape
         /// @param				inAlpha
         /// @param				inBeta
@@ -123,12 +123,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
-        ///						random samples from the “binomial” distribution.
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
+        ///						random samples from the ï¿½binomialï¿½ distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.binomial.html#numpy.random.binomial
-        ///		
+        ///
         /// @param				inShape
         /// @param				inN (number of trials)
         /// @param				inP (probablity of success [0, 1])
@@ -166,12 +166,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
-        ///						random samples from the “chi square” distribution.
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
+        ///						random samples from the ï¿½chi squareï¿½ distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.chisquare.html#numpy.random.chisquare
-        ///		
+        ///
         /// @param				inShape
         /// @param				inDof (independent random variables)
         /// @return
@@ -198,9 +198,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Chooses a random sample from an input array.
-        ///		
+        ///
         /// @param      inArray
         /// @return
         ///				NdArray
@@ -212,10 +212,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Chooses inNum random samples from an input array. Samples
         ///                     are in no way guarunteed to be unique.
-        ///		
+        ///
         /// @param      inArray
         /// @param      inNum (default 0)
         /// @return
@@ -234,10 +234,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "cauchy" distrubution.
-        ///		
+        ///
         /// @param              inShape
         /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
         /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
@@ -265,13 +265,13 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "discrete" distrubution.  It produces
-        ///						integers in the range [0, n) with the probability of 
-        ///						producing each value is specified by the parameters 
+        ///						integers in the range [0, n) with the probability of
+        ///						producing each value is specified by the parameters
         ///						of the distribution.
-        ///		
+        ///
         /// @param      inShape
         ///	@param		inWeights
         /// @return
@@ -294,12 +294,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "exponential" distrubution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.exponential.html#numpy.random.exponential
-        ///		
+        ///
         /// @param				inShape
         /// @param				inScaleValue (default 1)
         /// @return
@@ -319,10 +319,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "extreme value" distrubution.
-        ///		
+        ///
         /// @param				inShape
         /// @param				inA (default 1)
         /// @param				inB (default 1)
@@ -357,12 +357,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "F" distrubution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.f.html#numpy.random.f
-        ///		
+        ///
         /// @param				inShape
         /// @param				inDofN: Degrees of freedom in numerator. Should be greater than zero.
         /// @param				inDofD: Degrees of freedom in denominator. Should be greater than zero.
@@ -397,12 +397,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "gamma" distrubution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.gamma.html#numpy.random.gamma
-        ///		
+        ///
         /// @param				inShape
         /// @param			    inGammaShape
         /// @param				inScaleValue (default 1)
@@ -437,12 +437,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "geometric" distrubution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.geometric.html#numpy.random.geometric
-        ///		
+        ///
         /// @param				inShape
         /// @param				inP (probablity of success [0, 1])
         /// @return
@@ -472,12 +472,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "laplace" distrubution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.laplace.html#numpy.random.laplace
-        ///		
+        ///
         /// @param              inShape
         /// @param				inLoc: (The position, mu, of the distribution peak. Default is 0)
         /// @param				inScale: (float optional the exponential decay. Default is 1)
@@ -498,12 +498,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "lognormal" distrubution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.lognormal.html#numpy.random.lognormal
-        ///		
+        ///
         /// @param              inShape
         /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
         /// @param				inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
@@ -531,12 +531,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
-        ///						random samples from the “negative Binomial” distribution.
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
+        ///						random samples from the ï¿½negative Binomialï¿½ distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
-        ///		
+        ///
         /// @param				inShape
         /// @param				inN: number of trials
         /// @param				inP: probablity of success [0, 1]
@@ -574,12 +574,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "non central chi squared" distrubution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.noncentral_chisquare.html#numpy.random.noncentral_chisquare
-        ///		
+        ///
         /// @param				inShape
         /// @param				inK (default 1)
         /// @param				inLambda (default 1)
@@ -614,12 +614,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a "normal" distrubution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.normal.html#numpy.random.normal
-        ///		
+        ///
         /// @param              inShape
         /// @param				inMean: Mean value of the underlying normal distribution. Default is 0.
         /// @param  			inSigma: Standard deviation of the underlying normal distribution. Should be greater than zero. Default is 1.
@@ -647,11 +647,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Randomly permute a sequence, or return a permuted range.
-        ///						If x is an integer, randomly permute np.arange(x). 
+        ///						If x is an integer, randomly permute np.arange(x).
         ///						If x is an array, make a copy and shuffle the elements randomly.
-        ///		
+        ///
         /// @param
         ///				inValue
         /// @return
@@ -665,11 +665,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Randomly permute a sequence, or return a permuted range.
-        ///						If x is an integer, randomly permute np.arange(x). 
+        ///						If x is an integer, randomly permute np.arange(x).
         ///						If x is an array, make a copy and shuffle the elements randomly.
-        ///		
+        ///
         /// @param
         ///				inArray
         /// @return
@@ -683,12 +683,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
-        ///						random samples from the “poisson” distribution.
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
+        ///						random samples from the ï¿½poissonï¿½ distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
-        ///		
+        ///
         /// @param				inShape
         /// @param				inMean (default 1)
         /// @return
@@ -715,12 +715,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from a uniform distribution over [0, 1).
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.rand.html#numpy.random.rand
-        ///		
+        ///
         /// @param
         ///				inShape
         /// @return
@@ -740,12 +740,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Return random floats from low (inclusive) to high (exclusive), 
+        // Method Description:
+        ///						Return random floats from low (inclusive) to high (exclusive),
         ///						with the given shape
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf
-        ///		
+        ///
         /// @param				inShape
         /// @param  			inLow
         /// @param				inHigh
@@ -777,12 +777,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Return random integers from low (inclusive) to high (exclusive), 
+        // Method Description:
+        ///						Return random integers from low (inclusive) to high (exclusive),
         ///						with the given shape
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
-        ///		
+        ///
         /// @param				inShape
         /// @param				inLow
         /// @param				inHigh
@@ -817,12 +817,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
-        ///						random samples from the “standard normal” distribution.
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
+        ///						random samples from the ï¿½standard normalï¿½ distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn
-        ///		
+        ///
         /// @param
         ///				inShape
         /// @return
@@ -842,11 +842,11 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Seeds the random number generator_
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
-        ///		
+        ///
         /// @param
         ///				inSeed
         ///
@@ -856,9 +856,9 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Modify a sequence in-place by shuffling its contents.
-        ///		
+        ///
         /// @param
         ///				inArray
         ///
@@ -868,13 +868,13 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
-        ///						random samples from a "standard normal" distrubution with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
+        ///						random samples from a "standard normal" distrubution with
         ///						mean = 0 and std = 1
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_normal.html#numpy.random.standard_normal
-        ///		
+        ///
         /// @param
         ///				inShape
         /// @return
@@ -886,12 +886,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
-        ///						random samples from the “student-T” distribution.
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
+        ///						random samples from the ï¿½student-Tï¿½ distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
-        ///		
+        ///
         /// @param				inShape
         /// @param				inDof independent random variables
         /// @return
@@ -918,12 +918,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
-        ///						random samples from the “triangle” distribution.
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
+        ///						random samples from the ï¿½triangleï¿½ distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.triangular.html#numpy.random.triangular
-        ///		
+        ///
         /// @param				inShape
         /// @param				inA
         /// @param				inB
@@ -975,14 +975,14 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Draw samples from a uniform distribution.
         ///
-        ///						Samples are uniformly distributed over the half - 
+        ///						Samples are uniformly distributed over the half -
         ///						open interval[low, high) (includes low, but excludes high)
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.uniform.html#numpy.random.uniform
-        ///		
+        ///
         /// @param				inShape
         /// @param				inLow
         /// @param				inHigh
@@ -995,10 +995,10 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
+        // Method Description:
         ///						Such a distribution produces random numbers uniformly
         ///						distributed on the unit sphere of arbitrary dimension dim.
-        ///		
+        ///
         /// @param				inNumPoints
         /// @param				inDims: dimension of the sphere (default 2)
         /// @return
@@ -1029,12 +1029,12 @@ namespace NC
         }
 
         //============================================================================
-        // Method Description: 
-        ///						Create an array of the given shape and populate it with 
+        // Method Description:
+        ///						Create an array of the given shape and populate it with
         ///						random samples from the "weibull" distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.weibull.html#numpy.random.weibull
-        ///		
+        ///
         /// @param				inShape
         /// @param				inA (default 1)
         /// @param				inB (default 1)

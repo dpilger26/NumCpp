@@ -7,20 +7,20 @@
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-/// software and associated documentation files(the "Software"), to deal in the Software 
-/// without restriction, including without limitation the rights to use, copy, modify, 
-/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
 /// conditions :
 ///
-/// The above copyright notice and this permission notice shall be included in all copies 
+/// The above copyright notice and this permission notice shall be included in all copies
 /// or substantial portions of the Software.
 ///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
@@ -44,7 +44,7 @@ namespace NC
 {
     //============================================================================
     ///						Converts from a boost ndarray to a NumCpp NdArray<T>
-    ///		
+    ///
     /// @param      inArray
     ///
     /// @return     NdArray<T>
@@ -95,7 +95,7 @@ namespace NC
 
     //============================================================================
     ///						Converts from a NumCpp NdArray<T> to a boost ndarray
-    ///		
+    ///
     /// @param      inArray
     ///
     /// @return     ndarray
@@ -119,7 +119,7 @@ namespace NC
 
     //============================================================================
     ///						converts a boost python list to a std::vector
-    ///		
+    ///
     /// @param      inList
     ///
     /// @return     std::vector<T>
@@ -131,8 +131,8 @@ namespace NC
     }
 
     //============================================================================
-    ///						converts a std::vector to a boost python list 
-    ///		
+    ///						converts a std::vector to a boost python list
+    ///
     /// @param      inVector
     ///
     /// @return     boost::python::list
@@ -150,14 +150,14 @@ namespace NC
     }
 
     //============================================================================
-    ///						converts a std::map in to a boost python dictionary 
-    ///		
+    ///						converts a std::map in to a boost python dictionary
+    ///
     /// @param      inMap
     ///
     /// @return     boost::python::dict
     ///
     template <class Key, class Value>
-    boost::python::dict map2dict(const std::map<Key, Value>& inMap) 
+    boost::python::dict map2dict(const std::map<Key, Value>& inMap)
     {
         boost::python::dict dictionary;
         for (auto& keyValue : inMap)

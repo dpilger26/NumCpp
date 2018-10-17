@@ -3286,7 +3286,7 @@ namespace NC
 
     //============================================================================
     // Method Description:
-    ///						Returns the element-wise complement of the error 
+    ///						Returns the element-wise complement of the error
     ///                     function of inValue.
     ///
     /// @param
@@ -3949,7 +3949,7 @@ namespace NC
     {
         return std::move(NdArray<dtype>(reinterpret_cast<dtype*>(inBufferPtr), inNumBytes));
     }
-       
+
     //============================================================================
     // Method Description:
     ///						Construct an array from data in a text or binary file.
@@ -4216,7 +4216,7 @@ namespace NC
                         returnArray(row, col) = (static_cast<double>(inArray(row + 1, col)) - static_cast<double>(inArray(row - 1, col))) / 2.0;
                     }
                 }
-               
+
                 return std::move(returnArray);
             }
             case Axis::COL:

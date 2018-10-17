@@ -7,20 +7,20 @@
 /// Copyright 2018 David Pilger
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy of this
-/// software and associated documentation files(the "Software"), to deal in the Software 
-/// without restriction, including without limitation the rights to use, copy, modify, 
-/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
-/// permit persons to whom the Software is furnished to do so, subject to the following 
+/// software and associated documentation files(the "Software"), to deal in the Software
+/// without restriction, including without limitation the rights to use, copy, modify,
+/// merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+/// permit persons to whom the Software is furnished to do so, subject to the following
 /// conditions :
 ///
-/// The above copyright notice and this permission notice shall be included in all copies 
+/// The above copyright notice and this permission notice shall be included in all copies
 /// or substantial portions of the Software.
 ///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+/// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+/// PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+/// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+/// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
@@ -62,7 +62,7 @@ namespace NC
 
         //============================================================================
         ///						Generic check of input indices
-        ///		
+        ///
         /// @param      indices
         ///
         void checkIndicesGeneric(boost::python::tuple indices)
@@ -88,7 +88,7 @@ namespace NC
 
         //============================================================================
         ///						Checks 1D input indices
-        ///		
+        ///
         /// @param      index
         ///
         void checkIndices1D(uint32 index)
@@ -99,7 +99,7 @@ namespace NC
 
         //============================================================================
         ///						Checks 2D input indices
-        ///		
+        ///
         /// @param      index1
         /// @param		index2
         ///
@@ -111,7 +111,7 @@ namespace NC
 
         //============================================================================
         ///						Checks 3D input indices
-        ///		
+        ///
         /// @param      index1
         /// @param      index2
         /// @param      index3
@@ -125,7 +125,7 @@ namespace NC
     public:
         //============================================================================
         ///						Constructor
-        ///		
+        ///
         /// @param      inArray: pointer to an ndarray
         ///
         BoostNdarrayHelper(boost::python::numpy::ndarray* inArray) :
@@ -151,7 +151,7 @@ namespace NC
 
         //============================================================================
         ///						Constructor
-        ///		
+        ///
         /// @param      inShape
         ///
         BoostNdarrayHelper(boost::python::tuple inShape) :
@@ -254,7 +254,7 @@ namespace NC
 
         //============================================================================
         ///						Returns if the shapes of the two array helpers are equal
-        ///		
+        ///
         /// @param      otherNdarrayHelper
         ///
         /// @return     boolean
@@ -278,7 +278,7 @@ namespace NC
 
         //============================================================================
         ///						1D access operator
-        ///		
+        ///
         /// @param      index
         ///
         /// @return     double
@@ -292,7 +292,7 @@ namespace NC
 
         //============================================================================
         ///						2D access operator
-        ///		
+        ///
         /// @param      index1
         /// @param      index2
         ///
@@ -306,7 +306,7 @@ namespace NC
 
         //============================================================================
         ///						3D access operator
-        ///		
+        ///
         /// @param      index1
         /// @param      index2
         /// @param      index3
