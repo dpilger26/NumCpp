@@ -2508,7 +2508,7 @@ namespace NC
         {
             case Axis::NONE:
             {
-                NdArray<uint32> count = { inArray.nonzero().size() };
+                NdArray<uint32> count = { inArray.size() - static_cast<uint32>(std::count(inArray.cbegin(), inArray.cend(), static_cast<dtype>(0)))};
                 return count;
             }
             case Axis::COL:
@@ -2516,35 +2516,23 @@ namespace NC
                 Shape inShape = inArray.shape();
 
                 NdArray<uint32> returnArray(1, inShape.rows);
-                returnArray.zeros();
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    for (uint32 col = 0; col < inShape.cols; ++col)
-                    {
-                        if (inArray(row, col) != static_cast<dtype>(0))
-                        {
-                            ++returnArray(0, row);
-                        }
-                    }
+                    returnArray(0, row) = inShape.cols - 
+                        static_cast<uint32>(std::count(inArray.cbegin(row), inArray.cend(row), static_cast<dtype>(0)));
                 }
 
                 return std::move(returnArray);
             }
             case Axis::ROW:
             {
-                Shape inShape = inArray.shape();
-
-                NdArray<uint32> returnArray(1, inShape.cols);
-                returnArray.zeros();
-                for (uint32 col = 0; col < inShape.cols; ++col)
+                NdArray<dtype> inArrayTranspose = inArray.transpose();
+                Shape inShapeTransposed = inArrayTranspose.shape();
+                NdArray<uint32> returnArray(1, inShapeTransposed.rows);
+                for (uint32 row = 0; row < inShapeTransposed.rows; ++row)
                 {
-                    for (uint32 row = 0; row < inShape.rows; ++row)
-                    {
-                        if (inArray(row, col) != static_cast<dtype>(0))
-                        {
-                            ++returnArray(0, col);
-                        }
-                    }
+                    returnArray(0, row) = inShapeTransposed.cols -
+                        static_cast<uint32>(std::count(inArrayTranspose.cbegin(row), inArrayTranspose.cend(row), static_cast<dtype>(0)));
                 }
 
                 return std::move(returnArray);
