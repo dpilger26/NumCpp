@@ -339,6 +339,18 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing column', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    colIdx = np.random.randint(0, shape.cols, [1,]).item()
+    if np.array_equal(cArray.column(colIdx).getNumpyArray().flatten(), data[:, colIdx].flatten()):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing contains: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -775,7 +787,7 @@ def doTest():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    data = np.random.randint(0, 10, [shape.rows, shape.cols])
     cArray.setArray(data)
     if np.array_equal(cArray.nonzero(), data.flatten().nonzero()):
         print(colored('\tPASS', 'green'))
@@ -1126,6 +1138,18 @@ def doTest():
     cArray.setArray(data)
     res = cArray.resizeSlow(shape2)
     if cArray.shape().rows == shape2.rows and cArray.shape().cols == shape2.cols and not np.all(res == 0):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    rowIdx = np.random.randint(0, shape.rows, [1,]).item()
+    if np.array_equal(cArray.row(rowIdx).getNumpyArray().flatten(), data[rowIdx, :].flatten()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

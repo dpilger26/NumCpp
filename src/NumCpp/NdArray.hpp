@@ -35,6 +35,7 @@
 #include"NumCpp/Utils.hpp"
 #include"NumCpp/Constants.hpp"
 
+#include<boost/algorithm/clamp.hpp>
 #include<boost/filesystem.hpp>
 #include<boost/endian/conversion.hpp>
 
@@ -69,7 +70,7 @@ namespace NC
         //====================================Attributes==============================
         Shape			shape_{0, 0};
         uint32			size_{0};
-        Endian    endianess_{ Endian::NATIVE };
+        Endian          endianess_{ Endian::NATIVE };
         dtype*			array_{nullptr};
 
         //============================================================================
@@ -614,9 +615,9 @@ namespace NC
         /// @return
         ///				Slice
         ///
-        const Slice rSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const
+        const Slice cSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const
         {
-            return Slice(inStartIdx, shape_.rows, inStepSize);
+            return Slice(inStartIdx, shape_.cols, inStepSize);
         }
 
         //============================================================================
@@ -629,9 +630,9 @@ namespace NC
         /// @return
         ///				Slice
         ///
-        const Slice cSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const
+        const Slice rSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const
         {
-            return Slice(inStartIdx, shape_.cols, inStepSize);
+            return Slice(inStartIdx, shape_.rows, inStepSize);
         }
 
         //============================================================================
@@ -848,6 +849,31 @@ namespace NC
 
         //============================================================================
         // Method Description:
+        ///						const iterator to the beginning of the flattened array	None
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator begin() const
+        {
+            return cbegin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator begin(uint32 inRow) const
+        {
+            return cbegin(inRow);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						iterator to 1 past the end of the flattened array
         /// @return
         ///				iterator
@@ -876,6 +902,31 @@ namespace NC
             }
 
             return array_ + inRow * shape_.cols + shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to 1 past the end of the flattened array
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator end() const
+        {
+            return cend();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the 1 past end of the row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator end(uint32 inRow) const
+        {
+            return cend(inRow);
         }
 
         //============================================================================
@@ -1282,22 +1333,21 @@ namespace NC
         NdArray<dtype> clip(dtype inMin, dtype inMax) const
         {
             NdArray<dtype> outArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                if (array_[i] < inMin)
-                {
-                    outArray.array_[i] = inMin;
-                }
-                else if (array_[i] > inMax)
-                {
-                    outArray.array_[i] = inMax;
-                }
-                else
-                {
-                    outArray.array_[i] = array_[i];
-                }
-            }
+            boost::algorithm::clamp_range(cbegin(), cend(), outArray.begin(), inMin, inMax);
             return std::move(outArray);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the full column of the array
+        ///
+        ///
+        /// @return
+        ///				Shape
+        ///
+        NdArray<dtype> column(uint32 inColumn)
+        {
+            return std::move(this->operator()(rSlice(), inColumn));
         }
 
         //============================================================================
@@ -1692,11 +1742,7 @@ namespace NC
         NdArray<dtype> flatten() const
         {
             NdArray<dtype> outArray(1, size_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                outArray.array_[i] = array_[i];
-            }
-
+            std::copy(cbegin(), cend(), outArray.begin());
             return std::move(outArray);
         }
 
@@ -2178,12 +2224,14 @@ namespace NC
         NdArray<uint32> nonzero() const
         {
             std::vector<uint32> indices;
-            for (uint32 i = 0; i < size_; ++i)
+            uint32 counter = 0;
+            for (auto value : *this)
             {
-                if (array_[i] != static_cast<dtype>(0))
+                if (value != static_cast<dtype>(0))
                 {
-                    indices.push_back(i);
+                    indices.push_back(counter);
                 }
+                ++counter;
             }
 
             return std::move(NdArray<uint32>(indices));
@@ -2208,10 +2256,11 @@ namespace NC
                 case Axis::NONE:
                 {
                     dtypeOut sumOfSquares = 0;
-                    for (uint32 i = 0; i < size_; ++i)
+                    for (auto value : *this)
                     {
-                        sumOfSquares += static_cast<dtypeOut>(Utils::sqr(array_[i]));
+                        sumOfSquares += static_cast<dtypeOut>(Utils::sqr(value));
                     }
+
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(std::sqrt(sumOfSquares)) };
                     return std::move(returnArray);
                 }
@@ -2362,9 +2411,9 @@ namespace NC
                 case Axis::NONE:
                 {
                     dtypeOut product = 1;
-                    for (uint32 i = 0; i < size_; ++i)
+                    for (auto value : *this)
                     {
-                        product *= static_cast<dtypeOut>(array_[i]);
+                        product *= static_cast<dtypeOut>(value);
                     }
                     NdArray<dtypeOut> returnArray = { product };
                     return std::move(returnArray);
@@ -2997,6 +3046,19 @@ namespace NC
 
         //============================================================================
         // Method Description:
+        ///						Returns the full row of the array
+        ///
+        ///
+        /// @return
+        ///				Shape
+        ///
+        NdArray<dtype> row(uint32 inRow)
+        {
+            return std::move(NdArray<dtype>(cbegin(inRow), cend(inRow)));
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Return the shape of the array
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.shape.html
@@ -3083,9 +3145,9 @@ namespace NC
                 {
                     double meanValue = mean(inAxis).item();
                     double sum = 0;
-                    for (uint32 i = 0; i < size_; ++i)
+                    for (auto value : *this)
                     {
-                        sum += Utils::sqr(static_cast<double>(array_[i]) - meanValue);
+                        sum += Utils::sqr(static_cast<double>(value) - meanValue);
                     }
                     NdArray<double> returnArray = { std::sqrt(sum / size_) };
                     return std::move(returnArray);
@@ -3384,10 +3446,7 @@ namespace NC
         NdArray<double> var(Axis inAxis = Axis::NONE) const
         {
             NdArray<double> stdValues = stdev(inAxis);
-            for (uint32 i = 0; i < stdValues.size(); ++i)
-            {
-                stdValues[i] *= stdValues[i];
-            }
+            std::for_each(stdValues.begin(), stdValues.end(), [](double value) { value *= value; });
             return std::move(stdValues);
         }
 
