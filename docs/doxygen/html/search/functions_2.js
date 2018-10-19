@@ -18,6 +18,7 @@ var searchData=
   ['col',['col',['../class_n_c_1_1_image_processing_1_1_pixel.html#a476ec459324a90d866b34e3db57a3304',1,'NC::ImageProcessing::Pixel::col()'],['../class_n_c_1_1_image_processing_1_1_centroid.html#ad49e29f6656df299e340fef3bd6ac073',1,'NC::ImageProcessing::Centroid::col()']]],
   ['colmax',['colMax',['../class_n_c_1_1_image_processing_1_1_cluster.html#a196a2a01ff84de01e0dddd1c2921c52b',1,'NC::ImageProcessing::Cluster']]],
   ['colmin',['colMin',['../class_n_c_1_1_image_processing_1_1_cluster.html#a40714eb8a72ad24278621b460059e4bb',1,'NC::ImageProcessing::Cluster']]],
+  ['column',['column',['../class_n_c_1_1_nd_array.html#a454aa8ce287f7a6a367a30fdbedc8394',1,'NC::NdArray']]],
   ['column_5fstack',['column_stack',['../namespace_n_c.html#aa66784dd7e04a8ef499a6f89cc95c081',1,'NC']]],
   ['complementarymedianfilter',['complementaryMedianFilter',['../namespace_n_c_1_1_filter.html#a8c16b3eb4a25927aa2e11bf61ab4c0d1',1,'NC::Filter']]],
   ['complementarymedianfilter1d',['complementaryMedianFilter1d',['../namespace_n_c_1_1_filter.html#a7d91bc2e2daecc7763ff3358f36c4fea',1,'NC::Filter']]],

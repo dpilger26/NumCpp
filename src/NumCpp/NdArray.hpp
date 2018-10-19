@@ -614,9 +614,9 @@ namespace NC
         /// @return
         ///				Slice
         ///
-        const Slice rSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const
+        const Slice cSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const
         {
-            return Slice(inStartIdx, shape_.rows, inStepSize);
+            return Slice(inStartIdx, shape_.cols, inStepSize);
         }
 
         //============================================================================
@@ -629,9 +629,9 @@ namespace NC
         /// @return
         ///				Slice
         ///
-        const Slice cSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const
+        const Slice rSlice(int32 inStartIdx = 0, uint32 inStepSize = 1) const
         {
-            return Slice(inStartIdx, shape_.cols, inStepSize);
+            return Slice(inStartIdx, shape_.rows, inStepSize);
         }
 
         //============================================================================
@@ -1298,6 +1298,19 @@ namespace NC
                 }
             }
             return std::move(outArray);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the full column of the array
+        ///
+        ///
+        /// @return
+        ///				Shape
+        ///
+        NdArray<dtype> column(uint32 inColumn)
+        {
+            return std::move(this->operator()(rSlice(), inColumn));
         }
 
         //============================================================================
@@ -2993,6 +3006,19 @@ namespace NC
 
                 return std::move(returnArray);
             }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the full row of the array
+        ///
+        ///
+        /// @return
+        ///				Shape
+        ///
+        NdArray<dtype> row(uint32 inRow)
+        {
+            return std::move(NdArray<dtype>(cbegin(inRow), cend(inRow)));
         }
 
         //============================================================================

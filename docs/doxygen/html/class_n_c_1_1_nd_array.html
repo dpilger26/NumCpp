@@ -186,6 +186,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa37d03d868668ba2cbebab1bd28d5125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0503244408f09a95cc3202e3da3137d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a0503244408f09a95cc3202e3da3137d5">clip</a> (dtype inMin, dtype inMax) const</td></tr>
 <tr class="separator:a0503244408f09a95cc3202e3da3137d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454aa8ce287f7a6a367a30fdbedc8394"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a454aa8ce287f7a6a367a30fdbedc8394">column</a> (<a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inColumn)</td></tr>
+<tr class="separator:a454aa8ce287f7a6a367a30fdbedc8394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a098063e5c8f030553a239023306c500e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a098063e5c8f030553a239023306c500e">contains</a> (dtype inValue, <a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822">Axis</a> inAxis=<a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>) const</td></tr>
 <tr class="separator:a098063e5c8f030553a239023306c500e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affd02408f5305be012da4dc38ac3a597"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#affd02408f5305be012da4dc38ac3a597">copy</a> () const</td></tr>
@@ -423,6 +425,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0abb1a9946231226e099fa8a601e5318"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ee5f70f822051bd286bf931d37a3dab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a6ee5f70f822051bd286bf931d37a3dab">round</a> (<a class="el" href="namespace_n_c.html#a939a5d01867b6ec5ae4d3932e96ddb4b">uint8</a> inNumDecimals=0) const</td></tr>
 <tr class="separator:a6ee5f70f822051bd286bf931d37a3dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74781b769225b1044790082c309eb2d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a74781b769225b1044790082c309eb2d8">row</a> (<a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inRow)</td></tr>
+<tr class="separator:a74781b769225b1044790082c309eb2d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ba459df8136a5e27dd113d2800294ab"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_n_c_1_1_slice.html">Slice</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#a9ba459df8136a5e27dd113d2800294ab">rSlice</a> (<a class="el" href="namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc">int32</a> inStartIdx=0, <a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inStepSize=1) const</td></tr>
 <tr class="separator:a9ba459df8136a5e27dd113d2800294ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfac82582f55477428d2c5431d0a9c8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_shape.html">Shape</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_nd_array.html#acfac82582f55477428d2c5431d0a9c8b">shape</a> () const</td></tr>
@@ -1878,6 +1882,36 @@ template&lt;typename dtype&gt; </div>
 
 </div>
 </div>
+<a id="a454aa8ce287f7a6a367a30fdbedc8394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a454aa8ce287f7a6a367a30fdbedc8394">&#9670;&nbsp;</a></span>column()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::column </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a>&#160;</td>
+          <td class="paramname"><em>inColumn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the full column of the array</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a> </dd></dl>
+
+</div>
+</div>
 <a id="a098063e5c8f030553a239023306c500e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a098063e5c8f030553a239023306c500e">&#9670;&nbsp;</a></span>contains()</h2>
 
@@ -1990,7 +2024,7 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns a <a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> object for slicing a column to the end of the array.</p>
+<p>Returns a <a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> object for slicing a row to the end of array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inStartIdx</td><td>(default 0) </td></tr>
@@ -6309,6 +6343,36 @@ template&lt;typename dtype&gt; </div>
 
 </div>
 </div>
+<a id="a74781b769225b1044790082c309eb2d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74781b769225b1044790082c309eb2d8">&#9670;&nbsp;</a></span>row()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="class_n_c_1_1_nd_array.html">NC::NdArray</a>&lt; dtype &gt;::row </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a>&#160;</td>
+          <td class="paramname"><em>inRow</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the full row of the array</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a> </dd></dl>
+
+</div>
+</div>
 <a id="a9ba459df8136a5e27dd113d2800294ab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ba459df8136a5e27dd113d2800294ab">&#9670;&nbsp;</a></span>rSlice()</h2>
 
@@ -6344,7 +6408,7 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns a <a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> object for slicing a row to the end of array.</p>
+<p>Returns a <a class="el" href="class_n_c_1_1_slice.html" title="A Class for slicing into NdArrays. ">Slice</a> object for slicing a column to the end of the array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inStartIdx</td><td>(default 0) </td></tr>

@@ -1716,8 +1716,7 @@ namespace NC
             return false;
         }
 
-        NdArray<bool> equal = inArray1 == inArray2;
-        return equal.all().item();
+        return std::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
     }
 
     //============================================================================
@@ -1743,15 +1742,7 @@ namespace NC
             return false;
         }
 
-        for (uint32 i = 0; i < inArray1.size(); ++i)
-        {
-            if (inArray1[i] != inArray2[i])
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return std::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
     }
 
     //============================================================================
