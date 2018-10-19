@@ -34,6 +34,7 @@
 #include"NumCpp/Polynomial.hpp"
 #include"NumCpp/Types.hpp"
 
+#include"boost/algorithm/clamp.hpp"
 #include"boost/filesystem.hpp"
 #include"boost/integer/common_factor_rt.hpp"
 #include"boost/math/special_functions/erf.hpp"
@@ -1255,7 +1256,7 @@ namespace NC
             while (theValue < inStop)
             {
                 values.push_back(theValue);
-                theValue += static_cast<dtype>(inStep);
+                theValue += inStep;
             }
         }
         else
@@ -1263,7 +1264,7 @@ namespace NC
             while (theValue > inStop)
             {
                 values.push_back(theValue);
-                theValue += static_cast<dtype>(inStep);
+                theValue += inStep;
             }
         }
 
@@ -2200,8 +2201,7 @@ namespace NC
     template<typename dtype>
     dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue)
     {
-        NdArray<dtype> value = { inValue };
-        return std::move(value.clip(inMinValue, inMaxValue).item());
+        return boost::algorithm::clamp(inValue, inMinValue, inMaxValue);
     }
 
     //============================================================================

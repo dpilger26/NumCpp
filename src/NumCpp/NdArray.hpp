@@ -35,6 +35,7 @@
 #include"NumCpp/Utils.hpp"
 #include"NumCpp/Constants.hpp"
 
+#include<boost/algorithm/clamp.hpp>
 #include<boost/filesystem.hpp>
 #include<boost/endian/conversion.hpp>
 
@@ -1282,21 +1283,7 @@ namespace NC
         NdArray<dtype> clip(dtype inMin, dtype inMax) const
         {
             NdArray<dtype> outArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                if (array_[i] < inMin)
-                {
-                    outArray.array_[i] = inMin;
-                }
-                else if (array_[i] > inMax)
-                {
-                    outArray.array_[i] = inMax;
-                }
-                else
-                {
-                    outArray.array_[i] = array_[i];
-                }
-            }
+            boost::algorithm::clamp_range(cbegin(), cend(), outArray.begin(), inMin, inMax);
             return std::move(outArray);
         }
 
