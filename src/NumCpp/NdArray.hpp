@@ -2256,10 +2256,11 @@ namespace NC
                 case Axis::NONE:
                 {
                     dtypeOut sumOfSquares = 0;
-                    for (uint32 i = 0; i < size_; ++i)
+                    for (auto value : *this)
                     {
-                        sumOfSquares += static_cast<dtypeOut>(Utils::sqr(array_[i]));
+                        sumOfSquares += static_cast<dtypeOut>(Utils::sqr(value));
                     }
+
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(std::sqrt(sumOfSquares)) };
                     return std::move(returnArray);
                 }
@@ -2410,9 +2411,9 @@ namespace NC
                 case Axis::NONE:
                 {
                     dtypeOut product = 1;
-                    for (uint32 i = 0; i < size_; ++i)
+                    for (auto value : *this)
                     {
-                        product *= static_cast<dtypeOut>(array_[i]);
+                        product *= static_cast<dtypeOut>(value);
                     }
                     NdArray<dtypeOut> returnArray = { product };
                     return std::move(returnArray);
@@ -3144,9 +3145,9 @@ namespace NC
                 {
                     double meanValue = mean(inAxis).item();
                     double sum = 0;
-                    for (uint32 i = 0; i < size_; ++i)
+                    for (auto value : *this)
                     {
-                        sum += Utils::sqr(static_cast<double>(array_[i]) - meanValue);
+                        sum += Utils::sqr(static_cast<double>(value) - meanValue);
                     }
                     NdArray<double> returnArray = { std::sqrt(sum / size_) };
                     return std::move(returnArray);
@@ -3445,10 +3446,7 @@ namespace NC
         NdArray<double> var(Axis inAxis = Axis::NONE) const
         {
             NdArray<double> stdValues = stdev(inAxis);
-            for (uint32 i = 0; i < stdValues.size(); ++i)
-            {
-                stdValues[i] *= stdValues[i];
-            }
+            std::for_each(stdValues.begin(), stdValues.end(), [](double value) { value *= value; });
             return std::move(stdValues);
         }
 
