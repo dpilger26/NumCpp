@@ -787,7 +787,7 @@ def doTest():
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
-    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    data = np.random.randint(0, 10, [shape.rows, shape.cols])
     cArray.setArray(data)
     if np.array_equal(cArray.nonzero(), data.flatten().nonzero()):
         print(colored('\tPASS', 'green'))

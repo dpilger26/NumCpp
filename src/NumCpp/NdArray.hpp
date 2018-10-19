@@ -70,7 +70,7 @@ namespace NC
         //====================================Attributes==============================
         Shape			shape_{0, 0};
         uint32			size_{0};
-        Endian    endianess_{ Endian::NATIVE };
+        Endian          endianess_{ Endian::NATIVE };
         dtype*			array_{nullptr};
 
         //============================================================================
@@ -849,6 +849,31 @@ namespace NC
 
         //============================================================================
         // Method Description:
+        ///						const iterator to the beginning of the flattened array	None
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator begin() const
+        {
+            return cbegin();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the beginning of the input row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator begin(uint32 inRow) const
+        {
+            return cbegin(inRow);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						iterator to 1 past the end of the flattened array
         /// @return
         ///				iterator
@@ -877,6 +902,31 @@ namespace NC
             }
 
             return array_ + inRow * shape_.cols + shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to 1 past the end of the flattened array
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator end() const
+        {
+            return cend();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						const iterator to the 1 past end of the row
+        ///
+        /// @param
+        ///				inRow
+        /// @return
+        ///				const_iterator
+        ///
+        const_iterator end(uint32 inRow) const
+        {
+            return cend(inRow);
         }
 
         //============================================================================
@@ -1692,11 +1742,7 @@ namespace NC
         NdArray<dtype> flatten() const
         {
             NdArray<dtype> outArray(1, size_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                outArray.array_[i] = array_[i];
-            }
-
+            std::copy(cbegin(), cend(), outArray.begin());
             return std::move(outArray);
         }
 
@@ -2178,12 +2224,14 @@ namespace NC
         NdArray<uint32> nonzero() const
         {
             std::vector<uint32> indices;
-            for (uint32 i = 0; i < size_; ++i)
+            uint32 counter = 0;
+            for (auto value : *this)
             {
-                if (array_[i] != static_cast<dtype>(0))
+                if (value != static_cast<dtype>(0))
                 {
-                    indices.push_back(i);
+                    indices.push_back(counter);
                 }
+                ++counter;
             }
 
             return std::move(NdArray<uint32>(indices));
