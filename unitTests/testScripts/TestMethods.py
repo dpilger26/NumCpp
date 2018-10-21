@@ -260,7 +260,7 @@ def doTest():
     if stop < start:
         step *= -1
     data = np.arange(start, stop, step)
-    if np.array_equal(np.round(NumCpp.arange(start, stop, step).flatten(), 10), np.round(data, 10)):
+    if np.array_equal(np.round(NumCpp.arange(start, stop, step).flatten(), 9), np.round(data, 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

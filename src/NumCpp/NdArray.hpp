@@ -1011,7 +1011,8 @@ namespace NC
             {
                 case Axis::NONE:
                 {
-                    NdArray<bool> returnArray = { std::all_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); }) };
+                    NdArray<bool> returnArray = { std::all_of(cbegin(), cend(), 
+                        [](dtype i) -> bool {return i != static_cast<dtype>(0); }) };
                     return std::move(returnArray);
                 }
                 case Axis::COL:
@@ -1019,7 +1020,8 @@ namespace NC
                     NdArray<bool> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::all_of(cbegin(row), cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
+                        returnArray(0, row) = std::all_of(cbegin(row), cend(row), 
+                            [](dtype i) -> bool {return i != static_cast<dtype>(0); });
                     }
                     return std::move(returnArray);
                 }
@@ -1029,7 +1031,8 @@ namespace NC
                     NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
+                        returnArray(0, row) = std::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), 
+                            [](dtype i) -> bool {return i != static_cast<dtype>(0); });
                     }
                     return std::move(returnArray);
                 }
@@ -1059,7 +1062,8 @@ namespace NC
             {
                 case Axis::NONE:
                 {
-                    NdArray<bool> returnArray = { std::any_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); }) };
+                    NdArray<bool> returnArray = { std::any_of(cbegin(), cend(), 
+                        [](dtype i) -> bool {return i != static_cast<dtype>(0); }) };
                     return std::move(returnArray);
                 }
                 case Axis::COL:
@@ -1067,7 +1071,8 @@ namespace NC
                     NdArray<bool> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::any_of(cbegin(row), cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
+                        returnArray(0, row) = std::any_of(cbegin(row), cend(row), 
+                            [](dtype i) -> bool {return i != static_cast<dtype>(0); });
                     }
                     return std::move(returnArray);
                 }
@@ -1077,7 +1082,8 @@ namespace NC
                     NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
+                        returnArray(0, row) = std::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), 
+                            [](dtype i) -> bool {return i != static_cast<dtype>(0); });
                     }
                     return std::move(returnArray);
                 }
@@ -1126,7 +1132,8 @@ namespace NC
                     NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = static_cast<uint32>(std::max_element(arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+                        returnArray(0, row) = static_cast<uint32>(std::max_element(arrayTransposed.cbegin(row), 
+                            arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
                     }
                     return std::move(returnArray);;
                 }
@@ -1175,7 +1182,8 @@ namespace NC
                     NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = static_cast<uint32>(std::min_element(arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+                        returnArray(0, row) = static_cast<uint32>(std::min_element(arrayTransposed.cbegin(row), 
+                            arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
                     }
                     return std::move(returnArray);;
                 }
@@ -1207,7 +1215,8 @@ namespace NC
                 {
                     std::vector<uint32> idx(size_);
                     std::iota(idx.begin(), idx.end(), 0);
-                    std::stable_sort(idx.begin(), idx.end(), [this](uint32 i1, uint32 i2) {return this->array_[i1] < this->array_[i2]; });
+                    std::stable_sort(idx.begin(), idx.end(),
+                        [this](uint32 i1, uint32 i2) -> bool {return this->array_[i1] < this->array_[i2]; });
                     return std::move(NdArray<uint32>(idx));
                 }
                 case Axis::COL:
@@ -1217,7 +1226,8 @@ namespace NC
                     {
                         std::vector<uint32> idx(shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
-                        std::stable_sort(idx.begin(), idx.end(), [this, row](uint32 i1, uint32 i2) {return this->operator()(row, i1) < this->operator()(row, i2); });
+                        std::stable_sort(idx.begin(), idx.end(),
+                            [this, row](uint32 i1, uint32 i2) -> bool {return this->operator()(row, i1) < this->operator()(row, i2); });
 
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
@@ -1234,7 +1244,8 @@ namespace NC
                     {
                         std::vector<uint32> idx(arrayTransposed.shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
-                        std::stable_sort(idx.begin(), idx.end(), [&arrayTransposed, row](uint32 i1, uint32 i2) {return arrayTransposed(row, i1) < arrayTransposed(row, i2); });
+                        std::stable_sort(idx.begin(), idx.end(), 
+                            [&arrayTransposed, row](uint32 i1, uint32 i2) -> bool {return arrayTransposed(row, i1) < arrayTransposed(row, i2); });
 
                         for (uint32 col = 0; col < arrayTransposed.shape_.cols; ++col)
                         {
@@ -1447,7 +1458,8 @@ namespace NC
                         returnArray(row, 0) = static_cast<dtypeOut>(this->operator()(row, 0));
                         for (uint32 col = 1; col < shape_.cols; ++col)
                         {
-                            returnArray(row, col) = returnArray(row, col - 1) * static_cast<dtypeOut>(this->operator()(row, col));
+                            returnArray(row, col) = returnArray(row, col - 1) * 
+                                static_cast<dtypeOut>(this->operator()(row, col));
                         }
                     }
 
@@ -1461,7 +1473,8 @@ namespace NC
                         returnArray(0, col) = static_cast<dtypeOut>(this->operator()(0, col));
                         for (uint32 row = 1; row < shape_.rows; ++row)
                         {
-                            returnArray(row, col) = returnArray(row - 1, col) * static_cast<dtypeOut>(this->operator()(row, col));
+                            returnArray(row, col) = returnArray(row - 1, col) * 
+                                static_cast<dtypeOut>(this->operator()(row, col));
                         }
                     }
 
@@ -1511,7 +1524,8 @@ namespace NC
                         returnArray(row, 0) = static_cast<dtypeOut>(this->operator()(row, 0));
                         for (uint32 col = 1; col < shape_.cols; ++col)
                         {
-                            returnArray(row, col) = returnArray(row, col - 1) + static_cast<dtypeOut>(this->operator()(row, col));
+                            returnArray(row, col) = returnArray(row, col - 1) + 
+                                static_cast<dtypeOut>(this->operator()(row, col));
                         }
                     }
 
@@ -1525,7 +1539,8 @@ namespace NC
                         returnArray(0, col) = static_cast<dtypeOut>(this->operator()(0, col));
                         for (uint32 row = 1; row < shape_.rows; ++row)
                         {
-                            returnArray(row, col) = returnArray(row - 1, col) + static_cast<dtypeOut>(this->operator()(row, col));
+                            returnArray(row, col) = returnArray(row - 1, col) + 
+                                static_cast<dtypeOut>(this->operator()(row, col));
                         }
                     }
 
@@ -1641,7 +1656,8 @@ namespace NC
                         returnArray(i, j) = 0;
                         for (uint32 k = 0; k < inOtherArray.shape_.rows; ++k)
                         {
-                            returnArray(i, j) += static_cast<dtypeOut>(this->operator()(i, k)) * static_cast<dtypeOut>(inOtherArray(k, j));
+                            returnArray(i, j) += static_cast<dtypeOut>(this->operator()(i, k)) * 
+                                static_cast<dtypeOut>(inOtherArray(k, j));
                         }
                     }
                 }
@@ -3446,7 +3462,8 @@ namespace NC
         NdArray<double> var(Axis inAxis = Axis::NONE) const
         {
             NdArray<double> stdValues = stdev(inAxis);
-            std::for_each(stdValues.begin(), stdValues.end(), [](double value) { value *= value; });
+            std::for_each(stdValues.begin(), stdValues.end(),
+                [](double& value) -> void { value *= value; });
             return std::move(stdValues);
         }
 
