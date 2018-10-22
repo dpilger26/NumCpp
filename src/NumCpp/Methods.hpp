@@ -2252,15 +2252,14 @@ namespace NC
     NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
         // first loop through to calculate the final size of the array
-        typename std::initializer_list<NdArray<dtype> >::iterator iter;
         Shape finalShape;
-        for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+        for (auto& ndarray : inArrayList)
         {
             if (finalShape.isnull())
             {
-                finalShape = iter->shape();
+                finalShape = ndarray.shape();
             }
-            else if (iter->shape().rows != finalShape.rows)
+            else if (ndarray.shape().rows != finalShape.rows)
             {
                 std::string errStr = "ERROR: column_stack: input arrays must have the same number of rows.";
                 std::cerr << errStr << std::endl;
@@ -2268,21 +2267,21 @@ namespace NC
             }
             else
             {
-                finalShape.cols += iter->shape().cols;
+                finalShape.cols += ndarray.shape().cols;
             }
         }
 
         // now that we know the final size, contruct the output array
         NdArray<dtype> returnArray(finalShape);
         uint32 colStart = 0;
-        for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+        for (auto& ndarray : inArrayList)
         {
-            Shape theShape = iter->shape();
+            Shape theShape = ndarray.shape();
             for (uint32 row = 0; row < theShape.rows; ++row)
             {
                 for (uint32 col = 0; col < theShape.cols; ++col)
                 {
-                    returnArray(row, colStart + col) = iter->operator()(row, col);
+                    returnArray(row, colStart + col) = ndarray(row, col);
                 }
             }
             colStart += theShape.cols;
@@ -2310,18 +2309,17 @@ namespace NC
             case Axis::NONE:
             {
                 uint32 finalSize = 0;
-                typename std::initializer_list<NdArray<dtype> >::iterator iter;
-                for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+                for (auto& ndarray : inArrayList)
                 {
-                    finalSize += iter->size();
+                    finalSize += ndarray.size();
                 }
 
                 NdArray<dtype> returnArray(1, finalSize);
                 uint32 offset = 0;
-                for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+                for (auto& ndarray : inArrayList)
                 {
-                    std::copy(iter->cbegin(), iter->cend(), returnArray.begin() + offset);
-                    offset += iter->size();
+                    std::copy(ndarray.cbegin(), ndarray.cend(), returnArray.begin() + offset);
+                    offset += ndarray.size();
                 }
 
                 return std::move(returnArray);
@@ -4524,10 +4522,11 @@ namespace NC
         NdArray<uint32> sortedXpIdxs = argsort(inXp);
         NdArray<dtype> sortedXp(1, inFp.size());
         NdArray<dtype> sortedFp(1, inFp.size());
-        for (uint32 i = 0; i < sortedXpIdxs.size(); ++i)
+        uint32 counter = 0;
+        for (auto sortedXpIdx : sortedXpIdxs)
         {
-            sortedXp[i] = inXp[sortedXpIdxs[i]];
-            sortedFp[i] = inFp[sortedXpIdxs[i]];
+            sortedXp[counter] = inXp[sortedXpIdx];
+            sortedFp[counter++] = inFp[sortedXpIdx];
         }
 
         // sort the input inX array
@@ -5492,11 +5491,11 @@ namespace NC
     NdArray<uint32> nanargmax(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = DtypeInfo<dtype>::min();
+                value = DtypeInfo<dtype>::min();
             }
         }
 
@@ -5518,11 +5517,11 @@ namespace NC
     NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = DtypeInfo<dtype>::max();
+                value = DtypeInfo<dtype>::max();
             }
         }
 
@@ -5544,11 +5543,11 @@ namespace NC
     NdArray<dtypeOut> nancumprod(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = 1;
+                value = 1;
             }
         }
 
@@ -5570,11 +5569,11 @@ namespace NC
     NdArray<dtypeOut> nancumsum(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = 0;
+                value = 0;
             }
         }
 
@@ -5597,11 +5596,11 @@ namespace NC
     NdArray<dtype> nanmax(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = DtypeInfo<dtype>::min();
+                value = DtypeInfo<dtype>::min();
             }
         }
 
@@ -5785,11 +5784,11 @@ namespace NC
     NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = DtypeInfo<dtype>::max();
+                value = DtypeInfo<dtype>::max();
             }
         }
 
@@ -5838,11 +5837,11 @@ namespace NC
             {
                 if (Utils::essentiallyEqual(inPercentile, 0.0))
                 {
-                    for (uint32 i = 0; i < inArray.size(); ++i)
+                    for (auto value : inArray)
                     {
-                        if (!isnan(inArray[i]))
+                        if (!isnan(value))
                         {
-                            NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(inArray[i]) };
+                            NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(value) };
                             return std::move(returnArray);
                         }
                     }
@@ -5863,11 +5862,11 @@ namespace NC
 
                 std::vector<double> arrayCopy;
                 uint32 numNonNan = 0;
-                for (uint32 j = 0; j < inArray.size(); ++j)
+                for (auto value : inArray)
                 {
-                    if (!isnan(inArray[j]))
+                    if (!isnan(value))
                     {
-                        arrayCopy.push_back(inArray[j]);
+                        arrayCopy.push_back(value);
                         ++numNonNan;
                     }
                 }
@@ -6000,11 +5999,11 @@ namespace NC
     NdArray<dtypeOut> nanprod(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = 1;
+                value = 1;
             }
         }
 
@@ -6212,9 +6211,9 @@ namespace NC
     NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<double> stdValues = nanstdev(inArray, inAxis);
-        for (uint32 i = 0; i < stdValues.size(); ++i)
+        for (auto& value : stdValues)
         {
-            stdValues[i] *= stdValues[i];
+            value *= value;
         }
         return std::move(stdValues);
     }
@@ -6888,9 +6887,10 @@ namespace NC
     NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
-        for (uint32 i = 0; i < returnArray.size(); ++i)
+        uint32 counter = 0;
+        for (auto value : inArray)
         {
-            returnArray[i] = static_cast<dtypeOut>(1.0 / static_cast<double>(inArray[i]));
+            returnArray[counter++] = static_cast<dtypeOut>(1.0 / static_cast<double>(value));
         }
 
         return std::move(returnArray);
@@ -7326,15 +7326,14 @@ namespace NC
     NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
         // first loop through to calculate the final size of the array
-        typename std::initializer_list<NdArray<dtype> >::iterator iter;
         Shape finalShape;
-        for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+        for (auto& ndarray : inArrayList)
         {
             if (finalShape.isnull())
             {
-                finalShape = iter->shape();
+                finalShape = ndarray.shape();
             }
-            else if (iter->shape().cols != finalShape.cols)
+            else if (ndarray.shape().cols != finalShape.cols)
             {
                 std::string errStr = "ERROR: row_stack: input arrays must have the same number of columns.";
                 std::cerr << errStr << std::endl;
@@ -7342,21 +7341,21 @@ namespace NC
             }
             else
             {
-                finalShape.rows += iter->shape().rows;
+                finalShape.rows += ndarray.shape().rows;
             }
         }
 
         // now that we know the final size, contruct the output array
         NdArray<dtype> returnArray(finalShape);
         uint32 rowStart = 0;
-        for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+        for (auto& ndarray : inArrayList)
         {
-            Shape theShape = iter->shape();
+            Shape theShape = ndarray.shape();
             for (uint32 row = 0; row < theShape.rows; ++row)
             {
                 for (uint32 col = 0; col < theShape.cols; ++col)
                 {
-                    returnArray(rowStart + row, col) = iter->operator()(row, col);
+                    returnArray(rowStart + row, col) = ndarray(row, col);
                 }
             }
             rowStart += theShape.rows;
@@ -8384,9 +8383,9 @@ namespace NC
         if (inTrim == "f")
         {
             uint32 place = 0;
-            for (uint32 i = 0; i < inArray.size(); ++i)
+            for (auto value : inArray)
             {
-                if (inArray[i] != static_cast<dtype>(0))
+                if (value != static_cast<dtype>(0))
                 {
                     break;
                 }
@@ -8434,9 +8433,9 @@ namespace NC
         else if (inTrim == "fb")
         {
             uint32 placeBegin = 0;
-            for (uint32 i = 0; i < inArray.size(); ++i)
+            for (auto value : inArray)
             {
-                if (inArray[i] != static_cast<dtype>(0))
+                if (value != static_cast<dtype>(0))
                 {
                     break;
                 }
@@ -8694,16 +8693,18 @@ namespace NC
 
         auto outArray = NdArray<dtype>(shapeMask);
 
-        for (uint32 i = 0; i < shapeMask.size(); ++i)
+        uint32 idx = 0;
+        for (auto maskValue : inMask)
         {
-            if (inMask[i])
+            if (maskValue)
             {
-                outArray[i] = inA[i];
+                outArray[idx] = inA[idx];
             }
             else
             {
-                outArray[i] = inB[i];
+                outArray[idx] = inB[idx];
             }
+            ++idx;
         }
 
         return std::move(outArray);
