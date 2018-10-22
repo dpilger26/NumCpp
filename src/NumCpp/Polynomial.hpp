@@ -79,17 +79,17 @@ namespace NC
             if (isRoots)
             {
                 coefficients_.push_back(1);
-                for (auto iter = inValues.cbegin(); iter < inValues.cend(); ++iter)
+                for (auto value : inValues)
                 {
-                    NdArray<dtype> coeffs = {-(*iter), static_cast<dtype>(1) };
+                    NdArray<dtype> coeffs = {-(value), static_cast<dtype>(1) };
                     *this *= Poly1d<dtype>(coeffs, !isRoots);
                 }
             }
             else
             {
-                for (auto iter = inValues.cbegin(); iter < inValues.cend(); ++iter)
+                for (auto value : inValues)
                 {
-                    coefficients_.push_back(*iter);
+                    coefficients_.push_back(value);
                 }
             }
         }

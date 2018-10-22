@@ -147,9 +147,9 @@ namespace NC
             }
 
             std::ofstream ofile((inFilename + ext).c_str(), std::ios::binary);
-            for (const_iterator it = cbegin(); it < cend(); ++it)
+            for (auto& ndarray : cube_)
             {
-                ofile.write(reinterpret_cast<const char*>(it->cbegin()), it->size() * sizeof(dtype));
+                ofile.write(reinterpret_cast<const char*>(ndarray.cbegin()), ndarray.size() * sizeof(dtype));
             }
 
             ofile.close();

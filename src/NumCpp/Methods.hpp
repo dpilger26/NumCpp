@@ -474,7 +474,8 @@ namespace NC
     NdArray<dtype> invert(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08);
+    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, 
+        double inRtol = 1e-05, double inAtol = 1e-08);
 
     template<typename dtype>
     bool isinf(dtype inValue);
@@ -609,7 +610,8 @@ namespace NC
     NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtypeOut, typename dtype>
-    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear");
+    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, 
+        Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear");
 
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> nanprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
@@ -675,7 +677,8 @@ namespace NC
     NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis inAxis = Axis::NONE);
 
     template<typename dtypeOut, typename dtype>
-    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear");
+    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, 
+        Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear");
 
     template<typename dtypeOut, typename dtype>
     dtypeOut power(dtype inValue, uint8 inExponent);
@@ -967,7 +970,8 @@ namespace NC
     NdArray<dtype> abs(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::abs(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> dtype { return std::abs(inValue); });
 
         return std::move(returnArray);
     }
@@ -1360,7 +1364,8 @@ namespace NC
     NdArray<double> arccos(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::acos(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return std::acos(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1397,7 +1402,8 @@ namespace NC
     NdArray<double> arccosh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::acosh(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return std::acosh(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1434,7 +1440,8 @@ namespace NC
     NdArray<double> arcsin(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::asin(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) -> double { return std::asin(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1471,7 +1478,8 @@ namespace NC
     NdArray<double> arcsinh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::asinh(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return std::asinh(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1508,7 +1516,8 @@ namespace NC
     NdArray<double> arctan(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::atan(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return std::atan(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1553,7 +1562,7 @@ namespace NC
 
         NdArray<double> returnArray(inY.shape());
         std::transform(inY.cbegin(), inY.cend(), inX.cbegin(), returnArray.begin(),
-            [](dtype y, dtype x) { return std::atan2(static_cast<double>(y), static_cast<double>(x)); });
+            [](dtype y, dtype x) -> double { return std::atan2(static_cast<double>(y), static_cast<double>(x)); });
 
         return std::move(returnArray);
     }
@@ -1590,7 +1599,8 @@ namespace NC
     NdArray<double> arctanh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::atanh(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return std::atanh(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1840,7 +1850,8 @@ namespace NC
                 }
 
                 NdArray<double> weightedArray(inArray.shape());
-                std::transform(inArray.cbegin(), inArray.cend(), inWeights.cbegin(), weightedArray.begin(), std::multiplies<double>());
+                std::transform(inArray.cbegin(), inArray.cend(), inWeights.cbegin(),
+                    weightedArray.begin(), std::multiplies<double>());
 
                 double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
                 NdArray<double> returnArray = { sum /= inWeights.template sum<double>().item() };
@@ -1862,7 +1873,8 @@ namespace NC
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
                     NdArray<double> weightedArray(1, arrayShape.cols);
-                    std::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(), weightedArray.begin(), std::multiplies<double>());
+                    std::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(), 
+                        weightedArray.begin(), std::multiplies<double>());
 
                     double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
                     returnArray(0, row) = sum / weightSum;
@@ -1887,7 +1899,8 @@ namespace NC
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     NdArray<double> weightedArray(1, transShape.cols);
-                    std::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(), weightedArray.begin(), std::multiplies<double>());
+                    std::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(), 
+                        weightedArray.begin(), std::multiplies<double>());
 
                     double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
                     returnArray(0, row) = sum / weightSum;
@@ -1963,9 +1976,9 @@ namespace NC
 
         NdArray<dtype> outArray(1, outArraySize);
         outArray.zeros();
-        for (uint32 i = 0; i < inArray.size(); ++i)
+        for (auto value : clippedArray)
         {
-            ++outArray[clippedArray[i]];
+            ++outArray[value];
         }
 
         return std::move(outArray);
@@ -2146,7 +2159,8 @@ namespace NC
     NdArray<double> cbrt(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::cbrt(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) -> double { return std::cbrt(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -2181,7 +2195,8 @@ namespace NC
     NdArray<dtype> ceil(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::ceil(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> dtype { return std::ceil(inValue); });
 
         return std::move(returnArray);
     }
@@ -2237,15 +2252,14 @@ namespace NC
     NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
         // first loop through to calculate the final size of the array
-        typename std::initializer_list<NdArray<dtype> >::iterator iter;
         Shape finalShape;
-        for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+        for (auto& ndarray : inArrayList)
         {
             if (finalShape.isnull())
             {
-                finalShape = iter->shape();
+                finalShape = ndarray.shape();
             }
-            else if (iter->shape().rows != finalShape.rows)
+            else if (ndarray.shape().rows != finalShape.rows)
             {
                 std::string errStr = "ERROR: column_stack: input arrays must have the same number of rows.";
                 std::cerr << errStr << std::endl;
@@ -2253,21 +2267,21 @@ namespace NC
             }
             else
             {
-                finalShape.cols += iter->shape().cols;
+                finalShape.cols += ndarray.shape().cols;
             }
         }
 
         // now that we know the final size, contruct the output array
         NdArray<dtype> returnArray(finalShape);
         uint32 colStart = 0;
-        for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+        for (auto& ndarray : inArrayList)
         {
-            Shape theShape = iter->shape();
+            Shape theShape = ndarray.shape();
             for (uint32 row = 0; row < theShape.rows; ++row)
             {
                 for (uint32 col = 0; col < theShape.cols; ++col)
                 {
-                    returnArray(row, colStart + col) = iter->operator()(row, col);
+                    returnArray(row, colStart + col) = ndarray(row, col);
                 }
             }
             colStart += theShape.cols;
@@ -2295,18 +2309,17 @@ namespace NC
             case Axis::NONE:
             {
                 uint32 finalSize = 0;
-                typename std::initializer_list<NdArray<dtype> >::iterator iter;
-                for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+                for (auto& ndarray : inArrayList)
                 {
-                    finalSize += iter->size();
+                    finalSize += ndarray.size();
                 }
 
                 NdArray<dtype> returnArray(1, finalSize);
                 uint32 offset = 0;
-                for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+                for (auto& ndarray : inArrayList)
                 {
-                    std::copy(iter->cbegin(), iter->cend(), returnArray.begin() + offset);
-                    offset += iter->size();
+                    std::copy(ndarray.cbegin(), ndarray.cend(), returnArray.begin() + offset);
+                    offset += ndarray.size();
                 }
 
                 return std::move(returnArray);
@@ -2384,7 +2397,7 @@ namespace NC
 
         NdArray<dtype> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return inValue2 < 0 ? std::abs(inValue1) * -1 : std::abs(inValue1); });
+            [](dtype inValue1, dtype inValue2) -> dtype { return inValue2 < 0 ? std::abs(inValue1) * -1 : std::abs(inValue1); });
 
         return std::move(returnArray);
     }
@@ -2439,7 +2452,8 @@ namespace NC
     NdArray<double> cos(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::cos(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return std::cos(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -2476,7 +2490,8 @@ namespace NC
     NdArray<double> cosh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::cosh(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return std::cosh(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -2705,7 +2720,8 @@ namespace NC
     NdArray<dtypeOut> cube(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return Utils::cube(static_cast<dtypeOut>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) -> dtypeOut { return Utils::cube(static_cast<dtypeOut>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -2776,7 +2792,8 @@ namespace NC
     NdArray<double> deg2rad(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return deg2rad(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return deg2rad(inValue); });
 
         return std::move(returnArray);
     }
@@ -3048,7 +3065,7 @@ namespace NC
 
                 NdArray<dtype> returnArray(1, inArray.size() - 1);
                 std::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(),
-                    [](dtype inValue1, dtype inValue2) { return inValue2 - inValue1; });
+                    [](dtype inValue1, dtype inValue2) -> dtype { return inValue2 - inValue1; });
 
                 return std::move(returnArray);
             }
@@ -3063,7 +3080,7 @@ namespace NC
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     std::transform(inArray.cbegin(row), inArray.cend(row) - 1, inArray.cbegin(row) + 1, returnArray.begin(row),
-                        [](dtype inValue1, dtype inValue2) { return inValue2 - inValue1; });
+                        [](dtype inValue1, dtype inValue2) -> dtype { return inValue2 - inValue1; });
                 }
 
                 return std::move(returnArray);
@@ -3081,7 +3098,7 @@ namespace NC
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     std::transform(transArray.cbegin(row), transArray.cend(row) - 1, transArray.cbegin(row) + 1, returnArray.begin(row),
-                        [](dtype inValue1, dtype inValue2) { return inValue2 - inValue1; });
+                        [](dtype inValue1, dtype inValue2) -> dtype { return inValue2 - inValue1; });
                 }
 
                 return std::move(returnArray.transpose());
@@ -3243,7 +3260,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return erf(inValue); });
+            [](dtype inValue) -> double { return erf(inValue); });
 
         return std::move(returnArray);
     }
@@ -3279,7 +3296,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return erfc(inValue); });
+            [](dtype inValue)  -> double { return erfc(inValue); });
 
         return std::move(returnArray);
     }
@@ -3335,7 +3352,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return exp(inValue); });
+            [](dtype inValue) -> double { return exp(inValue); });
 
         return std::move(returnArray);
     }
@@ -3374,7 +3391,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return exp2(inValue); });
+            [](dtype inValue) -> double { return exp2(inValue); });
 
         return std::move(returnArray);
     }
@@ -3413,7 +3430,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return expm1(inValue); });
+            [](dtype inValue) -> double { return expm1(inValue); });
 
         return std::move(returnArray);
     }
@@ -3562,7 +3579,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return fix(inValue); });
+            [](dtype inValue) -> double { return fix(inValue); });
 
         return std::move(returnArray);
     }
@@ -3715,7 +3732,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return floor(inValue); });
+            [](dtype inValue) -> double { return floor(inValue); });
 
         return std::move(returnArray);
     }
@@ -3801,7 +3818,7 @@ namespace NC
         NdArray<double> returnArray(inArray1.shape());
 
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return std::max(inValue1, inValue2); });
+            [](dtype inValue1, dtype inValue2) -> double { return std::max(inValue1, inValue2); });
 
         return std::move(returnArray);
     }
@@ -3853,7 +3870,7 @@ namespace NC
         NdArray<double> returnArray(inArray1.shape());
 
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return std::min(inValue1, inValue2); });
+            [](dtype inValue1, dtype inValue2) -> double { return std::min(inValue1, inValue2); });
 
         return std::move(returnArray);
     }
@@ -3907,7 +3924,7 @@ namespace NC
         NdArray<dtype> returnArray(inArray1.shape());
 
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return inValue1 % inValue2; });
+            [](dtype inValue1, dtype inValue2) -> dtype { return inValue1 % inValue2; });
 
         return std::move(returnArray);
     }
@@ -4240,10 +4257,9 @@ namespace NC
                 auto returnArray = NdArray<double>(1, inArray.size());
                 returnArray[0] = static_cast<double>(inArray[1]) - static_cast<double>(inArray[0]);
                 returnArray[-1] = static_cast<double>(inArray[-1]) - static_cast<double>(inArray[-2]);
-                for (uint32 i = 1; i < inArray.size() - 1; ++i)
-                {
-                    returnArray[i] = (static_cast<double>(inArray[i + 1]) - static_cast<double>(inArray[i - 1])) / 2.0;
-                }
+
+                std::transform(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.begin() + 1,
+                    [](dtype value1, dtype value2) -> double { return (static_cast<double>(value1) - static_cast<double>(value2)) / 2.0; });
 
                 return std::move(returnArray);
             }
@@ -4419,7 +4435,7 @@ namespace NC
         NdArray<dtypeOut> returnArray(inArray1.shape());
 
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2)); });
+            [](dtype inValue1, dtype inValue2) -> dtypeOut { return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2)); });
 
         return std::move(returnArray);
     }
@@ -4506,10 +4522,11 @@ namespace NC
         NdArray<uint32> sortedXpIdxs = argsort(inXp);
         NdArray<dtype> sortedXp(1, inFp.size());
         NdArray<dtype> sortedFp(1, inFp.size());
-        for (uint32 i = 0; i < sortedXpIdxs.size(); ++i)
+        uint32 counter = 0;
+        for (auto sortedXpIdx : sortedXpIdxs)
         {
-            sortedXp[i] = inXp[sortedXpIdxs[i]];
-            sortedFp[i] = inFp[sortedXpIdxs[i]];
+            sortedXp[counter] = inXp[sortedXpIdx];
+            sortedFp[counter++] = inFp[sortedXpIdx];
         }
 
         // sort the input inX array
@@ -4651,7 +4668,7 @@ namespace NC
     {
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return std::isinf(inValue); });
+            [](dtype inValue) -> bool { return std::isinf(inValue); });
 
         return std::move(returnArray);
     }
@@ -4694,7 +4711,7 @@ namespace NC
 
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return std::isnan(inValue); });
+            [](dtype inValue) -> bool { return std::isnan(inValue); });
 
         return std::move(returnArray);
     }
@@ -4776,7 +4793,7 @@ namespace NC
 
         NdArray<dtype> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, uint8 inValue2) { return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2)); });
+            [](dtype inValue1, uint8 inValue2) -> dtype { return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2)); });
 
         return std::move(returnArray);
     }
@@ -4976,7 +4993,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return std::log(static_cast<double>(inValue)); });
+            [](dtype inValue) -> double { return std::log(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -5016,7 +5033,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return std::log10(static_cast<double>(inValue)); });
+            [](dtype inValue) -> double { return std::log10(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -5060,7 +5077,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return std::log1p(static_cast<double>(inValue)); });
+            [](dtype inValue) -> double { return std::log1p(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -5100,7 +5117,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return std::log2(static_cast<double>(inValue)); });
+            [](dtype inValue) -> double { return std::log2(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -5129,7 +5146,7 @@ namespace NC
 
         NdArray<bool> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return (inValue1 != 0) && (inValue2 != 0); });
+            [](dtype inValue1, dtype inValue2) -> bool { return (inValue1 != 0) && (inValue2 != 0); });
 
         return std::move(returnArray);
     }
@@ -5151,7 +5168,7 @@ namespace NC
     {
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return inValue == 0; });
+            [](dtype inValue) -> bool { return inValue == 0; });
 
         return std::move(returnArray);
     }
@@ -5180,7 +5197,7 @@ namespace NC
 
         NdArray<bool> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return (inValue1 != 0) || (inValue2 != 0); });
+            [](dtype inValue1, dtype inValue2) -> bool { return (inValue1 != 0) || (inValue2 != 0); });
 
         return std::move(returnArray);
     }
@@ -5209,7 +5226,7 @@ namespace NC
 
         NdArray<bool> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return (inValue1 != 0) != (inValue2 != 0); });
+            [](dtype inValue1, dtype inValue2) -> bool { return (inValue1 != 0) != (inValue2 != 0); });
 
         return std::move(returnArray);
     }
@@ -5273,7 +5290,7 @@ namespace NC
 
         NdArray<dtype> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return std::max(inValue1, inValue2); });
+            [](dtype inValue1, dtype inValue2) -> dtype { return std::max(inValue1, inValue2); });
 
         return std::move(returnArray);
     }
@@ -5418,7 +5435,7 @@ namespace NC
 
         NdArray<dtype> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return std::min(inValue1, inValue2); });
+            [](dtype inValue1, dtype inValue2) -> dtype { return std::min(inValue1, inValue2); });
 
         return std::move(returnArray);
     }
@@ -5474,11 +5491,11 @@ namespace NC
     NdArray<uint32> nanargmax(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = DtypeInfo<dtype>::min();
+                value = DtypeInfo<dtype>::min();
             }
         }
 
@@ -5500,11 +5517,11 @@ namespace NC
     NdArray<uint32> nanargmin(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = DtypeInfo<dtype>::max();
+                value = DtypeInfo<dtype>::max();
             }
         }
 
@@ -5526,11 +5543,11 @@ namespace NC
     NdArray<dtypeOut> nancumprod(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = 1;
+                value = 1;
             }
         }
 
@@ -5552,11 +5569,11 @@ namespace NC
     NdArray<dtypeOut> nancumsum(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = 0;
+                value = 0;
             }
         }
 
@@ -5579,11 +5596,11 @@ namespace NC
     NdArray<dtype> nanmax(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = DtypeInfo<dtype>::min();
+                value = DtypeInfo<dtype>::min();
             }
         }
 
@@ -5610,10 +5627,10 @@ namespace NC
             case Axis::NONE:
             {
                 double sum = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+                    [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
 
                 double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+                    [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
 
                 NdArray<double> returnArray = { sum /= numberNonNan };
 
@@ -5626,10 +5643,10 @@ namespace NC
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+                        [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
 
                     double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+                        [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
 
                     returnArray(0, row) = sum / numberNonNan;
                 }
@@ -5644,10 +5661,10 @@ namespace NC
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+                        [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
 
                     double numberNonNan = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+                        [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
 
                     returnArray(0, row) = sum / numberNonNan;
                 }
@@ -5767,11 +5784,11 @@ namespace NC
     NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = DtypeInfo<dtype>::max();
+                value = DtypeInfo<dtype>::max();
             }
         }
 
@@ -5792,7 +5809,8 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis, const std::string& inInterpMethod)
+    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile,
+        Axis inAxis, const std::string& inInterpMethod)
     {
         if (inPercentile < 0.0 || inPercentile > 100.0)
         {
@@ -5819,11 +5837,11 @@ namespace NC
             {
                 if (Utils::essentiallyEqual(inPercentile, 0.0))
                 {
-                    for (uint32 i = 0; i < inArray.size(); ++i)
+                    for (auto value : inArray)
                     {
-                        if (!isnan(inArray[i]))
+                        if (!isnan(value))
                         {
-                            NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(inArray[i]) };
+                            NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(value) };
                             return std::move(returnArray);
                         }
                     }
@@ -5844,11 +5862,11 @@ namespace NC
 
                 std::vector<double> arrayCopy;
                 uint32 numNonNan = 0;
-                for (uint32 j = 0; j < inArray.size(); ++j)
+                for (auto value : inArray)
                 {
-                    if (!isnan(inArray[j]))
+                    if (!isnan(value))
                     {
-                        arrayCopy.push_back(inArray[j]);
+                        arrayCopy.push_back(value);
                         ++numNonNan;
                     }
                 }
@@ -5981,11 +5999,11 @@ namespace NC
     NdArray<dtypeOut> nanprod(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = 1;
+                value = 1;
             }
         }
 
@@ -6193,9 +6211,9 @@ namespace NC
     NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<double> stdValues = nanstdev(inArray, inAxis);
-        for (uint32 i = 0; i < stdValues.size(); ++i)
+        for (auto& value : stdValues)
         {
-            stdValues[i] *= stdValues[i];
+            value *= value;
         }
         return std::move(stdValues);
     }
@@ -6469,7 +6487,8 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, Axis inAxis, const std::string& inInterpMethod)
+    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, 
+        Axis inAxis, const std::string& inInterpMethod)
     {
         if (inPercentile < 0.0 || inPercentile > 100.0)
         {
@@ -6656,7 +6675,7 @@ namespace NC
 
         NdArray<dtypeOut> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
-            [](dtype inValue, uint8 inExponent) { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
+            [](dtype inValue, uint8 inExponent) -> dtypeOut { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
 
         return std::move(returnArray);
     }
@@ -6810,7 +6829,8 @@ namespace NC
     NdArray<double> rad2deg(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return rad2deg(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) -> double { return rad2deg(inValue); });
 
         return std::move(returnArray);
     }
@@ -6867,9 +6887,10 @@ namespace NC
     NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray)
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
-        for (uint32 i = 0; i < returnArray.size(); ++i)
+        uint32 counter = 0;
+        for (auto value : inArray)
         {
-            returnArray[i] = static_cast<dtypeOut>(1.0 / static_cast<double>(inArray[i]));
+            returnArray[counter++] = static_cast<dtypeOut>(1.0 / static_cast<double>(value));
         }
 
         return std::move(returnArray);
@@ -6917,7 +6938,8 @@ namespace NC
 
         NdArray<dtypeOut> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) { return std::remainder(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2)); });
+            [](dtype inValue1, dtype inValue2) -> dtypeOut
+        { return std::remainder(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2)); });
 
         return std::move(returnArray);
     }
@@ -7136,7 +7158,8 @@ namespace NC
     NdArray<dtype> rint(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::rint(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return std::rint(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -7303,15 +7326,14 @@ namespace NC
     NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
         // first loop through to calculate the final size of the array
-        typename std::initializer_list<NdArray<dtype> >::iterator iter;
         Shape finalShape;
-        for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+        for (auto& ndarray : inArrayList)
         {
             if (finalShape.isnull())
             {
-                finalShape = iter->shape();
+                finalShape = ndarray.shape();
             }
-            else if (iter->shape().cols != finalShape.cols)
+            else if (ndarray.shape().cols != finalShape.cols)
             {
                 std::string errStr = "ERROR: row_stack: input arrays must have the same number of columns.";
                 std::cerr << errStr << std::endl;
@@ -7319,21 +7341,21 @@ namespace NC
             }
             else
             {
-                finalShape.rows += iter->shape().rows;
+                finalShape.rows += ndarray.shape().rows;
             }
         }
 
         // now that we know the final size, contruct the output array
         NdArray<dtype> returnArray(finalShape);
         uint32 rowStart = 0;
-        for (iter = inArrayList.begin(); iter < inArrayList.end(); ++iter)
+        for (auto& ndarray : inArrayList)
         {
-            Shape theShape = iter->shape();
+            Shape theShape = ndarray.shape();
             for (uint32 row = 0; row < theShape.rows; ++row)
             {
                 for (uint32 col = 0; col < theShape.cols; ++col)
                 {
-                    returnArray(rowStart + row, col) = iter->operator()(row, col);
+                    returnArray(rowStart + row, col) = ndarray(row, col);
                 }
             }
             rowStart += theShape.rows;
@@ -7432,7 +7454,8 @@ namespace NC
     NdArray<int8> sign(const NdArray<dtype>& inArray)
     {
         NdArray<int8> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sign(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) -> int8 { return sign(inValue); });
 
         return std::move(returnArray);
     }
@@ -7469,7 +7492,8 @@ namespace NC
     NdArray<bool> signbit(const NdArray<dtype>& inArray)
     {
         NdArray<bool> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return signbit(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> bool { return signbit(inValue); });
 
         return std::move(returnArray);
     }
@@ -7506,7 +7530,8 @@ namespace NC
     NdArray<double> sin(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sin(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return sin(inValue); });
 
         return std::move(returnArray);
     }
@@ -7548,7 +7573,8 @@ namespace NC
     NdArray<double> sinc(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sinc(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) -> double { return sinc(inValue); });
 
         return std::move(returnArray);
     }
@@ -7585,7 +7611,8 @@ namespace NC
     NdArray<double> sinh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sinh(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return sinh(inValue); });
 
         return std::move(returnArray);
     }
@@ -7656,7 +7683,8 @@ namespace NC
     NdArray<double> sqrt(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return sqrt(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) -> double { return sqrt(inValue); });
 
         return std::move(returnArray);
     }
@@ -7693,7 +7721,8 @@ namespace NC
     NdArray<dtype> square(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return square(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> dtype { return square(inValue); });
 
         return std::move(returnArray);
     }
@@ -7814,7 +7843,8 @@ namespace NC
     NdArray<double> tan(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return tan(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) -> double { return tan(inValue); });
 
         return std::move(returnArray);
     }
@@ -7851,7 +7881,8 @@ namespace NC
     NdArray<double> tanh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return tanh(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
+            [](dtype inValue) -> double { return tanh(inValue); });
 
         return std::move(returnArray);
     }
@@ -7987,7 +8018,8 @@ namespace NC
                     double sum = 0;
                     for (uint32 col = 0; col < inShape.cols - 1; ++col)
                     {
-                        sum += static_cast<double>(inArray(row, col + 1) - inArray(row, col)) / 2.0 + static_cast<double>(inArray(row, col));
+                        sum += static_cast<double>(inArray(row, col + 1) - inArray(row, col)) / 2.0 + 
+                            static_cast<double>(inArray(row, col));
                     }
 
                     returnArray[row] = sum * dx;
@@ -8005,7 +8037,8 @@ namespace NC
                     double sum = 0;
                     for (uint32 col = 0; col < transShape.cols - 1; ++col)
                     {
-                        sum += static_cast<double>(arrayTranspose(row, col + 1) - arrayTranspose(row, col)) / 2.0 + static_cast<double>(arrayTranspose(row, col));
+                        sum += static_cast<double>(arrayTranspose(row, col + 1) - arrayTranspose(row, col)) / 2.0 + 
+                            static_cast<double>(arrayTranspose(row, col));
                     }
 
                     returnArray[row] = sum * dx;
@@ -8070,7 +8103,8 @@ namespace NC
                     for (uint32 col = 0; col < inShapeY.cols - 1; ++col)
                     {
                         double dx = static_cast<double>(inArrayX(row, col + 1) - inArrayX(row, col));
-                        sum += dx * (static_cast<double>(inArrayY(row, col + 1) - inArrayY(row, col)) / 2.0 + static_cast<double>(inArrayY(row, col)));
+                        sum += dx * (static_cast<double>(inArrayY(row, col + 1) - inArrayY(row, col)) / 2.0 + 
+                            static_cast<double>(inArrayY(row, col)));
                     }
 
                     returnArray[row] = sum;
@@ -8090,7 +8124,8 @@ namespace NC
                     for (uint32 col = 0; col < transShape.cols - 1; ++col)
                     {
                         double dx = static_cast<double>(arrayXTranspose(row, col + 1) - arrayXTranspose(row, col));
-                        sum += dx * (static_cast<double>(arrayYTranspose(row, col + 1) - arrayYTranspose(row, col)) / 2.0 + static_cast<double>(arrayYTranspose(row, col)));
+                        sum += dx * (static_cast<double>(arrayYTranspose(row, col + 1) - arrayYTranspose(row, col)) / 2.0 +
+                            static_cast<double>(arrayYTranspose(row, col)));
                     }
 
                     returnArray[row] = sum;
@@ -8348,9 +8383,9 @@ namespace NC
         if (inTrim == "f")
         {
             uint32 place = 0;
-            for (uint32 i = 0; i < inArray.size(); ++i)
+            for (auto value : inArray)
             {
-                if (inArray[i] != static_cast<dtype>(0))
+                if (value != static_cast<dtype>(0))
                 {
                     break;
                 }
@@ -8398,9 +8433,9 @@ namespace NC
         else if (inTrim == "fb")
         {
             uint32 placeBegin = 0;
-            for (uint32 i = 0; i < inArray.size(); ++i)
+            for (auto value : inArray)
             {
-                if (inArray[i] != static_cast<dtype>(0))
+                if (value != static_cast<dtype>(0))
                 {
                     break;
                 }
@@ -8479,8 +8514,9 @@ namespace NC
     template<typename dtype>
     NdArray<dtype> trunc(const NdArray<dtype>& inArray)
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), [](dtype inValue) { return std::trunc(inValue); });
+        NdArray<dtype> returnArray(inArray.shape());
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) -> dtype { return std::trunc(inValue); });
 
         return std::move(returnArray);
     }
@@ -8582,7 +8618,7 @@ namespace NC
     {
         NdArray<dtype> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) { return unwrap(inValue); });
+            [](dtype inValue) -> dtype { return unwrap(inValue); });
 
         return std::move(returnArray);
     }
@@ -8657,16 +8693,18 @@ namespace NC
 
         auto outArray = NdArray<dtype>(shapeMask);
 
-        for (uint32 i = 0; i < shapeMask.size(); ++i)
+        uint32 idx = 0;
+        for (auto maskValue : inMask)
         {
-            if (inMask[i])
+            if (maskValue)
             {
-                outArray[i] = inA[i];
+                outArray[idx] = inA[idx];
             }
             else
             {
-                outArray[i] = inB[i];
+                outArray[idx] = inB[idx];
             }
+            ++idx;
         }
 
         return std::move(outArray);

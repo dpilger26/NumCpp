@@ -176,16 +176,15 @@ namespace NC
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
             shape_(static_cast<uint32>(inList.size()), 0)
         {
-            typename std::initializer_list<std::initializer_list<dtype> >::iterator iter;
-            for (iter = inList.begin(); iter < inList.end(); ++iter)
+            for (auto& list : inList)
             {
-                size_ += static_cast<uint32>(iter->size());
+                size_ += static_cast<uint32>(list.size());
 
                 if (shape_.cols == 0)
                 {
-                    shape_.cols = static_cast<uint32>(iter->size());
+                    shape_.cols = static_cast<uint32>(list.size());
                 }
-                else if (iter->size() != shape_.cols)
+                else if (list.size() != shape_.cols)
                 {
                     std::string errStr = "ERROR: NdArray::Constructor: All rows of the initializer list needs to have the same number of elements";
                     std::cerr << errStr << std::endl;
@@ -195,9 +194,9 @@ namespace NC
 
             array_ = new dtype[size_];
             uint16 row = 0;
-            for (iter = inList.begin(); iter < inList.end(); ++iter)
+            for (auto& list : inList)
             {
-                std::copy(iter->begin(), iter->end(), array_ + row * shape_.cols);
+                std::copy(list.begin(), list.end(), array_ + row * shape_.cols);
                 ++row;
             }
         }
@@ -496,8 +495,7 @@ namespace NC
 
         //============================================================================
         // Method Description:
-        ///						1D Slicing access operator with bounds checking.
-        ///						returned array is of the range [start, stop).
+        ///						Returns the values from the input mask
         ///
         /// @param
         ///				inMask
@@ -508,7 +506,7 @@ namespace NC
         {
             if (inMask.shape() != shape_)
             {
-                std::string errStr = "ERROR: getByMask: input inMask must have the same shape as the NdArray it will be masking.";
+                std::string errStr = "ERROR: operator[]: input inMask must have the same shape as the NdArray it will be masking.";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -1011,7 +1009,8 @@ namespace NC
             {
                 case Axis::NONE:
                 {
-                    NdArray<bool> returnArray = { std::all_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); }) };
+                    NdArray<bool> returnArray = { std::all_of(cbegin(), cend(), 
+                        [](dtype i) -> bool {return i != static_cast<dtype>(0); }) };
                     return std::move(returnArray);
                 }
                 case Axis::COL:
@@ -1019,7 +1018,8 @@ namespace NC
                     NdArray<bool> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::all_of(cbegin(row), cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
+                        returnArray(0, row) = std::all_of(cbegin(row), cend(row), 
+                            [](dtype i) -> bool {return i != static_cast<dtype>(0); });
                     }
                     return std::move(returnArray);
                 }
@@ -1029,7 +1029,8 @@ namespace NC
                     NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
+                        returnArray(0, row) = std::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), 
+                            [](dtype i) -> bool {return i != static_cast<dtype>(0); });
                     }
                     return std::move(returnArray);
                 }
@@ -1059,7 +1060,8 @@ namespace NC
             {
                 case Axis::NONE:
                 {
-                    NdArray<bool> returnArray = { std::any_of(cbegin(), cend(), [](dtype i) {return i != static_cast<dtype>(0); }) };
+                    NdArray<bool> returnArray = { std::any_of(cbegin(), cend(), 
+                        [](dtype i) -> bool {return i != static_cast<dtype>(0); }) };
                     return std::move(returnArray);
                 }
                 case Axis::COL:
@@ -1067,7 +1069,8 @@ namespace NC
                     NdArray<bool> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::any_of(cbegin(row), cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
+                        returnArray(0, row) = std::any_of(cbegin(row), cend(row), 
+                            [](dtype i) -> bool {return i != static_cast<dtype>(0); });
                     }
                     return std::move(returnArray);
                 }
@@ -1077,7 +1080,8 @@ namespace NC
                     NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), [](dtype i) {return i != static_cast<dtype>(0); });
+                        returnArray(0, row) = std::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), 
+                            [](dtype i) -> bool {return i != static_cast<dtype>(0); });
                     }
                     return std::move(returnArray);
                 }
@@ -1126,7 +1130,8 @@ namespace NC
                     NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = static_cast<uint32>(std::max_element(arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+                        returnArray(0, row) = static_cast<uint32>(std::max_element(arrayTransposed.cbegin(row), 
+                            arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
                     }
                     return std::move(returnArray);;
                 }
@@ -1175,7 +1180,8 @@ namespace NC
                     NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = static_cast<uint32>(std::min_element(arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+                        returnArray(0, row) = static_cast<uint32>(std::min_element(arrayTransposed.cbegin(row), 
+                            arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
                     }
                     return std::move(returnArray);;
                 }
@@ -1207,7 +1213,8 @@ namespace NC
                 {
                     std::vector<uint32> idx(size_);
                     std::iota(idx.begin(), idx.end(), 0);
-                    std::stable_sort(idx.begin(), idx.end(), [this](uint32 i1, uint32 i2) {return this->array_[i1] < this->array_[i2]; });
+                    std::stable_sort(idx.begin(), idx.end(),
+                        [this](uint32 i1, uint32 i2) -> bool {return this->array_[i1] < this->array_[i2]; });
                     return std::move(NdArray<uint32>(idx));
                 }
                 case Axis::COL:
@@ -1217,7 +1224,8 @@ namespace NC
                     {
                         std::vector<uint32> idx(shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
-                        std::stable_sort(idx.begin(), idx.end(), [this, row](uint32 i1, uint32 i2) {return this->operator()(row, i1) < this->operator()(row, i2); });
+                        std::stable_sort(idx.begin(), idx.end(),
+                            [this, row](uint32 i1, uint32 i2) -> bool {return this->operator()(row, i1) < this->operator()(row, i2); });
 
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
@@ -1234,7 +1242,8 @@ namespace NC
                     {
                         std::vector<uint32> idx(arrayTransposed.shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
-                        std::stable_sort(idx.begin(), idx.end(), [&arrayTransposed, row](uint32 i1, uint32 i2) {return arrayTransposed(row, i1) < arrayTransposed(row, i2); });
+                        std::stable_sort(idx.begin(), idx.end(), 
+                            [&arrayTransposed, row](uint32 i1, uint32 i2) -> bool {return arrayTransposed(row, i1) < arrayTransposed(row, i2); });
 
                         for (uint32 col = 0; col < arrayTransposed.shape_.cols; ++col)
                         {
@@ -1447,7 +1456,8 @@ namespace NC
                         returnArray(row, 0) = static_cast<dtypeOut>(this->operator()(row, 0));
                         for (uint32 col = 1; col < shape_.cols; ++col)
                         {
-                            returnArray(row, col) = returnArray(row, col - 1) * static_cast<dtypeOut>(this->operator()(row, col));
+                            returnArray(row, col) = returnArray(row, col - 1) * 
+                                static_cast<dtypeOut>(this->operator()(row, col));
                         }
                     }
 
@@ -1461,7 +1471,8 @@ namespace NC
                         returnArray(0, col) = static_cast<dtypeOut>(this->operator()(0, col));
                         for (uint32 row = 1; row < shape_.rows; ++row)
                         {
-                            returnArray(row, col) = returnArray(row - 1, col) * static_cast<dtypeOut>(this->operator()(row, col));
+                            returnArray(row, col) = returnArray(row - 1, col) * 
+                                static_cast<dtypeOut>(this->operator()(row, col));
                         }
                     }
 
@@ -1511,7 +1522,8 @@ namespace NC
                         returnArray(row, 0) = static_cast<dtypeOut>(this->operator()(row, 0));
                         for (uint32 col = 1; col < shape_.cols; ++col)
                         {
-                            returnArray(row, col) = returnArray(row, col - 1) + static_cast<dtypeOut>(this->operator()(row, col));
+                            returnArray(row, col) = returnArray(row, col - 1) + 
+                                static_cast<dtypeOut>(this->operator()(row, col));
                         }
                     }
 
@@ -1525,7 +1537,8 @@ namespace NC
                         returnArray(0, col) = static_cast<dtypeOut>(this->operator()(0, col));
                         for (uint32 row = 1; row < shape_.rows; ++row)
                         {
-                            returnArray(row, col) = returnArray(row - 1, col) + static_cast<dtypeOut>(this->operator()(row, col));
+                            returnArray(row, col) = returnArray(row - 1, col) + 
+                                static_cast<dtypeOut>(this->operator()(row, col));
                         }
                     }
 
@@ -1641,7 +1654,8 @@ namespace NC
                         returnArray(i, j) = 0;
                         for (uint32 k = 0; k < inOtherArray.shape_.rows; ++k)
                         {
-                            returnArray(i, j) += static_cast<dtypeOut>(this->operator()(i, k)) * static_cast<dtypeOut>(inOtherArray(k, j));
+                            returnArray(i, j) += static_cast<dtypeOut>(this->operator()(i, k)) * 
+                                static_cast<dtypeOut>(inOtherArray(k, j));
                         }
                     }
                 }
@@ -2096,22 +2110,14 @@ namespace NC
                         case Endian::BIG:
                         {
                             NdArray<dtype> outArray(shape_);
-                            for (uint32 i = 0; i < size_; ++i)
-                            {
-                                outArray[i] = boost::endian::native_to_big<dtype>(array_[i]);
-                            }
-
+                            std::transform(cbegin(), end(), outArray.begin(), boost::endian::native_to_big<dtype>);
                             outArray.endianess_ = Endian::BIG;
                             return std::move(outArray);
                         }
                         case Endian::LITTLE:
                         {
                             NdArray<dtype> outArray(shape_);
-                            for (uint32 i = 0; i < size_; ++i)
-                            {
-                                outArray[i] = boost::endian::native_to_little<dtype>(array_[i]);
-                            }
-
+                            std::transform(cbegin(), cend(), outArray.begin(), boost::endian::native_to_little<dtype>);
                             outArray.endianess_ = Endian::LITTLE;
                             return std::move(outArray);
                         }
@@ -2131,11 +2137,7 @@ namespace NC
                         case Endian::NATIVE:
                         {
                             NdArray<dtype> outArray(shape_);
-                            for (uint32 i = 0; i < size_; ++i)
-                            {
-                                outArray[i] = boost::endian::big_to_native<dtype>(array_[i]);
-                            }
-
+                            std::transform(cbegin(), cend(), outArray.begin(), boost::endian::big_to_native<dtype>);
                             outArray.endianess_ = Endian::NATIVE;
                             return std::move(outArray);
                         }
@@ -2146,11 +2148,8 @@ namespace NC
                         case Endian::LITTLE:
                         {
                             NdArray<dtype> outArray(shape_);
-                            for (uint32 i = 0; i < size_; ++i)
-                            {
-                                outArray[i] = boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(array_[i]));
-                            }
-
+                            std::transform(cbegin(), cend(), outArray.begin(), 
+                                [](dtype value) {return boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(value)); });
                             outArray.endianess_ = Endian::LITTLE;
                             return std::move(outArray);
                         }
@@ -2170,22 +2169,15 @@ namespace NC
                         case Endian::NATIVE:
                         {
                             NdArray<dtype> outArray(shape_);
-                            for (uint32 i = 0; i < size_; ++i)
-                            {
-                                outArray[i] = boost::endian::little_to_native<dtype>(array_[i]);
-                            }
-
+                            std::transform(cbegin(), cend(), outArray.begin(), boost::endian::little_to_native<dtype>);
                             outArray.endianess_ = Endian::NATIVE;
                             return std::move(outArray);
                         }
                         case Endian::BIG:
                         {
                             NdArray<dtype> outArray(shape_);
-                            for (uint32 i = 0; i < size_; ++i)
-                            {
-                                outArray[i] = boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(array_[i]));
-                            }
-
+                            std::transform(cbegin(), cend(), outArray.begin(),
+                                [](dtype value) {return boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(value)); });
                             outArray.endianess_ = Endian::BIG;
                             return std::move(outArray);
                         }
@@ -2555,9 +2547,9 @@ namespace NC
         ///
         NdArray<dtype>& put(const NdArray<uint32>& inIndices, dtype inValue)
         {
-            for (uint32 i = 0; i < inIndices.size(); ++i)
+            for (auto index : inIndices)
             {
-                put(inIndices[i], inValue);
+                put(index, inValue);
             }
 
             return *this;
@@ -2581,9 +2573,10 @@ namespace NC
                 throw std::invalid_argument(errStr);
             }
 
-            for (uint32 i = 0; i < inIndices.size(); ++i)
+            uint32 counter = 0;
+            for (auto index : inIndices)
             {
-                put(inIndices[i], inValues[i]);
+                put(index, inValues[counter++]);
             }
 
             return *this;
@@ -3330,10 +3323,11 @@ namespace NC
                 }
 
                 std::ofstream ofile((inFilename + ext).c_str());
-                for (uint32 i = 0; i < size_; ++i)
+                uint32 counter = 0;
+                for (auto value : *this)
                 {
-                    ofile << array_[i];
-                    if (i != size_ - 1)
+                    ofile << value;
+                    if (counter++ != size_ - 1)
                     {
                         ofile << inSep;
                     }
@@ -3446,7 +3440,8 @@ namespace NC
         NdArray<double> var(Axis inAxis = Axis::NONE) const
         {
             NdArray<double> stdValues = stdev(inAxis);
-            std::for_each(stdValues.begin(), stdValues.end(), [](double value) { value *= value; });
+            std::for_each(stdValues.begin(), stdValues.end(),
+                [](double& value) -> void { value *= value; });
             return std::move(stdValues);
         }
 
@@ -3522,10 +3517,8 @@ namespace NC
         ///
         NdArray<dtype>& operator+=(dtype inScalar)
         {
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] += inScalar;
-            }
+            std::for_each(begin(), end(),
+                [=](dtype& value) { return value += inScalar; });
 
             return *this;
         }
@@ -3592,10 +3585,8 @@ namespace NC
         ///
         NdArray<dtype>& operator-=(dtype inScalar)
         {
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] -= inScalar;
-            }
+            std::for_each(begin(), end(),
+                [=](dtype& value) { return value -= inScalar; });
 
             return *this;
         }
@@ -3662,10 +3653,8 @@ namespace NC
         ///
         NdArray<dtype>& operator*=(dtype inScalar)
         {
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] *= inScalar;
-            }
+            std::for_each(begin(), end(),
+                [=](dtype& value) { return value *= inScalar; });
 
             return *this;
         }
@@ -3732,10 +3721,8 @@ namespace NC
         ///
         NdArray<dtype>& operator/=(dtype inScalar)
         {
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] /= inScalar;
-            }
+            std::for_each(begin(), end(),
+                [=](dtype& value) { return value /= inScalar; });
 
             return *this;
         }
@@ -3815,10 +3802,8 @@ namespace NC
                 throw std::invalid_argument(errStr);
             }
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] %= inScalar;
-            }
+            std::for_each(begin(), end(),
+                [=](dtype& value) { return value %= inScalar; });
 
             return *this;
         }
@@ -3891,10 +3876,8 @@ namespace NC
             // can only be called on integer types
             static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::| operator can only be compiled with integer types.");
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] |= inScalar;
-            }
+            std::for_each(begin(), end(),
+                [=](dtype& value) { return value |= inScalar; });
 
             return *this;
         }
@@ -3967,10 +3950,8 @@ namespace NC
             // can only be called on integer types
             static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::& operator can only be compiled with integer types.");
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] &= inScalar;
-            }
+            std::for_each(begin(), end(),
+                [=](dtype& value) { return value &= inScalar; });
 
             return *this;
         }
@@ -4043,10 +4024,8 @@ namespace NC
             // can only be called on integer types
             static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::^ operator can only be compiled with integer types.");
 
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                array_[i] ^= inScalar;
-            }
+            std::for_each(begin(), end(),
+                [=](dtype& value) { return value ^= inScalar; });
 
             return *this;
         }
@@ -4064,10 +4043,8 @@ namespace NC
             static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::~ operator can only be compiled with integer types.");
 
             NdArray<dtype> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray.array_[i] = ~array_[i];
-            }
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [](dtype value) { return ~value; });
 
             return std::move(returnArray);
         }
@@ -4085,10 +4062,8 @@ namespace NC
         NdArray<bool> operator==(dtype inValue) const
         {
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] == inValue;
-            }
+            std::transform(cbegin(), cend(), returnArray.begin(), 
+                [inValue](dtype value) { return value == inValue; });
 
             return std::move(returnArray);
         }
@@ -4131,10 +4106,8 @@ namespace NC
         NdArray<bool> operator!=(dtype inValue) const
         {
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] != inValue;
-            }
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [inValue](dtype value) { return value != inValue; });
 
             return std::move(returnArray);
         }
@@ -4170,17 +4143,15 @@ namespace NC
         ///						the array and a scalar
         ///
         /// @param
-        ///				inScalar
+        ///				inValue
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> operator<(dtype inScalar) const
+        NdArray<bool> operator<(dtype inValue) const
         {
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] < inScalar;
-            }
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [inValue](dtype value) { return value < inValue; });
 
             return std::move(returnArray);
         }
@@ -4216,17 +4187,15 @@ namespace NC
         ///						the array and a scalar
         ///
         /// @param
-        ///				inScalar
+        ///				inValue
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> operator>(dtype inScalar) const
+        NdArray<bool> operator>(dtype inValue) const
         {
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] > inScalar;
-            }
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [inValue](dtype value) { return value > inValue; });
 
             return std::move(returnArray);
         }
@@ -4262,17 +4231,15 @@ namespace NC
         ///						the array and a scalar
         ///
         /// @param
-        ///				inScalar
+        ///				inValue
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> operator<=(dtype inScalar) const
+        NdArray<bool> operator<=(dtype inValue) const
         {
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] <= inScalar;
-            }
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [inValue](dtype value) { return value <= inValue; });
 
             return std::move(returnArray);
         }
@@ -4308,17 +4275,15 @@ namespace NC
         ///						the array and a scalar
         ///
         /// @param
-        ///				inScalar
+        ///				inValue
         /// @return
         ///				NdArray
         ///
-        NdArray<bool> operator>=(dtype inScalar) const
+        NdArray<bool> operator>=(dtype inValue) const
         {
             NdArray<bool> returnArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                returnArray[i] = array_[i] >= inScalar;
-            }
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [inValue](dtype value) { return value >= inValue; });
 
             return std::move(returnArray);
         }
@@ -4375,10 +4340,8 @@ namespace NC
         ///
         friend NdArray<dtype>& operator<<=(NdArray<dtype>& lhs, uint8 inNumBits)
         {
-            for (uint32 i = 0; i < lhs.size_; ++i)
-            {
-                lhs.array_[i] <<= inNumBits;
-            }
+            std::for_each(lhs.begin(), lhs.end(),
+                [inNumBits](dtype& value) { value <<= inNumBits;  });
 
             return lhs;
         }
@@ -4410,10 +4373,8 @@ namespace NC
         ///
         friend NdArray<dtype>& operator>>=(NdArray<dtype>& lhs, uint8 inNumBits)
         {
-            for (uint32 i = 0; i < lhs.size_; ++i)
-            {
-                lhs.array_[i] >>= inNumBits;
-            }
+            std::for_each(lhs.begin(), lhs.end(),
+                [inNumBits](dtype& value) { value >>= inNumBits;  });
 
             return lhs;
         }
@@ -4428,10 +4389,7 @@ namespace NC
 
         NdArray<dtype>& operator++()
         {
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                ++array_[i];
-            }
+            std::for_each(begin(), end(), [](dtype& value) { ++value; });
 
             return *this;
         }
@@ -4445,10 +4403,7 @@ namespace NC
         ///
         NdArray<dtype>& operator--()
         {
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                --array_[i];
-            }
+            std::for_each(begin(), end(), [](dtype& value) { --value; });
 
             return *this;
         }
@@ -4460,13 +4415,10 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator++(int) const
+        NdArray<dtype> operator++(int)
         {
             NdArray<dtype> copy(*this);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                ++array_[i];
-            }
+            std::for_each(begin(), end(), [](dtype& value) { ++value; });
 
             return std::move(copy);
         }
@@ -4478,13 +4430,10 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator--(int) const
+        NdArray<dtype> operator--(int)
         {
             NdArray<dtype> copy(*this);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                --array_[i];
-            }
+            std::for_each(begin(), end(), [](dtype& value) { --value; });
 
             return std::move(copy);
         }
