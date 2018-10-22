@@ -57,10 +57,10 @@ namespace NC
         {
         private:
             //==================================Attributes================================///
-            int32	clusterId_{-1};
-            uint32	row_{0};
-            uint32	col_{0};
-            dtype	intensity_{0};
+            int32	clusterId_{ -1 };
+            uint32	row_{ 0 };
+            uint32	col_{ 0 };
+            dtype	intensity_{ 0 };
 
         public:
             //=============================================================================
@@ -271,14 +271,14 @@ namespace NC
             std::vector<Pixel<dtype> >  pixels_;
 
             uint32                      rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
-            uint32                      rowMax_{0};
+            uint32                      rowMax_{ 0 };
             uint32                      colMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
-            uint32                      colMax_{0};
+            uint32                      colMax_{ 0 };
 
-            dtype                       intensity_{0};
-            dtype                       peakPixelIntensity_{0};
+            dtype                       intensity_{ 0 };
+            dtype                       peakPixelIntensity_{ 0 };
 
-            double                      eod_{1.0};
+            double                      eod_{ 1.0 };
 
         public:
             //=============================================================================
@@ -309,15 +309,7 @@ namespace NC
                     return false;
                 }
 
-                for (uint32 i = 0; i < pixels_.size(); ++i)
-                {
-                    if (pixels_[i] != rhs.pixels_[i])
-                    {
-                        return false;
-                    }
-                }
-
-                return true;
+                return std::equal(begin(), end(), rhs.begin());
             }
 
             //=============================================================================
@@ -579,10 +571,9 @@ namespace NC
             std::string str() const
             {
                 std::string out;
-                for (uint32 i = 0; i < size(); ++i)
-                {
-                    out += "Pixel " + Utils::num2str(i) + ":" + pixels_[i].str();
-                }
+                uint32 counter = 0;
+                std::for_each(begin(), end(), 
+                    [&](auto& pixel) { out += "Pixel " + Utils::num2str(counter++) + ":" + pixel.str(); });
 
                 return out;
             }
@@ -692,11 +683,11 @@ namespace NC
                 findNeighbors(inPixel, neighbors);
 
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
-                for (auto pixelIter = neighbors.begin(); pixelIter != neighbors.end(); ++pixelIter)
+                for (auto& pixel : neighbors)
                 {
-                    if (!xcds_->operator()(pixelIter->row(), pixelIter->col()))
+                    if (!xcds_->operator()(pixel.row(), pixel.col()))
                     {
-                        outNeighbors.push_back(*pixelIter);
+                        outNeighbors.push_back(pixel);
                     }
                 }
             }
@@ -718,18 +709,18 @@ namespace NC
                 std::vector<Pixel<dtype> > neighborXcds;
 
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
-                for (auto pixelIter = neighbors.begin(); pixelIter != neighbors.end(); ++pixelIter)
+                for (auto& pixel : neighbors)
                 {
-                    if (xcds_->operator()(pixelIter->row(), pixelIter->col()))
+                    if (xcds_->operator()(pixel.row(), pixel.col()))
                     {
-                        neighborXcds.push_back(*pixelIter);
+                        neighborXcds.push_back(pixel);
                     }
                 }
 
                 // loop through the neighbors and find the cooresponding index into exceedances_
-                for (auto pixelIter = neighborXcds.begin(); pixelIter < neighborXcds.end(); ++pixelIter)
+                for (auto& pixel : neighborXcds)
                 {
-                    auto theExceedanceIter = find(xcdsVec_.begin(), xcdsVec_.end(), *pixelIter);
+                    auto theExceedanceIter = std::find(xcdsVec_.begin(), xcdsVec_.end(), pixel);
                     outNeighbors.push_back(static_cast<uint32>(theExceedanceIter - xcdsVec_.begin()));
                 }
             }
@@ -742,10 +733,8 @@ namespace NC
             {
                 uint32 clusterId = 0;
 
-                for (uint32 xcdIdx = 0; xcdIdx < xcdsVec_.size(); ++xcdIdx)
+                for (auto& currentPixel : xcdsVec_)
                 {
-                    Pixel<dtype>& currentPixel = xcdsVec_[xcdIdx];
-
                     // not already visited
                     if (currentPixel.clusterId() == -1)
                     {
@@ -773,12 +762,12 @@ namespace NC
                             findNeighborXcds(currentNeighborPixel, newNeighborIds);
 
                             // loop through the new neighbors and add them to neighbors
-                            for (uint32 newNeighborsIdx = 0; newNeighborsIdx < newNeighborIds.size(); ++newNeighborsIdx)
+                            for (auto newNeighborId : newNeighborIds)
                             {
                                 // not already in neighbors
-                                if (find(neighborIds.begin(), neighborIds.end(), newNeighborIds[newNeighborsIdx]) == neighborIds.end())
+                                if (std::find(neighborIds.begin(), neighborIds.end(), newNeighborId) == neighborIds.end())
                                 {
-                                    neighborIds.push_back(newNeighborIds[newNeighborsIdx]);
+                                    neighborIds.push_back(newNeighborId);
                                 }
                             }
 
@@ -803,23 +792,20 @@ namespace NC
             void expandClusters()
             {
                 // loop through the clusters
-                for (auto clusterIter = clusters_.begin(); clusterIter < clusters_.end(); ++clusterIter)
+                for (auto& theCluster : clusters_)
                 {
                     // loop through the pixels of the cluster
-                    Cluster<dtype>& theCluster = *clusterIter;
-                    uint32 clusterSize = static_cast<uint32>(theCluster.size());
-                    for (uint32 iPixel = 0; iPixel < clusterSize; ++iPixel)
+                    for (auto& thePixel : theCluster)
                     {
-                        const Pixel<dtype>& thePixel = theCluster[iPixel];
                         std::vector<Pixel<dtype> > neighborsNotXcds;
                         findNeighborNotXcds(thePixel, neighborsNotXcds);
 
                         // loop through the neighbors and if they haven't already been added to the cluster, add them
-                        for (auto newPixelIter = neighborsNotXcds.begin(); newPixelIter < neighborsNotXcds.end(); ++newPixelIter)
+                        for (auto& newPixel : neighborsNotXcds)
                         {
-                            if (find(theCluster.begin(), theCluster.end(), *newPixelIter) == theCluster.end())
+                            if (std::find(theCluster.begin(), theCluster.end(), newPixel) == theCluster.end())
                             {
-                                theCluster.addPixel(*newPixelIter);
+                                theCluster.addPixel(newPixel);
                             }
                         }
                     }
@@ -955,10 +941,10 @@ namespace NC
         class Centroid
         {
             //==================================Attributes================================///
-            double          row_{0.0};
-            double          col_{0.0};
-            dtype           intensity_{0};
-            double          eod_{0.0};
+            double          row_{ 0.0 };
+            double          col_{ 0.0 };
+            dtype           intensity_{ 0 };
+            double          eod_{ 0.0 };
 
             //=============================================================================
             // Description:
@@ -979,10 +965,9 @@ namespace NC
                 uint32 colMin = inCluster.colMin();
                 dtype inten = inCluster.intensity();
 
-                auto iter = inCluster.begin();
-                for (; iter < inCluster.end(); ++iter)
+                for (auto& pixel : inCluster)
                 {
-                    clusterArray(iter->row() - rowMin, iter->col() - colMin) = iter->intensity();
+                    clusterArray(pixel.row() - rowMin, pixel.col() - colMin) = pixel.intensity();
                 }
 
                 // first get the row center
@@ -1217,11 +1202,11 @@ namespace NC
         template<typename dtype>
         std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters)
         {
-            std::vector<Centroid<dtype> > centroids(inClusters.size());
+            std::vector<Centroid<dtype> > centroids;
 
-            for (uint32 i = 0; i < inClusters.size(); ++i)
+            for (auto& cluster : inClusters)
             {
-                centroids[i] = std::move(Centroid<dtype>(inClusters[i]));
+                centroids.push_back(std::move(Centroid<dtype>(cluster)));
             }
 
             return std::move(centroids);
@@ -1340,15 +1325,14 @@ namespace NC
 
             NdArray<double> histogram(1, histSize);
             histogram.zeros();
-            uint32 numPixels = inImageArray.size();
-            for (uint32 i = 0; i < numPixels; ++i)
+            for (auto intensity : inImageArray)
             {
-                uint32 bin = static_cast<uint32>(static_cast<int32>(std::floor(inImageArray[i])) - minValue);
+                uint32 bin = static_cast<uint32>(static_cast<int32>(std::floor(intensity)) - minValue);
                 ++histogram[bin];
             }
 
             // integrate the normalized histogram from right to left to make a survival function (1 - CDF)
-            double dNumPixels = static_cast<double>(numPixels);
+            double dNumPixels = static_cast<double>(inImageArray.size());
             NdArray<double> survivalFunction(1, histSize + 1);
             survivalFunction[-1] = 0;
             for (int32 i = histSize - 1; i > -1; --i)
