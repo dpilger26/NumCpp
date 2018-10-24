@@ -116,9 +116,9 @@ namespace NC
         ///
         /// @return     ellapsed time in specified time units
         ///
-        int64 toc()
+        uint64 toc()
         {
-            int64 duration = static_cast<uint64>(std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count());
+            auto duration = static_cast<uint64>(std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count());
             std::cout << name_ << "Elapsed Time = " << duration << unit_ << std::endl;
             return duration;
         }
