@@ -28,7 +28,6 @@
 ///
 #pragma once
 
-#include"NumCpp/NdArray.hpp"
 #include"NumCpp/Types.hpp"
 #include"NumCpp/Utils.hpp"
 
