@@ -5,5 +5,5 @@ var class_n_c_1_1_timer =
     [ "Timer", "class_n_c_1_1_timer.html#a5a993a30351faac9c82c9a82b7c334e4", null ],
     [ "Timer", "class_n_c_1_1_timer.html#af09eaffc8b3e5f52c9db1a90df98e1d9", null ],
     [ "tic", "class_n_c_1_1_timer.html#a7363917493bb037d70263071de8655c5", null ],
-    [ "toc", "class_n_c_1_1_timer.html#a9cddf7fd13a522e523d68761c3ee10c1", null ]
+    [ "toc", "class_n_c_1_1_timer.html#ad894d267595f4640e20c6f12a7e0e2dc", null ]
 ];
