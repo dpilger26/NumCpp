@@ -171,7 +171,7 @@ var class_n_c_1_1_nd_array =
     [ "swapaxes", "class_n_c_1_1_nd_array.html#a7e69b82aef1cf8000406a8721342919a", null ],
     [ "tofile", "class_n_c_1_1_nd_array.html#a7538a131faf506673c34c60e79a3ee92", null ],
     [ "toStlVector", "class_n_c_1_1_nd_array.html#a9aca526f33efa4b347a44806703ff983", null ],
-    [ "trace", "class_n_c_1_1_nd_array.html#a78cdf63e09105560d9c3b11223e0b7c9", null ],
+    [ "trace", "class_n_c_1_1_nd_array.html#ae78e4e4d8a2f33d3f583cbdab33dea76", null ],
     [ "transpose", "class_n_c_1_1_nd_array.html#a52aea56e72dc20b89933a3342020c662", null ],
     [ "var", "class_n_c_1_1_nd_array.html#a5e3e9793b9522f97da99752c5c8dd6c6", null ],
     [ "zeros", "class_n_c_1_1_nd_array.html#a51ba670add6f80105dcb9f04040e5803", null ],
