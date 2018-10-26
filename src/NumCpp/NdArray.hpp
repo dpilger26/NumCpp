@@ -193,7 +193,7 @@ namespace NC
             }
 
             array_ = new dtype[size_];
-            uint16 row = 0;
+            uint32 row = 0;
             for (auto& list : inList)
             {
                 std::copy(list.begin(), list.end(), array_ + row * shape_.cols);
@@ -1128,7 +1128,7 @@ namespace NC
                 {
                     NdArray<dtype> arrayTransposed = transpose();
                     NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
-                    for (uint16 row = 0; row < arrayTransposed.shape_.rows; ++row)
+                    for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
                         returnArray(0, row) = static_cast<uint32>(std::max_element(arrayTransposed.cbegin(row), 
                             arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
@@ -3198,10 +3198,10 @@ namespace NC
         {
             std::string out;
             out += "[";
-            for (uint16 row = 0; row < shape_.rows; ++row)
+            for (uint32 row = 0; row < shape_.rows; ++row)
             {
                 out += "[";
-                for (uint16 col = 0; col < shape_.cols; ++col)
+                for (uint32 col = 0; col < shape_.cols; ++col)
                 {
                     out += Utils::num2str(this->operator()(row, col)) + ", ";
                 }
@@ -3361,10 +3361,10 @@ namespace NC
         ///				value
         ///
         template<typename dtypeOut>
-        dtypeOut trace(uint16 inOffset = 0, Axis inAxis = Axis::ROW) const
+        dtypeOut trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const
         {
-            uint16 rowStart = 0;
-            uint16 colStart = 0;
+            uint32 rowStart = 0;
+            uint32 colStart = 0;
             switch (inAxis)
             {
                 case Axis::ROW:
@@ -3390,9 +3390,9 @@ namespace NC
                 return static_cast<dtypeOut>(0);
             }
 
-            uint16 col = colStart;
+            uint32 col = colStart;
             dtypeOut sum = 0;
-            for (uint16 row = rowStart; row < shape_.rows; ++row)
+            for (uint32 row = rowStart; row < shape_.rows; ++row)
             {
                 if (col >= shape_.cols)
                 {
@@ -3416,9 +3416,9 @@ namespace NC
         NdArray<dtype> transpose() const
         {
             NdArray<dtype> transArray(shape_.cols, shape_.rows);
-            for (uint16 row = 0; row < shape_.rows; ++row)
+            for (uint32 row = 0; row < shape_.rows; ++row)
             {
-                for (uint16 col = 0; col < shape_.cols; ++col)
+                for (uint32 col = 0; col < shape_.cols; ++col)
                 {
                     transArray(col, row) = this->operator()(row, col);
                 }
