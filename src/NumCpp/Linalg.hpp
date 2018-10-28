@@ -1038,7 +1038,7 @@ namespace NC
         {
             SVD svdSolver(inArray.template astype<double>());
             outU = std::move(svdSolver.u());
-            outVt = std::move(svdSolver.v());
+            outVt = std::move(svdSolver.v().transpose());
 
             NdArray<double> s = diagflat(svdSolver.s());
             outS = std::move(s);
