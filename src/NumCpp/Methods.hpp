@@ -762,6 +762,9 @@ namespace NC
     NdArray<dtype> rint(const NdArray<dtype>& inArray);
 
     template<typename dtype>
+    NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
+
+    template<typename dtype>
     NdArray<dtype> roll(const NdArray<dtype>& inArray, int32 inShift, Axis inAxis = Axis::NONE);
 
     template<typename dtype>
@@ -7166,6 +7169,22 @@ namespace NC
 
     //============================================================================
     // Method Description:
+    ///						Compute the root mean square (RMS) along the specified axis.
+    ///
+    /// @param				inArray
+    /// @param				inAxis (Optional, default NONE)
+    ///
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis)
+    {
+        return std::move(inArray.rms(inAxis));
+    }
+
+    //============================================================================
+    // Method Description:
     ///						Roll array elements along a given axis.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.roll.html
@@ -8575,6 +8594,7 @@ namespace NC
     //============================================================================
     // Method Description:
     ///						Unwrap by changing deltas between values to 2*pi complement.
+    ///                     Unwraps to [-pi, pi].
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
     ///
@@ -8587,23 +8607,13 @@ namespace NC
     template<typename dtype>
     dtype unwrap(dtype inValue)
     {
-        if (inValue < 0)
-        {
-            return inValue + 2 * Constants::pi;
-        }
-        else if (inValue >= 2 * Constants::pi)
-        {
-            return inValue - 2 * Constants::pi;
-        }
-        else
-        {
-            return inValue;
-        }
+        return std::atan2(std::sin(inValue), std::cos(inValue));
     }
 
     //============================================================================
     // Method Description:
     ///						Unwrap by changing deltas between values to 2*pi complement.
+    ///                     Unwraps to [-pi, pi].
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html
     ///

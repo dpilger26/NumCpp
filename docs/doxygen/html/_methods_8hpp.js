@@ -239,6 +239,7 @@ var _methods_8hpp =
     [ "right_shift", "_methods_8hpp.html#ab4ccd8692b2160eb3889bc05832c9660", null ],
     [ "rint", "_methods_8hpp.html#a077621164167318626d4b6a564fcbb8b", null ],
     [ "rint", "_methods_8hpp.html#a7814441a3ecd6394162a658d66f138c0", null ],
+    [ "rms", "_methods_8hpp.html#a75c9f8f3cce6f4846cad5d3e0bd2ccb8", null ],
     [ "roll", "_methods_8hpp.html#aba39671dbe2014e391dfe0e2f942e20a", null ],
     [ "rot90", "_methods_8hpp.html#a88f175b4df6b702e784f1ae9597ed866", null ],
     [ "round", "_methods_8hpp.html#ad71dfd01347a15e44358b6cd0f8aa61a", null ],

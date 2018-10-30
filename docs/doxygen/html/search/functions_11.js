@@ -20,6 +20,7 @@ var searchData=
   ['resizeslow',['resizeSlow',['../class_n_c_1_1_nd_array.html#a87c59304167ba25b53036f490d2fc16c',1,'NC::NdArray::resizeSlow(uint32 inNumRows, uint32 inNumCols)'],['../class_n_c_1_1_nd_array.html#a0abb1a9946231226e099fa8a601e5318',1,'NC::NdArray::resizeSlow(const Shape &amp;inShape)'],['../namespace_n_c.html#a0ce35be340ac91e21fd816cd0cd01bc2',1,'NC::resizeSlow(NdArray&lt; dtype &gt; &amp;inArray, uint32 inNumRows, uint32 inNumCols)'],['../namespace_n_c.html#a5acf0a47ac34da50b7a8d87c8600b2f9',1,'NC::resizeSlow(NdArray&lt; dtype &gt; &amp;inArray, const Shape &amp;inNewShape)']]],
   ['right_5fshift',['right_shift',['../namespace_n_c.html#ab4ccd8692b2160eb3889bc05832c9660',1,'NC']]],
   ['rint',['rint',['../namespace_n_c.html#a077621164167318626d4b6a564fcbb8b',1,'NC::rint(dtype inValue)'],['../namespace_n_c.html#a7814441a3ecd6394162a658d66f138c0',1,'NC::rint(const NdArray&lt; dtype &gt; &amp;inArray)']]],
+  ['rms',['rms',['../class_n_c_1_1_nd_array.html#a3f8bf5e1b81a6af0cbf51c7e5907dbe8',1,'NC::NdArray::rms()'],['../namespace_n_c.html#a75c9f8f3cce6f4846cad5d3e0bd2ccb8',1,'NC::rms()']]],
   ['roll',['roll',['../namespace_n_c.html#aba39671dbe2014e391dfe0e2f942e20a',1,'NC']]],
   ['rot90',['rot90',['../namespace_n_c.html#a88f175b4df6b702e784f1ae9597ed866',1,'NC']]],
   ['rotate',['rotate',['../class_n_c_1_1_rotations_1_1_quaternion.html#a8545b6bc496fd75d7406c1be07114f43',1,'NC::Rotations::Quaternion']]],
