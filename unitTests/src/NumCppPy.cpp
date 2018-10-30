@@ -553,6 +553,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray rms(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    {
+        return numCToBoost(self.rms(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray round(NdArray<dtype>& self, uint8 inNumDecimals)
     {
         return numCToBoost(self.round(inNumDecimals));
@@ -2791,6 +2799,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
         .def("resizeFastList", &NdArrayInterface::resizeFastList<double>)
         .def("resizeSlow", &NdArrayInterface::resizeSlow<double>)
         .def("resizeSlowList", &NdArrayInterface::resizeSlowList<double>)
+        .def("rms", &NdArrayInterface::rms<double>)
         .def("round", &NdArrayInterface::round<double>)
         .def("row", &NdArrayDouble::row)
         .def("shape", &NdArrayDouble::shape)
@@ -3182,6 +3191,7 @@ BOOST_PYTHON_MODULE(libNumCpp)
     bp::def("right_shift", &right_shift<uint32>);
     bp::def("rintScaler", &MethodsInterface::rintScaler<double>);
     bp::def("rintArray", &MethodsInterface::rintArray<double>);
+    bp::def("rms", &rms<double>);
     bp::def("roll", &roll<double>);
     bp::def("rot90", &rot90<double>);
     bp::def("roundScaler", &MethodsInterface::roundScaler<double>);

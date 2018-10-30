@@ -159,6 +159,7 @@ var class_n_c_1_1_nd_array =
     [ "resizeFast", "class_n_c_1_1_nd_array.html#ac0fac0c18134dc7d212708e255a5a56e", null ],
     [ "resizeSlow", "class_n_c_1_1_nd_array.html#a87c59304167ba25b53036f490d2fc16c", null ],
     [ "resizeSlow", "class_n_c_1_1_nd_array.html#a0abb1a9946231226e099fa8a601e5318", null ],
+    [ "rms", "class_n_c_1_1_nd_array.html#a3f8bf5e1b81a6af0cbf51c7e5907dbe8", null ],
     [ "round", "class_n_c_1_1_nd_array.html#a6ee5f70f822051bd286bf931d37a3dab", null ],
     [ "row", "class_n_c_1_1_nd_array.html#a74781b769225b1044790082c309eb2d8", null ],
     [ "rSlice", "class_n_c_1_1_nd_array.html#a9ba459df8136a5e27dd113d2800294ab", null ],

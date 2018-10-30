@@ -3008,6 +3008,61 @@ namespace NC
 
         //============================================================================
         // Method Description:
+        ///						Return the root mean square (RMS) along a given axis.
+        ///
+        /// @param
+        ///				inAxis (Optional, default NONE)
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<double> rms(Axis inAxis = Axis::NONE) const
+        {
+            switch (inAxis)
+            {
+                case Axis::NONE:
+                {
+                    dtype squareSum = 0;
+                    std::for_each(cbegin(), cend(), [&squareSum](auto value) { squareSum += value * value; });
+                    NdArray<double> returnArray = { std::sqrt(static_cast<double>(squareSum) / static_cast<double>(size_)) };
+
+                    return std::move(returnArray);
+                }
+                case Axis::COL:
+                {
+                    NdArray<double> returnArray(1, shape_.rows);
+                    for (uint32 row = 0; row < shape_.rows; ++row)
+                    {
+                        dtype squareSum = 0;
+                        std::for_each(cbegin(row), cend(row), [&squareSum](auto value) { squareSum += value * value; });
+                        returnArray(0, row) = std::sqrt(static_cast<double>(squareSum) / static_cast<double>(shape_.cols));
+                    }
+
+                    return std::move(returnArray);
+                }
+                case Axis::ROW:
+                {
+                    NdArray<dtype> transposedArray = transpose();
+                    NdArray<double> returnArray(1, transposedArray.shape_.rows);
+                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+                    {
+                        dtype squareSum = 0;
+                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), [&squareSum](auto value) { squareSum += value * value; });
+                        returnArray(0, row) = std::sqrt(static_cast<double>(squareSum) / static_cast<double>(transposedArray.shape_.cols));
+                    }
+
+                    return std::move(returnArray);
+                }
+                default:
+                {
+                    // this isn't actually possible, just putting this here to get rid
+                    // of the compiler warning.
+                    return std::move(NdArray<double>(0));
+                }
+            }
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Return a with each element rounded to the given number
         ///						of decimals.
         ///

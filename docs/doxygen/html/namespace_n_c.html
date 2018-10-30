@@ -925,6 +925,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a7814441a3ecd6394162a658d66f138c0"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a7814441a3ecd6394162a658d66f138c0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a7814441a3ecd6394162a658d66f138c0">rint</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray)</td></tr>
 <tr class="separator:a7814441a3ecd6394162a658d66f138c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c9f8f3cce6f4846cad5d3e0bd2ccb8"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a75c9f8f3cce6f4846cad5d3e0bd2ccb8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#a75c9f8f3cce6f4846cad5d3e0bd2ccb8">rms</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822">Axis</a> inAxis=<a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</td></tr>
+<tr class="separator:a75c9f8f3cce6f4846cad5d3e0bd2ccb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba39671dbe2014e391dfe0e2f942e20a"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:aba39671dbe2014e391dfe0e2f942e20a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c.html#aba39671dbe2014e391dfe0e2f942e20a">roll</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespace_n_c.html#aaa4fcce123084afbd85696dc3a6545fc">int32</a> inShift, <a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822">Axis</a> inAxis=<a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>)</td></tr>
 <tr class="separator:aba39671dbe2014e391dfe0e2f942e20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -10151,6 +10154,45 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
+<a id="a75c9f8f3cce6f4846cad5d3e0bd2ccb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75c9f8f3cce6f4846cad5d3e0bd2ccb8">&#9670;&nbsp;</a></span>rms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; double &gt; NC::rms </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_n_c.html#a307d8657b76e8483752e4697dfd26822">Axis</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compute the root mean square (RMS) along the specified axis.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inArray</td><td></td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_n_c_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
 <a id="aba39671dbe2014e391dfe0e2f942e20a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba39671dbe2014e391dfe0e2f942e20a">&#9670;&nbsp;</a></span>roll()</h2>
 
@@ -11938,7 +11980,7 @@ template&lt;typename dtype &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Unwrap by changing deltas between values to 2*pi complement.</p>
+<p>Unwrap by changing deltas between values to 2*pi complement. Unwraps to [-pi, pi].</p>
 <p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html">https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -11967,7 +12009,7 @@ template&lt;typename dtype &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Unwrap by changing deltas between values to 2*pi complement.</p>
+<p>Unwrap by changing deltas between values to 2*pi complement. Unwraps to [-pi, pi].</p>
 <p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html">https://www.numpy.org/devdocs/reference/generated/numpy.unwrap.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

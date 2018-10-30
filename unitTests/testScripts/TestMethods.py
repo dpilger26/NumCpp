@@ -4107,6 +4107,39 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing rms: axis = None', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if NumCpp.rms(cArray, NumCpp.Axis.NONE).getNumpyArray().flatten().item() == np.sqrt(np.mean(np.square(data), axis=None)).item():
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing rms: axis = Row', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumCpp.rms(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), np.sqrt(np.mean(np.square(data), axis=0))):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing rms: axis = Col', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(NumCpp.rms(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), np.sqrt(np.mean(np.square(data), axis=1))):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing roll: Axis = Col', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -4883,13 +4916,7 @@ def doTest():
 
     print(colored('Testing unwrap scaler', 'cyan'))
     value = np.random.randn(1).item() * 3 * np.pi
-    if value < 0:
-        pValue = value + 2 * np.pi
-    elif value >= 2 * np.pi:
-        pValue = value - 2 * np.pi
-    else:
-        pValue = value
-    if np.round(NumCpp.unwrapScaler(value), 10) == np.round(pValue, 10):
+    if np.round(NumCpp.unwrapScaler(value), 10) == np.round(np.arctan2(np.sin(value), np.cos(value)), 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4900,9 +4927,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    data[data < 0] = data[data < 0] + 2 * np.pi
-    data[data > 2 * np.pi] = data[data > 2 * np.pi] - 2 * np.pi
-    if np.array_equal(np.round(NumCpp.unwrapArray(cArray), 10), np.round(data, 10)):
+    if np.array_equal(np.round(NumCpp.unwrapArray(cArray), 10), np.round(np.arctan2(np.sin(data), np.cos(data)), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
