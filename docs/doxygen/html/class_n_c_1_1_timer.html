@@ -114,10 +114,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5a993a30351faac9c82c9a82b7c334e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af09eaffc8b3e5f52c9db1a90df98e1d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_timer.html#af09eaffc8b3e5f52c9db1a90df98e1d9">Timer</a> (const std::string &amp;inName)</td></tr>
 <tr class="separator:af09eaffc8b3e5f52c9db1a90df98e1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab12f01a513cdf3c17d354666a9e7fdcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_timer.html#ab12f01a513cdf3c17d354666a9e7fdcf">setName</a> (const std::string &amp;inName)</td></tr>
+<tr class="separator:ab12f01a513cdf3c17d354666a9e7fdcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7363917493bb037d70263071de8655c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_timer.html#a7363917493bb037d70263071de8655c5">tic</a> ()</td></tr>
 <tr class="separator:a7363917493bb037d70263071de8655c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad894d267595f4640e20c6f12a7e0e2dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_n_c.html#ac2c3932eef7f9dce28f4a7dc17ecc05c">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_timer.html#ad894d267595f4640e20c6f12a7e0e2dc">toc</a> ()</td></tr>
-<tr class="separator:ad894d267595f4640e20c6f12a7e0e2dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70b02b4a8054c3fb56274b79046d2f59"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_c_1_1_timer.html#a70b02b4a8054c3fb56274b79046d2f59">toc</a> ()</td></tr>
+<tr class="separator:a70b02b4a8054c3fb56274b79046d2f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename TimeUnit = std::chrono::milliseconds&gt;<br />
@@ -222,6 +224,41 @@ template&lt;typename TimeUnit  = std::chrono::milliseconds&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab12f01a513cdf3c17d354666a9e7fdcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab12f01a513cdf3c17d354666a9e7fdcf">&#9670;&nbsp;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TimeUnit  = std::chrono::milliseconds&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_n_c_1_1_timer.html">NC::Timer</a>&lt; TimeUnit &gt;::setName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>inName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets/changes the timer name</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inName</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a7363917493bb037d70263071de8655c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7363917493bb037d70263071de8655c5">&#9670;&nbsp;</a></span>tic()</h2>
 
@@ -250,8 +287,8 @@ template&lt;typename TimeUnit  = std::chrono::milliseconds&gt; </div>
 
 </div>
 </div>
-<a id="ad894d267595f4640e20c6f12a7e0e2dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad894d267595f4640e20c6f12a7e0e2dc">&#9670;&nbsp;</a></span>toc()</h2>
+<a id="a70b02b4a8054c3fb56274b79046d2f59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70b02b4a8054c3fb56274b79046d2f59">&#9670;&nbsp;</a></span>toc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +299,7 @@ template&lt;typename TimeUnit  = std::chrono::milliseconds&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespace_n_c.html#ac2c3932eef7f9dce28f4a7dc17ecc05c">uint64</a> <a class="el" href="class_n_c_1_1_timer.html">NC::Timer</a>&lt; TimeUnit &gt;::toc </td>
+          <td class="memname">uint64_t <a class="el" href="class_n_c_1_1_timer.html">NC::Timer</a>&lt; TimeUnit &gt;::toc </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
