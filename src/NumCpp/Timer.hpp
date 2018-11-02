@@ -105,6 +105,16 @@ namespace NC
         }
 
         //============================================================================
+        ///						Sets/changes the timer name
+        ///
+        /// @param      inName
+        ///
+        void setName(const std::string& inName)
+        {
+            name_ = inName + " ";
+        }
+
+        //============================================================================
         ///						Starts the timer
         ///
         void tic()
