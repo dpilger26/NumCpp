@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['back',['back',['../class_n_c_1_1_data_cube.html#a7a1da80055d7bbe7b6063ed2042166da',1,'NC::DataCube::back()'],['../class_n_c_1_1_nd_array.html#a0d11ff31690056a5192d5957fec48a4c',1,'NC::NdArray::back()']]],
-  ['begin',['begin',['../class_n_c_1_1_data_cube.html#ab22d0b61632335da1541ca37688b492d',1,'NC::DataCube::begin()'],['../class_n_c_1_1_image_processing_1_1_cluster.html#a1bbb0ff3232b0aa24fb036f423f51cc0',1,'NC::ImageProcessing::Cluster::begin()'],['../class_n_c_1_1_image_processing_1_1_cluster_maker.html#a35ca874b0f157061105f735b2f995682',1,'NC::ImageProcessing::ClusterMaker::begin()'],['../class_n_c_1_1_nd_array.html#a519432b1efea5071b11627a5be6c6a0e',1,'NC::NdArray::begin()'],['../class_n_c_1_1_nd_array.html#a0779401b75d896819e0a9b5fb536e0ad',1,'NC::NdArray::begin(uint32 inRow)'],['../class_n_c_1_1_nd_array.html#addce89bd72bbd8441f1b38b06885a55e',1,'NC::NdArray::begin() const'],['../class_n_c_1_1_nd_array.html#a4f90a9f70a49f1ee152b9c1523c5f738',1,'NC::NdArray::begin(uint32 inRow) const']]],
+  ['back',['back',['../class_n_c_1_1_data_cube.html#a7a1da80055d7bbe7b6063ed2042166da',1,'NC::DataCube::back()'],['../class_n_c_1_1_nd_array.html#a5c3af0a34c5009a30a06ab5c1c8ac105',1,'NC::NdArray::back()']]],
+  ['begin',['begin',['../class_n_c_1_1_data_cube.html#ab22d0b61632335da1541ca37688b492d',1,'NC::DataCube::begin()'],['../class_n_c_1_1_image_processing_1_1_cluster.html#ab56669ab53dc70cc1f7a01ef77693340',1,'NC::ImageProcessing::Cluster::begin()'],['../class_n_c_1_1_image_processing_1_1_cluster_maker.html#ae37aed8beb4fbbc638fbd2b4b6151f78',1,'NC::ImageProcessing::ClusterMaker::begin()'],['../class_n_c_1_1_nd_array.html#aac5e4d25720cacaea6702bb5e9fd00fa',1,'NC::NdArray::begin() noexcept'],['../class_n_c_1_1_nd_array.html#a0779401b75d896819e0a9b5fb536e0ad',1,'NC::NdArray::begin(uint32 inRow)'],['../class_n_c_1_1_nd_array.html#a797b157ec774a0097d3cb24d1efc0273',1,'NC::NdArray::begin() const noexcept'],['../class_n_c_1_1_nd_array.html#a4f90a9f70a49f1ee152b9c1523c5f738',1,'NC::NdArray::begin(uint32 inRow) const']]],
   ['bernoulli',['bernoulli',['../class_n_c_1_1_random.html#ac346f5cceb659aeb546ce9e44e5273a9',1,'NC::Random']]],
   ['beta',['beta',['../class_n_c_1_1_random.html#aca7fb9c74d4ffb9736250d05fd1a2369',1,'NC::Random']]],
   ['big',['BIG',['../namespace_n_c.html#a4fd17afc98e4ce4216110d30e92ebb42aa60c6c694491d75b439073b8cb05b139',1,'NC']]],
@@ -13,9 +13,9 @@ var searchData=
   ['bitwise_5fnot',['bitwise_not',['../namespace_n_c.html#a55178ce0577e20d4c900da073c764d81',1,'NC']]],
   ['bitwise_5for',['bitwise_or',['../namespace_n_c.html#ad5c43eeb25cdac13f0ceea037a160393',1,'NC']]],
   ['bitwise_5fxor',['bitwise_xor',['../namespace_n_c.html#a476023cd2559879bc831a67f69b94e3a',1,'NC']]],
-  ['boostndarrayhelper',['BoostNdarrayHelper',['../class_n_c_1_1_boost_ndarray_helper.html',1,'NC::BoostNdarrayHelper'],['../class_n_c_1_1_boost_ndarray_helper.html#ad6f9133998ceeec2b490672cd01b55ef',1,'NC::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::numpy::ndarray *inArray)'],['../class_n_c_1_1_boost_ndarray_helper.html#a61c19e769e272065b48422a3280b6b6a',1,'NC::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::tuple inShape)']]],
+  ['boostndarrayhelper',['BoostNdarrayHelper',['../class_n_c_1_1_boost_ndarray_helper.html',1,'NC::BoostNdarrayHelper'],['../class_n_c_1_1_boost_ndarray_helper.html#a5145ce05a56c28443d9fd761f1c6c8a8',1,'NC::BoostNdarrayHelper::BoostNdarrayHelper(const boost::python::numpy::ndarray &amp;inArray)'],['../class_n_c_1_1_boost_ndarray_helper.html#a61c19e769e272065b48422a3280b6b6a',1,'NC::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::tuple inShape)']]],
   ['boostnumpyndarrayhelper_2ehpp',['BoostNumpyNdarrayHelper.hpp',['../_boost_numpy_ndarray_helper_8hpp.html',1,'']]],
-  ['boosttonumc',['boostToNumC',['../namespace_n_c.html#a6480f49e8c8489013935c4a1c77bc54d',1,'NC']]],
+  ['boosttonumc',['boostToNumC',['../namespace_n_c.html#a84c7681c6dec33aac6ad78ba9ac0f944',1,'NC']]],
   ['boundary',['Boundary',['../namespace_n_c_1_1_filter.html#aacee45516a7d1cae23650ede4561f734',1,'NC::Filter']]],
   ['byteswap',['byteswap',['../class_n_c_1_1_nd_array.html#af6ad8bf45d201b7c813df1ac6d047ca0',1,'NC::NdArray::byteswap()'],['../namespace_n_c.html#aa02fa94ab6ab7c71714723d750d90d38',1,'NC::byteswap()']]]
 ];

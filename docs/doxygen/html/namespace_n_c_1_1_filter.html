@@ -145,9 +145,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9507376c23327be8db0a5ac86112b0dc"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a9507376c23327be8db0a5ac86112b0dc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_filter.html#a9507376c23327be8db0a5ac86112b0dc">fillCorners</a> (<a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespace_n_c.html#a215e17fa1a04d466ad58380ff471b3e7">uint32</a> inBorderWidth, dtype inFillValue)</td></tr>
 <tr class="separator:a9507376c23327be8db0a5ac86112b0dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0746862309ce5c83b9417f54f5e0ed71"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a0746862309ce5c83b9417f54f5e0ed71"><td class="memTemplItemLeft" align="right" valign="top">dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_filter.html#a0746862309ce5c83b9417f54f5e0ed71">gaussian</a> (dtype inX, dtype inY, dtype inSigma)</td></tr>
-<tr class="separator:a0746862309ce5c83b9417f54f5e0ed71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae96a5d0e7a329c32c27975846077b5c4"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ae96a5d0e7a329c32c27975846077b5c4"><td class="memTemplItemLeft" align="right" valign="top">dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_filter.html#ae96a5d0e7a329c32c27975846077b5c4">gaussian</a> (dtype inX, dtype inY, dtype inSigma) noexcept</td></tr>
+<tr class="separator:ae96a5d0e7a329c32c27975846077b5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9560df2e313188b6e1e788f919194220"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a9560df2e313188b6e1e788f919194220"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_n_c_1_1_filter.html#a9560df2e313188b6e1e788f919194220">gaussianFilter</a> (const <a class="el" href="class_n_c_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, double inSigma, <a class="el" href="namespace_n_c_1_1_filter.html#aacee45516a7d1cae23650ede4561f734">Boundary</a> inBoundaryType=<a class="el" href="namespace_n_c_1_1_filter.html#aacee45516a7d1cae23650ede4561f734ae4f6a05f82ed398f984f4bc1a55838df">Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a9560df2e313188b6e1e788f919194220"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -758,13 +758,16 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
-<a id="a0746862309ce5c83b9417f54f5e0ed71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0746862309ce5c83b9417f54f5e0ed71">&#9670;&nbsp;</a></span>gaussian()</h2>
+<a id="ae96a5d0e7a329c32c27975846077b5c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae96a5d0e7a329c32c27975846077b5c4">&#9670;&nbsp;</a></span>gaussian()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename dtype &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">dtype NC::Filter::gaussian </td>
@@ -790,6 +793,11 @@ template&lt;typename dtype &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>samples a gaussian of mean zero and input STD sigma</p>
 <dl class="params"><dt>Parameters</dt><dd>

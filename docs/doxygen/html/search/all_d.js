@@ -20,7 +20,7 @@ var searchData=
   ['minimum',['minimum',['../namespace_n_c.html#af853f0b2c47535120ad29516e0b4a539',1,'NC']]],
   ['minimumfilter',['minimumFilter',['../namespace_n_c_1_1_filter.html#a8b711c566c3a57091054817177c52554',1,'NC::Filter']]],
   ['minumumfilter1d',['minumumFilter1d',['../namespace_n_c_1_1_filter.html#a5e27e7e7abb33c3fcb3f3b17cef314aa',1,'NC::Filter']]],
-  ['minutes',['minutes',['../class_n_c_1_1_coordinates_1_1_r_a.html#a1d6d2f8cf62141ce74575d150930556c',1,'NC::Coordinates::RA::minutes()'],['../class_n_c_1_1_coordinates_1_1_dec.html#a35da9c8b067b39d35d5cf3b5b635edf4',1,'NC::Coordinates::Dec::minutes()']]],
+  ['minutes',['minutes',['../class_n_c_1_1_coordinates_1_1_r_a.html#a53aa829c1658979f94a561a2236bf571',1,'NC::Coordinates::RA::minutes()'],['../class_n_c_1_1_coordinates_1_1_dec.html#afc2e3aa98370521e44696e9467fa9499',1,'NC::Coordinates::Dec::minutes()']]],
   ['minutes_5fper_5fday',['MINUTES_PER_DAY',['../namespace_n_c_1_1_constants.html#a6a07b0f7ba0ecc14e182cab2bfefbd8d',1,'NC::Constants']]],
   ['minutes_5fper_5fhour',['MINUTES_PER_HOUR',['../namespace_n_c_1_1_constants.html#aae77c8056662e9ce1f848d00998579a0',1,'NC::Constants']]],
   ['mirror',['MIRROR',['../namespace_n_c_1_1_filter.html#aacee45516a7d1cae23650ede4561f734a72a92ae9c1d172cdda196686278fbfc6',1,'NC::Filter']]],

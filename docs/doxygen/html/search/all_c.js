@@ -1,8 +1,8 @@
 var searchData=
 [
   ['laplace',['laplace',['../class_n_c_1_1_random.html#a0256a00d865e303be57ef335ca969450',1,'NC::Random']]],
-  ['lcm',['lcm',['../namespace_n_c.html#a17a8619e9dd2331130d54286b2028f3c',1,'NC::lcm(dtype inValue1, dtype inValue2)'],['../namespace_n_c.html#ade93bc6dc9fa1824e0e30193dd8509aa',1,'NC::lcm(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)'],['../namespace_n_c.html#a5d1323cda3da97359abf1860cc04ecb6',1,'NC::lcm(const NdArray&lt; dtype &gt; &amp;inArray)']]],
-  ['ldexp',['ldexp',['../namespace_n_c.html#a96a17b4a710f3a844227b2d18acb0c2d',1,'NC::ldexp(dtype inValue1, uint8 inValue2)'],['../namespace_n_c.html#a4cd1bbbcacc8a8b1cd834761780fbc61',1,'NC::ldexp(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; uint8 &gt; &amp;inArray2)']]],
+  ['lcm',['lcm',['../namespace_n_c.html#a8e499b3b9886f1f90fb3e98d942e0bdb',1,'NC::lcm(dtype inValue1, dtype inValue2) noexcept'],['../namespace_n_c.html#ade93bc6dc9fa1824e0e30193dd8509aa',1,'NC::lcm(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)'],['../namespace_n_c.html#a5d1323cda3da97359abf1860cc04ecb6',1,'NC::lcm(const NdArray&lt; dtype &gt; &amp;inArray)']]],
+  ['ldexp',['ldexp',['../namespace_n_c.html#a81e2cbba17b311cfcf00fb471d6459cc',1,'NC::ldexp(dtype inValue1, uint8 inValue2) noexcept'],['../namespace_n_c.html#a4cd1bbbcacc8a8b1cd834761780fbc61',1,'NC::ldexp(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; uint8 &gt; &amp;inArray2)']]],
   ['left_5fshift',['left_shift',['../namespace_n_c.html#ac11acec8972f92fd81fbe404e645ebd7',1,'NC']]],
   ['less',['less',['../namespace_n_c.html#aeb3ed3fcded1aebd1f3fcd3045ccf114',1,'NC']]],
   ['less_5fequal',['less_equal',['../namespace_n_c.html#a9c21a0824ada021f42a31a2dbec64df2',1,'NC']]],

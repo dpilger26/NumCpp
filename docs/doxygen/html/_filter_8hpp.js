@@ -17,7 +17,7 @@ var _filter_8hpp =
     [ "convolve1d", "_filter_8hpp.html#a8f14726fe6a6b7c5d22c64fdd80e7b71", null ],
     [ "fillCorners", "_filter_8hpp.html#a381e20dad8b036046413f5caece6e4f4", null ],
     [ "fillCorners", "_filter_8hpp.html#a9507376c23327be8db0a5ac86112b0dc", null ],
-    [ "gaussian", "_filter_8hpp.html#a0746862309ce5c83b9417f54f5e0ed71", null ],
+    [ "gaussian", "_filter_8hpp.html#ae96a5d0e7a329c32c27975846077b5c4", null ],
     [ "gaussianFilter", "_filter_8hpp.html#a9560df2e313188b6e1e788f919194220", null ],
     [ "gaussianFilter1d", "_filter_8hpp.html#a4a58e5eb1c544676eccd2948782f7441", null ],
     [ "maximumFilter", "_filter_8hpp.html#a45afb44f9cf23201a9fbdfea8d63881e", null ],
