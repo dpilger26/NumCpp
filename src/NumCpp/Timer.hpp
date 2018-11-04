@@ -98,8 +98,9 @@ namespace NC
         ///
         /// @param      inName
         ///
-        Timer(const std::string& inName) :
-            name_(inName + " ")
+        Timer(const std::string& inName):
+            name_(inName + " "),
+            start_(ChronoClock::now())
         {
             setUnits();
         }
@@ -117,7 +118,7 @@ namespace NC
         //============================================================================
         ///						Starts the timer
         ///
-        void tic()
+        void tic() noexcept
         {
             start_ = ChronoClock::now();
         }
@@ -130,7 +131,7 @@ namespace NC
         ///
         uint64_t toc()
         {
-            auto duration = static_cast<uint64_t>(std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count());
+            const auto duration = static_cast<uint64_t>(std::chrono::duration_cast<TimeUnit>(ChronoClock::now() - start_).count());
             std::cout << name_ << "Elapsed Time = " << duration << unit_ << std::endl;
             return duration;
         }

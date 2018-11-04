@@ -56,7 +56,7 @@ namespace NC
         ///
         /// @param      inSquareSize
         ///
-        explicit Shape(uint32 inSquareSize) :
+        explicit Shape(uint32 inSquareSize) noexcept :
             rows(inSquareSize),
             cols(inSquareSize)
         {};
@@ -67,7 +67,7 @@ namespace NC
         /// @param      inRows
         /// @param      inCols
         ///
-        Shape(uint32 inRows, uint32 inCols) :
+        Shape(uint32 inRows, uint32 inCols) noexcept :
             rows(inRows),
             cols(inCols)
         {};
@@ -79,7 +79,7 @@ namespace NC
         ///
         /// @return     bool
         ///
-        bool operator==(const Shape& inOtherShape) const
+        bool operator==(const Shape& inOtherShape) const noexcept
         {
             return rows == inOtherShape.rows && cols == inOtherShape.cols;
         }
@@ -91,7 +91,7 @@ namespace NC
         ///
         /// @return     bool
         ///
-        bool operator!=(const Shape& inOtherShape) const
+        bool operator!=(const Shape& inOtherShape) const noexcept
         {
             return !(*this == inOtherShape);
         }
@@ -101,7 +101,7 @@ namespace NC
         ///
         /// @return     size
         ///
-        uint32 size() const
+        uint32 size() const noexcept
         {
             return rows * cols;
         }
@@ -112,7 +112,7 @@ namespace NC
         ///
         /// @return     bool
         ///
-        bool isnull()
+        bool isnull() noexcept
         {
             return rows == 0 && cols == 0;
         }

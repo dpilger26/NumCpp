@@ -171,7 +171,7 @@ def doTest():
     sArray = NumCpp.NdArray()
     vArray = NumCpp.NdArray()
     NumCpp.svd(cArray, uArray, sArray, vArray)
-    data2 = np.dot(uArray.getNumpyArray(), np.dot(sArray.getNumpyArray(), vArray.getNumpyArray().T))
+    data2 = np.dot(uArray.getNumpyArray(), np.dot(sArray.getNumpyArray(), vArray.getNumpyArray()))
     if np.array_equal(np.round(data, 9), np.round(data2, 9)):
         print(colored('\tPASS', 'green'))
     else:

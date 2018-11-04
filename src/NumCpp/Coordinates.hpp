@@ -52,17 +52,17 @@ namespace NC
         {
         private:
             //====================================Attributes==============================
-            uint8   hours_{0};
-            uint8   minutes_{0};
-            dtype   seconds_{0.0};
-            dtype   degrees_{0.0};
-            dtype   radians_{0.0};
+            uint8   hours_{ 0 };
+            uint8   minutes_{ 0 };
+            dtype   seconds_{ 0.0 };
+            dtype   degrees_{ 0.0 };
+            dtype   radians_{ 0.0 };
 
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            RA()
+            RA() noexcept
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA: constructor can only be called with floating point types.");
             }
@@ -86,7 +86,7 @@ namespace NC
                 }
 
                 hours_ = static_cast<uint8>(std::floor(degrees_ / 15.0));
-                double decMinutes = (degrees_ - static_cast<double>(hours_) * 15.0) * 4.0;
+                const double decMinutes = (degrees_ - static_cast<double>(hours_) * 15.0) * 4.0;
                 minutes_ = static_cast<uint8>(std::floor(decMinutes));
                 seconds_ = static_cast<dtype>((decMinutes - static_cast<double>(minutes_)) * 60.0);
             }
@@ -98,7 +98,7 @@ namespace NC
             /// @param          inMinutes
             /// @param          inSeconds
             ///
-            RA(uint8 inHours, uint8 inMinutes, dtype inSeconds) :
+            RA(uint8 inHours, uint8 inMinutes, dtype inSeconds)  noexcept :
                 hours_(inHours),
                 minutes_(inMinutes),
                 seconds_(inSeconds)
@@ -115,7 +115,7 @@ namespace NC
             /// @return     RA
             ///
             template<typename dtypeOut>
-            RA<dtypeOut> astype()
+            RA<dtypeOut> astype() noexcept
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::RA::astype: method can only be called with floating point types.");
 
@@ -127,7 +127,7 @@ namespace NC
             ///
             /// @return     radians
             ///
-            dtype radians() const
+            dtype radians() const noexcept
             {
                 return radians_;
             }
@@ -137,7 +137,7 @@ namespace NC
             ///
             /// @return     degrees
             ///
-            dtype degrees() const
+            dtype degrees() const noexcept
             {
                 return degrees_;
             }
@@ -147,7 +147,7 @@ namespace NC
             ///
             /// @return     hours
             ///
-            uint8 hours() const
+            uint8 hours() const noexcept
             {
                 return hours_;
             }
@@ -157,7 +157,7 @@ namespace NC
             ///
             /// @return     minutes
             ///
-            uint8 minutes() const
+            uint8 minutes() const noexcept
             {
                 return minutes_;
             }
@@ -167,7 +167,7 @@ namespace NC
             ///
             /// @return     seconds
             ///
-            dtype seconds() const
+            dtype seconds() const noexcept
             {
                 return seconds_;
             }
@@ -199,7 +199,7 @@ namespace NC
             ///
             /// @return     bool
             ///
-            bool operator==(const RA<dtype>& inRhs) const
+            bool operator==(const RA<dtype>& inRhs) const noexcept
             {
                 return degrees_ == inRhs.degrees_;
             }
@@ -211,7 +211,7 @@ namespace NC
             ///
             /// @return     bool
             ///
-            bool operator!=(const RA<dtype>& inRhs) const
+            bool operator!=(const RA<dtype>& inRhs) const noexcept
             {
                 return !(*this == inRhs);
             }
@@ -241,17 +241,17 @@ namespace NC
         private:
             //====================================Attributes==============================
             Sign            sign_{ Sign::POSITIVE };
-            uint8           degreesWhole_{0};
-            uint8           minutes_{0};
-            dtype           seconds_{0.0};
-            dtype           degrees_{0.0};
-            dtype           radians_{0.0};
+            uint8           degreesWhole_{ 0 };
+            uint8           minutes_{ 0 };
+            dtype           seconds_{ 0.0 };
+            dtype           degrees_{ 0.0 };
+            dtype           radians_{ 0.0 };
 
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            Dec()
+            Dec() noexcept
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
             }
@@ -278,7 +278,7 @@ namespace NC
                 dtype absDegrees = std::abs(degrees_);
                 degreesWhole_ = static_cast<uint8>(std::floor(absDegrees));
 
-                double decMinutes = (absDegrees - static_cast<double>(degreesWhole_)) * 60.0;
+                const double decMinutes = (absDegrees - static_cast<double>(degreesWhole_)) * 60.0;
                 minutes_ = static_cast<uint8>(std::floor(decMinutes));
                 seconds_ = static_cast<dtype>((decMinutes - static_cast<double>(minutes_)) * 60.0);
             }
@@ -291,7 +291,7 @@ namespace NC
             /// @param      inMinutes
             /// @param      inSeconds
             ///
-            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds) :
+            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds)  noexcept :
                 sign_(inSign),
                 degreesWhole_(inDegrees),
                 minutes_(inMinutes),
@@ -311,7 +311,7 @@ namespace NC
             /// @return     Dec
             ///
             template<typename dtypeOut>
-            Dec<dtypeOut> astype()
+            Dec<dtypeOut> astype() noexcept
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec::astype: method can only be called with floating point types.");
 
@@ -323,7 +323,7 @@ namespace NC
             ///
             /// @return     Sign
             ///
-            Sign sign() const
+            Sign sign() const noexcept
             {
                 return sign_;
             }
@@ -333,7 +333,7 @@ namespace NC
             ///
             /// @return     degrees
             ///
-            dtype degrees() const
+            dtype degrees() const noexcept
             {
                 return degrees_;
             }
@@ -343,7 +343,7 @@ namespace NC
             ///
             /// @return     minutes
             ///
-            dtype radians() const
+            dtype radians() const noexcept
             {
                 return radians_;
             }
@@ -353,7 +353,7 @@ namespace NC
             ///
             /// @return     whole degrees
             ///
-            uint8 degreesWhole() const
+            uint8 degreesWhole() const noexcept
             {
                 return degreesWhole_;
             }
@@ -363,7 +363,7 @@ namespace NC
             ///
             /// @return     minutes
             ///
-            uint8 minutes() const
+            uint8 minutes() const noexcept
             {
                 return minutes_;
             }
@@ -373,7 +373,7 @@ namespace NC
             ///
             /// @return     seconds
             ///
-            dtype seconds() const
+            dtype seconds() const noexcept
             {
                 return seconds_;
             }
@@ -406,7 +406,7 @@ namespace NC
             ///
             /// @return     bool
             ///
-            bool operator==(const Dec<dtype>& inRhs) const
+            bool operator==(const Dec<dtype>& inRhs) const noexcept
             {
                 return degrees_ == inRhs.degrees_;
             }
@@ -418,7 +418,7 @@ namespace NC
             ///
             /// @return     bool
             ///
-            bool operator!=(const Dec<dtype>& inRhs) const
+            bool operator!=(const Dec<dtype>& inRhs) const noexcept
             {
                 return !(*this == inRhs);
             }
@@ -447,9 +447,9 @@ namespace NC
             //====================================Attributes==============================
             RA<dtype>       ra_;
             Dec<dtype>      dec_;
-            dtype           x_{1.0};
-            dtype           y_{0.0};
-            dtype           z_{0.0};
+            dtype           x_{ 1.0 };
+            dtype           y_{ 0.0 };
+            dtype           z_{ 0.0 };
 
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
@@ -463,7 +463,7 @@ namespace NC
                 }
                 ra_ = RA<dtype>(degreesRa);
 
-                double r = std::sqrt(static_cast<double>(Utils::sqr(x_)) + static_cast<double>(Utils::sqr(y_)) + static_cast<double>(Utils::sqr(z_)));
+                const double r = std::sqrt(static_cast<double>(Utils::sqr(x_)) + static_cast<double>(Utils::sqr(y_)) + static_cast<double>(Utils::sqr(z_)));
                 dtype degreesDec = static_cast<dtype>(rad2deg(std::asin(static_cast<double>(z_) / r)));
                 dec_ = Dec<dtype>(degreesDec);
             }
@@ -471,10 +471,10 @@ namespace NC
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
             ///
-            void polarToCartesian()
+            void polarToCartesian() noexcept
             {
-                double raRadians = deg2rad(static_cast<double>(ra_.degrees()));
-                double decRadians = deg2rad(static_cast<double>(dec_.degrees()));
+                const double raRadians = deg2rad(static_cast<double>(ra_.degrees()));
+                const double decRadians = deg2rad(static_cast<double>(dec_.degrees()));
 
                 x_ = static_cast<dtype>(std::cos(raRadians) * std::cos(decRadians));
                 y_ = static_cast<dtype>(std::sin(raRadians) * std::cos(decRadians));
@@ -485,7 +485,7 @@ namespace NC
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            Coordinate()
+            Coordinate() noexcept
             {
                 static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::Coordinates::Dec: constructor can only be called with floating point types.");
             }
@@ -515,7 +515,8 @@ namespace NC
             /// @param              inDecMinutes
             /// @param              inDecSeconds
             ///
-            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign inSign, uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds) :
+            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign inSign,
+                uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds)  noexcept :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
                 dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds)
             {
@@ -529,7 +530,7 @@ namespace NC
             /// @param				inRA
             /// @param              inDec
             ///
-            Coordinate(const RA<dtype>& inRA, const Dec<dtype>& inDec) :
+            Coordinate(const RA<dtype>& inRA, const Dec<dtype>& inDec) noexcept :
                 ra_(inRA),
                 dec_(inDec)
             {
@@ -592,7 +593,7 @@ namespace NC
             ///
             /// @return             Dec
             ///
-            const Dec<dtype>& dec() const
+            const Dec<dtype>& dec() const noexcept
             {
                 return dec_;
             }
@@ -602,7 +603,7 @@ namespace NC
             ///
             /// @return     RA
             ///
-            const RA<dtype>& ra() const
+            const RA<dtype>& ra() const noexcept
             {
                 return ra_;
             }
@@ -612,7 +613,7 @@ namespace NC
             ///
             /// @return     x
             ///
-            dtype x() const
+            dtype x() const noexcept
             {
                 return x_;
             }
@@ -622,7 +623,7 @@ namespace NC
             ///
             /// @return     y
             ///
-            dtype y() const
+            dtype y() const noexcept
             {
                 return y_;
             }
@@ -632,7 +633,7 @@ namespace NC
             ///
             /// @return     z
             ///
-            dtype z() const
+            dtype z() const noexcept
             {
                 return z_;
             }
@@ -644,7 +645,7 @@ namespace NC
             ///
             NdArray<dtype> xyz() const
             {
-                NdArray<dtype> out = {x_, y_, z_};
+                NdArray<dtype> out = { x_, y_, z_ };
                 return std::move(out);
             }
 
@@ -734,7 +735,7 @@ namespace NC
             ///
             /// @return     bool
             ///
-            bool operator==(const Coordinate<dtype>& inRhs) const
+            bool operator==(const Coordinate<dtype>& inRhs) const noexcept
             {
                 return ra_ == inRhs.ra_ && dec_ == inRhs.dec_;
             }
@@ -746,7 +747,7 @@ namespace NC
             ///
             /// @return     bool
             ///
-            bool operator!=(const Coordinate<dtype>& inRhs) const
+            bool operator!=(const Coordinate<dtype>& inRhs) const noexcept
             {
                 return !(*this == inRhs);
             }

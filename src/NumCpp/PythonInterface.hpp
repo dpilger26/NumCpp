@@ -50,9 +50,9 @@ namespace NC
     /// @return     NdArray<T>
     ///
     template<typename dtype>
-    NdArray<dtype> boostToNumC(boost::python::numpy::ndarray& inArray)
+    NdArray<dtype> boostToNumC(const boost::python::numpy::ndarray& inArray)
     {
-        BoostNdarrayHelper helper(&inArray);
+        BoostNdarrayHelper helper(inArray);
         if (helper.numDimensions() > 2)
         {
             std::string errStr = "ERROR: Can only convert 1 and 2 dimensional arrays.";
@@ -64,7 +64,7 @@ namespace NC
         if (helper.numDimensions() == 1)
         {
             arrayShape.rows = 1;
-            arrayShape.cols = static_cast<uint32>(helper.shape()[0]);
+            arrayShape.cols = static_cast<uint32>(helper.shape().front());
 
             NdArray<dtype> returnArray(arrayShape);
             for (uint32 i = 0; i < arrayShape.size(); ++i)
@@ -76,7 +76,7 @@ namespace NC
         }
         else
         {
-            arrayShape.rows = static_cast<uint32>(helper.shape()[0]);
+            arrayShape.rows = static_cast<uint32>(helper.shape().front());
             arrayShape.cols = static_cast<uint32>(helper.shape()[1]);
 
             NdArray<dtype> returnArray(arrayShape);
@@ -103,7 +103,7 @@ namespace NC
     template<typename dtype>
     boost::python::numpy::ndarray numCToBoost(const NdArray<dtype>& inArray)
     {
-        Shape inShape = inArray.shape();
+        const Shape inShape = inArray.shape();
         boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);
         BoostNdarrayHelper newNdArrayHelper(shape);
 
@@ -114,7 +114,7 @@ namespace NC
                 newNdArrayHelper(row, col) = static_cast<double>(inArray(row, col));
             }
         }
-        return *(newNdArrayHelper.getArray());
+        return newNdArrayHelper.getArray();
     }
 
     //============================================================================

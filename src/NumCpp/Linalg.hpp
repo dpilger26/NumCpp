@@ -104,7 +104,7 @@ namespace NC
                 eps_ = std::numeric_limits<double>::epsilon();
                 decompose();
                 reorder();
-                tsh_ = 0.5 * std::sqrt(m_ + n_ + 1.) * s_[0] * eps_;
+                tsh_ = 0.5 * std::sqrt(m_ + n_ + 1.) * s_.front() * eps_;
             }
 
             // =============================================================================
@@ -114,7 +114,7 @@ namespace NC
             /// @return
             ///              u matrix
             ///
-            const NdArray<double>& u()
+            const NdArray<double>& u() noexcept
             {
                 return u_;
             }
@@ -126,7 +126,7 @@ namespace NC
             /// @return
             ///              v matrix
             ///
-            const NdArray<double>& v()
+            const NdArray<double>& v() noexcept
             {
                 return v_;
             }
@@ -138,7 +138,7 @@ namespace NC
             /// @return
             ///              s matrix
             ///
-            const NdArray<double>& s()
+            const NdArray<double>& s() noexcept
             {
                 return s_;
             }
@@ -168,7 +168,7 @@ namespace NC
 
                 NdArray<double> tmp(1, n_);
 
-                tsh_ = (inThresh >= 0. ? inThresh : 0.5 * sqrt(m_ + n_ + 1.) * s_[0] * eps_);
+                tsh_ = (inThresh >= 0. ? inThresh : 0.5 * sqrt(m_ + n_ + 1.) * s_.front() * eps_);
 
                 for (uint32 j = 0; j < n_; j++)
                 {
@@ -209,7 +209,7 @@ namespace NC
             /// @return
             ///              value
             ///
-            double SIGN(double inA, double inB)
+            double SIGN(double inA, double inB) noexcept
             {
                 return inB >= 0 ? (inA >= 0 ? inA : -inA) : (inA >= 0 ? -inA : inA);
             }
@@ -678,10 +678,10 @@ namespace NC
             /// @return
             ///              resultant value
             ///
-            double pythag(double inA, double inB)
+            double pythag(double inA, double inB) noexcept
             {
-                double absa = std::abs(inA);
-                double absb = std::abs(inB);
+                const double absa = std::abs(inA);
+                const double absb = std::abs(inB);
                 return (absa > absb ? absa * std::sqrt(1.0 + Utils::sqr(absb / absa)) : 
                     (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + Utils::sqr(absa / absb))));
             }
@@ -702,7 +702,7 @@ namespace NC
         template<typename dtype>
         dtype det(const NdArray<dtype>& inArray)
         {
-            Shape inShape = inArray.shape();
+            const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
                 std::string errStr = "ERROR: Linalg::determinant: input array must be square with size no larger than 3x3.";
@@ -712,7 +712,7 @@ namespace NC
 
             if (inShape.rows == 1)
             {
-                return inArray[0];
+                return inArray.front();
             }
             else if (inShape.rows == 2)
             {
@@ -821,7 +821,7 @@ namespace NC
         template<typename dtype>
         NdArray<double> inv(const NdArray<dtype>& inArray)
         {
-            Shape inShape = inArray.shape();
+            const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
                 std::string errStr = "ERROR: Linalg::inv: input array must be square.";
@@ -829,7 +829,7 @@ namespace NC
                 throw std::invalid_argument(errStr);
             }
 
-            uint32 order = inShape.rows;
+            const uint32 order = inShape.rows;
 
             Shape newShape(inShape);
             newShape.rows *= 2;
@@ -917,7 +917,7 @@ namespace NC
         NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance)
         {
             SVD svdSolver(inA.template astype<double>());
-            double threshold = inTolerance * svdSolver.s()[0];
+            const double threshold = inTolerance * svdSolver.s().front();
 
             return std::move(svdSolver.solve(inB.template astype<double>(), threshold));
         }
@@ -942,7 +942,7 @@ namespace NC
         template<typename dtypeOut = double, typename dtype>
         NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
-            Shape inShape = inArray.shape();
+            const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
                 std::string errStr = "ERROR: Linalg::matrix_power: input matrix must be square.";

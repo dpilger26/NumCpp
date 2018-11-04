@@ -59,9 +59,9 @@ namespace NC
             // Method Description:
             ///						renormalizes the quaternion
             ///
-            void normalize()
+            void normalize() noexcept
             {
-                double norm = std::sqrt(Utils::sqr(data_[0]) + Utils::sqr(data_[1]) + Utils::sqr(data_[2]) + Utils::sqr(data_[3]));
+                const double norm = std::sqrt(Utils::sqr(data_[0]) + Utils::sqr(data_[1]) + Utils::sqr(data_[2]) + Utils::sqr(data_[3]));
                 data_[0] /= norm;
                 data_[1] /= norm;
                 data_[2] /= norm;
@@ -84,9 +84,9 @@ namespace NC
             /// @param				inK
             /// @param				inS
             ///
-            Quaternion(double inI, double inJ, double inK, double inS)
+            Quaternion(double inI, double inJ, double inK, double inS) noexcept
             {
-                double norm = std::sqrt(Utils::sqr(inI) + Utils::sqr(inJ) + Utils::sqr(inK) + Utils::sqr(inS));
+                const double norm = std::sqrt(Utils::sqr(inI) + Utils::sqr(inJ) + Utils::sqr(inK) + Utils::sqr(inS));
                 data_[0] = inI / norm;
                 data_[1] = inJ / norm;
                 data_[2] = inK / norm;
@@ -138,10 +138,10 @@ namespace NC
                 // normalize the input vector
                 NdArray<double> normAxis = inAxis.template astype<double>() / inAxis.template norm<double>().item();
 
-                double i = static_cast<double>(normAxis[0]) * std::sin(inAngle / 2.0);
-                double j = static_cast<double>(normAxis[1]) * std::sin(inAngle / 2.0);
-                double k = static_cast<double>(normAxis[2]) * std::sin(inAngle / 2.0);
-                double s = std::cos(inAngle / 2.0);
+                const double i = static_cast<double>(normAxis[0]) * std::sin(inAngle / 2.0);
+                const double j = static_cast<double>(normAxis[1]) * std::sin(inAngle / 2.0);
+                const double k = static_cast<double>(normAxis[2]) * std::sin(inAngle / 2.0);
+                const double s = std::cos(inAngle / 2.0);
 
                 return Quaternion(i, j, k, s);
             }
@@ -204,7 +204,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion conjugate() const
+            Quaternion conjugate() const noexcept
             {
                 return Quaternion(-i(), -j(), -k(), s());
             }
@@ -216,7 +216,7 @@ namespace NC
             /// @return
             ///				double
             ///
-            double i() const
+            double i() const noexcept
             {
                 return data_[0];
             }
@@ -228,7 +228,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            static Quaternion identity()
+            static Quaternion identity() noexcept
             {
                 return Quaternion(0.0, 0.0, 0.0, 1.0);
             }
@@ -240,7 +240,7 @@ namespace NC
             /// @return
             ///				Quaterion
             ///
-            Quaternion inverse() const
+            Quaternion inverse() const noexcept
             {
                 /// for unit quaternions the inverse is equal to the conjugate
                 return conjugate();
@@ -253,7 +253,7 @@ namespace NC
             /// @return
             ///				double
             ///
-            double j() const
+            double j() const noexcept
             {
                 return data_[1];
             }
@@ -265,7 +265,7 @@ namespace NC
             /// @return
             ///				double
             ///
-            double k() const
+            double k() const noexcept
             {
                 return data_[2];
             }
@@ -282,7 +282,7 @@ namespace NC
             template<typename dtype>
             static Quaternion fromDCM(const NdArray<dtype>& inDcm)
             {
-                Shape inShape = inDcm.shape();
+                const Shape inShape = inDcm.shape();
                 if (!(inShape.rows == 3 && inShape.cols == 3))
                 {
                     std::string errStr = "ERROR: Rotations::Quaternion::fromDcm: input direction cosine matrix must have shape = (3,3).";
@@ -376,11 +376,11 @@ namespace NC
                     return inQuat2;
                 }
 
-                double oneMinus = 1.0 - inPercent;
-                double i = oneMinus * inQuat1.data_[0] + inPercent * inQuat2.data_[0];
-                double j = oneMinus * inQuat1.data_[1] + inPercent * inQuat2.data_[1];
-                double k = oneMinus * inQuat1.data_[2] + inPercent * inQuat2.data_[2];
-                double s = oneMinus * inQuat1.data_[3] + inPercent * inQuat2.data_[3];
+                const double oneMinus = 1.0 - inPercent;
+                const double i = oneMinus * inQuat1.data_[0] + inPercent * inQuat2.data_[0];
+                const double j = oneMinus * inQuat1.data_[1] + inPercent * inQuat2.data_[1];
+                const double k = oneMinus * inQuat1.data_[2] + inPercent * inQuat2.data_[2];
+                const double s = oneMinus * inQuat1.data_[3] + inPercent * inQuat2.data_[3];
 
                 return Quaternion(i, j, k, s);
             }
@@ -437,7 +437,7 @@ namespace NC
             /// @return
             ///				double
             ///
-            double s() const
+            double s() const noexcept
             {
                 return data_[3];
             }
@@ -490,11 +490,11 @@ namespace NC
                 }
 
                 dotProduct = clip(dotProduct, -1.0, 1.0);	// Robustness: Stay within domain of acos()
-                double theta0 = std::acos(dotProduct);		// angle between input vectors
-                double theta = theta0 * inPercent;			// angle between v0 and result
+                const double theta0 = std::acos(dotProduct);		// angle between input vectors
+                const double theta = theta0 * inPercent;			// angle between v0 and result
 
-                double s0 = std::cos(theta) - dotProduct * std::sin(theta) / std::sin(theta0);  // == sin(theta_0 - theta) / sin(theta_0)
-                double s1 = std::sin(theta) / std::sin(theta0);
+                const double s0 = std::cos(theta) - dotProduct * std::sin(theta) / std::sin(theta0);  // == sin(theta_0 - theta) / sin(theta_0)
+                const double s1 = std::sin(theta) / std::sin(theta0);
 
                 NdArray<double> interpQuat = (inQuat1.toNdArray() * s0) + (inQuat2.toNdArray() * s1);
                 return Quaternion(interpQuat);
@@ -622,7 +622,7 @@ namespace NC
             /// @return
             ///				bool
             ///
-            bool operator==(const Quaternion& inRhs) const
+            bool operator==(const Quaternion& inRhs) const noexcept
             {
                 return Utils::essentiallyEqual(data_[0], inRhs.data_[0]) &&
                     Utils::essentiallyEqual(data_[1], inRhs.data_[1]) &&
@@ -639,7 +639,7 @@ namespace NC
             /// @return
             ///				bool
             ///
-            bool operator!=(const Quaternion& inRhs) const
+            bool operator!=(const Quaternion& inRhs) const noexcept
             {
                 return !(*this == inRhs);
             }
@@ -653,7 +653,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator+(const Quaternion& inRhs) const
+            Quaternion operator+(const Quaternion& inRhs) const noexcept
             {
                 return Quaternion(*this) += inRhs;
             }
@@ -667,7 +667,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator+=(const Quaternion& inRhs)
+            Quaternion& operator+=(const Quaternion& inRhs) noexcept
             {
                 data_[0] += inRhs.data_[0];
                 data_[1] += inRhs.data_[1];
@@ -687,7 +687,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator-(const Quaternion& inRhs) const
+            Quaternion operator-(const Quaternion& inRhs) const noexcept
             {
                 return Quaternion(*this) -= inRhs;
             }
@@ -701,7 +701,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator-=(const Quaternion& inRhs)
+            Quaternion& operator-=(const Quaternion& inRhs) noexcept
             {
                 data_[0] -= inRhs.data_[0];
                 data_[1] -= inRhs.data_[1];
@@ -721,7 +721,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator*(const Quaternion& inRhs) const
+            Quaternion operator*(const Quaternion& inRhs) const noexcept
             {
                 return Quaternion(*this) *= inRhs;
             }
@@ -736,7 +736,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator*(double inScalar) const
+            Quaternion operator*(double inScalar) const noexcept
             {
                 return Quaternion(*this) *= inScalar;
             }
@@ -772,12 +772,12 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator*=(const Quaternion& inRhs)
+            Quaternion& operator*=(const Quaternion& inRhs) noexcept
             {
-                double q0 = inRhs.data_[3] * data_[0] + inRhs.data_[0] * data_[3] - inRhs.data_[1] * data_[2] + inRhs.data_[2] * data_[1];
-                double q1 = inRhs.data_[3] * data_[1] + inRhs.data_[0] * data_[2] + inRhs.data_[1] * data_[3] - inRhs.data_[2] * data_[0];
-                double q2 = inRhs.data_[3] * data_[2] - inRhs.data_[0] * data_[1] + inRhs.data_[1] * data_[0] + inRhs.data_[2] * data_[3];
-                double q3 = inRhs.data_[3] * data_[3] - inRhs.data_[0] * data_[0] - inRhs.data_[1] * data_[1] - inRhs.data_[2] * data_[2];
+                const double q0 = inRhs.data_[3] * data_[0] + inRhs.data_[0] * data_[3] - inRhs.data_[1] * data_[2] + inRhs.data_[2] * data_[1];
+                const double q1 = inRhs.data_[3] * data_[1] + inRhs.data_[0] * data_[2] + inRhs.data_[1] * data_[3] - inRhs.data_[2] * data_[0];
+                const double q2 = inRhs.data_[3] * data_[2] - inRhs.data_[0] * data_[1] + inRhs.data_[1] * data_[0] + inRhs.data_[2] * data_[3];
+                const double q3 = inRhs.data_[3] * data_[3] - inRhs.data_[0] * data_[0] - inRhs.data_[1] * data_[1] - inRhs.data_[2] * data_[2];
 
                 data_[0] = q0;
                 data_[1] = q1;
@@ -798,7 +798,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator*=(double inScalar)
+            Quaternion& operator*=(double inScalar) noexcept
             {
                 data_[0] *= inScalar;
                 data_[1] *= inScalar;
@@ -818,7 +818,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion operator/(const Quaternion& inRhs) const
+            Quaternion operator/(const Quaternion& inRhs) const noexcept
             {
                 return Quaternion(*this) /= inRhs;
             }
@@ -832,7 +832,7 @@ namespace NC
             /// @return
             ///				Quaternion
             ///
-            Quaternion& operator/=(const Quaternion& inRhs)
+            Quaternion& operator/=(const Quaternion& inRhs) noexcept
             {
                 return *this *= inRhs.conjugate();
             }
@@ -893,7 +893,7 @@ namespace NC
             ///
             static bool isValid(const NdArray<dtype>& inArray)
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
                 if (!(inShape.rows == inShape.cols &&
                     round(Linalg::det<dtype>(inArray), 2) == 1 &&
                     round(Linalg::det<dtype>(inArray.transpose()), 2) == 1))

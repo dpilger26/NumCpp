@@ -31,6 +31,7 @@
 #include"NumCpp/Types.hpp"
 #include"NumCpp/Utils.hpp"
 
+#include<algorithm>
 #include<cmath>
 #include<vector>
 #include<iostream>
@@ -125,24 +126,24 @@ namespace NC
         //============================================================================
         ///						Constructor
         ///
-        /// @param      inArray: pointer to an ndarray
+        /// @param      inArray:  ndarray
         ///
-        BoostNdarrayHelper(boost::python::numpy::ndarray* inArray) :
-            theArray_(inArray->astype(boost::python::numpy::dtype::get_builtin<double>())),
-            numDimensions_(static_cast<uint8>(inArray->get_nd())),
+        BoostNdarrayHelper(const boost::python::numpy::ndarray& inArray) :
+            theArray_(inArray.astype(boost::python::numpy::dtype::get_builtin<double>())),
+            numDimensions_(static_cast<uint8>(inArray.get_nd())),
             shape_(numDimensions_),
             strides_(numDimensions_),
             order_(Order::C)
 
         {
-            Py_intptr_t const * shapePtr = inArray->get_shape();
+            Py_intptr_t const * shapePtr = inArray.get_shape();
             for (uint8 i = 0; i < numDimensions_; ++i)
             {
                 strides_[i] = static_cast<uint32>(theArray_.strides(i));
                 shape_[i] = shapePtr[i];
             }
 
-            if (numDimensions_ > 1 && inArray->strides(0) < inArray->strides(1))
+            if (numDimensions_ > 1 && inArray.strides(0) < inArray.strides(1))
             {
                 order_ = Order::F;
             }
@@ -178,11 +179,11 @@ namespace NC
         //============================================================================
         ///						Returns the internaly held ndarray
         ///
-        /// @return     pointer to an ndarray
+        /// @return     reference to the held ndarray
         ///
-        const boost::python::numpy::ndarray* getArray()
+        const boost::python::numpy::ndarray& getArray() noexcept
         {
-            return &theArray_;
+            return theArray_;
         }
 
         //============================================================================
@@ -200,7 +201,7 @@ namespace NC
         ///
         /// @return     num dimensions
         ///
-        uint8 numDimensions()
+        uint8 numDimensions() noexcept
         {
             return numDimensions_;
         }
@@ -210,7 +211,7 @@ namespace NC
         ///
         /// @return     vector
         ///
-        const std::vector<Py_intptr_t>& shape()
+        const std::vector<Py_intptr_t>& shape() noexcept
         {
             return shape_;
         }
@@ -223,9 +224,9 @@ namespace NC
         uint32 size()
         {
             uint32 theSize = 1;
-            for (uint8 dim = 0; dim < numDimensions_; ++dim)
+            for (auto dimSize : shape_)
             {
-                theSize *= static_cast<uint32>(shape_[dim]);
+                theSize *= static_cast<uint32>(dimSize);
             }
             return theSize;
         }
@@ -236,7 +237,7 @@ namespace NC
         ///
         /// @return     vector
         ///
-        const std::vector<uint32>& strides()
+        const std::vector<uint32>& strides() noexcept
         {
             return strides_;
         }
@@ -246,7 +247,7 @@ namespace NC
         ///
         /// @return     Order
         ///
-        Order order()
+        Order order() noexcept
         {
             return order_;
         }
@@ -260,19 +261,12 @@ namespace NC
         ///
         bool shapeEqual(BoostNdarrayHelper& otherNdarrayHelper)
         {
-            if (shape_.size() != otherNdarrayHelper.shape().size())
+            if (shape_.size() != otherNdarrayHelper.shape_.size())
             {
                 return false;
             }
 
-            for (uint32 i = 0; i < shape_.size(); ++i)
-            {
-                if (shape_[i] != otherNdarrayHelper.shape()[i])
-                {
-                    return false;
-                }
-            }
-            return true;
+            return std::equal(shape_.begin(), shape_.end(), otherNdarrayHelper.shape_.begin());
         }
 
         //============================================================================
@@ -286,7 +280,7 @@ namespace NC
         {
             checkIndices1D(index);
 
-            return *reinterpret_cast<double*>(theArray_.get_data() + strides_[0] * index);
+            return *reinterpret_cast<double*>(theArray_.get_data() + strides_.front() * index);
         }
 
         //============================================================================
@@ -300,7 +294,7 @@ namespace NC
         double& operator()(uint32 index1, uint32 index2)
         {
             checkIndices2D(index1, index2);
-            return *reinterpret_cast<double*>(theArray_.get_data() + strides_[0] * index1 + strides_[1] * index2);
+            return *reinterpret_cast<double*>(theArray_.get_data() + strides_.front() * index1 + strides_[1] * index2);
         }
 
         //============================================================================
@@ -316,7 +310,7 @@ namespace NC
         {
             checkIndices3D(index1, index2, index3);
 
-            return *reinterpret_cast<double*>(theArray_.get_data() + strides_[0] * index1 + strides_[1] * index2 + strides_[2] * index3);
+            return *reinterpret_cast<double*>(theArray_.get_data() + strides_.front() * index1 + strides_[1] * index2 + strides_[2] * index3);
         }
 
         //============================================================================
@@ -325,13 +319,13 @@ namespace NC
         void printArray1D()
         {
             printf("array = \n");
-            if (numDimensions_ > 1)
+            if (numDimensions_ != 1)
             {
                 std::cout << "printArray1D can only be used on a 1D array." << std::endl;
                 return;
             }
 
-            for (int32 i = 0; i < shape_[0]; ++i)
+            for (int32 i = 0; i < shape_.front(); ++i)
             {
                 printf("\t%f\n", this->operator()(i));
             }
@@ -343,15 +337,15 @@ namespace NC
         void printArray2D()
         {
             printf("array = \n");
-            if (numDimensions_ > 2)
+            if (numDimensions_ != 2)
             {
                 std::cout << "printArray2D can only be used on a 2D array." << std::endl;
                 return;
             }
 
-            for (int32 index1 = 0; index1 < shape_[0]; ++index1)
+            for (int32 index1 = 0; index1 < shape_.front(); ++index1)
             {
-                for (int32 index2 = 0; index2 < shape_[1]; ++index2)
+                for (int32 index2 = 0; index2 < shape_.back(); ++index2)
                 {
                     printf("\t%f", this->operator()(index1, index2));
                 }
@@ -365,17 +359,17 @@ namespace NC
         void printArray3D()
         {
             printf("array = \n");
-            if (numDimensions_ > 2)
+            if (numDimensions_ != 3)
             {
                 std::cout << "printArray3D can only be used on a 3D array." << std::endl;
                 return;
             }
 
-            for (int32 index1 = 0; index1 < shape_[0]; ++index1)
+            for (int32 index1 = 0; index1 < shape_.front(); ++index1)
             {
                 for (int32 index2 = 0; index2 < shape_[1]; ++index2)
                 {
-                    for (int32 index3 = 0; index3 < shape_[2]; ++index3)
+                    for (int32 index3 = 0; index3 < shape_.back(); ++index3)
                     {
                         printf("\t%f", this->operator()(index1, index2, index3));
                     }

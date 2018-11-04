@@ -113,7 +113,7 @@ namespace NC
         /// @return
         ///				NdArray
         ///
-        uint32 order() const
+        uint32 order() const noexcept
         {
             return static_cast<uint32>(coefficients_.size() - 1);
         }
@@ -156,7 +156,7 @@ namespace NC
         /// @return
         ///				Poly1d
         ///
-        dtype operator()(dtype inValue) const
+        dtype operator()(dtype inValue) const noexcept
         {
             dtype polyValue = 0;
             uint8 power = 0;
@@ -287,7 +287,7 @@ namespace NC
         ///
         Poly1d<dtype>& operator*=(const Poly1d<dtype>& inOtherPoly)
         {
-            uint32 finalCoefficientsSize = order() + inOtherPoly.order() + 1;
+            const uint32 finalCoefficientsSize = order() + inOtherPoly.order() + 1;
             std::vector<dtype> coeffsA(finalCoefficientsSize, 0);
             std::vector<dtype> coeffsB(finalCoefficientsSize, 0);
             std::copy(coefficients_.begin(), coefficients_.end(), coeffsA.begin());

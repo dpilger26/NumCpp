@@ -51,7 +51,7 @@ namespace NC
 
         // forward declare all functions
         template<typename dtype>
-        dtype gaussian(dtype inX, dtype inY, dtype inSigma);
+        dtype gaussian(dtype inX, dtype inY, dtype inSigma) noexcept;
 
         template<typename dtype>
         void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth);
@@ -184,9 +184,9 @@ namespace NC
         /// @return             dtype
         ///
         template<typename dtype>
-        dtype gaussian(dtype inX, dtype inY, dtype inSigma)
+        dtype gaussian(dtype inX, dtype inY, dtype inSigma) noexcept
         {
-            double exponent = -(Utils::sqr(inX) + Utils::sqr(inY)) / (2 * Utils::sqr(inSigma));
+            const double exponent = -(Utils::sqr(inX) + Utils::sqr(inY)) / (2 * Utils::sqr(inSigma));
             return static_cast<dtype>(std::exp(exponent));
         }
 
@@ -200,9 +200,9 @@ namespace NC
         template<typename dtype>
         void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth)
         {
-            Shape inShape = inArray.shape();
-            int32 numRows = static_cast<int32>(inShape.rows);
-            int32 numCols = static_cast<int32>(inShape.cols);
+            const Shape inShape = inArray.shape();
+            const int32 numRows = static_cast<int32>(inShape.rows);
+            const int32 numCols = static_cast<int32>(inShape.cols);
 
             // top left
             inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth), 
@@ -232,9 +232,9 @@ namespace NC
         template<typename dtype>
         void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth, dtype inFillValue)
         {
-            Shape inShape = inArray.shape();
-            int32 numRows = static_cast<int32>(inShape.rows);
-            int32 numCols = static_cast<int32>(inShape.cols);
+            const Shape inShape = inArray.shape();
+            const int32 numRows = static_cast<int32>(inShape.rows);
+            const int32 numCols = static_cast<int32>(inShape.cols);
 
             // top left
             inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth), inFillValue);
@@ -262,7 +262,7 @@ namespace NC
         template<typename dtype>
         NdArray<dtype> reflectBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            Shape inShape = inImage.shape();
+            const Shape inShape = inImage.shape();
             Shape outShape(inShape);
             outShape.rows += inBoundarySize * 2;
             outShape.cols += inBoundarySize * 2;
@@ -303,7 +303,7 @@ namespace NC
             NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), 
                 Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
-            uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
+            const uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
             NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), 
                 Slice(0, inBoundarySize)));
             NdArray<dtype> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
@@ -331,7 +331,7 @@ namespace NC
         template<typename dtype>
         NdArray<dtype> reflectBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            uint32 outSize = inImage.size() + inBoundarySize * 2;
+            const uint32 outSize = inImage.size() + inBoundarySize * 2;
 
             NdArray<dtype> outArray(1, outSize);
             outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
@@ -359,7 +359,7 @@ namespace NC
         template<typename dtype>
         NdArray<dtype> constantBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
         {
-            Shape inShape = inImage.shape();
+            const Shape inShape = inImage.shape();
             Shape outShape(inShape);
             outShape.rows += inBoundarySize * 2;
             outShape.cols += inBoundarySize * 2;
@@ -393,7 +393,7 @@ namespace NC
         template<typename dtype>
         NdArray<dtype> constantBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize, dtype inConstantValue)
         {
-            uint32 outSize = inImage.size() + inBoundarySize * 2;
+            const uint32 outSize = inImage.size() + inBoundarySize * 2;
 
             NdArray<dtype> outArray(1, outSize);
             outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
@@ -419,7 +419,7 @@ namespace NC
         template<typename dtype>
         NdArray<dtype> nearestBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            Shape inShape = inImage.shape();
+            const Shape inShape = inImage.shape();
             Shape outShape(inShape);
             outShape.rows += inBoundarySize * 2;
             outShape.cols += inBoundarySize * 2;
@@ -470,16 +470,16 @@ namespace NC
         template<typename dtype>
         NdArray<dtype> nearestBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            uint32 outSize = inImage.size() + inBoundarySize * 2;
+            const uint32 outSize = inImage.size() + inBoundarySize * 2;
 
             NdArray<dtype> outArray(1, outSize);
             outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
 
             // left
-            outArray.put(Slice(0, inBoundarySize), inImage[0]);
+            outArray.put(Slice(0, inBoundarySize), inImage.front());
 
             // right
-            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inImage[-1]);
+            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inImage.back());
 
             return std::move(outArray);
         }
@@ -496,7 +496,7 @@ namespace NC
         template<typename dtype>
         NdArray<dtype> mirrorBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            Shape inShape = inImage.shape();
+            const Shape inShape = inImage.shape();
             Shape outShape(inShape);
             outShape.rows += inBoundarySize * 2;
             outShape.cols += inBoundarySize * 2;
@@ -537,7 +537,7 @@ namespace NC
             NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize + 1, 2 * inBoundarySize + 1),
                 Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
-            uint32 upperRowStart = outShape.rows - 2 * inBoundarySize - 1;
+            const uint32 upperRowStart = outShape.rows - 2 * inBoundarySize - 1;
             NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
                 Slice(0, inBoundarySize)));
             NdArray<dtype> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
@@ -565,7 +565,7 @@ namespace NC
         template<typename dtype>
         NdArray<dtype> mirrorBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            uint32 outSize = inImage.size() + inBoundarySize * 2;
+            const uint32 outSize = inImage.size() + inBoundarySize * 2;
 
             NdArray<dtype> outArray(1, outSize);
             outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
@@ -592,7 +592,7 @@ namespace NC
         template<typename dtype>
         NdArray<dtype> wrapBoundary(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            Shape inShape = inImage.shape();
+            const Shape inShape = inImage.shape();
             Shape outShape(inShape);
             outShape.rows += inBoundarySize * 2;
             outShape.cols += inBoundarySize * 2;
@@ -627,7 +627,7 @@ namespace NC
             NdArray<dtype> lowerRight = outArray(Slice(inBoundarySize, 2 * inBoundarySize),
                 Slice(outShape.cols - inBoundarySize, outShape.cols));
 
-            uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
+            const uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
             NdArray<dtype> upperLeft = outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
                 Slice(0, inBoundarySize));
             NdArray<dtype> upperRight = outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
@@ -655,7 +655,7 @@ namespace NC
         template<typename dtype>
         NdArray<dtype> wrapBoundary1d(const NdArray<dtype>& inImage, uint32 inBoundarySize)
         {
-            uint32 outSize = inImage.size() + inBoundarySize * 2;
+            const uint32 outSize = inImage.size() + inBoundarySize * 2;
 
             NdArray<dtype> outArray(1, outSize);
             outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
@@ -690,7 +690,7 @@ namespace NC
                 throw std::invalid_argument(errStr);
             }
 
-            uint32 boundarySize = inKernalSize / 2; // integer division
+            const uint32 boundarySize = inKernalSize / 2; // integer division
 
             switch (inBoundaryType)
             {
@@ -743,7 +743,7 @@ namespace NC
                 throw std::invalid_argument(errStr);
             }
 
-            uint32 boundarySize = inKernalSize / 2; // integer division
+            const uint32 boundarySize = inKernalSize / 2; // integer division
 
             switch (inBoundaryType)
             {
@@ -885,10 +885,10 @@ namespace NC
             NdArray<dtype> output(inImageArray.shape());
 
             NdArray<dtype> weightsFlat = rot90(inWeights, 2).flatten();
-            Shape inShape = inImageArray.shape();
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPointRow = boundarySize + inShape.rows;
-            uint32 endPointCol = boundarySize + inShape.cols;
+            const Shape inShape = inImageArray.shape();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPointRow = boundarySize + inShape.rows;
+            const uint32 endPointCol = boundarySize + inShape.cols;
 
             for (uint32 row = boundarySize; row < endPointRow; ++row)
             {
@@ -921,13 +921,13 @@ namespace NC
         NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
             Boundary inBoundaryType, dtype inConstantValue)
         {
-            uint32 boundarySize = inWeights.size() / 2; // integer division
+            const uint32 boundarySize = inWeights.size() / 2; // integer division
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             NdArray<dtype> weightsFlat = fliplr(inWeights.flatten());
 
-            uint32 endPointRow = boundarySize + inImageArray.size();
+            const uint32 endPointRow = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPointRow; ++i)
             {
@@ -971,7 +971,7 @@ namespace NC
                 ++kernelSize; // make sure the kernel is an odd size
             }
 
-            double kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
+            const double kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
 
             // calculate the gaussian kernel
             NdArray<double> kernel(kernelSize);
@@ -1029,7 +1029,7 @@ namespace NC
                 ++kernelSize; // make sure the kernel is an odd size
             }
 
-            double kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
+            const double kernalHalfSize = static_cast<double>(kernelSize / 2); // integer division
 
             // calculate the gaussian kernel
             NdArray<double> kernel(1, kernelSize);
@@ -1070,10 +1070,10 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
-            Shape inShape = inImageArray.shape();
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPointRow = boundarySize + inShape.rows;
-            uint32 endPointCol = boundarySize + inShape.cols;
+            const Shape inShape = inImageArray.shape();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPointRow = boundarySize + inShape.rows;
+            const uint32 endPointCol = boundarySize + inShape.cols;
 
             for (uint32 row = boundarySize; row < endPointRow; ++row)
             {
@@ -1109,8 +1109,8 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPoint = boundarySize + inImageArray.size();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPoint = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPoint; ++i)
             {
@@ -1142,10 +1142,10 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
-            Shape inShape = inImageArray.shape();
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPointRow = boundarySize + inShape.rows;
-            uint32 endPointCol = boundarySize + inShape.cols;
+            const Shape inShape = inImageArray.shape();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPointRow = boundarySize + inShape.rows;
+            const uint32 endPointCol = boundarySize + inShape.cols;
 
             for (uint32 row = boundarySize; row < endPointRow; ++row)
             {
@@ -1181,8 +1181,8 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPoint = boundarySize + inImageArray.size();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPoint = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPoint; ++i)
             {
@@ -1214,10 +1214,10 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
-            Shape inShape = inImageArray.shape();
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPointRow = boundarySize + inShape.rows;
-            uint32 endPointCol = boundarySize + inShape.cols;
+            const Shape inShape = inImageArray.shape();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPointRow = boundarySize + inShape.rows;
+            const uint32 endPointCol = boundarySize + inShape.cols;
 
             for (uint32 row = boundarySize; row < endPointRow; ++row)
             {
@@ -1253,8 +1253,8 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPoint = boundarySize + inImageArray.size();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPoint = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPoint; ++i)
             {
@@ -1287,10 +1287,10 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
-            Shape inShape = inImageArray.shape();
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPointRow = boundarySize + inShape.rows;
-            uint32 endPointCol = boundarySize + inShape.cols;
+            const Shape inShape = inImageArray.shape();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPointRow = boundarySize + inShape.rows;
+            const uint32 endPointCol = boundarySize + inShape.cols;
 
             for (uint32 row = boundarySize; row < endPointRow; ++row)
             {
@@ -1328,8 +1328,8 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPoint = boundarySize + inImageArray.size();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPoint = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPoint; ++i)
             {
@@ -1367,10 +1367,10 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
-            Shape inShape = inImageArray.shape();
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPointRow = boundarySize + inShape.rows;
-            uint32 endPointCol = boundarySize + inShape.cols;
+            const Shape inShape = inImageArray.shape();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPointRow = boundarySize + inShape.rows;
+            const uint32 endPointCol = boundarySize + inShape.cols;
 
             for (uint32 row = boundarySize; row < endPointRow; ++row)
             {
@@ -1407,8 +1407,8 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPoint = boundarySize + inImageArray.size();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPoint = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPoint; ++i)
             {
@@ -1440,10 +1440,10 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
-            Shape inShape = inImageArray.shape();
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPointRow = boundarySize + inShape.rows;
-            uint32 endPointCol = boundarySize + inShape.cols;
+            const Shape inShape = inImageArray.shape();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPointRow = boundarySize + inShape.rows;
+            const uint32 endPointCol = boundarySize + inShape.cols;
 
             for (uint32 row = boundarySize; row < endPointRow; ++row)
             {
@@ -1479,8 +1479,8 @@ namespace NC
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
-            uint32 boundarySize = inSize / 2; // integer division
-            uint32 endPoint = boundarySize + inImageArray.size();
+            const uint32 boundarySize = inSize / 2; // integer division
+            const uint32 endPoint = boundarySize + inImageArray.size();
 
             for (uint32 i = boundarySize; i < endPoint; ++i)
             {

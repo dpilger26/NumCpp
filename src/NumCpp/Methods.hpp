@@ -57,7 +57,7 @@ namespace NC
 {
     // forward declare all functions
     template<typename dtype>
-    dtype abs(dtype inValue);
+    dtype abs(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<dtype> abs(const NdArray<dtype>& inArray);
@@ -66,7 +66,7 @@ namespace NC
     NdArray<dtypeOut> add(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
-    uint32 alen(const NdArray<dtype>& inArray);
+    uint32 alen(const NdArray<dtype>& inArray) noexcept;
 
     template<typename dtype>
     NdArray<bool> all(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
@@ -99,43 +99,43 @@ namespace NC
     NdArray<dtype> arange(const Slice& inSlice);
 
     template<typename dtype>
-    double arccos(dtype inValue);
+    double arccos(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> arccos(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double arccosh(dtype inValue);
+    double arccosh(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> arccosh(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double arcsin(dtype inValue);
+    double arcsin(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> arcsin(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double arcsinh(dtype inValue);
+    double arcsinh(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> arcsinh(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double arctan(dtype inValue);
+    double arctan(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> arctan(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double arctan2(dtype inY, dtype inX);
+    double arctan2(dtype inY, dtype inX) noexcept;
 
     template<typename dtype>
     NdArray<double> arctan2(const NdArray<dtype>& inY, const NdArray<dtype>& inX);
 
     template<typename dtype>
-    double arctanh(dtype inValue);
+    double arctanh(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> arctanh(const NdArray<dtype>& inArray);
@@ -270,13 +270,13 @@ namespace NC
     NdArray<dtypeOut> cumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtype>
-    double deg2rad(dtype inValue);
+    double deg2rad(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> deg2rad(const NdArray<dtype>& inArray = Axis::NONE);
 
     template<typename dtype>
-    double degrees(dtype inValue);
+    double degrees(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> degrees(const NdArray<dtype>& inArray = Axis::NONE);
@@ -318,7 +318,7 @@ namespace NC
     NdArray<dtypeOut> empty_like(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    Endian endianess(const NdArray<dtype>& inArray);
+    Endian endianess(const NdArray<dtype>& inArray) noexcept;
 
     template<typename dtype>
     double erf(dtype inValue);
@@ -330,19 +330,19 @@ namespace NC
     NdArray<bool> equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
-    double exp(dtype inValue);
+    double exp(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> exp(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double exp2(dtype inValue);
+    double exp2(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> exp2(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double expm1(dtype inValue);
+    double expm1(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> expm1(const NdArray<dtype>& inArray);
@@ -357,10 +357,10 @@ namespace NC
     NdArray<dtype> eye(const Shape& inShape, int32 inK = 0);
 
     template<typename dtype>
-    void fillDiagonal(NdArray<dtype>& inArray, dtype inValue);
+    void fillDiagonal(NdArray<dtype>& inArray, dtype inValue) noexcept;
 
     template<typename dtype>
-    dtype fix(dtype inValue);
+    dtype fix(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<dtype> fix(const NdArray<dtype>& inArray);
@@ -381,13 +381,13 @@ namespace NC
     NdArray<dtype> flipud(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    dtype floor(dtype inValue);
+    dtype floor(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<dtype> floor(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    dtype floor_divide(dtype inValue1, dtype inValue2);
+    dtype floor_divide(dtype inValue1, dtype inValue2) noexcept;
 
     template<typename dtype>
     NdArray<dtype> floor_divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
@@ -405,7 +405,7 @@ namespace NC
     NdArray<dtype> fmin(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
-    dtype fmod(dtype inValue1, dtype inValue2);
+    dtype fmod(dtype inValue1, dtype inValue2) noexcept;
 
     template<typename dtype>
     NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
@@ -432,7 +432,7 @@ namespace NC
     NdArray<dtypeOut> full_like(const NdArray<dtype>& inArray, dtype inFillValue);
 
     template<typename dtype>
-    dtype gcd(dtype inValue1, dtype inValue2);
+    dtype gcd(dtype inValue1, dtype inValue2) noexcept;
 
     template<typename dtype>
     dtype gcd(const NdArray<dtype>& inArray);
@@ -453,7 +453,7 @@ namespace NC
     NdArray<dtype> hstack(const std::initializer_list<NdArray<dtype> >& inArrayList);
 
     template<typename dtypeOut, typename dtype>
-    dtypeOut hypot(dtype inValue1, dtype inValue2);
+    dtypeOut hypot(dtype inValue1, dtype inValue2) noexcept;
 
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
@@ -474,29 +474,29 @@ namespace NC
     NdArray<dtype> invert(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, 
+    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         double inRtol = 1e-05, double inAtol = 1e-08);
 
     template<typename dtype>
-    bool isinf(dtype inValue);
+    bool isinf(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<bool> isinf(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    bool isnan(dtype inValue);
+    bool isnan(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<bool> isnan(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    dtype lcm(dtype inValue1, dtype inValue2);
+    dtype lcm(dtype inValue1, dtype inValue2) noexcept;
 
     template<typename dtype>
     NdArray<dtype> lcm(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
-    dtype ldexp(dtype inValue1, uint8 inValue2);
+    dtype ldexp(dtype inValue1, uint8 inValue2) noexcept;
 
     template<typename dtype>
     NdArray<dtype> ldexp(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2);
@@ -610,7 +610,7 @@ namespace NC
     NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtypeOut, typename dtype>
-    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile, 
+    NdArray<double> nanpercentile(const NdArray<dtype>& inArray, double inPercentile,
         Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear");
 
     template<typename dtypeOut, typename dtype>
@@ -638,7 +638,7 @@ namespace NC
     NdArray<double> nanvar(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtype>
-    uint64 nbytes(const NdArray<dtype>& inArray);
+    uint64 nbytes(const NdArray<dtype>& inArray) noexcept;
 
     template<typename dtype>
     dtype newbyteorder(dtype inValue, Endian inEndianess);
@@ -677,7 +677,7 @@ namespace NC
     NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis inAxis = Axis::NONE);
 
     template<typename dtypeOut, typename dtype>
-    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, 
+    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile,
         Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear");
 
     template<typename dtypeOut, typename dtype>
@@ -708,13 +708,13 @@ namespace NC
     NdArray<dtype>& putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues);
 
     template<typename dtype>
-    double rad2deg(dtype inValue);
+    double rad2deg(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> rad2deg(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double radians(dtype inValue);
+    double radians(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> radians(const NdArray<dtype>& inArray);
@@ -723,7 +723,7 @@ namespace NC
     NdArray<dtypeOut> reciprocal(const NdArray<dtype>& inArray);
 
     template<typename dtypeOut, typename dtype>
-    dtypeOut remainder(dtype inValue1, dtype inValue2);
+    dtypeOut remainder(dtype inValue1, dtype inValue2) noexcept;
 
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
@@ -786,49 +786,49 @@ namespace NC
     Shape shape(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    int8 sign(dtype inValue);
+    int8 sign(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<int8> sign(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    bool signbit(dtype inValue);
+    bool signbit(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<bool> signbit(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double sin(dtype inValue);
+    double sin(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> sin(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double sinc(dtype inValue);
+    double sinc(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> sinc(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double sinh(dtype inValue);
+    double sinh(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> sinh(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    uint32 size(const NdArray<dtype>& inArray);
+    uint32 size(const NdArray<dtype>& inArray) noexcept;
 
     template<typename dtype>
     NdArray<dtype> sort(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE);
 
     template<typename dtype>
-    double sqrt(dtype inValue);
+    double sqrt(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> sqrt(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    dtype square(dtype inValue);
+    dtype square(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<dtype> square(const NdArray<dtype>& inArray);
@@ -846,13 +846,13 @@ namespace NC
     NdArray<dtype> swapaxes(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double tan(dtype inValue);
+    double tan(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> tan(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    double tanh(dtype inValue);
+    double tanh(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<double> tanh(const NdArray<dtype>& inArray);
@@ -870,7 +870,7 @@ namespace NC
     std::vector<dtype> toStlVector(const NdArray<dtype>& inArray);
 
     template<typename dtypeOut, typename dtype>
-    dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW);
+    dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset = 0, Axis inAxis = Axis::ROW) noexcept;
 
     template<typename dtype>
     NdArray<dtype> transpose(const NdArray<dtype>& inArray);
@@ -915,7 +915,7 @@ namespace NC
     NdArray<dtype> unique(const NdArray<dtype>& inArray);
 
     template<typename dtype>
-    dtype unwrap(dtype inValue);
+    dtype unwrap(dtype inValue) noexcept;
 
     template<typename dtype>
     NdArray<dtype> unwrap(const NdArray<dtype>& inArray);
@@ -953,7 +953,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    dtype abs(dtype inValue)
+    dtype abs(dtype inValue) noexcept
     {
         return std::abs(inValue);
     }
@@ -973,8 +973,8 @@ namespace NC
     NdArray<dtype> abs(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> dtype { return std::abs(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> dtype { return std::abs(inValue); });
 
         return std::move(returnArray);
     }
@@ -1006,7 +1006,7 @@ namespace NC
     ///				length uint16
     ///
     template<typename dtype>
-    uint32 alen(const NdArray<dtype>& inArray)
+    uint32 alen(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.shape().rows;
     }
@@ -1173,8 +1173,8 @@ namespace NC
             }
             case Axis::ROW:
             {
-                Shape inShape = inArray.shape();
-                Shape appendShape = inAppendValues.shape();
+                const Shape inShape = inArray.shape();
+                const Shape appendShape = inAppendValues.shape();
                 if (inShape.cols != appendShape.cols)
                 {
                     std::string errStr = "ERROR: append: all the input array dimensions except for the concatenation axis must match exactly";
@@ -1191,7 +1191,7 @@ namespace NC
             case Axis::COL:
             {
                 Shape inShape = inArray.shape();
-                Shape appendShape = inAppendValues.shape();
+                const Shape appendShape = inAppendValues.shape();
                 if (inShape.rows != appendShape.rows)
                 {
                     std::string errStr = "ERROR: append: all the input array dimensions except for the concatenation axis must match exactly";
@@ -1347,7 +1347,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double arccos(dtype inValue)
+    double arccos(dtype inValue) noexcept
     {
         return std::acos(static_cast<double>(inValue));
     }
@@ -1367,8 +1367,8 @@ namespace NC
     NdArray<double> arccos(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return std::acos(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue)  noexcept -> double { return std::acos(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1385,7 +1385,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double arccosh(dtype inValue)
+    double arccosh(dtype inValue) noexcept
     {
         return std::acosh(static_cast<double>(inValue));
     }
@@ -1405,8 +1405,8 @@ namespace NC
     NdArray<double> arccosh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return std::acosh(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> double { return std::acosh(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1423,7 +1423,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double arcsin(dtype inValue)
+    double arcsin(dtype inValue) noexcept
     {
         return std::asin(static_cast<double>(inValue));
     }
@@ -1444,7 +1444,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return std::asin(static_cast<double>(inValue)); });
+            [](dtype inValue)  noexcept -> double { return std::asin(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1461,7 +1461,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double arcsinh(dtype inValue)
+    double arcsinh(dtype inValue) noexcept
     {
         return std::asinh(static_cast<double>(inValue));
     }
@@ -1481,8 +1481,8 @@ namespace NC
     NdArray<double> arcsinh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return std::asinh(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue)  noexcept-> double { return std::asinh(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1499,7 +1499,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double arctan(dtype inValue)
+    double arctan(dtype inValue) noexcept
     {
         return std::atan(static_cast<double>(inValue));
     }
@@ -1519,8 +1519,8 @@ namespace NC
     NdArray<double> arctan(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return std::atan(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue)  noexcept-> double { return std::atan(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1537,7 +1537,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double arctan2(dtype inY, dtype inX)
+    double arctan2(dtype inY, dtype inX) noexcept
     {
         return std::atan2(static_cast<double>(inY), static_cast<double>(inX));
     }
@@ -1565,7 +1565,7 @@ namespace NC
 
         NdArray<double> returnArray(inY.shape());
         std::transform(inY.cbegin(), inY.cend(), inX.cbegin(), returnArray.begin(),
-            [](dtype y, dtype x) -> double { return std::atan2(static_cast<double>(y), static_cast<double>(x)); });
+            [](dtype y, dtype x) noexcept -> double { return std::atan2(static_cast<double>(y), static_cast<double>(x)); });
 
         return std::move(returnArray);
     }
@@ -1582,7 +1582,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue)
+    double arctanh(dtype inValue) noexcept
     {
         return std::atanh(static_cast<double>(inValue));
     }
@@ -1602,8 +1602,8 @@ namespace NC
     NdArray<double> arctanh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return std::atanh(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> double { return std::atanh(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -1863,7 +1863,7 @@ namespace NC
             }
             case Axis::COL:
             {
-                Shape arrayShape = inArray.shape();
+                const Shape arrayShape = inArray.shape();
                 if (inWeights.size() != arrayShape.cols)
                 {
                     std::string errStr = "ERROR: average: input array and weights value are not consistant.";
@@ -1876,7 +1876,7 @@ namespace NC
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
                     NdArray<double> weightedArray(1, arrayShape.cols);
-                    std::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(), 
+                    std::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), std::multiplies<double>());
 
                     double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
@@ -1896,13 +1896,13 @@ namespace NC
 
                 NdArray<dtype> transposedArray = inArray.transpose();
 
-                Shape transShape = transposedArray.shape();
+                const Shape transShape = transposedArray.shape();
                 double weightSum = inWeights.template sum<double>().item();
                 NdArray<double> returnArray(1, transShape.rows);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     NdArray<double> weightedArray(1, transShape.cols);
-                    std::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(), 
+                    std::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), std::multiplies<double>());
 
                     double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
@@ -1974,7 +1974,7 @@ namespace NC
             throw std::invalid_argument(errStr);
         }
 
-        uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
+        const uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
         NdArray<dtype> clippedArray = inArray.clip(0, maxValue);
 
         NdArray<dtype> outArray(1, outArraySize);
@@ -2035,7 +2035,7 @@ namespace NC
             throw std::invalid_argument(errStr);
         }
 
-        uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
+        const uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
         NdArray<dtype> clippedArray = inArray.clip(0, maxValue);
 
         NdArray<dtype> outArray(1, outArraySize);
@@ -2163,7 +2163,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return std::cbrt(static_cast<double>(inValue)); });
+            [](dtype inValue) noexcept -> double { return std::cbrt(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -2198,8 +2198,8 @@ namespace NC
     NdArray<dtype> ceil(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> dtype { return std::ceil(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> dtype { return std::ceil(inValue); });
 
         return std::move(returnArray);
     }
@@ -2279,7 +2279,7 @@ namespace NC
         uint32 colStart = 0;
         for (auto& ndarray : inArrayList)
         {
-            Shape theShape = ndarray.shape();
+            const Shape theShape = ndarray.shape();
             for (uint32 row = 0; row < theShape.rows; ++row)
             {
                 for (uint32 col = 0; col < theShape.cols; ++col)
@@ -2400,7 +2400,7 @@ namespace NC
 
         NdArray<dtype> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> dtype { return inValue2 < 0 ? std::abs(inValue1) * -1 : std::abs(inValue1); });
+            [](dtype inValue1, dtype inValue2) noexcept -> dtype { return inValue2 < 0 ? std::abs(inValue1) * -1 : std::abs(inValue1); });
 
         return std::move(returnArray);
     }
@@ -2455,8 +2455,8 @@ namespace NC
     NdArray<double> cos(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return std::cos(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> double { return std::cos(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -2493,8 +2493,8 @@ namespace NC
     NdArray<double> cosh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return std::cosh(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> double { return std::cosh(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -2517,7 +2517,7 @@ namespace NC
         {
             case Axis::NONE:
             {
-                NdArray<uint32> count = { inArray.size() - static_cast<uint32>(std::count(inArray.cbegin(), inArray.cend(), static_cast<dtype>(0)))};
+                NdArray<uint32> count = { inArray.size() - static_cast<uint32>(std::count(inArray.cbegin(), inArray.cend(), static_cast<dtype>(0))) };
                 return count;
             }
             case Axis::COL:
@@ -2527,7 +2527,7 @@ namespace NC
                 NdArray<uint32> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    returnArray(0, row) = inShape.cols - 
+                    returnArray(0, row) = inShape.cols -
                         static_cast<uint32>(std::count(inArray.cbegin(row), inArray.cend(row), static_cast<dtype>(0)));
                 }
 
@@ -2581,7 +2581,7 @@ namespace NC
         {
             case Axis::NONE:
             {
-                uint32 arraySize = inArray1.size();
+                const uint32 arraySize = inArray1.size();
                 if (arraySize != inArray2.size() || arraySize < 2 || arraySize > 3)
                 {
                     std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
@@ -2622,7 +2622,7 @@ namespace NC
             }
             case Axis::ROW:
             {
-                Shape arrayShape = inArray1.shape();
+                const Shape arrayShape = inArray1.shape();
                 if (arrayShape != inArray2.shape() || arrayShape.rows < 2 || arrayShape.rows > 3)
                 {
                     std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
@@ -2643,7 +2643,7 @@ namespace NC
                 NdArray<dtypeOut> returnArray(returnArrayShape);
                 for (uint32 col = 0; col < arrayShape.cols; ++col)
                 {
-                    int32 theCol = static_cast<int32>(col);
+                    const int32 theCol = static_cast<int32>(col);
                     NdArray<dtype> vec1 = inArray1({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
                     NdArray<dtype> vec2 = inArray2({ 0, static_cast<int32>(arrayShape.rows) }, { theCol, theCol + 1 });
                     NdArray<dtypeOut> vecCross = cross<dtypeOut>(vec1, vec2, Axis::NONE);
@@ -2655,7 +2655,7 @@ namespace NC
             }
             case Axis::COL:
             {
-                Shape arrayShape = inArray1.shape();
+                const Shape arrayShape = inArray1.shape();
                 if (arrayShape != inArray2.shape() || arrayShape.cols < 2 || arrayShape.cols > 3)
                 {
                     std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
@@ -2676,7 +2676,7 @@ namespace NC
                 NdArray<dtypeOut> returnArray(returnArrayShape);
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
-                    int32 theRow = static_cast<int32>(row);
+                    const int32 theRow = static_cast<int32>(row);
                     NdArray<dtype> vec1 = inArray1({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
                     NdArray<dtype> vec2 = inArray2({ theRow, theRow + 1 }, { 0, static_cast<int32>(arrayShape.cols) });
                     NdArray<dtypeOut> vecCross = cross<dtypeOut>(vec1, vec2, Axis::NONE);
@@ -2724,7 +2724,7 @@ namespace NC
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> dtypeOut { return Utils::cube(static_cast<dtypeOut>(inValue)); });
+            [](dtype inValue) noexcept -> dtypeOut { return Utils::cube(static_cast<dtypeOut>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -2775,7 +2775,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double deg2rad(dtype inValue)
+    double deg2rad(dtype inValue) noexcept
     {
         return inValue * Constants::pi / 180.0;
     }
@@ -2795,8 +2795,8 @@ namespace NC
     NdArray<double> deg2rad(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return deg2rad(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> double { return deg2rad(inValue); });
 
         return std::move(returnArray);
     }
@@ -2813,7 +2813,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double degrees(dtype inValue)
+    double degrees(dtype inValue) noexcept
     {
         return rad2deg(inValue);
     }
@@ -2870,7 +2870,7 @@ namespace NC
             }
             case Axis::ROW:
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
                 if (indices.max().item() >= inShape.rows)
                 {
                     std::string errStr = "ERROR: deleteIndices: input index value is greater than the number of rows in the array.";
@@ -2878,7 +2878,7 @@ namespace NC
                     throw std::invalid_argument(errStr);
                 }
 
-                uint32 numNewRows = inShape.rows - indices.size();
+                const uint32 numNewRows = inShape.rows - indices.size();
                 NdArray<dtype> returnArray(numNewRows, inShape.cols);
 
                 uint32 rowCounter = 0;
@@ -2900,7 +2900,7 @@ namespace NC
             }
             case Axis::COL:
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
                 if (indices.max().item() >= inShape.cols)
                 {
                     std::string errStr = "ERROR: deleteIndices: input index value is greater than the number of cols in the array.";
@@ -2908,7 +2908,7 @@ namespace NC
                     throw std::invalid_argument(errStr);
                 }
 
-                uint32 numNewCols = inShape.cols - indices.size();
+                const uint32 numNewCols = inShape.cols - indices.size();
                 NdArray<dtype> returnArray(inShape.rows, numNewCols);
 
                 for (uint32 row = 0; row < inShape.rows; ++row)
@@ -3055,7 +3055,7 @@ namespace NC
     template<typename dtype>
     NdArray<dtype> diff(const NdArray<dtype>& inArray, Axis inAxis)
     {
-        Shape inShape = inArray.shape();
+        const Shape inShape = inArray.shape();
 
         switch (inAxis)
         {
@@ -3068,7 +3068,7 @@ namespace NC
 
                 NdArray<dtype> returnArray(1, inArray.size() - 1);
                 std::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(),
-                    [](dtype inValue1, dtype inValue2) -> dtype { return inValue2 - inValue1; });
+                    [](dtype inValue1, dtype inValue2) noexcept -> dtype { return inValue2 - inValue1; });
 
                 return std::move(returnArray);
             }
@@ -3083,7 +3083,7 @@ namespace NC
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     std::transform(inArray.cbegin(row), inArray.cend(row) - 1, inArray.cbegin(row) + 1, returnArray.begin(row),
-                        [](dtype inValue1, dtype inValue2) -> dtype { return inValue2 - inValue1; });
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype { return inValue2 - inValue1; });
                 }
 
                 return std::move(returnArray);
@@ -3096,12 +3096,12 @@ namespace NC
                 }
 
                 NdArray<dtype> transArray = inArray.transpose();
-                Shape transShape = transArray.shape();
+                const Shape transShape = transArray.shape();
                 NdArray<dtype> returnArray(transShape.rows, transShape.cols - 1);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     std::transform(transArray.cbegin(row), transArray.cend(row) - 1, transArray.cbegin(row) + 1, returnArray.begin(row),
-                        [](dtype inValue1, dtype inValue2) -> dtype { return inValue2 - inValue1; });
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype { return inValue2 - inValue1; });
                 }
 
                 return std::move(returnArray.transpose());
@@ -3226,7 +3226,7 @@ namespace NC
     ///				Endian
     ///
     template<typename dtype>
-    Endian endianess(const NdArray<dtype>& inArray)
+    Endian endianess(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.endianess();
     }
@@ -3333,7 +3333,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double exp(dtype inValue)
+    double exp(dtype inValue) noexcept
     {
         return std::exp(static_cast<double>(inValue));
     }
@@ -3355,7 +3355,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return exp(inValue); });
+            [](dtype inValue) noexcept -> double { return exp(inValue); });
 
         return std::move(returnArray);
     }
@@ -3372,7 +3372,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double exp2(dtype inValue)
+    double exp2(dtype inValue) noexcept
     {
         return std::exp2(static_cast<double>(inValue));
     }
@@ -3394,7 +3394,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return exp2(inValue); });
+            [](dtype inValue) noexcept -> double { return exp2(inValue); });
 
         return std::move(returnArray);
     }
@@ -3411,7 +3411,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double expm1(dtype inValue)
+    double expm1(dtype inValue) noexcept
     {
         return std::exp(static_cast<double>(inValue)) - 1.0;
     }
@@ -3433,7 +3433,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return expm1(inValue); });
+            [](dtype inValue) noexcept -> double { return expm1(inValue); });
 
         return std::move(returnArray);
     }
@@ -3536,9 +3536,9 @@ namespace NC
     /// @param      inValue
     ///
     template<typename dtype>
-    void fillDiagonal(NdArray<dtype>& inArray, dtype inValue)
+    void fillDiagonal(NdArray<dtype>& inArray, dtype inValue) noexcept
     {
-        auto inShape = inArray.shape();
+        const auto inShape = inArray.shape();
         for (uint32 row = 0; row < inShape.rows; ++row)
         {
             if (row < inShape.cols)
@@ -3560,7 +3560,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    dtype fix(dtype inValue)
+    dtype fix(dtype inValue) noexcept
     {
         return inValue > 0 ? std::floor(inValue) : std::ceil(inValue);
     }
@@ -3582,7 +3582,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return fix(inValue); });
+            [](dtype inValue) noexcept -> double { return fix(inValue); });
 
         return std::move(returnArray);
     }
@@ -3713,7 +3713,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    dtype floor(dtype inValue)
+    dtype floor(dtype inValue) noexcept
     {
         return std::floor(inValue);
     }
@@ -3735,7 +3735,7 @@ namespace NC
         NdArray<double> returnArray(inArray.shape());
 
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return floor(inValue); });
+            [](dtype inValue) noexcept -> double { return floor(inValue); });
 
         return std::move(returnArray);
     }
@@ -3752,7 +3752,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    dtype floor_divide(dtype inValue1, dtype inValue2)
+    dtype floor_divide(dtype inValue1, dtype inValue2) noexcept
     {
         return std::floor(inValue1 / inValue2);
     }
@@ -3821,7 +3821,7 @@ namespace NC
         NdArray<double> returnArray(inArray1.shape());
 
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> double { return std::max(inValue1, inValue2); });
+            [](dtype inValue1, dtype inValue2) noexcept -> double { return std::max(inValue1, inValue2); });
 
         return std::move(returnArray);
     }
@@ -3873,7 +3873,7 @@ namespace NC
         NdArray<double> returnArray(inArray1.shape());
 
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> double { return std::min(inValue1, inValue2); });
+            [](dtype inValue1, dtype inValue2) noexcept -> double { return std::min(inValue1, inValue2); });
 
         return std::move(returnArray);
     }
@@ -3891,7 +3891,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    dtype fmod(dtype inValue1, dtype inValue2)
+    dtype fmod(dtype inValue1, dtype inValue2) noexcept
     {
         // can only be called on integer types
         static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: fmod can only be compiled with integer types.");
@@ -3927,7 +3927,7 @@ namespace NC
         NdArray<dtype> returnArray(inArray1.shape());
 
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> dtype { return inValue1 % inValue2; });
+            [](dtype inValue1, dtype inValue2) noexcept -> dtype { return inValue1 % inValue2; });
 
         return std::move(returnArray);
     }
@@ -3978,7 +3978,7 @@ namespace NC
             // read in as binary file
             std::ifstream in(inFilename.c_str(), std::ios::in | std::ios::binary);
             in.seekg(0, in.end);
-            uint32 fileSize = static_cast<uint32>(in.tellg());
+            const uint32 fileSize = static_cast<uint32>(in.tellg());
 
             FILE* filePtr = fopen(inFilename.c_str(), "rb");
             if (filePtr == NULL)
@@ -3989,7 +3989,7 @@ namespace NC
             }
 
             char* fileBuffer = new char[fileSize];
-            size_t bytesRead = fread(fileBuffer, sizeof(char), fileSize, filePtr);
+            const size_t bytesRead = fread(fileBuffer, sizeof(char), fileSize, filePtr);
             fclose(filePtr);
 
             NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer), static_cast<uint32>(bytesRead));
@@ -4148,7 +4148,7 @@ namespace NC
     ///				dtype
     ///
     template<typename dtype>
-    dtype gcd(dtype inValue1, dtype inValue2)
+    dtype gcd(dtype inValue1, dtype inValue2) noexcept
     {
         static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
         return boost::integer::gcd(inValue1, inValue2);
@@ -4191,7 +4191,7 @@ namespace NC
         {
             case Axis::ROW:
             {
-                auto inShape = inArray.shape();
+                const auto inShape = inArray.shape();
                 if (inShape.rows < 2)
                 {
                     std::string errStr = "ERROR: gradient: input array must have more than 1 row.";
@@ -4220,7 +4220,7 @@ namespace NC
             }
             case Axis::COL:
             {
-                auto inShape = inArray.shape();
+                const auto inShape = inArray.shape();
                 if (inShape.cols < 2)
                 {
                     std::string errStr = "ERROR: gradient: input array must have more than 1 columns.";
@@ -4262,7 +4262,7 @@ namespace NC
                 returnArray[-1] = static_cast<double>(inArray[-1]) - static_cast<double>(inArray[-2]);
 
                 std::transform(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.begin() + 1,
-                    [](dtype value1, dtype value2) -> double { return (static_cast<double>(value1) - static_cast<double>(value2)) / 2.0; });
+                    [](dtype value1, dtype value2) noexcept -> double { return (static_cast<double>(value1) - static_cast<double>(value2)) / 2.0; });
 
                 return std::move(returnArray);
             }
@@ -4330,19 +4330,19 @@ namespace NC
 
         NdArray<uint32> histo = zeros<uint32>(1, inNumBins);
 
-        bool useEndPoint = true;
+        const bool useEndPoint = true;
         NdArray<double> binEdges = linspace(static_cast<double>(inArray.min().item()),
             static_cast<double>(inArray.max().item()), inNumBins + 1, useEndPoint);
 
         for (uint32 i = 0; i < inArray.size(); ++i)
         {
             // binary search to find the bin idx
-            bool keepSearching = true;
+            const bool keepSearching = true;
             uint32 lowIdx = 0;
             uint32 highIdx = binEdges.size() - 1;
             while (keepSearching)
             {
-                uint32 idx = (lowIdx + highIdx) / 2; // integer division
+                const uint32 idx = (lowIdx + highIdx) / 2; // integer division
                 if (lowIdx == highIdx || lowIdx == highIdx - 1)
                 {
                     // we found the bin
@@ -4405,7 +4405,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    dtypeOut hypot(dtype inValue1, dtype inValue2)
+    dtypeOut hypot(dtype inValue1, dtype inValue2) noexcept
     {
         return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2));
     }
@@ -4438,7 +4438,8 @@ namespace NC
         NdArray<dtypeOut> returnArray(inArray1.shape());
 
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> dtypeOut { return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2)); });
+            [](dtype inValue1, dtype inValue2) noexcept -> dtypeOut
+        { return std::hypot(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2)); });
 
         return std::move(returnArray);
     }
@@ -4543,7 +4544,7 @@ namespace NC
         {
             if (sortedXp[currXpIdx] <= sortedX[currXidx] && sortedX[currXidx] <= sortedXp[currXpIdx + 1])
             {
-                double percent = static_cast<double>(sortedX[currXidx] - sortedXp[currXpIdx]) /
+                const double percent = static_cast<double>(sortedX[currXidx] - sortedXp[currXpIdx]) /
                     static_cast<double>(sortedXp[currXpIdx + 1] - sortedXp[currXpIdx]);
                 returnArray[currXidx++] = Utils::interp(sortedFp[currXpIdx], sortedFp[currXpIdx + 1], percent);
             }
@@ -4577,7 +4578,7 @@ namespace NC
         std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
         std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
-        typename std::vector<dtype>::iterator iter = std::set_intersection(in1.begin(), in1.end(),
+        const typename std::vector<dtype>::iterator iter = std::set_intersection(in1.begin(), in1.end(),
             in2.begin(), in2.end(), res.begin());
         res.resize(iter - res.begin());
         return std::move(NdArray<dtype>(res));
@@ -4631,7 +4632,8 @@ namespace NC
 
         NdArray<bool> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [inRtol, inAtol](dtype inValueA, dtype inValueB) { return std::abs(inValueA - inValueB) <= (inAtol + inRtol * std::abs(inValueB)); });
+            [inRtol, inAtol](dtype inValueA, dtype inValueB) noexcept -> bool
+        { return std::abs(inValueA - inValueB) <= (inAtol + inRtol * std::abs(inValueB)); });
 
         return std::move(returnArray);
     }
@@ -4649,7 +4651,7 @@ namespace NC
 ///				bool
 ///
     template<typename dtype>
-    bool isinf(dtype inValue)
+    bool isinf(dtype inValue) noexcept
     {
         return std::isinf(inValue);
     }
@@ -4671,7 +4673,7 @@ namespace NC
     {
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> bool { return std::isinf(inValue); });
+            [](dtype inValue) noexcept -> bool { return std::isinf(inValue); });
 
         return std::move(returnArray);
     }
@@ -4689,7 +4691,7 @@ namespace NC
     ///				bool
     ///
     template<typename dtype>
-    bool isnan(dtype inValue)
+    bool isnan(dtype inValue) noexcept
     {
         static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: isnan: can only be used with floating point types.");
         return std::isnan(inValue);
@@ -4714,7 +4716,7 @@ namespace NC
 
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> bool { return std::isnan(inValue); });
+            [](dtype inValue) noexcept -> bool { return std::isnan(inValue); });
 
         return std::move(returnArray);
     }
@@ -4731,7 +4733,7 @@ namespace NC
     ///				dtype
     ///
     template<typename dtype>
-    dtype lcm(dtype inValue1, dtype inValue2)
+    dtype lcm(dtype inValue1, dtype inValue2) noexcept
     {
         static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
         return boost::integer::lcm(inValue1, inValue2);
@@ -4767,7 +4769,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    dtype ldexp(dtype inValue1, uint8 inValue2)
+    dtype ldexp(dtype inValue1, uint8 inValue2) noexcept
     {
         return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2));
     }
@@ -4796,7 +4798,8 @@ namespace NC
 
         NdArray<dtype> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, uint8 inValue2) -> dtype { return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2)); });
+            [](dtype inValue1, uint8 inValue2) noexcept -> dtype
+        { return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2)); });
 
         return std::move(returnArray);
     }
@@ -4996,7 +4999,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return std::log(static_cast<double>(inValue)); });
+            [](dtype inValue) noexcept -> double { return std::log(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -5036,7 +5039,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return std::log10(static_cast<double>(inValue)); });
+            [](dtype inValue) noexcept -> double { return std::log10(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -5080,7 +5083,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return std::log1p(static_cast<double>(inValue)); });
+            [](dtype inValue) noexcept -> double { return std::log1p(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -5120,7 +5123,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return std::log2(static_cast<double>(inValue)); });
+            [](dtype inValue) noexcept -> double { return std::log2(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -5149,7 +5152,7 @@ namespace NC
 
         NdArray<bool> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> bool { return (inValue1 != 0) && (inValue2 != 0); });
+            [](dtype inValue1, dtype inValue2) noexcept -> bool { return (inValue1 != 0) && (inValue2 != 0); });
 
         return std::move(returnArray);
     }
@@ -5171,7 +5174,7 @@ namespace NC
     {
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> bool { return inValue == 0; });
+            [](dtype inValue) noexcept -> bool { return inValue == 0; });
 
         return std::move(returnArray);
     }
@@ -5200,7 +5203,7 @@ namespace NC
 
         NdArray<bool> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> bool { return (inValue1 != 0) || (inValue2 != 0); });
+            [](dtype inValue1, dtype inValue2) noexcept -> bool { return (inValue1 != 0) || (inValue2 != 0); });
 
         return std::move(returnArray);
     }
@@ -5229,7 +5232,7 @@ namespace NC
 
         NdArray<bool> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> bool { return (inValue1 != 0) != (inValue2 != 0); });
+            [](dtype inValue1, dtype inValue2) noexcept -> bool { return (inValue1 != 0) != (inValue2 != 0); });
 
         return std::move(returnArray);
     }
@@ -5293,7 +5296,7 @@ namespace NC
 
         NdArray<dtype> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> dtype { return std::max(inValue1, inValue2); });
+            [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::max(inValue1, inValue2); });
 
         return std::move(returnArray);
     }
@@ -5352,8 +5355,8 @@ namespace NC
     template<typename dtype>
     std::pair<NdArray<dtype>, NdArray<dtype> > meshgrid(const NdArray<dtype>& inICoords, const NdArray<dtype>& inJCoords)
     {
-        uint32 numRows = inJCoords.size();
-        uint32 numCols = inICoords.size();
+        const uint32 numRows = inJCoords.size();
+        const uint32 numCols = inICoords.size();
         auto returnArrayI = NdArray<dtype>(numRows, numCols);
         auto returnArrayJ = NdArray<dtype>(numRows, numCols);
 
@@ -5438,7 +5441,7 @@ namespace NC
 
         NdArray<dtype> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> dtype { return std::min(inValue1, inValue2); });
+            [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::min(inValue1, inValue2); });
 
         return std::move(returnArray);
     }
@@ -5630,10 +5633,10 @@ namespace NC
             case Axis::NONE:
             {
                 double sum = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+                    [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
 
-                double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+                const double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
+                    [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
 
                 NdArray<double> returnArray = { sum /= numberNonNan };
 
@@ -5641,15 +5644,15 @@ namespace NC
             }
             case Axis::COL:
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
                 NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
 
                     double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
 
                     returnArray(0, row) = sum / numberNonNan;
                 }
@@ -5659,15 +5662,15 @@ namespace NC
             case Axis::ROW:
             {
                 NdArray<dtype> transposedArray = inArray.transpose();
-                Shape transShape = transposedArray.shape();
+                const Shape transShape = transposedArray.shape();
                 NdArray<double> returnArray(1, transShape.rows);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
 
                     double numberNonNan = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
 
                     returnArray(0, row) = sum / numberNonNan;
                 }
@@ -5703,15 +5706,15 @@ namespace NC
             case Axis::NONE:
             {
                 std::vector<dtype> values;
-                for (uint32 i = 0; i < inArray.size(); ++i)
+                for (auto value : inArray)
                 {
-                    if (!std::isnan(inArray[i]))
+                    if (!std::isnan(value))
                     {
-                        values.push_back(inArray[i]);
+                        values.push_back(value);
                     }
                 }
 
-                uint32 middle = static_cast<uint32>(values.size()) / 2;
+                const uint32 middle = static_cast<uint32>(values.size()) / 2;
                 std::nth_element(values.begin(), values.begin() + middle, values.end());
                 NdArray<dtype> returnArray = { values[middle] };
 
@@ -5719,7 +5722,7 @@ namespace NC
             }
             case Axis::COL:
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
                 NdArray<dtype> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
@@ -5732,7 +5735,7 @@ namespace NC
                         }
                     }
 
-                    uint32 middle = static_cast<uint32>(values.size()) / 2;
+                    const uint32 middle = static_cast<uint32>(values.size()) / 2;
                     std::nth_element(values.begin(), values.begin() + middle, values.end());
                     returnArray(0, row) = values[middle];
                 }
@@ -5742,7 +5745,7 @@ namespace NC
             case Axis::ROW:
             {
                 NdArray<dtype> transposedArray = inArray.transpose();
-                Shape inShape = transposedArray.shape();
+                const Shape inShape = transposedArray.shape();
                 NdArray<dtype> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
@@ -5755,7 +5758,7 @@ namespace NC
                         }
                     }
 
-                    uint32 middle = static_cast<uint32>(values.size()) / 2;
+                    const uint32 middle = static_cast<uint32>(values.size()) / 2;
                     std::nth_element(values.begin(), values.begin() + middle, values.end());
                     returnArray(0, row) = values[middle];
                 }
@@ -5879,18 +5882,18 @@ namespace NC
                     return std::move(NdArray<dtypeOut>(0));
                 }
 
-                int32 i = static_cast<int32>(std::floor(static_cast<double>(numNonNan - 1) * inPercentile / 100.0));
-                uint32 indexLower = static_cast<uint32>(clip<uint32>(i, 0, numNonNan - 2));
+                const int32 i = static_cast<int32>(std::floor(static_cast<double>(numNonNan - 1) * inPercentile / 100.0));
+                const uint32 indexLower = static_cast<uint32>(clip<uint32>(i, 0, numNonNan - 2));
 
                 std::sort(arrayCopy.begin(), arrayCopy.end());
 
                 if (inInterpMethod.compare("linear") == 0)
                 {
-                    double percentI = static_cast<double>(indexLower) / static_cast<double>(numNonNan - 1);
-                    double fraction = (inPercentile / 100.0 - percentI) /
+                    const double percentI = static_cast<double>(indexLower) / static_cast<double>(numNonNan - 1);
+                    const double fraction = (inPercentile / 100.0 - percentI) /
                         (static_cast<double>(indexLower + 1) / static_cast<double>(numNonNan - 1) - percentI);
 
-                    double returnValue = arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction;
+                    const double returnValue = arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction;
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(returnValue) };
                     return std::move(returnArray);
                 }
@@ -5906,11 +5909,11 @@ namespace NC
                 }
                 else if (inInterpMethod.compare("nearest") == 0)
                 {
-                    double percent = inPercentile / 100.0;
-                    double percent1 = static_cast<double>(indexLower) / static_cast<double>(numNonNan - 1);
-                    double percent2 = static_cast<double>(indexLower + 1) / static_cast<double>(numNonNan - 1);
-                    double diff1 = percent - percent1;
-                    double diff2 = percent2 - percent;
+                    const double percent = inPercentile / 100.0;
+                    const double percent1 = static_cast<double>(indexLower) / static_cast<double>(numNonNan - 1);
+                    const double percent2 = static_cast<double>(indexLower + 1) / static_cast<double>(numNonNan - 1);
+                    const double diff1 = percent - percent1;
+                    const double diff2 = percent2 - percent;
 
                     switch (argmin<double>({ diff1, diff2 }).item())
                     {
@@ -5934,7 +5937,7 @@ namespace NC
             }
             case Axis::COL:
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
 
                 NdArray<dtypeOut> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
@@ -5957,7 +5960,7 @@ namespace NC
             case Axis::ROW:
             {
                 NdArray<dtype> arrayTrans = inArray.transpose();
-                Shape inShape = arrayTrans.shape();
+                const Shape inShape = arrayTrans.shape();
 
                 NdArray<dtypeOut> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
@@ -6100,14 +6103,14 @@ namespace NC
                 double meanValue = nanmean(inArray, inAxis).item();
                 double sum = 0;
                 double counter = 0;
-                for (uint32 i = 0; i < inArray.size(); ++i)
+                for (auto value : inArray)
                 {
-                    if (std::isnan(inArray[i]))
+                    if (std::isnan(value))
                     {
                         continue;
                     }
 
-                    sum += Utils::sqr(static_cast<double>(inArray[i]) - meanValue);
+                    sum += Utils::sqr(static_cast<double>(value) - meanValue);
                     ++counter;
                 }
                 NdArray<double> returnArray = { std::sqrt(sum / counter) };
@@ -6115,7 +6118,7 @@ namespace NC
             }
             case Axis::COL:
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
                 NdArray<double> meanValue = nanmean(inArray, inAxis);
                 NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
@@ -6141,7 +6144,7 @@ namespace NC
             {
                 NdArray<double> meanValue = nanmean(inArray, inAxis);
                 NdArray<dtype> transposedArray = inArray.transpose();
-                Shape inShape = transposedArray.shape();
+                const Shape inShape = transposedArray.shape();
                 NdArray<double> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
@@ -6187,11 +6190,11 @@ namespace NC
     NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = 0;
+                value = 0;
             }
         }
 
@@ -6231,7 +6234,7 @@ namespace NC
     ///				number of bytes
     ///
     template<typename dtype>
-    uint64 nbytes(const NdArray<dtype>& inArray)
+    uint64 nbytes(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.nbytes();
     }
@@ -6434,7 +6437,7 @@ namespace NC
     template<typename dtype>
     NdArray<dtype> pad(const NdArray<dtype>& inArray, uint16 inPadWidth, dtype inPadValue)
     {
-        Shape inShape = inArray.shape();
+        const Shape inShape = inArray.shape();
         Shape outShape(inShape);
         outShape.rows += 2 * inPadWidth;
         outShape.cols += 2 * inPadWidth;
@@ -6490,7 +6493,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile, 
+    NdArray<dtypeOut> percentile(const NdArray<dtype>& inArray, double inPercentile,
         Axis inAxis, const std::string& inInterpMethod)
     {
         if (inPercentile < 0.0 || inPercentile > 100.0)
@@ -6527,19 +6530,19 @@ namespace NC
                     return std::move(returnArray);
                 }
 
-                int32 i = static_cast<int32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
-                uint32 indexLower = static_cast<uint32>(clip<uint32>(i, 0, inArray.size() - 2));
+                const int32 i = static_cast<int32>(std::floor(static_cast<double>(inArray.size() - 1) * inPercentile / 100.0));
+                const uint32 indexLower = static_cast<uint32>(clip<uint32>(i, 0, inArray.size() - 2));
 
                 NdArray<double> arrayCopy = inArray.template astype<double>();
                 std::sort(arrayCopy.begin(), arrayCopy.end());
 
                 if (inInterpMethod.compare("linear") == 0)
                 {
-                    double percentI = static_cast<double>(indexLower) / static_cast<double>(inArray.size() - 1);
-                    double fraction = (inPercentile / 100.0 - percentI) /
+                    const double percentI = static_cast<double>(indexLower) / static_cast<double>(inArray.size() - 1);
+                    const double fraction = (inPercentile / 100.0 - percentI) /
                         (static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1) - percentI);
 
-                    double returnValue = arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction;
+                    const double returnValue = arrayCopy[indexLower] + (arrayCopy[indexLower + 1] - arrayCopy[indexLower]) * fraction;
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(returnValue) };
                     return std::move(returnArray);
                 }
@@ -6555,11 +6558,11 @@ namespace NC
                 }
                 else if (inInterpMethod.compare("nearest") == 0)
                 {
-                    double percent = inPercentile / 100.0;
-                    double percent1 = static_cast<double>(indexLower) / static_cast<double>(inArray.size() - 1);
-                    double percent2 = static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1);
-                    double diff1 = percent - percent1;
-                    double diff2 = percent2 - percent;
+                    const double percent = inPercentile / 100.0;
+                    const double percent1 = static_cast<double>(indexLower) / static_cast<double>(inArray.size() - 1);
+                    const double percent2 = static_cast<double>(indexLower + 1) / static_cast<double>(inArray.size() - 1);
+                    const double diff1 = percent - percent1;
+                    const double diff2 = percent2 - percent;
 
                     switch (argmin<double>({ diff1, diff2 }).item())
                     {
@@ -6583,7 +6586,7 @@ namespace NC
             }
             case Axis::COL:
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
 
                 NdArray<dtypeOut> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
@@ -6597,7 +6600,7 @@ namespace NC
             case Axis::ROW:
             {
                 NdArray<dtype> arrayTrans = inArray.transpose();
-                Shape inShape = arrayTrans.shape();
+                const Shape inShape = arrayTrans.shape();
 
                 NdArray<dtypeOut> returnArray(1, inShape.rows);
                 for (uint32 row = 0; row < inShape.rows; ++row)
@@ -6650,7 +6653,8 @@ namespace NC
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [inExponent](dtype inValue) { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
+            [inExponent](dtype inValue) noexcept -> dtypeOut
+        { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
 
         return std::move(returnArray);
     }
@@ -6678,7 +6682,8 @@ namespace NC
 
         NdArray<dtypeOut> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
-            [](dtype inValue, uint8 inExponent) -> dtypeOut { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
+            [](dtype inValue, uint8 inExponent) noexcept -> dtypeOut 
+        { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
 
         return std::move(returnArray);
     }
@@ -6811,7 +6816,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double rad2deg(dtype inValue)
+    double rad2deg(dtype inValue) noexcept
     {
         return inValue * 180.0 / Constants::pi;
     }
@@ -6833,7 +6838,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return rad2deg(inValue); });
+            [](dtype inValue) noexcept -> double { return rad2deg(inValue); });
 
         return std::move(returnArray);
     }
@@ -6850,7 +6855,7 @@ namespace NC
 ///				value
 ///
     template<typename dtype>
-    double radians(dtype inValue)
+    double radians(dtype inValue) noexcept
     {
         return deg2rad(inValue);
     }
@@ -6912,7 +6917,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    dtypeOut remainder(dtype inValue1, dtype inValue2)
+    dtypeOut remainder(dtype inValue1, dtype inValue2) noexcept
     {
         return std::remainder(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2));
     }
@@ -6941,7 +6946,7 @@ namespace NC
 
         NdArray<dtypeOut> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) -> dtypeOut
+            [](dtype inValue1, dtype inValue2) noexcept -> dtypeOut
         { return std::remainder(static_cast<dtypeOut>(inValue1), static_cast<dtypeOut>(inValue2)); });
 
         return std::move(returnArray);
@@ -7161,8 +7166,8 @@ namespace NC
     NdArray<dtype> rint(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return std::rint(static_cast<double>(inValue)); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> double { return std::rint(static_cast<double>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -7216,7 +7221,7 @@ namespace NC
             }
             case Axis::COL:
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
 
                 uint32 shift = std::abs(inShift) % inShape.cols;
                 if (inShift > 0)
@@ -7234,7 +7239,7 @@ namespace NC
             }
             case Axis::ROW:
             {
-                Shape inShape = inArray.shape();
+                const Shape inShape = inArray.shape();
 
                 uint32 shift = std::abs(inShift) % inShape.rows;
                 if (inShift > 0)
@@ -7369,7 +7374,7 @@ namespace NC
         uint32 rowStart = 0;
         for (auto& ndarray : inArrayList)
         {
-            Shape theShape = ndarray.shape();
+            const Shape theShape = ndarray.shape();
             for (uint32 row = 0; row < theShape.rows; ++row)
             {
                 for (uint32 col = 0; col < theShape.cols; ++col)
@@ -7403,7 +7408,7 @@ namespace NC
         std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
         std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
-        typename std::vector<dtype>::iterator iter = std::set_difference(in1.begin(), in1.end(),
+        const typename std::vector<dtype>::iterator iter = std::set_difference(in1.begin(), in1.end(),
             in2.begin(), in2.end(), res.begin());
         res.resize(iter - res.begin());
         return std::move(NdArray<dtype>(res));
@@ -7439,7 +7444,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    int8 sign(dtype inValue)
+    int8 sign(dtype inValue) noexcept
     {
         if (inValue < 0)
         {
@@ -7474,7 +7479,7 @@ namespace NC
     {
         NdArray<int8> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> int8 { return sign(inValue); });
+            [](dtype inValue) noexcept -> int8 { return sign(inValue); });
 
         return std::move(returnArray);
     }
@@ -7491,7 +7496,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    bool signbit(dtype inValue)
+    bool signbit(dtype inValue) noexcept
     {
         return inValue < 0 ? true : false;
     }
@@ -7511,8 +7516,8 @@ namespace NC
     NdArray<bool> signbit(const NdArray<dtype>& inArray)
     {
         NdArray<bool> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> bool { return signbit(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> bool { return signbit(inValue); });
 
         return std::move(returnArray);
     }
@@ -7529,7 +7534,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double sin(dtype inValue)
+    double sin(dtype inValue) noexcept
     {
         return std::sin(static_cast<double>(inValue));
     }
@@ -7549,8 +7554,8 @@ namespace NC
     NdArray<double> sin(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return sin(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> double { return sin(inValue); });
 
         return std::move(returnArray);
     }
@@ -7569,9 +7574,9 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double sinc(dtype inValue)
+    double sinc(dtype inValue) noexcept
     {
-        double input = static_cast<double>(inValue);
+        const double input = static_cast<double>(inValue);
         return std::sin(Constants::pi * input) / (Constants::pi * input);
     }
 
@@ -7593,7 +7598,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return sinc(inValue); });
+            [](dtype inValue) noexcept -> double { return sinc(inValue); });
 
         return std::move(returnArray);
     }
@@ -7610,7 +7615,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double sinh(dtype inValue)
+    double sinh(dtype inValue) noexcept
     {
         return std::sinh(static_cast<double>(inValue));
     }
@@ -7630,8 +7635,8 @@ namespace NC
     NdArray<double> sinh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return sinh(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> double { return sinh(inValue); });
 
         return std::move(returnArray);
     }
@@ -7646,7 +7651,7 @@ namespace NC
     ///				uint32 size
     ///
     template<typename dtype>
-    uint32 size(const NdArray<dtype>& inArray)
+    uint32 size(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.size();
     }
@@ -7682,7 +7687,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double sqrt(dtype inValue)
+    double sqrt(dtype inValue) noexcept
     {
         return std::sqrt(static_cast<double>(inValue));
     }
@@ -7703,7 +7708,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return sqrt(inValue); });
+            [](dtype inValue) noexcept -> double { return sqrt(inValue); });
 
         return std::move(returnArray);
     }
@@ -7720,7 +7725,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    dtype square(dtype inValue)
+    dtype square(dtype inValue) noexcept
     {
         return Utils::sqr(inValue);
     }
@@ -7740,8 +7745,8 @@ namespace NC
     NdArray<dtype> square(const NdArray<dtype>& inArray)
     {
         NdArray<dtype> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> dtype { return square(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> dtype { return square(inValue); });
 
         return std::move(returnArray);
     }
@@ -7842,7 +7847,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double tan(dtype inValue)
+    double tan(dtype inValue) noexcept
     {
         return std::tan(static_cast<double>(inValue));
     }
@@ -7863,7 +7868,7 @@ namespace NC
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double { return tan(inValue); });
+            [](dtype inValue) noexcept -> double { return tan(inValue); });
 
         return std::move(returnArray);
     }
@@ -7880,7 +7885,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    double tanh(dtype inValue)
+    double tanh(dtype inValue) noexcept
     {
         return std::tanh(static_cast<double>(inValue));
     }
@@ -7900,8 +7905,8 @@ namespace NC
     NdArray<double> tanh(const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(), 
-            [](dtype inValue) -> double { return tanh(inValue); });
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [](dtype inValue) noexcept -> double { return tanh(inValue); });
 
         return std::move(returnArray);
     }
@@ -7987,7 +7992,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtypeOut = double, typename dtype>
-    dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset, Axis inAxis)
+    dtypeOut trace(const NdArray<dtype>& inArray, int16 inOffset, Axis inAxis) noexcept
     {
         return std::move(inArray.template trace<dtypeOut>(inOffset, inAxis));
     }
@@ -8026,7 +8031,7 @@ namespace NC
     template<typename dtype>
     NdArray<double> trapz(const NdArray<dtype>& inArray, double dx, Axis inAxis)
     {
-        Shape inShape = inArray.shape();
+        const Shape inShape = inArray.shape();
         switch (inAxis)
         {
             case Axis::COL:
@@ -8037,7 +8042,7 @@ namespace NC
                     double sum = 0;
                     for (uint32 col = 0; col < inShape.cols - 1; ++col)
                     {
-                        sum += static_cast<double>(inArray(row, col + 1) - inArray(row, col)) / 2.0 + 
+                        sum += static_cast<double>(inArray(row, col + 1) - inArray(row, col)) / 2.0 +
                             static_cast<double>(inArray(row, col));
                     }
 
@@ -8049,14 +8054,14 @@ namespace NC
             case Axis::ROW:
             {
                 NdArray<dtype> arrayTranspose = inArray.transpose();
-                Shape transShape = arrayTranspose.shape();
+                const Shape transShape = arrayTranspose.shape();
                 NdArray<double> returnArray(transShape.rows, 1);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     double sum = 0;
                     for (uint32 col = 0; col < transShape.cols - 1; ++col)
                     {
-                        sum += static_cast<double>(arrayTranspose(row, col + 1) - arrayTranspose(row, col)) / 2.0 + 
+                        sum += static_cast<double>(arrayTranspose(row, col + 1) - arrayTranspose(row, col)) / 2.0 +
                             static_cast<double>(arrayTranspose(row, col));
                     }
 
@@ -8101,8 +8106,8 @@ namespace NC
     template<typename dtype>
     NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis inAxis)
     {
-        Shape inShapeY = inArrayY.shape();
-        Shape inShapeX = inArrayX.shape();
+        const Shape inShapeY = inArrayY.shape();
+        const Shape inShapeX = inArrayX.shape();
 
         if (inShapeY != inShapeX)
         {
@@ -8121,8 +8126,8 @@ namespace NC
                     double sum = 0;
                     for (uint32 col = 0; col < inShapeY.cols - 1; ++col)
                     {
-                        double dx = static_cast<double>(inArrayX(row, col + 1) - inArrayX(row, col));
-                        sum += dx * (static_cast<double>(inArrayY(row, col + 1) - inArrayY(row, col)) / 2.0 + 
+                        const double dx = static_cast<double>(inArrayX(row, col + 1) - inArrayX(row, col));
+                        sum += dx * (static_cast<double>(inArrayY(row, col + 1) - inArrayY(row, col)) / 2.0 +
                             static_cast<double>(inArrayY(row, col)));
                     }
 
@@ -8135,14 +8140,14 @@ namespace NC
             {
                 NdArray<dtype> arrayYTranspose = inArrayY.transpose();
                 NdArray<dtype> arrayXTranspose = inArrayX.transpose();
-                Shape transShape = arrayYTranspose.shape();
+                const Shape transShape = arrayYTranspose.shape();
                 NdArray<double> returnArray(transShape.rows, 1);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     double sum = 0;
                     for (uint32 col = 0; col < transShape.cols - 1; ++col)
                     {
-                        double dx = static_cast<double>(arrayXTranspose(row, col + 1) - arrayXTranspose(row, col));
+                        const double dx = static_cast<double>(arrayXTranspose(row, col + 1) - arrayXTranspose(row, col));
                         sum += dx * (static_cast<double>(arrayYTranspose(row, col + 1) - arrayYTranspose(row, col)) / 2.0 +
                             static_cast<double>(arrayYTranspose(row, col)));
                     }
@@ -8157,7 +8162,7 @@ namespace NC
                 double sum = 0.0;
                 for (uint32 i = 0; i < inArrayY.size() - 1; ++i)
                 {
-                    double dx = static_cast<double>(inArrayX[i + 1] - inArrayX[i]);
+                    const double dx = static_cast<double>(inArrayX[i + 1] - inArrayX[i]);
                     sum += dx * (static_cast<double>(inArrayY[i + 1] - inArrayY[i]) / 2.0 + static_cast<double>(inArrayY[i]));
                 }
 
@@ -8284,7 +8289,7 @@ namespace NC
     template<typename dtype>
     NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset)
     {
-        Shape inShape = inArray.shape();
+        const Shape inShape = inArray.shape();
         auto outArray = inArray.copy();
         outArray.putMask(triu<bool>(inShape.rows, inShape.cols, inOffset + 1), 0);
         return std::move(outArray);
@@ -8378,7 +8383,7 @@ namespace NC
     template<typename dtype>
     NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset)
     {
-        Shape inShape = inArray.shape();
+        const Shape inShape = inArray.shape();
         auto outArray = inArray.copy();
         outArray.putMask(tril<bool>(inShape.rows, inShape.cols, inOffset - 1), 0);
         return std::move(outArray);
@@ -8535,7 +8540,7 @@ namespace NC
     {
         NdArray<dtype> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> dtype { return std::trunc(inValue); });
+            [](dtype inValue) noexcept -> dtype { return std::trunc(inValue); });
 
         return std::move(returnArray);
     }
@@ -8605,7 +8610,7 @@ namespace NC
     ///				value
     ///
     template<typename dtype>
-    dtype unwrap(dtype inValue)
+    dtype unwrap(dtype inValue) noexcept
     {
         return std::atan2(std::sin(inValue), std::cos(inValue));
     }
@@ -8628,7 +8633,7 @@ namespace NC
     {
         NdArray<dtype> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> dtype { return unwrap(inValue); });
+            [](dtype inValue) noexcept -> dtype { return unwrap(inValue); });
 
         return std::move(returnArray);
     }
@@ -8685,8 +8690,8 @@ namespace NC
     template<typename dtype>
     NdArray<dtype> where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
     {
-        auto shapeMask = inMask.shape();
-        auto shapeA = inA.shape();
+        const auto shapeMask = inMask.shape();
+        const auto shapeA = inA.shape();
         if (shapeA != inB.shape())
         {
             std::string errStr = "ERROR: where: input inA and inB must be the same shapes.";

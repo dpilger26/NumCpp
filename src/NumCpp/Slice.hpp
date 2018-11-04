@@ -58,7 +58,7 @@ namespace NC
         ///
         /// @param      inStop (index not included)
         ///
-        explicit Slice(int32 inStop) :
+        explicit Slice(int32 inStop) noexcept :
             stop(inStop)
         {};
 
@@ -68,7 +68,7 @@ namespace NC
         /// @param          inStart
         /// @param			inStop (index not included)
         ///
-        Slice(int32 inStart, int32 inStop) :
+        Slice(int32 inStart, int32 inStop) noexcept :
             start(inStart),
             stop(inStop)
         {};
@@ -80,7 +80,7 @@ namespace NC
         /// @param      inStop (not included)
         /// @param      inStep
         ///
-        Slice(int32 inStart, int32 inStop, int32 inStep) :
+        Slice(int32 inStart, int32 inStop, int32 inStep) noexcept :
             start(inStart),
             stop(inStop),
             step(inStep)
