@@ -160,7 +160,7 @@ namespace NC
         ///
         /// @return     bool
         ///
-        bool isempty()
+        bool isempty() noexcept
         {
             return cube_.empty();
         }
@@ -200,7 +200,7 @@ namespace NC
         ///
         /// @return     Shape
         ///
-        const Shape& shape() const
+        const Shape& shape() const noexcept
         {
             return elementShape_;
         }
@@ -210,7 +210,7 @@ namespace NC
         ///
         /// @return     size
         ///
-        uint32 size() const
+        uint32 size() const noexcept
         {
             return static_cast<uint32>(cube_.size());
         }
@@ -238,7 +238,7 @@ namespace NC
         ///
         void push_back(const NdArray<dtype>& inArray)
         {
-            Shape inputShape = inArray.shape();
+            const Shape inputShape = inArray.shape();
 
             if (elementShape_.rows == 0 && elementShape_.cols == 0)
             {
@@ -264,7 +264,7 @@ namespace NC
         ///
         void push_front(const NdArray<dtype>& inArray)
         {
-            Shape inputShape = inArray.shape();
+            const Shape inputShape = inArray.shape();
 
             if (elementShape_.rows == 0 && elementShape_.cols == 0)
             {

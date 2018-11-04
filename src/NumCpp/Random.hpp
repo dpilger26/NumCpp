@@ -73,7 +73,7 @@ namespace NC
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::bernoulli_distribution<dtype> dist(inP);
+            const boost::random::bernoulli_distribution<dtype> dist(inP);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -113,7 +113,7 @@ namespace NC
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
+            const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -156,7 +156,7 @@ namespace NC
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::binomial_distribution<dtype, double> dist(inN, inP);
+            const boost::random::binomial_distribution<dtype, double> dist(inN, inP);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -309,7 +309,7 @@ namespace NC
         {
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::exponential_distribution<dtype> dist(inScaleValue);
+            const boost::random::exponential_distribution<dtype> dist(inScaleValue);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -347,7 +347,7 @@ namespace NC
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::extreme_value_distribution<dtype> dist(inA, inB);
+            const boost::random::extreme_value_distribution<dtype> dist(inA, inB);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -462,7 +462,7 @@ namespace NC
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::geometric_distribution<dtype, double> dist(inP);
+            const boost::random::geometric_distribution<dtype, double> dist(inP);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -488,7 +488,7 @@ namespace NC
         {
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
+            const boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -564,7 +564,7 @@ namespace NC
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::negative_binomial_distribution<dtype, double> dist(inN, inP);
+            const boost::random::negative_binomial_distribution<dtype, double> dist(inN, inP);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -705,7 +705,7 @@ namespace NC
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::poisson_distribution<dtype, double> dist(inMean);
+            const boost::random::poisson_distribution<dtype, double> dist(inMean);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -767,7 +767,7 @@ namespace NC
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
+            const boost::random::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -807,7 +807,7 @@ namespace NC
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
+            const boost::random::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);
@@ -954,8 +954,8 @@ namespace NC
                 throw std::invalid_argument(errStr);
             }
 
-            bool aLessB = inA <= inB;
-            bool bLessC = inB <= inC;
+            const bool aLessB = inA <= inB;
+            const bool bLessC = inB <= inC;
             if (!(aLessB && bLessC))
             {
                 std::string errStr = "Error: triangle: inputs must be a <= b <= c.";
@@ -1059,7 +1059,7 @@ namespace NC
 
             NdArray<dtype> returnArray(inShape);
 
-            boost::random::weibull_distribution<dtype> dist(inA, inB);
+            const boost::random::weibull_distribution<dtype> dist(inA, inB);
             for (uint32 i = 0; i < returnArray.size(); ++i)
             {
                 returnArray[i] = dist(generator_);

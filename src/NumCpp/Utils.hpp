@@ -47,7 +47,7 @@ namespace NC
         /// @return     bool
         ///
         template<typename dtype>
-        bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon = DtypeInfo<dtype>::epsilon())
+        bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon = DtypeInfo<dtype>::epsilon()) noexcept
         {
             return std::abs(inValue1 - inValue2) <= ((std::abs(inValue1) > std::abs(inValue2) ? 
                 std::abs(inValue2) : std::abs(inValue1)) * inEpsilon);
@@ -74,7 +74,7 @@ namespace NC
         /// @return     squared value
         ///
         template<typename dtype>
-        static dtype sqr(dtype inValue)
+        static dtype sqr(dtype inValue) noexcept
         {
             return inValue * inValue;
         }
@@ -87,7 +87,7 @@ namespace NC
         /// @return     cubed value
         ///
         template<typename dtype>
-        static dtype cube(dtype inValue)
+        static dtype cube(dtype inValue) noexcept
         {
             return inValue * inValue * inValue;
         }
@@ -101,7 +101,7 @@ namespace NC
         /// @return     inValue raised to inPower
         ///
         template<typename dtype>
-        static dtype power(dtype inValue, uint8 inPower)
+        static dtype power(dtype inValue, uint8 inPower) noexcept
         {
             if (inPower == 0)
             {
@@ -126,7 +126,7 @@ namespace NC
         /// @return     linear interpolated point
         ///
         template<typename dtype>
-        static double interp(dtype inValue1, dtype inValue2, double inPercent)
+        static double interp(dtype inValue1, dtype inValue2, double inPercent) noexcept
         {
             return static_cast<double>(inValue1) * (1.0 - inPercent) + static_cast<double>(inValue2) * inPercent;
         }

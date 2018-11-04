@@ -127,22 +127,22 @@ namespace NC
         ///
         /// @param      inArray: pointer to an ndarray
         ///
-        BoostNdarrayHelper(boost::python::numpy::ndarray* inArray) :
-            theArray_(inArray->astype(boost::python::numpy::dtype::get_builtin<double>())),
-            numDimensions_(static_cast<uint8>(inArray->get_nd())),
+        BoostNdarrayHelper(const boost::python::numpy::ndarray& inArray) :
+            theArray_(inArray.astype(boost::python::numpy::dtype::get_builtin<double>())),
+            numDimensions_(static_cast<uint8>(inArray.get_nd())),
             shape_(numDimensions_),
             strides_(numDimensions_),
             order_(Order::C)
 
         {
-            Py_intptr_t const * shapePtr = inArray->get_shape();
+            Py_intptr_t const * shapePtr = inArray.get_shape();
             for (uint8 i = 0; i < numDimensions_; ++i)
             {
                 strides_[i] = static_cast<uint32>(theArray_.strides(i));
                 shape_[i] = shapePtr[i];
             }
 
-            if (numDimensions_ > 1 && inArray->strides(0) < inArray->strides(1))
+            if (numDimensions_ > 1 && inArray.strides(0) < inArray.strides(1))
             {
                 order_ = Order::F;
             }
@@ -180,7 +180,7 @@ namespace NC
         ///
         /// @return     pointer to an ndarray
         ///
-        const boost::python::numpy::ndarray* getArray()
+        const boost::python::numpy::ndarray* getArray() noexcept
         {
             return &theArray_;
         }
@@ -200,7 +200,7 @@ namespace NC
         ///
         /// @return     num dimensions
         ///
-        uint8 numDimensions()
+        uint8 numDimensions() noexcept
         {
             return numDimensions_;
         }
@@ -210,7 +210,7 @@ namespace NC
         ///
         /// @return     vector
         ///
-        const std::vector<Py_intptr_t>& shape()
+        const std::vector<Py_intptr_t>& shape() noexcept
         {
             return shape_;
         }
@@ -236,7 +236,7 @@ namespace NC
         ///
         /// @return     vector
         ///
-        const std::vector<uint32>& strides()
+        const std::vector<uint32>& strides() noexcept
         {
             return strides_;
         }
@@ -246,7 +246,7 @@ namespace NC
         ///
         /// @return     Order
         ///
-        Order order()
+        Order order() noexcept
         {
             return order_;
         }

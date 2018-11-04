@@ -77,7 +77,7 @@ namespace NC
             /// @param              inCol: pixel column
             /// @param              inIntensity: pixel intensity
             ///
-            Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) :
+            Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept:
                 row_(inRow),
                 col_(inCol),
                 intensity_(inIntensity)
@@ -93,7 +93,7 @@ namespace NC
             /// @return
             ///              bool
             ///
-            bool operator==(const Pixel<dtype>& rhs) const
+            bool operator==(const Pixel<dtype>& rhs) const noexcept
             {
                 return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_;
             }
@@ -108,7 +108,7 @@ namespace NC
             /// @return
             ///              bool
             ///
-            bool operator!=(const Pixel<dtype>& rhs) const
+            bool operator!=(const Pixel<dtype>& rhs) const noexcept
             {
                 return !(*this == rhs);
             }
@@ -126,7 +126,7 @@ namespace NC
             /// @return
             ///              bool
             ///
-            bool operator<(const Pixel<dtype>& rhs) const
+            bool operator<(const Pixel<dtype>& rhs) const noexcept
             {
                 if (row_ < rhs.row_)
                 {
@@ -156,7 +156,7 @@ namespace NC
             /// @return
             ///              cluster id
             ///
-            int32 clusterId() const
+            int32 clusterId() const noexcept
             {
                 return clusterId_;
             }
@@ -187,7 +187,7 @@ namespace NC
             /// @return
             ///              row
             ///
-            uint32 row() const
+            uint32 row() const noexcept
             {
                 return row_;
             }
@@ -199,7 +199,7 @@ namespace NC
             /// @return
             ///              column
             ///
-            uint32 col() const
+            uint32 col() const noexcept
             {
                 return col_;
             }
@@ -211,7 +211,7 @@ namespace NC
             /// @return
             ///              intensity
             ///
-            dtype intensity() const
+            dtype intensity() const noexcept
             {
                 return intensity_;
             }
@@ -370,7 +370,7 @@ namespace NC
             /// @return
             ///              const_iterator
             ///
-            const_iterator begin() const
+            const_iterator begin() const noexcept
             {
                 return pixels_.cbegin();
             }
@@ -382,7 +382,7 @@ namespace NC
             /// @return
             ///              const_iterator
             ///
-            const_iterator end() const
+            const_iterator end() const noexcept
             {
                 return pixels_.cend();
             }
@@ -394,7 +394,7 @@ namespace NC
             /// @return
             ///              number of pixels in the cluster
             ///
-            uint32 size() const
+            uint32 size() const noexcept
             {
                 return static_cast<uint32>(pixels_.size());
             }
@@ -406,7 +406,7 @@ namespace NC
             /// @return
             ///              minimum row number of the cluster
             ///
-            uint32 clusterId() const
+            uint32 clusterId() const noexcept
             {
                 return clusterId_;
             }
@@ -418,7 +418,7 @@ namespace NC
             /// @return
             ///              minimum row number of the cluster
             ///
-            uint32 rowMin() const
+            uint32 rowMin() const noexcept
             {
                 return rowMin_;
             }
@@ -430,7 +430,7 @@ namespace NC
             /// @return
             ///              maximum row number of the cluster
             ///
-            uint32 rowMax() const
+            uint32 rowMax() const noexcept
             {
                 return rowMax_;
             }
@@ -442,7 +442,7 @@ namespace NC
             /// @return
             ///              minimum column number of the cluster
             ///
-            uint32 colMin() const
+            uint32 colMin() const noexcept
             {
                 return colMin_;
             }
@@ -454,7 +454,7 @@ namespace NC
             /// @return
             ///              maximum column number of the cluster
             ///
-            uint32 colMax() const
+            uint32 colMax() const noexcept
             {
                 return colMax_;
             }
@@ -466,7 +466,7 @@ namespace NC
             /// @return
             ///              number of rows
             ///
-            uint32 height() const
+            uint32 height() const noexcept
             {
                 return rowMax_ - rowMin_ + 1;
             }
@@ -478,7 +478,7 @@ namespace NC
             /// @return
             ///              number of columns
             ///
-            uint32 width() const
+            uint32 width() const noexcept
             {
                 return colMax_ - colMin_ + 1;
             }
@@ -490,7 +490,7 @@ namespace NC
             /// @return
             ///              summed cluster intensity
             ///
-            dtype intensity() const
+            dtype intensity() const noexcept
             {
                 return intensity_;
             }
@@ -502,7 +502,7 @@ namespace NC
             /// @return
             ///              peak pixel intensity
             ///
-            dtype peakPixelIntensity() const
+            dtype peakPixelIntensity() const noexcept
             {
                 return peakPixelIntensity_;
             }
@@ -514,7 +514,7 @@ namespace NC
             /// @return
             ///              eod
             ///
-            double eod() const
+            double eod() const noexcept
             {
                 return eod_;
             }
@@ -532,8 +532,8 @@ namespace NC
                 intensity_ += inPixel.intensity();
 
                 // adjust the cluster bounds
-                uint32 row = inPixel.row();
-                uint32 col = inPixel.col();
+                const uint32 row = inPixel.row();
+                const uint32 col = inPixel.col();
                 if (row < rowMin_)
                 {
                     rowMin_ = row;
@@ -629,13 +629,13 @@ namespace NC
             /// @return
             ///              returns a pixel object clipped to the image boundaries
             ///
-            Pixel<dtype> makePixel(int32 inRow, int32 inCol)
+            Pixel<dtype> makePixel(int32 inRow, int32 inCol) noexcept
             {
                 // Make sure that on the edges after i've added or subtracted 1 from the row and col that
                 // i haven't gone over the edge
-                uint32 row = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows - 1);
-                uint32 col = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols - 1);
-                dtype intensity = intensities_->operator()(row, col);
+                const uint32 row = std::min(static_cast<uint32>(std::max<int32>(inRow, 0)), shape_.rows - 1);
+                const uint32 col = std::min(static_cast<uint32>(std::max<int32>(inCol, 0)), shape_.cols - 1);
+                const dtype intensity = intensities_->operator()(row, col);
 
                 return Pixel<dtype>(row, col, intensity);
             }
@@ -654,8 +654,8 @@ namespace NC
                 // using a set will auto take care of adding duplicate pixels on the edges
 
                 // the 8 surrounding neighbors
-                int32 row = static_cast<int32>(inPixel.row());
-                int32 col = static_cast<int32>(inPixel.col());
+                const int32 row = static_cast<int32>(inPixel.row());
+                const int32 col = static_cast<int32>(inPixel.col());
 
                 outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col - 1));
                 outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col));
@@ -847,7 +847,7 @@ namespace NC
                     {
                         if (xcds_->operator()(row, col))
                         {
-                            Pixel<dtype> thePixel(row, col, intensities_->operator()(row, col));
+                            const Pixel<dtype> thePixel(row, col, intensities_->operator()(row, col));
                             xcdsVec_.push_back(thePixel);
                         }
                     }
@@ -916,7 +916,7 @@ namespace NC
             /// @return
             ///              const_iterator
             ///
-            const_iterator begin() const
+            const_iterator begin() const noexcept
             {
                 return clusters_.cbegin();
             }
@@ -928,7 +928,7 @@ namespace NC
             /// @return
             ///              const_iterator
             ///
-            const_iterator end() const
+            const_iterator end() const noexcept
             {
                 return clusters_.cend();
             }
@@ -957,13 +957,13 @@ namespace NC
             ///
             void centerOfMass(const Cluster<dtype>& inCluster)
             {
-                Shape clusterShape(inCluster.height(), inCluster.width());
+                const Shape clusterShape(inCluster.height(), inCluster.width());
                 NdArray<dtype> clusterArray(clusterShape);
                 clusterArray.zeros();
 
-                uint32 rowMin = inCluster.rowMin();
-                uint32 colMin = inCluster.colMin();
-                dtype inten = inCluster.intensity();
+                const uint32 rowMin = inCluster.rowMin();
+                const uint32 colMin = inCluster.colMin();
+                const dtype inten = inCluster.intensity();
 
                 for (auto& pixel : inCluster)
                 {
@@ -1028,7 +1028,7 @@ namespace NC
             /// @return
             ///              centroid row
             ///
-            double row() const
+            double row() const noexcept
             {
                 return row_;
             }
@@ -1040,7 +1040,7 @@ namespace NC
             /// @return
             ///              centroid col
             ///
-            double col() const
+            double col() const noexcept
             {
                 return col_;
             }
@@ -1052,7 +1052,7 @@ namespace NC
             /// @return
             ///              centroid intensity
             ///
-            dtype intensity() const
+            dtype intensity() const noexcept
             {
                 return intensity_;
             }
@@ -1064,7 +1064,7 @@ namespace NC
             /// @return
             ///              star id
             ///
-            double eod() const
+            double eod() const noexcept
             {
                 return eod_;
             }
@@ -1104,7 +1104,7 @@ namespace NC
             /// @return
             ///              bool
             ///
-            bool operator==(const Centroid<dtype>& rhs) const
+            bool operator==(const Centroid<dtype>& rhs) const noexcept
             {
                 return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_ && eod_ == rhs.eod_;
             }
@@ -1119,7 +1119,7 @@ namespace NC
             /// @return
             ///              bool
             ///
-            bool operator!=(const Centroid<dtype>& rhs) const
+            bool operator!=(const Centroid<dtype>& rhs) const noexcept
             {
                 return !(*this == rhs);
             }
@@ -1137,7 +1137,7 @@ namespace NC
             /// @return
             ///              bool
             ///
-            bool operator<(const Centroid<dtype>& rhs) const
+            bool operator<(const Centroid<dtype>& rhs) const noexcept
             {
                 return intensity_ < rhs.intensity_ ? false : true;
             }
@@ -1321,18 +1321,18 @@ namespace NC
                 }
             }
 
-            uint32 histSize = static_cast<uint32>(maxValue - minValue + 1);
+            const uint32 histSize = static_cast<uint32>(maxValue - minValue + 1);
 
             NdArray<double> histogram(1, histSize);
             histogram.zeros();
             for (auto intensity : inImageArray)
             {
-                uint32 bin = static_cast<uint32>(static_cast<int32>(std::floor(intensity)) - minValue);
+                const uint32 bin = static_cast<uint32>(static_cast<int32>(std::floor(intensity)) - minValue);
                 ++histogram[bin];
             }
 
             // integrate the normalized histogram from right to left to make a survival function (1 - CDF)
-            double dNumPixels = static_cast<double>(inImageArray.size());
+            const double dNumPixels = static_cast<double>(inImageArray.size());
             NdArray<double> survivalFunction(1, histSize + 1);
             survivalFunction[-1] = 0;
             for (int32 i = histSize - 1; i > -1; --i)
@@ -1346,10 +1346,10 @@ namespace NC
             uint32 indexHigh = histSize - 1;
             uint32 index = indexHigh / 2; // integer division
 
-            bool keepGoing = true;
+            const bool keepGoing = true;
             while (keepGoing)
             {
-                double value = survivalFunction[index];
+                const double value = survivalFunction[index];
                 if (value < inRate)
                 {
                     indexHigh = index;
@@ -1360,7 +1360,7 @@ namespace NC
                 }
                 else
                 {
-                    int32 thresh = static_cast<int32>(index) + minValue - 1;
+                    const int32 thresh = static_cast<int32>(index) + minValue - 1;
                     if (DtypeInfo<dtype>::isSigned())
                     {
                         return static_cast<dtype>(thresh);
@@ -1396,7 +1396,7 @@ namespace NC
         {
             // not the most efficient way to do things, but the easist...
             NdArray<bool> xcds(inExceedances);
-            Shape inShape = xcds.shape();
+            const Shape inShape = xcds.shape();
             for (uint8 border = 0; border < inBorderWidth; ++border)
             {
                 for (int32 row = 0; row < static_cast<int32>(inShape.rows); ++row)
