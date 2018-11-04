@@ -104,7 +104,7 @@ namespace NC
                 eps_ = std::numeric_limits<double>::epsilon();
                 decompose();
                 reorder();
-                tsh_ = 0.5 * std::sqrt(m_ + n_ + 1.) * s_[0] * eps_;
+                tsh_ = 0.5 * std::sqrt(m_ + n_ + 1.) * s_.front() * eps_;
             }
 
             // =============================================================================
@@ -168,7 +168,7 @@ namespace NC
 
                 NdArray<double> tmp(1, n_);
 
-                tsh_ = (inThresh >= 0. ? inThresh : 0.5 * sqrt(m_ + n_ + 1.) * s_[0] * eps_);
+                tsh_ = (inThresh >= 0. ? inThresh : 0.5 * sqrt(m_ + n_ + 1.) * s_.front() * eps_);
 
                 for (uint32 j = 0; j < n_; j++)
                 {
@@ -712,7 +712,7 @@ namespace NC
 
             if (inShape.rows == 1)
             {
-                return inArray[0];
+                return inArray.front();
             }
             else if (inShape.rows == 2)
             {
@@ -917,7 +917,7 @@ namespace NC
         NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance)
         {
             SVD svdSolver(inA.template astype<double>());
-            const double threshold = inTolerance * svdSolver.s()[0];
+            const double threshold = inTolerance * svdSolver.s().front();
 
             return std::move(svdSolver.solve(inB.template astype<double>(), threshold));
         }

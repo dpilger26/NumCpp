@@ -1442,7 +1442,7 @@ namespace NC
                 case Axis::NONE:
                 {
                     NdArray<dtypeOut> returnArray(1, size_);
-                    returnArray[0] = static_cast<dtypeOut>(array_[0]);
+                    returnArray[0] = static_cast<dtypeOut>(front());
                     for (uint32 i = 1; i < size_; ++i)
                     {
                         returnArray[i] = returnArray[i - 1] * static_cast<dtypeOut>(array_[i]);
@@ -1508,7 +1508,7 @@ namespace NC
                 case Axis::NONE:
                 {
                     NdArray<dtypeOut> returnArray(1, size_);
-                    returnArray[0] = static_cast<dtypeOut>(array_[0]);
+                    returnArray[0] = static_cast<dtypeOut>(front());
                     for (uint32 i = 1; i < size_; ++i)
                     {
                         returnArray[i] = returnArray[i - 1] + static_cast<dtypeOut>(array_[i]);

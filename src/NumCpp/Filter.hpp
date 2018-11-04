@@ -476,10 +476,10 @@ namespace NC
             outArray.put(Slice(inBoundarySize, inBoundarySize + inImage.size()), inImage);
 
             // left
-            outArray.put(Slice(0, inBoundarySize), inImage[0]);
+            outArray.put(Slice(0, inBoundarySize), inImage.front());
 
             // right
-            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inImage[-1]);
+            outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inImage.back());
 
             return std::move(outArray);
         }

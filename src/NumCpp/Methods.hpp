@@ -5706,11 +5706,11 @@ namespace NC
             case Axis::NONE:
             {
                 std::vector<dtype> values;
-                for (uint32 i = 0; i < inArray.size(); ++i)
+                for (auto value : inArray)
                 {
-                    if (!std::isnan(inArray[i]))
+                    if (!std::isnan(value))
                     {
-                        values.push_back(inArray[i]);
+                        values.push_back(value);
                     }
                 }
 
@@ -6103,14 +6103,14 @@ namespace NC
                 double meanValue = nanmean(inArray, inAxis).item();
                 double sum = 0;
                 double counter = 0;
-                for (uint32 i = 0; i < inArray.size(); ++i)
+                for (auto value : inArray)
                 {
-                    if (std::isnan(inArray[i]))
+                    if (std::isnan(value))
                     {
                         continue;
                     }
 
-                    sum += Utils::sqr(static_cast<double>(inArray[i]) - meanValue);
+                    sum += Utils::sqr(static_cast<double>(value) - meanValue);
                     ++counter;
                 }
                 NdArray<double> returnArray = { std::sqrt(sum / counter) };
@@ -6190,11 +6190,11 @@ namespace NC
     NdArray<dtypeOut> nansum(const NdArray<dtype>& inArray, Axis inAxis)
     {
         NdArray<dtype> arrayCopy(inArray);
-        for (uint32 i = 0; i < arrayCopy.size(); ++i)
+        for (auto& value : arrayCopy)
         {
-            if (std::isnan(arrayCopy[i]))
+            if (std::isnan(value))
             {
-                arrayCopy[i] = 0;
+                value = 0;
             }
         }
 
