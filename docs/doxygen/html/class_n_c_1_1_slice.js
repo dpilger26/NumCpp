@@ -1,9 +1,9 @@
 var class_n_c_1_1_slice =
 [
     [ "Slice", "class_n_c_1_1_slice.html#a870f0e324349d1ec8a2803d4b1810890", null ],
-    [ "Slice", "class_n_c_1_1_slice.html#a16ea454a6aa3b7aa4da321aa08b6244f", null ],
-    [ "Slice", "class_n_c_1_1_slice.html#ad7bf63b9dc81a4bbbc76b39649651863", null ],
-    [ "Slice", "class_n_c_1_1_slice.html#aa595f1c5c64435804c5add4b2b921496", null ],
+    [ "Slice", "class_n_c_1_1_slice.html#a08300014af5b70936da97f1fddd21185", null ],
+    [ "Slice", "class_n_c_1_1_slice.html#af4f76d99eb4cc7b0e9cacee5e6f85416", null ],
+    [ "Slice", "class_n_c_1_1_slice.html#a79b579553219c6fd05d6639ff6c24f7a", null ],
     [ "makePositiveAndValidate", "class_n_c_1_1_slice.html#a5408caf85f8641f62a1fba6bcbb4f84a", null ],
     [ "numElements", "class_n_c_1_1_slice.html#aebb4080ea55bb036d0acb9edc42c8075", null ],
     [ "print", "class_n_c_1_1_slice.html#ab375c253f5e7d87e37584f9a38094235", null ],

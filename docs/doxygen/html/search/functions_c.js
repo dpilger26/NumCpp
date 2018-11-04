@@ -17,7 +17,7 @@ var searchData=
   ['minimum',['minimum',['../namespace_n_c.html#af853f0b2c47535120ad29516e0b4a539',1,'NC']]],
   ['minimumfilter',['minimumFilter',['../namespace_n_c_1_1_filter.html#a8b711c566c3a57091054817177c52554',1,'NC::Filter']]],
   ['minumumfilter1d',['minumumFilter1d',['../namespace_n_c_1_1_filter.html#a5e27e7e7abb33c3fcb3f3b17cef314aa',1,'NC::Filter']]],
-  ['minutes',['minutes',['../class_n_c_1_1_coordinates_1_1_r_a.html#a1d6d2f8cf62141ce74575d150930556c',1,'NC::Coordinates::RA::minutes()'],['../class_n_c_1_1_coordinates_1_1_dec.html#a35da9c8b067b39d35d5cf3b5b635edf4',1,'NC::Coordinates::Dec::minutes()']]],
+  ['minutes',['minutes',['../class_n_c_1_1_coordinates_1_1_r_a.html#a53aa829c1658979f94a561a2236bf571',1,'NC::Coordinates::RA::minutes()'],['../class_n_c_1_1_coordinates_1_1_dec.html#afc2e3aa98370521e44696e9467fa9499',1,'NC::Coordinates::Dec::minutes()']]],
   ['mirrorboundary',['mirrorBoundary',['../namespace_n_c_1_1_filter.html#a2f43529f6330ac01389516bfc520dbf9',1,'NC::Filter']]],
   ['mirrorboundary1d',['mirrorBoundary1d',['../namespace_n_c_1_1_filter.html#af128bc278394b42c4d94b6616c8dfc60',1,'NC::Filter']]],
   ['mod',['mod',['../namespace_n_c.html#acb35a43362648c580819538c3537e67f',1,'NC']]],

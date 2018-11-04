@@ -13,13 +13,13 @@ var class_n_c_1_1_data_cube =
     [ "dump", "class_n_c_1_1_data_cube.html#adf63b8fe997136e9f2dd8e353272a9c4", null ],
     [ "end", "class_n_c_1_1_data_cube.html#ab1674061597406def464d069ec5c5d52", null ],
     [ "front", "class_n_c_1_1_data_cube.html#ad917d09e30aa5d3bb61508f284e822de", null ],
-    [ "isempty", "class_n_c_1_1_data_cube.html#a49e7d48a296400e005593e631189b0f7", null ],
+    [ "isempty", "class_n_c_1_1_data_cube.html#ac64c398a663f075f2516f11a5407d782", null ],
     [ "operator[]", "class_n_c_1_1_data_cube.html#a292c63f137c9e158f65c25fe4f714731", null ],
     [ "operator[]", "class_n_c_1_1_data_cube.html#a849f0d05b639fad67ddeeebab8c3afe2", null ],
     [ "pop_back", "class_n_c_1_1_data_cube.html#a0a75a5d5a4363ad025d5f6b4365a0977", null ],
     [ "pop_front", "class_n_c_1_1_data_cube.html#ade66b4646220fb2f20712041ae9ad9db", null ],
     [ "push_back", "class_n_c_1_1_data_cube.html#a9194b6ccc97308a9276dc7cd040e00f5", null ],
     [ "push_front", "class_n_c_1_1_data_cube.html#a20b297f85befccc7cc4daababb82f9be", null ],
-    [ "shape", "class_n_c_1_1_data_cube.html#a8db40d2b160bf2e8853ae24787132450", null ],
-    [ "size", "class_n_c_1_1_data_cube.html#a12f69aa8d51273b2da197d60afb9bcd4", null ]
+    [ "shape", "class_n_c_1_1_data_cube.html#a8c828d675c9f28663aebc8e4451b4f66", null ],
+    [ "size", "class_n_c_1_1_data_cube.html#afe4d227a8fc9209057dcf767c62cf0aa", null ]
 ];
