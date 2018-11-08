@@ -5,57 +5,57 @@
 int main()
 {
     // Containers
-    NC::NdArray<int> a0 = { {1, 2}, {3, 4} };
-    NC::NdArray<int> a1 = { {1, 2}, {3, 4}, {5, 6} };
+    nc::NdArray<int> a0 = { {1, 2}, {3, 4} };
+    nc::NdArray<int> a1 = { {1, 2}, {3, 4}, {5, 6} };
     a1.reshape(2, 3);
     auto a2 = a1.astype<double>();
 
     // Initializers
-    auto a3 = NC::linspace<int>(1, 10, 5);
-    auto a4 = NC::arange<int>(3, 7);
-    auto a5 = NC::eye<int>(4);
-    auto a6 = NC::zeros<int>(3, 4);
-    auto a7 = NC::NdArray<int>(3, 4) = 0;
-    auto a8 = NC::ones<int>(3, 4);
-    auto a9 = NC::NdArray<int>(3, 4) = 1;
-    auto a10 = NC::nans<double>(3, 4);
-    auto a11 = NC::NdArray<double>(3, 4) = NC::Constants::nan;
-    auto a12 = NC::empty<int>(3, 4);
-    auto a13 = NC::NdArray<int>(3, 4);
+    auto a3 = nc::linspace<int>(1, 10, 5);
+    auto a4 = nc::arange<int>(3, 7);
+    auto a5 = nc::eye<int>(4);
+    auto a6 = nc::zeros<int>(3, 4);
+    auto a7 = nc::NdArray<int>(3, 4) = 0;
+    auto a8 = nc::ones<int>(3, 4);
+    auto a9 = nc::NdArray<int>(3, 4) = 1;
+    auto a10 = nc::nans<double>(3, 4);
+    auto a11 = nc::NdArray<double>(3, 4) = nc::constants::nan;
+    auto a12 = nc::empty<int>(3, 4);
+    auto a13 = nc::NdArray<int>(3, 4);
 
     // Slicing/Broadcasting
-    auto a14 = NC::Random<int>::randInt(NC::Shape(10, 10), 0, 100);
+    auto a14 = nc::Random<int>::randInt(nc::Shape(10, 10), 0, 100);
     auto value = a14(2, 3);
-    auto slice = a14(NC::Slice(2, 5), NC::Slice(5, 8));
+    auto slice = a14(nc::Slice(2, 5), nc::Slice(5, 8));
     auto rowSlice = a14(a14.rSlice(), 7);
     auto values = a14[a14 > 50];
     a14.putMask(a14 > 50, 666);
 
     // Random
-    NC::Random<>::seed(666);
-    auto a15 = NC::Random<double>::randN(NC::Shape(3, 4));
-    auto a16 = NC::Random<int>::randInt(NC::Shape(3, 4), 0, 10);
-    auto a17 = NC::Random<double>::rand(NC::Shape(3, 4));
-    auto a18 = NC::Random<double>::choice(a17, 3);
+    nc::Random<>::seed(666);
+    auto a15 = nc::Random<double>::randN(nc::Shape(3, 4));
+    auto a16 = nc::Random<int>::randInt(nc::Shape(3, 4), 0, 10);
+    auto a17 = nc::Random<double>::rand(nc::Shape(3, 4));
+    auto a18 = nc::Random<double>::choice(a17, 3);
 
     // Concatenation
-    auto a = NC::Random<int>::randInt(NC::Shape(3, 4), 0, 10);
-    auto b = NC::Random<int>::randInt(NC::Shape(3, 4), 0, 10);
-    auto c = NC::Random<int>::randInt(NC::Shape(3, 4), 0, 10);
+    auto a = nc::Random<int>::randInt(nc::Shape(3, 4), 0, 10);
+    auto b = nc::Random<int>::randInt(nc::Shape(3, 4), 0, 10);
+    auto c = nc::Random<int>::randInt(nc::Shape(3, 4), 0, 10);
 
-    auto a19 = NC::stack({ a, b, c }, NC::Axis::ROW);
-    auto a20 = NC::vstack({ a, b, c });
-    auto a21 = NC::hstack({ a, b, c });
-    auto a22 = NC::append(a, b, NC::Axis::COL);
+    auto a19 = nc::stack({ a, b, c }, nc::Axis::ROW);
+    auto a20 = nc::vstack({ a, b, c });
+    auto a21 = nc::hstack({ a, b, c });
+    auto a22 = nc::append(a, b, nc::Axis::COL);
 
     // Diagonal, Traingular, and Flip
-    auto d = NC::Random<int>::randInt(NC::Shape(5, 5), 0, 10);
-    auto a23 = NC::diagonal(d);
-    auto a24 = NC::triu(a);
-    auto a25 = NC::tril(a);
-    auto a26 = NC::flip(d, NC::Axis::ROW);
-    auto a27 = NC::flipud(d);
-    auto a28 = NC::fliplr(d);
+    auto d = nc::Random<int>::randInt(nc::Shape(5, 5), 0, 10);
+    auto a23 = nc::diagonal(d);
+    auto a24 = nc::triu(a);
+    auto a25 = nc::tril(a);
+    auto a26 = nc::flip(d, nc::Axis::ROW);
+    auto a27 = nc::flipud(d);
+    auto a28 = nc::fliplr(d);
 
     // iteration
     for (auto it = a.begin(); it < a.end(); ++it)
@@ -70,101 +70,101 @@ int main()
 
 
     // Logical
-    auto a29 = NC::where(a > 5, a, b);
-    auto a30 = NC::any(a);
-    auto a31 = NC::all(a);
-    auto a32 = NC::logical_and(a, b);
-    auto a33 = NC::logical_or(a, b);
-    auto a34 = NC::isclose(a, b);
-    auto a35 = NC::allclose(a, b);
+    auto a29 = nc::where(a > 5, a, b);
+    auto a30 = nc::any(a);
+    auto a31 = nc::all(a);
+    auto a32 = nc::logical_and(a, b);
+    auto a33 = nc::logical_or(a, b);
+    auto a34 = nc::isclose(a, b);
+    auto a35 = nc::allclose(a, b);
 
     // Comparisons
-    auto a36 = NC::equal(a, b);
+    auto a36 = nc::equal(a, b);
     auto a37 = a == b;
-    auto a38 = NC::not_equal(a, b);
+    auto a38 = nc::not_equal(a, b);
     auto a39 = a != b;
-    auto a40 = NC::nonzero(a);
+    auto a40 = nc::nonzero(a);
 
     // Minimum, Maximum, Sorting
-    auto value1 = NC::min(a);
-    auto value2 = NC::max(a);
-    auto value3 = NC::argmin(a);
-    auto value4 = NC::argmax(a);
-    auto a41 = NC::sort(a, NC::Axis::ROW);
-    auto a42 = NC::argsort(a, NC::Axis::COL);
-    auto a43 = NC::unique(a);
-    auto a44 = NC::setdiff1d(a, b);
-    auto a45 = NC::diff(a);
+    auto value1 = nc::min(a);
+    auto value2 = nc::max(a);
+    auto value3 = nc::argmin(a);
+    auto value4 = nc::argmax(a);
+    auto a41 = nc::sort(a, nc::Axis::ROW);
+    auto a42 = nc::argsort(a, nc::Axis::COL);
+    auto a43 = nc::unique(a);
+    auto a44 = nc::setdiff1d(a, b);
+    auto a45 = nc::diff(a);
 
     // Reducers
-    auto value5 = NC::sum<int>(a);
-    auto a46 = NC::sum<int>(a, NC::Axis::ROW);
-    auto value6 = NC::prod<int>(a);
-    auto a47 = NC::prod<int>(a, NC::Axis::ROW);
-    auto value7 = NC::mean(a);
-    auto a48 = NC::mean(a, NC::Axis::ROW);
-    auto value8 = NC::count_nonzero(a);
-    auto a49 = NC::count_nonzero(a, NC::Axis::ROW);
+    auto value5 = nc::sum<int>(a);
+    auto a46 = nc::sum<int>(a, nc::Axis::ROW);
+    auto value6 = nc::prod<int>(a);
+    auto a47 = nc::prod<int>(a, nc::Axis::ROW);
+    auto value7 = nc::mean(a);
+    auto a48 = nc::mean(a, nc::Axis::ROW);
+    auto value8 = nc::count_nonzero(a);
+    auto a49 = nc::count_nonzero(a, nc::Axis::ROW);
 
     // I/O
     a.print();
     std::cout << a << std::endl;
     a.tofile("C:/Temp/temp.txt", "\n");
-    auto a50 = NC::fromfile<int>("C:/Temp/temp.txt", "\n");
-    NC::dump(a, "C:/Temp/temp.bin");
-    auto a51 = NC::load<int>("C:/Temp/temp.bin");
+    auto a50 = nc::fromfile<int>("C:/Temp/temp.txt", "\n");
+    nc::dump(a, "C:/Temp/temp.bin");
+    auto a51 = nc::load<int>("C:/Temp/temp.bin");
 
     // Mathematical Functions
 
     // Basic Functions
-    auto a52 = NC::abs(a);
-    auto a53 = NC::sign(a);
-    auto a54 = NC::remainder<double>(a, b);
-    auto a55 = NC::clip(a, 3, 8);
-    auto xp = NC::linspace<double>(0.0, 2.0 * NC::Constants::pi, 100);
-    auto fp = NC::sin(xp);
-    auto x = NC::linspace<double>(0.0, 2.0 * NC::Constants::pi, 1000);
-    auto f = NC::interp(x, xp, fp);
+    auto a52 = nc::abs(a);
+    auto a53 = nc::sign(a);
+    auto a54 = nc::remainder<double>(a, b);
+    auto a55 = nc::clip(a, 3, 8);
+    auto xp = nc::linspace<double>(0.0, 2.0 * nc::constants::pi, 100);
+    auto fp = nc::sin(xp);
+    auto x = nc::linspace<double>(0.0, 2.0 * nc::constants::pi, 1000);
+    auto f = nc::interp(x, xp, fp);
 
     // Exponential Functions
-    auto a56 = NC::exp(a);
-    auto a57 = NC::expm1(a);
-    auto a58 = NC::log(a);
-    auto a59 = NC::log1p(a);
+    auto a56 = nc::exp(a);
+    auto a57 = nc::expm1(a);
+    auto a58 = nc::log(a);
+    auto a59 = nc::log1p(a);
 
     // Power Functions
-    auto a60 = NC::power<int>(a, 4);
-    auto a61 = NC::sqrt(a);
-    auto a62 = NC::square(a);
-    auto a63 = NC::cbrt(a);
+    auto a60 = nc::power<int>(a, 4);
+    auto a61 = nc::sqrt(a);
+    auto a62 = nc::square(a);
+    auto a63 = nc::cbrt(a);
 
     // Trigonometric Functions
-    auto a64 = NC::sin(a);
-    auto a65 = NC::cos(a);
-    auto a66 = NC::tan(a);
+    auto a64 = nc::sin(a);
+    auto a65 = nc::cos(a);
+    auto a66 = nc::tan(a);
 
     // Hyperbolic Functions
-    auto a67 = NC::sinh(a);
-    auto a68 = NC::cosh(a);
-    auto a69 = NC::tanh(a);
+    auto a67 = nc::sinh(a);
+    auto a68 = nc::cosh(a);
+    auto a69 = nc::tanh(a);
 
     // Classification Functions
-    auto a70 = NC::isnan(a.astype<double>());
-    //NC::isinf(a);
+    auto a70 = nc::isnan(a.astype<double>());
+    //nc::isinf(a);
 
     // Linear Algebra
-    auto a71 = NC::norm<int>(a);
-    auto a72 = NC::dot<int>(a, b.transpose());
-    auto value9 = NC::Linalg::det(a);
-    auto a73 = NC::Linalg::inv(a);
-    auto a74 = NC::Linalg::lstsq(a, b);
-    auto a75 = NC::Linalg::matrix_power<int>(a, 3);
-    auto a77 = NC::Linalg::multi_dot<int>({ a, b.transpose(), c });
+    auto a71 = nc::norm<int>(a);
+    auto a72 = nc::dot<int>(a, b.transpose());
+    auto value9 = nc::linalg::det(a);
+    auto a73 = nc::linalg::inv(a);
+    auto a74 = nc::linalg::lstsq(a, b);
+    auto a75 = nc::linalg::matrix_power<int>(a, 3);
+    auto a77 = nc::linalg::multi_dot<int>({ a, b.transpose(), c });
 
-    NC::NdArray<double> u;
-    NC::NdArray<double> s;
-    NC::NdArray<double> vt;
-    NC::Linalg::svd(a.astype<double>(), u, s, vt);
+    nc::NdArray<double> u;
+    nc::NdArray<double> s;
+    nc::NdArray<double> vt;
+    nc::linalg::svd(a.astype<double>(), u, s, vt);
 
     return 0;
 }

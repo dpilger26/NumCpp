@@ -27,7 +27,7 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 | ```np.ones([3, 4])```                                    | ```nc::ones<dtype>(3, 4)```                              |
 |                                                          | ```nc::NdArray<dtype>(3, 4) a = 1```                     |
 | ```np.nans([3, 4])```                                    | ```nc::nans<double>(3, 4)```                             |
-|                                                          | ```nc::NdArray<double>(3, 4) a = nc::Constants::nan```   |
+|                                                          | ```nc::NdArray<double>(3, 4) a = nc::constants::nan```   |
 | ```np.empty([3, 4])```                                   | ```nc::empty<dtype>(3, 4)```                             |
 |                                                          | ```nc::NdArray<dtype>(3, 4) a;```                        |
 
@@ -47,11 +47,11 @@ The random module provides simple ways to create random arrays.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.random.seed(666)```	                               | ```nc::random<>::seed(666)```                            |
-| ```np.random.randn(3, 4)```                              | ```nc::random<double>::randn(nc::Shape(3,4))```          |
-| ```np.random.randint(0, 10, [3, 4])```                   | ```nc::random<int>::randInt(nc::Shape(3,4),0,10)```      |
-| ```np.random.rand(3, 4)```                               | ```nc::random<double>::rand(nc::Shape(3,4))```           |
-| ```np.random.choice(a, 3)```                             | ```nc::random<dtype>::choice(a, 3)```                    |
+| ```np.random.seed(666)```	                               | ```nc::Random<>::seed(666)```                            |
+| ```np.random.randn(3, 4)```                              | ```nc::Random<double>::randn(nc::Shape(3,4))```          |
+| ```np.random.randint(0, 10, [3, 4])```                   | ```nc::Random<int>::randInt(nc::Shape(3,4),0,10)```      |
+| ```np.random.rand(3, 4)```                               | ```nc::Random<double>::rand(nc::Shape(3,4))```           |
+| ```np.random.choice(a, 3)```                             | ```nc::Random<dtype>::choice(a, 3)```                    |
 
 ### CONCATENATION
 Many ways to concatenate `NdArray` are available.
