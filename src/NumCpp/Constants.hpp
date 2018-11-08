@@ -34,11 +34,11 @@
 #include<limits>
 #include<string>
 
-namespace NC
+namespace nc
 {
     //================================Constants====================================
     /// Holds usefull constants
-    namespace Constants
+    namespace constants
     {
         constexpr double        c = 3.0e8; ///< speed of light
         constexpr double        e = 2.718281828459045;  ///< eulers number

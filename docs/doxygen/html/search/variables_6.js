@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['milliseconds_5fper_5fday',['MILLISECONDS_PER_DAY',['../namespace_n_c_1_1_constants.html#afd852b28b0eea7c0bbda6225662ac16f',1,'NC::Constants']]],
-  ['milliseconds_5fper_5fsecond',['MILLISECONDS_PER_SECOND',['../namespace_n_c_1_1_constants.html#a563988063cb6d5a679c4f1f0f2fa165f',1,'NC::Constants']]],
-  ['minutes_5fper_5fday',['MINUTES_PER_DAY',['../namespace_n_c_1_1_constants.html#a6a07b0f7ba0ecc14e182cab2bfefbd8d',1,'NC::Constants']]],
-  ['minutes_5fper_5fhour',['MINUTES_PER_HOUR',['../namespace_n_c_1_1_constants.html#aae77c8056662e9ce1f848d00998579a0',1,'NC::Constants']]]
+  ['milliseconds_5fper_5fday',['MILLISECONDS_PER_DAY',['../namespacenc_1_1constants.html#a2838aa56f95be8020a326aa6b9ba5c68',1,'nc::constants']]],
+  ['milliseconds_5fper_5fsecond',['MILLISECONDS_PER_SECOND',['../namespacenc_1_1constants.html#a4373df6d6df75334290f4240f174aeb0',1,'nc::constants']]],
+  ['minutes_5fper_5fday',['MINUTES_PER_DAY',['../namespacenc_1_1constants.html#aa018ab3bca299694899f51683d5b3c0f',1,'nc::constants']]],
+  ['minutes_5fper_5fhour',['MINUTES_PER_HOUR',['../namespacenc_1_1constants.html#a84dfb71171d2a19b89afea89be57bc52',1,'nc::constants']]]
 ];

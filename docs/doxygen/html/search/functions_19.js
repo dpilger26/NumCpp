@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['z',['z',['../class_n_c_1_1_coordinates_1_1_coordinate.html#a03fd75035c1d858c1d2ae51c54b329d1',1,'NC::Coordinates::Coordinate']]],
-  ['zeros',['zeros',['../class_n_c_1_1_nd_array.html#a51ba670add6f80105dcb9f04040e5803',1,'NC::NdArray::zeros()'],['../namespace_n_c.html#acfb0ade59d75fa27720b61b08196c0d5',1,'NC::zeros(uint32 inSquareSize)'],['../namespace_n_c.html#a2fe307a895b338f0677d3430b0413f25',1,'NC::zeros(uint32 inNumRows, uint32 inNumCols)'],['../namespace_n_c.html#aaafae8cf1c6c61b3036626ae0d59c5a3',1,'NC::zeros(const NC::Shape &amp;inShape)']]],
-  ['zeros_5flike',['zeros_like',['../namespace_n_c.html#a5f4a9a4a26f5cc6f83c2269251692ac3',1,'NC']]],
-  ['zrotation',['zRotation',['../class_n_c_1_1_rotations_1_1_quaternion.html#abf834e46218413466fde5d4c0dbffd1b',1,'NC::Rotations::Quaternion::zRotation()'],['../class_n_c_1_1_rotations_1_1_d_c_m.html#a6e2fcd5d46a329e84b9df804d6a8e322',1,'NC::Rotations::DCM::zRotation()']]]
+  ['z',['z',['../classnc_1_1coordinates_1_1_coordinate.html#abcac15c78e98da855112a689488997ec',1,'nc::coordinates::Coordinate']]],
+  ['zeros',['zeros',['../classnc_1_1_nd_array.html#a0b337bf0d78b306fa0b874631f1bf24e',1,'nc::NdArray::zeros()'],['../namespacenc.html#abce4b61ffbaa3276f4f84088fdf25e95',1,'nc::zeros(uint32 inSquareSize)'],['../namespacenc.html#a1c620c26cc358f639753f2c1cd73f1e0',1,'nc::zeros(uint32 inNumRows, uint32 inNumCols)'],['../namespacenc.html#aba15909fe95d255b0eea84d0f0c93d30',1,'nc::zeros(const Shape &amp;inShape)']]],
+  ['zeros_5flike',['zeros_like',['../namespacenc.html#a98f33a60a96942c994a19396907d27c0',1,'nc']]],
+  ['zrotation',['zRotation',['../classnc_1_1rotations_1_1_quaternion.html#a02ffc6360355ca7f4d125a70b8930315',1,'nc::rotations::Quaternion::zRotation()'],['../classnc_1_1rotations_1_1_d_c_m.html#a305466e543dc94582f9684f3c22010da',1,'nc::rotations::DCM::zRotation()']]]
 ];

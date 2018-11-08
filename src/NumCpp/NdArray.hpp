@@ -53,7 +53,7 @@
 #include<utility>
 #include<vector>
 
-namespace NC
+namespace nc
 {
     //================================================================================
     // Class Description:
@@ -648,8 +648,8 @@ namespace NC
             // but why would you really want to do that anyway?
             if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Input index " + Utils::num2str(inIndex);
-                errStr += " is out of bounds for array of size " + Utils::num2str(size_) + ".";
+                std::string errStr = "ERROR: NdArray::at: Input index " + utils::num2str(inIndex);
+                errStr += " is out of bounds for array of size " + utils::num2str(size_) + ".";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -672,8 +672,8 @@ namespace NC
             // but why would you really want to do that anyway?
             if (std::abs(inIndex) > static_cast<int64>(size_ - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Input index " + Utils::num2str(inIndex);
-                errStr += " is out of bounds for array of size " + Utils::num2str(size_) + ".";
+                std::string errStr = "ERROR: NdArray::at: Input index " + utils::num2str(inIndex);
+                errStr += " is out of bounds for array of size " + utils::num2str(size_) + ".";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -696,8 +696,8 @@ namespace NC
             // but why would you really want to do that anyway?
             if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Row index " + Utils::num2str(inRowIndex);
-                errStr += " is out of bounds for array of size " + Utils::num2str(shape_.rows) + ".";
+                std::string errStr = "ERROR: NdArray::at: Row index " + utils::num2str(inRowIndex);
+                errStr += " is out of bounds for array of size " + utils::num2str(shape_.rows) + ".";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -706,8 +706,8 @@ namespace NC
             // but why would you really want to that anyway?
             if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Column index " + Utils::num2str(inColIndex);
-                errStr += " is out of bounds for array of size " + Utils::num2str(shape_.cols) + ".";
+                std::string errStr = "ERROR: NdArray::at: Column index " + utils::num2str(inColIndex);
+                errStr += " is out of bounds for array of size " + utils::num2str(shape_.cols) + ".";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -730,8 +730,8 @@ namespace NC
             // but why would you really want to do that anyway?
             if (std::abs(inRowIndex) > static_cast<int32>(shape_.rows - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Row index " + Utils::num2str(inRowIndex);
-                errStr += " is out of bounds for array of size " + Utils::num2str(shape_.rows) + ".";
+                std::string errStr = "ERROR: NdArray::at: Row index " + utils::num2str(inRowIndex);
+                errStr += " is out of bounds for array of size " + utils::num2str(shape_.rows) + ".";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -740,8 +740,8 @@ namespace NC
             // but why would you really want to do that anyway?
             if (std::abs(inColIndex) > static_cast<int32>(shape_.cols - 1))
             {
-                std::string errStr = "ERROR: NdArray::at: Column index " + Utils::num2str(inColIndex);
-                errStr += " is out of bounds for array of size " + Utils::num2str(shape_.cols) + ".";
+                std::string errStr = "ERROR: NdArray::at: Column index " + utils::num2str(inColIndex);
+                errStr += " is out of bounds for array of size " + utils::num2str(shape_.cols) + ".";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -1666,8 +1666,8 @@ namespace NC
             }
             else
             {
-                std::string errStr = "ERROR: NdArray::Array shapes of [" + Utils::num2str(shape_.rows) + ", " + Utils::num2str(shape_.cols) + "]";
-                errStr += " and [" + Utils::num2str(inOtherArray.shape_.rows) + ", " + Utils::num2str(inOtherArray.shape_.cols) + "]";
+                std::string errStr = "ERROR: NdArray::Array shapes of [" + utils::num2str(shape_.rows) + ", " + utils::num2str(shape_.cols) + "]";
+                errStr += " and [" + utils::num2str(inOtherArray.shape_.rows) + ", " + utils::num2str(inOtherArray.shape_.cols) + "]";
                 errStr += " are not consistent.";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
@@ -2063,7 +2063,7 @@ namespace NC
         ///
         void nans()
         {
-            fill(Constants::nan);
+            fill(constants::nan);
         }
 
         //============================================================================
@@ -2254,7 +2254,7 @@ namespace NC
                     dtypeOut sumOfSquares = 0;
                     for (auto value : *this)
                     {
-                        sumOfSquares += static_cast<dtypeOut>(Utils::sqr(value));
+                        sumOfSquares += static_cast<dtypeOut>(utils::sqr(value));
                     }
 
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(std::sqrt(sumOfSquares)) };
@@ -2268,7 +2268,7 @@ namespace NC
                         dtypeOut sumOfSquares = 0;
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
-                            sumOfSquares += static_cast<dtypeOut>(Utils::sqr(this->operator()(row, col)));
+                            sumOfSquares += static_cast<dtypeOut>(utils::sqr(this->operator()(row, col)));
                         }
                         returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
                     }
@@ -2284,7 +2284,7 @@ namespace NC
                         dtypeOut sumOfSquares = 0;
                         for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
                         {
-                            sumOfSquares += static_cast<dtypeOut>(Utils::sqr(transposedArray(row, col)));
+                            sumOfSquares += static_cast<dtypeOut>(utils::sqr(transposedArray(row, col)));
                         }
                         returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
                     }
@@ -2334,8 +2334,8 @@ namespace NC
                 {
                     if (inKth >= size_)
                     {
-                        std::string errStr = "ERROR: NdArray::partition: kth(=" + Utils::num2str(inKth);
-                        errStr += ") out of bounds (" + Utils::num2str(size_) + ")";
+                        std::string errStr = "ERROR: NdArray::partition: kth(=" + utils::num2str(inKth);
+                        errStr += ") out of bounds (" + utils::num2str(size_) + ")";
                         throw std::invalid_argument(errStr);
                     }
                     std::nth_element(begin(), begin() + inKth, end());
@@ -2345,8 +2345,8 @@ namespace NC
                 {
                     if (inKth >= shape_.cols)
                     {
-                        std::string errStr = "ERROR: NdArray::partition: kth(=" + Utils::num2str(inKth);
-                        errStr += ") out of bounds (" + Utils::num2str(shape_.cols) + ")";
+                        std::string errStr = "ERROR: NdArray::partition: kth(=" + utils::num2str(inKth);
+                        errStr += ") out of bounds (" + utils::num2str(shape_.cols) + ")";
                         std::cerr << errStr << std::endl;
                         throw std::invalid_argument(errStr);
                     }
@@ -2361,8 +2361,8 @@ namespace NC
                 {
                     if (inKth >= shape_.rows)
                     {
-                        std::string errStr = "ERROR: NdArray::partition: kth(=" + Utils::num2str(inKth);
-                        errStr += ") out of bounds (" + Utils::num2str(shape_.rows) + ")";
+                        std::string errStr = "ERROR: NdArray::partition: kth(=" + utils::num2str(inKth);
+                        errStr += ") out of bounds (" + utils::num2str(shape_.rows) + ")";
                         std::cerr << errStr << std::endl;
                         throw std::invalid_argument(errStr);
                     }
@@ -2900,8 +2900,8 @@ namespace NC
         {
             if (inNumRows * inNumCols != size_)
             {
-                std::string errStr = "ERROR: NdArray::reshape: Cannot reshape array of size " + Utils::num2str(size_) + " into shape ";
-                errStr += "[" + Utils::num2str(inNumRows) + ", " + Utils::num2str(inNumCols) + "]";
+                std::string errStr = "ERROR: NdArray::reshape: Cannot reshape array of size " + utils::num2str(size_) + " into shape ";
+                errStr += "[" + utils::num2str(inNumRows) + ", " + utils::num2str(inNumCols) + "]";
                 std::cerr << errStr << std::endl;
                 throw std::runtime_error(errStr);
             }
@@ -3087,7 +3087,7 @@ namespace NC
             else
             {
                 NdArray<dtype> returnArray(shape_);
-                double multFactor = Utils::power(10.0, inNumDecimals);
+                double multFactor = utils::power(10.0, inNumDecimals);
                 for (uint32 i = 0; i < size_; ++i)
                 {
                     returnArray[i] = static_cast<dtype>(std::round(static_cast<double>(array_[i]) * multFactor) / multFactor);
@@ -3200,7 +3200,7 @@ namespace NC
                     double sum = 0;
                     for (auto value : *this)
                     {
-                        sum += Utils::sqr(static_cast<double>(value) - meanValue);
+                        sum += utils::sqr(static_cast<double>(value) - meanValue);
                     }
                     NdArray<double> returnArray = { std::sqrt(sum / size_) };
                     return std::move(returnArray);
@@ -3214,7 +3214,7 @@ namespace NC
                         double sum = 0;
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
-                            sum += Utils::sqr(static_cast<double>(this->operator()(row, col)) - meanValue[row]);
+                            sum += utils::sqr(static_cast<double>(this->operator()(row, col)) - meanValue[row]);
                         }
                         returnArray(0, row) = std::sqrt(sum / shape_.cols);
                     }
@@ -3231,7 +3231,7 @@ namespace NC
                         double sum = 0;
                         for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
                         {
-                            sum += Utils::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
+                            sum += utils::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
                         }
                         returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
                     }
@@ -3263,7 +3263,7 @@ namespace NC
                 out += "[";
                 for (uint32 col = 0; col < shape_.cols; ++col)
                 {
-                    out += Utils::num2str(this->operator()(row, col)) + ", ";
+                    out += utils::num2str(this->operator()(row, col)) + ", ";
                 }
 
                 if (row == shape_.rows - 1)

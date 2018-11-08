@@ -33,9 +33,11 @@
 #include<cmath>
 #include<string>
 
-namespace NC
+namespace nc
 {
-    namespace Utils
+    //================================Rotations Namespace=============================
+    /// Module for basic utility funcions
+    namespace utils
     {
         //============================================================================
         ///						tests that 2 floating point values are "essentially equal"

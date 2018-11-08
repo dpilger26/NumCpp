@@ -36,7 +36,7 @@
 #include<stdexcept>
 #include<string>
 
-namespace NC
+namespace nc
 {
     //================================================================================
     ///						A Class for slicing into NdArrays
@@ -93,7 +93,7 @@ namespace NC
         ///
         std::string str() const
         {
-            std::string out = "[" + Utils::num2str(start) + ":" + Utils::num2str(stop) + ":" + Utils::num2str(step) + "]\n";
+            std::string out = "[" + utils::num2str(start) + ":" + utils::num2str(stop) + ":" + utils::num2str(step) + "]\n";
             return out;
         }
 
@@ -133,7 +133,7 @@ namespace NC
             }
             if (start > static_cast<int32>(inArraySize - 1))
             {
-                std::string errStr = "ERROR: Invalid start value for array of size " + Utils::num2str(inArraySize) + ".";
+                std::string errStr = "ERROR: Invalid start value for array of size " + utils::num2str(inArraySize) + ".";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -145,7 +145,7 @@ namespace NC
             }
             if (stop > static_cast<int32>(inArraySize))
             {
-                std::string errStr = "ERROR: Invalid stop value for array of size " + Utils::num2str(inArraySize) + ".";
+                std::string errStr = "ERROR: Invalid stop value for array of size " + utils::num2str(inArraySize) + ".";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }

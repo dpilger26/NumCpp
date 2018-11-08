@@ -1,4 +1,4 @@
-# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org/)
+nc::# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org/)
 ### <a href='https://dpilger26.github.io/NumCpp'>Full Documentation</a>
 ## From NumPy To NumCpp – A Quick Start Guide
 This quick start guide is meant as a very brief overview of some of the things
@@ -10,7 +10,7 @@ The main data structure in **NumpCpp** is the `NdArray`.  It is inherently a 2D 
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```a = np.array([[1, 2], [3, 4], [5, 6]])```             | ```NC::NdArray<int> a = { {1, 2}, {3, 4}, {5, 6} }```    |
+| ```a = np.array([[1, 2], [3, 4], [5, 6]])```             | ```nc::NdArray<int> a = { {1, 2}, {3, 4}, {5, 6} }```    |
 | ```a.reshape([2, 3])```                                  | ```a.reshape(2, 3)```                                    |
 | ```a.astype(np.double)```                                | ```a.astype<double>()```                                 |
 
@@ -19,17 +19,17 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.linspace(1, 10, 5)```	                           | ```NC::linspace<dtype>(1, 10, 5)```                      |
-| ```np.arange(3, 7)```                                    | ```NC::arrange<dtype>(3, 7)```                           |
-| ```np.eye(4)```                                          | ```NC::eye<dtype>(4)```                                  |
-| ```np.zeros([3, 4])```                                   | ```NC::zeros<dtype>(3, 4)```                             |
-|                                                          | ```NC::NdArray<dtype>(3, 4) a = 0```                     |
-| ```np.ones([3, 4])```                                    | ```NC::ones<dtype>(3, 4)```                              |
-|                                                          | ```NC::NdArray<dtype>(3, 4) a = 1```                     |
-| ```np.nans([3, 4])```                                    | ```NC::nans<double>(3, 4)```                             |
-|                                                          | ```NC::NdArray<double>(3, 4) a = NC::Constants::nan```   |
-| ```np.empty([3, 4])```                                   | ```NC::empty<dtype>(3, 4)```                             |
-|                                                          | ```NC::NdArray<dtype>(3, 4) a;```                        |
+| ```np.linspace(1, 10, 5)```	                           | ```nc::linspace<dtype>(1, 10, 5)```                      |
+| ```np.arange(3, 7)```                                    | ```nc::arrange<dtype>(3, 7)```                           |
+| ```np.eye(4)```                                          | ```nc::eye<dtype>(4)```                                  |
+| ```np.zeros([3, 4])```                                   | ```nc::zeros<dtype>(3, 4)```                             |
+|                                                          | ```nc::NdArray<dtype>(3, 4) a = 0```                     |
+| ```np.ones([3, 4])```                                    | ```nc::ones<dtype>(3, 4)```                              |
+|                                                          | ```nc::NdArray<dtype>(3, 4) a = 1```                     |
+| ```np.nans([3, 4])```                                    | ```nc::nans<double>(3, 4)```                             |
+|                                                          | ```nc::NdArray<double>(3, 4) a = nc::Constants::nan```   |
+| ```np.empty([3, 4])```                                   | ```nc::empty<dtype>(3, 4)```                             |
+|                                                          | ```nc::NdArray<dtype>(3, 4) a;```                        |
 
 ### SLICING/BROADCASTING
 **NumpCpp** offers **NumPy** style slicing and broadcasting.
@@ -37,7 +37,7 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```a[2, 3]```	                                           | ```a(2, 3)```                                            |
-| ```a[2:5, 5:8]```                                        | ```a(NC::Slice(2, 5), NC::Slice(5, 8))```                |
+| ```a[2:5, 5:8]```                                        | ```a(nc::Slice(2, 5), nc::Slice(5, 8))```                |
 | ```a[:, 7]```                                            | ```a(a.rSlice(), 7)```                                   |
 | ```a[a > 5]```                                           | ```a[a > 50]```                                          |
 | ```a[a > 5] = 0```                                       | ```a.putMask(a > 50, 666)```                             |
@@ -47,40 +47,40 @@ The random module provides simple ways to create random arrays.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.random.seed(666)```	                               | ```NC::Random<>::seed(666)```                            |
-| ```np.random.randn(3, 4)```                              | ```NC::Random<double>::randn(NC::Shape(3,4))```          |
-| ```np.random.randint(0, 10, [3, 4])```                   | ```NC::Random<int>::randInt(NC::Shape(3,4),0,10)```      |
-| ```np.random.rand(3, 4)```                               | ```NC::Random<double>::rand(NC::Shape(3,4))```           |
-| ```np.random.choice(a, 3)```                             | ```NC::Random<dtype>::choice(a, 3)```                    |
+| ```np.random.seed(666)```	                               | ```nc::random<>::seed(666)```                            |
+| ```np.random.randn(3, 4)```                              | ```nc::random<double>::randn(nc::Shape(3,4))```          |
+| ```np.random.randint(0, 10, [3, 4])```                   | ```nc::random<int>::randInt(nc::Shape(3,4),0,10)```      |
+| ```np.random.rand(3, 4)```                               | ```nc::random<double>::rand(nc::Shape(3,4))```           |
+| ```np.random.choice(a, 3)```                             | ```nc::random<dtype>::choice(a, 3)```                    |
 
 ### CONCATENATION
 Many ways to concatenate `NdArray` are available.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.stack([a, b, c], axis=0)```                        | ```NC::stack({a, b, c}, NC::Axis::ROW)```                |
-| ```np.vstack([a, b, c])```                               | ```NC::vstack({a, b, c})```                              |
-| ```np.hstack([a, b, c])```                               | ```NC::hstack({a, b, c})```                              |
-| ```np.append(a, b, axis=1)```	                           | ```NC::append(a, b, NC::Axis::COL)```                    |
+| ```np.stack([a, b, c], axis=0)```                        | ```nc::stack({a, b, c}, nc::Axis::ROW)```                |
+| ```np.vstack([a, b, c])```                               | ```nc::vstack({a, b, c})```                              |
+| ```np.hstack([a, b, c])```                               | ```nc::hstack({a, b, c})```                              |
+| ```np.append(a, b, axis=1)```	                           | ```nc::append(a, b, nc::Axis::COL)```                    |
 
 ### DIAGONAL, TRIANGULAR, AND FLIP
 The following return new `NdArray`s.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.diagonal(a)```                                     | ```NC::diagonal(a)```                                    |
-| ```np.triu(a)```                                         | ```NC::triu(a)```                                        |
-| ```np.tril(a)```                                         | ```NC::tril(a)```                                        |
-| ```np.flip(a, axis=0)```	                               | ```NC::flip(a, NC::Axis::ROW)```                         |
-| ```np.flipud(a)```                                       | ```NC::flipud(a)```                                      |
-| ```np.fliplr(a)```	                                   | ```NC::fliplr(a)```                                      |
+| ```np.diagonal(a)```                                     | ```nc::diagonal(a)```                                    |
+| ```np.triu(a)```                                         | ```nc::triu(a)```                                        |
+| ```np.tril(a)```                                         | ```nc::tril(a)```                                        |
+| ```np.flip(a, axis=0)```	                               | ```nc::flip(a, nc::Axis::ROW)```                         |
+| ```np.flipud(a)```                                       | ```nc::flipud(a)```                                      |
+| ```np.fliplr(a)```	                                   | ```nc::fliplr(a)```                                      |
 
 ### ITERATION
 **NumpCpp** follows the idioms of the C++ STL providing iterator pairs to iterate on arrays in different fashions.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```for value in a"""                                     | ```for(auto it = a.begin(); it < a.end(); ++it)```        |
+| ```for value in a"""                                     | ```for(auto it = a.begin(); it < a.end(); ++it)```       |
 |                                                          | ```for(auto& value : a)```                               |
 
 ### LOGICAL
@@ -88,51 +88,51 @@ Logical FUNCTIONS in **NumpCpp** behave the same as **NumPy**.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.where(a > 5, a, b)```                              | ```NC::where(a > 5, a, b)```                             |
-| ```np.any(a)```                                          | ```NC::any(a)```                                         |
-| ```np.all(a)```	                                       | ```NC::all(a)```                                         |
-| ```np.logical_and(a, b)```                               | ```NC::logical_and(a, b)```                              |
-| ```np.logical_or(a, b)```	                               | ```NC::logical_or(a, b)```                               |
-| ```np.isclose(a, b)```                                   | ```NC::isclose(a, b)```                                  |
-| ```np.allclose(a, b)```		                           | ```NC::allclose(a, b)```                                 |
+| ```np.where(a > 5, a, b)```                              | ```nc::where(a > 5, a, b)```                             |
+| ```np.any(a)```                                          | ```nc::any(a)```                                         |
+| ```np.all(a)```	                                       | ```nc::all(a)```                                         |
+| ```np.logical_and(a, b)```                               | ```nc::logical_and(a, b)```                              |
+| ```np.logical_or(a, b)```	                               | ```nc::logical_or(a, b)```                               |
+| ```np.isclose(a, b)```                                   | ```nc::isclose(a, b)```                                  |
+| ```np.allclose(a, b)```		                           | ```nc::allclose(a, b)```                                 |
 
 ### COMPARISONS
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.equal(a, b)```                                     | ```NC:::equal(a, b)```                                   |
+| ```np.equal(a, b)```                                     | ```nc:::equal(a, b)```                                   |
 |                                                          | ```a == b```                                             |
-| ```np.not_equal(a, b)```                                 | ```NC::not_equal(a, b)```                                |
+| ```np.not_equal(a, b)```                                 | ```nc::not_equal(a, b)```                                |
 |                                                          | ```a != b```                                             |
-| ```np.nonzero(a)```                                      | ```NC::nonzero(a)```                                     |
+| ```np.nonzero(a)```                                      | ```nc::nonzero(a)```                                     |
 
 ### MINIMUM, MAXIMUM, SORTING
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.min(a)```                                          | ```NC::min(a)```                                         |
-| ```np.max(a)```                                          | ```NC::max(a)```                                         |
-| ```np.argmin(a)```                                       | ```NC::argmin(a)```                                      |
-| ```np.argmax(a)```	                                   | ```NC::argmax(a)```                                      |
-| ```np.sort(a, axis=0)```                                 | ```NC::sort(a, NC::Axis::ROW)```                         |
-| ```np.argsort(a, axis=1)```                              | ```NC::argsort(a, NC::Axis::COL)```                      |
-| ```np.unique(a)```                                       | ```NC::unique(a)```                                      |
-| ```np.setdiff1d(a, b)```		                           | ```NC::setdiff1d(a, b)```                                |
-| ```np.diff(a)```		                                   | ```NC::diff(a)```                                        |
+| ```np.min(a)```                                          | ```nc::min(a)```                                         |
+| ```np.max(a)```                                          | ```nc::max(a)```                                         |
+| ```np.argmin(a)```                                       | ```nc::argmin(a)```                                      |
+| ```np.argmax(a)```	                                   | ```nc::argmax(a)```                                      |
+| ```np.sort(a, axis=0)```                                 | ```nc::sort(a, nc::Axis::ROW)```                         |
+| ```np.argsort(a, axis=1)```                              | ```nc::argsort(a, nc::Axis::COL)```                      |
+| ```np.unique(a)```                                       | ```nc::unique(a)```                                      |
+| ```np.setdiff1d(a, b)```		                           | ```nc::setdiff1d(a, b)```                                |
+| ```np.diff(a)```		                                   | ```nc::diff(a)```                                        |
 
 ### REDUCERS
 Reducers accumulate values of `NdArray`s along specified axes. When no axis is specified, values are accumulated along all axes.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.sum(a)```                                          | ```NC::sum<dtypeOut>(a)```                               |
-| ```np.sum(a, axis=0)```                                  | ```NC::sum<dtypeOut>(a, NC::Axis::ROW)```                |
-| ```np.prod(a)```                                         | ```NC::prod<dtypeOut>(a)```                              |
-| ```np.prod(a, axis=0)```	                               | ```NC::prod<dtypeOut>(a, NC::Axis::ROW)```               |
-| ```np.mean(a)```                                         | ```NC::mean(a)```                                        |
-| ```np.mean(a, axis=0)```                                 | ```NC::mean(a, NC::Axis::ROW)```                         |
-| ```np.count_nonzero(a)```                                | ```NC::count_nonzero(a)```                               |
-| ```np.count_nonzero(a, axis=0)```		                   | ```NC::count_nonzero(a, NC::Axis::ROW)```                |
+| ```np.sum(a)```                                          | ```nc::sum<dtypeOut>(a)```                               |
+| ```np.sum(a, axis=0)```                                  | ```nc::sum<dtypeOut>(a, nc::Axis::ROW)```                |
+| ```np.prod(a)```                                         | ```nc::prod<dtypeOut>(a)```                              |
+| ```np.prod(a, axis=0)```	                               | ```nc::prod<dtypeOut>(a, nc::Axis::ROW)```               |
+| ```np.mean(a)```                                         | ```nc::mean(a)```                                        |
+| ```np.mean(a, axis=0)```                                 | ```nc::mean(a, nc::Axis::ROW)```                         |
+| ```np.count_nonzero(a)```                                | ```nc::count_nonzero(a)```                               |
+| ```np.count_nonzero(a, axis=0)```		                   | ```nc::count_nonzero(a, nc::Axis::ROW)```                |
 
 ### I/O
 Print and file output methods.  All **NumpCpp** classes support a `print()` method and `<<` stream operators.
@@ -141,10 +141,10 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | print(a)                                                 | ```a.print()```                                          |
 |                                                          | ```std::cout << a```                                     |
-| ```a.tofile(filename, sep=’\n’)```                       | ```a.tofile(filename, "\n")```                          |
-| ```np.fromfile(filename, sep=’\n’)```	                   | ```NC::fromfile<dtype>(filename, \n")```                 |
-| ```np.dump(a, filename)```                               | ```NC::dump(a, filename)```                              |
-| ```np.load(filename)```                                  | ```NC::load<dtype>(filename)```                          |
+| ```a.tofile(filename, sep=’\n’)```                       | ```a.tofile(filename, "\n")```                           |
+| ```np.fromfile(filename, sep=’\n’)```	                   | ```nc::fromfile<dtype>(filename, \n")```                 |
+| ```np.dump(a, filename)```                               | ```nc::dump(a, filename)```                              |
+| ```np.load(filename)```                                  | ```nc::load<dtype>(filename)```                          |
 
 ### MATHEMATICAL FUNCTIONS
 **NumpCpp** universal functions are provided for a large set number of mathematical functions.
@@ -153,62 +153,62 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.abs(a)```                                          | ```NC::abs(a)```                                         |
-| ```np.sign(a)```                                         | ```NC::sign(a)```                                        |
-| ```np.remainder(a, b)```                                 | ```NC::remainder<dtypeOut>(a, b)```                      |
-| ```np.clip(a, 3, 8)```                                   | ```NC::clip(a, 3, 8)```                                  |
-| ```np.interp(x, xp, fp)```                               | ```NC::interp(x, xp, fp)```                              |
+| ```np.abs(a)```                                          | ```nc::abs(a)```                                         |
+| ```np.sign(a)```                                         | ```nc::sign(a)```                                        |
+| ```np.remainder(a, b)```                                 | ```nc::remainder<dtypeOut>(a, b)```                      |
+| ```np.clip(a, 3, 8)```                                   | ```nc::clip(a, 3, 8)```                                  |
+| ```np.interp(x, xp, fp)```                               | ```nc::interp(x, xp, fp)```                              |
 
 #### EXPONENTIAL FUNCTIONS
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.exp(a)```                                          | ```NC::exp(a)```                                         |
-| ```np.expm1(a)```	                                       | ```NC::expm1(a)```                                       |
-| ```np.log(a)```                                          | ```NC::log(a)```                                         |
-| ```np.log1p(a)```                                        | ```NC::log1p(a)```                                       |
+| ```np.exp(a)```                                          | ```nc::exp(a)```                                         |
+| ```np.expm1(a)```	                                       | ```nc::expm1(a)```                                       |
+| ```np.log(a)```                                          | ```nc::log(a)```                                         |
+| ```np.log1p(a)```                                        | ```nc::log1p(a)```                                       |
 
 #### POWER FUNCTIONS
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.power(a, 4)```                                     | ```NC::power<dtypeOut>(a, 4)```                          |
-| ```np.sqrt(a)```	                                       | ```NC::sqrt(a)```                                        |
-| ```np.square(a)```                                       | ```NC::square(a)```                                      |
-| ```np.cbrt(a)```                                         | ```NC::cbrt(a)```                                        |
+| ```np.power(a, 4)```                                     | ```nc::power<dtypeOut>(a, 4)```                          |
+| ```np.sqrt(a)```	                                       | ```nc::sqrt(a)```                                        |
+| ```np.square(a)```                                       | ```nc::square(a)```                                      |
+| ```np.cbrt(a)```                                         | ```nc::cbrt(a)```                                        |
 
 #### TRIGONOMETRIC FUNCTIONS
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.sin(a)```                                          | ```NC::sin(a)```                                         |
-| ```np.cos(a)```	                                         | ```NC::cos(a)```                                       |
-| ```np.tan(a)```                                          | ```NC::tan(a)```                                         |
+| ```np.sin(a)```                                          | ```nc::sin(a)```                                         |
+| ```np.cos(a)```	                                       | ```nc::cos(a)```                                         |
+| ```np.tan(a)```                                          | ```nc::tan(a)```                                         |
 
 #### HYPERBOLIC FUNCTIONS
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.sinh(a)```                                         | ```NC::sinh(a)```                                        |
-| ```np.cosh(a)```	                                       | ```NC::cosh(a)```                                        |
-| ```np.tanh(a)```                                         | ```NC::tanh(a)```                                        |
+| ```np.sinh(a)```                                         | ```nc::sinh(a)```                                        |
+| ```np.cosh(a)```	                                       | ```nc::cosh(a)```                                        |
+| ```np.tanh(a)```                                         | ```nc::tanh(a)```                                        |
 
 #### CLASSIFICATION FUNCTIONS
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.isnan(a)```                                        | ```NC::isnan(a)```                                       |
-| ```np.isinf(a)```	                                       | ```NC::isinf(a)```                                       |
+| ```np.isnan(a)```                                        | ```nc::isnan(a)```                                       |
+| ```np.isinf(a)```	                                       | ```nc::isinf(a)```                                       |
 
 #### LINEAR ALGEBRA
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.linalg.norm(a)```                                  | ```NC::norm<dtypeOut>(a)```                              |
-| ```np.dot(a, b)```	                                   | ```NC::dot<dtypeOut>(a, b)```                            |
-| ```np.linalg.det(a)```                                   | ```NC::Linalg::det(a)```                                 |
-| ```np.linalg.inv(a)```                                   | ```NC::Linalg::inv(a)```                                 |
-| ```np.linalg.lstsq(a, b)```	                           | ```NC::Linalg::lstsq(a, b)```                            |
-| ```np.linalg.matrix_power(a, 3)```                       | ```NC::Linalg::matrix_power<dtypeOut>(a, 3)```           |
-| ```Np.linalg..multi_dot(a, b, c)```                      | ```NC::Linalg::multi_dot<dtypeOut>({a, b, c})```         |
-| ```np.linalg.svd(a)```	                               | ```NC::Linalg::svd(a)```                                 |
+| ```np.linalg.norm(a)```                                  | ```nc::norm<dtypeOut>(a)```                              |
+| ```np.dot(a, b)```	                                   | ```nc::dot<dtypeOut>(a, b)```                            |
+| ```np.linalg.det(a)```                                   | ```nc::linalg::det(a)```                                 |
+| ```np.linalg.inv(a)```                                   | ```nc::linalg::inv(a)```                                 |
+| ```np.linalg.lstsq(a, b)```	                           | ```nc::linalg::lstsq(a, b)```                            |
+| ```np.linalg.matrix_power(a, 3)```                       | ```nc::linalg::matrix_power<dtypeOut>(a, 3)```           |
+| ```Np.linalg..multi_dot(a, b, c)```                      | ```nc::linalg::multi_dot<dtypeOut>({a, b, c})```         |
+| ```np.linalg.svd(a)```	                               | ```nc::linalg::svd(a)```                                 |

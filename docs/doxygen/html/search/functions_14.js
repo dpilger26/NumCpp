@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['u',['u',['../class_n_c_1_1_linalg_1_1_s_v_d.html#aefd4167f0cc6da1be1066e291621228a',1,'NC::Linalg::SVD']]],
-  ['uniform',['uniform',['../class_n_c_1_1_random.html#a5480ee93f58b5ab1b135ceed2694e750',1,'NC::Random']]],
-  ['uniformfilter',['uniformFilter',['../namespace_n_c_1_1_filter.html#a44c95f5257749af1c5100825e0511ea7',1,'NC::Filter']]],
-  ['uniformfilter1d',['uniformFilter1d',['../namespace_n_c_1_1_filter.html#a48a5bd0c833555af96fd7cfadc4825bd',1,'NC::Filter']]],
-  ['uniformonsphere',['uniformOnSphere',['../class_n_c_1_1_random.html#afd8bf2f1e3313141b6887528953a7d6d',1,'NC::Random']]],
-  ['union1d',['union1d',['../namespace_n_c.html#aca857b33ef0db6cbb046fcd2f547767f',1,'NC']]],
-  ['unique',['unique',['../namespace_n_c.html#a861fbbb4ccfc3b51c9cc3aa072e391f4',1,'NC']]],
-  ['unwrap',['unwrap',['../namespace_n_c.html#abcba68164413dff25ddf749669f1e3c9',1,'NC::unwrap(dtype inValue) noexcept'],['../namespace_n_c.html#a51c1eeaeb83625709166bf602e2c5d51',1,'NC::unwrap(const NdArray&lt; dtype &gt; &amp;inArray)']]]
+  ['u',['u',['../classnc_1_1linalg_1_1_s_v_d.html#a0f7dddedc38be47b051aa16e5dc9d6b2',1,'nc::linalg::SVD']]],
+  ['uniform',['uniform',['../classnc_1_1_random.html#aaaa6a78b45066cdf9e8bd11f55ec37af',1,'nc::Random']]],
+  ['uniformfilter',['uniformFilter',['../namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952',1,'nc::filter']]],
+  ['uniformfilter1d',['uniformFilter1d',['../namespacenc_1_1filter.html#afcf603e5055c7bc01aed09067357e004',1,'nc::filter']]],
+  ['uniformonsphere',['uniformOnSphere',['../classnc_1_1_random.html#a87d6d188ab390ea5fed2da488bdb0cfa',1,'nc::Random']]],
+  ['union1d',['union1d',['../namespacenc.html#a9dc5a706d1cbeb822ace82eac5ace756',1,'nc']]],
+  ['unique',['unique',['../namespacenc.html#a8b346bcf0083d2b809c83bb0433800de',1,'nc']]],
+  ['unwrap',['unwrap',['../namespacenc.html#aac5e942220c693fb9e65fcc3ff4fc50f',1,'nc::unwrap(dtype inValue) noexcept'],['../namespacenc.html#a95b20b603ab817268e65a1718f7063c0',1,'nc::unwrap(const NdArray&lt; dtype &gt; &amp;inArray)']]]
 ];

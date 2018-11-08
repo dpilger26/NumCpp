@@ -33,7 +33,7 @@
 #include<string>
 #include<cstdint>
 
-namespace NC
+namespace nc
 {
     //================================================================================
     ///						A timer class for timing code execution

@@ -42,7 +42,7 @@
 #include"boost/python.hpp"
 #include"boost/python/numpy.hpp"
 
-namespace NC
+namespace nc
 {
     //================================================================================
     ///						C or Fortran ordering from python
@@ -69,8 +69,8 @@ namespace NC
         {
             if (boost::python::len(indices) != numDimensions_)
             {
-                std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Array has " + Utils::num2str(numDimensions_);
-                errStr += " dimensions, you asked for " + Utils::num2str(static_cast<int>(boost::python::len(indices))) + "!";
+                std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Array has " + utils::num2str(numDimensions_);
+                errStr += " dimensions, you asked for " + utils::num2str(static_cast<int>(boost::python::len(indices))) + "!";
                 PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
             }
 
@@ -79,8 +79,8 @@ namespace NC
                 int index = boost::python::extract<int>(indices[i]);
                 if (index > shape_[i])
                 {
-                    std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Input index [" + Utils::num2str(index);
-                    errStr += "] is larger than the size of the array [" + Utils::num2str(shape_[i]) + "].";
+                    std::string errStr = "Error: BoostNdarrayHelper::checkIndicesGeneric: Input index [" + utils::num2str(index);
+                    errStr += "] is larger than the size of the array [" + utils::num2str(shape_[i]) + "].";
                     PyErr_SetString(PyExc_RuntimeError, errStr.c_str());
                 }
             }

@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['constants',['Constants',['../namespace_n_c_1_1_constants.html',1,'NC']]],
-  ['coordinates',['Coordinates',['../namespace_n_c_1_1_coordinates.html',1,'NC']]],
-  ['fft',['FFT',['../namespace_n_c_1_1_f_f_t.html',1,'NC']]],
-  ['filter',['Filter',['../namespace_n_c_1_1_filter.html',1,'NC']]],
-  ['imageprocessing',['ImageProcessing',['../namespace_n_c_1_1_image_processing.html',1,'NC']]],
-  ['linalg',['Linalg',['../namespace_n_c_1_1_linalg.html',1,'NC']]],
-  ['nc',['NC',['../namespace_n_c.html',1,'']]],
-  ['polynomial',['Polynomial',['../namespace_n_c_1_1_polynomial.html',1,'NC']]],
-  ['rotations',['Rotations',['../namespace_n_c_1_1_rotations.html',1,'NC']]],
-  ['utils',['Utils',['../namespace_n_c_1_1_utils.html',1,'NC']]]
+  ['constants',['constants',['../namespacenc_1_1constants.html',1,'nc']]],
+  ['coordinates',['coordinates',['../namespacenc_1_1coordinates.html',1,'nc']]],
+  ['fft',['fft',['../namespacenc_1_1fft.html',1,'nc']]],
+  ['filter',['filter',['../namespacenc_1_1filter.html',1,'nc']]],
+  ['imageprocessing',['imageProcessing',['../namespacenc_1_1image_processing.html',1,'nc']]],
+  ['linalg',['linalg',['../namespacenc_1_1linalg.html',1,'nc']]],
+  ['nc',['nc',['../namespacenc.html',1,'']]],
+  ['polynomial',['polynomial',['../namespacenc_1_1polynomial.html',1,'nc']]],
+  ['rotations',['rotations',['../namespacenc_1_1rotations.html',1,'nc']]],
+  ['utils',['utils',['../namespacenc_1_1utils.html',1,'nc']]]
 ];

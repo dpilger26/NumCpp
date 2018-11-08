@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timepoint',['TimePoint',['../class_n_c_1_1_timer.html#adff9c9dfa99eb625bde9e793367eadb3',1,'NC::Timer']]]
+  ['timepoint',['TimePoint',['../classnc_1_1_timer.html#a4ab76fe63a2c714307e7278d2032fe17',1,'nc::Timer']]]
 ];

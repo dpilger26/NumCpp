@@ -41,7 +41,7 @@
 #include<string>
 #include<vector>
 
-namespace NC
+namespace nc
 {
     /// generator function
     boost::random::mt19937 generator_;

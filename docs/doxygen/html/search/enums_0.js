@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['axis',['Axis',['../namespace_n_c.html#a307d8657b76e8483752e4697dfd26822',1,'NC']]]
+  ['axis',['Axis',['../namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84',1,'nc']]]
 ];

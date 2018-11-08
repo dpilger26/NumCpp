@@ -41,9 +41,11 @@
 #include<string>
 #include<utility>
 
-namespace NC
+namespace nc
 {
-    namespace Linalg
+    //================================Rotations Namespace=============================
+    /// Module for basic linear algebra operations
+    namespace linalg
     {
         // forward declare all functions
         template<typename dtype>
@@ -682,8 +684,8 @@ namespace NC
             {
                 const double absa = std::abs(inA);
                 const double absb = std::abs(inB);
-                return (absa > absb ? absa * std::sqrt(1.0 + Utils::sqr(absb / absa)) : 
-                    (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + Utils::sqr(absa / absb))));
+                return (absa > absb ? absa * std::sqrt(1.0 + utils::sqr(absb / absa)) : 
+                    (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + utils::sqr(absa / absb))));
             }
         };
 
@@ -705,7 +707,7 @@ namespace NC
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                std::string errStr = "ERROR: Linalg::determinant: input array must be square with size no larger than 3x3.";
+                std::string errStr = "ERROR: linalg::determinant: input array must be square with size no larger than 3x3.";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -799,7 +801,7 @@ namespace NC
         {
             if (inVec.size() != 3)
             {
-                std::string errStr = "ERROR: Linalg::hat: input vector must be a length 3 cartesian vector.";
+                std::string errStr = "ERROR: linalg::hat: input vector must be a length 3 cartesian vector.";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -824,7 +826,7 @@ namespace NC
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                std::string errStr = "ERROR: Linalg::inv: input array must be square.";
+                std::string errStr = "ERROR: linalg::inv: input array must be square.";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -945,7 +947,7 @@ namespace NC
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                std::string errStr = "ERROR: Linalg::matrix_power: input matrix must be square.";
+                std::string errStr = "ERROR: linalg::matrix_power: input matrix must be square.";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -1003,7 +1005,7 @@ namespace NC
 
             if (inList.size() == 0)
             {
-                std::string errStr = "ERROR: Linalg::multi_dot: input empty list of arrays.";
+                std::string errStr = "ERROR: linalg::multi_dot: input empty list of arrays.";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
