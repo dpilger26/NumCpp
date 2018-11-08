@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['e',['e',['../namespace_n_c_1_1_constants.html#a4adfffbf392326da6a9e12661245abde',1,'NC::Constants']]],
+  ['e',['e',['../namespace_n_c_1_1_constants.html#aabdd873ec097f0ba1ea2c204a1dc0845',1,'NC::Constants']]],
   ['empty',['empty',['../namespace_n_c.html#a4cc2c61bd288d36cfb38281fb99f8030',1,'NC::empty(uint32 inNumRows, uint32 inNumCols)'],['../namespace_n_c.html#a8136ee54dfa0c27e2f51eb8081ea42c2',1,'NC::empty(const Shape &amp;inShape)']]],
   ['empty_5flike',['empty_like',['../namespace_n_c.html#a608fd9cae19f91068cf72ec9cacc55f5',1,'NC']]],
   ['end',['end',['../class_n_c_1_1_data_cube.html#ab1674061597406def464d069ec5c5d52',1,'NC::DataCube::end()'],['../class_n_c_1_1_image_processing_1_1_cluster.html#a14b79b8564999059ddc1f7e69aa6ec1c',1,'NC::ImageProcessing::Cluster::end()'],['../class_n_c_1_1_image_processing_1_1_cluster_maker.html#ab3c17b7b37fa0463199ad96cb5fafeba',1,'NC::ImageProcessing::ClusterMaker::end()'],['../class_n_c_1_1_nd_array.html#a30daeb56feed155a6dd0bf78e62e7c69',1,'NC::NdArray::end() noexcept'],['../class_n_c_1_1_nd_array.html#ac91db7accf1ca831005e1bf4d07f8d2d',1,'NC::NdArray::end(uint32 inRow)'],['../class_n_c_1_1_nd_array.html#aef5ff06f4725b05443b8003428bda8c7',1,'NC::NdArray::end() const noexcept'],['../class_n_c_1_1_nd_array.html#aa6df2e72153cfaeac8b9d3a8d92e0a82',1,'NC::NdArray::end(uint32 inRow) const']]],

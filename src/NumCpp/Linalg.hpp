@@ -43,6 +43,8 @@
 
 namespace NC
 {
+    //================================Rotations Namespace=============================
+    /// Module for basic linear algebra operations
     namespace Linalg
     {
         // forward declare all functions

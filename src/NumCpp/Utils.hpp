@@ -35,6 +35,8 @@
 
 namespace NC
 {
+    //================================Rotations Namespace=============================
+    /// Module for basic utility funcions
     namespace Utils
     {
         //============================================================================

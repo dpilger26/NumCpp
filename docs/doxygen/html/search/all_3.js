@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['c',['C',['../namespace_n_c.html#aa3639abc11f4256e0a07c72035c0c513a0d61f8370cad1d412f80b84d143e1257',1,'NC::C()'],['../namespace_n_c_1_1_constants.html#aad9b7602b42449f1c45aaf651f21deea',1,'NC::Constants::c()']]],
+  ['c',['C',['../namespace_n_c.html#aa3639abc11f4256e0a07c72035c0c513a0d61f8370cad1d412f80b84d143e1257',1,'NC::C()'],['../namespace_n_c_1_1_constants.html#add8648fc05c9da6f67b433b557950129',1,'NC::Constants::c()']]],
   ['cauchy',['cauchy',['../class_n_c_1_1_random.html#a5cf71039798aa2e8dc6fe5db7cc489fb',1,'NC::Random']]],
   ['cbegin',['cbegin',['../class_n_c_1_1_data_cube.html#a637aab8249a0bf7ef0df01d0e3c072e8',1,'NC::DataCube::cbegin()'],['../class_n_c_1_1_nd_array.html#ae204d656d7f5337cb49c7e7e4c0ad4e9',1,'NC::NdArray::cbegin() const noexcept'],['../class_n_c_1_1_nd_array.html#a5352139a2afdef7cfc0d9b318711e06b',1,'NC::NdArray::cbegin(uint32 inRow) const']]],
   ['cbrt',['cbrt',['../namespace_n_c.html#af2bcfa06751e14abfff7a48520a39998',1,'NC::cbrt(dtype inValue)'],['../namespace_n_c.html#a91fd3fb780ad79d2dda5c185cb926052',1,'NC::cbrt(const NdArray&lt; dtype &gt; &amp;inArray)']]],
