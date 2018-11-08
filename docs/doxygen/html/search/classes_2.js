@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['datacube',['DataCube',['../class_n_c_1_1_data_cube.html',1,'NC']]],
-  ['dcm',['DCM',['../class_n_c_1_1_rotations_1_1_d_c_m.html',1,'NC::Rotations']]],
-  ['dec',['Dec',['../class_n_c_1_1_coordinates_1_1_dec.html',1,'NC::Coordinates']]],
-  ['dtypeinfo',['DtypeInfo',['../class_n_c_1_1_dtype_info.html',1,'NC']]]
+  ['datacube',['DataCube',['../classnc_1_1_data_cube.html',1,'nc']]],
+  ['dcm',['DCM',['../classnc_1_1rotations_1_1_d_c_m.html',1,'nc::rotations']]],
+  ['dec',['Dec',['../classnc_1_1coordinates_1_1_dec.html',1,'nc::coordinates']]],
+  ['dtypeinfo',['DtypeInfo',['../classnc_1_1_dtype_info.html',1,'nc']]]
 ];

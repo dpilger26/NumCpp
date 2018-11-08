@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['weibull',['weibull',['../class_n_c_1_1_random.html#a0d36a3b9b7c765f50eeaf465ae1b189d',1,'NC::Random']]],
-  ['where',['where',['../namespace_n_c.html#a9e60e62d6030158732a1d9346884f6c3',1,'NC']]],
-  ['width',['width',['../class_n_c_1_1_image_processing_1_1_cluster.html#ac307a40202a28fe92b6952af59210629',1,'NC::ImageProcessing::Cluster']]],
-  ['windowexceedances',['windowExceedances',['../namespace_n_c_1_1_image_processing.html#a536fa87d9fe24ca160946165377716a5',1,'NC::ImageProcessing']]],
-  ['wrapboundary',['wrapBoundary',['../namespace_n_c_1_1_filter.html#a197ddbc8e849f60199075db65dd115dc',1,'NC::Filter']]],
-  ['wrapboundary1d',['wrapBoundary1d',['../namespace_n_c_1_1_filter.html#a377e018323006f3e398c0ec19fa256ee',1,'NC::Filter']]]
+  ['weibull',['weibull',['../classnc_1_1_random.html#aed7b5774e94cfa1cca50f383ff3a3612',1,'nc::Random']]],
+  ['where',['where',['../namespacenc.html#a7a526300e6258fc6a008cfabc53d679c',1,'nc']]],
+  ['width',['width',['../classnc_1_1image_processing_1_1_cluster.html#accbfd3dbb32016c0f4234614347d74ce',1,'nc::imageProcessing::Cluster']]],
+  ['windowexceedances',['windowExceedances',['../namespacenc_1_1image_processing.html#a5df853ad740d04e8edf6515021a382dc',1,'nc::imageProcessing']]],
+  ['wrapboundary',['wrapBoundary',['../namespacenc_1_1filter.html#a0eefb360788d364ffccc6b809c692bd9',1,'nc::filter']]],
+  ['wrapboundary1d',['wrapBoundary1d',['../namespacenc_1_1filter.html#ad3b7def57ca0a84025e13305e4f97387',1,'nc::filter']]]
 ];

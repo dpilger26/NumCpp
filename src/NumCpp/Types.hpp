@@ -30,7 +30,7 @@
 
 #include<cstdint>
 
-namespace NC
+namespace nc
 {
     //====================================Typedefs====================================
     typedef int64_t		int64;

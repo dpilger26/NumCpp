@@ -1,12 +1,12 @@
 var _linalg_8hpp =
 [
-    [ "SVD", "class_n_c_1_1_linalg_1_1_s_v_d.html", "class_n_c_1_1_linalg_1_1_s_v_d" ],
-    [ "det", "_linalg_8hpp.html#a455af205e12f837bd76f37bf70219415", null ],
-    [ "hat", "_linalg_8hpp.html#a1d4a02c0420ee3cc9bf004cd46a545bb", null ],
-    [ "hat", "_linalg_8hpp.html#ab390b63aed39bec1fd1bd8dfc8ac0c99", null ],
-    [ "inv", "_linalg_8hpp.html#a6d474dcc2119306069b97a6fb194cf29", null ],
-    [ "lstsq", "_linalg_8hpp.html#a80f223441635f2abf8f732476bdb67f6", null ],
-    [ "matrix_power", "_linalg_8hpp.html#a16701ef2dcef51b5fdbb71b95e3e4131", null ],
-    [ "multi_dot", "_linalg_8hpp.html#adb4338ed4d972088374d6de19191c082", null ],
-    [ "svd", "_linalg_8hpp.html#aaf95b5921d0ed46fe1c28673963e092f", null ]
+    [ "SVD", "classnc_1_1linalg_1_1_s_v_d.html", "classnc_1_1linalg_1_1_s_v_d" ],
+    [ "det", "_linalg_8hpp.html#a55bafcebbc897458164e8dc511b6119c", null ],
+    [ "hat", "_linalg_8hpp.html#afa7cc2a8a4084e94b4af00484d3a511e", null ],
+    [ "hat", "_linalg_8hpp.html#ad93ac021edcd0c8f81891c93996dee25", null ],
+    [ "inv", "_linalg_8hpp.html#a2eeb58d0a34e50e79fcfe59f71c61b4d", null ],
+    [ "lstsq", "_linalg_8hpp.html#a2aca936bd6c00306bfdb4df14b68650f", null ],
+    [ "matrix_power", "_linalg_8hpp.html#ad9ce5029f1c9c8a07f33249b1d90af75", null ],
+    [ "multi_dot", "_linalg_8hpp.html#a1caf510cec744943c17616b828458d9f", null ],
+    [ "svd", "_linalg_8hpp.html#acb38ad2613d50422afc539d005159055", null ]
 ];

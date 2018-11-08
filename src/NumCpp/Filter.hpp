@@ -38,11 +38,11 @@
 #include<string>
 #include<utility>
 
-namespace NC
+namespace nc
 {
     //================================================================================
     ///						Image and signal filtering
-    namespace Filter
+    namespace filter
     {
         //================================================================================
         // Enum Description:
@@ -186,7 +186,7 @@ namespace NC
         template<typename dtype>
         dtype gaussian(dtype inX, dtype inY, dtype inSigma) noexcept
         {
-            const double exponent = -(Utils::sqr(inX) + Utils::sqr(inY)) / (2 * Utils::sqr(inSigma));
+            const double exponent = -(utils::sqr(inX) + utils::sqr(inY)) / (2 * utils::sqr(inSigma));
             return static_cast<dtype>(std::exp(exponent));
         }
 
@@ -685,7 +685,7 @@ namespace NC
         {
             if (inKernalSize % 2 == 0)
             {
-                std::string errStr = "ERROR: ImageProcessing::Filter::addBoundary: input kernal size must be an odd value.";
+                std::string errStr = "ERROR: imageProcessing::filter::addBoundary: input kernal size must be an odd value.";
                 std::cout << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -738,7 +738,7 @@ namespace NC
         {
             if (inKernalSize % 2 == 0)
             {
-                std::string errStr = "ERROR: ImageProcessing::Filter::addBoundary1d: input kernal size must be an odd value.";
+                std::string errStr = "ERROR: imageProcessing::filter::addBoundary1d: input kernal size must be an odd value.";
                 std::cout << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -874,7 +874,7 @@ namespace NC
         NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
             const NdArray<dtype>& inWeights, Boundary inBoundaryType, dtype inConstantValue)
         {
-            if (inWeights.size() != Utils::sqr(inSize))
+            if (inWeights.size() != utils::sqr(inSize))
             {
                 std::string errStr = "ERROR: NC::Filters::convolve: input weights do no match input kernal size.";
                 std::cout << errStr << std::endl;
@@ -1359,7 +1359,7 @@ namespace NC
         NdArray<dtype> rankFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint32 inRank,
             Boundary inBoundaryType, dtype inConstantValue)
         {
-            if (inRank < 0 || inRank >= Utils::sqr(inSize))
+            if (inRank < 0 || inRank >= utils::sqr(inSize))
             {
                 std::invalid_argument("ERROR: NC::Filters::rankFilter: rank not within filter footprint size.");
             }

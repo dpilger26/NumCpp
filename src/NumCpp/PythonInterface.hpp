@@ -40,7 +40,7 @@
 #include"boost/python.hpp"
 #include"boost/python/numpy.hpp"
 
-namespace NC
+namespace nc
 {
     //============================================================================
     ///						Converts from a boost ndarray to a NumCpp NdArray<T>
@@ -60,7 +60,7 @@ namespace NC
             throw std::runtime_error(errStr);
         }
 
-        NC::Shape arrayShape;
+        Shape arrayShape;
         if (helper.numDimensions() == 1)
         {
             arrayShape.rows = 1;

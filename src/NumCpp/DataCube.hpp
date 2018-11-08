@@ -39,7 +39,7 @@
 #include<stdexcept>
 #include<string>
 
-namespace NC
+namespace nc
 {
     //================================================================================
     ///						Convenience container for holding a uniform array of NdArrays

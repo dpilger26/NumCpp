@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quaternion',['Quaternion',['../class_n_c_1_1_rotations_1_1_quaternion.html#ad6a0c18915a50e0bca246104d1f76695',1,'NC::Rotations::Quaternion::Quaternion()=default'],['../class_n_c_1_1_rotations_1_1_quaternion.html#a0aa69fc496ab12306f7cf5afc896175b',1,'NC::Rotations::Quaternion::Quaternion(double inI, double inJ, double inK, double inS) noexcept'],['../class_n_c_1_1_rotations_1_1_quaternion.html#ac66948c0fe860873ec697ad14f2d2ca3',1,'NC::Rotations::Quaternion::Quaternion(const NdArray&lt; double &gt; &amp;inArray)']]]
+  ['quaternion',['Quaternion',['../classnc_1_1rotations_1_1_quaternion.html#a3b6901fb3a079eb9249bd1bf3098c36c',1,'nc::rotations::Quaternion::Quaternion()=default'],['../classnc_1_1rotations_1_1_quaternion.html#a3ba2fb2c68554ec78a0957dc1fd7752d',1,'nc::rotations::Quaternion::Quaternion(double inI, double inJ, double inK, double inS) noexcept'],['../classnc_1_1rotations_1_1_quaternion.html#addcc7fb7b4acd4201e7f5b90ef207f4d',1,'nc::rotations::Quaternion::Quaternion(const NdArray&lt; double &gt; &amp;inArray)']]]
 ];

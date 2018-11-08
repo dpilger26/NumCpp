@@ -30,7 +30,7 @@
 
 #include<limits>
 
-namespace NC
+namespace nc
 {
     //================================================================================
     ///						Holds info about the dtype

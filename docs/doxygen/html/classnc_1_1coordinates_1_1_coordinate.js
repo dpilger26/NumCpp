@@ -1,0 +1,25 @@
+var classnc_1_1coordinates_1_1_coordinate =
+[
+    [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#abcdef168b3440dc752fbc31da3c1c24e", null ],
+    [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#a679b54873409474e11d847eac96354f0", null ],
+    [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#a3e13b2e7d659fe09e68d0e28e911105e", null ],
+    [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#a07092f1f76d486285cd1958d6f95d287", null ],
+    [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#a815f38172b0f1549874904c6e15f4332", null ],
+    [ "Coordinate", "classnc_1_1coordinates_1_1_coordinate.html#a8694acbe67f1cbd56a5207ff5353fcf5", null ],
+    [ "astype", "classnc_1_1coordinates_1_1_coordinate.html#ae8c26f214f85d165fb20e3d8d8441bbc", null ],
+    [ "dec", "classnc_1_1coordinates_1_1_coordinate.html#ae607bf9bbaff57890669fc6530cb53d3", null ],
+    [ "degreeSeperation", "classnc_1_1coordinates_1_1_coordinate.html#a40d8f88d05360f06339afa18f80df7ab", null ],
+    [ "degreeSeperation", "classnc_1_1coordinates_1_1_coordinate.html#a039653f0781778156170090bd2567024", null ],
+    [ "operator!=", "classnc_1_1coordinates_1_1_coordinate.html#af8e25c8c8bb0e429a9997aa121d48472", null ],
+    [ "operator==", "classnc_1_1coordinates_1_1_coordinate.html#a52550289267a9e93325c95b510e5bf7f", null ],
+    [ "print", "classnc_1_1coordinates_1_1_coordinate.html#ab6823e83ebd7b1e6114866cec424575f", null ],
+    [ "ra", "classnc_1_1coordinates_1_1_coordinate.html#addba86284633dec36d629cd8d64ac0f4", null ],
+    [ "radianSeperation", "classnc_1_1coordinates_1_1_coordinate.html#a8703bbe6e18ded94bc80e73eb828fef7", null ],
+    [ "radianSeperation", "classnc_1_1coordinates_1_1_coordinate.html#a35a66940a857fa08b07eb9cc32268996", null ],
+    [ "str", "classnc_1_1coordinates_1_1_coordinate.html#ad81c515ca56e6657d9ffb9688e59fba6", null ],
+    [ "x", "classnc_1_1coordinates_1_1_coordinate.html#affbe4d879857a1e39fa7baed1f62a2f0", null ],
+    [ "xyz", "classnc_1_1coordinates_1_1_coordinate.html#abdd4df02ca72c539c248fbe68fc4136a", null ],
+    [ "y", "classnc_1_1coordinates_1_1_coordinate.html#a4e8d229e5df1ecbdd3b4e6f35b87f6a4", null ],
+    [ "z", "classnc_1_1coordinates_1_1_coordinate.html#abcac15c78e98da855112a689488997ec", null ],
+    [ "operator<<", "classnc_1_1coordinates_1_1_coordinate.html#aa5a56295ef46edb54bf7fdafb169c081", null ]
+];

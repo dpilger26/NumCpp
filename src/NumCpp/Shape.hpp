@@ -35,7 +35,7 @@
 #include<stdexcept>
 #include<string>
 
-namespace NC
+namespace nc
 {
     //================================================================================
     ///						A Shape Class for NdArrays
@@ -124,7 +124,7 @@ namespace NC
         ///
         std::string str() const
         {
-            std::string out = "[" + Utils::num2str(rows) + ", " + Utils::num2str(cols) + "]\n";
+            std::string out = "[" + utils::num2str(rows) + ", " + utils::num2str(cols) + "]\n";
             return out;
         }
 

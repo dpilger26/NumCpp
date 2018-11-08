@@ -31,9 +31,9 @@
 #include"NumCpp/NdArray.hpp"
 #include"NumCpp/Types.hpp"
 
-namespace NC
+namespace nc
 {
-    namespace FFT
+    namespace fft
     {
         /// \todo Complete This Module
     }

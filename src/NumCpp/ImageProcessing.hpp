@@ -42,12 +42,12 @@
 #include<utility>
 #include<vector>
 
-namespace NC
+namespace nc
 {
     //================================================================================
     // Class Description:
     ///						Class for basic image processing
-    namespace ImageProcessing
+    namespace imageProcessing
     {
         //================================================================================
         // Class Description:
@@ -172,7 +172,7 @@ namespace NC
             {
                 if (inClusterId < 0)
                 {
-                    std::string errStr = "ERROR: ImageProcessing::Pixel::setClusterId: input cluster id must be greater than or equal to 0.";
+                    std::string errStr = "ERROR: imageProcessing::Pixel::setClusterId: input cluster id must be greater than or equal to 0.";
                     std::cerr << errStr << std::endl;
                     throw std::invalid_argument(errStr);
                 }
@@ -225,8 +225,8 @@ namespace NC
             ///
             std::string str() const
             {
-                std::string out = "row = " + Utils::num2str(row_) + " col = " + Utils::num2str(col_);
-                out += " intensity = " + Utils::num2str(intensity_) + "\n";
+                std::string out = "row = " + utils::num2str(row_) + " col = " + utils::num2str(col_);
+                out += " intensity = " + utils::num2str(intensity_) + "\n";
                 return out;
             }
 
@@ -356,7 +356,7 @@ namespace NC
             {
                 if (inIndex >= pixels_.size())
                 {
-                    std::string errStr = "ERROR: ImageProcessing::Cluster::at: index exceeds cluster size.";
+                    std::string errStr = "ERROR: imageProcessing::Cluster::at: index exceeds cluster size.";
                     std::cerr << errStr << std::endl;
                     throw std::invalid_argument(errStr);
                 }
@@ -573,7 +573,7 @@ namespace NC
                 std::string out;
                 uint32 counter = 0;
                 std::for_each(begin(), end(), 
-                    [&](auto& pixel) { out += "Pixel " + Utils::num2str(counter++) + ":" + pixel.str(); });
+                    [&](auto& pixel) { out += "Pixel " + utils::num2str(counter++) + ":" + pixel.str(); });
 
                 return out;
             }
@@ -833,7 +833,7 @@ namespace NC
             {
                 if (xcds_->shape() != intensities_->shape())
                 {
-                    std::string errStr = "ERROR: ImageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.";
+                    std::string errStr = "ERROR: imageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.";
                     std::cerr << errStr << std::endl;
                     throw std::invalid_argument(errStr);
                 }
@@ -902,7 +902,7 @@ namespace NC
             {
                 if (inIndex >= clusters_.size())
                 {
-                    std::string errStr = "ERROR: ImageProcessing::ClusterMaker::at: index exceeds cluster size.";
+                    std::string errStr = "ERROR: imageProcessing::ClusterMaker::at: index exceeds cluster size.";
                     std::cerr << errStr << std::endl;
                     throw std::invalid_argument(errStr);
                 }
@@ -1079,8 +1079,8 @@ namespace NC
             std::string str() const
             {
                 std::string out;
-                out += "row = " + Utils::num2str(row_) + " col = " + Utils::num2str(col_);
-                out += " intensity = " + Utils::num2str(intensity_) + " eod = " + Utils::num2str(eod_) + "\n";
+                out += "row = " + utils::num2str(row_) + " col = " + utils::num2str(col_);
+                out += " intensity = " + utils::num2str(intensity_) + " eod = " + utils::num2str(eod_) + "\n";
 
                 return out;
             }
@@ -1256,7 +1256,7 @@ namespace NC
             }
             else
             {
-                std::string errStr = "ERROR ImageProcessing::generateCentroids: input window type options are ['pre', 'post']";
+                std::string errStr = "ERROR imageProcessing::generateCentroids: input window type options are ['pre', 'post']";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -1296,7 +1296,7 @@ namespace NC
         {
             if (inRate < 0.0 || inRate > 1.0)
             {
-                std::string errStr = "ERROR: ImageProcessing::generateThreshold: input rate must be of the range [0, 1]";
+                std::string errStr = "ERROR: imageProcessing::generateThreshold: input rate must be of the range [0, 1]";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -1305,11 +1305,11 @@ namespace NC
             int32 minValue = static_cast<int32>(std::floor(inImageArray.min().item()));
             int32 maxValue = static_cast<int32>(std::floor(inImageArray.max().item()));
 
-            if (Utils::essentiallyEqual(inRate, 0.0))
+            if (utils::essentiallyEqual(inRate, 0.0))
             {
                 return static_cast<dtype>(maxValue);
             }
-            else if (Utils::essentiallyEqual(inRate, 1.0))
+            else if (utils::essentiallyEqual(inRate, 1.0))
             {
                 if (DtypeInfo<dtype>::isSigned())
                 {

@@ -39,7 +39,7 @@
 #include<string>
 #include<vector>
 
-namespace NC
+namespace nc
 {
     //================================================================================
     ///						A one-dimensional polynomial class.
@@ -71,7 +71,7 @@ namespace NC
         {
             if (inValues.size() > DtypeInfo<uint8>::max())
             {
-                std::string errStr = "Error: Poly1d: can only make a polynomial of order " + Utils::num2str(DtypeInfo<uint8>::max()) + ".";
+                std::string errStr = "Error: Poly1d: can only make a polynomial of order " + utils::num2str(DtypeInfo<uint8>::max()) + ".";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -131,7 +131,7 @@ namespace NC
             uint32 power = 0;
             for (auto& coefficient : coefficients_)
             {
-                repr += Utils::num2str(coefficient) + " x^" + Utils::num2str(power++) + " + ";
+                repr += utils::num2str(coefficient) + " x^" + utils::num2str(power++) + " + ";
             }
 
             return repr;
@@ -162,7 +162,7 @@ namespace NC
             uint8 power = 0;
             for (auto& coefficient : coefficients_)
             {
-                polyValue += coefficient * Utils::power(inValue, power++);
+                polyValue += coefficient * utils::power(inValue, power++);
             }
 
             return polyValue;
@@ -370,7 +370,7 @@ namespace NC
 
     //=============================================================================
 
-    namespace Polynomial
+    namespace polynomial
     {
         /// \todo Complete This Module
     }

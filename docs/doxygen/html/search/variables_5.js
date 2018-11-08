@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inf',['inf',['../namespace_n_c_1_1_constants.html#accdc1e8eab5f52157fd95cc934dcb3e2',1,'NC::Constants']]]
+  ['inf',['inf',['../namespacenc_1_1constants.html#a4649bfc00f6360ccda3b3f9316e2dc0e',1,'nc::constants']]]
 ];

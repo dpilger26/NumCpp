@@ -53,7 +53,7 @@
 #include<utility>
 #include<vector>
 
-namespace NC
+namespace nc
 {
     // forward declare all functions
     template<typename dtype>
@@ -623,7 +623,7 @@ namespace NC
     NdArray<dtype> nans(uint32 inNumRows, uint32 inNumCols);
 
     template<typename dtype>
-    NC::NdArray<dtype> nans(const NC::Shape& inShape);
+    NdArray<dtype> nans(const Shape& inShape);
 
     template<typename dtype>
     NdArray<double> nans_like(const NdArray<dtype>& inArray);
@@ -936,7 +936,7 @@ namespace NC
     NdArray<dtype> zeros(uint32 inNumRows, uint32 inNumCols);
 
     template<typename dtype>
-    NC::NdArray<dtype> zeros(const NC::Shape& inShape);
+    NdArray<dtype> zeros(const Shape& inShape);
 
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> zeros_like(const NdArray<dtype>& inArray);
@@ -1933,7 +1933,7 @@ namespace NC
     template<typename dtype>
     std::string binaryRepr(dtype inValue)
     {
-        return std::bitset<NC::DtypeInfo<dtype>::bits()>(inValue).to_string();
+        return std::bitset<DtypeInfo<dtype>::bits()>(inValue).to_string();
     }
 
     //============================================================================
@@ -2707,7 +2707,7 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     dtypeOut cube(dtype inValue)
     {
-        return Utils::cube(static_cast<dtypeOut>(inValue));
+        return utils::cube(static_cast<dtypeOut>(inValue));
     }
 
     //============================================================================
@@ -2724,7 +2724,7 @@ namespace NC
     {
         NdArray<dtypeOut> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> dtypeOut { return Utils::cube(static_cast<dtypeOut>(inValue)); });
+            [](dtype inValue) noexcept -> dtypeOut { return utils::cube(static_cast<dtypeOut>(inValue)); });
 
         return std::move(returnArray);
     }
@@ -2777,7 +2777,7 @@ namespace NC
     template<typename dtype>
     double deg2rad(dtype inValue) noexcept
     {
-        return inValue * Constants::pi / 180.0;
+        return inValue * constants::pi / 180.0;
     }
 
     //============================================================================
@@ -4150,7 +4150,7 @@ namespace NC
     template<typename dtype>
     dtype gcd(dtype inValue1, dtype inValue2) noexcept
     {
-        static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
+        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
         return boost::integer::gcd(inValue1, inValue2);
     }
 
@@ -4168,7 +4168,7 @@ namespace NC
     template<typename dtype>
     dtype gcd(const NdArray<dtype>& inArray)
     {
-        static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
+        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
         return boost::integer::gcd_range(inArray.cbegin(), inArray.cend()).first;
     }
 
@@ -4483,7 +4483,7 @@ namespace NC
     template<typename dtype>
     double interp(dtype inValue1, dtype inValue2, double inPercent)
     {
-        return Utils::interp(inValue1, inValue2, inPercent);
+        return utils::interp(inValue1, inValue2, inPercent);
     }
 
     //============================================================================
@@ -4546,7 +4546,7 @@ namespace NC
             {
                 const double percent = static_cast<double>(sortedX[currXidx] - sortedXp[currXpIdx]) /
                     static_cast<double>(sortedXp[currXpIdx + 1] - sortedXp[currXpIdx]);
-                returnArray[currXidx++] = Utils::interp(sortedFp[currXpIdx], sortedFp[currXpIdx + 1], percent);
+                returnArray[currXidx++] = utils::interp(sortedFp[currXpIdx], sortedFp[currXpIdx + 1], percent);
             }
             else
             {
@@ -4735,7 +4735,7 @@ namespace NC
     template<typename dtype>
     dtype lcm(dtype inValue1, dtype inValue2) noexcept
     {
-        static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
+        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
         return boost::integer::lcm(inValue1, inValue2);
     }
 
@@ -4752,7 +4752,7 @@ namespace NC
     template<typename dtype>
     dtype lcm(const NdArray<dtype>& inArray)
     {
-        static_assert(NC::DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
+        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
         return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
 
@@ -5841,7 +5841,7 @@ namespace NC
         {
             case Axis::NONE:
             {
-                if (Utils::essentiallyEqual(inPercentile, 0.0))
+                if (utils::essentiallyEqual(inPercentile, 0.0))
                 {
                     for (auto value : inArray)
                     {
@@ -5853,7 +5853,7 @@ namespace NC
                     }
                     return std::move(NdArray<dtypeOut>(0));
                 }
-                else if (Utils::essentiallyEqual(inPercentile, 100.0))
+                else if (utils::essentiallyEqual(inPercentile, 100.0))
                 {
                     for (int32 i = static_cast<int32>(inArray.size()) - 1; i > -1; --i)
                     {
@@ -5951,7 +5951,7 @@ namespace NC
                     }
                     else
                     {
-                        returnArray[row] = Constants::nan;
+                        returnArray[row] = constants::nan;
                     }
                 }
 
@@ -5974,7 +5974,7 @@ namespace NC
                     }
                     else
                     {
-                        returnArray[row] = Constants::nan;
+                        returnArray[row] = constants::nan;
                     }
                 }
 
@@ -6029,7 +6029,7 @@ namespace NC
     template<typename dtype>
     NdArray<dtype> nans(uint32 inSquareSize)
     {
-        return std::move(full(inSquareSize, static_cast<dtype>(Constants::nan)));
+        return std::move(full(inSquareSize, static_cast<dtype>(constants::nan)));
     }
 
     //============================================================================
@@ -6045,7 +6045,7 @@ namespace NC
     template<typename dtype>
     NdArray<dtype> nans(uint32 inNumRows, uint32 inNumCols)
     {
-        return std::move(full(inNumRows, inNumCols, static_cast<dtype>(Constants::nan)));
+        return std::move(full(inNumRows, inNumCols, static_cast<dtype>(constants::nan)));
     }
 
     //============================================================================
@@ -6059,9 +6059,9 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NC::NdArray<dtype> nans(const NC::Shape& inShape)
+    NdArray<dtype> nans(const Shape& inShape)
     {
-        return std::move(full(inShape, static_cast<dtype>(Constants::nan)));
+        return std::move(full(inShape, static_cast<dtype>(constants::nan)));
     }
 
     //============================================================================
@@ -6110,7 +6110,7 @@ namespace NC
                         continue;
                     }
 
-                    sum += Utils::sqr(static_cast<double>(value) - meanValue);
+                    sum += utils::sqr(static_cast<double>(value) - meanValue);
                     ++counter;
                 }
                 NdArray<double> returnArray = { std::sqrt(sum / counter) };
@@ -6132,7 +6132,7 @@ namespace NC
                             continue;
                         }
 
-                        sum += Utils::sqr(static_cast<double>(inArray(row, col)) - meanValue[row]);
+                        sum += utils::sqr(static_cast<double>(inArray(row, col)) - meanValue[row]);
                         ++counter;
                     }
                     returnArray(0, row) = std::sqrt(sum / counter);
@@ -6157,7 +6157,7 @@ namespace NC
                             continue;
                         }
 
-                        sum += Utils::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
+                        sum += utils::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
                         ++counter;
                     }
                     returnArray(0, row) = std::sqrt(sum / counter);
@@ -6519,12 +6519,12 @@ namespace NC
         {
             case Axis::NONE:
             {
-                if (Utils::essentiallyEqual(inPercentile, 0.0))
+                if (utils::essentiallyEqual(inPercentile, 0.0))
                 {
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(*inArray.cbegin()) };
                     return std::move(returnArray);
                 }
-                else if (Utils::essentiallyEqual(inPercentile, 100.0))
+                else if (utils::essentiallyEqual(inPercentile, 100.0))
                 {
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(*inArray.cend()) };
                     return std::move(returnArray);
@@ -6634,7 +6634,7 @@ namespace NC
     template<typename dtypeOut = double, typename dtype>
     dtypeOut power(dtype inValue, uint8 inExponent)
     {
-        return Utils::power(static_cast<dtypeOut>(inValue), inExponent);
+        return utils::power(static_cast<dtypeOut>(inValue), inExponent);
     }
 
     //============================================================================
@@ -6654,7 +6654,7 @@ namespace NC
         NdArray<dtypeOut> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [inExponent](dtype inValue) noexcept -> dtypeOut
-        { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
+        { return utils::power(static_cast<dtypeOut>(inValue), inExponent); });
 
         return std::move(returnArray);
     }
@@ -6683,7 +6683,7 @@ namespace NC
         NdArray<dtypeOut> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
             [](dtype inValue, uint8 inExponent) noexcept -> dtypeOut 
-        { return Utils::power(static_cast<dtypeOut>(inValue), inExponent); });
+        { return utils::power(static_cast<dtypeOut>(inValue), inExponent); });
 
         return std::move(returnArray);
     }
@@ -6818,7 +6818,7 @@ namespace NC
     template<typename dtype>
     double rad2deg(dtype inValue) noexcept
     {
-        return inValue * 180.0 / Constants::pi;
+        return inValue * 180.0 / constants::pi;
     }
 
     //============================================================================
@@ -7577,7 +7577,7 @@ namespace NC
     double sinc(dtype inValue) noexcept
     {
         const double input = static_cast<double>(inValue);
-        return std::sin(Constants::pi * input) / (Constants::pi * input);
+        return std::sin(constants::pi * input) / (constants::pi * input);
     }
 
     //============================================================================
@@ -7727,7 +7727,7 @@ namespace NC
     template<typename dtype>
     dtype square(dtype inValue) noexcept
     {
-        return Utils::sqr(inValue);
+        return utils::sqr(inValue);
     }
 
     //============================================================================
@@ -8771,7 +8771,7 @@ namespace NC
     ///				NdArray
     ///
     template<typename dtype>
-    NC::NdArray<dtype> zeros(const NC::Shape& inShape)
+    NdArray<dtype> zeros(const Shape& inShape)
     {
         return std::move(full(inShape, static_cast<dtype>(0)));
     }
