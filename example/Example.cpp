@@ -24,24 +24,24 @@ int main()
     auto a13 = nc::NdArray<int>(3, 4);
 
     // Slicing/Broadcasting
-    auto a14 = nc::Random<int>::randInt(nc::Shape(10, 10), 0, 100);
+    auto a14 = nc::Random<int>::randInt({10, 10}, 0, 100);
     auto value = a14(2, 3);
-    auto slice = a14(nc::Slice(2, 5), nc::Slice(5, 8));
+    auto slice = a14({2, 5}, {2, 5};
     auto rowSlice = a14(a14.rSlice(), 7);
     auto values = a14[a14 > 50];
     a14.putMask(a14 > 50, 666);
 
     // Random
     nc::Random<>::seed(666);
-    auto a15 = nc::Random<double>::randN(nc::Shape(3, 4));
-    auto a16 = nc::Random<int>::randInt(nc::Shape(3, 4), 0, 10);
-    auto a17 = nc::Random<double>::rand(nc::Shape(3, 4));
+    auto a15 = nc::Random<double>::randN({3, 4},);
+    auto a16 = nc::Random<int>::randInt({3, 4}, 0, 10);
+    auto a17 = nc::Random<double>::rand({3, 4});
     auto a18 = nc::Random<double>::choice(a17, 3);
 
     // Concatenation
-    auto a = nc::Random<int>::randInt(nc::Shape(3, 4), 0, 10);
-    auto b = nc::Random<int>::randInt(nc::Shape(3, 4), 0, 10);
-    auto c = nc::Random<int>::randInt(nc::Shape(3, 4), 0, 10);
+    auto a = nc::Random<int>::randInt({3, 4}, 0, 10);
+    auto b = nc::Random<int>::randInt({3, 4},, 0, 10);
+    auto c = nc::Random<int>::randInt({3, 4},, 0, 10);
 
     auto a19 = nc::stack({ a, b, c }, nc::Axis::ROW);
     auto a20 = nc::vstack({ a, b, c });
@@ -49,7 +49,7 @@ int main()
     auto a22 = nc::append(a, b, nc::Axis::COL);
 
     // Diagonal, Traingular, and Flip
-    auto d = nc::Random<int>::randInt(nc::Shape(5, 5), 0, 10);
+    auto d = nc::Random<int>::randInt({5, 5}, 0, 10);
     auto a23 = nc::diagonal(d);
     auto a24 = nc::triu(a);
     auto a25 = nc::tril(a);
