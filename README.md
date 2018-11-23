@@ -1,4 +1,4 @@
-nc::# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org/)
+# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org/)
 ### <a href='https://dpilger26.github.io/NumCpp'>Full Documentation</a>
 ## From NumPy To NumCpp – A Quick Start Guide
 This quick start guide is meant as a very brief overview of some of the things
