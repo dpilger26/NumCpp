@@ -24,24 +24,24 @@ int main()
     auto a13 = nc::NdArray<int>(3, 4);
 
     // Slicing/Broadcasting
-    auto a14 = nc::Random<int>::randInt({10, 10}, 0, 100);
+    auto a14 = nc::Random<int>::randInt({ 10, 10 }, 0, 100);
     auto value = a14(2, 3);
-    auto slice = a14({2, 5}, {2, 5};
+    auto slice = a14({ 2, 5 }, { 2, 5 });
     auto rowSlice = a14(a14.rSlice(), 7);
     auto values = a14[a14 > 50];
     a14.putMask(a14 > 50, 666);
 
     // Random
     nc::Random<>::seed(666);
-    auto a15 = nc::Random<double>::randN({3, 4},);
+    auto a15 = nc::Random<double>::randN({3, 4});
     auto a16 = nc::Random<int>::randInt({3, 4}, 0, 10);
     auto a17 = nc::Random<double>::rand({3, 4});
     auto a18 = nc::Random<double>::choice(a17, 3);
 
     // Concatenation
     auto a = nc::Random<int>::randInt({3, 4}, 0, 10);
-    auto b = nc::Random<int>::randInt({3, 4},, 0, 10);
-    auto c = nc::Random<int>::randInt({3, 4},, 0, 10);
+    auto b = nc::Random<int>::randInt({3, 4}, 0, 10);
+    auto c = nc::Random<int>::randInt({3, 4}, 0, 10);
 
     auto a19 = nc::stack({ a, b, c }, nc::Axis::ROW);
     auto a20 = nc::vstack({ a, b, c });
