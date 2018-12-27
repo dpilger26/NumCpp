@@ -1,4 +1,4 @@
-nc::# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org/)
+# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org/)
 ### <a href='https://dpilger26.github.io/NumCpp'>Full Documentation</a>
 ## From NumPy To NumCpp – A Quick Start Guide
 This quick start guide is meant as a very brief overview of some of the things
@@ -38,6 +38,7 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```a[2, 3]```	                                           | ```a(2, 3)```                                            |
 | ```a[2:5, 5:8]```                                        | ```a(nc::Slice(2, 5), nc::Slice(5, 8))```                |
+|                                                          | ```a({2, 5}, {5, 8})```                                  |
 | ```a[:, 7]```                                            | ```a(a.rSlice(), 7)```                                   |
 | ```a[a > 5]```                                           | ```a[a > 50]```                                          |
 | ```a[a > 5] = 0```                                       | ```a.putMask(a > 50, 666)```                             |
@@ -49,8 +50,11 @@ The random module provides simple ways to create random arrays.
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```np.random.seed(666)```	                               | ```nc::Random<>::seed(666)```                            |
 | ```np.random.randn(3, 4)```                              | ```nc::Random<double>::randn(nc::Shape(3,4))```          |
+|                                                          | ```nc::Random<double>::randn({3, 4})```                  |
 | ```np.random.randint(0, 10, [3, 4])```                   | ```nc::Random<int>::randInt(nc::Shape(3,4),0,10)```      |
+|                                                          | ```nc::Random<int>::randInt({3, 4},0,10)```              |
 | ```np.random.rand(3, 4)```                               | ```nc::Random<double>::rand(nc::Shape(3,4))```           |
+|                                                          | ```nc::Random<double>::rand({3, 4})```                   |
 | ```np.random.choice(a, 3)```                             | ```nc::Random<dtype>::choice(a, 3)```                    |
 
 ### CONCATENATION

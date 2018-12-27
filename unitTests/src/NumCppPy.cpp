@@ -17,7 +17,7 @@
 #include "boost/python/suite/indexing/vector_indexing_suite.hpp" // needed for returning a std::vector directly
 #include "boost/python/return_internal_reference.hpp" // needed for returning references and pointers
 #include "boost/python/numpy.hpp" // needed for working with numpy
-#define BOOST_LIB_NAME "boost_numpy36"
+#define BOOST_LIB_NAME "boost_numpy37"
 #include "boost/config/auto_link.hpp"
 
 namespace bp = boost::python;
