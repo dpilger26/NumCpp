@@ -1,29 +1,34 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.12)
 
-set(CMAKE_CXX_STANDARD 17)
 set(PROJECT_NAME NumCpp)
-set(NUMCPP_INCLUDES ../../src)
-set(PYTHON_INCLUDES /home/dpilger/anaconda3/include)
-set(PYTHON_INCLUDES_SUBDIR /home/dpilger/anaconda3/include/python3.7m)
-set(PYTHON_LIBS /home/dpilger/anaconda3/lib)
-set(BOOST_SYSTEM "libboost_system.a")
-set(BOOST_FILESYSTEM "libboost_filesystem.a")
-set(BOOST_PYTHON "libboost_python37.a")
-set(BOOST_NUMPY "libboost_numpy37.a")
-
 project(${PROJECT_NAME})
 
-include_directories(${NUMCPP_INCLUDES})
-include_directories(${PYTHON_INCLUDES})
-include_directories(${PYTHON_INCLUDES_SUBDIR})
+set(CMAKE_CXX_STANDARD 17)
+set(NUMCPP_INCLUDES ../../src)
+set(BOOST_MIN_VERSION 1.63.0) # first version with numpy interface
 
-add_definitions(-DINCLUDE_PYTHON_INTERFACE)
-
-link_directories(${PYTHON_LIBS})
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 add_library(${PROJECT_NAME} SHARED NumCppPy.cpp)
 
-target_link_libraries(${PROJECT_NAME} ${BOOST_SYSTEM})
-target_link_libraries(${PROJECT_NAME} ${BOOST_FILESYSTEM})
-target_link_libraries(${PROJECT_NAME} ${BOOST_PYTHON})
-target_link_libraries(${PROJECT_NAME} ${BOOST_NUMPY})
+target_compile_definitions(${PROJECT_NAME} PUBLIC -DINCLUDE_PYTHON_INTERFACE)
+
+target_include_directories(${PROJECT_NAME} PUBLIC ${NUMCPP_INCLUDES})
+
+set(Boost_USE_STATIC_LIBS TRUE) 
+find_package( Boost ${BOOST_MIN_VERSION} REQUIRED COMPONENTS 
+	system
+	filesystem
+	python37
+	numpy37
+)
+target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS}) 
+target_link_libraries(${PROJECT_NAME} PUBLIC ${Boost_LIBRARIES})
+
+set(Python3_USE_STATIC_LIBS TRUE)
+find_package(Python3 COMPONENTS Development)
+target_include_directories(${PROJECT_NAME} PUBLIC ${Python3_INCLUDE_DIRS}) 
+
