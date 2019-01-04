@@ -2629,11 +2629,7 @@ namespace RandomInterface
 
 //================================================================================
 
-#ifdef WIN32
 BOOST_PYTHON_MODULE(NumCpp)
-#else
-BOOST_PYTHON_MODULE(libNumCpp)
-#endif
 {
     Py_Initialize();
     np::initialize(); // needs to be called first thing in the BOOST_PYTHON_MODULE for numpy
