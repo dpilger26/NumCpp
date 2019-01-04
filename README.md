@@ -104,7 +104,7 @@ Logical FUNCTIONS in **NumpCpp** behave the same as **NumPy**.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.equal(a, b)```                                     | ```nc:::equal(a, b)```                                   |
+| ```np.equal(a, b)```                                     | ```nc::equal(a, b)```                                    |
 |                                                          | ```a == b```                                             |
 | ```np.not_equal(a, b)```                                 | ```nc::not_equal(a, b)```                                |
 |                                                          | ```a != b```                                             |
