@@ -84,7 +84,7 @@ The following return new `NdArray`s.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```for value in a"""                                     | ```for(auto it = a.begin(); it < a.end(); ++it)```       |
+| ```for value in a```                                     | ```for(auto it = a.begin(); it < a.end(); ++it)```       |
 |                                                          | ```for(auto& value : a)```                               |
 
 ### LOGICAL
