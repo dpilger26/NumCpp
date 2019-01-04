@@ -3,11 +3,10 @@ from termcolor import colored
 import os
 import sys
 if sys.platform == 'linux':
-    sys.path.append(r'../src/build')
-    import libNumCpp as NumCpp
+    sys.path.append(r'../lib')
 else:
     sys.path.append(r'../build/x64/Release')
-    import NumCpp
+import NumCpp
 
 ####################################################################################
 def doTest():
