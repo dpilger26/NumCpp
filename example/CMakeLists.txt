@@ -21,7 +21,7 @@ set_target_properties(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} PUBLIC ${NUMCPP_INCLUDES})
 
 set(Boost_USE_STATIC_LIBS TRUE) 
-find_package( Boost ${BOOST_MIN_VERSION} REQUIRED COMPONENTS 
+find_package( Boost REQUIRED COMPONENTS 
 	system
 	filesystem
 )
