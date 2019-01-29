@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 
 set(PROJECT_NAME NumCpp)
 project(${PROJECT_NAME})
@@ -36,9 +36,9 @@ find_package( Boost ${BOOST_MIN_VERSION} REQUIRED COMPONENTS
 target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS}) 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${Boost_LIBRARIES})
 
-set(Python3_USE_STATIC_LIBS TRUE)
-find_package(Python3 COMPONENTS Development)
-target_include_directories(${PROJECT_NAME} PUBLIC ${Python3_INCLUDE_DIRS}) 
-
+#set(Python3_USE_STATIC_LIBS TRUE)
+#find_package(Python3 COMPONENTS Development)
+#target_include_directories(${PROJECT_NAME} PUBLIC ${Python3_INCLUDE_DIRS}) 
+target_include_directories(${PROJECT_NAME} PUBLIC $ENV{CONDA_PREFIX}/include/python3.7m)
 
 
