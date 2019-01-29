@@ -14,7 +14,7 @@ add_executable(${PROJECT_NAME} Example.cpp)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../bin/
+    RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/
 )
 
 
