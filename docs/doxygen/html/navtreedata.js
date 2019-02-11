@@ -24,11 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "NumCpp Documentation", "index.html", [
-      [ "Description", "index.html#Description", null ],
-      [ "License", "index.html#License", null ],
-      [ "Testing", "index.html#Testing", null ]
-    ] ],
+    [ "NumCpp: A Templatized Header Only C++ Implementation of the <a href=\"http://www.numpy.org/\">Python NumPy Library</a>", "index.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -67,7 +63,7 @@ var NAVTREEINDEX =
 "_methods_8hpp.html#a7ffd0c15b8419a5d84458d4009b38b88",
 "classnc_1_1_dtype_info.html#adf00d53f51f3510cf5967bce6c115892",
 "classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f",
-"index.html#License"
+"namespacemembers.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
