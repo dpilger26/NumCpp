@@ -95,7 +95,7 @@ namespace nc
         }
 
         //============================================================================
-        ///						Raises the input value to a power
+        ///						Raises the input value to an integer power
         ///
         /// @param      inValue
         /// @param      inPower
@@ -116,6 +116,20 @@ namespace nc
                 returnVal *= inValue;
             }
             return returnVal;
+        }
+
+        //============================================================================
+        ///						Raises the input value to a floating point power
+        ///
+        /// @param      inValue
+        /// @param      inPower
+        ///
+        /// @return     inValue raised to inPower
+        ///
+        template<typename dtype>
+        static double powerf(dtype inValue, double inPower) noexcept
+        {
+            return std::pow(inValue, inPower);
         }
 
         //============================================================================

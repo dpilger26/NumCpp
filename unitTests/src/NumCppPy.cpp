@@ -1998,6 +1998,22 @@ namespace MethodsInterface
 
     //================================================================================
 
+    template<typename dtypeOut = double, typename dtype>
+    np::ndarray powerfArrayScaler(const NdArray<dtype>& inArray, double inExponent)
+    {
+        return numCToBoost(powerf<dtypeOut>(inArray, inExponent));
+    }
+
+    //================================================================================
+
+    template<typename dtypeOut = double, typename dtype>
+    np::ndarray powerfArrayArray(const NdArray<dtype>& inArray, const NdArray<double>& inExponents)
+    {
+        return numCToBoost(powerf<dtypeOut>(inArray, inExponents));
+    }
+
+    //================================================================================
+
     template<typename dtype>
     np::ndarray putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
     {
@@ -3159,9 +3175,13 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("percentile", &percentile<double, double>);
     //bp::def("percentile", &percentile<float, double>);
     bp::def("powerArrayScaler", &MethodsInterface::powerArrayScaler<double, double>);
-    //bp::def("power", &MethodsInterface::powerArrayScaler<float, double>);
+    //bp::def("powerArrayScaler", &MethodsInterface::powerArrayScaler<float, double>);
     bp::def("powerArrayArray", &MethodsInterface::powerArrayArray<double, double>);
-    //bp::def("power", &MethodsInterface::powerArrayArray<float, double>);
+    //bp::def("powerArrayArray", &MethodsInterface::powerArrayArray<float, double>);
+    bp::def("powerfArrayScaler", &MethodsInterface::powerfArrayScaler<double, double>);
+    //bp::def("powerfArrayScaler", &MethodsInterface::powerfArrayScaler<float, double>);
+    bp::def("powerfArrayArray", &MethodsInterface::powerfArrayArray<double, double>);
+    //bp::def("powerfArrayArray", &MethodsInterface::powerfArrayArray<float, double>);
     bp::def("prod", &prod<double, double>);
     //bp::def("prod", &prod<float>);
     bp::def("ptp", &ptp<double>);
@@ -3257,51 +3277,61 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("sqr", &utils::sqr<double>);
     bp::def("cube", &utils::cube<double>);
     bp::def("power", &utils::power<double>);
+    bp::def("powerf", &utils::powerf<double>);
 
     bp::def("num2str", &utils::num2str<float>);
     bp::def("sqr", &utils::sqr<float>);
     bp::def("cube", &utils::cube<float>);
     bp::def("power", &utils::power<float>);
+    bp::def("power", &utils::powerf<float>);
 
     bp::def("num2str", &utils::num2str<int8>);
     bp::def("sqr", &utils::sqr<int8>);
     bp::def("cube", &utils::cube<int8>);
     bp::def("power", &utils::power<int8>);
+    bp::def("powerf", &utils::powerf<int8>);
 
     bp::def("num2str", &utils::num2str<int16>);
     bp::def("sqr", &utils::sqr<int16>);
     bp::def("cube", &utils::cube<int16>);
     bp::def("power", &utils::power<int16>);
+    bp::def("powerf", &utils::powerf<int16>);
 
     bp::def("num2str", &utils::num2str<int32>);
     bp::def("sqr", &utils::sqr<int32>);
     bp::def("cube", &utils::cube<int32>);
     bp::def("power", &utils::power<int32>);
+    bp::def("powerf", &utils::power<int32>);
 
     bp::def("num2str", &utils::num2str<int64>);
     bp::def("sqr", &utils::sqr<int64>);
     bp::def("cube", &utils::cube<int64>);
     bp::def("power", &utils::power<int64>);
+    bp::def("powerf", &utils::powerf<int64>);
 
     bp::def("num2str", &utils::num2str<uint8>);
     bp::def("sqr", &utils::sqr<uint8>);
     bp::def("cube", &utils::cube<uint8>);
     bp::def("power", &utils::power<uint8>);
+    bp::def("powerf", &utils::powerf<uint8>);
 
     bp::def("num2str", &utils::num2str<uint16>);
     bp::def("sqr", &utils::sqr<uint16>);
     bp::def("cube", &utils::cube<uint16>);
     bp::def("power", &utils::power<uint16>);
+    bp::def("powerf", &utils::powerf<uint16>);
 
     bp::def("num2str", &utils::num2str<uint32>);
     bp::def("sqr", &utils::sqr<uint32>);
     bp::def("cube", &utils::cube<uint32>);
     bp::def("power", &utils::power<uint32>);
+    bp::def("powerf", &utils::powerf<uint32>);
 
     bp::def("num2str", &utils::num2str<uint64>);
     bp::def("sqr", &utils::sqr<uint64>);
     bp::def("cube", &utils::cube<uint64>);
     bp::def("power", &utils::power<uint64>);
+    bp::def("powerf", &utils::powerf<uint64>);
 
     // Random.hpp
     typedef nc::Random<double> RandomDouble;

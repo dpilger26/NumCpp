@@ -3849,6 +3849,32 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing powerf array scaler', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    exponent = np.random.rand(1).item() * 5
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumCpp.powerfArrayScaler(cArray, exponent), 10), np.round(np.power(data, exponent), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing powerf array array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    cExponents = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 20, [shape.rows, shape.cols])
+    exponents = np.random.rand(shape.rows, shape.cols) * 5
+    cArray.setArray(data)
+    cExponents.setArray(exponents)
+    if np.array_equal(np.round(NumCpp.powerfArrayArray(cArray, cExponents), 9), np.round(np.power(data, exponents), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing prod: Axis = None', 'cyan'))
     shapeInput = np.random.randint(1, 10, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
