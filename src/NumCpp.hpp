@@ -1,5 +1,3 @@
-/// @mainpage NumCpp Documentation
-///
 /// @section Description
 /// A C++ Implementation of the Python Numpy Library
 ///

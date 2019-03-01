@@ -115,6 +115,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9057770e885426322850e40737c3b770"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a9057770e885426322850e40737c3b770"><td class="memTemplItemLeft" align="right" valign="top">static dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#a9057770e885426322850e40737c3b770">power</a> (dtype inValue, <a class="el" href="namespacenc.html#a60efb2c7acad2ac3a9a9fcf1e93d0f49">uint8</a> inPower) noexcept</td></tr>
 <tr class="separator:a9057770e885426322850e40737c3b770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d4958210efeb9f1ca4ad04da10228f8"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a0d4958210efeb9f1ca4ad04da10228f8"><td class="memTemplItemLeft" align="right" valign="top">static double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#a0d4958210efeb9f1ca4ad04da10228f8">powerf</a> (dtype inValue, double inPower) noexcept</td></tr>
+<tr class="separator:a0d4958210efeb9f1ca4ad04da10228f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95508a6159f3abe298221f8163f1b63b"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a95508a6159f3abe298221f8163f1b63b"><td class="memTemplItemLeft" align="right" valign="top">static dtype&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html#a95508a6159f3abe298221f8163f1b63b">sqr</a> (dtype inValue) noexcept</td></tr>
 <tr class="separator:a95508a6159f3abe298221f8163f1b63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -337,7 +340,54 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Raises the input value to a power</p>
+<p>Raises the input value to an integer power</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inValue</td><td></td></tr>
+    <tr><td class="paramname">inPower</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>inValue raised to inPower </dd></dl>
+
+</div>
+</div>
+<a id="a0d4958210efeb9f1ca4ad04da10228f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d4958210efeb9f1ca4ad04da10228f8">&#9670;&nbsp;</a></span>powerf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double nc::utils::powerf </td>
+          <td>(</td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>inPower</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Raises the input value to a floating point power</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inValue</td><td></td></tr>

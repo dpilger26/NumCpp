@@ -12,6 +12,7 @@ var searchData=
   ['random_2ehpp',['Random.hpp',['../_random_8hpp.html',1,'']]],
   ['rankfilter',['rankFilter',['../namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02',1,'nc::filter']]],
   ['rankfilter1d',['rankFilter1d',['../namespacenc_1_1filter.html#a543f334070e494f6fba9a943a832415e',1,'nc::filter']]],
+  ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
   ['reciprocal',['reciprocal',['../namespacenc.html#a376e41a2fcc822723ef56f8c946a52aa',1,'nc']]],
   ['reflect',['REFLECT',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df',1,'nc::filter']]],
   ['reflectboundary',['reflectBoundary',['../namespacenc_1_1filter.html#a668b6c63836542f26d963a619f5658d1',1,'nc::filter']]],

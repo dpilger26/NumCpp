@@ -1,5 +1,9 @@
 var NAVTREEINDEX3 =
 {
+"classnc_1_1_shape.html#abcd1dafbc4c959f49d40b70d78a3ef2c":[2,0,0,10,3],
+"classnc_1_1_slice.html":[2,0,0,11],
+"classnc_1_1_slice.html#a010728d0f1db387ffbb46aefefb59755":[2,0,0,11,6],
+"classnc_1_1_slice.html#a112855a11aa1737b7859e3d63feb09c4":[2,0,0,11,10],
 "classnc_1_1_slice.html#a36ddb261d9057db4a9794b4fc46e9d3f":[2,0,0,11,9],
 "classnc_1_1_slice.html#a4d518d51dad679d9a9c6938b065e38f8":[2,0,0,11,4],
 "classnc_1_1_slice.html#a4f78e28b843f0e6eaf4e9dd2060ca6a1":[2,0,0,11,1],
@@ -186,8 +190,8 @@ var NAVTREEINDEX3 =
 "classnc_1_1rotations_1_1_quaternion.html#af3870229595bf00f7afe33f186fbb349":[2,0,0,3,1,18],
 "examples.html":[4],
 "files.html":[3,0],
-"functions.html":[2,2,0],
 "functions.html":[2,2,0,0],
+"functions.html":[2,2,0],
 "functions_0x7e.html":[2,2,0,26],
 "functions_b.html":[2,2,0,1],
 "functions_c.html":[2,2,0,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX3 =
 "functions_x.html":[2,2,0,23],
 "functions_y.html":[2,2,0,24],
 "functions_z.html":[2,2,0,25],
-"globals.html":[3,1,0],
-"globals_defs.html":[3,1,1],
-"index.html":[],
-"index.html":[0],
-"index.html#Description":[0,0]
+"globals.html":[3,1,0]
 };

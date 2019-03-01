@@ -6622,7 +6622,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Raises the elements of the array to the input power
+    ///						Raises the elements of the array to the input integer power
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
@@ -6639,7 +6639,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Raises the elements of the array to the input power
+    ///						Raises the elements of the array to the input integer power
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
@@ -6661,7 +6661,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Raises the elements of the array to the input powers
+    ///						Raises the elements of the array to the input integer powers
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
     ///
@@ -6684,6 +6684,74 @@ namespace nc
         std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
             [](dtype inValue, uint8 inExponent) noexcept -> dtypeOut 
         { return utils::power(static_cast<dtypeOut>(inValue), inExponent); });
+
+        return std::move(returnArray);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Raises the elements of the array to the input floating point power
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
+    ///
+    /// @param				inValue
+    /// @param				inExponent
+    /// @return
+    ///				value raised to the power
+    ///
+    template<typename dtype>
+    double powerf(dtype inValue, double inExponent)
+    {
+        return utils::powerf(inValue, inExponent);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Raises the elements of the array to the input floating point power
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
+    ///
+    /// @param				inArray
+    /// @param				inExponent
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> powerf(const NdArray<dtype>& inArray, double inExponent)
+    {
+        NdArray<double> returnArray(inArray.shape());
+        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            [inExponent](dtype inValue) noexcept -> double
+        { return utils::powerf(inValue, inExponent); });
+
+        return std::move(returnArray);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Raises the elements of the array to the input floating point powers
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.power.html
+    ///
+    /// @param				inArray
+    /// @param				inExponents
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> powerf(const NdArray<dtype>& inArray, const NdArray<double>& inExponents)
+    {
+        if (inArray.shape() != inExponents.shape())
+        {
+            std::string errStr = "ERROR: powerf: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
+        }
+
+        NdArray<double> returnArray(inArray.shape());
+        std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
+            [](dtype inValue, double inExponent) noexcept -> double
+        { return utils::powerf(inValue, inExponent); });
 
         return std::move(returnArray);
     }
