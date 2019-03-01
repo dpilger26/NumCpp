@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "NumCpp: A Templatized Header Only C++ Implementation of the <a href=\"http://www.numpy.org/\">Python NumPy Library</a>", "index.html", null ],
+    [ "NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org/)", "index.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
