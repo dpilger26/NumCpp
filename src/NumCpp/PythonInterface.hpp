@@ -28,7 +28,9 @@
 ///
 #pragma once
 
+#ifdef INCLUDE_BOOST_PYTHON_INTERFACE
 #include"NumCpp/BoostNumpyNdarrayHelper.hpp"
+#endif
 #include"NumCpp/NdArray.hpp"
 #include"NumCpp/Shape.hpp"
 
@@ -37,11 +39,18 @@
 #include<stdexcept>
 #include<utility>
 
+#ifdef INCLUDE_BOOST_PYTHON_INTERFACE
 #include"boost/python.hpp"
 #include"boost/python/numpy.hpp"
+#endif
+#ifdef INCLUDE_PYBIND_PYTHON_INTERFACE
+#include"pybind11/pybind11.h"
+#include"pybind11/numpy.h"
+#endif
 
 namespace nc
 {
+#ifdef INCLUDE_BOOST_PYTHON_INTERFACE
     //============================================================================
     ///						Converts from a boost ndarray to a NumCpp NdArray<T>
     ///
@@ -50,7 +59,7 @@ namespace nc
     /// @return     NdArray<T>
     ///
     template<typename dtype>
-    NdArray<dtype> boostToNumC(const boost::python::numpy::ndarray& inArray)
+    NdArray<dtype> boost2Nc(const boost::python::numpy::ndarray& inArray)
     {
         BoostNdarrayHelper helper(inArray);
         if (helper.numDimensions() > 2)
@@ -101,7 +110,7 @@ namespace nc
     /// @return     ndarray
     ///
     template<typename dtype>
-    boost::python::numpy::ndarray numCToBoost(const NdArray<dtype>& inArray)
+    boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray)
     {
         const Shape inShape = inArray.shape();
         boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);
@@ -166,4 +175,50 @@ namespace nc
         }
         return dictionary;
     }
+#endif
+
+#ifdef INCLUDE_PYBIND_PYTHON_INTERFACE
+    //============================================================================
+    ///						converts a numpy array to a numcpp NdArray using pybind bindings
+    ///
+    /// @param      numpyArray
+    ///
+    /// @return     NdArray<dtype>
+    ///
+    template<typename dtype>
+    NdArray<dtype> pybind2Nc(pybind11::array_t<dtype, pybind11::array::c_style | pybind11::array::forcecast>& numpyArray)
+    {
+        auto bufferInfo = numpyArray.request();
+        if (bufferInfo.shape.size() != 2)
+
+        {
+
+            throw std::invalid_argument("ERROR: input array must be 2 dimensional.");
+
+        }
+
+        uint32 numRows = static_cast<uint32>(bufferInfo.shape[0]);
+        uint32 numCols = static_cast<uint32>(bufferInfo.shape[1]);
+
+        return std::move(NdArray<dtype>(reinterpret_cast<dtype*>(bufferInfo.ptr), numRows, numCols));
+    }
+
+    //============================================================================
+    ///						converts a numcpp NdArray to numpy array using pybind bindings
+    ///
+    /// @param     inArray
+    ///
+    /// @return    pybind11::array_t
+    ///
+    template<typename dtype>
+    pybind11::array_t<dtype, pybind11::array::c_style | pybind11::array::forcecast> nc2pybind(NdArray<dtype>& inArray)
+    {
+        std::vector<pybind11::ssize_t> shape{ inArray.numRows(), inArray.numCols() };
+        std::vector<pybind11::ssize_t> strides{ inArray.numCols() * sizeof(dtype), 1 * sizeof(dtype) };
+
+        auto bufferInfo = pybind11::buffer_info(inArray.begin(), shape, strides);
+
+        return std::move(pybind11::array_t<dtype, pybind11::array::c_style | pybind11::array::forcecast>(bufferInfo));
+    }
+#endif
 }

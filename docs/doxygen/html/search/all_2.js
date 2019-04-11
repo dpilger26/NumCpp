@@ -13,9 +13,9 @@ var searchData=
   ['bitwise_5fnot',['bitwise_not',['../namespacenc.html#a56ece35a68fac0c7b4d284e8c1ccad8b',1,'nc']]],
   ['bitwise_5for',['bitwise_or',['../namespacenc.html#a3008c967d169052c08854a03eeac728b',1,'nc']]],
   ['bitwise_5fxor',['bitwise_xor',['../namespacenc.html#a0fcfb7c2d5da6c8c84afafe62f47f5b5',1,'nc']]],
+  ['boost2nc',['boost2Nc',['../namespacenc.html#ac49e5a284be9238624ebd3f548fcb474',1,'nc']]],
   ['boostndarrayhelper',['BoostNdarrayHelper',['../classnc_1_1_boost_ndarray_helper.html',1,'nc::BoostNdarrayHelper'],['../classnc_1_1_boost_ndarray_helper.html#a96f2cc6ce937378a92fd5bc7b3eb4ec6',1,'nc::BoostNdarrayHelper::BoostNdarrayHelper(const boost::python::numpy::ndarray &amp;inArray)'],['../classnc_1_1_boost_ndarray_helper.html#a080a485fa710a3ccb1233816ae19d674',1,'nc::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::tuple inShape)']]],
   ['boostnumpyndarrayhelper_2ehpp',['BoostNumpyNdarrayHelper.hpp',['../_boost_numpy_ndarray_helper_8hpp.html',1,'']]],
-  ['boosttonumc',['boostToNumC',['../namespacenc.html#a27f1bc2de7b95849d903f6502885b2d4',1,'nc']]],
   ['boundary',['Boundary',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6',1,'nc::filter']]],
   ['byteswap',['byteswap',['../classnc_1_1_nd_array.html#a62e8c5ff16784193e130755236e6aecc',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a96f6d582acc2a14ae7c02897cca96991',1,'nc::byteswap()']]]
 ];

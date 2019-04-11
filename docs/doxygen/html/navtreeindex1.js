@@ -162,11 +162,13 @@ var NAVTREEINDEX1 =
 "_polynomial_8hpp.html":[3,0,12],
 "_polynomial_8hpp_source.html":[3,0,12],
 "_python_interface_8hpp.html":[3,0,13],
-"_python_interface_8hpp.html#a27f1bc2de7b95849d903f6502885b2d4":[3,0,13,0],
-"_python_interface_8hpp.html#a31559dac1085f4bd33ecb4f7c6a6c8bc":[3,0,13,3],
-"_python_interface_8hpp.html#a3d15eccec6696a2450518cf4f4fcee99":[3,0,13,4],
+"_python_interface_8hpp.html#a3d15eccec6696a2450518cf4f4fcee99":[3,0,13,6],
+"_python_interface_8hpp.html#a6ad5d7df2908ec54bd470ea3f7f543c6":[3,0,13,4],
+"_python_interface_8hpp.html#a7560dbbdbc3a93c94bb8843a0ad4e566":[3,0,13,3],
 "_python_interface_8hpp.html#a88f23f27b808315f8a68c8739ba2e077":[3,0,13,1],
 "_python_interface_8hpp.html#a8fa1169ce5059db0ea3445394f9d5721":[3,0,13,2],
+"_python_interface_8hpp.html#ab7f2bc11fd2e3b483cc9e8dc5420dbf4":[3,0,13,5],
+"_python_interface_8hpp.html#ac49e5a284be9238624ebd3f548fcb474":[3,0,13,0],
 "_python_interface_8hpp_source.html":[3,0,13],
 "_random_8hpp.html":[3,0,14],
 "_random_8hpp.html#a6af7800546630c07e75fda11de517030":[3,0,14,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "classnc_1_1_data_cube.html#ae23b9d13c65a75d269e34b7952ea8666":[2,0,0,5,15],
 "classnc_1_1_data_cube.html#af85d4c43f1ced174000d1f1f2117d445":[2,0,0,5,14],
 "classnc_1_1_data_cube.html#af9484ba42f739c5a4e0a32c0d8f916ca":[2,0,0,5,9],
-"classnc_1_1_data_cube.html#aff248af13543b07f8755a645e2511506":[2,0,0,5,8],
-"classnc_1_1_dtype_info.html":[2,0,0,6],
-"classnc_1_1_dtype_info.html#a1f2e6789296de232bef7582f1c77f856":[2,0,0,6,4]
+"classnc_1_1_data_cube.html#aff248af13543b07f8755a645e2511506":[2,0,0,5,8]
 };

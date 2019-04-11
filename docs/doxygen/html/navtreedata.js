@@ -61,9 +61,9 @@ var NAVTREEINDEX =
 [
 "_boost_numpy_ndarray_helper_8hpp.html",
 "_methods_8hpp.html#a7a526300e6258fc6a008cfabc53d679c",
-"classnc_1_1_dtype_info.html#a643006f8f1beb238b4f1bfd160d9d5c9",
-"classnc_1_1_shape.html#abcd1dafbc4c959f49d40b70d78a3ef2c",
-"globals_defs.html"
+"classnc_1_1_dtype_info.html",
+"classnc_1_1_shape.html#ab21ed75918e9c8154b4f2eece64724c3",
+"functions_z.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
