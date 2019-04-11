@@ -86,7 +86,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray getNumpyArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(inArray);
+        return nc2Boost(inArray);
     }
 
     //================================================================================
@@ -102,7 +102,7 @@ namespace NdArrayInterface
             PyErr_SetString(PyExc_RuntimeError, errorString.c_str());
         }
 
-        self = boostToNumC<dtype>(inBoostArray);
+        self = boost2Nc<dtype>(inBoostArray);
     }
 
     //================================================================================
@@ -110,7 +110,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray all(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.all(inAxis));
+        return nc2Boost(self.all(inAxis));
     }
 
     //================================================================================
@@ -118,7 +118,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray any(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.any(inAxis));
+        return nc2Boost(self.any(inAxis));
     }
 
     //================================================================================
@@ -126,7 +126,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray argmax(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.argmax(inAxis));
+        return nc2Boost(self.argmax(inAxis));
     }
 
     //================================================================================
@@ -134,7 +134,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray argmin(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.argmin(inAxis));
+        return nc2Boost(self.argmin(inAxis));
     }
 
     //================================================================================
@@ -142,7 +142,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray argsort(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.argsort(inAxis));
+        return nc2Boost(self.argsort(inAxis));
     }
 
     //================================================================================
@@ -150,7 +150,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray clip(const NdArray<dtype>& self, dtype inMin, dtype inMax)
     {
-        return numCToBoost(self.clip(inMin, inMax));
+        return nc2Boost(self.clip(inMin, inMax));
     }
 
     //================================================================================
@@ -158,7 +158,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray copy(const NdArray<dtype>& self)
     {
-        return numCToBoost(self.copy());
+        return nc2Boost(self.copy());
     }
 
     //================================================================================
@@ -166,7 +166,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray contains(const NdArray<dtype>& self, dtype inValue, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.contains(inValue, inAxis));
+        return nc2Boost(self.contains(inValue, inAxis));
     }
 
     //================================================================================
@@ -174,7 +174,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray cumprod(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.template cumprod<dtypeOut>(inAxis));
+        return nc2Boost(self.template cumprod<dtypeOut>(inAxis));
     }
 
     //================================================================================
@@ -182,7 +182,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray cumsum(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.template cumsum<dtypeOut>(inAxis));
+        return nc2Boost(self.template cumsum<dtypeOut>(inAxis));
     }
 
     //================================================================================
@@ -190,7 +190,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray diagonal(const NdArray<dtype>& self, int32 inOffset = 0, Axis inAxis = Axis::ROW)
     {
-        return numCToBoost(self.diagonal(inOffset, inAxis));
+        return nc2Boost(self.diagonal(inOffset, inAxis));
     }
 
     //================================================================================
@@ -198,7 +198,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray dot(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self.template dot<dtypeOut>(inOtherArray));
+        return nc2Boost(self.template dot<dtypeOut>(inOtherArray));
     }
 
     //================================================================================
@@ -207,7 +207,7 @@ namespace NdArrayInterface
     np::ndarray fill(NdArray<dtype>& self, dtype inFillValue)
     {
         self.fill(inFillValue);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -215,7 +215,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray flatten(const NdArray<dtype>& self)
     {
-        return numCToBoost(self.flatten());
+        return nc2Boost(self.flatten());
     }
 
     //================================================================================
@@ -239,7 +239,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray getSlice1D(const NdArray<dtype>& self, const Slice& inSlice)
     {
-        return numCToBoost(self.at(inSlice));
+        return nc2Boost(self.at(inSlice));
     }
 
     //================================================================================
@@ -247,7 +247,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray getSlice2D(const NdArray<dtype>& self, const Slice& inRowSlice, const Slice& inColSlice)
     {
-        return numCToBoost(self.at(inRowSlice, inColSlice));
+        return nc2Boost(self.at(inRowSlice, inColSlice));
     }
 
     //================================================================================
@@ -255,7 +255,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray getSlice2DCol(const NdArray<dtype>& self, const Slice& inRowSlice, int32 inColIndex)
     {
-        return numCToBoost(self.at(inRowSlice, inColIndex));
+        return nc2Boost(self.at(inRowSlice, inColIndex));
     }
 
     //================================================================================
@@ -263,7 +263,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray getSlice2DRow(const NdArray<dtype>& self, int32 inRowIndex, const Slice& inColSlice)
     {
-        return numCToBoost(self.at(inRowIndex, inColSlice));
+        return nc2Boost(self.at(inRowIndex, inColSlice));
     }
 
 
@@ -272,7 +272,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray getByIndices(const NdArray<dtype>& self, const NdArray<uint32>& inIndices)
     {
-        return numCToBoost(self.getByIndices(inIndices));
+        return nc2Boost(self.getByIndices(inIndices));
     }
 
     //================================================================================
@@ -280,7 +280,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray getByMask(const NdArray<dtype>& self, const NdArray<bool>& inMask)
     {
-        return numCToBoost(self.getByMask(inMask));
+        return nc2Boost(self.getByMask(inMask));
     }
 
     //================================================================================
@@ -288,7 +288,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray max(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.max(inAxis));
+        return nc2Boost(self.max(inAxis));
     }
 
     //================================================================================
@@ -296,7 +296,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray min(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.min(inAxis));
+        return nc2Boost(self.min(inAxis));
     }
 
     //================================================================================
@@ -304,7 +304,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray mean(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.mean(inAxis));
+        return nc2Boost(self.mean(inAxis));
     }
 
     //================================================================================
@@ -312,7 +312,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray median(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.median(inAxis));
+        return nc2Boost(self.median(inAxis));
     }
 
     //================================================================================
@@ -320,7 +320,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray newbyteorder(const NdArray<dtype>& self, Endian inEndiness = Endian::NATIVE)
     {
-        return numCToBoost(self.newbyteorder(inEndiness));
+        return nc2Boost(self.newbyteorder(inEndiness));
     }
 
     //================================================================================
@@ -328,7 +328,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray nonzero(const NdArray<dtype>& self)
     {
-        return numCToBoost(self.nonzero());
+        return nc2Boost(self.nonzero());
     }
 
     //================================================================================
@@ -336,7 +336,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray norm(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost<dtypeOut>(self.template norm<dtypeOut>(inAxis));
+        return nc2Boost<dtypeOut>(self.template norm<dtypeOut>(inAxis));
     }
 
     //================================================================================
@@ -345,7 +345,7 @@ namespace NdArrayInterface
     np::ndarray ones(NdArray<dtype>& self)
     {
         self.ones();
-        return numCToBoost<dtype>(self);
+        return nc2Boost<dtype>(self);
     }
 
     //================================================================================
@@ -354,7 +354,7 @@ namespace NdArrayInterface
     np::ndarray partition(NdArray<dtype>& self, uint32 inKth, Axis inAxis = Axis::NONE)
     {
         self.partition(inKth, inAxis);
-        return numCToBoost<dtype>(self);
+        return nc2Boost<dtype>(self);
     }
 
     //================================================================================
@@ -362,7 +362,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray prod(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost<dtypeOut>(self.template prod<dtypeOut>(inAxis));
+        return nc2Boost<dtypeOut>(self.template prod<dtypeOut>(inAxis));
     }
 
     //================================================================================
@@ -370,7 +370,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray ptp(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.ptp(inAxis));
+        return nc2Boost(self.ptp(inAxis));
     }
 
     //================================================================================
@@ -379,7 +379,7 @@ namespace NdArrayInterface
     np::ndarray putFlat(NdArray<dtype>& self, int32 inIndex, dtype inValue)
     {
         self.put(inIndex, inValue);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -388,7 +388,7 @@ namespace NdArrayInterface
     np::ndarray putRowCol(NdArray<dtype>& self, int32 inRow, int32 inCol, dtype inValue)
     {
         self.put(inRow, inCol, inValue);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -397,7 +397,7 @@ namespace NdArrayInterface
     np::ndarray putSlice1DValue(NdArray<dtype>& self, const Slice& inSlice, dtype inValue)
     {
         self.put(inSlice, inValue);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -405,9 +405,9 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray putSlice1DValues(NdArray<dtype>& self, const Slice& inSlice, const np::ndarray& inArrayValues)
     {
-        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
+        NdArray<dtype> inValues = boost2Nc<dtype>(inArrayValues);
         self.put(inSlice, inValues);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -416,7 +416,7 @@ namespace NdArrayInterface
     np::ndarray putSlice2DValue(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, dtype inValue)
     {
         self.put(inSliceRow, inSliceCol, inValue);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -425,7 +425,7 @@ namespace NdArrayInterface
     np::ndarray putSlice2DValueRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inSliceCol, dtype inValue)
     {
         self.put(inRowIndex, inSliceCol, inValue);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -434,7 +434,7 @@ namespace NdArrayInterface
     np::ndarray putSlice2DValueCol(NdArray<dtype>& self, const Slice& inSliceRow, int32 inColIndex, dtype inValue)
     {
         self.put(inSliceRow, inColIndex, inValue);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -442,9 +442,9 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray putSlice2DValues(NdArray<dtype>& self, const Slice& inSliceRow, const Slice& inSliceCol, const np::ndarray& inArrayValues)
     {
-        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
+        NdArray<dtype> inValues = boost2Nc<dtype>(inArrayValues);
         self.put(inSliceRow, inSliceCol, inValues);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -452,9 +452,9 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray putSlice2DValuesRow(NdArray<dtype>& self, int32 inRowIndex, const Slice& inSliceCol, const np::ndarray& inArrayValues)
     {
-        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
+        NdArray<dtype> inValues = boost2Nc<dtype>(inArrayValues);
         self.put(inRowIndex, inSliceCol, inValues);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -462,9 +462,9 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray putSlice2DValuesCol(NdArray<dtype>& self, const Slice& inSliceRow, int32 inColIndex, const np::ndarray& inArrayValues)
     {
-        NdArray<dtype> inValues = boostToNumC<dtype>(inArrayValues);
+        NdArray<dtype> inValues = boost2Nc<dtype>(inArrayValues);
         self.put(inSliceRow, inColIndex, inValues);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -472,9 +472,9 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray putMaskSingle(NdArray<dtype>& self, const np::ndarray& inMask, dtype inValue)
     {
-        auto mask = boostToNumC<bool>(inMask);
+        auto mask = boost2Nc<bool>(inMask);
         self.putMask(mask, inValue);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -482,10 +482,10 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray putMaskMultiple(NdArray<dtype>& self, const np::ndarray& inMask, const np::ndarray& inArrayValues)
     {
-        auto mask = boostToNumC<bool>(inMask);
-        auto inValues = boostToNumC<dtype>(inArrayValues);
+        auto mask = boost2Nc<bool>(inMask);
+        auto inValues = boost2Nc<dtype>(inArrayValues);
         self.putMask(mask, inValues);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -493,7 +493,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray repeat(const NdArray<dtype>& self, const Shape& inRepeatShape)
     {
-        return numCToBoost(self.repeat(inRepeatShape));
+        return nc2Boost(self.repeat(inRepeatShape));
     }
 
     //================================================================================
@@ -502,7 +502,7 @@ namespace NdArrayInterface
     np::ndarray reshape(NdArray<dtype>& self, const Shape& inShape)
     {
         self.reshape(inShape);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -511,7 +511,7 @@ namespace NdArrayInterface
     np::ndarray reshapeList(NdArray<dtype>& self, const Shape& inShape)
     {
         self.reshape({ inShape.rows, inShape.cols });
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -520,7 +520,7 @@ namespace NdArrayInterface
     np::ndarray resizeFast(NdArray<dtype>& self, const Shape& inShape)
     {
         self.resizeFast(inShape);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -529,7 +529,7 @@ namespace NdArrayInterface
     np::ndarray resizeFastList(NdArray<dtype>& self, const Shape& inShape)
     {
         self.resizeFast({ inShape.rows, inShape.cols });
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -538,7 +538,7 @@ namespace NdArrayInterface
     np::ndarray resizeSlow(NdArray<dtype>& self, const Shape& inShape)
     {
         self.resizeSlow(inShape);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -547,7 +547,7 @@ namespace NdArrayInterface
     np::ndarray resizeSlowList(NdArray<dtype>& self, const Shape& inShape)
     {
         self.resizeSlow({ inShape.rows, inShape.cols });
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -555,7 +555,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray rms(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.rms(inAxis));
+        return nc2Boost(self.rms(inAxis));
     }
 
     //================================================================================
@@ -563,7 +563,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray round(const NdArray<dtype>& self, uint8 inNumDecimals)
     {
-        return numCToBoost(self.round(inNumDecimals));
+        return nc2Boost(self.round(inNumDecimals));
     }
 
     //================================================================================
@@ -572,7 +572,7 @@ namespace NdArrayInterface
     np::ndarray sort(NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         self.sort(inAxis);
-        return numCToBoost(self);
+        return nc2Boost(self);
     }
 
     //================================================================================
@@ -580,7 +580,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray stdev(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.stdev(inAxis));
+        return nc2Boost(self.stdev(inAxis));
     }
 
     //================================================================================
@@ -588,7 +588,7 @@ namespace NdArrayInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray sum(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.template sum<dtypeOut>(inAxis));
+        return nc2Boost(self.template sum<dtypeOut>(inAxis));
     }
 
     //================================================================================
@@ -596,7 +596,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray swapaxes(const NdArray<dtype>& self)
     {
-        return numCToBoost(self.swapaxes());
+        return nc2Boost(self.swapaxes());
     }
 
     //================================================================================
@@ -604,7 +604,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray transpose(const NdArray<dtype>& self)
     {
-        return numCToBoost(self.transpose());
+        return nc2Boost(self.transpose());
     }
 
     //================================================================================
@@ -612,7 +612,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray var(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(self.var(inAxis));
+        return nc2Boost(self.var(inAxis));
     }
 
     //================================================================================
@@ -620,7 +620,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorPlusScaler(const NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self + inScaler);
+        return nc2Boost(self + inScaler);
     }
 
     //================================================================================
@@ -628,7 +628,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorPlusArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self + inOtherArray);
+        return nc2Boost(self + inOtherArray);
     }
 
     //================================================================================
@@ -636,7 +636,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorMinusScaler(const NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self - inScaler);
+        return nc2Boost(self - inScaler);
     }
 
     //================================================================================
@@ -644,7 +644,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorMinusArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self - inOtherArray);
+        return nc2Boost(self - inOtherArray);
     }
 
     //================================================================================
@@ -652,7 +652,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorMultiplyScaler(const NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self * inScaler);
+        return nc2Boost(self * inScaler);
     }
 
     //================================================================================
@@ -660,7 +660,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorMultiplyArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self * inOtherArray);
+        return nc2Boost(self * inOtherArray);
     }
 
     //================================================================================
@@ -668,7 +668,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorDivideScaler(const NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self / inScaler);
+        return nc2Boost(self / inScaler);
     }
 
     //================================================================================
@@ -676,7 +676,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorDivideArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self / inOtherArray);
+        return nc2Boost(self / inOtherArray);
     }
 
     //================================================================================
@@ -684,7 +684,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorModulusScaler(const NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self % inScaler);
+        return nc2Boost(self % inScaler);
     }
 
     //================================================================================
@@ -692,7 +692,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorModulusArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self % inOtherArray);
+        return nc2Boost(self % inOtherArray);
     }
 
     //================================================================================
@@ -700,7 +700,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorBitwiseOrScaler(const NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self | inScaler);
+        return nc2Boost(self | inScaler);
     }
 
     //================================================================================
@@ -708,7 +708,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorBitwiseOrArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self | inOtherArray);
+        return nc2Boost(self | inOtherArray);
     }
 
     //================================================================================
@@ -716,7 +716,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorBitwiseAndScaler(const NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self & inScaler);
+        return nc2Boost(self & inScaler);
     }
 
     //================================================================================
@@ -724,7 +724,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorBitwiseAndArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self & inOtherArray);
+        return nc2Boost(self & inOtherArray);
     }
 
     //================================================================================
@@ -732,7 +732,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorBitwiseXorScaler(const NdArray<dtype>& self, dtype inScaler)
     {
-        return numCToBoost(self ^ inScaler);
+        return nc2Boost(self ^ inScaler);
     }
 
     //================================================================================
@@ -740,7 +740,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorBitwiseXorArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self ^ inOtherArray);
+        return nc2Boost(self ^ inOtherArray);
     }
 
     //================================================================================
@@ -748,7 +748,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorBitwiseNot(const NdArray<dtype>& self)
     {
-        return numCToBoost(~self);
+        return nc2Boost(~self);
     }
 
     //================================================================================
@@ -756,7 +756,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorEqualityScaler(const NdArray<dtype>& self, dtype inValue)
     {
-        return numCToBoost(self == inValue);
+        return nc2Boost(self == inValue);
     }
 
     //================================================================================
@@ -764,7 +764,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorEqualityArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self == inOtherArray);
+        return nc2Boost(self == inOtherArray);
     }
 
     //================================================================================
@@ -772,7 +772,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorLessScaler(const NdArray<dtype>& self, dtype inValue)
     {
-        return numCToBoost(self < inValue);
+        return nc2Boost(self < inValue);
     }
 
     //================================================================================
@@ -780,7 +780,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorLessArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self < inOtherArray);
+        return nc2Boost(self < inOtherArray);
     }
 
     //================================================================================
@@ -788,7 +788,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorGreaterScaler(const NdArray<dtype>& self, dtype inValue)
     {
-        return numCToBoost(self > inValue);
+        return nc2Boost(self > inValue);
     }
 
     //================================================================================
@@ -796,7 +796,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorGreaterArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self > inOtherArray);
+        return nc2Boost(self > inOtherArray);
     }
 
     //================================================================================
@@ -804,7 +804,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorLessEqualScaler(const NdArray<dtype>& self, dtype inValue)
     {
-        return numCToBoost(self <= inValue);
+        return nc2Boost(self <= inValue);
     }
 
     //================================================================================
@@ -812,7 +812,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorLessEqualArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self <= inOtherArray);
+        return nc2Boost(self <= inOtherArray);
     }
 
     //================================================================================
@@ -820,7 +820,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorGreaterEqualScaler(const NdArray<dtype>& self, dtype inValue)
     {
-        return numCToBoost(self >= inValue);
+        return nc2Boost(self >= inValue);
     }
 
     //================================================================================
@@ -828,7 +828,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorGreaterEqualArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self >= inOtherArray);
+        return nc2Boost(self >= inOtherArray);
     }
 
     //================================================================================
@@ -836,7 +836,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorNotEqualityScaler(const NdArray<dtype>& self, dtype inValue)
     {
-        return numCToBoost(self != inValue);
+        return nc2Boost(self != inValue);
     }
 
     //================================================================================
@@ -844,7 +844,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorNotEqualityArray(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return numCToBoost(self != inOtherArray);
+        return nc2Boost(self != inOtherArray);
     }
 
     //================================================================================
@@ -852,7 +852,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorBitshiftLeft(const NdArray<dtype>& self, uint8 inNumBits)
     {
-        return numCToBoost(self << inNumBits);
+        return nc2Boost(self << inNumBits);
     }
 
     //================================================================================
@@ -860,7 +860,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorBitshiftRight(const NdArray<dtype>& self, uint8 inNumBits)
     {
-        return numCToBoost(self >> inNumBits);
+        return nc2Boost(self >> inNumBits);
     }
 
     //================================================================================
@@ -868,7 +868,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorPrePlusPlus(NdArray<dtype>& self)
     {
-        return numCToBoost(++self);
+        return nc2Boost(++self);
     }
 
     //================================================================================
@@ -876,7 +876,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorPostPlusPlus(NdArray<dtype>& self)
     {
-        return numCToBoost(self++);
+        return nc2Boost(self++);
     }
 
     //================================================================================
@@ -884,7 +884,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorPreMinusMinus(NdArray<dtype>& self)
     {
-        return numCToBoost(--self);
+        return nc2Boost(--self);
     }
 
     //================================================================================
@@ -892,7 +892,7 @@ namespace NdArrayInterface
     template<typename dtype>
     np::ndarray operatorPostMinusMinus(NdArray<dtype>& self)
     {
-        return numCToBoost(self--);
+        return nc2Boost(self--);
     }
 }
 
@@ -911,7 +911,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray absArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(abs(inArray));
+        return nc2Boost(abs(inArray));
     }
 
     //================================================================================
@@ -919,7 +919,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray addArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(add<dtypeOut>(inArray1, inArray2));
+        return nc2Boost(add<dtypeOut>(inArray1, inArray2));
     }
 
     //================================================================================
@@ -927,7 +927,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray allArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(all(inArray, inAxis));
+        return nc2Boost(all(inArray, inAxis));
     }
 
     //================================================================================
@@ -935,7 +935,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray anyArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(any(inArray, inAxis));
+        return nc2Boost(any(inArray, inAxis));
     }
 
     //================================================================================
@@ -943,7 +943,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray argmaxArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(argmax(inArray, inAxis));
+        return nc2Boost(argmax(inArray, inAxis));
     }
 
     //================================================================================
@@ -951,7 +951,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray argminArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(argmin(inArray, inAxis));
+        return nc2Boost(argmin(inArray, inAxis));
     }
 
     //================================================================================
@@ -959,7 +959,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray argsortArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(argsort(inArray, inAxis));
+        return nc2Boost(argsort(inArray, inAxis));
     }
 
     //================================================================================
@@ -967,7 +967,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray argwhere(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(nc::argwhere(inArray));
+        return nc2Boost(nc::argwhere(inArray));
     }
 
     //================================================================================
@@ -975,7 +975,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray amaxArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(amax(inArray, inAxis));
+        return nc2Boost(amax(inArray, inAxis));
     }
 
     //================================================================================
@@ -983,7 +983,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray aminArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(amin(inArray, inAxis));
+        return nc2Boost(amin(inArray, inAxis));
     }
 
     //================================================================================
@@ -991,7 +991,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arangeArray(dtype inStart, dtype inStop, dtype inStep)
     {
-        return numCToBoost(arange(inStart, inStop, inStep));
+        return nc2Boost(arange(inStart, inStop, inStep));
     }
 
     //================================================================================
@@ -1007,7 +1007,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arccosArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(arccos(inArray));
+        return nc2Boost(arccos(inArray));
     }
 
     //================================================================================
@@ -1023,7 +1023,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arccoshArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(arccosh(inArray));
+        return nc2Boost(arccosh(inArray));
     }
 
     //================================================================================
@@ -1039,7 +1039,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arcsinArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(arcsin(inArray));
+        return nc2Boost(arcsin(inArray));
     }
 
     //================================================================================
@@ -1055,7 +1055,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arcsinhArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(arcsinh(inArray));
+        return nc2Boost(arcsinh(inArray));
     }
 
     //================================================================================
@@ -1071,7 +1071,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arctanArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(arctan(inArray));
+        return nc2Boost(arctan(inArray));
     }
 
     //================================================================================
@@ -1087,7 +1087,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arctan2Array(const NdArray<dtype>& inY, const NdArray<dtype>& inX)
     {
-        return numCToBoost(arctan2(inY, inX));
+        return nc2Boost(arctan2(inY, inX));
     }
 
     //================================================================================
@@ -1103,7 +1103,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray arctanhArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(arctanh(inArray));
+        return nc2Boost(arctanh(inArray));
     }
 
     //================================================================================
@@ -1119,7 +1119,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray aroundArray(const NdArray<dtype>& inArray, uint8 inNumDecimals)
     {
-        return numCToBoost(around(inArray, inNumDecimals));
+        return nc2Boost(around(inArray, inNumDecimals));
     }
 
     //================================================================================
@@ -1127,7 +1127,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray asarrayVector(const std::vector<double>& inVec)
     {
-        return numCToBoost(asarray(inVec));
+        return nc2Boost(asarray(inVec));
     }
 
     //================================================================================
@@ -1135,7 +1135,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray asarrayList(dtype inValue1, dtype inValue2)
     {
-        return numCToBoost(asarray<dtype>({ inValue1, inValue2 }));
+        return nc2Boost(asarray<dtype>({ inValue1, inValue2 }));
     }
 
     //================================================================================
@@ -1143,7 +1143,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray average(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(nc::average(inArray, inAxis));
+        return nc2Boost(nc::average(inArray, inAxis));
     }
 
     //================================================================================
@@ -1151,7 +1151,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray averageWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(average(inArray, inWeights, inAxis));
+        return nc2Boost(average(inArray, inWeights, inAxis));
     }
 
     //================================================================================
@@ -1159,7 +1159,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 0)
     {
-        return numCToBoost(nc::bincount(inArray, inMinLength));
+        return nc2Boost(nc::bincount(inArray, inMinLength));
     }
 
     //================================================================================
@@ -1167,7 +1167,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bincountWeighted(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 0)
     {
-        return numCToBoost(bincount(inArray, inWeights, inMinLength));
+        return nc2Boost(bincount(inArray, inWeights, inMinLength));
     }
 
     //================================================================================
@@ -1175,7 +1175,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bitwise_and(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(nc::bitwise_and(inArray1, inArray2));
+        return nc2Boost(nc::bitwise_and(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1183,7 +1183,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bitwise_not(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(nc::bitwise_not(inArray));
+        return nc2Boost(nc::bitwise_not(inArray));
     }
 
     //================================================================================
@@ -1191,7 +1191,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bitwise_or(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(nc::bitwise_or(inArray1, inArray2));
+        return nc2Boost(nc::bitwise_or(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1199,7 +1199,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(nc::bitwise_xor(inArray1, inArray2));
+        return nc2Boost(nc::bitwise_xor(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1207,7 +1207,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray byteswap(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(nc::byteswap(inArray));
+        return nc2Boost(nc::byteswap(inArray));
     }
 
     //================================================================================
@@ -1223,7 +1223,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray cbrtArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(cbrt(inArray));
+        return nc2Boost(cbrt(inArray));
     }
 
     //================================================================================
@@ -1239,7 +1239,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray ceilArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(ceil(inArray));
+        return nc2Boost(ceil(inArray));
     }
 
     //================================================================================
@@ -1255,7 +1255,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray clipArray(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue)
     {
-        return numCToBoost(clip(inArray, inMinValue, inMaxValue));
+        return nc2Boost(clip(inArray, inMinValue, inMaxValue));
     }
 
     //================================================================================
@@ -1264,7 +1264,7 @@ namespace MethodsInterface
     np::ndarray column_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(nc::column_stack({ inArray1, inArray2, inArray3, inArray4 }));
+        return nc2Boost(nc::column_stack({ inArray1, inArray2, inArray3, inArray4 }));
     }
 
     //================================================================================
@@ -1273,7 +1273,7 @@ namespace MethodsInterface
     np::ndarray concatenate(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, Axis inAxis)
     {
-        return numCToBoost(nc::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
+        return nc2Boost(nc::concatenate({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
 
     //================================================================================
@@ -1281,7 +1281,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray copy(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(nc::copy(inArray));
+        return nc2Boost(nc::copy(inArray));
     }
 
     //================================================================================
@@ -1289,7 +1289,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(nc::copySign(inArray1, inArray2));
+        return nc2Boost(nc::copySign(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1297,7 +1297,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray copyto(NdArray<dtype>& inArrayDest, const NdArray<dtype>& inArraySrc)
     {
-        return numCToBoost(nc::copyto(inArrayDest, inArraySrc));
+        return nc2Boost(nc::copyto(inArrayDest, inArraySrc));
     }
 
     //================================================================================
@@ -1313,7 +1313,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray cosArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(cos(inArray));
+        return nc2Boost(cos(inArray));
     }
 
     //================================================================================
@@ -1329,7 +1329,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray coshArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(cosh(inArray));
+        return nc2Boost(cosh(inArray));
     }
 
     //================================================================================
@@ -1337,7 +1337,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray count_nonzero(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
     {
-        return numCToBoost(nc::count_nonzero(inArray, inAxis));
+        return nc2Boost(nc::count_nonzero(inArray, inAxis));
     }
 
     //================================================================================
@@ -1345,7 +1345,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray cubeArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(cube<dtypeOut>(inArray));
+        return nc2Boost(cube<dtypeOut>(inArray));
     }
 
     //================================================================================
@@ -1353,7 +1353,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray cumprodArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(cumprod<dtypeOut>(inArray, inAxis));
+        return nc2Boost(cumprod<dtypeOut>(inArray, inAxis));
     }
 
     //================================================================================
@@ -1361,7 +1361,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray cumsumArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(cumsum<dtypeOut>(inArray, inAxis));
+        return nc2Boost(cumsum<dtypeOut>(inArray, inAxis));
     }
 
     //================================================================================
@@ -1377,7 +1377,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray deg2radArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(deg2rad(inArray));
+        return nc2Boost(deg2rad(inArray));
     }
 
     //================================================================================
@@ -1393,7 +1393,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray degreesArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(degrees(inArray));
+        return nc2Boost(degrees(inArray));
     }
 
     //================================================================================
@@ -1401,7 +1401,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray deleteIndicesScaler(const NdArray<dtype>& inArray, uint32 inIndex, Axis inAxis)
     {
-        return numCToBoost(deleteIndices(inArray, inIndex, inAxis));
+        return nc2Boost(deleteIndices(inArray, inIndex, inAxis));
     }
 
     //================================================================================
@@ -1409,7 +1409,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray deleteIndicesSlice(const NdArray<dtype>& inArray, const Slice& inIndices, Axis inAxis)
     {
-        return numCToBoost(deleteIndices(inArray, inIndices, inAxis));
+        return nc2Boost(deleteIndices(inArray, inIndices, inAxis));
     }
 
     //================================================================================
@@ -1417,7 +1417,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray diagflat(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(nc::diagflat(inArray));
+        return nc2Boost(nc::diagflat(inArray));
     }
 
     //================================================================================
@@ -1425,7 +1425,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray diagonal(const NdArray<dtype>& inArray, uint32 inOffset = 0, Axis inAxis = Axis::ROW)
     {
-        return numCToBoost(nc::diagonal(inArray, inOffset, inAxis));
+        return nc2Boost(nc::diagonal(inArray, inOffset, inAxis));
     }
 
     //================================================================================
@@ -1433,7 +1433,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray diff(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
     {
-        return numCToBoost(nc::diff(inArray, inAxis));
+        return nc2Boost(nc::diff(inArray, inAxis));
     }
 
     //================================================================================
@@ -1441,7 +1441,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(nc::divide<dtypeOut>(inArray1, inArray2));
+        return nc2Boost(nc::divide<dtypeOut>(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1449,7 +1449,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(nc::dot<dtypeOut>(inArray1, inArray2));
+        return nc2Boost(nc::dot<dtypeOut>(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1457,7 +1457,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray emptyRowCol(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(nc::empty<dtype>(inNumRows, inNumCols));
+        return nc2Boost(nc::empty<dtype>(inNumRows, inNumCols));
     }
 
     //================================================================================
@@ -1465,7 +1465,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray emptyShape(const Shape& inShape)
     {
-        return numCToBoost(empty<dtype>(inShape));
+        return nc2Boost(empty<dtype>(inShape));
     }
 
     //================================================================================
@@ -1473,7 +1473,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(nc::equal(inArray1, inArray2));
+        return nc2Boost(nc::equal(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1489,7 +1489,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray erfArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(erf(inArray));
+        return nc2Boost(erf(inArray));
     }
 
     //================================================================================
@@ -1505,7 +1505,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray erfcArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(erfc(inArray));
+        return nc2Boost(erfc(inArray));
     }
 
     //================================================================================
@@ -1521,7 +1521,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray expArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(exp(inArray));
+        return nc2Boost(exp(inArray));
     }
 
     //================================================================================
@@ -1537,7 +1537,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray exp2Array(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(exp2(inArray));
+        return nc2Boost(exp2(inArray));
     }
 
     //================================================================================
@@ -1553,7 +1553,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray expm1Array(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(expm1(inArray));
+        return nc2Boost(expm1(inArray));
     }
 
     //================================================================================
@@ -1561,7 +1561,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray eye1D(uint32 inN, int32 inK)
     {
-        return numCToBoost(eye<dtype>(inN, inK));
+        return nc2Boost(eye<dtype>(inN, inK));
     }
 
     //================================================================================
@@ -1569,7 +1569,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray eye2D(uint32 inN, uint32 inM, int32 inK)
     {
-        return numCToBoost(eye<dtype>(inN, inM, inK));
+        return nc2Boost(eye<dtype>(inN, inM, inK));
     }
 
     //================================================================================
@@ -1577,7 +1577,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray eyeShape(const Shape& inShape, int32 inK)
     {
-        return numCToBoost(eye<dtype>(inShape, inK));
+        return nc2Boost(eye<dtype>(inShape, inK));
     }
 
     //================================================================================
@@ -1593,7 +1593,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fixArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(fix(inArray));
+        return nc2Boost(fix(inArray));
     }
 
     //================================================================================
@@ -1609,7 +1609,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray floorArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(floor(inArray));
+        return nc2Boost(floor(inArray));
     }
 
     //================================================================================
@@ -1625,7 +1625,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray floor_divideArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(floor_divide(inArray1, inArray2));
+        return nc2Boost(floor_divide(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1641,7 +1641,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fmaxArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(fmax(inArray1, inArray2));
+        return nc2Boost(fmax(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1657,7 +1657,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fminArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(fmin(inArray1, inArray2));
+        return nc2Boost(fmin(inArray1, inArray2));
     }
 
     template<typename dtype>
@@ -1671,7 +1671,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fmodArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(fmod(inArray1, inArray2));
+        return nc2Boost(fmod(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1679,7 +1679,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fullSquare(uint32 inSquareSize, dtype inValue)
     {
-        return numCToBoost(full(inSquareSize, inValue));
+        return nc2Boost(full(inSquareSize, inValue));
     }
 
     //================================================================================
@@ -1687,7 +1687,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fullRowCol(uint32 inNumRows, uint32 inNumCols, dtype inValue)
     {
-        return numCToBoost(full(inNumRows, inNumCols, inValue));
+        return nc2Boost(full(inNumRows, inNumCols, inValue));
     }
 
     //================================================================================
@@ -1695,7 +1695,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray fullShape(const Shape& inShape, dtype inValue)
     {
-        return numCToBoost(full(inShape, inValue));
+        return nc2Boost(full(inShape, inValue));
     }
 
     //================================================================================
@@ -1729,7 +1729,7 @@ namespace MethodsInterface
     np::ndarray hstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(nc::hstack({ inArray1, inArray2, inArray3, inArray4 }));
+        return nc2Boost(nc::hstack({ inArray1, inArray2, inArray3, inArray4 }));
     }
 
     //================================================================================
@@ -1745,7 +1745,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray hypotArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(hypot<dtypeOut>(inArray1, inArray2));
+        return nc2Boost(hypot<dtypeOut>(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1753,7 +1753,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray interp(const NdArray<dtype>& inX, const NdArray<dtype>& inXp, const NdArray<dtype>& inFp)
     {
-        return numCToBoost(nc::interp(inX, inXp, inFp));
+        return nc2Boost(nc::interp(inX, inXp, inFp));
     }
 
     //================================================================================
@@ -1769,7 +1769,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray isinfArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(nc::isinf(inArray));
+        return nc2Boost(nc::isinf(inArray));
     }
 
     //================================================================================
@@ -1785,7 +1785,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray isnanArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(nc::isnan(inArray));
+        return nc2Boost(nc::isnan(inArray));
     }
 
     //================================================================================
@@ -1801,7 +1801,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray ldexpArray(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
     {
-        return numCToBoost(ldexp(inArray1, inArray2));
+        return nc2Boost(ldexp(inArray1, inArray2));
     }
 
     //================================================================================
@@ -1809,7 +1809,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray nansSquare(uint32 inSquareSize)
     {
-        return numCToBoost(nans<dtype>(inSquareSize));
+        return nc2Boost(nans<dtype>(inSquareSize));
     }
 
     //================================================================================
@@ -1817,7 +1817,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray nansRowCol(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(nans<dtype>(inNumRows, inNumCols));
+        return nc2Boost(nans<dtype>(inNumRows, inNumCols));
     }
 
     //================================================================================
@@ -1825,7 +1825,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray nansShape(const Shape& inShape)
     {
-        return numCToBoost(nans<dtype>(inShape));
+        return nc2Boost(nans<dtype>(inShape));
     }
 
     //================================================================================
@@ -1833,7 +1833,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray nansList(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(nans<dtype>({ inNumRows, inNumCols }));
+        return nc2Boost(nans<dtype>({ inNumRows, inNumCols }));
     }
 
     //================================================================================
@@ -1841,7 +1841,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray negative(const NdArray<dtypeOut> inArray)
     {
-        return numCToBoost(nc::negative<dtypeOut>(inArray));
+        return nc2Boost(nc::negative<dtypeOut>(inArray));
     }
 
     //================================================================================
@@ -1873,7 +1873,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray logArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(log(inArray));
+        return nc2Boost(log(inArray));
     }
 
     //================================================================================
@@ -1889,7 +1889,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray log10Array(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(log10(inArray));
+        return nc2Boost(log10(inArray));
     }
 
     //================================================================================
@@ -1905,7 +1905,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray log1pArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(log1p(inArray));
+        return nc2Boost(log1p(inArray));
     }
 
     //================================================================================
@@ -1921,7 +1921,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray log2Array(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(log2(inArray));
+        return nc2Boost(log2(inArray));
     }
 
     //================================================================================
@@ -1945,7 +1945,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray newbyteorderArray(const NdArray<dtype>& inArray, Endian inEndianess)
     {
-        return numCToBoost(newbyteorder(inArray, inEndianess));
+        return nc2Boost(newbyteorder(inArray, inEndianess));
     }
 
     //================================================================================
@@ -1953,7 +1953,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray onesSquare(uint32 inSquareSize)
     {
-        return numCToBoost(ones<dtype>(inSquareSize));
+        return nc2Boost(ones<dtype>(inSquareSize));
     }
 
     //================================================================================
@@ -1961,7 +1961,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray onesRowCol(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(ones<dtype>(inNumRows, inNumCols));
+        return nc2Boost(ones<dtype>(inNumRows, inNumCols));
     }
 
     //================================================================================
@@ -1969,7 +1969,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray onesShape(const Shape& inShape)
     {
-        return numCToBoost(ones<dtype>(inShape));
+        return nc2Boost(ones<dtype>(inShape));
     }
 
     //================================================================================
@@ -1977,7 +1977,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray sqrArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(sqr(inArray));
+        return nc2Boost(sqr(inArray));
     }
 
     //================================================================================
@@ -1985,7 +1985,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray powerArrayScaler(const NdArray<dtype>& inArray, uint8 inExponent)
     {
-        return numCToBoost(power<dtypeOut>(inArray, inExponent));
+        return nc2Boost(power<dtypeOut>(inArray, inExponent));
     }
 
     //================================================================================
@@ -1993,7 +1993,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray powerArrayArray(const NdArray<dtype>& inArray, const NdArray<uint8>& inExponents)
     {
-        return numCToBoost(power<dtypeOut>(inArray, inExponents));
+        return nc2Boost(power<dtypeOut>(inArray, inExponents));
     }
 
     //================================================================================
@@ -2001,7 +2001,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray powerfArrayScaler(const NdArray<dtype>& inArray, double inExponent)
     {
-        return numCToBoost(powerf<dtypeOut>(inArray, inExponent));
+        return nc2Boost(powerf<dtypeOut>(inArray, inExponent));
     }
 
     //================================================================================
@@ -2009,7 +2009,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray powerfArrayArray(const NdArray<dtype>& inArray, const NdArray<double>& inExponents)
     {
-        return numCToBoost(powerf<dtypeOut>(inArray, inExponents));
+        return nc2Boost(powerf<dtypeOut>(inArray, inExponents));
     }
 
     //================================================================================
@@ -2017,7 +2017,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray putmask(NdArray<dtype>& inArray, const NdArray<bool>& inMask, const NdArray<dtype>& inValues)
     {
-        return numCToBoost(nc::putmask(inArray, inMask, inValues));
+        return nc2Boost(nc::putmask(inArray, inMask, inValues));
     }
 
     //================================================================================
@@ -2025,7 +2025,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray putmaskScaler(NdArray<dtype>& inArray, const NdArray<bool>& inMask, dtype inValue)
     {
-        return numCToBoost(putmask(inArray, inMask, inValue));
+        return nc2Boost(putmask(inArray, inMask, inValue));
     }
 
     //================================================================================
@@ -2041,7 +2041,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray rad2degArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(rad2deg(inArray));
+        return nc2Boost(rad2deg(inArray));
     }
 
     //================================================================================
@@ -2057,7 +2057,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray radiansArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(radians(inArray));
+        return nc2Boost(radians(inArray));
     }
 
     //================================================================================
@@ -2073,7 +2073,7 @@ namespace MethodsInterface
     template<typename dtypeOut = double, typename dtype>
     np::ndarray remainderArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return numCToBoost(remainder<dtypeOut>(inArray1, inArray2));
+        return nc2Boost(remainder<dtypeOut>(inArray1, inArray2));
     }
 
     //================================================================================
@@ -2137,7 +2137,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray rintArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(rint(inArray));
+        return nc2Boost(rint(inArray));
     }
 
     //================================================================================
@@ -2153,7 +2153,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray roundArray(const NdArray<dtype>& inArray, uint8 inDecimals)
     {
-        return numCToBoost(round(inArray, inDecimals));
+        return nc2Boost(round(inArray, inDecimals));
     }
 
     //================================================================================
@@ -2162,7 +2162,7 @@ namespace MethodsInterface
     np::ndarray row_stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(nc::row_stack({ inArray1, inArray2, inArray3, inArray4 }));
+        return nc2Boost(nc::row_stack({ inArray1, inArray2, inArray3, inArray4 }));
     }
 
     //================================================================================
@@ -2178,7 +2178,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray signArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(sign(inArray));
+        return nc2Boost(sign(inArray));
     }
 
     //================================================================================
@@ -2194,7 +2194,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray signbitArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(signbit(inArray));
+        return nc2Boost(signbit(inArray));
     }
 
     //================================================================================
@@ -2210,7 +2210,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray sinArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(sin(inArray));
+        return nc2Boost(sin(inArray));
     }
 
     //================================================================================
@@ -2226,7 +2226,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray sincArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(sinc(inArray));
+        return nc2Boost(sinc(inArray));
     }
 
     //================================================================================
@@ -2242,7 +2242,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray sinhArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(sinh(inArray));
+        return nc2Boost(sinh(inArray));
     }
 
     //================================================================================
@@ -2258,7 +2258,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray sqrtArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(sqrt(inArray));
+        return nc2Boost(sqrt(inArray));
     }
 
     //================================================================================
@@ -2274,7 +2274,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray squareArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(square(inArray));
+        return nc2Boost(square(inArray));
     }
 
     //================================================================================
@@ -2290,7 +2290,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray tanArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(tan(inArray));
+        return nc2Boost(tan(inArray));
     }
 
     //================================================================================
@@ -2306,7 +2306,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray tanhArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(tanh(inArray));
+        return nc2Boost(tanh(inArray));
     }
 
     //================================================================================
@@ -2314,7 +2314,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray tileRectangle(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(tile(inArray, inNumRows, inNumCols));
+        return nc2Boost(tile(inArray, inNumRows, inNumCols));
     }
 
     //================================================================================
@@ -2322,7 +2322,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray tileShape(const NdArray<dtype>& inArray, const Shape& inRepShape)
     {
-        return numCToBoost(tile(inArray, inRepShape));
+        return nc2Boost(tile(inArray, inRepShape));
     }
 
     //================================================================================
@@ -2330,7 +2330,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray tileList(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(tile(inArray, { inNumRows, inNumCols }));
+        return nc2Boost(tile(inArray, { inNumRows, inNumCols }));
     }
 
     //================================================================================
@@ -2338,7 +2338,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray trapzDx(const NdArray<dtype>& inY, double dx = 1.0, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(trapz(inY, dx, inAxis));
+        return nc2Boost(trapz(inY, dx, inAxis));
     }
 
     //================================================================================
@@ -2346,7 +2346,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray trapz(const NdArray<dtype>& inY, const NdArray<dtype>& inX, Axis inAxis = Axis::NONE)
     {
-        return numCToBoost(nc::trapz(inY, inX, inAxis));
+        return nc2Boost(nc::trapz(inY, inX, inAxis));
     }
 
     //================================================================================
@@ -2354,7 +2354,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray triuSquare(uint32 inSquareSize, int32 inOffset)
     {
-        return numCToBoost(triu<dtype>(inSquareSize, inOffset));
+        return nc2Boost(triu<dtype>(inSquareSize, inOffset));
     }
 
     //================================================================================
@@ -2362,7 +2362,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray triuRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
     {
-        return numCToBoost(triu<dtype>(inNumRows, inNumCols, inOffset));
+        return nc2Boost(triu<dtype>(inNumRows, inNumCols, inOffset));
     }
 
     //================================================================================
@@ -2370,7 +2370,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray triuArray(const NdArray<dtype>& inArray, int32 inOffset)
     {
-        return numCToBoost(triu(inArray, inOffset));
+        return nc2Boost(triu(inArray, inOffset));
     }
 
     //================================================================================
@@ -2378,7 +2378,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray trilSquare(uint32 inSquareSize, int32 inOffset)
     {
-        return numCToBoost(tril<dtype>(inSquareSize, inOffset));
+        return nc2Boost(tril<dtype>(inSquareSize, inOffset));
     }
 
     //================================================================================
@@ -2386,7 +2386,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray trilRect(uint32 inNumRows, uint32 inNumCols, int32 inOffset)
     {
-        return numCToBoost(tril<dtype>(inNumRows, inNumCols, inOffset));
+        return nc2Boost(tril<dtype>(inNumRows, inNumCols, inOffset));
     }
 
     //================================================================================
@@ -2394,7 +2394,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray trilArray(const NdArray<dtype>& inArray, int32 inOffset)
     {
-        return numCToBoost(tril(inArray, inOffset));
+        return nc2Boost(tril(inArray, inOffset));
     }
 
     //================================================================================
@@ -2410,7 +2410,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray unwrapArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(unwrap(inArray));
+        return nc2Boost(unwrap(inArray));
     }
 
     //================================================================================
@@ -2426,7 +2426,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray truncArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(trunc(inArray));
+        return nc2Boost(trunc(inArray));
     }
 
     //================================================================================
@@ -2435,7 +2435,7 @@ namespace MethodsInterface
     np::ndarray stack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4, nc::Axis inAxis)
     {
-        return numCToBoost(nc::stack({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
+        return nc2Boost(nc::stack({ inArray1, inArray2, inArray3, inArray4 }, inAxis));
     }
 
     //================================================================================
@@ -2444,7 +2444,7 @@ namespace MethodsInterface
     np::ndarray vstack(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2,
         const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(nc::vstack({ inArray1, inArray2, inArray3, inArray4 }));
+        return nc2Boost(nc::vstack({ inArray1, inArray2, inArray3, inArray4 }));
     }
 
     //================================================================================
@@ -2452,7 +2452,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray where(const NdArray<bool>& inMask, const NdArray<dtype>& inA, const NdArray<dtype>& inB)
     {
-        return numCToBoost(nc::where(inMask, inA, inB));
+        return nc2Boost(nc::where(inMask, inA, inB));
     }
 
     //================================================================================
@@ -2460,7 +2460,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray zerosSquare(uint32 inSquareSize)
     {
-        return numCToBoost(zeros<dtype>(inSquareSize));
+        return nc2Boost(zeros<dtype>(inSquareSize));
     }
 
     //================================================================================
@@ -2468,7 +2468,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray zerosRowCol(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(zeros<dtype>(inNumRows, inNumCols));
+        return nc2Boost(zeros<dtype>(inNumRows, inNumCols));
     }
 
     //================================================================================
@@ -2476,7 +2476,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray zerosShape(const Shape& inShape)
     {
-        return numCToBoost(zeros<dtype>(inShape));
+        return nc2Boost(zeros<dtype>(inShape));
     }
 
     //================================================================================
@@ -2484,7 +2484,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray zerosList(uint32 inNumRows, uint32 inNumCols)
     {
-        return numCToBoost(zeros<dtype>({ inNumRows, inNumCols }));
+        return nc2Boost(zeros<dtype>({ inNumRows, inNumCols }));
     }
 }
 
@@ -2493,7 +2493,7 @@ namespace RandomInterface
     template<typename dtype>
     np::ndarray permutationScaler(dtype inValue)
     {
-        return numCToBoost(Random<dtype>::permutation(inValue));
+        return nc2Boost(Random<dtype>::permutation(inValue));
     }
 
     //================================================================================
@@ -2501,7 +2501,7 @@ namespace RandomInterface
     template<typename dtype>
     np::ndarray permutationArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(Random<dtype>::permutation(inArray));
+        return nc2Boost(Random<dtype>::permutation(inArray));
     }
 }
 
@@ -2510,13 +2510,13 @@ namespace LinalgInterface
     template<typename dtype>
     np::ndarray hatArray(const NdArray<dtype>& inArray)
     {
-        return numCToBoost(linalg::hat(inArray));
+        return nc2Boost(linalg::hat(inArray));
     }
 
     template<typename dtypeOut = double, typename dtype>
     np::ndarray multi_dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, const NdArray<dtype>& inArray3, const NdArray<dtype>& inArray4)
     {
-        return numCToBoost(linalg::multi_dot<dtypeOut>({ inArray1 ,inArray2, inArray3, inArray4 }));
+        return nc2Boost(linalg::multi_dot<dtypeOut>({ inArray1 ,inArray2, inArray3, inArray4 }));
     }
 }
 
@@ -2524,41 +2524,41 @@ namespace RotationsInterface
 {
     np::ndarray angularVelocity(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inTime)
     {
-        return numCToBoost(inQuat1.angularVelocity(inQuat2, inTime));
+        return nc2Boost(inQuat1.angularVelocity(inQuat2, inTime));
     }
 
     np::ndarray nlerp(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inPercent)
     {
-        return numCToBoost(inQuat1.nlerp(inQuat2, inPercent).toNdArray());
+        return nc2Boost(inQuat1.nlerp(inQuat2, inPercent).toNdArray());
     }
 
     np::ndarray slerp(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inPercent)
     {
-        return numCToBoost(inQuat1.slerp(inQuat2, inPercent).toNdArray());
+        return nc2Boost(inQuat1.slerp(inQuat2, inPercent).toNdArray());
     }
 
     np::ndarray toDCM(const rotations::Quaternion& inQuat)
     {
-        return numCToBoost(inQuat.toDCM());
+        return nc2Boost(inQuat.toDCM());
     }
 
     np::ndarray multiplyScaler(const rotations::Quaternion& inQuat, double inScaler)
     {
         const rotations::Quaternion returnQuat = inQuat * inScaler;
-        return numCToBoost(returnQuat.toNdArray());
+        return nc2Boost(returnQuat.toNdArray());
     }
 
     template<typename dtype>
     np::ndarray multiplyArray(const rotations::Quaternion& inQuat, const NdArray<dtype>& inArray)
     {
         NdArray<double> returnArray = inQuat * inArray;
-        return numCToBoost(returnArray);
+        return nc2Boost(returnArray);
     }
 
     np::ndarray multiplyQuaternion(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2)
     {
         const rotations::Quaternion returnQuat = inQuat1 * inQuat2;
-        return numCToBoost(returnQuat.toNdArray());
+        return nc2Boost(returnQuat.toNdArray());
     }
 }
 
@@ -2639,7 +2639,7 @@ namespace RandomInterface
     template<typename dtype>
     np::ndarray choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
     {
-        return numCToBoost(nc::Random<dtype>::choice(inArray, inNum));
+        return nc2Boost(nc::Random<dtype>::choice(inArray, inNum));
     }
 }
 

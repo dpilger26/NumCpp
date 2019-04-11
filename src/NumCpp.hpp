@@ -35,9 +35,6 @@
 #define _CRT_SECURE_NO_WARNINGS // for fopen with Visual Studio
 #endif
 
-#ifdef INCLUDE_PYTHON_INTERFACE
-#include"NumCpp/PythonInterface.hpp"
-#endif
 #include"NumCpp/Constants.hpp"
 #include"NumCpp/Coordinates.hpp"
 #include"NumCpp/DataCube.hpp"
@@ -56,6 +53,10 @@
 #include"NumCpp/Timer.hpp"
 #include"NumCpp/Types.hpp"
 #include"NumCpp/Utils.hpp"
+
+#ifdef INCLUDE_PYTHON_INTERFACE
+#include"NumCpp/PythonInterface.hpp"
+#endif
 
 /// \example Example.cpp
 /// Examples from the Quick Start Guide in README.md at [GitHub Repository](https://github.com/dpilger26/NumCpp)
