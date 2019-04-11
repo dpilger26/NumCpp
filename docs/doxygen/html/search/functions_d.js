@@ -16,6 +16,8 @@ var searchData=
   ['nansum',['nansum',['../namespacenc.html#a90a93e3e4701f10b1e71c7142aeef36b',1,'nc']]],
   ['nanvar',['nanvar',['../namespacenc.html#a63de664afff4733cc1d166d22b18bcb4',1,'nc']]],
   ['nbytes',['nbytes',['../classnc_1_1_nd_array.html#ade202c90305ccd24781a9b0f8bf601a8',1,'nc::NdArray::nbytes()'],['../namespacenc.html#a66464387c8d92793b5355e2afd107cbc',1,'nc::nbytes()']]],
+  ['nc2boost',['nc2Boost',['../namespacenc.html#a7560dbbdbc3a93c94bb8843a0ad4e566',1,'nc']]],
+  ['nc2pybind',['nc2pybind',['../namespacenc.html#a6ad5d7df2908ec54bd470ea3f7f543c6',1,'nc']]],
   ['ndarray',['NdArray',['../classnc_1_1_nd_array.html#af8dcd9ba696d8f162f17d007a70b678b',1,'nc::NdArray::NdArray()=default'],['../classnc_1_1_nd_array.html#aab6f91155747a0e1b7558a943b6cad7f',1,'nc::NdArray::NdArray(uint32 inSquareSize)'],['../classnc_1_1_nd_array.html#a85767f0faf389dccbfbef1ab1368fd0a',1,'nc::NdArray::NdArray(uint32 inNumRows, uint32 inNumCols)'],['../classnc_1_1_nd_array.html#acc1782af661d912997d703c5cc17858e',1,'nc::NdArray::NdArray(const Shape &amp;inShape)'],['../classnc_1_1_nd_array.html#a7968779d8fad8767be520b043bbe8787',1,'nc::NdArray::NdArray(const std::initializer_list&lt; dtype &gt; &amp;inList)'],['../classnc_1_1_nd_array.html#aa04abd2ad7ff2b1edefb9f0c5b5fa760',1,'nc::NdArray::NdArray(const std::initializer_list&lt; std::initializer_list&lt; dtype &gt; &gt; &amp;inList)'],['../classnc_1_1_nd_array.html#a2906a2dd02b69a0b749df1c287b0dca2',1,'nc::NdArray::NdArray(const std::vector&lt; dtype &gt; &amp;inVector)'],['../classnc_1_1_nd_array.html#a7d96f6aa3344895ef7e8c59706a86349',1,'nc::NdArray::NdArray(const std::deque&lt; dtype &gt; &amp;inDeque)'],['../classnc_1_1_nd_array.html#a62bbaf312f96384085f982a4e651227e',1,'nc::NdArray::NdArray(const std::set&lt; dtype &gt; &amp;inSet)'],['../classnc_1_1_nd_array.html#a0ddc1e544c4cbd89ea2002fe7e7b223b',1,'nc::NdArray::NdArray(const_iterator inFirst, const_iterator inLast)'],['../classnc_1_1_nd_array.html#a49a0217b39777e91d02bdb5c5183f14b',1,'nc::NdArray::NdArray(const dtype *inBeginning, uint32 inNumBytes)'],['../classnc_1_1_nd_array.html#a03d119607f3163ab37e72efabcf0ce9a',1,'nc::NdArray::NdArray(const NdArray&lt; dtype &gt; &amp;inOtherArray)'],['../classnc_1_1_nd_array.html#a59f268663dba2d3a5a0c2ad3460f33b6',1,'nc::NdArray::NdArray(NdArray&lt; dtype &gt; &amp;&amp;inOtherArray) noexcept']]],
   ['nearestboundary',['nearestBoundary',['../namespacenc_1_1filter.html#a239ebb21f57cfb56544c4247eed568d3',1,'nc::filter']]],
   ['nearestboundary1d',['nearestBoundary1d',['../namespacenc_1_1filter.html#a0dbad7f335cf620e347ccd0929c2bdfb',1,'nc::filter']]],
@@ -29,7 +31,6 @@ var searchData=
   ['normal',['normal',['../classnc_1_1_random.html#a476e3a7c5c3c861bfdd8a18ddee7513c',1,'nc::Random']]],
   ['not_5fequal',['not_equal',['../namespacenc.html#a05f56f872438107587c8dea69950cf25',1,'nc']]],
   ['num2str',['num2str',['../namespacenc_1_1utils.html#a3414f757c110414365dd696aceb6ceec',1,'nc::utils']]],
-  ['numctoboost',['numCToBoost',['../namespacenc.html#a31559dac1085f4bd33ecb4f7c6a6c8bc',1,'nc']]],
   ['numdimensions',['numDimensions',['../classnc_1_1_boost_ndarray_helper.html#a7733d98210d4bbd186e374a1e643f67a',1,'nc::BoostNdarrayHelper']]],
   ['numelements',['numElements',['../classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731',1,'nc::Slice']]]
 ];

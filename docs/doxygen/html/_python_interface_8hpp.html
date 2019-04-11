@@ -104,6 +104,31 @@ $(document).ready(function(){initNavTree('_python_interface_8hpp.html','');});
 <code>#include &lt;utility&gt;</code><br />
 <code>#include &quot;boost/python.hpp&quot;</code><br />
 <code>#include &quot;boost/python/numpy.hpp&quot;</code><br />
+<code>#include &quot;pybind11/pybind11.h&quot;</code><br />
+<code>#include &quot;pybind11/numpy.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for PythonInterface.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="_python_interface_8hpp__incl.png" border="0" usemap="#_python_interface_8hpp" alt=""/></div>
+<map name="_python_interface_8hpp" id="_python_interface_8hpp">
+<area shape="rect" id="node2" href="_boost_numpy_ndarray_helper_8hpp.html" title="NumCpp/BoostNumpyNdarray\lHelper.hpp" alt="" coords="516,80,712,121"/>
+<area shape="rect" id="node17" href="_nd_array_8hpp.html" title="NumCpp/NdArray.hpp" alt="" coords="1455,87,1603,114"/>
+<area shape="rect" id="node18" href="_shape_8hpp.html" title="NumCpp/Shape.hpp" alt="" coords="1085,169,1224,196"/>
+<area shape="rect" id="node3" href="_types_8hpp.html" title="NumCpp/Types.hpp" alt="" coords="1357,244,1493,271"/>
+<area shape="rect" id="node5" href="_utils_8hpp.html" title="NumCpp/Utils.hpp" alt="" coords="1206,244,1332,271"/>
+<area shape="rect" id="node6" href="_dtype_info_8hpp.html" title="NumCpp/DtypeInfo.hpp" alt="" coords="2014,319,2169,345"/>
+<area shape="rect" id="node19" href="_slice_8hpp.html" title="NumCpp/Slice.hpp" alt="" coords="1248,169,1378,196"/>
+<area shape="rect" id="node20" href="_constants_8hpp.html" title="NumCpp/Constants.hpp" alt="" coords="1754,169,1914,196"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_python_interface_8hpp__dep__incl.png" border="0" usemap="#_python_interface_8hppdep" alt=""/></div>
+<map name="_python_interface_8hppdep" id="_python_interface_8hppdep">
+<area shape="rect" id="node2" href="_num_cpp_8hpp.html" title="NumCpp.hpp" alt="" coords="25,80,123,107"/>
+</map>
+</div>
 </div>
 <p><a href="_python_interface_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -114,18 +139,24 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a27f1bc2de7b95849d903f6502885b2d4"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a27f1bc2de7b95849d903f6502885b2d4"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a27f1bc2de7b95849d903f6502885b2d4">nc::boostToNumC</a> (const boost::python::numpy::ndarray &amp;inArray)</td></tr>
-<tr class="separator:a27f1bc2de7b95849d903f6502885b2d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac49e5a284be9238624ebd3f548fcb474"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ac49e5a284be9238624ebd3f548fcb474"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ac49e5a284be9238624ebd3f548fcb474">nc::boost2Nc</a> (const boost::python::numpy::ndarray &amp;inArray)</td></tr>
+<tr class="separator:ac49e5a284be9238624ebd3f548fcb474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88f23f27b808315f8a68c8739ba2e077"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a88f23f27b808315f8a68c8739ba2e077"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a88f23f27b808315f8a68c8739ba2e077">nc::list2vector</a> (const boost::python::list &amp;inList)</td></tr>
 <tr class="separator:a88f23f27b808315f8a68c8739ba2e077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fa1169ce5059db0ea3445394f9d5721"><td class="memTemplParams" colspan="2">template&lt;class Key , class Value &gt; </td></tr>
 <tr class="memitem:a8fa1169ce5059db0ea3445394f9d5721"><td class="memTemplItemLeft" align="right" valign="top">boost::python::dict&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a8fa1169ce5059db0ea3445394f9d5721">nc::map2dict</a> (const std::map&lt; Key, Value &gt; &amp;inMap)</td></tr>
 <tr class="separator:a8fa1169ce5059db0ea3445394f9d5721"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31559dac1085f4bd33ecb4f7c6a6c8bc"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a31559dac1085f4bd33ecb4f7c6a6c8bc"><td class="memTemplItemLeft" align="right" valign="top">boost::python::numpy::ndarray&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a31559dac1085f4bd33ecb4f7c6a6c8bc">nc::numCToBoost</a> (const NdArray&lt; dtype &gt; &amp;inArray)</td></tr>
-<tr class="separator:a31559dac1085f4bd33ecb4f7c6a6c8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7560dbbdbc3a93c94bb8843a0ad4e566"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a7560dbbdbc3a93c94bb8843a0ad4e566"><td class="memTemplItemLeft" align="right" valign="top">boost::python::numpy::ndarray&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a7560dbbdbc3a93c94bb8843a0ad4e566">nc::nc2Boost</a> (const NdArray&lt; dtype &gt; &amp;inArray)</td></tr>
+<tr class="separator:a7560dbbdbc3a93c94bb8843a0ad4e566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ad5d7df2908ec54bd470ea3f7f543c6"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a6ad5d7df2908ec54bd470ea3f7f543c6"><td class="memTemplItemLeft" align="right" valign="top">pybind11::array_t&lt; dtype, pybind11::array::c_style|pybind11::array::forcecast &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a6ad5d7df2908ec54bd470ea3f7f543c6">nc::nc2pybind</a> (NdArray&lt; dtype &gt; &amp;inArray)</td></tr>
+<tr class="separator:a6ad5d7df2908ec54bd470ea3f7f543c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7f2bc11fd2e3b483cc9e8dc5420dbf4"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:ab7f2bc11fd2e3b483cc9e8dc5420dbf4"><td class="memTemplItemLeft" align="right" valign="top">NdArray&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ab7f2bc11fd2e3b483cc9e8dc5420dbf4">nc::pybind2Nc</a> (pybind11::array_t&lt; dtype, pybind11::array::c_style|pybind11::array::forcecast &gt; &amp;numpyArray)</td></tr>
+<tr class="separator:ab7f2bc11fd2e3b483cc9e8dc5420dbf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d15eccec6696a2450518cf4f4fcee99"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a3d15eccec6696a2450518cf4f4fcee99"><td class="memTemplItemLeft" align="right" valign="top">boost::python::list&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a3d15eccec6696a2450518cf4f4fcee99">nc::vector2list</a> (std::vector&lt; T &gt; &amp;inVector)</td></tr>
 <tr class="separator:a3d15eccec6696a2450518cf4f4fcee99"><td class="memSeparator" colspan="2">&#160;</td></tr>

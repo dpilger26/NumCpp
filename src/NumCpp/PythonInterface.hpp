@@ -206,17 +206,17 @@ namespace nc
     //============================================================================
     ///						converts a numcpp NdArray to numpy array using pybind bindings
     ///
-    /// @param      NdArray<dtype>
+    /// @param     inArray
     ///
     /// @return    pybind11::array_t
     ///
     template<typename dtype>
-    pybind11::array_t<dtype, pybind11::array::c_style | pybind11::array::forcecast> nc2pybind(NdArray<dtype>& theArray)
+    pybind11::array_t<dtype, pybind11::array::c_style | pybind11::array::forcecast> nc2pybind(NdArray<dtype>& inArray)
     {
-        std::vector<pybind11::ssize_t> shape{ theArray.numRows(), theArray.numCols() };
-        std::vector<pybind11::ssize_t> strides{ theArray.numCols() * sizeof(dtype), 1 * sizeof(dtype) };
+        std::vector<pybind11::ssize_t> shape{ inArray.numRows(), inArray.numCols() };
+        std::vector<pybind11::ssize_t> strides{ inArray.numCols() * sizeof(dtype), 1 * sizeof(dtype) };
 
-        auto bufferInfo = pybind11::buffer_info(theArray.begin(), shape, strides);
+        auto bufferInfo = pybind11::buffer_info(inArray.begin(), shape, strides);
 
         return std::move(pybind11::array_t<dtype, pybind11::array::c_style | pybind11::array::forcecast>(bufferInfo));
     }
