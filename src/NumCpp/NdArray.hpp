@@ -402,6 +402,7 @@ namespace nc
                 size_ = inOtherArray.size_;
                 endianess_ = inOtherArray.endianess_;
                 array_ = inOtherArray.array_;
+                ownsPointer_ = inOtherArray.ownsPointer_;
 
                 inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
                 inOtherArray.array_ = nullptr;
@@ -543,6 +544,35 @@ namespace nc
             for (uint32 i = 0; i < indices.size(); ++i)
             {
                 outArray[i] = this->operator[](indices[i]);
+            }
+
+            return std::move(outArray);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the values from the input indices
+        ///
+        /// @param
+        ///				inIndices
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> operator[](const NdArray<uint32> inIndices) const
+        {
+            if (inIndices.max().item() > size_ - 1)
+            {
+                std::string errStr = "ERROR: getByIndices: input indices must be less than the array size.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            auto uniqueIndices = std::set<uint32>(inIndices.cbegin(), inIndices.cend());
+            auto outArray = NdArray<dtype>(1, static_cast<uint32>(uniqueIndices.size()));
+            uint32 i{ 0 };
+            for (auto& index : uniqueIndices)
+            {
+                outArray[i++] = this->operator[](index);
             }
 
             return std::move(outArray);
@@ -1808,26 +1838,11 @@ namespace nc
         /// @param
         ///				inIndices
         /// @return
-        ///				value
+        ///				values
         ///
         NdArray<dtype> getByIndices(const NdArray<uint32>& inIndices) const
         {
-            if (inIndices.max().item() > size_ - 1)
-            {
-                std::string errStr = "ERROR: getByIndices: input indices must be less than the array size.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
-            }
-
-            auto uniqueIndices = std::set<uint32>(inIndices.cbegin(), inIndices.cend());
-            auto outArray = NdArray<dtype>(1, static_cast<uint32>(uniqueIndices.size()));
-            uint32 i{ 0 };
-            for (auto& index : uniqueIndices)
-            {
-                outArray[i++] = this->operator[](index);
-            }
-
-            return std::move(outArray);
+            return std::move(this->operator[](inIndices));
         }
 
         //============================================================================
@@ -1839,7 +1854,7 @@ namespace nc
         /// @param
         ///				inMask
         /// @return
-        ///				value
+        ///				values
         ///
         NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
         {
@@ -4132,6 +4147,22 @@ namespace nc
             NdArray<dtype> returnArray(shape_);
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [](dtype value) noexcept -> dtype { return ~value; });
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Takes the not of the array
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> operator!() const
+        {
+            NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [](dtype value) noexcept -> dtype { return !value; });
 
             return std::move(returnArray);
         }
