@@ -4158,11 +4158,11 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator!() const
+        NdArray<bool> operator!() const
         {
-            NdArray<dtype> returnArray(shape_);
+            NdArray<bool> returnArray(shape_);
             std::transform(cbegin(), cend(), returnArray.begin(),
-                [](dtype value) noexcept -> dtype { return !value; });
+                [](dtype value) noexcept -> bool { return !value; });
 
             return std::move(returnArray);
         }
