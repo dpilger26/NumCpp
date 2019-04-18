@@ -570,7 +570,7 @@ namespace nc
         {
             if (inIndices.max().item() > size_ - 1)
             {
-                std::string errStr = "ERROR: getByIndices: input indices must be less than the array size.";
+                std::string errStr = "ERROR: operator[]: input indices must be less than the array size.";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -4178,7 +4178,7 @@ namespace nc
         {
             NdArray<dtype> returnArray(shape_);
             std::transform(cbegin(), cend(), returnArray.begin(),
-                [inScalar](dtype value1, dtype value2) noexcept -> dtype { return value1 && inScalar; });
+                [inScalar](dtype value) noexcept -> dtype { return value && inScalar; });
 
             return std::move(returnArray);
         }
@@ -4221,7 +4221,7 @@ namespace nc
         {
             NdArray<dtype> returnArray(shape_);
             std::transform(cbegin(), cend(), returnArray.begin(),
-                [inScalar](dtype value1, dtype value2) noexcept -> dtype { return value1 || inScalar; });
+                [inScalar](dtype value) noexcept -> dtype { return value || inScalar; });
 
             return std::move(returnArray);
         }

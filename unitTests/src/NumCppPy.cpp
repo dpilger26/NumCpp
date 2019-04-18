@@ -754,6 +754,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray operatorNot(const NdArray<dtype>& self)
+    {
+        return nc2Boost(!self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray operatorEqualityScaler(const NdArray<dtype>& self, dtype inValue)
     {
         return nc2Boost(self == inValue);
@@ -1200,6 +1208,38 @@ namespace MethodsInterface
     np::ndarray bitwise_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return nc2Boost(nc::bitwise_xor(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray andOperatorArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return nc2Boost(inArray1 && inArray2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray andOperatorScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    {
+        return nc2Boost(inArray && inScaler);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray orOperatorArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return nc2Boost(inArray1 || inArray2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray orOperatorScaler(const NdArray<dtype>& inArray, dtype inScaler)
+    {
+        return nc2Boost(inArray || inScaler);
     }
 
     //================================================================================
@@ -2875,6 +2915,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("operatorBitwiseXorScaler", &NdArrayInterface::operatorBitwiseXorScaler<uint32>)
         .def("operatorBitwiseXorArray", &NdArrayInterface::operatorBitwiseXorArray<uint32>)
         .def("operatorBitwiseNot", &NdArrayInterface::operatorBitwiseNot<uint32>)
+        .def("operatorNot", &NdArrayInterface::operatorNot<uint32>)
         .def("operatorBitshiftLeft", &NdArrayInterface::operatorBitshiftLeft<uint32>)
         .def("operatorBitshiftRight", &NdArrayInterface::operatorBitshiftRight<uint32>);
 
@@ -2999,6 +3040,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("bitwise_not", &MethodsInterface::bitwise_not<uint64>);
     bp::def("bitwise_or", &MethodsInterface::bitwise_or<uint64>);
     bp::def("bitwise_xor", &MethodsInterface::bitwise_xor<uint64>);
+    bp::def("andOperatorArray", &MethodsInterface::andOperatorArray<uint64>);
+    bp::def("andOperatorScaler", &MethodsInterface::andOperatorScaler<uint64>);
+    bp::def("orOperatorArray", &MethodsInterface::orOperatorArray<uint64>);
+    bp::def("orOperatorScaler", &MethodsInterface::orOperatorScaler<uint64>);
     bp::def("byteswap", &MethodsInterface::byteswap<uint64>);
     bp::def("cbrtScaler", &MethodsInterface::cbrtScaler<double>);
     bp::def("cbrtArray", &MethodsInterface::cbrtArray<double>);
