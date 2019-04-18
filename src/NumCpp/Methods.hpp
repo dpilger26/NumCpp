@@ -3981,7 +3981,7 @@ namespace nc
             const uint32 fileSize = static_cast<uint32>(in.tellg());
 
             FILE* filePtr = fopen(inFilename.c_str(), "rb");
-            if (filePtr == NULL)
+            if (filePtr == nullptr)
             {
                 std::string errStr = "ERROR: fromfile: unable to open the file.";
                 std::cerr << errStr << std::endl;

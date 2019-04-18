@@ -1,6 +1,7 @@
 import os
 import getpass
 import numpy as np
+import scipy.special as special
 from termcolor import colored
 import sys
 if sys.platform == 'linux':
@@ -1508,7 +1509,7 @@ def doTest():
 
     print(colored('Testing erf scaler', 'cyan'))
     value = np.random.randn(1).item()
-    if np.round(NumCpp.erfScaler(value), 10) == np.round(np.erf(value), 10):
+    if np.round(NumCpp.erfScaler(value), 10) == np.round(special.erf(value), 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1519,14 +1520,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.erfArray(cArray), 10), np.round(np.erf(data), 10)):
+    if np.array_equal(np.round(NumCpp.erfArray(cArray), 10), np.round(special.erf(data), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing erfc scaler', 'cyan'))
     value = np.random.randn(1).item()
-    if np.round(NumCpp.erfcScaler(value), 10) == np.round(1 - np.erf(value), 10):
+    if np.round(NumCpp.erfcScaler(value), 10) == np.round(special.erfc(value), 10):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1537,7 +1538,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.erfcArray(cArray), 10), np.round(1 - np.erf(data), 10)):
+    if np.array_equal(np.round(NumCpp.erfcArray(cArray), 10), np.round(special.erfc(data), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

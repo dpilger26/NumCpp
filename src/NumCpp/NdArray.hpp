@@ -277,7 +277,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        ///						Constructor. Operates as a shell around an already existing
+        ///                     array of data.
         ///
         /// @param				inPtr: dtype* to beginning of the array
         /// @param				numRows: the number of rows in the array
@@ -292,7 +293,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        ///						Constructor.  Copies the contents of the buffer into 
+        ///                     the array.
         ///
         /// @param				inPtr: dtype* to beginning of buffer
         /// @param				inNumBytes: number of bytes
@@ -300,9 +302,14 @@ namespace nc
         NdArray(dtype* inPtr, uint32 inNumBytes) :
             shape_(1, inNumBytes / sizeof(dtype)),
             size_(shape_.size()),
-            array_(inPtr),
-            ownsPointer_(false)
-        {}
+            array_(new dtype[size_]),
+            ownsPointer_(true)
+        {
+            for (uint32 i = 0; i < size_; ++i)
+            {
+                std::copy(inPtr, inPtr + size_, begin());
+            }
+        }
 
         //============================================================================
         // Method Description:
