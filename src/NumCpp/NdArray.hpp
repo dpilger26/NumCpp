@@ -277,7 +277,8 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        ///						Constructor. Operates as a shell around an already existing
+        ///                     array of data.
         ///
         /// @param				inPtr: dtype* to beginning of the array
         /// @param				numRows: the number of rows in the array
@@ -285,14 +286,15 @@ namespace nc
         ///
         NdArray(dtype* inPtr, uint32 numRows, uint32 numCols) :
             shape_(numRows, numCols),
-            size_(numRows* numCols),
+            size_(numRows * numCols),
             array_(inPtr),
             ownsPointer_(false)
         {}
 
         //============================================================================
         // Method Description:
-        ///						Constructor
+        ///						Constructor.  Copies the contents of the buffer into 
+        ///                     the array.
         ///
         /// @param				inPtr: dtype* to beginning of buffer
         /// @param				inNumBytes: number of bytes
@@ -300,9 +302,14 @@ namespace nc
         NdArray(dtype* inPtr, uint32 inNumBytes) :
             shape_(1, inNumBytes / sizeof(dtype)),
             size_(shape_.size()),
-            array_(inPtr),
-            ownsPointer_(false)
-        {}
+            array_(new dtype[size_]),
+            ownsPointer_(true)
+        {
+            for (uint32 i = 0; i < size_; ++i)
+            {
+                std::copy(inPtr, inPtr + size_, begin());
+            }
+        }
 
         //============================================================================
         // Method Description:
@@ -406,6 +413,7 @@ namespace nc
 
                 inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
                 inOtherArray.array_ = nullptr;
+                inOtherArray.ownsPointer_ = false;
             }
 
             return *this;
@@ -562,7 +570,7 @@ namespace nc
         {
             if (inIndices.max().item() > size_ - 1)
             {
-                std::string errStr = "ERROR: getByIndices: input indices must be less than the array size.";
+                std::string errStr = "ERROR: operator[]: input indices must be less than the array size.";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
@@ -4130,6 +4138,92 @@ namespace nc
                 [=](dtype& value) noexcept -> dtype { return value ^= inScalar; });
 
             return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Takes the and of the elements of two arrays
+        ///
+        /// @param
+        ///				inOtherArray
+        /// @return
+        ///				None
+        ///
+        NdArray<dtype> operator&&(const NdArray<dtype>& inOtherArray) const
+        {
+            if (shape_ != inOtherArray.shape_)
+            {
+                std::string errStr = "ERROR: NdArray::operator&&: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(),
+                [](dtype value1, dtype value2) noexcept -> dtype { return value1 && value2; });
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Takes the and of the array and the scalar
+        ///
+        /// @param
+        ///				inScalar
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> operator&&(dtype inScalar) const
+        {
+            NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [inScalar](dtype value) noexcept -> dtype { return value && inScalar; });
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Takes the or of the elements of two arrays
+        ///
+        /// @param
+        ///				inOtherArray
+        /// @return
+        ///				None
+        ///
+        NdArray<dtype> operator||(const NdArray<dtype>& inOtherArray) const
+        {
+            if (shape_ != inOtherArray.shape_)
+            {
+                std::string errStr = "ERROR: NdArray::operator||: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(),
+                [](dtype value1, dtype value2) noexcept -> dtype { return value1 || value2; });
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Takes the or of the array and the scalar
+        ///
+        /// @param
+        ///				inScalar
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> operator||(dtype inScalar) const
+        {
+            NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [inScalar](dtype value) noexcept -> dtype { return value || inScalar; });
+
+            return std::move(returnArray);
         }
 
         //============================================================================
