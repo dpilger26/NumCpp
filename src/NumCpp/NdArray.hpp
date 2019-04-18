@@ -286,7 +286,7 @@ namespace nc
         ///
         NdArray(dtype* inPtr, uint32 numRows, uint32 numCols) :
             shape_(numRows, numCols),
-            size_(numRows* numCols),
+            size_(numRows * numCols),
             array_(inPtr),
             ownsPointer_(false)
         {}
@@ -413,6 +413,7 @@ namespace nc
 
                 inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
                 inOtherArray.array_ = nullptr;
+                inOtherArray.ownsPointer_ = false;
             }
 
             return *this;

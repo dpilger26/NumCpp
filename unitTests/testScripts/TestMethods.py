@@ -267,7 +267,7 @@ def doTest():
 
     print(colored('Testing arccos scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
-    if np.round(NumCpp.arccosScaler(value), 10) == np.round(np.arccos(value), 10):
+    if np.round(NumCpp.arccosScaler(value), 9) == np.round(np.arccos(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -278,14 +278,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.arccosArray(cArray), 10), np.round(np.arccos(data), 10)):
+    if np.array_equal(np.round(NumCpp.arccosArray(cArray), 9), np.round(np.arccos(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing arccosh scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) + 1
-    if np.round(NumCpp.arccoshScaler(value), 10) == np.round(np.arccosh(value), 10):
+    if np.round(NumCpp.arccoshScaler(value), 9) == np.round(np.arccosh(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -296,14 +296,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols) + 1
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.arccoshArray(cArray), 10), np.round(np.arccosh(data), 10)):
+    if np.array_equal(np.round(NumCpp.arccoshArray(cArray), 9), np.round(np.arccosh(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing arcsin scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
-    if np.round(NumCpp.arcsinScaler(value), 10) == np.round(np.arcsin(value), 10):
+    if np.round(NumCpp.arcsinScaler(value), 9) == np.round(np.arcsin(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -314,14 +314,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.arcsinArray(cArray), 10), np.round(np.arcsin(data), 10)):
+    if np.array_equal(np.round(NumCpp.arcsinArray(cArray), 9), np.round(np.arcsin(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing arcsinh scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
-    if np.round(NumCpp.arcsinhScaler(value), 10) == np.round(np.arcsinh(value), 10):
+    if np.round(NumCpp.arcsinhScaler(value), 9) == np.round(np.arcsinh(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -332,14 +332,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.arcsinhArray(cArray), 10), np.round(np.arcsinh(data), 10)):
+    if np.array_equal(np.round(NumCpp.arcsinhArray(cArray), 9), np.round(np.arcsinh(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing arctan scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
-    if np.round(NumCpp.arctanScaler(value), 10) == np.round(np.arctan(value), 10):
+    if np.round(NumCpp.arctanScaler(value), 9) == np.round(np.arctan(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -350,14 +350,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.arctanArray(cArray), 10), np.round(np.arctan(data), 10)):
+    if np.array_equal(np.round(NumCpp.arctanArray(cArray), 9), np.round(np.arctan(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing arctan2 scaler', 'cyan'))
     xy = NumCpp.Random.uniformOnSphere(1, 2).getNumpyArray().flatten()
-    if np.round(NumCpp.arctan2Scaler(xy[1], xy[0]), 10) == np.round(np.arctan2(xy[1], xy[0]), 10):
+    if np.round(NumCpp.arctan2Scaler(xy[1], xy[0]), 9) == np.round(np.arctan2(xy[1], xy[0]), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -372,14 +372,14 @@ def doTest():
     yData = xy[:, 1].reshape(shapeInput)
     cArrayX.setArray(xData)
     cArrayY.setArray(yData)
-    if np.array_equal(np.round(NumCpp.arctan2Array(cArrayY, cArrayX), 10), np.round(np.arctan2(yData, xData), 10)):
+    if np.array_equal(np.round(NumCpp.arctan2Array(cArrayY, cArrayX), 9), np.round(np.arctan2(yData, xData), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing arctanh scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
-    if np.round(NumCpp.arctanhScaler(value), 10) == np.round(np.arctanh(value), 10):
+    if np.round(NumCpp.arctanhScaler(value), 9) == np.round(np.arctanh(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -390,7 +390,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.arctanhArray(cArray), 10), np.round(np.arctanh(data), 10)):
+    if np.array_equal(np.round(NumCpp.arctanhArray(cArray), 9), np.round(np.arctanh(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -770,7 +770,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.cbrtArray(cArray), 10), np.round(np.cbrt(data), 10)):
+    if np.array_equal(np.round(NumCpp.cbrtArray(cArray), 9), np.round(np.cbrt(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -781,7 +781,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols).astype(np.double) * 1000
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.ceilArray(cArray), 10), np.round(np.ceil(data), 10)):
+    if np.array_equal(np.round(NumCpp.ceilArray(cArray), 9), np.round(np.ceil(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -985,7 +985,7 @@ def doTest():
 
     print(colored('Testing cos scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
-    if np.round(NumCpp.cosScaler(value), 10) == np.round(np.cos(value), 10):
+    if np.round(NumCpp.cosScaler(value), 9) == np.round(np.cos(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -996,14 +996,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.cosArray(cArray), 10), np.round(np.cos(data), 10)):
+    if np.array_equal(np.round(NumCpp.cosArray(cArray), 9), np.round(np.cos(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing cosh scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
-    if np.round(NumCpp.cosScaler(value), 10) == np.round(np.cos(value), 10):
+    if np.round(NumCpp.cosScaler(value), 9) == np.round(np.cos(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1014,7 +1014,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.coshArray(cArray), 10), np.round(np.cosh(data), 10)):
+    if np.array_equal(np.round(NumCpp.coshArray(cArray), 9), np.round(np.cosh(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1136,7 +1136,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.cube(cArray), 10), np.round(data * data * data, 10)):
+    if np.array_equal(np.round(NumCpp.cube(cArray), 9), np.round(data * data * data, 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1209,7 +1209,7 @@ def doTest():
 
     print(colored('Testing deg2rad scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * 360
-    if np.round(NumCpp.deg2radScaler(value), 10) == np.round(np.deg2rad(value), 10):
+    if np.round(NumCpp.deg2radScaler(value), 9) == np.round(np.deg2rad(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1220,14 +1220,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols) * 360
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.deg2radArray(cArray), 10), np.round(np.deg2rad(data), 10)):
+    if np.array_equal(np.round(NumCpp.deg2radArray(cArray), 9), np.round(np.deg2rad(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing degrees scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
-    if np.round(NumCpp.degreesScaler(value), 10) == np.round(np.degrees(value), 10):
+    if np.round(NumCpp.degreesScaler(value), 9) == np.round(np.degrees(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1238,7 +1238,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols) * 2 * np.pi
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.degreesArray(cArray), 10), np.round(np.degrees(data), 10)):
+    if np.array_equal(np.round(NumCpp.degreesArray(cArray), 9), np.round(np.degrees(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1399,7 +1399,7 @@ def doTest():
     data2 = np.random.randint(1, 50, [shape.rows, shape.cols]).astype(np.double)
     cArray1.setArray(data1)
     cArray2.setArray(data2)
-    if np.array_equal(np.round(NumCpp.divide(cArray1, cArray2), 10), np.round(np.divide(data1, data2), 10)):
+    if np.array_equal(np.round(NumCpp.divide(cArray1, cArray2), 9), np.round(np.divide(data1, data2), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1509,7 +1509,7 @@ def doTest():
 
     print(colored('Testing erf scaler', 'cyan'))
     value = np.random.randn(1).item()
-    if np.round(NumCpp.erfScaler(value), 10) == np.round(special.erf(value), 10):
+    if np.round(NumCpp.erfScaler(value), 9) == np.round(special.erf(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1520,14 +1520,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.erfArray(cArray), 10), np.round(special.erf(data), 10)):
+    if np.array_equal(np.round(NumCpp.erfArray(cArray), 9), np.round(special.erf(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing erfc scaler', 'cyan'))
     value = np.random.randn(1).item()
-    if np.round(NumCpp.erfcScaler(value), 10) == np.round(special.erfc(value), 10):
+    if np.round(NumCpp.erfcScaler(value), 9) == np.round(special.erfc(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1538,14 +1538,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.erfcArray(cArray), 10), np.round(special.erfc(data), 10)):
+    if np.array_equal(np.round(NumCpp.erfcArray(cArray), 9), np.round(special.erfc(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing exp scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
-    if np.round(NumCpp.expScaler(value), 10) == np.round(np.exp(value), 10):
+    if np.round(NumCpp.expScaler(value), 9) == np.round(np.exp(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1556,14 +1556,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.expArray(cArray), 10), np.round(np.exp(data), 10)):
+    if np.array_equal(np.round(NumCpp.expArray(cArray), 9), np.round(np.exp(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing exp2 scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
-    if np.round(NumCpp.exp2Scaler(value), 10) == np.round(np.exp2(value), 10):
+    if np.round(NumCpp.exp2Scaler(value), 9) == np.round(np.exp2(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1574,14 +1574,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.exp2Array(cArray), 10), np.round(np.exp2(data), 10)):
+    if np.array_equal(np.round(NumCpp.exp2Array(cArray), 9), np.round(np.exp2(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing expm1 scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item())
-    if np.round(NumCpp.expm1Scaler(value), 10) == np.round(np.expm1(value), 10):
+    if np.round(NumCpp.expm1Scaler(value), 9) == np.round(np.expm1(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1592,7 +1592,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.expm1Array(cArray), 10), np.round(np.expm1(data), 10)):
+    if np.array_equal(np.round(NumCpp.expm1Array(cArray), 9), np.round(np.expm1(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -1981,7 +1981,7 @@ def doTest():
     histogram, bins = NumCpp.histogram(cArray, numBins)
     h, b = np.histogram(data, numBins)
     if np.array_equal(histogram.getNumpyArray().flatten().astype(np.int32), h) and \
-            np.array_equal(np.round(bins.getNumpyArray().flatten(), 10), np.round(b, 10)):
+            np.array_equal(np.round(bins.getNumpyArray().flatten(), 9), np.round(b, 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2052,8 +2052,8 @@ def doTest():
     cXp.setArray(xpData)
     cFp.setArray(fpData)
     cX.setArray(xData)
-    if np.array_equal(np.round(NumCpp.interp(cX, cXp, cFp).flatten(), 10),
-                      np.round(np.interp(xData, xpData, fpData), 10)):
+    if np.array_equal(np.round(NumCpp.interp(cX, cXp, cFp).flatten(), 9),
+                      np.round(np.interp(xData, xpData, fpData), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2158,7 +2158,7 @@ def doTest():
     print(colored('Testing ldexp scaler', 'cyan'))
     value1 = np.random.randn(1).item() * 100
     value2 = np.random.randint(1, 20, [1,]).item()
-    if np.round(NumCpp.ldexpScaler(value1, value2), 10) == np.round(np.ldexp(value1, value2), 10):
+    if np.round(NumCpp.ldexpScaler(value1, value2), 9) == np.round(np.ldexp(value1, value2), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2172,7 +2172,7 @@ def doTest():
     data2 = np.random.randint(1, 20, [shape.rows, shape.cols])
     cArray1.setArray(data1)
     cArray2.setArray(data2)
-    if np.array_equal(np.round(NumCpp.ldexpArray(cArray1, cArray2), 10), np.round(np.ldexp(data1, data2), 10)):
+    if np.array_equal(np.round(NumCpp.ldexpArray(cArray1, cArray2), 9), np.round(np.ldexp(data1, data2), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2239,8 +2239,8 @@ def doTest():
     start = np.random.randint(1, 10, [1, ]).item()
     end = np.random.randint(start + 10, 100, [1, ]).item()
     numPoints = np.random.randint(1, 100, [1, ]).item()
-    if np.array_equal(np.round(NumCpp.linspace(start, end, numPoints, True).getNumpyArray().flatten(), 10),
-                      np.round(np.linspace(start, end, numPoints, endpoint=True), 10)):
+    if np.array_equal(np.round(NumCpp.linspace(start, end, numPoints, True).getNumpyArray().flatten(), 9),
+                      np.round(np.linspace(start, end, numPoints, endpoint=True), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2249,15 +2249,15 @@ def doTest():
     start = np.random.randint(1, 10, [1, ]).item()
     end = np.random.randint(start + 10, 100, [1, ]).item()
     numPoints = np.random.randint(1, 100, [1, ]).item()
-    if np.array_equal(np.round(NumCpp.linspace(start, end, numPoints, False).getNumpyArray().flatten(), 10),
-                      np.round(np.linspace(start, end, numPoints, endpoint=False), 10)):
+    if np.array_equal(np.round(NumCpp.linspace(start, end, numPoints, False).getNumpyArray().flatten(), 9),
+                      np.round(np.linspace(start, end, numPoints, endpoint=False), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing log scaler', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
-    if np.round(NumCpp.logScaler(value), 10) == np.round(np.log(value), 10):
+    if np.round(NumCpp.logScaler(value), 9) == np.round(np.log(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2268,14 +2268,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.logArray(cArray), 10), np.round(np.log(data), 10)):
+    if np.array_equal(np.round(NumCpp.logArray(cArray), 9), np.round(np.log(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing log10 scaler', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
-    if np.round(NumCpp.log10Scaler(value), 10) == np.round(np.log10(value), 10):
+    if np.round(NumCpp.log10Scaler(value), 9) == np.round(np.log10(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2286,14 +2286,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.log10Array(cArray), 10), np.round(np.log10(data), 10)):
+    if np.array_equal(np.round(NumCpp.log10Array(cArray), 9), np.round(np.log10(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing log1p scaler', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
-    if np.round(NumCpp.log1pScaler(value), 10) == np.round(np.log1p(value), 10):
+    if np.round(NumCpp.log1pScaler(value), 9) == np.round(np.log1p(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2304,14 +2304,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.log1pArray(cArray), 10), np.round(np.log1p(data), 10)):
+    if np.array_equal(np.round(NumCpp.log1pArray(cArray), 9), np.round(np.log1p(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing log2 scaler', 'cyan'))
     value = np.random.randn(1).item() * 100 + 1000
-    if np.round(NumCpp.log2Scaler(value), 10) == np.round(np.log2(value), 10):
+    if np.round(NumCpp.log2Scaler(value), 9) == np.round(np.log2(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2322,7 +2322,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols) * 100 + 1000
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.log2Array(cArray), 10), np.round(np.log2(data), 10)):
+    if np.array_equal(np.round(NumCpp.log2Array(cArray), 9), np.round(np.log2(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -2883,7 +2883,7 @@ def doTest():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
-    #
+
     # print(colored('Testing nanmedian: axis = Row', 'cyan'))
     # isEven = True
     # while isEven:
@@ -2900,7 +2900,7 @@ def doTest():
     #     print(colored('\tPASS', 'green'))
     # else:
     #     print(colored('\tFAIL', 'red'))
-
+    #
     # print(colored('Testing nanmedian: axis = Col', 'cyan'))
     # isEven = True
     # while isEven:
@@ -3104,8 +3104,8 @@ def doTest():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     if np.array_equal(
-            np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, 'midpoint').getNumpyArray().flatten(), 10),
-            np.round(np.nanpercentile(data, percentile, axis=0, interpolation='midpoint'), 10)):
+            np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, 'midpoint').getNumpyArray().flatten(), 9),
+            np.round(np.nanpercentile(data, percentile, axis=0, interpolation='midpoint'), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3121,8 +3121,8 @@ def doTest():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     if np.array_equal(
-            np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, 'linear').getNumpyArray().flatten(), 10),
-            np.round(np.nanpercentile(data, percentile, axis=0, interpolation='linear'), 10)):
+            np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.ROW, 'linear').getNumpyArray().flatten(), 9),
+            np.round(np.nanpercentile(data, percentile, axis=0, interpolation='linear'), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3186,8 +3186,8 @@ def doTest():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     if np.array_equal(
-            np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, 'midpoint').getNumpyArray().flatten(), 10),
-            np.round(np.nanpercentile(data, percentile, axis=1, interpolation='midpoint'), 10)):
+            np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, 'midpoint').getNumpyArray().flatten(), 9),
+            np.round(np.nanpercentile(data, percentile, axis=1, interpolation='midpoint'), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3203,8 +3203,8 @@ def doTest():
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
     if np.array_equal(
-            np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, 'linear').getNumpyArray().flatten(), 10),
-            np.round(np.nanpercentile(data, percentile, axis=1, interpolation='linear'), 10)):
+            np.round(NumCpp.nanpercentile(cArray, percentile, NumCpp.Axis.COL, 'linear').getNumpyArray().flatten(), 9),
+            np.round(np.nanpercentile(data, percentile, axis=1, interpolation='linear'), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3299,7 +3299,7 @@ def doTest():
     data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    if np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.NONE).item(), 10) == np.round(np.nanstd(data), 10):
+    if np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.NONE).item(), 9) == np.round(np.nanstd(data), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3313,8 +3313,8 @@ def doTest():
     data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 10),
-                      np.round(np.nanstd(data, axis=0), 10)):
+    if np.array_equal(np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 9),
+                      np.round(np.nanstd(data, axis=0), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3328,8 +3328,8 @@ def doTest():
     data[np.random.randint(0, shape.size(), [shape.size() // 10,])] = np.nan
     data = data.reshape(shapeInput)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 10),
-                      np.round(np.nanstd(data, axis=1), 10)):
+    if np.array_equal(np.round(NumCpp.nanstdev(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 9),
+                      np.round(np.nanstd(data, axis=1), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3455,7 +3455,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(-100, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.negative(cArray).getNumpyArray(), 10), np.round(np.negative(data), 10)):
+    if np.array_equal(np.round(NumCpp.negative(cArray).getNumpyArray(), 9), np.round(np.negative(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3740,8 +3740,8 @@ def doTest():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    if np.array_equal(np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, 'midpoint').getNumpyArray().flatten(), 10),
-                      np.round(np.percentile(data, percentile, axis=0, interpolation='midpoint'), 10)):
+    if np.array_equal(np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, 'midpoint').getNumpyArray().flatten(), 9),
+                      np.round(np.percentile(data, percentile, axis=0, interpolation='midpoint'), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3753,8 +3753,8 @@ def doTest():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    if np.array_equal(np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, 'linear').getNumpyArray().flatten(), 10),
-                      np.round(np.percentile(data, percentile, axis=0, interpolation='linear'), 10)):
+    if np.array_equal(np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.ROW, 'linear').getNumpyArray().flatten(), 9),
+                      np.round(np.percentile(data, percentile, axis=0, interpolation='linear'), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3805,8 +3805,8 @@ def doTest():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    if np.array_equal(np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, 'midpoint').getNumpyArray().flatten(), 10),
-                      np.round(np.percentile(data, percentile, axis=1, interpolation='midpoint'), 10)):
+    if np.array_equal(np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, 'midpoint').getNumpyArray().flatten(), 9),
+                      np.round(np.percentile(data, percentile, axis=1, interpolation='midpoint'), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3818,8 +3818,8 @@ def doTest():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
     percentile = np.random.rand(1).item() * 100
-    if np.array_equal(np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, 'linear').getNumpyArray().flatten(), 10),
-                      np.round(np.percentile(data, percentile, axis=1, interpolation='linear'), 10)):
+    if np.array_equal(np.round(NumCpp.percentile(cArray, percentile, NumCpp.Axis.COL, 'linear').getNumpyArray().flatten(), 9),
+                      np.round(np.percentile(data, percentile, axis=1, interpolation='linear'), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3831,7 +3831,7 @@ def doTest():
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     exponent = np.random.randint(0, 5, [1, ]).item()
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.powerArrayScaler(cArray, exponent), 10), np.round(np.power(data, exponent), 10)):
+    if np.array_equal(np.round(NumCpp.powerArrayScaler(cArray, exponent), 9), np.round(np.power(data, exponent), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3845,7 +3845,7 @@ def doTest():
     exponents = np.random.randint(0, 5, [shape.rows, shape.cols]).astype(np.uint8)
     cArray.setArray(data)
     cExponents.setArray(exponents)
-    if np.array_equal(np.round(NumCpp.powerArrayArray(cArray, cExponents), 10), np.round(np.power(data, exponents), 10)):
+    if np.array_equal(np.round(NumCpp.powerArrayArray(cArray, cExponents), 9), np.round(np.power(data, exponents), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3855,9 +3855,9 @@ def doTest():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
-    exponent = np.random.rand(1).item() * 5
+    exponent = np.random.rand(1).item() * 3
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.powerfArrayScaler(cArray, exponent), 10), np.round(np.power(data, exponent), 10)):
+    if np.array_equal(np.round(NumCpp.powerfArrayScaler(cArray, exponent), 9), np.round(np.power(data, exponent), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3868,7 +3868,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     cExponents = NumCpp.NdArray(shape)
     data = np.random.randint(0, 20, [shape.rows, shape.cols])
-    exponents = np.random.rand(shape.rows, shape.cols) * 5
+    exponents = np.random.rand(shape.rows, shape.cols) * 3
     cArray.setArray(data)
     cExponents.setArray(exponents)
     if np.array_equal(np.round(NumCpp.powerfArrayArray(cArray, cExponents), 9), np.round(np.power(data, exponents), 9)):
@@ -3964,7 +3964,7 @@ def doTest():
 
     print(colored('Testing rad2deg scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * 2 * np.pi
-    if np.round(NumCpp.rad2degScaler(value), 10) == np.round(np.rad2deg(value), 10):
+    if np.round(NumCpp.rad2degScaler(value), 9) == np.round(np.rad2deg(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -3982,7 +3982,7 @@ def doTest():
 
     print(colored('Testing radians scaler', 'cyan'))
     value = np.abs(np.random.rand(1).item()) * 360
-    if np.round(NumCpp.radiansScaler(value), 10) == np.round(np.radians(value), 10):
+    if np.round(NumCpp.radiansScaler(value), 9) == np.round(np.radians(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4004,7 +4004,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols) * 100
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.reciprocal(cArray).getNumpyArray(), 10), np.round(np.reciprocal(data), 10)):
+    if np.array_equal(np.round(NumCpp.reciprocal(cArray).getNumpyArray(), 9), np.round(np.reciprocal(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4016,7 +4016,7 @@ def doTest():
     res = NumCpp.remainderScaler(values[1].item(), values[0].item())
     if res < 0:
         res += values[0].item()
-    if np.round(res, 10) == np.round(np.remainder(values[1], values[0]), 10):
+    if np.round(res, 9) == np.round(np.remainder(values[1], values[0]), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4033,7 +4033,7 @@ def doTest():
     cArray2.setArray(data2)
     res = NumCpp.remainderArray(cArray1, cArray2)
     res[res < 0] = res[res < 0] + data2[res < 0]
-    if np.array_equal(np.round(res, 10), np.round(np.remainder(data1, data2), 10)):
+    if np.array_equal(np.round(res, 9), np.round(np.remainder(data1, data2), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4203,7 +4203,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols) * 2 * np.pi
     cArray.setArray(data)
-    if np.array_equal(NumCpp.roundArray(cArray, 10), np.round(data, 10)):
+    if np.array_equal(NumCpp.roundArray(cArray, 9), np.round(data, 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4293,7 +4293,7 @@ def doTest():
 
     print(colored('Testing sin scaler', 'cyan'))
     value = np.random.randn(1).item()
-    if np.round(NumCpp.sinScaler(value), 10) == np.round(np.sin(value), 10):
+    if np.round(NumCpp.sinScaler(value), 9) == np.round(np.sin(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4304,14 +4304,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.sinArray(cArray), 10), np.round(np.sin(data), 10)):
+    if np.array_equal(np.round(NumCpp.sinArray(cArray), 9), np.round(np.sin(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing sinc scaler', 'cyan'))
     value = np.random.randn(1).item()
-    if np.round(NumCpp.sincScaler(value), 10) == np.round(np.sinc(value), 10):
+    if np.round(NumCpp.sincScaler(value), 9) == np.round(np.sinc(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4322,14 +4322,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.sincArray(cArray), 10), np.round(np.sinc(data), 10)):
+    if np.array_equal(np.round(NumCpp.sincArray(cArray), 9), np.round(np.sinc(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing sinh scaler', 'cyan'))
     value = np.random.randn(1).item()
-    if np.round(NumCpp.sinhScaler(value), 10) == np.round(np.sinh(value), 10):
+    if np.round(NumCpp.sinhScaler(value), 9) == np.round(np.sinh(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4340,7 +4340,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randn(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.sinhArray(cArray), 10), np.round(np.sinh(data), 10)):
+    if np.array_equal(np.round(NumCpp.sinhArray(cArray), 9), np.round(np.sinh(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4395,7 +4395,7 @@ def doTest():
 
     print(colored('Testing sqrt scaler', 'cyan'))
     value = np.random.randint(1, 100, [1,]).item()
-    if np.round(NumCpp.sqrtScaler(value), 10) == np.round(np.sqrt(value), 10):
+    if np.round(NumCpp.sqrtScaler(value), 9) == np.round(np.sqrt(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4406,14 +4406,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.sqrtArray(cArray), 10), np.round(np.sqrt(data), 10)):
+    if np.array_equal(np.round(NumCpp.sqrtArray(cArray), 9), np.round(np.sqrt(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing square scaler', 'cyan'))
     value = np.random.randint(1, 100, [1, ]).item()
-    if np.round(NumCpp.squareScaler(value), 10) == np.round(np.square(value), 10):
+    if np.round(NumCpp.squareScaler(value), 9) == np.round(np.square(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4424,7 +4424,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.squareArray(cArray), 10), np.round(np.square(data), 10)):
+    if np.array_equal(np.round(NumCpp.squareArray(cArray), 9), np.round(np.square(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4477,7 +4477,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.round(NumCpp.stdev(cArray, NumCpp.Axis.NONE).item(), 10) == np.round(np.std(data), 10):
+    if np.round(NumCpp.stdev(cArray, NumCpp.Axis.NONE).item(), 9) == np.round(np.std(data), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4488,7 +4488,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.stdev(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 10), np.round(np.std(data, axis=0), 10)):
+    if np.array_equal(np.round(NumCpp.stdev(cArray, NumCpp.Axis.ROW).getNumpyArray().flatten(), 9), np.round(np.std(data, axis=0), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4499,7 +4499,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols]).astype(np.double)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.stdev(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 10), np.round(np.std(data, axis=1), 10)):
+    if np.array_equal(np.round(NumCpp.stdev(cArray, NumCpp.Axis.COL).getNumpyArray().flatten(), 9), np.round(np.std(data, axis=1), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4550,7 +4550,7 @@ def doTest():
 
     print(colored('Testing tan scaler', 'cyan'))
     value = np.random.rand(1).item() * np.pi
-    if np.round(NumCpp.tanScaler(value), 10) == np.round(np.tan(value), 10):
+    if np.round(NumCpp.tanScaler(value), 9) == np.round(np.tan(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4561,14 +4561,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.tanArray(cArray), 10), np.round(np.tan(data), 10)):
+    if np.array_equal(np.round(NumCpp.tanArray(cArray), 9), np.round(np.tan(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing tanh scaler', 'cyan'))
     value = np.random.rand(1).item() * np.pi
-    if np.round(NumCpp.tanhScaler(value), 10) == np.round(np.tanh(value), 10):
+    if np.round(NumCpp.tanhScaler(value), 9) == np.round(np.tanh(value), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4579,7 +4579,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.tanhArray(cArray), 10), np.round(np.tanh(data), 10)):
+    if np.array_equal(np.round(NumCpp.tanhArray(cArray), 9), np.round(np.tanh(data), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4710,7 +4710,7 @@ def doTest():
     cArray.setArray(data)
     integralC = NumCpp.trapzDx(cArray, dx, NumCpp.Axis.NONE).item()
     integralPy = np.trapz(data, dx=dx)
-    if np.round(integralC, 10) == np.round(integralPy, 10):
+    if np.round(integralC, 9) == np.round(integralPy, 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4754,7 +4754,7 @@ def doTest():
     cArrayX.setArray(dx)
     integralC = NumCpp.trapz(cArrayY, cArrayX, NumCpp.Axis.NONE).item()
     integralPy = np.trapz(data, x=dx)
-    if np.round(integralC, 10) == np.round(integralPy, 10):
+    if np.round(integralC, 9) == np.round(integralPy, 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4942,7 +4942,7 @@ def doTest():
 
     print(colored('Testing unwrap scaler', 'cyan'))
     value = np.random.randn(1).item() * 3 * np.pi
-    if np.round(NumCpp.unwrapScaler(value), 10) == np.round(np.arctan2(np.sin(value), np.cos(value)), 10):
+    if np.round(NumCpp.unwrapScaler(value), 9) == np.round(np.arctan2(np.sin(value), np.cos(value)), 9):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -4953,7 +4953,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    if np.array_equal(np.round(NumCpp.unwrapArray(cArray), 10), np.round(np.arctan2(np.sin(data), np.cos(data)), 10)):
+    if np.array_equal(np.round(NumCpp.unwrapArray(cArray), 9), np.round(np.arctan2(np.sin(data), np.cos(data)), 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
