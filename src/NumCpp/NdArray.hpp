@@ -3140,7 +3140,7 @@ namespace nc
                 double multFactor = utils::power(10.0, inNumDecimals);
                 for (uint32 i = 0; i < size_; ++i)
                 {
-                    returnArray[i] = static_cast<dtype>(std::round(static_cast<double>(array_[i]) * multFactor) / multFactor);
+                    returnArray[i] = static_cast<dtype>(std::nearbyint(static_cast<double>(array_[i]) * multFactor) / multFactor);
                 }
 
                 return std::move(returnArray);

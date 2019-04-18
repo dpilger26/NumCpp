@@ -7401,7 +7401,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals)
     {
-        return std::move(inArray.round(inDecimals));
+        return std::move(inArray.copy().round(inDecimals));
     }
 
     //============================================================================
