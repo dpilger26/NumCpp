@@ -4134,6 +4134,92 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Takes the and of the elements of two arrays
+        ///
+        /// @param
+        ///				inOtherArray
+        /// @return
+        ///				None
+        ///
+        NdArray<dtype> operator&&(const NdArray<dtype>& inOtherArray) const
+        {
+            if (shape_ != inOtherArray.shape_)
+            {
+                std::string errStr = "ERROR: NdArray::operator&&: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(),
+                [](dtype value1, dtype value2) noexcept -> dtype { return value1 && value2; });
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Takes the and of the array and the scalar
+        ///
+        /// @param
+        ///				inScalar
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> operator&&(dtype inScalar) const
+        {
+            NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [inScalar](dtype value1, dtype value2) noexcept -> dtype { return value1 && inScalar; });
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Takes the or of the elements of two arrays
+        ///
+        /// @param
+        ///				inOtherArray
+        /// @return
+        ///				None
+        ///
+        NdArray<dtype> operator||(const NdArray<dtype>& inOtherArray) const
+        {
+            if (shape_ != inOtherArray.shape_)
+            {
+                std::string errStr = "ERROR: NdArray::operator||: Array dimensions do not match.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+
+            NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(),
+                [](dtype value1, dtype value2) noexcept -> dtype { return value1 || value2; });
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Takes the or of the array and the scalar
+        ///
+        /// @param
+        ///				inScalar
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> operator||(dtype inScalar) const
+        {
+            NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), returnArray.begin(),
+                [inScalar](dtype value1, dtype value2) noexcept -> dtype { return value1 || inScalar; });
+
+            return std::move(returnArray);
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Takes the bitwise not of the array
         ///
         /// @return
