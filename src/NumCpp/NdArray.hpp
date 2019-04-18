@@ -538,7 +538,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator[](const NdArray<bool> inMask) const
+        NdArray<dtype> operator[](const NdArray<bool>& inMask) const
         {
             if (inMask.shape() != shape_)
             {
@@ -566,7 +566,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator[](const NdArray<uint32> inIndices) const
+        NdArray<dtype> operator[](const NdArray<uint32>& inIndices) const
         {
             if (inIndices.max().item() > size_ - 1)
             {
