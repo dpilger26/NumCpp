@@ -186,21 +186,18 @@ namespace nc
     /// @return     NdArray<dtype>
     ///
     template<typename dtype>
-    NdArray<dtype> pybind2Nc(pybind11::array_t<dtype, pybind11::array::c_style | pybind11::array::forcecast>& numpyArray)
+    NdArray<dtype> pybind2nc(pybind11::array_t<dtype, pybind11::array::c_style>& numpyArray)
     {
         auto bufferInfo = numpyArray.request();
         if (bufferInfo.shape.size() != 2)
-
         {
-
             throw std::invalid_argument("ERROR: input array must be 2 dimensional.");
-
         }
 
         uint32 numRows = static_cast<uint32>(bufferInfo.shape[0]);
         uint32 numCols = static_cast<uint32>(bufferInfo.shape[1]);
 
-        return std::move(NdArray<dtype>(reinterpret_cast<dtype*>(bufferInfo.ptr), numRows, numCols));
+        return NdArray<dtype>(reinterpret_cast<dtype*>(bufferInfo.ptr), numRows, numCols);
     }
 
     //============================================================================
@@ -211,14 +208,14 @@ namespace nc
     /// @return    pybind11::array_t
     ///
     template<typename dtype>
-    pybind11::array_t<dtype, pybind11::array::c_style | pybind11::array::forcecast> nc2pybind(NdArray<dtype>& inArray)
+    pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray)
     {
-        std::vector<pybind11::ssize_t> shape{ inArray.numRows(), inArray.numCols() };
-        std::vector<pybind11::ssize_t> strides{ inArray.numCols() * sizeof(dtype), 1 * sizeof(dtype) };
+        Shape inShape = inArray.shape();
+        std::vector<pybind11::ssize_t> shape{ inShape.rows, inShape.cols };
+        std::vector<pybind11::ssize_t> strides{ inShape.cols * sizeof(dtype), 1 * sizeof(dtype) };
+        typename py::capsule reference(inArray.begin(), [](void* ptr) {});  // needed to pass back a reference instead of a copy
 
-        auto bufferInfo = pybind11::buffer_info(inArray.begin(), shape, strides);
-
-        return std::move(pybind11::array_t<dtype, pybind11::array::c_style | pybind11::array::forcecast>(bufferInfo));
+        return pybind11::array_t<dtype>(shape, strides, inArray.begin(), reference);
     }
 #endif
 }
