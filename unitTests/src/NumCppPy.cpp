@@ -3487,6 +3487,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("convolve1d", &filter::convolve1d<double>);
     bp::def("gaussianFilter", &filter::gaussianFilter<double>);
     bp::def("gaussianFilter1d", &filter::gaussianFilter1d<double>);
+    bp::def("laplaceFilter", &filter::laplace<double>);
     bp::def("maximumFilter", &filter::maximumFilter<double>);
     bp::def("maximumFilter1d", &filter::maximumFilter1d<double>);
     bp::def("medianFilter", &filter::medianFilter<double>);

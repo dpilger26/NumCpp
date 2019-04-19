@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['laplace',['laplace',['../classnc_1_1_random.html#a3ea05e551319c53e42f4c81ac1bb6e2d',1,'nc::Random']]],
+  ['laplace',['laplace',['../classnc_1_1_random.html#a3ea05e551319c53e42f4c81ac1bb6e2d',1,'nc::Random::laplace()'],['../namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10',1,'nc::filter::laplace()']]],
   ['lcm',['lcm',['../namespacenc.html#a7ffd0c15b8419a5d84458d4009b38b88',1,'nc::lcm(dtype inValue1, dtype inValue2) noexcept'],['../namespacenc.html#ab766653e3341c031072e98e2781292ac',1,'nc::lcm(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)'],['../namespacenc.html#aa69cf791720987deb546d71057a668a1',1,'nc::lcm(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['ldexp',['ldexp',['../namespacenc.html#aca805ef0273314ddc6c70b2c913bf485',1,'nc::ldexp(dtype inValue1, uint8 inValue2) noexcept'],['../namespacenc.html#af63d2ed4015f416db1734593d322941a',1,'nc::ldexp(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; uint8 &gt; &amp;inArray2)']]],
   ['left_5fshift',['left_shift',['../namespacenc.html#abeea32ab9bfa1e127ceb91c0538d6cb6',1,'nc']]],

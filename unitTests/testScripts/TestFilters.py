@@ -243,6 +243,20 @@ def test2D():
         else:
             print(colored('\tFAIL', 'red'))
 
+        print(colored(f'Testing laplaceFilter: mode = {mode}', 'cyan'))
+        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        cShape = NumCpp.Shape(shape[0], shape[1])
+        cArray = NumCpp.NdArray(cShape)
+        data = np.random.randint(100, 1000, shape).astype(np.double)
+        cArray.setArray(data)
+        constantValue = np.random.randint(0, 5, [1,]).item() # only actaully needed for constant boundary condition
+        dataOutC = NumCpp.laplaceFilter(cArray, modes[mode], constantValue).getNumpyArray()
+        dataOutPy = filters.laplace(data, mode=mode, cval=constantValue)
+        if np.array_equal(dataOutC, dataOutPy):
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
+
         print(colored(f'Testing maximumFilter: mode = {mode}', 'cyan'))
         shape = np.random.randint(1000, 2000, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
