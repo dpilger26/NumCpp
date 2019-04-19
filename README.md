@@ -25,9 +25,7 @@ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PA
 
 Compiled and tested with Visual Studio 2017, and g++ 7.3.0, with Boost version 1.68.
 
-## Documentation
-
-### [Full Documentation]('https://dpilger26.github.io/NumCpp')
+## [Documentation](https://dpilger26.github.io/NumCpp)
 
 ## [GitHub](https://github.com/dpilger26/NumCpp)
 
