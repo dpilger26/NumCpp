@@ -1622,6 +1622,29 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Returns the raw pointer to the underlying data
+        /// @return dtype*
+        ///
+        dtype* data() noexcept
+        {
+            return array_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Releases the internal data pointer so that the destructor
+        ///                     will not call delete on it, and returns the raw pointer
+        ///                     to the underlying data.
+        /// @return dtype*
+        ///
+        dtype* dataRelease() noexcept
+        {
+            ownsPointer_ = false;
+            return array_;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Return specified diagonals.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.diagonal.html
