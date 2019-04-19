@@ -154,6 +154,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a03cc5a48e29d6f25636789b65366f243"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a03cc5a48e29d6f25636789b65366f243"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1filter.html#a03cc5a48e29d6f25636789b65366f243">gaussianFilter1d</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, double inSigma, <a class="el" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">Boundary</a> inBoundaryType=<a class="el" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a03cc5a48e29d6f25636789b65366f243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03fcb2476bd35393869fb23167566f10"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a03fcb2476bd35393869fb23167566f10"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10">laplace</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">Boundary</a> inBoundaryType=<a class="el" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
+<tr class="separator:a03fcb2476bd35393869fb23167566f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a998f7c3ef568195b9281e3219f3f983e"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a998f7c3ef568195b9281e3219f3f983e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e">maximumFilter</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inImageArray, <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> inSize, <a class="el" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">Boundary</a> inBoundaryType=<a class="el" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">Boundary::REFLECT</a>, dtype inConstantValue=0)</td></tr>
 <tr class="separator:a998f7c3ef568195b9281e3219f3f983e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -331,15 +334,16 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacenc_1_1filter_a66facdd7cb52bd3c43032e761909cb03_icgraph.png" border="0" usemap="#namespacenc_1_1filter_a66facdd7cb52bd3c43032e761909cb03_icgraph" alt=""/></div>
 <map name="namespacenc_1_1filter_a66facdd7cb52bd3c43032e761909cb03_icgraph" id="namespacenc_1_1filter_a66facdd7cb52bd3c43032e761909cb03_icgraph">
-<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="225,5,349,32"/>
-<area shape="rect" id="node4" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="205,56,368,83"/>
-<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="213,107,360,133"/>
-<area shape="rect" id="node7" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="207,157,366,184"/>
-<area shape="rect" id="node8" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="206,208,367,235"/>
-<area shape="rect" id="node9" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="221,259,352,285"/>
-<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="213,309,360,336"/>
+<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="225,35,349,61"/>
+<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="205,85,368,112"/>
+<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="213,136,360,163"/>
+<area shape="rect" id="node8" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="207,187,366,213"/>
+<area shape="rect" id="node9" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="206,237,367,264"/>
+<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="221,288,352,315"/>
+<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="213,339,360,365"/>
 <area shape="rect" id="node3" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="420,5,577,32"/>
-<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="416,99,581,141"/>
+<area shape="rect" id="node4" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="440,56,557,83"/>
+<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="416,129,581,170"/>
 </map>
 </div>
 
@@ -648,16 +652,17 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacenc_1_1filter_af68e859c2c3de0e63a7de5d3c833e9ba_icgraph.png" border="0" usemap="#namespacenc_1_1filter_af68e859c2c3de0e63a7de5d3c833e9ba_icgraph" alt=""/></div>
 <map name="namespacenc_1_1filter_af68e859c2c3de0e63a7de5d3c833e9ba_icgraph" id="namespacenc_1_1filter_af68e859c2c3de0e63a7de5d3c833e9ba_icgraph">
-<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="235,157,387,184"/>
-<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="454,5,578,32"/>
-<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="435,56,597,83"/>
-<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="443,107,589,133"/>
-<area shape="rect" id="node8" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="437,157,595,184"/>
-<area shape="rect" id="node9" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="435,208,597,235"/>
-<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="451,259,581,285"/>
-<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="443,309,589,336"/>
+<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="235,187,387,213"/>
+<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="454,35,578,61"/>
+<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="435,85,597,112"/>
+<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="443,136,589,163"/>
+<area shape="rect" id="node9" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="437,187,595,213"/>
+<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="435,237,597,264"/>
+<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="451,288,581,315"/>
+<area shape="rect" id="node12" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="443,339,589,365"/>
 <area shape="rect" id="node4" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="649,5,807,32"/>
-<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="645,99,811,141"/>
+<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="669,56,787,83"/>
+<area shape="rect" id="node8" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="645,129,811,170"/>
 </map>
 </div>
 
@@ -825,6 +830,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="namespacenc_1_1filter_a6b257d6e403f5f9003934a4fd1fb5feb_icgraph.png" border="0" usemap="#namespacenc_1_1filter_a6b257d6e403f5f9003934a4fd1fb5feb_icgraph" alt=""/></div>
 <map name="namespacenc_1_1filter_a6b257d6e403f5f9003934a4fd1fb5feb_icgraph" id="namespacenc_1_1filter_a6b257d6e403f5f9003934a4fd1fb5feb_icgraph">
 <area shape="rect" id="node2" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="177,5,335,32"/>
+<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="197,56,315,83"/>
 </map>
 </div>
 
@@ -965,18 +971,19 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacenc_1_1filter_a4b11eab67d220d1a912057ddf9206449_icgraph.png" border="0" usemap="#namespacenc_1_1filter_a4b11eab67d220d1a912057ddf9206449_icgraph" alt=""/></div>
 <map name="namespacenc_1_1filter_a4b11eab67d220d1a912057ddf9206449_icgraph" id="namespacenc_1_1filter_a4b11eab67d220d1a912057ddf9206449_icgraph">
-<area shape="rect" id="node2" href="namespacenc_1_1filter.html#af68e859c2c3de0e63a7de5d3c833e9ba" title="nc::filter::constantBoundary" alt="" coords="187,132,368,159"/>
-<area shape="rect" id="node13" href="namespacenc_1_1filter.html#a239ebb21f57cfb56544c4247eed568d3" title="nc::filter::nearestBoundary" alt="" coords="190,183,365,209"/>
-<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="416,157,568,184"/>
-<area shape="rect" id="node4" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="635,5,759,32"/>
-<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="616,56,779,83"/>
-<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="624,107,771,133"/>
-<area shape="rect" id="node9" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="618,157,777,184"/>
-<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="617,208,778,235"/>
-<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="632,259,763,285"/>
-<area shape="rect" id="node12" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="624,309,771,336"/>
+<area shape="rect" id="node2" href="namespacenc_1_1filter.html#af68e859c2c3de0e63a7de5d3c833e9ba" title="nc::filter::constantBoundary" alt="" coords="187,161,368,188"/>
+<area shape="rect" id="node14" href="namespacenc_1_1filter.html#a239ebb21f57cfb56544c4247eed568d3" title="nc::filter::nearestBoundary" alt="" coords="190,212,365,239"/>
+<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="416,187,568,213"/>
+<area shape="rect" id="node4" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="635,35,759,61"/>
+<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="616,85,779,112"/>
+<area shape="rect" id="node8" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="624,136,771,163"/>
+<area shape="rect" id="node10" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="618,187,777,213"/>
+<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="617,237,778,264"/>
+<area shape="rect" id="node12" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="632,288,763,315"/>
+<area shape="rect" id="node13" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="624,339,771,365"/>
 <area shape="rect" id="node5" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="831,5,988,32"/>
-<area shape="rect" id="node8" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="827,99,992,141"/>
+<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="851,56,968,83"/>
+<area shape="rect" id="node9" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="827,129,992,170"/>
 </map>
 </div>
 
@@ -1286,6 +1293,80 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node22" href="classnc_1_1_nd_array.html#af3ca64ca6876a7748e7d97dc2f6a4816" title="nc::NdArray::transpose" alt="" coords="1161,335,1317,361"/>
 <area shape="rect" id="node25" href="classnc_1_1_nd_array.html#a5173e2d0a9fe983213193d8a4dfde21c" title="nc::NdArray::front" alt="" coords="875,537,999,564"/>
 <area shape="rect" id="node26" href="classnc_1_1_nd_array.html#a94c5752747b9b937c092632af9c7a7aa" title="nc::NdArray::back" alt="" coords="873,487,1000,513"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a03fcb2476bd35393869fb23167566f10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03fcb2476bd35393869fb23167566f10">&#9670;&nbsp;</a></span>laplace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; nc::filter::laplace </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inImageArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6">Boundary</a>&#160;</td>
+          <td class="paramname"><em>inBoundaryType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inConstantValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calculate the 2D laplace filter.</p>
+<p>SciPy Reference: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.laplace.html#scipy.ndimage.laplace">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.laplace.html#scipy.ndimage.laplace</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inImageArray</td><td></td></tr>
+    <tr><td class="paramname">inBoundaryType</td><td>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </td></tr>
+    <tr><td class="paramname">inConstantValue</td><td>contant value if boundary = 'constant' (default 0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacenc_1_1filter_a03fcb2476bd35393869fb23167566f10_cgraph.png" border="0" usemap="#namespacenc_1_1filter_a03fcb2476bd35393869fb23167566f10_cgraph" alt=""/></div>
+<map name="namespacenc_1_1filter_a03fcb2476bd35393869fb23167566f10_cgraph" id="namespacenc_1_1filter_a03fcb2476bd35393869fb23167566f10_cgraph">
+<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="171,183,295,209"/>
+<area shape="rect" id="node3" href="classnc_1_1_nd_array.html#a6871de7968fa26f32d9c43167cd66131" title="nc::NdArray::size" alt="" coords="357,5,480,32"/>
+<area shape="rect" id="node4" href="namespacenc_1_1utils.html#a95508a6159f3abe298221f8163f1b63b" title="nc::utils::sqr" alt="" coords="371,56,466,83"/>
+<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="343,259,495,285"/>
+<area shape="rect" id="node7" href="classnc_1_1_nd_array.html#a232a5e8c426b629dcda9f9d52e8ce905" title="nc::NdArray::shape" alt="" coords="1155,348,1289,375"/>
+<area shape="rect" id="node19" href="namespacenc.html#ab3bff6f3226aeeb44fe6d10c16612d2c" title="nc::rot90" alt="" coords="597,715,670,741"/>
+<area shape="rect" id="node21" href="classnc_1_1_nd_array.html#abdd2e38a0de062dcdef847d9d4d05ce5" title="nc::NdArray::flatten" alt="" coords="351,360,486,387"/>
+<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a668b6c63836542f26d963a619f5658d1" title="nc::filter::reflectBoundary" alt="" coords="550,588,717,615"/>
+<area shape="rect" id="node14" href="namespacenc_1_1filter.html#af68e859c2c3de0e63a7de5d3c833e9ba" title="nc::filter::constantBoundary" alt="" coords="543,259,724,285"/>
+<area shape="rect" id="node16" href="namespacenc_1_1filter.html#a239ebb21f57cfb56544c4247eed568d3" title="nc::filter::nearestBoundary" alt="" coords="546,208,721,235"/>
+<area shape="rect" id="node17" href="namespacenc_1_1filter.html#a32195e6b62bfec9d92c1bbd50f34349f" title="nc::filter::mirrorBoundary" alt="" coords="551,461,715,488"/>
+<area shape="rect" id="node18" href="namespacenc_1_1filter.html#a0eefb360788d364ffccc6b809c692bd9" title="nc::filter::wrapBoundary" alt="" coords="772,461,931,488"/>
+<area shape="rect" id="node8" href="classnc_1_1_nd_array.html#afe758ef8867d56964efc5a67bf17e726" title="nc::NdArray::put" alt="" coords="979,373,1096,400"/>
+<area shape="rect" id="node9" href="namespacenc.html#a80b0beb8f175ed462a4073825c864a43" title="nc::flipud" alt="" coords="814,664,889,691"/>
+<area shape="rect" id="node10" href="namespacenc.html#ac995fec009d93ce03c4d01eaebac6777" title="nc::flip" alt="" coords="1007,715,1067,741"/>
+<area shape="rect" id="node11" href="classnc_1_1_nd_array.html#a90547fcd7b438dd9e0d77d2f8fd3036d" title="nc::NdArray::begin" alt="" coords="1157,727,1287,753"/>
+<area shape="rect" id="node12" href="classnc_1_1_nd_array.html#a217adf4a530aa2bba221d89c3c5a96be" title="nc::NdArray::end" alt="" coords="1162,676,1282,703"/>
+<area shape="rect" id="node13" href="classnc_1_1_nd_array.html#af3ca64ca6876a7748e7d97dc2f6a4816" title="nc::NdArray::transpose" alt="" coords="1144,803,1300,829"/>
+<area shape="rect" id="node15" href="namespacenc_1_1filter.html#a4b11eab67d220d1a912057ddf9206449" title="nc::filter::fillCorners" alt="" coords="785,208,918,235"/>
+<area shape="rect" id="node20" href="namespacenc.html#ae7e8fa957d0738dd2809980ac9fcb319" title="nc::fliplr" alt="" coords="818,765,885,792"/>
 </map>
 </div>
 
@@ -1824,16 +1905,17 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacenc_1_1filter_a32195e6b62bfec9d92c1bbd50f34349f_icgraph.png" border="0" usemap="#namespacenc_1_1filter_a32195e6b62bfec9d92c1bbd50f34349f_icgraph" alt=""/></div>
 <map name="namespacenc_1_1filter_a32195e6b62bfec9d92c1bbd50f34349f_icgraph" id="namespacenc_1_1filter_a32195e6b62bfec9d92c1bbd50f34349f_icgraph">
-<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="217,157,369,184"/>
-<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="437,5,561,32"/>
-<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="417,56,580,83"/>
-<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="425,107,572,133"/>
-<area shape="rect" id="node8" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="419,157,578,184"/>
-<area shape="rect" id="node9" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="418,208,579,235"/>
-<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="433,259,564,285"/>
-<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="425,309,572,336"/>
+<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="217,187,369,213"/>
+<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="437,35,561,61"/>
+<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="417,85,580,112"/>
+<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="425,136,572,163"/>
+<area shape="rect" id="node9" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="419,187,578,213"/>
+<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="418,237,579,264"/>
+<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="433,288,564,315"/>
+<area shape="rect" id="node12" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="425,339,572,365"/>
 <area shape="rect" id="node4" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="632,5,789,32"/>
-<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="628,99,793,141"/>
+<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="652,56,769,83"/>
+<area shape="rect" id="node8" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="628,129,793,170"/>
 </map>
 </div>
 
@@ -1961,16 +2043,17 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacenc_1_1filter_a239ebb21f57cfb56544c4247eed568d3_icgraph.png" border="0" usemap="#namespacenc_1_1filter_a239ebb21f57cfb56544c4247eed568d3_icgraph" alt=""/></div>
 <map name="namespacenc_1_1filter_a239ebb21f57cfb56544c4247eed568d3_icgraph" id="namespacenc_1_1filter_a239ebb21f57cfb56544c4247eed568d3_icgraph">
-<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="228,157,380,184"/>
-<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="447,5,571,32"/>
-<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="428,56,591,83"/>
-<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="436,107,583,133"/>
-<area shape="rect" id="node8" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="430,157,589,184"/>
-<area shape="rect" id="node9" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="429,208,590,235"/>
-<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="444,259,575,285"/>
-<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="436,309,583,336"/>
+<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="228,187,380,213"/>
+<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="447,35,571,61"/>
+<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="428,85,591,112"/>
+<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="436,136,583,163"/>
+<area shape="rect" id="node9" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="430,187,589,213"/>
+<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="429,237,590,264"/>
+<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="444,288,575,315"/>
+<area shape="rect" id="node12" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="436,339,583,365"/>
 <area shape="rect" id="node4" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="643,5,800,32"/>
-<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="639,99,804,141"/>
+<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="663,56,780,83"/>
+<area shape="rect" id="node8" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="639,129,804,170"/>
 </map>
 </div>
 
@@ -2435,16 +2518,17 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacenc_1_1filter_a668b6c63836542f26d963a619f5658d1_icgraph.png" border="0" usemap="#namespacenc_1_1filter_a668b6c63836542f26d963a619f5658d1_icgraph" alt=""/></div>
 <map name="namespacenc_1_1filter_a668b6c63836542f26d963a619f5658d1_icgraph" id="namespacenc_1_1filter_a668b6c63836542f26d963a619f5658d1_icgraph">
-<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="220,157,372,184"/>
-<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="439,5,563,32"/>
-<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="420,56,583,83"/>
-<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="428,107,575,133"/>
-<area shape="rect" id="node8" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="422,157,581,184"/>
-<area shape="rect" id="node9" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="421,208,582,235"/>
-<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="436,259,567,285"/>
-<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="428,309,575,336"/>
+<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="220,187,372,213"/>
+<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="439,35,563,61"/>
+<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="420,85,583,112"/>
+<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="428,136,575,163"/>
+<area shape="rect" id="node9" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="422,187,581,213"/>
+<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="421,237,582,264"/>
+<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="436,288,567,315"/>
+<area shape="rect" id="node12" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="428,339,575,365"/>
 <area shape="rect" id="node4" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="635,5,792,32"/>
-<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="631,99,796,141"/>
+<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="655,56,772,83"/>
+<area shape="rect" id="node8" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="631,129,796,170"/>
 </map>
 </div>
 
@@ -2821,16 +2905,17 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespacenc_1_1filter_a0eefb360788d364ffccc6b809c692bd9_icgraph.png" border="0" usemap="#namespacenc_1_1filter_a0eefb360788d364ffccc6b809c692bd9_icgraph" alt=""/></div>
 <map name="namespacenc_1_1filter_a0eefb360788d364ffccc6b809c692bd9_icgraph" id="namespacenc_1_1filter_a0eefb360788d364ffccc6b809c692bd9_icgraph">
-<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="212,157,364,184"/>
-<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="431,5,555,32"/>
-<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="412,56,575,83"/>
-<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="420,107,567,133"/>
-<area shape="rect" id="node8" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="414,157,573,184"/>
-<area shape="rect" id="node9" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="413,208,574,235"/>
-<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="428,259,559,285"/>
-<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="420,309,567,336"/>
+<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="212,187,364,213"/>
+<area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="431,35,555,61"/>
+<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="412,85,575,112"/>
+<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="420,136,567,163"/>
+<area shape="rect" id="node9" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="414,187,573,213"/>
+<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="413,237,574,264"/>
+<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="428,288,559,315"/>
+<area shape="rect" id="node12" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="420,339,567,365"/>
 <area shape="rect" id="node4" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="627,5,784,32"/>
-<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="623,99,788,141"/>
+<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="647,56,764,83"/>
+<area shape="rect" id="node8" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="623,129,788,170"/>
 </map>
 </div>
 

@@ -114,8 +114,6 @@ Inheritance diagram for nc::NdArray&lt; dtype &gt;:</div>
 Collaboration diagram for nc::NdArray&lt; dtype &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classnc_1_1_nd_array__coll__graph.png" border="0" usemap="#nc_1_1_nd_array_3_01dtype_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="nc_1_1_nd_array_3_01dtype_01_4_coll__map" id="nc_1_1_nd_array_3_01dtype_01_4_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -382,10 +380,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3e26e1775a3beb82345cb2d1181528f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1feb9c6f69240985274a322da28f72d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#ae1feb9c6f69240985274a322da28f72d">operator[]</a> (const <a class="el" href="classnc_1_1_slice.html">Slice</a> &amp;inSlice) const</td></tr>
 <tr class="separator:ae1feb9c6f69240985274a322da28f72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a639a6d808a9fe67821db64a0dd98fa76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a639a6d808a9fe67821db64a0dd98fa76">operator[]</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt; inMask) const</td></tr>
-<tr class="separator:a639a6d808a9fe67821db64a0dd98fa76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d07f33481cacbfe2536efae59a08799"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a4d07f33481cacbfe2536efae59a08799">operator[]</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> &gt; inIndices) const</td></tr>
-<tr class="separator:a4d07f33481cacbfe2536efae59a08799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49e99914b34262a533f3d4dafa9890e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a49e99914b34262a533f3d4dafa9890e3">operator[]</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;inMask) const</td></tr>
+<tr class="separator:a49e99914b34262a533f3d4dafa9890e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25aa5d8342c6d5867db1352b66d3771b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a25aa5d8342c6d5867db1352b66d3771b">operator[]</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> &gt; &amp;inIndices) const</td></tr>
+<tr class="separator:a25aa5d8342c6d5867db1352b66d3771b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade0018b325eb7ea14783d81c15c6b6e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#ade0018b325eb7ea14783d81c15c6b6e3">operator^</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inOtherArray) const</td></tr>
 <tr class="separator:ade0018b325eb7ea14783d81c15c6b6e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a755318f3e66c231ada11f9584c7da0b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a755318f3e66c231ada11f9584c7da0b0">operator^</a> (dtype inScalar) const</td></tr>
@@ -2311,10 +2309,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classnc_1_1_nd_array_a8684a014c18a7c7f18ca415b9b51308c_icgraph.png" border="0" usemap="#classnc_1_1_nd_array_a8684a014c18a7c7f18ca415b9b51308c_icgraph" alt=""/></div>
 <map name="classnc_1_1_nd_array_a8684a014c18a7c7f18ca415b9b51308c_icgraph" id="classnc_1_1_nd_array_a8684a014c18a7c7f18ca415b9b51308c_icgraph">
-<area shape="rect" id="node2" href="namespacenc.html#ac168ed7ea5aa5e1dd6f4f2d92b407c3c" title="nc::tril" alt="" coords="220,5,279,32"/>
-<area shape="rect" id="node3" href="namespacenc.html#ab5d2691b2042cc41b6b4fecd322a5df4" title="nc::triu" alt="" coords="218,56,281,83"/>
-<area shape="rect" id="node4" href="classnc_1_1_nd_array.html#a67d0a3422e3b1cacea6705bb7ea28c4f" title="nc::NdArray\&lt; bool \&gt;\l::operator++" alt="" coords="180,107,319,149"/>
-<area shape="rect" id="node5" href="classnc_1_1_nd_array.html#a5bf296fa887e851d8a095d2efae0344f" title="nc::NdArray\&lt; bool \&gt;\l::operator&#45;&#45;" alt="" coords="180,173,319,214"/>
+<area shape="rect" id="node2" href="namespacenc.html#a3b9e1fc2b58599aa8ab4fdaf15da5126" title="nc::round" alt="" coords="211,5,287,32"/>
+<area shape="rect" id="node3" href="namespacenc.html#ac168ed7ea5aa5e1dd6f4f2d92b407c3c" title="nc::tril" alt="" coords="220,56,279,83"/>
+<area shape="rect" id="node4" href="namespacenc.html#ab5d2691b2042cc41b6b4fecd322a5df4" title="nc::triu" alt="" coords="218,107,281,133"/>
+<area shape="rect" id="node5" href="classnc_1_1_nd_array.html#a67d0a3422e3b1cacea6705bb7ea28c4f" title="nc::NdArray\&lt; bool \&gt;\l::operator++" alt="" coords="180,158,319,199"/>
+<area shape="rect" id="node6" href="classnc_1_1_nd_array.html#a5bf296fa887e851d8a095d2efae0344f" title="nc::NdArray\&lt; bool \&gt;\l::operator&#45;&#45;" alt="" coords="180,223,319,265"/>
 </map>
 </div>
 
@@ -2616,34 +2615,34 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classnc_1_1_nd_array_a217adf4a530aa2bba221d89c3c5a96be_icgraph.png" border="0" usemap="#classnc_1_1_nd_array_a217adf4a530aa2bba221d89c3c5a96be_icgraph" alt=""/></div>
 <map name="classnc_1_1_nd_array_a217adf4a530aa2bba221d89c3c5a96be_icgraph" id="classnc_1_1_nd_array_a217adf4a530aa2bba221d89c3c5a96be_icgraph">
-<area shape="rect" id="node2" href="namespacenc.html#a9514d926dd13e0c80ae8b4f263752725" title="nc::applyFunction" alt="" coords="195,259,320,285"/>
-<area shape="rect" id="node3" href="namespacenc.html#a171381462e430870904ae2a24ce2541a" title="nc::average" alt="" coords="213,309,301,336"/>
-<area shape="rect" id="node4" href="namespacenc.html#ac995fec009d93ce03c4d01eaebac6777" title="nc::flip" alt="" coords="227,360,287,387"/>
-<area shape="rect" id="node29" href="namespacenc.html#ace5ef6f8d3d82f95e4728fc2525dd983" title="nc::percentile" alt="" coords="207,411,307,437"/>
-<area shape="rect" id="node30" href="namespacenc.html#aa9b9e6ad225cc08a9f9c3c1753779f2e" title="nc::roll" alt="" coords="227,461,288,488"/>
-<area shape="rect" id="node31" href="classnc_1_1_nd_array.html#a76e54d17084e4c4b33766a6fa0ca3a04" title="nc::NdArray\&lt; bool \&gt;\l::operator=" alt="" coords="188,513,327,554"/>
-<area shape="rect" id="node32" href="classnc_1_1_nd_array.html#abed947e8ce1659716d70b1b241392f60" title="nc::NdArray\&lt; bool \&gt;\l::fill" alt="" coords="188,578,327,619"/>
-<area shape="rect" id="node33" href="classnc_1_1_nd_array.html#a5931577313d6b9be7c2e318e3cc5bbfe" title="nc::NdArray\&lt; bool \&gt;\l::median" alt="" coords="188,643,327,685"/>
-<area shape="rect" id="node34" href="classnc_1_1_nd_array.html#aaa93fc01d5410ed97ec414fc263ce9a4" title="nc::NdArray\&lt; bool \&gt;\l::newbyteorder" alt="" coords="188,709,327,750"/>
-<area shape="rect" id="node35" href="classnc_1_1_nd_array.html#afe2a5101c43fc9b3df55500364dfe477" title="nc::NdArray\&lt; bool \&gt;\l::partition" alt="" coords="188,774,327,815"/>
-<area shape="rect" id="node36" href="classnc_1_1_nd_array.html#ab4d9c07ddfb53e77955da8c013b19484" title="nc::NdArray\&lt; bool \&gt;\l::resizeSlow" alt="" coords="188,839,327,881"/>
-<area shape="rect" id="node37" href="classnc_1_1_nd_array.html#ac417d8f3e86858d32168eda03930a654" title="nc::NdArray\&lt; bool \&gt;\l::sort" alt="" coords="188,905,327,946"/>
-<area shape="rect" id="node38" href="classnc_1_1_nd_array.html#a7d0415d3f264268196ff91306b88144b" title="nc::NdArray\&lt; bool \&gt;\l::var" alt="" coords="188,970,327,1011"/>
-<area shape="rect" id="node39" href="classnc_1_1_nd_array.html#abe57d4fe2ffc190ca4bafe9f46cc8532" title="nc::NdArray\&lt; bool \&gt;\l::operator+=" alt="" coords="188,1035,327,1077"/>
-<area shape="rect" id="node40" href="classnc_1_1_nd_array.html#aa7db834322ded2db89712958b954d535" title="nc::NdArray\&lt; bool \&gt;\l::operator&#45;=" alt="" coords="188,1101,327,1142"/>
-<area shape="rect" id="node41" href="classnc_1_1_nd_array.html#a95e0153d10e40f4b4d9f8460e90bd71e" title="nc::NdArray\&lt; bool \&gt;\l::operator*=" alt="" coords="188,1166,327,1207"/>
-<area shape="rect" id="node42" href="classnc_1_1_nd_array.html#a49aad23b831a9becaa290f12d1967aca" title="nc::NdArray\&lt; bool \&gt;\l::operator/=" alt="" coords="188,1231,327,1273"/>
-<area shape="rect" id="node43" href="classnc_1_1_nd_array.html#a88cfa37a618c6f437b77a727b5cc2e91" title="nc::NdArray\&lt; bool \&gt;\l::operator%=" alt="" coords="188,1297,327,1338"/>
-<area shape="rect" id="node44" href="classnc_1_1_nd_array.html#a5046cde3a10a74fc3f65b4a6344d6490" title="nc::NdArray\&lt; bool \&gt;\l::operator\|=" alt="" coords="188,1362,327,1403"/>
-<area shape="rect" id="node45" href="classnc_1_1_nd_array.html#a657b10894e5c11c8b949722c9b8c2f29" title="nc::NdArray\&lt; bool \&gt;\l::operator&amp;=" alt="" coords="188,1427,327,1469"/>
-<area shape="rect" id="node46" href="classnc_1_1_nd_array.html#a81f28df78e67bec044b3c8b058c8a239" title="nc::NdArray\&lt; bool \&gt;\l::operator^=" alt="" coords="188,1493,327,1534"/>
-<area shape="rect" id="node47" href="classnc_1_1_nd_array.html#aaeefd28a06e0c2bd2771d233ddece978" title="nc::NdArray\&lt; bool \&gt;\l::operator++" alt="" coords="188,1558,327,1599"/>
-<area shape="rect" id="node48" href="classnc_1_1_nd_array.html#a26faf0c7d7dbe5998eb7baf1d285a36a" title="nc::NdArray\&lt; bool \&gt;\l::operator&#45;&#45;" alt="" coords="188,1623,327,1665"/>
-<area shape="rect" id="node49" href="classnc_1_1_random.html#a9a77e3a723032f32556036446e506a19" title="nc::Random::permutation" alt="" coords="173,1689,341,1716"/>
-<area shape="rect" id="node50" href="classnc_1_1_random.html#a987983e6097f7cd1d4d52ac5fe297c4f" title="nc::Random::shuffle" alt="" coords="189,1740,326,1767"/>
+<area shape="rect" id="node2" href="namespacenc.html#a9514d926dd13e0c80ae8b4f263752725" title="nc::applyFunction" alt="" coords="195,220,320,247"/>
+<area shape="rect" id="node3" href="namespacenc.html#a171381462e430870904ae2a24ce2541a" title="nc::average" alt="" coords="213,271,301,297"/>
+<area shape="rect" id="node4" href="namespacenc.html#ac995fec009d93ce03c4d01eaebac6777" title="nc::flip" alt="" coords="227,321,287,348"/>
+<area shape="rect" id="node29" href="namespacenc.html#ace5ef6f8d3d82f95e4728fc2525dd983" title="nc::percentile" alt="" coords="207,372,307,399"/>
+<area shape="rect" id="node30" href="namespacenc.html#aa9b9e6ad225cc08a9f9c3c1753779f2e" title="nc::roll" alt="" coords="227,423,288,449"/>
+<area shape="rect" id="node31" href="classnc_1_1_nd_array.html#a76e54d17084e4c4b33766a6fa0ca3a04" title="nc::NdArray\&lt; bool \&gt;\l::operator=" alt="" coords="188,474,327,515"/>
+<area shape="rect" id="node32" href="classnc_1_1_nd_array.html#abed947e8ce1659716d70b1b241392f60" title="nc::NdArray\&lt; bool \&gt;\l::fill" alt="" coords="188,539,327,581"/>
+<area shape="rect" id="node33" href="classnc_1_1_nd_array.html#a5931577313d6b9be7c2e318e3cc5bbfe" title="nc::NdArray\&lt; bool \&gt;\l::median" alt="" coords="188,605,327,646"/>
+<area shape="rect" id="node34" href="classnc_1_1_nd_array.html#aaa93fc01d5410ed97ec414fc263ce9a4" title="nc::NdArray\&lt; bool \&gt;\l::newbyteorder" alt="" coords="188,670,327,711"/>
+<area shape="rect" id="node35" href="classnc_1_1_nd_array.html#afe2a5101c43fc9b3df55500364dfe477" title="nc::NdArray\&lt; bool \&gt;\l::partition" alt="" coords="188,735,327,777"/>
+<area shape="rect" id="node36" href="classnc_1_1_nd_array.html#ab4d9c07ddfb53e77955da8c013b19484" title="nc::NdArray\&lt; bool \&gt;\l::resizeSlow" alt="" coords="188,801,327,842"/>
+<area shape="rect" id="node37" href="classnc_1_1_nd_array.html#ac417d8f3e86858d32168eda03930a654" title="nc::NdArray\&lt; bool \&gt;\l::sort" alt="" coords="188,866,327,907"/>
+<area shape="rect" id="node38" href="classnc_1_1_nd_array.html#a7d0415d3f264268196ff91306b88144b" title="nc::NdArray\&lt; bool \&gt;\l::var" alt="" coords="188,931,327,973"/>
+<area shape="rect" id="node39" href="classnc_1_1_nd_array.html#abe57d4fe2ffc190ca4bafe9f46cc8532" title="nc::NdArray\&lt; bool \&gt;\l::operator+=" alt="" coords="188,997,327,1038"/>
+<area shape="rect" id="node40" href="classnc_1_1_nd_array.html#aa7db834322ded2db89712958b954d535" title="nc::NdArray\&lt; bool \&gt;\l::operator&#45;=" alt="" coords="188,1062,327,1103"/>
+<area shape="rect" id="node41" href="classnc_1_1_nd_array.html#a95e0153d10e40f4b4d9f8460e90bd71e" title="nc::NdArray\&lt; bool \&gt;\l::operator*=" alt="" coords="188,1127,327,1169"/>
+<area shape="rect" id="node42" href="classnc_1_1_nd_array.html#a49aad23b831a9becaa290f12d1967aca" title="nc::NdArray\&lt; bool \&gt;\l::operator/=" alt="" coords="188,1193,327,1234"/>
+<area shape="rect" id="node43" href="classnc_1_1_nd_array.html#a88cfa37a618c6f437b77a727b5cc2e91" title="nc::NdArray\&lt; bool \&gt;\l::operator%=" alt="" coords="188,1258,327,1299"/>
+<area shape="rect" id="node44" href="classnc_1_1_nd_array.html#a5046cde3a10a74fc3f65b4a6344d6490" title="nc::NdArray\&lt; bool \&gt;\l::operator\|=" alt="" coords="188,1323,327,1365"/>
+<area shape="rect" id="node45" href="classnc_1_1_nd_array.html#a657b10894e5c11c8b949722c9b8c2f29" title="nc::NdArray\&lt; bool \&gt;\l::operator&amp;=" alt="" coords="188,1389,327,1430"/>
+<area shape="rect" id="node46" href="classnc_1_1_nd_array.html#a81f28df78e67bec044b3c8b058c8a239" title="nc::NdArray\&lt; bool \&gt;\l::operator^=" alt="" coords="188,1454,327,1495"/>
+<area shape="rect" id="node47" href="classnc_1_1_nd_array.html#aaeefd28a06e0c2bd2771d233ddece978" title="nc::NdArray\&lt; bool \&gt;\l::operator++" alt="" coords="188,1519,327,1561"/>
+<area shape="rect" id="node48" href="classnc_1_1_nd_array.html#a26faf0c7d7dbe5998eb7baf1d285a36a" title="nc::NdArray\&lt; bool \&gt;\l::operator&#45;&#45;" alt="" coords="188,1585,327,1626"/>
+<area shape="rect" id="node49" href="classnc_1_1_random.html#a9a77e3a723032f32556036446e506a19" title="nc::Random::permutation" alt="" coords="173,1651,341,1677"/>
+<area shape="rect" id="node50" href="classnc_1_1_random.html#a987983e6097f7cd1d4d52ac5fe297c4f" title="nc::Random::shuffle" alt="" coords="189,1701,326,1728"/>
 <area shape="rect" id="node5" href="namespacenc.html#ae7e8fa957d0738dd2809980ac9fcb319" title="nc::fliplr" alt="" coords="393,233,460,260"/>
-<area shape="rect" id="node17" href="namespacenc.html#ab3bff6f3226aeeb44fe6d10c16612d2c" title="nc::rot90" alt="" coords="565,360,639,387"/>
-<area shape="rect" id="node20" href="namespacenc.html#a80b0beb8f175ed462a4073825c864a43" title="nc::flipud" alt="" coords="389,411,464,437"/>
+<area shape="rect" id="node17" href="namespacenc.html#ab3bff6f3226aeeb44fe6d10c16612d2c" title="nc::rot90" alt="" coords="565,321,639,348"/>
+<area shape="rect" id="node21" href="namespacenc.html#a80b0beb8f175ed462a4073825c864a43" title="nc::flipud" alt="" coords="389,372,464,399"/>
 <area shape="rect" id="node6" href="namespacenc_1_1filter.html#aee9c0973c07ffabdfd3fd92c3a182a90" title="nc::filter::reflectBoundary1d" alt="" coords="512,183,692,209"/>
 <area shape="rect" id="node8" href="namespacenc_1_1filter.html#a005c1e50b02c5eb7203e2e3d2d6ccc62" title="nc::filter::convolve1d" alt="" coords="973,5,1112,32"/>
 <area shape="rect" id="node16" href="namespacenc_1_1filter.html#ab4e7bce587004f88fd6d69338c1524d3" title="nc::filter::mirrorBoundary1d" alt="" coords="513,233,691,260"/>
@@ -2656,15 +2655,15 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node15" href="namespacenc_1_1filter.html#afcf603e5055c7bc01aed09067357e004" title="nc::filter::uniformFilter1d" alt="" coords="962,309,1123,336"/>
 <area shape="rect" id="node9" href="namespacenc_1_1filter.html#a03cc5a48e29d6f25636789b65366f243" title="nc::filter::gaussianFilter1d" alt="" coords="1179,5,1349,32"/>
 <area shape="rect" id="node18" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="981,360,1105,387"/>
-<area shape="rect" id="node19" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="1185,360,1343,387"/>
-<area shape="rect" id="node21" href="namespacenc_1_1filter.html#a668b6c63836542f26d963a619f5658d1" title="nc::filter::reflectBoundary" alt="" coords="519,411,685,437"/>
-<area shape="rect" id="node28" href="namespacenc_1_1filter.html#a32195e6b62bfec9d92c1bbd50f34349f" title="nc::filter::mirrorBoundary" alt="" coords="520,461,684,488"/>
-<area shape="rect" id="node22" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="747,461,899,488"/>
-<area shape="rect" id="node23" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="961,411,1124,437"/>
-<area shape="rect" id="node24" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="969,461,1116,488"/>
-<area shape="rect" id="node25" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="963,512,1122,539"/>
-<area shape="rect" id="node26" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="962,563,1123,589"/>
-<area shape="rect" id="node27" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="977,613,1108,640"/>
+<area shape="rect" id="node19" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="1185,335,1343,361"/>
+<area shape="rect" id="node20" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="1205,385,1323,412"/>
+<area shape="rect" id="node22" href="namespacenc_1_1filter.html#a668b6c63836542f26d963a619f5658d1" title="nc::filter::reflectBoundary" alt="" coords="519,372,685,399"/>
+<area shape="rect" id="node28" href="namespacenc_1_1filter.html#a32195e6b62bfec9d92c1bbd50f34349f" title="nc::filter::mirrorBoundary" alt="" coords="520,423,684,449"/>
+<area shape="rect" id="node23" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="747,423,899,449"/>
+<area shape="rect" id="node24" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="961,411,1124,437"/>
+<area shape="rect" id="node25" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="969,461,1116,488"/>
+<area shape="rect" id="node26" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="963,512,1122,539"/>
+<area shape="rect" id="node27" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="962,563,1123,589"/>
 </map>
 </div>
 
@@ -2882,12 +2881,13 @@ Here is the caller graph for this function:</div>
 <map name="classnc_1_1_nd_array_abdd2e38a0de062dcdef847d9d4d05ce5_icgraph" id="classnc_1_1_nd_array_abdd2e38a0de062dcdef847d9d4d05ce5_icgraph">
 <area shape="rect" id="node2" href="classnc_1_1coordinates_1_1_coordinate.html#a35a66940a857fa08b07eb9cc32268996" title="nc::coordinates::Coordinate\l::radianSeperation" alt="" coords="188,5,369,47"/>
 <area shape="rect" id="node3" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="217,71,341,98"/>
-<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a005c1e50b02c5eb7203e2e3d2d6ccc62" title="nc::filter::convolve1d" alt="" coords="209,122,348,149"/>
-<area shape="rect" id="node7" href="namespacenc.html#afcae707c43dba198d23f3628b0db245e" title="nc::cross" alt="" coords="241,173,317,199"/>
-<area shape="rect" id="node8" href="namespacenc.html#a8a01c7e0a3fe27ba72e106fd50493a71" title="nc::flatten" alt="" coords="239,223,318,250"/>
-<area shape="rect" id="node9" href="namespacenc.html#a5458a0823e113dab7b1fad494196ae39" title="nc::flatnonzero" alt="" coords="225,274,332,301"/>
-<area shape="rect" id="node4" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="424,71,581,98"/>
-<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a03cc5a48e29d6f25636789b65366f243" title="nc::filter::gaussianFilter1d" alt="" coords="417,122,588,149"/>
+<area shape="rect" id="node6" href="namespacenc_1_1filter.html#a005c1e50b02c5eb7203e2e3d2d6ccc62" title="nc::filter::convolve1d" alt="" coords="209,122,348,149"/>
+<area shape="rect" id="node8" href="namespacenc.html#afcae707c43dba198d23f3628b0db245e" title="nc::cross" alt="" coords="241,173,317,199"/>
+<area shape="rect" id="node9" href="namespacenc.html#a8a01c7e0a3fe27ba72e106fd50493a71" title="nc::flatten" alt="" coords="239,223,318,250"/>
+<area shape="rect" id="node10" href="namespacenc.html#a5458a0823e113dab7b1fad494196ae39" title="nc::flatnonzero" alt="" coords="225,274,332,301"/>
+<area shape="rect" id="node4" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="424,21,581,47"/>
+<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="444,71,561,98"/>
+<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a03cc5a48e29d6f25636789b65366f243" title="nc::filter::gaussianFilter1d" alt="" coords="417,122,588,149"/>
 </map>
 </div>
 
@@ -3142,7 +3142,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node9" href="namespacenc.html#a49ca5ca0de10a6321946fb1f41e39ed3" title="nc::histogram" alt="" coords="215,208,316,235"/>
 <area shape="rect" id="node10" href="namespacenc.html#acb0128da9c31422e62814a91d2075d9d" title="nc::interp" alt="" coords="227,309,303,336"/>
 <area shape="rect" id="node12" href="namespacenc.html#af37a6766f3bd9a7f83d32834d2a699b1" title="nc::max" alt="" coords="231,451,300,477"/>
-<area shape="rect" id="node23" href="classnc_1_1_nd_array.html#a4d07f33481cacbfe2536efae59a08799" title="nc::NdArray\&lt; bool \&gt;\l::operator[]" alt="" coords="196,502,335,543"/>
+<area shape="rect" id="node23" href="classnc_1_1_nd_array.html#a25aa5d8342c6d5867db1352b66d3771b" title="nc::NdArray\&lt; bool \&gt;\l::operator[]" alt="" coords="196,502,335,543"/>
 <area shape="rect" id="node5" href="namespacenc_1_1image_processing.html#ae77f0e4be503e5773e7f4a9915c2972e" title="nc::imageProcessing\l::generateCentroids" alt="" coords="620,321,764,362"/>
 <area shape="rect" id="node11" href="namespacenc.html#a3eda1c98c37f54ad86ca5015f1837b21" title="nc::interp" alt="" coords="449,227,525,253"/>
 <area shape="rect" id="node13" href="classnc_1_1_dtype_info.html#a1f2e6789296de232bef7582f1c77f856" title="nc::DtypeInfo::max" alt="" coords="421,648,552,675"/>
@@ -3462,7 +3462,7 @@ Here is the caller graph for this function:</div>
 <map name="classnc_1_1_nd_array_a2f1717448f4400809d1bbb6279435969_icgraph" id="classnc_1_1_nd_array_a2f1717448f4400809d1bbb6279435969_icgraph">
 <area shape="rect" id="node2" href="namespacenc.html#a2698517c2f77a53ee8a14a6a3a03497f" title="nc::argwhere" alt="" coords="220,5,316,32"/>
 <area shape="rect" id="node3" href="namespacenc.html#a38da2e3b407ba5005cb91fe6effce852" title="nc::nonzero" alt="" coords="223,56,313,83"/>
-<area shape="rect" id="node4" href="classnc_1_1_nd_array.html#a639a6d808a9fe67821db64a0dd98fa76" title="nc::NdArray\&lt; bool \&gt;\l::operator[]" alt="" coords="199,107,337,149"/>
+<area shape="rect" id="node4" href="classnc_1_1_nd_array.html#a49e99914b34262a533f3d4dafa9890e3" title="nc::NdArray\&lt; bool \&gt;\l::operator[]" alt="" coords="199,107,337,149"/>
 <area shape="rect" id="node5" href="classnc_1_1_nd_array.html#a15899cfb75a560409f474826d960fec2" title="nc::NdArray\&lt; bool \&gt;\l::putMask" alt="" coords="199,173,337,214"/>
 </map>
 </div>
@@ -5457,7 +5457,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classnc_1_1_nd_array_abe3ca5292febb4c5b157f941656b982f_icgraph.png" border="0" usemap="#classnc_1_1_nd_array_abe3ca5292febb4c5b157f941656b982f_icgraph" alt=""/></div>
 <map name="classnc_1_1_nd_array_abe3ca5292febb4c5b157f941656b982f_icgraph" id="classnc_1_1_nd_array_abe3ca5292febb4c5b157f941656b982f_icgraph">
-<area shape="rect" id="node2" href="classnc_1_1_nd_array.html#a639a6d808a9fe67821db64a0dd98fa76" title="nc::NdArray\&lt; bool \&gt;\l::operator[]" alt="" coords="218,5,357,47"/>
+<area shape="rect" id="node2" href="classnc_1_1_nd_array.html#a49e99914b34262a533f3d4dafa9890e3" title="nc::NdArray\&lt; bool \&gt;\l::operator[]" alt="" coords="218,5,357,47"/>
 <area shape="rect" id="node3" href="classnc_1_1_nd_array.html#ae6c1faadee65ae35236c3551784cd5f1" title="nc::NdArray\&lt; bool \&gt;::at" alt="" coords="208,71,367,98"/>
 </map>
 </div>
@@ -5536,8 +5536,8 @@ template&lt;typename dtype&gt; </div>
 
 </div>
 </div>
-<a id="a639a6d808a9fe67821db64a0dd98fa76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a639a6d808a9fe67821db64a0dd98fa76">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[4/5]</span></h2>
+<a id="a49e99914b34262a533f3d4dafa9890e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49e99914b34262a533f3d4dafa9890e3">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5550,7 +5550,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="classnc_1_1_nd_array.html">nc::NdArray</a>&lt; dtype &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt; &amp;&#160;</td>
           <td class="paramname"><em>inMask</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -5572,8 +5572,8 @@ template&lt;typename dtype&gt; </div>
 
 </div>
 </div>
-<a id="a4d07f33481cacbfe2536efae59a08799"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d07f33481cacbfe2536efae59a08799">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[5/5]</span></h2>
+<a id="a25aa5d8342c6d5867db1352b66d3771b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25aa5d8342c6d5867db1352b66d3771b">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -5586,7 +5586,7 @@ template&lt;typename dtype&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="classnc_1_1_nd_array.html">nc::NdArray</a>&lt; dtype &gt;::operator[] </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> &gt;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>inIndices</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -6214,43 +6214,44 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classnc_1_1_nd_array_afe758ef8867d56964efc5a67bf17e726_icgraph.png" border="0" usemap="#classnc_1_1_nd_array_afe758ef8867d56964efc5a67bf17e726_icgraph" alt=""/></div>
 <map name="classnc_1_1_nd_array_afe758ef8867d56964efc5a67bf17e726_icgraph" id="classnc_1_1_nd_array_afe758ef8867d56964efc5a67bf17e726_icgraph">
-<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a4b11eab67d220d1a912057ddf9206449" title="nc::filter::fillCorners" alt="" coords="201,95,335,121"/>
-<area shape="rect" id="node3" href="namespacenc_1_1filter.html#af68e859c2c3de0e63a7de5d3c833e9ba" title="nc::filter::constantBoundary" alt="" coords="413,95,595,121"/>
-<area shape="rect" id="node14" href="namespacenc_1_1filter.html#a239ebb21f57cfb56544c4247eed568d3" title="nc::filter::nearestBoundary" alt="" coords="417,145,591,172"/>
-<area shape="rect" id="node15" href="namespacenc_1_1filter.html#a668b6c63836542f26d963a619f5658d1" title="nc::filter::reflectBoundary" alt="" coords="421,196,587,223"/>
-<area shape="rect" id="node16" href="namespacenc_1_1filter.html#aee9c0973c07ffabdfd3fd92c3a182a90" title="nc::filter::reflectBoundary1d" alt="" coords="178,348,358,375"/>
-<area shape="rect" id="node27" href="namespacenc_1_1filter.html#a9412ca408039db0ef03bb7c977f363cc" title="nc::filter::constantBoundary1d" alt="" coords="171,399,365,425"/>
-<area shape="rect" id="node28" href="namespacenc_1_1filter.html#a0dbad7f335cf620e347ccd0929c2bdfb" title="nc::filter::nearestBoundary1d" alt="" coords="174,449,362,476"/>
-<area shape="rect" id="node29" href="namespacenc_1_1filter.html#a32195e6b62bfec9d92c1bbd50f34349f" title="nc::filter::mirrorBoundary" alt="" coords="422,247,586,273"/>
-<area shape="rect" id="node30" href="namespacenc_1_1filter.html#ab4e7bce587004f88fd6d69338c1524d3" title="nc::filter::mirrorBoundary1d" alt="" coords="179,500,357,527"/>
-<area shape="rect" id="node31" href="namespacenc_1_1filter.html#a0eefb360788d364ffccc6b809c692bd9" title="nc::filter::wrapBoundary" alt="" coords="425,297,583,324"/>
-<area shape="rect" id="node32" href="namespacenc_1_1filter.html#ad3b7def57ca0a84025e13305e4f97387" title="nc::filter::wrapBoundary1d" alt="" coords="182,551,354,577"/>
-<area shape="rect" id="node33" href="namespacenc.html#afcae707c43dba198d23f3628b0db245e" title="nc::cross" alt="" coords="230,601,306,628"/>
-<area shape="rect" id="node34" href="namespacenc.html#a8c8e42bbbbb509664e1a7ee3c4641e6e" title="nc::pad" alt="" coords="235,652,301,679"/>
-<area shape="rect" id="node35" href="namespacenc.html#ab9fd9301390e35e8aead617c2c24dd7d" title="nc::put" alt="" coords="237,703,299,729"/>
-<area shape="rect" id="node36" href="classnc_1_1_nd_array.html#ae3c2fb9ef470a0c6d03dcfef09545039" title="nc::NdArray\&lt; bool \&gt;\l::put" alt="" coords="199,754,337,795"/>
-<area shape="rect" id="node37" href="classnc_1_1_nd_array.html#a15899cfb75a560409f474826d960fec2" title="nc::NdArray\&lt; bool \&gt;\l::putMask" alt="" coords="199,819,337,861"/>
-<area shape="rect" id="node38" href="classnc_1_1_nd_array.html#a4069fb310d9b54d87690dc9f5d9a5a8d" title="nc::NdArray\&lt; bool \&gt;\l::repeat" alt="" coords="199,885,337,926"/>
-<area shape="rect" id="node4" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="655,195,807,221"/>
-<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="890,5,1014,32"/>
-<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="871,56,1033,83"/>
-<area shape="rect" id="node8" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="879,107,1025,133"/>
-<area shape="rect" id="node10" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="873,157,1031,184"/>
-<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="871,208,1033,235"/>
-<area shape="rect" id="node12" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="887,259,1017,285"/>
-<area shape="rect" id="node13" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="879,309,1025,336"/>
+<area shape="rect" id="node2" href="namespacenc_1_1filter.html#a4b11eab67d220d1a912057ddf9206449" title="nc::filter::fillCorners" alt="" coords="201,124,335,151"/>
+<area shape="rect" id="node3" href="namespacenc_1_1filter.html#af68e859c2c3de0e63a7de5d3c833e9ba" title="nc::filter::constantBoundary" alt="" coords="413,124,595,151"/>
+<area shape="rect" id="node15" href="namespacenc_1_1filter.html#a239ebb21f57cfb56544c4247eed568d3" title="nc::filter::nearestBoundary" alt="" coords="417,175,591,201"/>
+<area shape="rect" id="node16" href="namespacenc_1_1filter.html#a668b6c63836542f26d963a619f5658d1" title="nc::filter::reflectBoundary" alt="" coords="421,225,587,252"/>
+<area shape="rect" id="node17" href="namespacenc_1_1filter.html#aee9c0973c07ffabdfd3fd92c3a182a90" title="nc::filter::reflectBoundary1d" alt="" coords="178,377,358,404"/>
+<area shape="rect" id="node28" href="namespacenc_1_1filter.html#a9412ca408039db0ef03bb7c977f363cc" title="nc::filter::constantBoundary1d" alt="" coords="171,428,365,455"/>
+<area shape="rect" id="node29" href="namespacenc_1_1filter.html#a0dbad7f335cf620e347ccd0929c2bdfb" title="nc::filter::nearestBoundary1d" alt="" coords="174,479,362,505"/>
+<area shape="rect" id="node30" href="namespacenc_1_1filter.html#a32195e6b62bfec9d92c1bbd50f34349f" title="nc::filter::mirrorBoundary" alt="" coords="422,276,586,303"/>
+<area shape="rect" id="node31" href="namespacenc_1_1filter.html#ab4e7bce587004f88fd6d69338c1524d3" title="nc::filter::mirrorBoundary1d" alt="" coords="179,529,357,556"/>
+<area shape="rect" id="node32" href="namespacenc_1_1filter.html#a0eefb360788d364ffccc6b809c692bd9" title="nc::filter::wrapBoundary" alt="" coords="425,327,583,353"/>
+<area shape="rect" id="node33" href="namespacenc_1_1filter.html#ad3b7def57ca0a84025e13305e4f97387" title="nc::filter::wrapBoundary1d" alt="" coords="182,580,354,607"/>
+<area shape="rect" id="node34" href="namespacenc.html#afcae707c43dba198d23f3628b0db245e" title="nc::cross" alt="" coords="230,631,306,657"/>
+<area shape="rect" id="node35" href="namespacenc.html#a8c8e42bbbbb509664e1a7ee3c4641e6e" title="nc::pad" alt="" coords="235,681,301,708"/>
+<area shape="rect" id="node36" href="namespacenc.html#ab9fd9301390e35e8aead617c2c24dd7d" title="nc::put" alt="" coords="237,732,299,759"/>
+<area shape="rect" id="node37" href="classnc_1_1_nd_array.html#ae3c2fb9ef470a0c6d03dcfef09545039" title="nc::NdArray\&lt; bool \&gt;\l::put" alt="" coords="199,783,337,825"/>
+<area shape="rect" id="node38" href="classnc_1_1_nd_array.html#a15899cfb75a560409f474826d960fec2" title="nc::NdArray\&lt; bool \&gt;\l::putMask" alt="" coords="199,849,337,890"/>
+<area shape="rect" id="node39" href="classnc_1_1_nd_array.html#a4069fb310d9b54d87690dc9f5d9a5a8d" title="nc::NdArray\&lt; bool \&gt;\l::repeat" alt="" coords="199,914,337,955"/>
+<area shape="rect" id="node4" href="namespacenc_1_1filter.html#a66facdd7cb52bd3c43032e761909cb03" title="nc::filter::addBoundary" alt="" coords="655,224,807,251"/>
+<area shape="rect" id="node5" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="890,35,1014,61"/>
+<area shape="rect" id="node8" href="namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e" title="nc::filter::maximumFilter" alt="" coords="871,85,1033,112"/>
+<area shape="rect" id="node9" href="namespacenc_1_1filter.html#a95757a16eed25316be6e6a5c9ca4156a" title="nc::filter::medianFilter" alt="" coords="879,136,1025,163"/>
+<area shape="rect" id="node11" href="namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906" title="nc::filter::minimumFilter" alt="" coords="873,187,1031,213"/>
+<area shape="rect" id="node12" href="namespacenc_1_1filter.html#a08dada208b5d6ec6a1ebbac1825367cc" title="nc::filter::percentileFilter" alt="" coords="871,237,1033,264"/>
+<area shape="rect" id="node13" href="namespacenc_1_1filter.html#a972e8e16448b6c4aab483b0e352d3e02" title="nc::filter::rankFilter" alt="" coords="887,288,1017,315"/>
+<area shape="rect" id="node14" href="namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952" title="nc::filter::uniformFilter" alt="" coords="879,339,1025,365"/>
 <area shape="rect" id="node6" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="1089,5,1247,32"/>
-<area shape="rect" id="node9" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="1085,99,1251,141"/>
-<area shape="rect" id="node17" href="namespacenc_1_1filter.html#af458756f8ba429d5673744c3e86b08a6" title="nc::filter::addBoundary1d" alt="" coords="421,487,587,513"/>
-<area shape="rect" id="node18" href="namespacenc_1_1filter.html#a005c1e50b02c5eb7203e2e3d2d6ccc62" title="nc::filter::convolve1d" alt="" coords="661,339,800,365"/>
-<area shape="rect" id="node20" href="namespacenc_1_1filter.html#a3a38656bef30277181e8377066a15849" title="nc::filter::maximumFilter1d" alt="" coords="643,389,819,416"/>
-<area shape="rect" id="node21" href="namespacenc_1_1filter.html#ab248bc3704fcde26c518a092724fd826" title="nc::filter::medianFilter1d" alt="" coords="650,440,811,467"/>
-<area shape="rect" id="node23" href="namespacenc_1_1filter.html#a199c5c6c2c9b94f6f98f1a4b68f1fc75" title="nc::filter::minumumFilter1d" alt="" coords="643,491,819,517"/>
-<area shape="rect" id="node24" href="namespacenc_1_1filter.html#ae7265e1ffe92fe29523a541fa27a1611" title="nc::filter::percentileFilter1d" alt="" coords="643,541,818,568"/>
-<area shape="rect" id="node25" href="namespacenc_1_1filter.html#a543f334070e494f6fba9a943a832415e" title="nc::filter::rankFilter1d" alt="" coords="659,592,803,619"/>
-<area shape="rect" id="node26" href="namespacenc_1_1filter.html#afcf603e5055c7bc01aed09067357e004" title="nc::filter::uniformFilter1d" alt="" coords="650,643,811,669"/>
-<area shape="rect" id="node19" href="namespacenc_1_1filter.html#a03cc5a48e29d6f25636789b65366f243" title="nc::filter::gaussianFilter1d" alt="" coords="867,360,1037,387"/>
-<area shape="rect" id="node22" href="namespacenc_1_1filter.html#a3a525dfb96209c3163c95357f8d30b91" title="nc::filter::complementary\lMedianFilter1d" alt="" coords="869,433,1035,474"/>
+<area shape="rect" id="node7" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="1109,56,1227,83"/>
+<area shape="rect" id="node10" href="namespacenc_1_1filter.html#a328e0d2fa1a5f472de162c4ee0e1f8e4" title="nc::filter::complementary\lMedianFilter" alt="" coords="1085,129,1251,170"/>
+<area shape="rect" id="node18" href="namespacenc_1_1filter.html#af458756f8ba429d5673744c3e86b08a6" title="nc::filter::addBoundary1d" alt="" coords="421,516,587,543"/>
+<area shape="rect" id="node19" href="namespacenc_1_1filter.html#a005c1e50b02c5eb7203e2e3d2d6ccc62" title="nc::filter::convolve1d" alt="" coords="661,368,800,395"/>
+<area shape="rect" id="node21" href="namespacenc_1_1filter.html#a3a38656bef30277181e8377066a15849" title="nc::filter::maximumFilter1d" alt="" coords="643,419,819,445"/>
+<area shape="rect" id="node22" href="namespacenc_1_1filter.html#ab248bc3704fcde26c518a092724fd826" title="nc::filter::medianFilter1d" alt="" coords="650,469,811,496"/>
+<area shape="rect" id="node24" href="namespacenc_1_1filter.html#a199c5c6c2c9b94f6f98f1a4b68f1fc75" title="nc::filter::minumumFilter1d" alt="" coords="643,520,819,547"/>
+<area shape="rect" id="node25" href="namespacenc_1_1filter.html#ae7265e1ffe92fe29523a541fa27a1611" title="nc::filter::percentileFilter1d" alt="" coords="643,571,818,597"/>
+<area shape="rect" id="node26" href="namespacenc_1_1filter.html#a543f334070e494f6fba9a943a832415e" title="nc::filter::rankFilter1d" alt="" coords="659,621,803,648"/>
+<area shape="rect" id="node27" href="namespacenc_1_1filter.html#afcf603e5055c7bc01aed09067357e004" title="nc::filter::uniformFilter1d" alt="" coords="650,672,811,699"/>
+<area shape="rect" id="node20" href="namespacenc_1_1filter.html#a03cc5a48e29d6f25636789b65366f243" title="nc::filter::gaussianFilter1d" alt="" coords="867,389,1037,416"/>
+<area shape="rect" id="node23" href="namespacenc_1_1filter.html#a3a525dfb96209c3163c95357f8d30b91" title="nc::filter::complementary\lMedianFilter1d" alt="" coords="869,462,1035,503"/>
 </map>
 </div>
 
@@ -8014,7 +8015,7 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node4" href="namespacenc.html#aac312a24799da39c6cb6960f07812111" title="nc::count_nonzero" alt="" coords="227,107,357,133"/>
 <area shape="rect" id="node5" href="namespacenc.html#a943a802bfe6ecf2984c0ce56577f252f" title="nc::diff" alt="" coords="262,157,322,184"/>
 <area shape="rect" id="node6" href="namespacenc.html#ac995fec009d93ce03c4d01eaebac6777" title="nc::flip" alt="" coords="262,259,322,285"/>
-<area shape="rect" id="node13" href="namespacenc.html#ab3bff6f3226aeeb44fe6d10c16612d2c" title="nc::rot90" alt="" coords="689,208,763,235"/>
+<area shape="rect" id="node12" href="namespacenc.html#ab3bff6f3226aeeb44fe6d10c16612d2c" title="nc::rot90" alt="" coords="689,208,763,235"/>
 <area shape="rect" id="node19" href="namespacenc.html#ad2e1dc950c29ffe7c9dc38126043b052" title="nc::nanmean" alt="" coords="243,309,341,336"/>
 <area shape="rect" id="node20" href="namespacenc.html#a07242d05ac9b13b84db6ff09b646e6c5" title="nc::nanstdev" alt="" coords="458,360,553,387"/>
 <area shape="rect" id="node22" href="namespacenc.html#aef0be387bdce31db20a82833327e0720" title="nc::nanmedian" alt="" coords="239,411,345,437"/>
@@ -8048,11 +8049,11 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node16" href="namespacenc.html#a80b0beb8f175ed462a4073825c864a43" title="nc::flipud" alt="" coords="468,157,543,184"/>
 <area shape="rect" id="node8" href="namespacenc_1_1filter.html#aee9c0973c07ffabdfd3fd92c3a182a90" title="nc::filter::reflectBoundary1d" alt="" coords="636,259,816,285"/>
 <area shape="rect" id="node10" href="namespacenc_1_1filter.html#a005c1e50b02c5eb7203e2e3d2d6ccc62" title="nc::filter::convolve1d" alt="" coords="1088,335,1227,361"/>
-<area shape="rect" id="node12" href="namespacenc_1_1filter.html#ab4e7bce587004f88fd6d69338c1524d3" title="nc::filter::mirrorBoundary1d" alt="" coords="637,309,815,336"/>
+<area shape="rect" id="node11" href="namespacenc_1_1filter.html#ab4e7bce587004f88fd6d69338c1524d3" title="nc::filter::mirrorBoundary1d" alt="" coords="637,309,815,336"/>
 <area shape="rect" id="node9" href="namespacenc_1_1filter.html#af458756f8ba429d5673744c3e86b08a6" title="nc::filter::addBoundary1d" alt="" coords="864,309,1031,336"/>
-<area shape="rect" id="node11" href="namespacenc_1_1filter.html#a03cc5a48e29d6f25636789b65366f243" title="nc::filter::gaussianFilter1d" alt="" coords="1284,335,1455,361"/>
-<area shape="rect" id="node14" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="885,208,1009,235"/>
-<area shape="rect" id="node15" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="1079,208,1236,235"/>
+<area shape="rect" id="node13" href="namespacenc_1_1filter.html#a6b257d6e403f5f9003934a4fd1fb5feb" title="nc::filter::convolve" alt="" coords="885,208,1009,235"/>
+<area shape="rect" id="node14" href="namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024" title="nc::filter::gaussianFilter" alt="" coords="1079,233,1236,260"/>
+<area shape="rect" id="node15" href="namespacenc_1_1filter.html#a03fcb2476bd35393869fb23167566f10" title="nc::filter::laplace" alt="" coords="1099,183,1216,209"/>
 <area shape="rect" id="node17" href="namespacenc_1_1filter.html#a668b6c63836542f26d963a619f5658d1" title="nc::filter::reflectBoundary" alt="" coords="643,157,809,184"/>
 <area shape="rect" id="node18" href="namespacenc_1_1filter.html#a32195e6b62bfec9d92c1bbd50f34349f" title="nc::filter::mirrorBoundary" alt="" coords="644,107,808,133"/>
 <area shape="rect" id="node21" href="namespacenc.html#a63de664afff4733cc1d166d22b18bcb4" title="nc::nanvar" alt="" coords="685,411,767,437"/>
