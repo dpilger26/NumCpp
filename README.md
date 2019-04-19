@@ -1,4 +1,4 @@
-﻿# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org/)
+﻿# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)
 
 ## Author: David Pilger dpilger26@gmail.com
 
@@ -27,7 +27,7 @@ Compiled and tested with Visual Studio 2017, and g++ 7.3.0, with Boost version 1
 
 ## Documentation
 
-### [Full Documentation]('https://dpilger26.github.io/NumCpp'>)
+### [Full Documentation]('https://dpilger26.github.io/NumCpp')
 
 ## [GitHub](https://github.com/dpilger26/NumCpp)
 
