@@ -157,7 +157,7 @@ namespace nc
             ///
             NdArray<double> solve(const NdArray<double>& inInput, double inThresh = -1.0)
             {
-                double ss;
+                double ss = 0.0;
 
                 if (inInput.size() != m_)
                 {
@@ -222,25 +222,25 @@ namespace nc
             ///
             void decompose()
             {
-                bool    flag;
-                uint32  i;
-                uint32  its;
-                uint32  j;
-                uint32  jj;
-                uint32  k;
-                uint32  l = 0; // initialize to zero to get rid of compiler warning
-                uint32  nm = 0; // initialize to zero to get rid of compiler warning
+                bool    flag = true;
+                uint32  i = 0;
+                uint32  its = 0;
+                uint32  j = 0;
+                uint32  jj= 0;
+                uint32  k = 0;
+                uint32  l = 0; 
+                uint32  nm = 0;
 
                 double  anorm = 0.0;
-                double  c;
-                double  f;
+                double  c = 0.0;
+                double  f = 0.0;
                 double  g = 0.0;
-                double  h;
-                double  ss;
+                double  h = 0.0;
+                double  ss = 0.0;
                 double  scale = 0.0;
-                double  x;
-                double  y;
-                double  z;
+                double  x = 0.0;
+                double  y = 0.0;
+                double  z = 0.0;
 
                 NdArray<double> rv1(n_, 1);
 
@@ -565,13 +565,13 @@ namespace nc
             ///
             void reorder()
             {
-                uint32  i;
-                uint32  j;
-                uint32  k;
-                uint32  ss;
+                uint32  i = 0;
+                uint32  j = 0;
+                uint32  k = 0;
+                uint32  ss = 0;
                 uint32  inc = 1;
 
-                double			sw;
+                double			sw = 0.0;
                 NdArray<double> su(m_, 1);
                 NdArray<double> sv(n_, 1);
 
