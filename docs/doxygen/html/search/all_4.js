@@ -1,7 +1,9 @@
 var searchData=
 [
+  ['data',['data',['../classnc_1_1_nd_array.html#a3ecc1528224d6f389f8d114eb0a46740',1,'nc::NdArray']]],
   ['datacube',['DataCube',['../classnc_1_1_data_cube.html',1,'nc::DataCube&lt; dtype &gt;'],['../classnc_1_1_data_cube.html#a8224b613a7c87a16e06ef08d6f90926e',1,'nc::DataCube::DataCube()=default'],['../classnc_1_1_data_cube.html#a7ae08af82b0553d2b294286bdf06703b',1,'nc::DataCube::DataCube(uint32 inSize)']]],
   ['datacube_2ehpp',['DataCube.hpp',['../_data_cube_8hpp.html',1,'']]],
+  ['datarelease',['dataRelease',['../classnc_1_1_nd_array.html#aa91013877b9bd37a0411167f2e8eec75',1,'nc::NdArray']]],
   ['days_5fper_5fweek',['DAYS_PER_WEEK',['../namespacenc_1_1constants.html#a2c11c386e1a07a17f95122fc4630cbe9',1,'nc::constants']]],
   ['dcm',['DCM',['../classnc_1_1rotations_1_1_d_c_m.html',1,'nc::rotations']]],
   ['dec',['Dec',['../classnc_1_1coordinates_1_1_dec.html',1,'nc::coordinates::Dec&lt; dtype &gt;'],['../classnc_1_1coordinates_1_1_dec.html#a824115d58301ef737452472139145cdf',1,'nc::coordinates::Dec::Dec() noexcept'],['../classnc_1_1coordinates_1_1_dec.html#a727763d555e1bfa430e618c53dac923b',1,'nc::coordinates::Dec::Dec(dtype inDegrees)'],['../classnc_1_1coordinates_1_1_dec.html#a5c83c926266e7876a6febd05b8764193',1,'nc::coordinates::Dec::Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds) noexcept'],['../classnc_1_1coordinates_1_1_coordinate.html#ae607bf9bbaff57890669fc6530cb53d3',1,'nc::coordinates::Coordinate::dec()']]],

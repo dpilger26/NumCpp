@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"functions_rela.html":[2,2,4],
+"functions_s.html":[2,2,0,18],
 "functions_t.html":[2,2,0,19],
 "functions_type.html":[2,2,3],
 "functions_u.html":[2,2,0,20],
@@ -67,13 +69,13 @@ var NAVTREEINDEX4 =
 "namespacenc_1_1coordinates.html":[2,0,0,0],
 "namespacenc_1_1fft.html":[1,0,0,2],
 "namespacenc_1_1filter.html":[1,0,0,3],
-"namespacenc_1_1image_processing.html":[2,0,0,1],
 "namespacenc_1_1image_processing.html":[1,0,0,4],
+"namespacenc_1_1image_processing.html":[2,0,0,1],
 "namespacenc_1_1linalg.html":[2,0,0,2],
 "namespacenc_1_1linalg.html":[1,0,0,5],
 "namespacenc_1_1polynomial.html":[1,0,0,6],
-"namespacenc_1_1rotations.html":[1,0,0,7],
 "namespacenc_1_1rotations.html":[2,0,0,3],
+"namespacenc_1_1rotations.html":[1,0,0,7],
 "namespacenc_1_1utils.html":[1,0,0,8],
 "namespaces.html":[1,0],
 "pages.html":[]

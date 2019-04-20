@@ -48,6 +48,8 @@ var classnc_1_1_nd_array =
     [ "cSlice", "classnc_1_1_nd_array.html#a377c1b5393aabc2b00496643a5c5da03", null ],
     [ "cumprod", "classnc_1_1_nd_array.html#accb83dc26d63fd82cc4368bc9162a1d3", null ],
     [ "cumsum", "classnc_1_1_nd_array.html#a3b089f3184d89466a24dbc1068d15354", null ],
+    [ "data", "classnc_1_1_nd_array.html#a3ecc1528224d6f389f8d114eb0a46740", null ],
+    [ "dataRelease", "classnc_1_1_nd_array.html#aa91013877b9bd37a0411167f2e8eec75", null ],
     [ "diagonal", "classnc_1_1_nd_array.html#a811a9c758db85320946a972c6d5c1dfb", null ],
     [ "dot", "classnc_1_1_nd_array.html#a4f58916a836e9cfdb8a8c1a2552b27b1", null ],
     [ "dump", "classnc_1_1_nd_array.html#a1a75a88440cb5460da17b23e0dd6b030", null ],
