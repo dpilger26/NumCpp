@@ -779,7 +779,7 @@ namespace nc
                             }
                         }
 
-                        clusters_.push_back(newCluster);
+                        clusters_.push_back(std::move(newCluster));
                         ++clusterId;
                     }
                 }
@@ -1188,7 +1188,7 @@ namespace nc
         template<typename dtype>
         NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold)
         {
-            return std::move(inImageArray > inThreshold);
+            return inImageArray > inThreshold;
         }
 
         //============================================================================
@@ -1209,7 +1209,7 @@ namespace nc
                 centroids.push_back(std::move(Centroid<dtype>(cluster)));
             }
 
-            return std::move(centroids);
+            return centroids;
         }
 
         //============================================================================
@@ -1226,7 +1226,7 @@ namespace nc
         std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth)
         {
             ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
-            return std::move(std::vector<Cluster<dtype> >(clusterMaker.begin(), clusterMaker.end()));
+            return std::vector<Cluster<dtype> >(clusterMaker.begin(), clusterMaker.end());
         }
 
         //============================================================================
@@ -1277,7 +1277,7 @@ namespace nc
             std::vector<Cluster<dtype> > clusters = clusterPixels(inImageArray, xcds, borderWidthPost);
 
             // centroid the clusters
-            return std::move(centroidClusters(clusters));
+            return centroidClusters(clusters);
         }
 
         //============================================================================
@@ -1420,7 +1420,7 @@ namespace nc
                 }
             }
 
-            return std::move(xcds);
+            return xcds;
         }
     }
 }

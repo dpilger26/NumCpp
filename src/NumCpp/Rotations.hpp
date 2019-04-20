@@ -179,7 +179,7 @@ namespace nc
                 q(3, 2) = -inQuat2.k();
 
                 NdArray<double> omega = q.transpose().template dot<double>(qDot.transpose());
-                return std::move(omega *= 2);
+                return omega *= 2;
             }
 
             //============================================================================
@@ -555,7 +555,7 @@ namespace nc
                 dcm(2, 1) = 2 * (q1 * q2 - q3 * q0);
                 dcm(2, 2) = utils::sqr(q3) - utils::sqr(q0) - utils::sqr(q1) + utils::sqr(q2);;
 
-                return std::move(dcm);
+                return dcm;
             }
 
             //============================================================================
@@ -568,7 +568,7 @@ namespace nc
             NdArray<double> toNdArray() const
             {
                 NdArray<double> returnArray = { data_[0], data_[1], data_[2], data_[3] };
-                return std::move(returnArray);
+                return returnArray;
             }
 
             //============================================================================
@@ -878,7 +878,7 @@ namespace nc
                     throw std::invalid_argument(errStr);
                 }
 
-                return std::move(Quaternion::angleAxisRotation(inArray, inAngle).toDCM());
+                return Quaternion::angleAxisRotation(inArray, inAngle).toDCM();
             }
 
             //============================================================================
@@ -915,7 +915,7 @@ namespace nc
             ///
             static NdArray<double> xRotation(double inAngle)
             {
-                return std::move(DCM<dtype>::angleAxisRotation({ 1.0, 0.0, 0.0 }, inAngle));
+                return DCM<dtype>::angleAxisRotation({ 1.0, 0.0, 0.0 }, inAngle);
             }
 
             //============================================================================
@@ -930,7 +930,7 @@ namespace nc
             ///
             static NdArray<double> yRotation(double inAngle)
             {
-                return std::move(DCM<dtype>::angleAxisRotation({ 0.0, 1.0, 0.0 }, inAngle));
+                return DCM<dtype>::angleAxisRotation({ 0.0, 1.0, 0.0 }, inAngle);
             }
 
             //============================================================================
@@ -945,7 +945,7 @@ namespace nc
             ///
             static NdArray<double> zRotation(double inAngle)
             {
-                return std::move(DCM<dtype>::angleAxisRotation({ 0.0, 0.0, 1.0 }, inAngle));
+                return DCM<dtype>::angleAxisRotation({ 0.0, 0.0, 1.0 }, inAngle);
             }
         };
     }

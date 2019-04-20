@@ -320,7 +320,7 @@ namespace nc
             outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), 
                 Slice(outShape.cols - inBoundarySize, outShape.cols), upperRight);
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -347,7 +347,7 @@ namespace nc
             outArray.put(Slice(inImage.size() + inBoundarySize, outSize), 
                 fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize), inImage.size())]));
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -381,7 +381,7 @@ namespace nc
             outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
                 Slice(outShape.cols - inBoundarySize, outShape.cols), inConstantValue); /// right
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -408,7 +408,7 @@ namespace nc
             // right
             outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inConstantValue);
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -459,7 +459,7 @@ namespace nc
                     inImage(Slice(0, inShape.rows), inShape.cols - 1));
             }
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -485,7 +485,7 @@ namespace nc
             // right
             outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inImage.back());
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -554,7 +554,7 @@ namespace nc
             outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), 
                 Slice(outShape.cols - inBoundarySize, outShape.cols), upperRight);
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -581,7 +581,7 @@ namespace nc
             outArray.put(Slice(inImage.size() + inBoundarySize, outSize), 
                 fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize) - 1, -1)]));
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -644,7 +644,7 @@ namespace nc
             outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows),
                 Slice(outShape.cols - inBoundarySize, outShape.cols), lowerRight);
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -670,7 +670,7 @@ namespace nc
             // right
             outArray.put(Slice(inImage.size() + inBoundarySize, outSize), inImage[Slice(0, inBoundarySize)]);
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -700,23 +700,23 @@ namespace nc
             {
                 case Boundary::REFLECT:
                 {
-                    return std::move(reflectBoundary(inImage, boundarySize));
+                    return reflectBoundary(inImage, boundarySize);
                 }
                 case Boundary::CONSTANT:
                 {
-                    return std::move(constantBoundary(inImage, boundarySize, inConstantValue));
+                    return constantBoundary(inImage, boundarySize, inConstantValue);
                 }
                 case Boundary::NEAREST:
                 {
-                    return std::move(nearestBoundary(inImage, boundarySize));
+                    return nearestBoundary(inImage, boundarySize);
                 }
                 case Boundary::MIRROR:
                 {
-                    return std::move(mirrorBoundary(inImage, boundarySize));
+                    return mirrorBoundary(inImage, boundarySize);
                 }
                 case Boundary::WRAP:
                 {
-                    return std::move(wrapBoundary(inImage, boundarySize));
+                    return wrapBoundary(inImage, boundarySize);
                 }
                 default:
                 {
@@ -753,23 +753,23 @@ namespace nc
             {
                 case Boundary::REFLECT:
                 {
-                    return std::move(reflectBoundary1d(inImage, boundarySize));
+                    return reflectBoundary1d(inImage, boundarySize);
                 }
                 case Boundary::CONSTANT:
                 {
-                    return std::move(constantBoundary1d(inImage, boundarySize, inConstantValue));
+                    return constantBoundary1d(inImage, boundarySize, inConstantValue);
                 }
                 case Boundary::NEAREST:
                 {
-                    return std::move(nearestBoundary1d(inImage, boundarySize));
+                    return nearestBoundary1d(inImage, boundarySize);
                 }
                 case Boundary::MIRROR:
                 {
-                    return std::move(mirrorBoundary1d(inImage, boundarySize));
+                    return mirrorBoundary1d(inImage, boundarySize);
                 }
                 case Boundary::WRAP:
                 {
-                    return std::move(wrapBoundary1d(inImage, boundarySize));
+                    return wrapBoundary1d(inImage, boundarySize);
                 }
                 default:
                 {
@@ -797,7 +797,7 @@ namespace nc
             inShape.rows -= boundarySize * 2;
             inShape.cols -= boundarySize * 2;
 
-            return std::move(inImageWithBoundary(Slice(boundarySize, boundarySize + inShape.rows), Slice(boundarySize, boundarySize + inShape.cols)));
+            return inImageWithBoundary(Slice(boundarySize, boundarySize + inShape.rows), Slice(boundarySize, boundarySize + inShape.cols));
         }
 
         //============================================================================
@@ -815,7 +815,7 @@ namespace nc
             uint32 boundarySize = inSize / 2; // integer division
             uint32 imageSize = inImageWithBoundary.size() - boundarySize * 2;
 
-            return std::move(inImageWithBoundary[Slice(boundarySize, boundarySize + imageSize)]);
+            return inImageWithBoundary[Slice(boundarySize, boundarySize + imageSize)];
         }
 
         //============================================================================
@@ -836,7 +836,7 @@ namespace nc
             NdArray<dtype> inImageArrayCopy(inImageArray);
             inImageArrayCopy -= medianFilter(inImageArray, inSize, inBoundaryType, inConstantValue);
 
-            return std::move(inImageArrayCopy);
+            return inImageArrayCopy;
         }
 
         //============================================================================
@@ -857,7 +857,7 @@ namespace nc
             NdArray<dtype> inImageArrayCopy(inImageArray);
             inImageArrayCopy -= medianFilter1d(inImageArray, inSize, inBoundaryType, inConstantValue);
 
-            return std::move(inImageArrayCopy);
+            return inImageArrayCopy;
         }
 
         //============================================================================
@@ -905,7 +905,7 @@ namespace nc
                 }
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -940,7 +940,7 @@ namespace nc
                 output[i - boundarySize] = dot<dtype>(window, weightsFlat).item();
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -998,7 +998,7 @@ namespace nc
                 inBoundaryType,
                 inConstantValue).template astype<dtype>();
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1051,7 +1051,7 @@ namespace nc
                 inBoundaryType,
                 inConstantValue).template astype<dtype>();
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1070,7 +1070,7 @@ namespace nc
         NdArray<dtype> laplace(const NdArray<dtype>& inImageArray, Boundary inBoundaryType, dtype inConstantValue)
         {
             NdArray<dtype> kernel = { {0, 1, 0}, {1, -4, 1}, {0, 1, 0} };
-            return std::move(convolve(inImageArray, 3, kernel, inBoundaryType, inConstantValue));
+            return convolve(inImageArray, 3, kernel, inBoundaryType, inConstantValue);
         }
 
         //============================================================================
@@ -1109,7 +1109,7 @@ namespace nc
                 }
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1142,7 +1142,7 @@ namespace nc
                 output[i - boundarySize] = window.max().item();
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1181,7 +1181,7 @@ namespace nc
                 }
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1214,7 +1214,7 @@ namespace nc
                 output[i - boundarySize] = window.median().item();
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1253,7 +1253,7 @@ namespace nc
                 }
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1286,7 +1286,7 @@ namespace nc
                 output[i - boundarySize] = window.min().item();
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1327,7 +1327,7 @@ namespace nc
                 }
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1361,7 +1361,7 @@ namespace nc
                 output[i - boundarySize] = percentile<dtype>(window, inPercentile).item();
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1406,7 +1406,7 @@ namespace nc
                 }
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1440,7 +1440,7 @@ namespace nc
                 output[i - boundarySize] = sort(window)[inRank];
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1479,7 +1479,7 @@ namespace nc
                 }
             }
 
-            return std::move(output);
+            return output;
         }
 
         //============================================================================
@@ -1512,7 +1512,7 @@ namespace nc
                 output[i - boundarySize] = window.mean().item();
             }
 
-            return std::move(output);
+            return output;
         }
     }
 }

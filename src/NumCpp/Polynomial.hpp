@@ -103,7 +103,7 @@ namespace nc
         ///
         NdArray<dtype> coefficients() const
         {
-            return std::move(NdArray<dtype>(coefficients_));
+            return NdArray<dtype>(coefficients_);
         }
 
         //============================================================================

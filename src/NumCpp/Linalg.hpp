@@ -197,7 +197,7 @@ namespace nc
                     returnArray[j] = ss;
                 }
 
-                return std::move(returnArray);
+                return returnArray;
             }
 
         private:
@@ -784,7 +784,7 @@ namespace nc
             returnArray(2, 1) = inX;
             returnArray(2, 2) = 0.0;
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -806,7 +806,7 @@ namespace nc
                 throw std::invalid_argument(errStr);
             }
 
-            return std::move(hat(inVec[0], inVec[1], inVec[2]));
+            return hat(inVec[0], inVec[1], inVec[2]);
         }
 
         //============================================================================
@@ -892,7 +892,7 @@ namespace nc
                 }
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -921,7 +921,7 @@ namespace nc
             SVD svdSolver(inA.template astype<double>());
             const double threshold = inTolerance * svdSolver.s().front();
 
-            return std::move(svdSolver.solve(inB.template astype<double>(), threshold));
+            return svdSolver.solve(inB.template astype<double>(), threshold);
         }
 
         //============================================================================
@@ -954,24 +954,24 @@ namespace nc
 
             if (inPower == 0)
             {
-                return std::move(identity<dtypeOut>(inShape.rows));
+                return identity<dtypeOut>(inShape.rows);
             }
             else if (inPower == 1)
             {
-                return std::move(inArray.template astype<dtypeOut>());
+                return inArray.template astype<dtypeOut>();
             }
             else if (inPower == -1)
             {
-                return std::move(inv(inArray).template astype<dtypeOut>());
+                return inv(inArray).template astype<dtypeOut>();
             }
             else if (inPower > 1)
             {
                 NdArray<dtypeOut> returnArray = dot<dtypeOut>(inArray, inArray);
                 for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = std::move(dot<dtypeOut>(returnArray, inArray.template astype<dtypeOut>()));
+                    returnArray = dot<dtypeOut>(returnArray, inArray.template astype<dtypeOut>());
                 }
-                return std::move(returnArray);
+                return returnArray;
             }
             else
             {
@@ -979,9 +979,9 @@ namespace nc
                 NdArray<double> returnArray = dot<double>(inverse, inverse);
                 for (int16 i = 2; i < std::abs(inPower); ++i)
                 {
-                    returnArray = std::move(dot<double>(returnArray, inverse));
+                    returnArray = dot<double>(returnArray, inverse);
                 }
-                return std::move(returnArray.template astype<dtypeOut>());
+                return returnArray.template astype<dtypeOut>();
             }
         }
 
@@ -1011,17 +1011,17 @@ namespace nc
             }
             else if (inList.size() == 1)
             {
-                return std::move(iter->template astype<dtypeOut>());
+                return iter->template astype<dtypeOut>();
             }
 
             NdArray<dtypeOut> returnArray = dot<dtypeOut>(*iter, *(iter + 1));
             iter += 2;
             for (; iter < inList.end(); ++iter)
             {
-                returnArray = std::move(dot<dtypeOut>(returnArray, iter->template astype<dtypeOut>()));
+                returnArray = dot<dtypeOut>(returnArray, iter->template astype<dtypeOut>());
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================

@@ -81,7 +81,7 @@ namespace nc
                 returnArray[i] = static_cast<dtype>(helper(i));
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
         else
         {
@@ -98,7 +98,7 @@ namespace nc
                 }
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
     }
 
