@@ -22,7 +22,10 @@ set_target_properties(${PROJECT_NAME}
     RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../bin/
 )
 
-target_compile_definitions(${PROJECT_NAME} PUBLIC -DINCLUDE_PYTHON_INTERFACE)
+target_compile_definitions(${PROJECT_NAME} PUBLIC 
+	-DINCLUDE_PYTHON_INTERFACE
+	-DINCLUDE_BOOST_PYTHON_INTERFACE
+)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${NUMCPP_INCLUDES})
 
@@ -40,5 +43,4 @@ target_link_libraries(${PROJECT_NAME} PUBLIC ${Boost_LIBRARIES})
 #find_package(Python3 COMPONENTS Development)
 #target_include_directories(${PROJECT_NAME} PUBLIC ${Python3_INCLUDE_DIRS}) 
 target_include_directories(${PROJECT_NAME} PUBLIC $ENV{CONDA_PREFIX}/include/python3.7m)
-
 
