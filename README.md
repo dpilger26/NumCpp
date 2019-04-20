@@ -52,7 +52,7 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```np.linspace(1, 10, 5)```                              | ```nc::linspace<dtype>(1, 10, 5)```                      |
-| ```np.arange(3, 7)```                                    | ```nc::arrange<dtype>(3, 7)```                           |
+| ```np.arange(3, 7)```                                    | ```nc::arange<dtype>(3, 7)```                            |
 | ```np.eye(4)```                                          | ```nc::eye<dtype>(4)```                                  |
 | ```np.zeros([3, 4])```                                   | ```nc::zeros<dtype>(3, 4)```                             |
 |                                                          | ```nc::NdArray<dtype>(3, 4) a = 0```                     |
@@ -61,7 +61,7 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 | ```np.nans([3, 4])```                                    | ```nc::nans<double>(3, 4)```                             |
 |                                                          | ```nc::NdArray<double>(3, 4) a = nc::constants::nan```   |
 | ```np.empty([3, 4])```                                   | ```nc::empty<dtype>(3, 4)```                             |
-|                                                          | ```nc::NdArray<dtype>(3, 4) a;```                        |
+|                                                          | ```nc::NdArray<dtype>(3, 4) a```                         |
 
 ### SLICING/BROADCASTING
 
@@ -186,7 +186,7 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 | print(a)                                                 | ```a.print()```                                          |
 |                                                          | ```std::cout << a```                                     |
 | ```a.tofile(filename, sep=’\n’)```                       | ```a.tofile(filename, "\n")```                           |
-| ```np.fromfile(filename, sep=’\n’)```                   | ```nc::fromfile<dtype>(filename, \n")```                 |
+| ```np.fromfile(filename, sep=’\n’)```                    | ```nc::fromfile<dtype>(filename, \n")```                 |
 | ```np.dump(a, filename)```                               | ```nc::dump(a, filename)```                              |
 | ```np.load(filename)```                                  | ```nc::load<dtype>(filename)```                          |
 

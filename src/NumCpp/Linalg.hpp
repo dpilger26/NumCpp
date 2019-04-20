@@ -157,7 +157,7 @@ namespace nc
             ///
             NdArray<double> solve(const NdArray<double>& inInput, double inThresh = -1.0)
             {
-                double ss;
+                double ss = 0.0;
 
                 if (inInput.size() != m_)
                 {
@@ -197,7 +197,7 @@ namespace nc
                     returnArray[j] = ss;
                 }
 
-                return std::move(returnArray);
+                return returnArray;
             }
 
         private:
@@ -222,25 +222,25 @@ namespace nc
             ///
             void decompose()
             {
-                bool    flag;
-                uint32  i;
-                uint32  its;
-                uint32  j;
-                uint32  jj;
-                uint32  k;
-                uint32  l = 0; // initialize to zero to get rid of compiler warning
-                uint32  nm = 0; // initialize to zero to get rid of compiler warning
+                bool    flag = true;
+                uint32  i = 0;
+                uint32  its = 0;
+                uint32  j = 0;
+                uint32  jj= 0;
+                uint32  k = 0;
+                uint32  l = 0; 
+                uint32  nm = 0;
 
                 double  anorm = 0.0;
-                double  c;
-                double  f;
+                double  c = 0.0;
+                double  f = 0.0;
                 double  g = 0.0;
-                double  h;
-                double  ss;
+                double  h = 0.0;
+                double  ss = 0.0;
                 double  scale = 0.0;
-                double  x;
-                double  y;
-                double  z;
+                double  x = 0.0;
+                double  y = 0.0;
+                double  z = 0.0;
 
                 NdArray<double> rv1(n_, 1);
 
@@ -565,13 +565,13 @@ namespace nc
             ///
             void reorder()
             {
-                uint32  i;
-                uint32  j;
-                uint32  k;
-                uint32  ss;
+                uint32  i = 0;
+                uint32  j = 0;
+                uint32  k = 0;
+                uint32  ss = 0;
                 uint32  inc = 1;
 
-                double			sw;
+                double			sw = 0.0;
                 NdArray<double> su(m_, 1);
                 NdArray<double> sv(n_, 1);
 
@@ -784,7 +784,7 @@ namespace nc
             returnArray(2, 1) = inX;
             returnArray(2, 2) = 0.0;
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -806,7 +806,7 @@ namespace nc
                 throw std::invalid_argument(errStr);
             }
 
-            return std::move(hat(inVec[0], inVec[1], inVec[2]));
+            return hat(inVec[0], inVec[1], inVec[2]);
         }
 
         //============================================================================
@@ -892,7 +892,7 @@ namespace nc
                 }
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -921,7 +921,7 @@ namespace nc
             SVD svdSolver(inA.template astype<double>());
             const double threshold = inTolerance * svdSolver.s().front();
 
-            return std::move(svdSolver.solve(inB.template astype<double>(), threshold));
+            return svdSolver.solve(inB.template astype<double>(), threshold);
         }
 
         //============================================================================
@@ -954,24 +954,24 @@ namespace nc
 
             if (inPower == 0)
             {
-                return std::move(identity<dtypeOut>(inShape.rows));
+                return identity<dtypeOut>(inShape.rows);
             }
             else if (inPower == 1)
             {
-                return std::move(inArray.template astype<dtypeOut>());
+                return inArray.template astype<dtypeOut>();
             }
             else if (inPower == -1)
             {
-                return std::move(inv(inArray).template astype<dtypeOut>());
+                return inv(inArray).template astype<dtypeOut>();
             }
             else if (inPower > 1)
             {
                 NdArray<dtypeOut> returnArray = dot<dtypeOut>(inArray, inArray);
                 for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = std::move(dot<dtypeOut>(returnArray, inArray.template astype<dtypeOut>()));
+                    returnArray = dot<dtypeOut>(returnArray, inArray.template astype<dtypeOut>());
                 }
-                return std::move(returnArray);
+                return returnArray;
             }
             else
             {
@@ -979,9 +979,9 @@ namespace nc
                 NdArray<double> returnArray = dot<double>(inverse, inverse);
                 for (int16 i = 2; i < std::abs(inPower); ++i)
                 {
-                    returnArray = std::move(dot<double>(returnArray, inverse));
+                    returnArray = dot<double>(returnArray, inverse);
                 }
-                return std::move(returnArray.template astype<dtypeOut>());
+                return returnArray.template astype<dtypeOut>();
             }
         }
 
@@ -1011,17 +1011,17 @@ namespace nc
             }
             else if (inList.size() == 1)
             {
-                return std::move(iter->template astype<dtypeOut>());
+                return iter->template astype<dtypeOut>();
             }
 
             NdArray<dtypeOut> returnArray = dot<dtypeOut>(*iter, *(iter + 1));
             iter += 2;
             for (; iter < inList.end(); ++iter)
             {
-                returnArray = std::move(dot<dtypeOut>(returnArray, iter->template astype<dtypeOut>()));
+                returnArray = dot<dtypeOut>(returnArray, iter->template astype<dtypeOut>());
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================

@@ -526,7 +526,7 @@ namespace nc
                 returnArray[counter++] = at(i);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -554,7 +554,7 @@ namespace nc
                 outArray[i] = this->operator[](indices[i]);
             }
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -583,7 +583,7 @@ namespace nc
                 outArray[i++] = this->operator[](index);
             }
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -615,7 +615,7 @@ namespace nc
                 ++rowCounter;
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -640,7 +640,7 @@ namespace nc
                 returnArray(rowCounter++, 0) = at(row, inColIndex);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -665,7 +665,7 @@ namespace nc
                 returnArray(0, colCounter++) = at(inRowIndex, col);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -827,7 +827,7 @@ namespace nc
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
-            return std::move(this->operator[](inSlice));
+            return this->operator[](inSlice);
         }
 
         //============================================================================
@@ -843,7 +843,7 @@ namespace nc
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
-            return std::move(this->operator()(inRowSlice, inColSlice));
+            return this->operator()(inRowSlice, inColSlice);
         }
 
         //============================================================================
@@ -859,7 +859,7 @@ namespace nc
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
-            return std::move(this->operator()(inRowSlice, inColIndex));
+            return this->operator()(inRowSlice, inColIndex);
         }
 
         //============================================================================
@@ -875,7 +875,7 @@ namespace nc
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
-            return std::move(this->operator()(inRowIndex, inColSlice));
+            return this->operator()(inRowIndex, inColSlice);
         }
 
         //============================================================================
@@ -1076,7 +1076,7 @@ namespace nc
                 {
                     NdArray<bool> returnArray = { std::all_of(cbegin(), cend(),
                         [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); }) };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -1086,7 +1086,7 @@ namespace nc
                         returnArray(0, row) = std::all_of(cbegin(row), cend(row),
                             [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); });
                     }
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -1097,13 +1097,13 @@ namespace nc
                         returnArray(0, row) = std::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row),
                             [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); });
                     }
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<bool>(0));
+                    return NdArray<bool>(0);
                 }
             }
         }
@@ -1127,7 +1127,7 @@ namespace nc
                 {
                     NdArray<bool> returnArray = { std::any_of(cbegin(), cend(),
                         [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); }) };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -1137,7 +1137,7 @@ namespace nc
                         returnArray(0, row) = std::any_of(cbegin(row), cend(row),
                             [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); });
                     }
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -1148,13 +1148,13 @@ namespace nc
                         returnArray(0, row) = std::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row),
                             [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); });
                     }
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<bool>(0));
+                    return NdArray<bool>(0);
                 }
             }
         }
@@ -1178,7 +1178,7 @@ namespace nc
                 case Axis::NONE:
                 {
                     NdArray<uint32> returnArray = { static_cast<uint32>(std::max_element(cbegin(), cend()) - cbegin()) };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -1187,7 +1187,7 @@ namespace nc
                     {
                         returnArray(0, row) = static_cast<uint32>(std::max_element(cbegin(row), cend(row)) - cbegin(row));
                     }
-                    return std::move(returnArray);;
+                    return returnArray;;
                 }
                 case Axis::ROW:
                 {
@@ -1198,13 +1198,13 @@ namespace nc
                         returnArray(0, row) = static_cast<uint32>(std::max_element(arrayTransposed.cbegin(row),
                             arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
                     }
-                    return std::move(returnArray);;
+                    return returnArray;;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<uint32>(0));
+                    return NdArray<uint32>(0);
                 }
             }
         }
@@ -1228,7 +1228,7 @@ namespace nc
                 case Axis::NONE:
                 {
                     NdArray<uint32> returnArray = { static_cast<uint32>(std::min_element(cbegin(), cend()) - cbegin()) };
-                    return std::move(returnArray);;
+                    return returnArray;;
                 }
                 case Axis::COL:
                 {
@@ -1237,7 +1237,7 @@ namespace nc
                     {
                         returnArray(0, row) = static_cast<uint32>(std::min_element(cbegin(row), cend(row)) - cbegin(row));
                     }
-                    return std::move(returnArray);;
+                    return returnArray;;
                 }
                 case Axis::ROW:
                 {
@@ -1248,13 +1248,13 @@ namespace nc
                         returnArray(0, row) = static_cast<uint32>(std::min_element(arrayTransposed.cbegin(row),
                             arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
                     }
-                    return std::move(returnArray);;
+                    return returnArray;;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<uint32>(0));
+                    return NdArray<uint32>(0);
                 }
             }
         }
@@ -1280,7 +1280,7 @@ namespace nc
                     std::iota(idx.begin(), idx.end(), 0);
                     std::stable_sort(idx.begin(), idx.end(),
                         [this](uint32 i1, uint32 i2) noexcept -> bool {return this->array_[i1] < this->array_[i2]; });
-                    return std::move(NdArray<uint32>(idx));
+                    return NdArray<uint32>(idx);
                 }
                 case Axis::COL:
                 {
@@ -1298,7 +1298,7 @@ namespace nc
                             returnArray(row, col) = idx[col];
                         }
                     }
-                    return std::move(returnArray);;
+                    return returnArray;;
                 }
                 case Axis::ROW:
                 {
@@ -1317,13 +1317,13 @@ namespace nc
                             returnArray(row, col) = idx[col];
                         }
                     }
-                    return std::move(returnArray.transpose());
+                    return returnArray.transpose();
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<uint32>(0));
+                    return NdArray<uint32>(0);
                 }
             }
         }
@@ -1345,7 +1345,7 @@ namespace nc
             {
                 outArray[i] = static_cast<dtypeOut>(array_[i]);
             }
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -1410,7 +1410,7 @@ namespace nc
         {
             NdArray<dtype> outArray(shape_);
             boost::algorithm::clamp_range(cbegin(), cend(), outArray.begin(), inMin, inMax);
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -1423,7 +1423,7 @@ namespace nc
         ///
         NdArray<dtype> column(uint32 inColumn)
         {
-            return std::move(this->operator()(rSlice(), inColumn));
+            return this->operator()(rSlice(), inColumn);
         }
 
         //============================================================================
@@ -1442,7 +1442,7 @@ namespace nc
                 case Axis::NONE:
                 {
                     NdArray<bool> returnArray = { std::find(cbegin(), cend(), inValue) != cend() };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -1452,7 +1452,7 @@ namespace nc
                         returnArray(0, row) = std::find(cbegin(row), cend(row), inValue) != cend(row);
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -1463,13 +1463,13 @@ namespace nc
                         returnArray(0, row) = std::find(transArray.cbegin(row), transArray.cend(row), inValue) != transArray.cend(row);
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<bool>(0));
+                    return NdArray<bool>(0);
                 }
             }
         }
@@ -1485,7 +1485,7 @@ namespace nc
         ///
         NdArray<dtype> copy() const
         {
-            return std::move(NdArray<dtype>(*this));
+            return NdArray<dtype>(*this);
         }
 
         //============================================================================
@@ -1513,7 +1513,7 @@ namespace nc
                         returnArray[i] = returnArray[i - 1] * static_cast<dtypeOut>(array_[i]);
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -1528,7 +1528,7 @@ namespace nc
                         }
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -1543,13 +1543,13 @@ namespace nc
                         }
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<dtypeOut>(0));
+                    return NdArray<dtypeOut>(0);
                 }
             }
         }
@@ -1579,7 +1579,7 @@ namespace nc
                         returnArray[i] = returnArray[i - 1] + static_cast<dtypeOut>(array_[i]);
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -1594,7 +1594,7 @@ namespace nc
                         }
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -1609,15 +1609,38 @@ namespace nc
                         }
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<dtypeOut>(0));
+                    return NdArray<dtypeOut>(0);
                 }
             }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the raw pointer to the underlying data
+        /// @return dtype*
+        ///
+        dtype* data() noexcept
+        {
+            return array_;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Releases the internal data pointer so that the destructor
+        ///                     will not call delete on it, and returns the raw pointer
+        ///                     to the underlying data.
+        /// @return dtype*
+        ///
+        dtype* dataRelease() noexcept
+        {
+            ownsPointer_ = false;
+            return array_;
         }
 
         //============================================================================
@@ -1655,7 +1678,7 @@ namespace nc
                         ++col;
                     }
 
-                    return std::move(NdArray<dtype>(diagnolValues));
+                    return NdArray<dtype>(diagnolValues);
                 }
                 case Axis::ROW:
                 {
@@ -1677,7 +1700,7 @@ namespace nc
                         ++col;
                     }
 
-                    return std::move(NdArray<dtype>(diagnolValues));
+                    return NdArray<dtype>(diagnolValues);
                 }
                 default:
                 {
@@ -1707,7 +1730,7 @@ namespace nc
             {
                 dtypeOut dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), static_cast<dtype>(0));
                 NdArray<dtypeOut> returnArray = { dotProduct };
-                return std::move(returnArray);
+                return returnArray;
             }
             else if (shape_.cols == inOtherArray.shape_.rows)
             {
@@ -1727,7 +1750,7 @@ namespace nc
                     }
                 }
 
-                return std::move(returnArray);
+                return returnArray;
             }
             else
             {
@@ -1824,7 +1847,7 @@ namespace nc
         {
             NdArray<dtype> outArray(1, size_);
             std::copy(cbegin(), cend(), outArray.begin());
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -1850,7 +1873,7 @@ namespace nc
         ///
         NdArray<dtype> getByIndices(const NdArray<uint32>& inIndices) const
         {
-            return std::move(this->operator[](inIndices));
+            return this->operator[](inIndices);
         }
 
         //============================================================================
@@ -1866,7 +1889,7 @@ namespace nc
         ///
         NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
         {
-            return std::move(this->operator[](inMask));
+            return this->operator[](inMask);
         }
 
         //============================================================================
@@ -1910,7 +1933,7 @@ namespace nc
                 case Axis::NONE:
                 {
                     NdArray<dtype> returnArray = { *std::max_element(cbegin(), cend()) };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -1920,7 +1943,7 @@ namespace nc
                         returnArray(0, row) = *std::max_element(cbegin(row), cend(row));
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -1931,13 +1954,13 @@ namespace nc
                         returnArray(0, row) = *std::max_element(transposedArray.cbegin(row), transposedArray.cend(row));
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<dtype>(0));
+                    return NdArray<dtype>(0);
                 }
             }
         }
@@ -1960,7 +1983,7 @@ namespace nc
                 case Axis::NONE:
                 {
                     NdArray<dtype> returnArray = { *std::min_element(cbegin(), cend()) };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -1970,7 +1993,7 @@ namespace nc
                         returnArray(0, row) = *std::min_element(cbegin(row), cend(row));
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -1981,13 +2004,13 @@ namespace nc
                         returnArray(0, row) = *std::min_element(transposedArray.cbegin(row), transposedArray.cend(row));
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<dtype>(0));
+                    return NdArray<dtype>(0);
                 }
             }
         }
@@ -2012,7 +2035,7 @@ namespace nc
                     double sum = static_cast<double>(std::accumulate(cbegin(), cend(), 0.0));
                     NdArray<double> returnArray = { sum /= static_cast<double>(size_) };
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -2023,7 +2046,7 @@ namespace nc
                         returnArray(0, row) = sum / static_cast<double>(shape_.cols);
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -2035,13 +2058,13 @@ namespace nc
                         returnArray(0, row) = sum / static_cast<double>(transposedArray.shape_.cols);
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<double>(0));
+                    return NdArray<double>(0);
                 }
             }
         }
@@ -2068,7 +2091,7 @@ namespace nc
                     std::nth_element(copyArray.begin(), copyArray.begin() + middle, copyArray.end());
                     NdArray<dtype> returnArray = { copyArray.array_[middle] };
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -2081,7 +2104,7 @@ namespace nc
                         returnArray(0, row) = copyArray(row, middle);
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -2094,13 +2117,13 @@ namespace nc
                         returnArray(0, row) = transposedArray(row, middle);
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<dtype>(0));
+                    return NdArray<dtype>(0);
                 }
             }
         }
@@ -2164,20 +2187,20 @@ namespace nc
                             NdArray<dtype> outArray(shape_);
                             std::transform(cbegin(), end(), outArray.begin(), boost::endian::native_to_big<dtype>);
                             outArray.endianess_ = Endian::BIG;
-                            return std::move(outArray);
+                            return outArray;
                         }
                         case Endian::LITTLE:
                         {
                             NdArray<dtype> outArray(shape_);
                             std::transform(cbegin(), cend(), outArray.begin(), boost::endian::native_to_little<dtype>);
                             outArray.endianess_ = Endian::LITTLE;
-                            return std::move(outArray);
+                            return outArray;
                         }
                         default:
                         {
                             // this isn't actually possible, just putting this here to get rid
                             // of the compiler warning.
-                            return std::move(NdArray<dtype>(0));
+                            return NdArray<dtype>(0);
                         }
                     }
                     break;
@@ -2191,11 +2214,11 @@ namespace nc
                             NdArray<dtype> outArray(shape_);
                             std::transform(cbegin(), cend(), outArray.begin(), boost::endian::big_to_native<dtype>);
                             outArray.endianess_ = Endian::NATIVE;
-                            return std::move(outArray);
+                            return outArray;
                         }
                         case Endian::BIG:
                         {
-                            return std::move(NdArray(*this));
+                            return NdArray(*this);
                         }
                         case Endian::LITTLE:
                         {
@@ -2204,13 +2227,13 @@ namespace nc
                                 [](dtype value) noexcept -> dtype
                             {return boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(value)); });
                             outArray.endianess_ = Endian::LITTLE;
-                            return std::move(outArray);
+                            return outArray;
                         }
                         default:
                         {
                             // this isn't actually possible, just putting this here to get rid
                             // of the compiler warning.
-                            return std::move(NdArray<dtype>(0));
+                            return NdArray<dtype>(0);
                         }
                     }
                     break;
@@ -2224,7 +2247,7 @@ namespace nc
                             NdArray<dtype> outArray(shape_);
                             std::transform(cbegin(), cend(), outArray.begin(), boost::endian::little_to_native<dtype>);
                             outArray.endianess_ = Endian::NATIVE;
-                            return std::move(outArray);
+                            return outArray;
                         }
                         case Endian::BIG:
                         {
@@ -2233,17 +2256,17 @@ namespace nc
                                 [](dtype value) noexcept -> dtype
                             {return boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(value)); });
                             outArray.endianess_ = Endian::BIG;
-                            return std::move(outArray);
+                            return outArray;
                         }
                         case Endian::LITTLE:
                         {
-                            return std::move(NdArray(*this));
+                            return NdArray(*this);
                         }
                         default:
                         {
                             // this isn't actually possible, just putting this here to get rid
                             // of the compiler warning.
-                            return std::move(NdArray<dtype>(0));
+                            return NdArray<dtype>(0);
                         }
                     }
                     break;
@@ -2252,7 +2275,7 @@ namespace nc
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<dtype>(0));
+                    return NdArray<dtype>(0);
                 }
             }
         }
@@ -2280,7 +2303,7 @@ namespace nc
                 ++counter;
             }
 
-            return std::move(NdArray<uint32>(indices));
+            return NdArray<uint32>(indices);
         }
 
         //============================================================================
@@ -2308,7 +2331,7 @@ namespace nc
                     }
 
                     NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(std::sqrt(sumOfSquares)) };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -2323,7 +2346,7 @@ namespace nc
                         returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -2339,13 +2362,13 @@ namespace nc
                         returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<dtypeOut>(0));
+                    return NdArray<dtypeOut>(0);
                 }
             }
         }
@@ -2462,7 +2485,7 @@ namespace nc
                         product *= static_cast<dtypeOut>(value);
                     }
                     NdArray<dtypeOut> returnArray = { product };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -2477,7 +2500,7 @@ namespace nc
                         returnArray(0, row) = product;
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -2493,13 +2516,13 @@ namespace nc
                         returnArray(0, row) = product;
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<dtypeOut>(0));
+                    return NdArray<dtypeOut>(0);
                 }
             }
         }
@@ -2523,7 +2546,7 @@ namespace nc
                 {
                     const std::pair<const dtype*, const dtype*> result = std::minmax_element(cbegin(), cend());
                     NdArray<dtype> returnArray = { *result.second - *result.first };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -2534,7 +2557,7 @@ namespace nc
                         returnArray(0, row) = *result.second - *result.first;
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -2546,13 +2569,13 @@ namespace nc
                         returnArray(0, row) = *result.second - *result.first;
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<dtype>(0));
+                    return NdArray<dtype>(0);
                 }
             }
         }
@@ -2918,7 +2941,7 @@ namespace nc
                 }
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -2934,7 +2957,7 @@ namespace nc
         ///
         NdArray<dtype> repeat(const Shape& inRepeatShape) const
         {
-            return std::move(repeat(inRepeatShape.rows, inRepeatShape.cols));
+            return repeat(inRepeatShape.rows, inRepeatShape.cols);
         }
 
         //============================================================================
@@ -3079,7 +3102,7 @@ namespace nc
                     std::for_each(cbegin(), cend(), [&squareSum](auto value) noexcept -> void { squareSum += value * value; });
                     NdArray<double> returnArray = { std::sqrt(static_cast<double>(squareSum) / static_cast<double>(size_)) };
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -3091,7 +3114,7 @@ namespace nc
                         returnArray(0, row) = std::sqrt(static_cast<double>(squareSum) / static_cast<double>(shape_.cols));
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -3105,13 +3128,13 @@ namespace nc
                         returnArray(0, row) = std::sqrt(static_cast<double>(squareSum) / static_cast<double>(transposedArray.shape_.cols));
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<double>(0));
+                    return NdArray<double>(0);
                 }
             }
         }
@@ -3143,7 +3166,7 @@ namespace nc
                     returnArray[i] = static_cast<dtype>(std::nearbyint(static_cast<double>(array_[i]) * multFactor) / multFactor);
                 }
 
-                return std::move(returnArray);
+                return returnArray;
             }
         }
 
@@ -3157,7 +3180,7 @@ namespace nc
         ///
         NdArray<dtype> row(uint32 inRow)
         {
-            return std::move(NdArray<dtype>(cbegin(inRow), cend(inRow)));
+            return NdArray<dtype>(cbegin(inRow), cend(inRow));
         }
 
         //============================================================================
@@ -3253,7 +3276,7 @@ namespace nc
                         sum += utils::sqr(static_cast<double>(value) - meanValue);
                     }
                     NdArray<double> returnArray = { std::sqrt(sum / size_) };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -3269,7 +3292,7 @@ namespace nc
                         returnArray(0, row) = std::sqrt(sum / shape_.cols);
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -3286,13 +3309,13 @@ namespace nc
                         returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<double>(0));
+                    return NdArray<double>(0);
                 }
             }
         }
@@ -3349,7 +3372,7 @@ namespace nc
                 {
                     NdArray<dtypeOut> arrayCopy = this->astype<dtypeOut>();
                     NdArray<dtypeOut> returnArray = { std::accumulate(arrayCopy.cbegin(), arrayCopy.cend(), static_cast<dtypeOut>(0)) };
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -3360,7 +3383,7 @@ namespace nc
                         returnArray(0, row) = std::accumulate(arrayCopy.cbegin(row), arrayCopy.cend(row), static_cast<dtypeOut>(0));
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -3372,13 +3395,13 @@ namespace nc
                         returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), static_cast<dtypeOut>(0));
                     }
 
-                    return std::move(returnArray);
+                    return returnArray;
                 }
                 default:
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return std::move(NdArray<dtypeOut>(0));
+                    return NdArray<dtypeOut>(0);
                 }
             }
         }
@@ -3394,7 +3417,7 @@ namespace nc
         ///
         NdArray<dtype> swapaxes() const
         {
-            return std::move(transpose());
+            return transpose();
         }
 
         //============================================================================
@@ -3455,7 +3478,7 @@ namespace nc
         ///
         std::vector<dtype> toStlVector() const
         {
-            return std::move(std::vector<dtype>(cbegin(), cend()));
+            return std::vector<dtype>(cbegin(), cend());
         }
 
         //============================================================================
@@ -3533,7 +3556,7 @@ namespace nc
                     transArray(col, row) = this->operator()(row, col);
                 }
             }
-            return std::move(transArray);
+            return transArray;
         }
 
         //============================================================================
@@ -3552,7 +3575,7 @@ namespace nc
             NdArray<double> stdValues = stdev(inAxis);
             std::for_each(stdValues.begin(), stdValues.end(),
                 [](double& value) noexcept -> void { value *= value; });
-            return std::move(stdValues);
+            return stdValues;
         }
 
         //============================================================================
@@ -3576,7 +3599,7 @@ namespace nc
         ///
         NdArray<dtype> operator+(const NdArray<dtype>& inOtherArray) const
         {
-            return std::move(NdArray<dtype>(*this) += inOtherArray);
+            return NdArray<dtype>(*this) += inOtherArray;
         }
 
         //============================================================================
@@ -3590,7 +3613,7 @@ namespace nc
         ///
         NdArray<dtype> operator+(dtype inScalar) const
         {
-            return std::move(NdArray<dtype>(*this) += inScalar);
+            return NdArray<dtype>(*this) += inScalar;
         }
 
         //============================================================================
@@ -3644,7 +3667,7 @@ namespace nc
         ///
         NdArray<dtype> operator-(const NdArray<dtype>& inOtherArray) const
         {
-            return std::move(NdArray<dtype>(*this) -= inOtherArray);
+            return NdArray<dtype>(*this) -= inOtherArray;
         }
 
         //============================================================================
@@ -3658,7 +3681,7 @@ namespace nc
         ///
         NdArray<dtype> operator-(dtype inScalar) const
         {
-            return std::move(NdArray<dtype>(*this) -= inScalar);
+            return NdArray<dtype>(*this) -= inScalar;
         }
 
         //============================================================================
@@ -3712,7 +3735,7 @@ namespace nc
         ///
         NdArray<dtype> operator*(const NdArray<dtype>& inOtherArray) const
         {
-            return std::move(NdArray<dtype>(*this) *= inOtherArray);
+            return NdArray<dtype>(*this) *= inOtherArray;
         }
 
         //============================================================================
@@ -3726,7 +3749,7 @@ namespace nc
         ///
         NdArray<dtype> operator*(dtype inScalar) const
         {
-            return std::move(NdArray<dtype>(*this) *= inScalar);
+            return NdArray<dtype>(*this) *= inScalar;
         }
 
         //============================================================================
@@ -3780,7 +3803,7 @@ namespace nc
         ///
         NdArray<dtype> operator/(const NdArray<dtype>& inOtherArray) const
         {
-            return std::move(NdArray<dtype>(*this) /= inOtherArray);
+            return NdArray<dtype>(*this) /= inOtherArray;
         }
 
         //============================================================================
@@ -3794,7 +3817,7 @@ namespace nc
         ///
         NdArray<dtype> operator/(dtype inScalar) const
         {
-            return std::move(NdArray<dtype>(*this) /= inScalar);
+            return NdArray<dtype>(*this) /= inScalar;
         }
 
         //============================================================================
@@ -3848,7 +3871,7 @@ namespace nc
         ///
         NdArray<dtype> operator%(const NdArray<dtype>& inOtherArray) const
         {
-            return std::move(NdArray<dtype>(*this) %= inOtherArray);
+            return NdArray<dtype>(*this) %= inOtherArray;
         }
 
         //============================================================================
@@ -3862,7 +3885,7 @@ namespace nc
         ///
         NdArray<dtype> operator%(dtype inScalar) const
         {
-            return std::move(NdArray<dtype>(*this) %= inScalar);
+            return NdArray<dtype>(*this) %= inScalar;
         }
 
         //============================================================================
@@ -3929,7 +3952,7 @@ namespace nc
         ///
         NdArray<dtype> operator|(const NdArray<dtype>& inOtherArray) const
         {
-            return std::move(NdArray<dtype>(*this) |= inOtherArray);
+            return NdArray<dtype>(*this) |= inOtherArray;
         }
 
         //============================================================================
@@ -3943,7 +3966,7 @@ namespace nc
         ///
         NdArray<dtype> operator|(dtype inScalar) const
         {
-            return std::move(NdArray<dtype>(*this) |= inScalar);
+            return NdArray<dtype>(*this) |= inScalar;
         }
 
         //============================================================================
@@ -4003,7 +4026,7 @@ namespace nc
         ///
         NdArray<dtype> operator&(const NdArray<dtype>& inOtherArray) const
         {
-            return std::move(NdArray<dtype>(*this) &= inOtherArray);
+            return NdArray<dtype>(*this) &= inOtherArray;
         }
 
         //============================================================================
@@ -4017,7 +4040,7 @@ namespace nc
         ///
         NdArray<dtype> operator&(dtype inScalar) const
         {
-            return std::move(NdArray<dtype>(*this) &= inScalar);
+            return NdArray<dtype>(*this) &= inScalar;
         }
 
         //============================================================================
@@ -4077,7 +4100,7 @@ namespace nc
         ///
         NdArray<dtype> operator^(const NdArray<dtype>& inOtherArray) const
         {
-            return std::move(NdArray<dtype>(*this) ^= inOtherArray);
+            return NdArray<dtype>(*this) ^= inOtherArray;
         }
 
         //============================================================================
@@ -4091,7 +4114,7 @@ namespace nc
         ///
         NdArray<dtype> operator^(dtype inScalar) const
         {
-            return std::move(NdArray<dtype>(*this) ^= inScalar);
+            return NdArray<dtype>(*this) ^= inScalar;
         }
 
         //============================================================================
@@ -4162,7 +4185,7 @@ namespace nc
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(),
                 [](dtype value1, dtype value2) noexcept -> dtype { return value1 && value2; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4180,7 +4203,7 @@ namespace nc
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [inScalar](dtype value) noexcept -> dtype { return value && inScalar; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4205,7 +4228,7 @@ namespace nc
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(),
                 [](dtype value1, dtype value2) noexcept -> dtype { return value1 || value2; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4223,7 +4246,7 @@ namespace nc
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [inScalar](dtype value) noexcept -> dtype { return value || inScalar; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4242,7 +4265,7 @@ namespace nc
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [](dtype value) noexcept -> dtype { return ~value; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4258,7 +4281,7 @@ namespace nc
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [](dtype value) noexcept -> bool { return !value; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4277,7 +4300,7 @@ namespace nc
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [inValue](dtype value) noexcept -> bool { return value == inValue; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4302,7 +4325,7 @@ namespace nc
             NdArray<bool> returnArray(shape_);
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::equal_to<dtype>());
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4321,7 +4344,7 @@ namespace nc
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [inValue](dtype value) noexcept -> bool { return value != inValue; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4346,7 +4369,7 @@ namespace nc
             NdArray<bool> returnArray(shape_);
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4365,7 +4388,7 @@ namespace nc
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [inValue](dtype value) noexcept -> bool { return value < inValue; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4390,7 +4413,7 @@ namespace nc
             NdArray<bool> returnArray(shape_);
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less<dtype>());
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4409,7 +4432,7 @@ namespace nc
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [inValue](dtype value) noexcept -> bool { return value > inValue; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4434,7 +4457,7 @@ namespace nc
             NdArray<bool> returnArray(shape_);
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater<dtype>());
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4453,7 +4476,7 @@ namespace nc
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [inValue](dtype value) noexcept -> bool { return value <= inValue; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4478,7 +4501,7 @@ namespace nc
             NdArray<bool> returnArray(shape_);
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less_equal<dtype>());
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4497,7 +4520,7 @@ namespace nc
             std::transform(cbegin(), cend(), returnArray.begin(),
                 [inValue](dtype value) noexcept -> bool { return value >= inValue; });
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4522,7 +4545,7 @@ namespace nc
             NdArray<bool> returnArray(shape_);
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater_equal<dtype>());
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4538,7 +4561,7 @@ namespace nc
         {
             NdArray<dtype> returnArray(lhs);
             returnArray <<= inNumBits;
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4571,7 +4594,7 @@ namespace nc
         {
             NdArray<dtype> returnArray(lhs);
             returnArray >>= inNumBits;
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -4632,7 +4655,7 @@ namespace nc
             NdArray<dtype> copy(*this);
             std::for_each(begin(), end(), [](dtype& value) noexcept -> void { ++value; });
 
-            return std::move(copy);
+            return copy;
         }
 
         //============================================================================
@@ -4647,7 +4670,7 @@ namespace nc
             NdArray<dtype> copy(*this);
             std::for_each(begin(), end(), [](dtype& value) noexcept -> void { --value; });
 
-            return std::move(copy);
+            return copy;
         }
 
         //============================================================================

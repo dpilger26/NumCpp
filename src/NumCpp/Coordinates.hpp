@@ -646,7 +646,7 @@ namespace nc
             NdArray<dtype> xyz() const
             {
                 NdArray<dtype> out = { x_, y_, z_ };
-                return std::move(out);
+                return out;
             }
 
             //============================================================================

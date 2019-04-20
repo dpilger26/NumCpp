@@ -79,7 +79,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -119,7 +119,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -162,7 +162,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -194,7 +194,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -230,7 +230,7 @@ namespace nc
                 outArray[i] = inArray[randIdx];
             }
 
-            return std::move(outArray);
+            return outArray;
         }
 
         //============================================================================
@@ -261,7 +261,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -290,7 +290,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -315,7 +315,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -353,7 +353,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -393,7 +393,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -433,7 +433,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -468,7 +468,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -494,7 +494,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -527,7 +527,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -570,7 +570,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -610,7 +610,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -643,7 +643,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -661,7 +661,7 @@ namespace nc
         {
             NdArray<dtype> returnArray = arange(inValue);
             std::random_shuffle(returnArray.begin(), returnArray.end());
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -679,7 +679,7 @@ namespace nc
         {
             NdArray<dtype> returnArray(inArray);
             std::random_shuffle(returnArray.begin(), returnArray.end());
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -711,7 +711,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -736,7 +736,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -773,7 +773,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -813,7 +813,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -838,7 +838,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -882,7 +882,7 @@ namespace nc
         ///
         static NdArray<dtype> standardNormal(const Shape& inShape)
         {
-            return std::move(normal(inShape, 0, 1));
+            return normal(inShape, 0, 1);
         }
 
         //============================================================================
@@ -914,7 +914,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -971,7 +971,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -991,7 +991,7 @@ namespace nc
         ///
         static NdArray<dtype> uniform(const Shape& inShape, dtype inLow, dtype inHigh)
         {
-            return std::move(randFloat(inShape, inLow, inHigh));
+            return randFloat(inShape, inLow, inHigh);
         }
 
         //============================================================================
@@ -1025,7 +1025,7 @@ namespace nc
                 }
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
 
         //============================================================================
@@ -1065,7 +1065,7 @@ namespace nc
                 value = dist(generator_);
             }
 
-            return std::move(returnArray);
+            return returnArray;
         }
     };
 }
