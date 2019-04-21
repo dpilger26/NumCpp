@@ -1,5 +1,7 @@
 ﻿# NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)
 
+[![Inline docs](http://inch-ci.org/github/dpilger26/NumCpp.svg?branch=master)](http://inch-ci.org/github/dpilger26/NumCpp)
+
 ## Author: David Pilger dpilger26@gmail.com
 
 ## Version: 1.0
