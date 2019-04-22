@@ -771,10 +771,10 @@ namespace nc
     NdArray<dtype> rot90(const NdArray<dtype>& inArray, uint8 inK = 1);
 
     template<typename dtype>
-    dtype round(dtype inValue, uint8 inDecimals);
+    dtype round(dtype inValue, uint8 inDecimals = 0);
 
     template<typename dtype>
-    NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals);
+    NdArray<dtype> round(const NdArray<dtype>& inArray, uint8 inDecimals = 0);
 
     template<typename dtype>
     NdArray<dtype> row_stack(const std::initializer_list<NdArray<dtype> >& inArrayList);
