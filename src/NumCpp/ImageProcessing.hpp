@@ -573,7 +573,7 @@ namespace nc
                 std::string out;
                 uint32 counter = 0;
                 std::for_each(begin(), end(), 
-                    [&](auto& pixel) { out += "Pixel " + utils::num2str(counter++) + ":" + pixel.str(); });
+                    [&](const Pixel<dtype>& pixel) { out += "Pixel " + utils::num2str(counter++) + ":" + pixel.str(); });
 
                 return out;
             }
