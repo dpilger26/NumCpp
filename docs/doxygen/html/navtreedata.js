@@ -60,10 +60,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_boost_numpy_ndarray_helper_8hpp.html",
-"_methods_8hpp.html#a77f60d5bd907506cfebc9eb1d29020dc",
+"_methods_8hpp.html#a7c40717fa80c513ecbb943859d9d1ac2",
 "classnc_1_1_data_cube.html#aff248af13543b07f8755a645e2511506",
-"classnc_1_1_shape.html",
-"functions_rela.html"
+"classnc_1_1_random.html#afc42e5b02941414dd060529f708cd524",
+"functions_r.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

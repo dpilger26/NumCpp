@@ -37,5 +37,6 @@ var searchData=
   ['operator_7c_3d',['operator|=',['../classnc_1_1_nd_array.html#a5046cde3a10a74fc3f65b4a6344d6490',1,'nc::NdArray::operator|=(const NdArray&lt; dtype &gt; &amp;inOtherArray)'],['../classnc_1_1_nd_array.html#a57d89b8d84db478a0746661c121de1c1',1,'nc::NdArray::operator|=(dtype inScalar)']]],
   ['operator_7c_7c',['operator||',['../classnc_1_1_nd_array.html#ae35d258c24cf04249112036149884f16',1,'nc::NdArray::operator||(const NdArray&lt; dtype &gt; &amp;inOtherArray) const'],['../classnc_1_1_nd_array.html#a6dfa5f30b260d32e450226f696e3fdf1',1,'nc::NdArray::operator||(dtype inScalar) const']]],
   ['operator_7e',['operator~',['../classnc_1_1_nd_array.html#a5e99888caa0415ac654f9ddb1636b692',1,'nc::NdArray']]],
-  ['order',['order',['../classnc_1_1_boost_ndarray_helper.html#a1966ccb4291117aab38d49e78d328ece',1,'nc::BoostNdarrayHelper::order()'],['../classnc_1_1_poly1d.html#a98b30308386e0cfb32b2f6a2debbe83c',1,'nc::Poly1d::order()'],['../namespacenc.html#abd2ee82bb59dd1ace46a8d8d493e947b',1,'nc::Order()']]]
+  ['order',['order',['../classnc_1_1_boost_ndarray_helper.html#a1966ccb4291117aab38d49e78d328ece',1,'nc::BoostNdarrayHelper::order()'],['../classnc_1_1_poly1d.html#a98b30308386e0cfb32b2f6a2debbe83c',1,'nc::Poly1d::order()'],['../namespacenc.html#abd2ee82bb59dd1ace46a8d8d493e947b',1,'nc::Order()']]],
+  ['ownsinternaldata',['ownsInternalData',['../classnc_1_1_nd_array.html#a1b811ff580682685e623bc80625c71e5',1,'nc::NdArray']]]
 ];

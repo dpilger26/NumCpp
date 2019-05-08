@@ -180,6 +180,7 @@ namespace nc
 #ifdef INCLUDE_PYBIND_PYTHON_INTERFACE
     //============================================================================
     ///						converts a numpy array to a numcpp NdArray using pybind bindings
+    ///                     Python will still own the underlying data.
     ///
     /// @param      numpyArray
     ///
@@ -188,34 +189,58 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> pybind2nc(pybind11::array_t<dtype, pybind11::array::c_style>& numpyArray)
     {
-        auto bufferInfo = numpyArray.request();
-        if (bufferInfo.shape.size() != 2)
+        switch (numpyArray.ndim())
         {
-            throw std::invalid_argument("ERROR: input array must be 2 dimensional.");
+            dtype* dataPtr = numpyArray.mutable_data();
+
+            case 0:
+            {
+                return NdArray<dtype>(dataPtr, 0, 0, false);
+            }
+            case 1:
+            {
+                uint32 size = static_cast<uint32>(numpyArray.size());
+                return NdArray<dtype>(dataPtr, 1, size, false);
+            }
+            case 2:
+            {
+                uint32 numRows = static_cast<uint32>(numpyArray.shape(0));
+                uint32 numCols = static_cast<uint32>(numpyArray.shape(1));
+                return NdArray<dtype>(dataPtr, numRows, numCols, false);
+            }
+            default:
+            {
+                throw std::invalid_argument("ERROR: input array must be no more than 2 dimensional.");
+            }
         }
-
-        uint32 numRows = static_cast<uint32>(bufferInfo.shape[0]);
-        uint32 numCols = static_cast<uint32>(bufferInfo.shape[1]);
-
-        return NdArray<dtype>(reinterpret_cast<dtype*>(bufferInfo.ptr), numRows, numCols);
     }
 
     //============================================================================
     ///						converts a numcpp NdArray to numpy array using pybind bindings
     ///
-    /// @param     inArray
+    /// @param     inArray: the input array
+    /// @param     transferOwnership: whether or not to transfer ownership to python. 
+    ///                               Requires that the NdArray owns its data.
     ///
     /// @return    pybind11::array_t
     ///
     template<typename dtype>
-    pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray)
+    pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray, bool transferOwnership = true)
     {
         Shape inShape = inArray.shape();
         std::vector<pybind11::ssize_t> shape{ inShape.rows, inShape.cols };
-        std::vector<pybind11::ssize_t> strides{ inShape.cols * sizeof(dtype), 1 * sizeof(dtype) };
-        typename py::capsule reference(inArray.begin(), [](void* ptr) {});  // needed to pass back a reference instead of a copy
+        std::vector<pybind11::ssize_t> strides{ inShape.cols * sizeof(dtype), sizeof(dtype) };
 
-        return pybind11::array_t<dtype>(shape, strides, inArray.begin(), reference);
+        if (inArray.ownsInternalData() && transferOwnership)
+        {
+            typename py::capsule transfer(inArray.begin(), [](void* ptr) { delete[] ptr; });  // python now owns the memory
+            return pybind11::array_t<dtype>(shape, strides, inArray.dataRelease(), transfer);
+        }
+        else
+        {
+            typename py::capsule reference(inArray.begin(), [](void* ptr) {});  // original owner still owns the memory, passing back reference
+            return pybind11::array_t<dtype>(shape, strides, inArray.data(), reference);
+        }
     }
 #endif
 }
