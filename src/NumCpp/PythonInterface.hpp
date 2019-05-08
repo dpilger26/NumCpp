@@ -204,8 +204,8 @@ namespace nc
             }
             case 2:
             {
-                uint32 numRows = static_cast<uint32>(numpyArray.shape[0]);
-                uint32 numCols = static_cast<uint32>(numpyArray.shape[1]);
+                uint32 numRows = static_cast<uint32>(numpyArray.shape(0));
+                uint32 numCols = static_cast<uint32>(numpyArray.shape(1));
                 return NdArray<dtype>(dataPtr, numRows, numCols, false);
             }
             default:
