@@ -72,7 +72,7 @@ namespace nc
         uint32			size_{ 0 };
         Endian          endianess_{ Endian::NATIVE };
         dtype*			array_{ nullptr };
-        bool            ownsPointer_{ false };
+        bool            ownsPtr_{ false };
 
         //============================================================================
         // Method Description:
@@ -80,7 +80,7 @@ namespace nc
         ///
         void deleteArray() noexcept
         {
-            if (ownsPointer_ && array_ != nullptr)
+            if (ownsPtr_ && array_ != nullptr)
             {
                 delete[] array_;
             }
@@ -88,7 +88,7 @@ namespace nc
             array_ = nullptr;
             shape_ = Shape(0, 0);
             size_ = 0;
-            ownsPointer_ = false;
+            ownsPtr_ = false;
         }
 
         //============================================================================
@@ -106,7 +106,7 @@ namespace nc
             size_ = inShape.size();
             endianess_ = Endian::NATIVE;
             array_ = new dtype[size_];
-            ownsPointer_ = true;
+            ownsPtr_ = true;
         }
 
     public:
@@ -127,7 +127,7 @@ namespace nc
             shape_(inSquareSize, inSquareSize),
             size_(inSquareSize * inSquareSize),
             array_(new dtype[size_]),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {};
 
         //============================================================================
@@ -141,7 +141,7 @@ namespace nc
             shape_(inNumRows, inNumCols),
             size_(inNumRows * inNumCols),
             array_(new dtype[size_]),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {};
 
         //============================================================================
@@ -155,7 +155,7 @@ namespace nc
             shape_(inShape),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {};
 
         //============================================================================
@@ -169,7 +169,7 @@ namespace nc
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {
             std::copy(inList.begin(), inList.end(), array_);
         }
@@ -208,7 +208,7 @@ namespace nc
                 ++row;
             }
 
-            ownsPointer_ = true;
+            ownsPtr_ = true;
         }
 
         //============================================================================
@@ -222,7 +222,7 @@ namespace nc
             shape_(1, static_cast<uint32>(inVector.size())),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {
             std::copy(inVector.begin(), inVector.end(), array_);
         }
@@ -238,7 +238,7 @@ namespace nc
             shape_(1, static_cast<uint32>(inDeque.size())),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {
             std::copy(inDeque.begin(), inDeque.end(), array_);
         }
@@ -254,7 +254,7 @@ namespace nc
             shape_(1, static_cast<uint32>(inSet.size())),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {
             std::copy(inSet.begin(), inSet.end(), array_);
         }
@@ -270,7 +270,7 @@ namespace nc
             shape_(1, static_cast<uint32>(inLast - inFirst)),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {
             std::copy(inFirst, inLast, array_);
         }
@@ -283,12 +283,14 @@ namespace nc
         /// @param				inPtr: dtype* to beginning of the array
         /// @param				numRows: the number of rows in the array
         /// @param              numCols: the nubmer of column in the array
+        /// @param              takeOwnership: whether or not to take ownership of the data
+        ///                     and call delete[] in the destructor.
         ///
-        NdArray(dtype* inPtr, uint32 numRows, uint32 numCols) :
+        NdArray(dtype* inPtr, uint32 numRows, uint32 numCols, bool takeOwnership = false) :
             shape_(numRows, numCols),
             size_(numRows * numCols),
             array_(inPtr),
-            ownsPointer_(false)
+            ownsPtr_(takeOwnership)
         {}
 
         //============================================================================
@@ -303,7 +305,7 @@ namespace nc
             shape_(1, inNumBytes / sizeof(dtype)),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {
             for (uint32 i = 0; i < size_; ++i)
             {
@@ -323,7 +325,7 @@ namespace nc
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
             array_(new dtype[inOtherArray.size_]),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {
             std::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
         }
@@ -340,7 +342,7 @@ namespace nc
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
             array_(inOtherArray.array_),
-            ownsPointer_(true)
+            ownsPtr_(true)
         {
             inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
             inOtherArray.array_ = nullptr;
@@ -409,11 +411,11 @@ namespace nc
                 size_ = inOtherArray.size_;
                 endianess_ = inOtherArray.endianess_;
                 array_ = inOtherArray.array_;
-                ownsPointer_ = inOtherArray.ownsPointer_;
+                ownsPtr_ = inOtherArray.ownsPtr_;
 
                 inOtherArray.shape_.rows = inOtherArray.shape_.cols = inOtherArray.size_ = 0;
                 inOtherArray.array_ = nullptr;
-                inOtherArray.ownsPointer_ = false;
+                inOtherArray.ownsPtr_ = false;
             }
 
             return *this;
@@ -1639,7 +1641,7 @@ namespace nc
         ///
         dtype* dataRelease() noexcept
         {
-            ownsPointer_ = false;
+            ownsPtr_ = false;
             return array_;
         }
 
@@ -2381,6 +2383,17 @@ namespace nc
         void ones()
         {
             fill(1);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns whether or not the array object owns the underlying data
+        ///
+        /// @return bool
+        ///
+        bool ownsInternalData()
+        {
+            return ownsPtr_;
         }
 
         //============================================================================
