@@ -1622,6 +1622,20 @@ namespace MethodsInterface
 
     //================================================================================
 
+    np::ndarray find(const NdArray<bool>& inArray) noexcept
+    {
+        return nc2Boost(nc::find(inArray));
+    }
+
+    //================================================================================
+
+    np::ndarray findN(const NdArray<bool>& inArray, uint32 n) noexcept
+    {
+        return nc2Boost(nc::find(inArray, n));
+    }
+
+    //================================================================================
+
     template<typename dtype>
     dtype fixScaler(dtype inValue) noexcept
     {
@@ -3103,6 +3117,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("eye2D", &MethodsInterface::eye2D<double>);
     bp::def("eyeShape", &MethodsInterface::eyeShape<double>);
     bp::def("fillDiagonal", &fillDiagonal<double>);
+    bp::def("find", &MethodsInterface::find);
+    bp::def("findN", &MethodsInterface::findN);
     bp::def("fixScaler", &MethodsInterface::fixScaler<double>);
     bp::def("fixArray", &MethodsInterface::fixArray<double>);
     bp::def("flatten", &flatten<double>);
