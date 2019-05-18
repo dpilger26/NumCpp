@@ -577,10 +577,9 @@ namespace nc
                 throw std::invalid_argument(errStr);
             }
 
-            auto uniqueIndices = std::set<uint32>(inIndices.cbegin(), inIndices.cend());
-            auto outArray = NdArray<dtype>(1, static_cast<uint32>(uniqueIndices.size()));
-            uint32 i{ 0 };
-            for (auto& index : uniqueIndices)
+            auto outArray = NdArray<dtype>(1, static_cast<uint32>(inIndices.size()));
+            uint32 i = 0;
+            for (auto& index : inIndices)
             {
                 outArray[i++] = this->operator[](index);
             }

@@ -581,7 +581,7 @@ def doTest():
     indices = np.random.randint(0, shape.size(), [numIndices, ])
     cIndices = NumCpp.NdArrayInt(1, numIndices)
     cIndices.setArray(indices)
-    if np.array_equal(cArray.getByIndices(cIndices).flatten(), data.flatten()[np.unique(indices)]):
+    if np.array_equal(cArray.getByIndices(cIndices).flatten(), data.flatten()[indices]):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
