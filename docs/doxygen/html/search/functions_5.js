@@ -4,6 +4,7 @@ var searchData=
   ['fill',['fill',['../classnc_1_1_nd_array.html#abed947e8ce1659716d70b1b241392f60',1,'nc::NdArray']]],
   ['fillcorners',['fillCorners',['../namespacenc_1_1filter.html#a4b11eab67d220d1a912057ddf9206449',1,'nc::filter::fillCorners(NdArray&lt; dtype &gt; &amp;inArray, uint32 inBorderWidth)'],['../namespacenc_1_1filter.html#a551dbb36022e793d28635926402c8cd2',1,'nc::filter::fillCorners(NdArray&lt; dtype &gt; &amp;inArray, uint32 inBorderWidth, dtype inFillValue)']]],
   ['filldiagonal',['fillDiagonal',['../namespacenc.html#a7c40717fa80c513ecbb943859d9d1ac2',1,'nc']]],
+  ['find',['find',['../namespacenc.html#a8eaa82071f16b2654f11096247ba10e5',1,'nc']]],
   ['fix',['fix',['../namespacenc.html#af259d081804c4be2d33e3a00e937b79c',1,'nc::fix(dtype inValue) noexcept'],['../namespacenc.html#acb9c767451a2b00ccf171cd75f6b39ad',1,'nc::fix(const NdArray&lt; dtype &gt; &amp;inArray)']]],
   ['flatnonzero',['flatnonzero',['../namespacenc.html#a5458a0823e113dab7b1fad494196ae39',1,'nc']]],
   ['flatten',['flatten',['../classnc_1_1_nd_array.html#abdd2e38a0de062dcdef847d9d4d05ce5',1,'nc::NdArray::flatten()'],['../namespacenc.html#a8a01c7e0a3fe27ba72e106fd50493a71',1,'nc::flatten()']]],
