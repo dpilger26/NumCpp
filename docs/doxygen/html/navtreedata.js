@@ -60,9 +60,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_boost_numpy_ndarray_helper_8hpp.html",
-"_methods_8hpp.html#a7c40717fa80c513ecbb943859d9d1ac2",
+"_methods_8hpp.html#a6ecdbcd9d151ddda0b7b4f51f29bf08c",
 "classnc_1_1_data_cube.html#af9484ba42f739c5a4e0a32c0d8f916ca",
-"classnc_1_1_random.html#aee9698e1d4dc96db76926c2ffdccb6d0",
+"classnc_1_1_random.html#aed7b5774e94cfa1cca50f383ff3a3612",
 "functions_q.html"
 ];
 
