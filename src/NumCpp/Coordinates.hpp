@@ -776,7 +776,7 @@ namespace nc
         /// @return             degrees
         ///
         template<typename dtype>
-        dtype degreeSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2)
+        inline dtype degreeSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2) noexcept
         {
             return inCoordinate1.degreeSeperation(inCoordinate2);
         }
@@ -791,7 +791,7 @@ namespace nc
         /// @return             degrees
         ///
         template<typename dtype>
-        dtype degreeSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2)
+        inline dtype degreeSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2) noexcept
         {
             Coordinate<dtype> inCoord1(inVector1);
             return inCoord1.degreeSeperation(inVector1);
@@ -806,7 +806,7 @@ namespace nc
         /// @return             radians
         ///
         template<typename dtype>
-        dtype radianSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2)
+        inline dtype radianSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2) noexcept
         {
             return inCoordinate1.radianSeperation(inCoordinate2);
         }
@@ -821,7 +821,7 @@ namespace nc
         /// @return             radians
         ///
         template<typename dtype>
-        dtype radianSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2)
+        inline dtype radianSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2) noexcept
         {
             Coordinate<dtype> inCoord1(inVector1);
             return inCoord1.radianSeperation(inVector1);

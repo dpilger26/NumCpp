@@ -44,7 +44,7 @@ namespace nc
         ///
         /// @return     number of bits
         ///
-        static constexpr dtype bits()
+        static inline constexpr dtype bits() noexcept
         {
             return std::numeric_limits<dtype>::digits;
         }
@@ -55,7 +55,7 @@ namespace nc
         ///
         /// @return     dtype
         ///
-        static constexpr dtype epsilon()
+        static inline constexpr dtype epsilon() noexcept
         {
             return std::numeric_limits<dtype>::epsilon();
         }
@@ -65,7 +65,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        static constexpr bool isInteger()
+        static inline constexpr bool isInteger() noexcept
         {
             return std::numeric_limits<dtype>::is_integer;
         }
@@ -75,7 +75,7 @@ namespace nc
         ///
         /// @return     bool
         ///
-        static constexpr bool isSigned()
+        static inline constexpr bool isSigned() noexcept
         {
             return std::numeric_limits<dtype>::is_signed;
         }
@@ -85,7 +85,7 @@ namespace nc
         ///
         /// @return     min value
         ///
-        static constexpr dtype min()
+        static inline constexpr dtype min() noexcept
         {
             return std::numeric_limits<dtype>::min();
         }
@@ -95,7 +95,7 @@ namespace nc
         ///
         /// @return     max value
         ///
-        static constexpr dtype max()
+        static inline constexpr dtype max() noexcept
         {
             return std::numeric_limits<dtype>::max();
         }

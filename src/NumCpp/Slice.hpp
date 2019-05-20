@@ -51,7 +51,7 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        Slice() = default;
+        Slice() noexcept = default;
 
         //============================================================================
         ///						Constructor
@@ -91,7 +91,7 @@ namespace nc
         ///
         /// @return     std::string
         ///
-        std::string str() const
+        std::string str() const noexcept
         {
             std::string out = "[" + utils::num2str(start) + ":" + utils::num2str(stop) + ":" + utils::num2str(step) + "]\n";
             return out;
@@ -100,7 +100,7 @@ namespace nc
         //============================================================================
         ///						Prints the shape to the console
         ///
-        void print()
+        void print() const noexcept
         {
             std::cout << *this;
         }
@@ -113,7 +113,7 @@ namespace nc
         ///
         /// @return     std::ostream
         ///
-        friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice)
+        friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice) noexcept
         {
             inOStream << inSlice.str();
             return inOStream;

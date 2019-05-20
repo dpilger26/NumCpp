@@ -57,7 +57,7 @@ namespace nc
         ///						Default Constructor (not very usefull, but needed for other
         ///                     containers.
         ///
-        Poly1d() = default;
+        Poly1d() noexcept = default;
 
         //============================================================================
         // Method Description:
@@ -101,7 +101,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> coefficients() const
+        NdArray<dtype> coefficients() const noexcept
         {
             return NdArray<dtype>(coefficients_);
         }
@@ -125,7 +125,7 @@ namespace nc
         /// @return
         ///				Poly1d
         ///
-        std::string str() const
+        std::string str() const noexcept
         {
             std::string repr = "";
             uint32 power = 0;
@@ -142,7 +142,7 @@ namespace nc
         ///						Prints the string representation of the Poly1d object
         ///                     to the console
         ///
-        void print() const
+        void print() const noexcept
         {
             std::cout << *this << std::endl;
         }
@@ -177,7 +177,7 @@ namespace nc
         /// @return
         ///				Poly1d
         ///
-        Poly1d<dtype> operator+(const Poly1d<dtype>& inOtherPoly) const
+        Poly1d<dtype> operator+(const Poly1d<dtype>& inOtherPoly) const noexcept
         {
             return Poly1d<dtype>(*this) += inOtherPoly;
         }
@@ -191,7 +191,7 @@ namespace nc
         /// @return
         ///				Poly1d
         ///
-        Poly1d<dtype>& operator+=(const Poly1d<dtype>& inOtherPoly)
+        Poly1d<dtype>& operator+=(const Poly1d<dtype>& inOtherPoly) noexcept
         {
             if (this->coefficients_.size() < inOtherPoly.coefficients_.size())
             {
@@ -224,7 +224,7 @@ namespace nc
         /// @return
         ///				Poly1d
         ///
-        Poly1d<dtype> operator-(const Poly1d<dtype>& inOtherPoly) const
+        Poly1d<dtype> operator-(const Poly1d<dtype>& inOtherPoly) const noexcept
         {
             return Poly1d<dtype>(*this) -= inOtherPoly;
         }
@@ -238,7 +238,7 @@ namespace nc
         /// @return
         ///				Poly1d
         ///
-        Poly1d<dtype>& operator-=(const Poly1d<dtype>& inOtherPoly)
+        Poly1d<dtype>& operator-=(const Poly1d<dtype>& inOtherPoly) noexcept
         {
             if (this->coefficients_.size() < inOtherPoly.coefficients_.size())
             {
@@ -271,7 +271,7 @@ namespace nc
         /// @return
         ///				Poly1d
         ///
-        Poly1d<dtype> operator*(const Poly1d<dtype>& inOtherPoly) const
+        Poly1d<dtype> operator*(const Poly1d<dtype>& inOtherPoly) const noexcept
         {
             return Poly1d<dtype>(*this) *= inOtherPoly;
         }
@@ -285,7 +285,7 @@ namespace nc
         /// @return
         ///				Poly1d
         ///
-        Poly1d<dtype>& operator*=(const Poly1d<dtype>& inOtherPoly)
+        Poly1d<dtype>& operator*=(const Poly1d<dtype>& inOtherPoly) noexcept
         {
             const uint32 finalCoefficientsSize = order() + inOtherPoly.order() + 1;
             std::vector<dtype> coeffsA(finalCoefficientsSize, 0);
@@ -316,7 +316,7 @@ namespace nc
         /// @return
         ///				Poly1d
         ///
-        Poly1d<dtype> operator^(uint32 inPower) const
+        Poly1d<dtype> operator^(uint32 inPower) const noexcept
         {
             return Poly1d(*this) ^= inPower;
         }
@@ -330,7 +330,7 @@ namespace nc
         /// @return
         ///				Poly1d
         ///
-        Poly1d<dtype>& operator^=(uint32 inPower)
+        Poly1d<dtype>& operator^=(uint32 inPower) noexcept
         {
             if (inPower == 0)
             {
@@ -361,7 +361,7 @@ namespace nc
         /// @return
         ///				std::ostream
         ///
-        friend std::ostream& operator<<(std::ostream& inOStream, const Poly1d<dtype>& inPoly)
+        friend std::ostream& operator<<(std::ostream& inOStream, const Poly1d<dtype>& inPoly) noexcept
         {
             inOStream << inPoly.str() << std::endl;
             return inOStream;

@@ -73,7 +73,7 @@ namespace nc
             // Method Description:
             ///						Default Constructor, not super usefull on its own
             ///
-            Quaternion() = default;
+            Quaternion() noexcept = default;
 
             //============================================================================
             // Method Description:
@@ -157,7 +157,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            static NdArray<double> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime)
+            static NdArray<double> angularVelocity(const Quaternion& inQuat1, const Quaternion& inQuat2, double inTime) noexcept
             {
                 NdArray<double> q0 = inQuat1.toNdArray();
                 NdArray<double> q1 = inQuat2.toNdArray();
@@ -192,7 +192,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            NdArray<double> angularVelocity(const Quaternion& inQuat2, double inTime) const
+            NdArray<double> angularVelocity(const Quaternion& inQuat2, double inTime) const noexcept
             {
                 return angularVelocity(*this, inQuat2, inTime);
             }
@@ -403,7 +403,7 @@ namespace nc
             // Method Description:
             ///						prints the Quaternion to the console
             ///
-            void print() const
+            void print() const noexcept
             {
                 std::cout << *this;
             }
@@ -521,7 +521,7 @@ namespace nc
             /// @return
             ///				std::string
             ///
-            std::string str() const
+            std::string str() const noexcept
             {
                 std::string output = "[" + utils::num2str(i()) + ", " + utils::num2str(j()) +
                     ", " + utils::num2str(k()) + ", " + utils::num2str(s()) + "]\n";
@@ -536,7 +536,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            NdArray<double> toDCM() const
+            NdArray<double> toDCM() const noexcept
             {
                 NdArray<double> dcm(3);
 
@@ -846,7 +846,7 @@ namespace nc
             /// @return
             ///				std::ostream&
             ///
-            friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat)
+            friend std::ostream& operator<<(std::ostream& inOStream, const Quaternion& inQuat) noexcept
             {
                 inOStream << inQuat.str();
                 return inOStream;
@@ -891,7 +891,7 @@ namespace nc
             /// @return
             ///				bool
             ///
-            static bool isValid(const NdArray<dtype>& inArray)
+            static bool isValid(const NdArray<dtype>& inArray) noexcept
             {
                 const Shape inShape = inArray.shape();
                 if (!(inShape.rows == inShape.cols &&

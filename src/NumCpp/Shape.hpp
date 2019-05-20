@@ -49,7 +49,7 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        Shape() = default;
+        Shape() noexcept = default;
 
         //============================================================================
         ///						Constructor
@@ -122,7 +122,7 @@ namespace nc
         ///
         /// @return     std::string
         ///
-        std::string str() const
+        std::string str() const noexcept
         {
             std::string out = "[" + utils::num2str(rows) + ", " + utils::num2str(cols) + "]\n";
             return out;
@@ -131,7 +131,7 @@ namespace nc
         //============================================================================
         ///						Prints the shape to the console
         ///
-        void print() const
+        void print() const noexcept
         {
             std::cout << *this;
         }
@@ -144,7 +144,7 @@ namespace nc
         ///
         /// @return     std::ostream
         ///
-        friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape)
+        friend std::ostream& operator<<(std::ostream& inOStream, const Shape& inShape) noexcept
         {
             inOStream << inShape.str();
             return inOStream;

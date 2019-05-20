@@ -59,7 +59,7 @@ namespace nc
     /// @return     NdArray<T>
     ///
     template<typename dtype>
-    NdArray<dtype> boost2Nc(const boost::python::numpy::ndarray& inArray)
+    inline NdArray<dtype> boost2Nc(const boost::python::numpy::ndarray& inArray)
     {
         BoostNdarrayHelper helper(inArray);
         if (helper.numDimensions() > 2)
@@ -110,7 +110,7 @@ namespace nc
     /// @return     ndarray
     ///
     template<typename dtype>
-    boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray)
+    inline boost::python::numpy::ndarray nc2Boost(const NdArray<dtype>& inArray) noexcept
     {
         const Shape inShape = inArray.shape();
         boost::python::tuple shape = boost::python::make_tuple(inShape.rows, inShape.cols);
@@ -134,7 +134,7 @@ namespace nc
     /// @return     std::vector<T>
     ///
     template<typename T>
-    std::vector<T> list2vector(const boost::python::list& inList)
+    inline std::vector<T> list2vector(const boost::python::list& inList) noexcept
     {
         return std::vector<T>(boost::python::stl_input_iterator<T>(inList), boost::python::stl_input_iterator<T>());
     }
@@ -147,7 +147,7 @@ namespace nc
     /// @return     boost::python::list
     ///
     template <typename T>
-    boost::python::list vector2list(std::vector<T>& inVector)
+    inline boost::python::list vector2list(std::vector<T>& inVector) noexcept
     {
         boost::python::list outList;
         for (auto& value : inVector)
@@ -166,7 +166,7 @@ namespace nc
     /// @return     boost::python::dict
     ///
     template <class Key, class Value>
-    boost::python::dict map2dict(const std::map<Key, Value>& inMap)
+    inline boost::python::dict map2dict(const std::map<Key, Value>& inMap) noexcept
     {
         boost::python::dict dictionary;
         for (auto& keyValue : inMap)
@@ -187,7 +187,7 @@ namespace nc
     /// @return     NdArray<dtype>
     ///
     template<typename dtype>
-    NdArray<dtype> pybind2nc(pybind11::array_t<dtype, pybind11::array::c_style>& numpyArray)
+    inline NdArray<dtype> pybind2nc(pybind11::array_t<dtype, pybind11::array::c_style>& numpyArray)
     {
         switch (numpyArray.ndim())
         {
@@ -225,7 +225,7 @@ namespace nc
     /// @return    pybind11::array_t
     ///
     template<typename dtype>
-    pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray, bool transferOwnership = true)
+    inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray, bool transferOwnership = true) noexcept
     {
         Shape inShape = inArray.shape();
         std::vector<pybind11::ssize_t> shape{ inShape.rows, inShape.cols };
