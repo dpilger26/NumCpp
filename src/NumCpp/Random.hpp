@@ -44,7 +44,7 @@
 namespace nc
 {
     /// generator function
-    boost::random::mt19937 generator_;
+    static boost::random::mt19937 generator_;
 
     //================================Random Class=============================
     /// A class for generating random numbers
@@ -305,7 +305,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1)
+        static NdArray<dtype> exponential(const Shape& inShape, dtype inScaleValue = 1) noexcept
         {
             NdArray<dtype> returnArray(inShape);
 
@@ -484,7 +484,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1)
+        static NdArray<dtype> laplace(const Shape& inShape, dtype inLoc = 0, dtype inScale = 1) noexcept
         {
             NdArray<dtype> returnArray(inShape);
 
@@ -657,7 +657,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> permutation(dtype inValue)
+        static NdArray<dtype> permutation(dtype inValue) noexcept
         {
             NdArray<dtype> returnArray = arange(inValue);
             std::random_shuffle(returnArray.begin(), returnArray.end());
@@ -675,7 +675,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> permutation(const NdArray<dtype>& inArray)
+        static NdArray<dtype> permutation(const NdArray<dtype>& inArray) noexcept
         {
             NdArray<dtype> returnArray(inArray);
             std::random_shuffle(returnArray.begin(), returnArray.end());
@@ -726,7 +726,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> rand(const Shape& inShape)
+        static NdArray<dtype> rand(const Shape& inShape) noexcept
         {
             NdArray<dtype> returnArray(inShape);
 
@@ -828,7 +828,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> randN(const Shape& inShape)
+        static NdArray<dtype> randN(const Shape& inShape) noexcept
         {
             NdArray<dtype> returnArray(inShape);
 
@@ -850,7 +850,7 @@ namespace nc
         /// @param
         ///				inSeed
         ///
-        static void seed(uint32 inSeed)
+        static void seed(uint32 inSeed) noexcept
         {
             generator_.seed(inSeed);
         }
@@ -862,7 +862,7 @@ namespace nc
         /// @param
         ///				inArray
         ///
-        static void shuffle(NdArray<dtype>& inArray)
+        static void shuffle(NdArray<dtype>& inArray) noexcept
         {
             std::random_shuffle(inArray.begin(), inArray.end());
         }
@@ -880,7 +880,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        static NdArray<dtype> standardNormal(const Shape& inShape)
+        static NdArray<dtype> standardNormal(const Shape& inShape) noexcept
         {
             return normal(inShape, 0, 1);
         }

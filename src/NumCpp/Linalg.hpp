@@ -52,7 +52,7 @@ namespace nc
         dtype det(const NdArray<dtype>& inArray);
 
         template<typename dtype>
-        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ);
+        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) noexcept;
 
         template<typename dtype>
         NdArray<dtype> hat(const NdArray<dtype>& inVec);
@@ -61,7 +61,7 @@ namespace nc
         NdArray<double> inv(const NdArray<dtype>& inArray);
 
         template<typename dtype>
-        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12);
+        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12) noexcept;
 
         template<typename dtypeOut, typename dtype>
         NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower);
@@ -70,7 +70,7 @@ namespace nc
         NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList);
 
         template<typename dtype>
-        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt);
+        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt) noexcept;
 
         // =============================================================================
         // Class Description:
@@ -771,7 +771,7 @@ namespace nc
         ///				3x3 NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ)
+        NdArray<dtype> hat(dtype inX, dtype inY, dtype inZ) noexcept
         {
             NdArray<dtype> returnArray(3);
             returnArray(0, 0) = 0.0;
@@ -916,7 +916,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance)
+        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance) noexcept
         {
             SVD svdSolver(inA.template astype<double>());
             const double threshold = inTolerance * svdSolver.s().front();
@@ -1036,7 +1036,7 @@ namespace nc
         /// @param				outVt: NdArray output V transpose
         ///
         template<typename dtype>
-        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt)
+        void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt) noexcept
         {
             SVD svdSolver(inArray.template astype<double>());
             outU = std::move(svdSolver.u());

@@ -1160,10 +1160,10 @@ namespace nc
 
         // forward declare all functions
         template<typename dtype>
-        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold);
+        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) noexcept;
 
         template<typename dtype>
-        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters);
+        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters) noexcept;
 
         template<typename dtype>
         std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0);
@@ -1174,7 +1174,7 @@ namespace nc
         template<typename dtype>
         dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate);
 
-        NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth);
+        inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) noexcept;
 
         //============================================================================
         // Method Description:
@@ -1186,7 +1186,7 @@ namespace nc
         ///				NdArray of booleans of pixels that exceeded the threshold
         ///
         template<typename dtype>
-        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold)
+        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) noexcept 
         {
             return inImageArray > inThreshold;
         }
@@ -1200,7 +1200,7 @@ namespace nc
         ///				std::vector<Centroid>
         ///
         template<typename dtype>
-        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters)
+        std::vector<Centroid<dtype> > centroidClusters(const std::vector<Cluster<dtype> >& inClusters) noexcept
         {
             std::vector<Centroid<dtype> > centroids;
 
@@ -1392,7 +1392,7 @@ namespace nc
         /// @return
         ///				NdArray<bool>
         ///
-        NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth)
+        inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) noexcept
         {
             // not the most efficient way to do things, but the easist...
             NdArray<bool> xcds(inExceedances);
