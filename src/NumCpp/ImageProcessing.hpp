@@ -1174,7 +1174,7 @@ namespace nc
         template<typename dtype>
         dtype generateThreshold(const NdArray<dtype>& inImageArray, double inRate);
 
-        NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) noexcept;
+        inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) noexcept;
 
         //============================================================================
         // Method Description:
@@ -1392,7 +1392,7 @@ namespace nc
         /// @return
         ///				NdArray<bool>
         ///
-        NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) noexcept
+        inline NdArray<bool> windowExceedances(const NdArray<bool>& inExceedances, uint8 inBorderWidth) noexcept
         {
             // not the most efficient way to do things, but the easist...
             NdArray<bool> xcds(inExceedances);

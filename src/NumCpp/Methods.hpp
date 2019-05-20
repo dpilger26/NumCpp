@@ -362,7 +362,7 @@ namespace nc
     template<typename dtype>
     void fillDiagonal(NdArray<dtype>& inArray, dtype inValue) noexcept;
 
-    NdArray<uint32> find(const NdArray<bool>& mask, uint32 n = std::numeric_limits<uint32>::max()) noexcept;
+    inline NdArray<uint32> find(const NdArray<bool>& mask, uint32 n = std::numeric_limits<uint32>::max()) noexcept;
 
     template<typename dtype>
     dtype fix(dtype inValue) noexcept;
@@ -3573,7 +3573,7 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    NdArray<uint32> find(const NdArray<bool>& mask, uint32 n) noexcept
+    inline NdArray<uint32> find(const NdArray<bool>& mask, uint32 n) noexcept
     {
         NdArray<uint32> indices = mask.nonzero();
 
