@@ -44,7 +44,7 @@
 namespace nc
 {
     /// generator function
-    boost::random::mt19937 generator_;
+    static boost::random::mt19937 generator_;
 
     //================================Random Class=============================
     /// A class for generating random numbers
