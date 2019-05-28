@@ -30,14 +30,18 @@ target_compile_definitions(${PROJECT_NAME} PUBLIC
 target_include_directories(${PROJECT_NAME} PUBLIC ${NUMCPP_INCLUDES})
 
 set(Boost_USE_STATIC_LIBS TRUE) 
-find_package( Boost ${BOOST_MIN_VERSION} REQUIRED COMPONENTS 
-	system
-	filesystem
-	python37
-	numpy37
-)
+find_package( Boost ${BOOST_MIN_VERSION} REQUIRED COMPONENTS
+	system 
+	filesystem 
+	python
+	numpy)
 target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS}) 
-target_link_libraries(${PROJECT_NAME} PUBLIC ${Boost_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PUBLIC 
+	Boost::system 
+	Boost::filesystem 
+	Boost::python
+	Boost::numpy
+)
 
 #set(Python3_USE_STATIC_LIBS TRUE)
 #find_package(Python3 COMPONENTS Development)

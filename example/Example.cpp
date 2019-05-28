@@ -1,5 +1,7 @@
 #include"NumCpp.hpp"
 
+#include"boost/filesystem.hpp"
+
 #include<iostream>
 
 int main()
@@ -62,12 +64,13 @@ int main()
     {
         std::cout << *it << " ";
     }
+    std::cout << std::endl;
 
     for (auto& arrayValue : a)
     {
         std::cout << arrayValue << " ";
     }
-
+    std::cout << std::endl;
 
     // Logical
     auto a29 = nc::where(a > 5, a, b);
@@ -109,10 +112,15 @@ int main()
     // I/O
     a.print();
     std::cout << a << std::endl;
-    a.tofile("C:/Temp/temp.txt", "\n");
-    auto a50 = nc::fromfile<int>("C:/Temp/temp.txt", "\n");
-    nc::dump(a, "C:/Temp/temp.bin");
-    auto a51 = nc::load<int>("C:/Temp/temp.bin");
+
+    auto tempDir = boost::filesystem::temp_directory_path();
+    auto tempTxt = (tempDir / "temp.txt").string();
+    a.tofile(tempTxt, "\n");
+    auto a50 = nc::fromfile<int>(tempTxt, "\n");
+
+    auto tempBin = (tempDir / "temp.bin").string();
+    nc::dump(a, tempBin);
+    auto a51 = nc::load<int>(tempBin);
 
     // Mathematical Functions
 
@@ -155,11 +163,15 @@ int main()
     // Linear Algebra
     auto a71 = nc::norm<int>(a);
     auto a72 = nc::dot<int>(a, b.transpose());
-    auto value9 = nc::linalg::det(a);
-    auto a73 = nc::linalg::inv(a);
-    auto a74 = nc::linalg::lstsq(a, b);
-    auto a75 = nc::linalg::matrix_power<int>(a, 3);
-    auto a77 = nc::linalg::multi_dot<int>({ a, b.transpose(), c });
+
+    auto a73 = nc::Random<int>::randInt({3, 3}, 0, 10);
+    auto a74 = nc::Random<int>::randInt({4, 3}, 0, 10);
+    auto a75 = nc::Random<int>::randInt({1, 4}, 0, 10);
+    auto value9 = nc::linalg::det(a73);
+    auto a76 = nc::linalg::inv(a73);
+    auto a77 = nc::linalg::lstsq(a74, a75);
+    auto a78 = nc::linalg::matrix_power<int>(a73, 3);
+    auto a79 = nc::linalg::multi_dot<int>({ a, b.transpose(), c });
 
     nc::NdArray<double> u;
     nc::NdArray<double> s;
