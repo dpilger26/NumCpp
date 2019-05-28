@@ -1,28 +1,16 @@
 
-unitTests/build/x64/*
-unitTests/build/.vs/*
-unitTests/testScripts/.idea/*
-unitTests/testScripts/__pycache__/*
-unitTests/testScripts/.idea/workspace.xml
+x64/
+.vs/
+.idea/
+__pycache__/
 unitTests/testScripts/termcolor.py
-unitTests/buildGNU/TestBuild/.settings/language.settings.xml
-unitTests/buildGNU/TestBuild/.settings/org.eclipse.cdt.managedbuilder.core.prefs
-unitTests/buildGNU/RemoteSystemsTempFiles/.project
+.settings/
+.project/
 *.prefs
 *.tmp
 ~$ToDo.docx
-unitTests/build/NumCpp/.vs/*
-unitTests/build/NumCpp/Debug/*
-unitTests/build/NumCpp/x64/*
-example/build/.vs/*
-example/build/Example/.vs/*
-example/build/Example/x64/*
-example/build/x64/*
 *.filters
 *.user
-
-unitTests/src/\.idea/
-
 *.directory
 
 unitTests/src/cmake-build-debug/
@@ -32,13 +20,5 @@ unitTests/src/cmake-build-release/
 unitTests/src/build/
 
 unitTests/lib/
-
-example/buildVS/\.vs/Example/v15/
-
-example/buildVS/x64/Release/
-
-example/buildVS/Example/x64/Release/
-
-example/buildVS/Example/x64/Debug/
 
 example/build/CMakeFiles/CMakeOutput\.log
