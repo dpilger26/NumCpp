@@ -1,5 +1,7 @@
 #include"NumCpp.hpp"
 
+#include"boost/filesystem.hpp"
+
 #include<iostream>
 
 int main()
@@ -110,10 +112,15 @@ int main()
     // I/O
     a.print();
     std::cout << a << std::endl;
-    a.tofile("C:/Temp/temp.txt", "\n");
-    auto a50 = nc::fromfile<int>("C:/Temp/temp.txt", "\n");
-    nc::dump(a, "C:/Temp/temp.bin");
-    auto a51 = nc::load<int>("C:/Temp/temp.bin");
+
+    auto tempDir = boost::filesystem::temp_directory_path();
+    auto tempTxt = (tempDir / "temp.txt").string();
+    a.tofile(tempTxt, "\n");
+    auto a50 = nc::fromfile<int>(tempTxt, "\n");
+
+    auto tempBin = (tempDir / "temp.bin").string();
+    nc::dump(a, tempBin);
+    auto a51 = nc::load<int>(tempBin);
 
     // Mathematical Functions
 
