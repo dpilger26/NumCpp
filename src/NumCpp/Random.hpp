@@ -38,13 +38,14 @@
 
 #include<algorithm>
 #include<iostream>
+#include<random>
 #include<string>
 #include<vector>
 
 namespace nc
 {
     /// generator function
-    static boost::random::mt19937 generator_;
+    static std::mt19937_64 generator_;
 
     //================================Random Class=============================
     /// A class for generating random numbers
@@ -660,7 +661,7 @@ namespace nc
         static NdArray<dtype> permutation(dtype inValue) noexcept
         {
             NdArray<dtype> returnArray = arange(inValue);
-            std::random_shuffle(returnArray.begin(), returnArray.end());
+            std::shuffle(returnArray.begin(), returnArray.end(), generator_);
             return returnArray;
         }
 
@@ -678,7 +679,7 @@ namespace nc
         static NdArray<dtype> permutation(const NdArray<dtype>& inArray) noexcept
         {
             NdArray<dtype> returnArray(inArray);
-            std::random_shuffle(returnArray.begin(), returnArray.end());
+            std::shuffle(returnArray.begin(), returnArray.end(), generator_);
             return returnArray;
         }
 
@@ -864,7 +865,7 @@ namespace nc
         ///
         static void shuffle(NdArray<dtype>& inArray) noexcept
         {
-            std::random_shuffle(inArray.begin(), inArray.end());
+            std::shuffle(inArray.begin(), inArray.end(), generator_);
         }
 
         //============================================================================
@@ -888,7 +889,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Create an array of the given shape and populate it with
-        ///						random samples from the �student-T� distribution.
+        ///						random samples from the "student-T" distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.standard_t.html#numpy.random.standard_t
         ///
