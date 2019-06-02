@@ -189,10 +189,9 @@ namespace nc
     template<typename dtype>
     inline NdArray<dtype> pybind2nc(pybind11::array_t<dtype, pybind11::array::c_style>& numpyArray)
     {
+        dtype* dataPtr = numpyArray.mutable_data();
         switch (numpyArray.ndim())
         {
-            dtype* dataPtr = numpyArray.mutable_data();
-
             case 0:
             {
                 return NdArray<dtype>(dataPtr, 0, 0, false);
