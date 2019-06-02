@@ -1742,12 +1742,13 @@ namespace nc
                 {
                     for (uint32 j = 0; j < inOtherArray.shape_.cols; ++j)
                     {
-                        returnArray(i, j) = 0;
+                        dtypeOut value = 0;
                         for (uint32 k = 0; k < inOtherArray.shape_.rows; ++k)
                         {
-                            returnArray(i, j) += static_cast<dtypeOut>(this->operator()(i, k)) *
+                            value += static_cast<dtypeOut>(this->operator()(i, k)) *
                                 static_cast<dtypeOut>(inOtherArray(k, j));
                         }
+                        returnArray(i, j) = value;
                     }
                 }
 
