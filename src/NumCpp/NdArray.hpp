@@ -1738,6 +1738,9 @@ namespace nc
                 // 2D array, use matrix multiplication
                 NdArray<dtypeOut> returnArray(shape_.rows, inOtherArray.shape_.cols);
 
+                // for better cache performance of large matrices, at the expense of using more memory though...
+                auto otherArrayT = inOtherArray.transpose();
+
                 for (uint32 i = 0; i < shape_.rows; ++i)
                 {
                     for (uint32 j = 0; j < inOtherArray.shape_.cols; ++j)
@@ -1746,7 +1749,7 @@ namespace nc
                         for (uint32 k = 0; k < inOtherArray.shape_.rows; ++k)
                         {
                             value += static_cast<dtypeOut>(this->operator()(i, k)) *
-                                static_cast<dtypeOut>(inOtherArray(k, j));
+                                static_cast<dtypeOut>(otherArrayT(j, k));
                         }
                         returnArray(i, j) = value;
                     }
