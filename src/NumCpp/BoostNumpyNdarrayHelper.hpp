@@ -327,7 +327,7 @@ namespace nc
 
             for (int32 i = 0; i < shape_.front(); ++i)
             {
-                printf("\t%f\n", this->operator()(i));
+                printf("\t%f\n", operator()(i));
             }
         }
 
@@ -347,7 +347,7 @@ namespace nc
             {
                 for (int32 index2 = 0; index2 < shape_.back(); ++index2)
                 {
-                    printf("\t%f", this->operator()(index1, index2));
+                    printf("\t%f", operator()(index1, index2));
                 }
                 printf("\n");
             }
@@ -371,7 +371,7 @@ namespace nc
                 {
                     for (int32 index3 = 0; index3 < shape_.back(); ++index3)
                     {
-                        printf("\t%f", this->operator()(index1, index2, index3));
+                        printf("\t%f", operator()(index1, index2, index3));
                     }
                 }
                 printf("\n");

@@ -553,7 +553,7 @@ namespace nc
             auto outArray = NdArray<dtype>(1, indices.size());
             for (uint32 i = 0; i < indices.size(); ++i)
             {
-                outArray[i] = this->operator[](indices[i]);
+                outArray[i] = operator[](indices[i]);
             }
 
             return outArray;
@@ -581,7 +581,7 @@ namespace nc
             uint32 i = 0;
             for (auto& index : inIndices)
             {
-                outArray[i++] = this->operator[](index);
+                outArray[i++] = operator[](index);
             }
 
             return outArray;
@@ -720,7 +720,7 @@ namespace nc
                 throw std::invalid_argument(errStr);
             }
 
-            return this->operator[](inIndex);
+            return operator[](inIndex);
         }
 
         //============================================================================
@@ -744,7 +744,7 @@ namespace nc
                 throw std::invalid_argument(errStr);
             }
 
-            return this->operator[](inIndex);
+            return operator[](inIndex);
         }
 
         //============================================================================
@@ -778,7 +778,7 @@ namespace nc
                 throw std::invalid_argument(errStr);
             }
 
-            return this->operator()(inRowIndex, inColIndex);
+            return operator()(inRowIndex, inColIndex);
         }
 
         //============================================================================
@@ -812,7 +812,7 @@ namespace nc
                 throw std::invalid_argument(errStr);
             }
 
-            return this->operator()(inRowIndex, inColIndex);
+            return operator()(inRowIndex, inColIndex);
         }
 
         //============================================================================
@@ -828,7 +828,7 @@ namespace nc
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
-            return this->operator[](inSlice);
+            return operator[](inSlice);
         }
 
         //============================================================================
@@ -844,7 +844,7 @@ namespace nc
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
-            return this->operator()(inRowSlice, inColSlice);
+            return operator()(inRowSlice, inColSlice);
         }
 
         //============================================================================
@@ -860,7 +860,7 @@ namespace nc
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
-            return this->operator()(inRowSlice, inColIndex);
+            return operator()(inRowSlice, inColIndex);
         }
 
         //============================================================================
@@ -876,7 +876,7 @@ namespace nc
         {
             // the slice operator already provides bounds checking. just including
             // the at method for completeness
-            return this->operator()(inRowIndex, inColSlice);
+            return operator()(inRowIndex, inColSlice);
         }
 
         //============================================================================
@@ -1292,7 +1292,7 @@ namespace nc
                         std::iota(idx.begin(), idx.end(), 0);
                         std::stable_sort(idx.begin(), idx.end(),
                             [this, row](uint32 i1, uint32 i2) noexcept -> bool
-                        {return this->operator()(row, i1) < this->operator()(row, i2); });
+                        {return operator()(row, i1) < operator()(row, i2); });
 
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
@@ -1424,7 +1424,7 @@ namespace nc
         ///
         NdArray<dtype> column(uint32 inColumn)
         {
-            return this->operator()(rSlice(), inColumn);
+            return operator()(rSlice(), inColumn);
         }
 
         //============================================================================
@@ -1521,11 +1521,11 @@ namespace nc
                     NdArray<dtypeOut> returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(row, 0) = static_cast<dtypeOut>(this->operator()(row, 0));
+                        returnArray(row, 0) = static_cast<dtypeOut>(operator()(row, 0));
                         for (uint32 col = 1; col < shape_.cols; ++col)
                         {
                             returnArray(row, col) = returnArray(row, col - 1) *
-                                static_cast<dtypeOut>(this->operator()(row, col));
+                                static_cast<dtypeOut>(operator()(row, col));
                         }
                     }
 
@@ -1536,11 +1536,11 @@ namespace nc
                     NdArray<dtypeOut> returnArray(shape_);
                     for (uint32 col = 0; col < shape_.cols; ++col)
                     {
-                        returnArray(0, col) = static_cast<dtypeOut>(this->operator()(0, col));
+                        returnArray(0, col) = static_cast<dtypeOut>(operator()(0, col));
                         for (uint32 row = 1; row < shape_.rows; ++row)
                         {
                             returnArray(row, col) = returnArray(row - 1, col) *
-                                static_cast<dtypeOut>(this->operator()(row, col));
+                                static_cast<dtypeOut>(operator()(row, col));
                         }
                     }
 
@@ -1587,11 +1587,11 @@ namespace nc
                     NdArray<dtypeOut> returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(row, 0) = static_cast<dtypeOut>(this->operator()(row, 0));
+                        returnArray(row, 0) = static_cast<dtypeOut>(operator()(row, 0));
                         for (uint32 col = 1; col < shape_.cols; ++col)
                         {
                             returnArray(row, col) = returnArray(row, col - 1) +
-                                static_cast<dtypeOut>(this->operator()(row, col));
+                                static_cast<dtypeOut>(operator()(row, col));
                         }
                     }
 
@@ -1602,11 +1602,11 @@ namespace nc
                     NdArray<dtypeOut> returnArray(shape_);
                     for (uint32 col = 0; col < shape_.cols; ++col)
                     {
-                        returnArray(0, col) = static_cast<dtypeOut>(this->operator()(0, col));
+                        returnArray(0, col) = static_cast<dtypeOut>(operator()(0, col));
                         for (uint32 row = 1; row < shape_.rows; ++row)
                         {
                             returnArray(row, col) = returnArray(row - 1, col) +
-                                static_cast<dtypeOut>(this->operator()(row, col));
+                                static_cast<dtypeOut>(operator()(row, col));
                         }
                     }
 
@@ -1675,7 +1675,7 @@ namespace nc
                             break;
                         }
 
-                        diagnolValues.push_back(this->operator()(row, static_cast<uint32>(col)));
+                        diagnolValues.push_back(operator()(row, static_cast<uint32>(col)));
                         ++col;
                     }
 
@@ -1697,7 +1697,7 @@ namespace nc
                             break;
                         }
 
-                        diagnolValues.push_back(this->operator()(static_cast<uint32>(row), col));
+                        diagnolValues.push_back(operator()(static_cast<uint32>(row), col));
                         ++col;
                     }
 
@@ -1737,21 +1737,13 @@ namespace nc
             {
                 // 2D array, use matrix multiplication
                 NdArray<dtypeOut> returnArray(shape_.rows, inOtherArray.shape_.cols);
-
-                // for better cache performance of large matrices, at the expense of using more memory though...
                 auto otherArrayT = inOtherArray.transpose();
 
                 for (uint32 i = 0; i < shape_.rows; ++i)
                 {
-                    for (uint32 j = 0; j < inOtherArray.shape_.cols; ++j)
+                    for (uint32 j = 0; j < otherArrayT.shape_.rows; ++j)
                     {
-                        dtypeOut value = 0;
-                        for (uint32 k = 0; k < inOtherArray.shape_.rows; ++k)
-                        {
-                            value += static_cast<dtypeOut>(this->operator()(i, k)) *
-                                static_cast<dtypeOut>(otherArrayT(j, k));
-                        }
-                        returnArray(i, j) = value;
+                        returnArray(i, j) = std::inner_product(otherArrayT.cbegin(j), otherArrayT.cend(j), cbegin(i), static_cast<dtype>(0));
                     }
                 }
 
@@ -1878,7 +1870,7 @@ namespace nc
         ///
         NdArray<dtype> getByIndices(const NdArray<uint32>& inIndices) const
         {
-            return this->operator[](inIndices);
+            return operator[](inIndices);
         }
 
         //============================================================================
@@ -1894,7 +1886,7 @@ namespace nc
         ///
         NdArray<dtype> getByMask(const NdArray<bool>& inMask) const
         {
-            return this->operator[](inMask);
+            return operator[](inMask);
         }
 
         //============================================================================
@@ -2346,7 +2338,7 @@ namespace nc
                         dtypeOut sumOfSquares = 0;
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
-                            sumOfSquares += static_cast<dtypeOut>(utils::sqr(this->operator()(row, col)));
+                            sumOfSquares += static_cast<dtypeOut>(utils::sqr(operator()(row, col)));
                         }
                         returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
                     }
@@ -2495,11 +2487,8 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    dtypeOut product = 1;
-                    for (auto value : *this)
-                    {
-                        product *= static_cast<dtypeOut>(value);
-                    }
+                    dtypeOut product = static_cast<dtypeOut>(std::accumulate(cbegin(), cend(), 
+                        static_cast<dtype>(1), std::multiplies<dtype>()));
                     NdArray<dtypeOut> returnArray = { product };
                     return returnArray;
                 }
@@ -2508,12 +2497,9 @@ namespace nc
                     NdArray<dtypeOut> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        dtypeOut product = 1;
-                        for (uint32 col = 0; col < shape_.cols; ++col)
-                        {
-                            product *= static_cast<dtypeOut>(this->operator()(row, col));
-                        }
-                        returnArray(0, row) = product;
+                        dtype value = std::accumulate(cbegin(row), cend(row), 
+                            static_cast<dtype>(1), std::multiplies<dtype>());
+                        returnArray(0, row) = static_cast<dtypeOut>(value);
                     }
 
                     return returnArray;
@@ -2524,12 +2510,9 @@ namespace nc
                     NdArray<dtypeOut> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        dtypeOut product = 1;
-                        for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
-                        {
-                            product *= static_cast<dtypeOut>(transposedArray(row, col));
-                        }
-                        returnArray(0, row) = product;
+                        dtype value = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row),
+                            static_cast<dtype>(1), std::multiplies<dtype>());
+                        returnArray(0, row) = static_cast<dtypeOut>(value);
                     }
 
                     return returnArray;
@@ -3072,11 +3055,11 @@ namespace nc
                 {
                     if (row >= oldShape.rows || col >= oldShape.cols)
                     {
-                        this->operator()(row, col) = static_cast<dtype>(0); // zero fill
+                        operator()(row, col) = static_cast<dtype>(0); // zero fill
                     }
                     else
                     {
-                        this->operator()(row, col) = oldData[row * oldShape.cols + col];
+                        operator()(row, col) = oldData[row * oldShape.cols + col];
                     }
                 }
             }
@@ -3303,7 +3286,7 @@ namespace nc
                         double sum = 0;
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
-                            sum += utils::sqr(static_cast<double>(this->operator()(row, col)) - meanValue[row]);
+                            sum += utils::sqr(static_cast<double>(operator()(row, col)) - meanValue[row]);
                         }
                         returnArray(0, row) = std::sqrt(sum / shape_.cols);
                     }
@@ -3352,7 +3335,7 @@ namespace nc
                 out += "[";
                 for (uint32 col = 0; col < shape_.cols; ++col)
                 {
-                    out += utils::num2str(this->operator()(row, col)) + ", ";
+                    out += utils::num2str(operator()(row, col)) + ", ";
                 }
 
                 if (row == shape_.rows - 1)
@@ -3547,7 +3530,7 @@ namespace nc
                 {
                     break;
                 }
-                sum += static_cast<dtypeOut>(this->operator()(row, col++));
+                sum += static_cast<dtypeOut>(operator()(row, col++));
             }
 
             return sum;
@@ -3569,7 +3552,7 @@ namespace nc
             {
                 for (uint32 col = 0; col < shape_.cols; ++col)
                 {
-                    transArray(col, row) = this->operator()(row, col);
+                    transArray(col, row) = operator()(row, col);
                 }
             }
             return transArray;
