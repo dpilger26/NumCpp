@@ -37,6 +37,7 @@
 
 #include<boost/algorithm/clamp.hpp>
 #include<boost/filesystem.hpp>
+#include<boost/predef/other/endian.h>
 #include<boost/endian/conversion.hpp>
 
 #include<algorithm>
@@ -123,11 +124,11 @@ namespace nc
         /// @param
         ///				inSquareSize: square number of rows and columns
         ///
-        explicit NdArray(uint32 inSquareSize) noexcept:
+        explicit NdArray(uint32 inSquareSize) noexcept :
             shape_(inSquareSize, inSquareSize),
             size_(inSquareSize * inSquareSize),
             array_(new dtype[size_]),
-            ownsPtr_(true) 
+            ownsPtr_(true)
         {};
 
         //============================================================================
@@ -137,11 +138,11 @@ namespace nc
         /// @param				inNumRows
         /// @param				inNumCols
         ///
-        NdArray(uint32 inNumRows, uint32 inNumCols) noexcept:
+        NdArray(uint32 inNumRows, uint32 inNumCols) noexcept :
             shape_(inNumRows, inNumCols),
             size_(inNumRows * inNumCols),
             array_(new dtype[size_]),
-            ownsPtr_(true) 
+            ownsPtr_(true)
         {};
 
         //============================================================================
@@ -151,11 +152,11 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        explicit NdArray(const Shape& inShape) noexcept:
+        explicit NdArray(const Shape& inShape) noexcept :
             shape_(inShape),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPtr_(true) 
+            ownsPtr_(true)
         {};
 
         //============================================================================
@@ -165,11 +166,11 @@ namespace nc
         /// @param
         ///				inList
         ///
-        NdArray(const std::initializer_list<dtype>& inList) noexcept:
+        NdArray(const std::initializer_list<dtype>& inList) noexcept :
             shape_(1, static_cast<uint32>(inList.size())),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPtr_(true) 
+            ownsPtr_(true)
         {
             std::copy(inList.begin(), inList.end(), array_);
         }
@@ -218,11 +219,11 @@ namespace nc
         /// @param
         ///				inVector
         ///
-        explicit NdArray(const std::vector<dtype>& inVector) noexcept:
+        explicit NdArray(const std::vector<dtype>& inVector) noexcept :
             shape_(1, static_cast<uint32>(inVector.size())),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPtr_(true) 
+            ownsPtr_(true)
         {
             std::copy(inVector.begin(), inVector.end(), array_);
         }
@@ -234,11 +235,11 @@ namespace nc
         /// @param
         ///				inDeque
         ///
-        explicit NdArray(const std::deque<dtype>& inDeque) noexcept:
+        explicit NdArray(const std::deque<dtype>& inDeque) noexcept :
             shape_(1, static_cast<uint32>(inDeque.size())),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPtr_(true) 
+            ownsPtr_(true)
         {
             std::copy(inDeque.begin(), inDeque.end(), array_);
         }
@@ -250,11 +251,11 @@ namespace nc
         /// @param
         ///				inSet
         ///
-        explicit NdArray(const std::set<dtype>& inSet) noexcept:
+        explicit NdArray(const std::set<dtype>& inSet) noexcept :
             shape_(1, static_cast<uint32>(inSet.size())),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPtr_(true) 
+            ownsPtr_(true)
         {
             std::copy(inSet.begin(), inSet.end(), array_);
         }
@@ -266,11 +267,11 @@ namespace nc
         /// @param				inFirst
         /// @param				inLast
         ///
-        explicit NdArray(const_iterator inFirst, const_iterator inLast) noexcept:
+        explicit NdArray(const_iterator inFirst, const_iterator inLast) noexcept :
             shape_(1, static_cast<uint32>(inLast - inFirst)),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPtr_(true) 
+            ownsPtr_(true)
         {
             std::copy(inFirst, inLast, array_);
         }
@@ -286,11 +287,11 @@ namespace nc
         /// @param              takeOwnership: whether or not to take ownership of the data
         ///                     and call delete[] in the destructor.
         ///
-        NdArray(dtype* inPtr, uint32 numRows, uint32 numCols, bool takeOwnership = false) noexcept:
+        NdArray(dtype* inPtr, uint32 numRows, uint32 numCols, bool takeOwnership = false) noexcept :
             shape_(numRows, numCols),
             size_(numRows * numCols),
             array_(inPtr),
-            ownsPtr_(takeOwnership) 
+            ownsPtr_(takeOwnership)
         {}
 
         //============================================================================
@@ -301,11 +302,11 @@ namespace nc
         /// @param				inPtr: dtype* to beginning of buffer
         /// @param				inNumBytes: number of bytes
         ///
-        NdArray(dtype* inPtr, uint32 inNumBytes) noexcept:
+        NdArray(dtype* inPtr, uint32 inNumBytes) noexcept :
             shape_(1, inNumBytes / sizeof(dtype)),
             size_(shape_.size()),
             array_(new dtype[size_]),
-            ownsPtr_(true) 
+            ownsPtr_(true)
         {
             for (uint32 i = 0; i < size_; ++i)
             {
@@ -320,12 +321,12 @@ namespace nc
         /// @param
         ///				inOtherArray
         ///
-        NdArray(const NdArray<dtype>& inOtherArray) noexcept:
+        NdArray(const NdArray<dtype>& inOtherArray) noexcept :
             shape_(inOtherArray.shape_),
             size_(inOtherArray.size_),
             endianess_(inOtherArray.endianess_),
             array_(new dtype[inOtherArray.size_]),
-            ownsPtr_(true) 
+            ownsPtr_(true)
         {
             std::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
         }
@@ -1292,7 +1293,7 @@ namespace nc
                         std::iota(idx.begin(), idx.end(), 0);
                         std::stable_sort(idx.begin(), idx.end(),
                             [this, row](uint32 i1, uint32 i2) noexcept -> bool
-                        {return operator()(row, i1) < operator()(row, i2); });
+                            {return operator()(row, i1) < operator()(row, i2); });
 
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
@@ -1311,7 +1312,7 @@ namespace nc
                         std::iota(idx.begin(), idx.end(), 0);
                         std::stable_sort(idx.begin(), idx.end(),
                             [&arrayTransposed, row](uint32 i1, uint32 i2) noexcept -> bool
-                        {return arrayTransposed(row, i1) < arrayTransposed(row, i2); });
+                            {return arrayTransposed(row, i1) < arrayTransposed(row, i2); });
 
                         for (uint32 col = 0; col < arrayTransposed.shape_.cols; ++col)
                         {
@@ -1386,15 +1387,15 @@ namespace nc
                 }
                 case Endian::NATIVE:
                 {
-#if defined(BOOST_BIG_ENDIAN)
+#if BOOST_ENDIAN_BIG_BYTE
                     *this = newbyteorder(Endian::LITTLE);
-#elif defined(BOOST_LITTLE_ENDIAN)
+#elif BOOST_ENDIAN_LITTLE_BYTE
                     *this = newbyteorder(Endian::BIG);
 #endif
                     return;
+                }
             }
         }
-    }
 
         //============================================================================
         // Method Description:
@@ -2222,7 +2223,7 @@ namespace nc
                             NdArray<dtype> outArray(shape_);
                             std::transform(cbegin(), cend(), outArray.begin(),
                                 [](dtype value) noexcept -> dtype
-                            {return boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(value)); });
+                                {return boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(value)); });
                             outArray.endianess_ = Endian::LITTLE;
                             return outArray;
                         }
@@ -2251,7 +2252,7 @@ namespace nc
                             NdArray<dtype> outArray(shape_);
                             std::transform(cbegin(), cend(), outArray.begin(),
                                 [](dtype value) noexcept -> dtype
-                            {return boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(value)); });
+                                {return boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(value)); });
                             outArray.endianess_ = Endian::BIG;
                             return outArray;
                         }
@@ -2487,7 +2488,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    dtypeOut product = static_cast<dtypeOut>(std::accumulate(cbegin(), cend(), 
+                    dtypeOut product = static_cast<dtypeOut>(std::accumulate(cbegin(), cend(),
                         static_cast<dtype>(1), std::multiplies<dtype>()));
                     NdArray<dtypeOut> returnArray = { product };
                     return returnArray;
@@ -2497,7 +2498,7 @@ namespace nc
                     NdArray<dtypeOut> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        dtype value = std::accumulate(cbegin(row), cend(row), 
+                        dtype value = std::accumulate(cbegin(row), cend(row),
                             static_cast<dtype>(1), std::multiplies<dtype>());
                         returnArray(0, row) = static_cast<dtypeOut>(value);
                     }
