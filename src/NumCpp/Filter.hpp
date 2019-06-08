@@ -989,7 +989,7 @@ namespace nc
             }
 
             // normalize the kernel
-            kernel /= kernel.template sum<double>().item();
+            kernel /= kernel.sum().item();
 
             // perform the convolution
             NdArray<dtype> output = convolve(inImageArray.template astype<double>(),
@@ -1043,7 +1043,7 @@ namespace nc
             }
 
             // normalize the kernel
-            kernel /= kernel.template sum<double>().item();
+            kernel /= kernel.sum().item();
 
             // perform the convolution
             NdArray<dtype> output = convolve1d(inImageArray.template astype<double>(),

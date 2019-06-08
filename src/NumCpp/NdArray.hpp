@@ -1343,10 +1343,9 @@ namespace nc
         NdArray<dtypeOut> astype() const noexcept
         {
             NdArray<dtypeOut> outArray(shape_);
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                outArray[i] = static_cast<dtypeOut>(array_[i]);
-            }
+            std::transform(cbegin(), cend(), outArray.begin(),
+                [](dtype value) noexcept -> dtypeOut { return static_cast<dtypeOut>(value); });
+
             return outArray;
         }
 
@@ -1501,32 +1500,30 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut>
-        NdArray<dtypeOut> cumprod(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> cumprod(Axis inAxis = Axis::NONE) const noexcept
         {
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtypeOut> returnArray(1, size_);
-                    returnArray[0] = static_cast<dtypeOut>(front());
+                    NdArray<dtype> returnArray(1, size_);
+                    returnArray[0] = front();
                     for (uint32 i = 1; i < size_; ++i)
                     {
-                        returnArray[i] = returnArray[i - 1] * static_cast<dtypeOut>(array_[i]);
+                        returnArray[i] = returnArray[i - 1] * array_[i];
                     }
 
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtypeOut> returnArray(shape_);
+                    NdArray<dtype> returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(row, 0) = static_cast<dtypeOut>(operator()(row, 0));
+                        returnArray(row, 0) = operator()(row, 0);
                         for (uint32 col = 1; col < shape_.cols; ++col)
                         {
-                            returnArray(row, col) = returnArray(row, col - 1) *
-                                static_cast<dtypeOut>(operator()(row, col));
+                            returnArray(row, col) = returnArray(row, col - 1) * operator()(row, col);
                         }
                     }
 
@@ -1534,14 +1531,13 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtypeOut> returnArray(shape_);
+                    NdArray<dtype> returnArray(shape_);
                     for (uint32 col = 0; col < shape_.cols; ++col)
                     {
-                        returnArray(0, col) = static_cast<dtypeOut>(operator()(0, col));
+                        returnArray(0, col) = operator()(0, col);
                         for (uint32 row = 1; row < shape_.rows; ++row)
                         {
-                            returnArray(row, col) = returnArray(row - 1, col) *
-                                static_cast<dtypeOut>(operator()(row, col));
+                            returnArray(row, col) = returnArray(row - 1, col) * operator()(row, col);
                         }
                     }
 
@@ -1551,7 +1547,7 @@ namespace nc
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return NdArray<dtypeOut>(0);
+                    return NdArray<dtype>(0);
                 }
             }
         }
@@ -1567,32 +1563,30 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut>
-        NdArray<dtypeOut> cumsum(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> cumsum(Axis inAxis = Axis::NONE) const noexcept
         {
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtypeOut> returnArray(1, size_);
-                    returnArray[0] = static_cast<dtypeOut>(front());
+                    NdArray<dtype> returnArray(1, size_);
+                    returnArray[0] = front();
                     for (uint32 i = 1; i < size_; ++i)
                     {
-                        returnArray[i] = returnArray[i - 1] + static_cast<dtypeOut>(array_[i]);
+                        returnArray[i] = returnArray[i - 1] + array_[i];
                     }
 
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtypeOut> returnArray(shape_);
+                    NdArray<dtype> returnArray(shape_);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(row, 0) = static_cast<dtypeOut>(operator()(row, 0));
+                        returnArray(row, 0) = operator()(row, 0);
                         for (uint32 col = 1; col < shape_.cols; ++col)
                         {
-                            returnArray(row, col) = returnArray(row, col - 1) +
-                                static_cast<dtypeOut>(operator()(row, col));
+                            returnArray(row, col) = returnArray(row, col - 1) + operator()(row, col);
                         }
                     }
 
@@ -1600,14 +1594,13 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtypeOut> returnArray(shape_);
+                    NdArray<dtype> returnArray(shape_);
                     for (uint32 col = 0; col < shape_.cols; ++col)
                     {
-                        returnArray(0, col) = static_cast<dtypeOut>(operator()(0, col));
+                        returnArray(0, col) = operator()(0, col);
                         for (uint32 row = 1; row < shape_.rows; ++row)
                         {
-                            returnArray(row, col) = returnArray(row - 1, col) +
-                                static_cast<dtypeOut>(operator()(row, col));
+                            returnArray(row, col) = returnArray(row - 1, col) + operator()(row, col);
                         }
                     }
 
@@ -1617,7 +1610,7 @@ namespace nc
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return NdArray<dtypeOut>(0);
+                    return NdArray<dtype>(0);
                 }
             }
         }
@@ -2314,33 +2307,32 @@ namespace nc
         /// @return
         ///				norm
         ///
-        template<typename dtypeOut>
-        NdArray<dtypeOut> norm(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> norm(Axis inAxis = Axis::NONE) const noexcept
         {
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    dtypeOut sumOfSquares = 0;
+                    dtype sumOfSquares = 0;
                     for (auto value : *this)
                     {
-                        sumOfSquares += static_cast<dtypeOut>(utils::sqr(value));
+                        sumOfSquares += utils::sqr(value);
                     }
 
-                    NdArray<dtypeOut> returnArray = { static_cast<dtypeOut>(std::sqrt(sumOfSquares)) };
+                    NdArray<dtype> returnArray = { std::sqrt(sumOfSquares) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtypeOut> returnArray(1, shape_.rows);
+                    NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        dtypeOut sumOfSquares = 0;
+                        dtype sumOfSquares = 0;
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
-                            sumOfSquares += static_cast<dtypeOut>(utils::sqr(operator()(row, col)));
+                            sumOfSquares += utils::sqr(operator()(row, col));
                         }
-                        returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
+                        returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
 
                     return returnArray;
@@ -2348,15 +2340,15 @@ namespace nc
                 case Axis::ROW:
                 {
                     NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtypeOut> returnArray(1, transposedArray.shape_.rows);
+                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        dtypeOut sumOfSquares = 0;
+                        dtype sumOfSquares = 0;
                         for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
                         {
-                            sumOfSquares += static_cast<dtypeOut>(utils::sqr(transposedArray(row, col)));
+                            sumOfSquares += utils::sqr(transposedArray(row, col));
                         }
-                        returnArray(0, row) = static_cast<dtypeOut>(std::sqrt(sumOfSquares));
+                        returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
 
                     return returnArray;
@@ -2365,7 +2357,7 @@ namespace nc
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return NdArray<dtypeOut>(0);
+                    return NdArray<dtype>(0);
                 }
             }
         }
@@ -2480,26 +2472,24 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut>
-        NdArray<dtypeOut> prod(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> prod(Axis inAxis = Axis::NONE) const noexcept
         {
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    dtypeOut product = static_cast<dtypeOut>(std::accumulate(cbegin(), cend(),
-                        static_cast<dtype>(1), std::multiplies<dtype>()));
-                    NdArray<dtypeOut> returnArray = { product };
+                    dtype product = std::accumulate(cbegin(), cend(),
+                        static_cast<dtype>(1), std::multiplies<dtype>());
+                    NdArray<dtype> returnArray = { product };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtypeOut> returnArray(1, shape_.rows);
+                    NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        dtype value = std::accumulate(cbegin(row), cend(row),
+                        returnArray(0, row) = std::accumulate(cbegin(row), cend(row),
                             static_cast<dtype>(1), std::multiplies<dtype>());
-                        returnArray(0, row) = static_cast<dtypeOut>(value);
                     }
 
                     return returnArray;
@@ -2507,12 +2497,11 @@ namespace nc
                 case Axis::ROW:
                 {
                     NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtypeOut> returnArray(1, transposedArray.shape_.rows);
+                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        dtype value = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row),
+                        returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row),
                             static_cast<dtype>(1), std::multiplies<dtype>());
-                        returnArray(0, row) = static_cast<dtypeOut>(value);
                     }
 
                     return returnArray;
@@ -2521,7 +2510,7 @@ namespace nc
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return NdArray<dtypeOut>(0);
+                    return NdArray<dtype>(0);
                 }
             }
         }
@@ -3362,36 +3351,33 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut>
-        NdArray<dtypeOut> sum(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<dtype> sum(Axis inAxis = Axis::NONE) const noexcept
         {
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtypeOut> arrayCopy = this->astype<dtypeOut>();
-                    NdArray<dtypeOut> returnArray = { std::accumulate(arrayCopy.cbegin(), arrayCopy.cend(), static_cast<dtypeOut>(0)) };
+                    NdArray<dtype> returnArray = { std::accumulate(cbegin(), cend(), static_cast<dtype>(0)) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtypeOut> arrayCopy = this->astype<dtypeOut>();
-                    NdArray<dtypeOut> returnArray(1, shape_.rows);
+                    NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::accumulate(arrayCopy.cbegin(row), arrayCopy.cend(row), static_cast<dtypeOut>(0));
+                        returnArray(0, row) = std::accumulate(cbegin(row), cend(row), static_cast<dtype>(0));
                     }
 
                     return returnArray;
                 }
                 case Axis::ROW:
                 {
-                    NdArray<dtypeOut> transposedArray = transpose().template astype<dtypeOut>();
+                    NdArray<dtype> transposedArray = transpose();
                     const Shape transShape = transposedArray.shape();
-                    NdArray<dtypeOut> returnArray(1, transShape.rows);
+                    NdArray<dtype> returnArray(1, transShape.rows);
                     for (uint32 row = 0; row < transShape.rows; ++row)
                     {
-                        returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), static_cast<dtypeOut>(0));
+                        returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), static_cast<dtype>(0));
                     }
 
                     return returnArray;
@@ -3400,7 +3386,7 @@ namespace nc
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return NdArray<dtypeOut>(0);
+                    return NdArray<dtype>(0);
                 }
             }
         }
@@ -3492,8 +3478,7 @@ namespace nc
         /// @return
         ///				value
         ///
-        template<typename dtypeOut>
-        dtypeOut trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
+        dtype trace(uint32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
         {
             uint32 rowStart = 0;
             uint32 colStart = 0;
@@ -3519,18 +3504,18 @@ namespace nc
 
             if (rowStart >= shape_.rows || colStart >= shape_.cols)
             {
-                return static_cast<dtypeOut>(0);
+                return static_cast<dtype>(0);
             }
 
             uint32 col = colStart;
-            dtypeOut sum = 0;
+            dtype sum = 0;
             for (uint32 row = rowStart; row < shape_.rows; ++row)
             {
                 if (col >= shape_.cols)
                 {
                     break;
                 }
-                sum += static_cast<dtypeOut>(operator()(row, col++));
+                sum += operator()(row, col++);
             }
 
             return sum;

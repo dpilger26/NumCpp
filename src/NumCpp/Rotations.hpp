@@ -109,7 +109,7 @@ namespace nc
                     throw std::invalid_argument(errStr);
                 }
 
-                double norm = std::sqrt(square(inArray).template sum<double>().item());
+                double norm = std::sqrt(square(inArray).sum().item());
                 data_[0] = inArray[0] / norm;
                 data_[1] = inArray[1] / norm;
                 data_[2] = inArray[2] / norm;
@@ -136,7 +136,7 @@ namespace nc
                 }
 
                 // normalize the input vector
-                NdArray<double> normAxis = inAxis.template astype<double>() / inAxis.template norm<double>().item();
+                NdArray<double> normAxis = inAxis.template astype<double>() / inAxis.astype<double>().norm().item();
 
                 const double i = static_cast<double>(normAxis[0]) * std::sin(inAngle / 2.0);
                 const double j = static_cast<double>(normAxis[1]) * std::sin(inAngle / 2.0);

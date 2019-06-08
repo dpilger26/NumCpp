@@ -1066,7 +1066,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing cross 2D: Axis = ROW', 'cyan'))
-    shape = NumCpp.Shape(2, np.random.randint(1,100, [1, ]).item())
+    shape = NumCpp.Shape(2, np.random.randint(1, 100, [1, ]).item())
     cArray1 = NumCpp.NdArray(shape)
     cArray2 = NumCpp.NdArray(shape)
     data1 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
@@ -1079,7 +1079,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing cross 2D: Axis = COL', 'cyan'))
-    shape = NumCpp.Shape(np.random.randint(1,100, [1, ]).item(), 2)
+    shape = NumCpp.Shape(np.random.randint(1, 100, [1, ]).item(), 2)
     cArray1 = NumCpp.NdArray(shape)
     cArray2 = NumCpp.NdArray(shape)
     data1 = np.random.randint(1, 10, [shape.rows, shape.cols]).astype(np.double)
