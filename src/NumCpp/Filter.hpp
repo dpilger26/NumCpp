@@ -51,7 +51,7 @@ namespace nc
 
         // forward declare all functions
         template<typename dtype>
-        dtype gaussian(dtype inX, dtype inY, double inSigma) noexcept;
+        double gaussian(dtype inX, dtype inY, double inSigma) noexcept;
 
         template<typename dtype>
         void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth);
