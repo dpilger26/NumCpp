@@ -51,7 +51,7 @@ namespace nc
 
         // forward declare all functions
         template<typename dtype>
-        dtype gaussian(dtype inX, dtype inY, dtype inSigma) noexcept;
+        dtype gaussian(dtype inX, dtype inY, double inSigma) noexcept;
 
         template<typename dtype>
         void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth);
@@ -188,10 +188,12 @@ namespace nc
         /// @return             dtype
         ///
         template<typename dtype>
-        double gaussian(dtype inX, dtype inY, dtype inSigma) noexcept
+        double gaussian(dtype inX, dtype inY, double inSigma) noexcept
         {
-            const double exponent = -(utils::sqr(inX) + utils::sqr(inY)) / (2 * utils::sqr(inSigma));
-            return std::exp(exponent);
+            double exponent = utils::sqr(static_cast<double>(inX)) + utils::sqr(static_cast<double>(inY));
+            exponent /= 2;
+            exponent /= utils::sqr(inSigma);
+            return std::exp(-exponent);
         }
 
         //============================================================================
