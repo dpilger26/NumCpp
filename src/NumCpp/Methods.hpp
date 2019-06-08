@@ -1871,7 +1871,7 @@ namespace nc
                     weightedArray.begin(), std::multiplies<double>());
 
                 double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
-                NdArray<double> returnArray = { sum /= inWeights.astype<double>().sum().item() };
+                NdArray<double> returnArray = { sum /= inWeights.template astype<double>().sum().item() };
 
                 return returnArray;
             }
@@ -1885,7 +1885,7 @@ namespace nc
                     throw std::invalid_argument(errStr);
                 }
 
-                double weightSum = inWeights.astype<double>().sum().item();
+                double weightSum = inWeights.template astype<double>().sum().item();
                 NdArray<double> returnArray(1, arrayShape.rows);
                 for (uint32 row = 0; row < arrayShape.rows; ++row)
                 {
@@ -1911,7 +1911,7 @@ namespace nc
                 NdArray<dtype> transposedArray = inArray.transpose();
 
                 const Shape transShape = transposedArray.shape();
-                double weightSum = inWeights.astype<double>().sum().item();
+                double weightSum = inWeights.template astype<double>().sum().item();
                 NdArray<double> returnArray(1, transShape.rows);
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
