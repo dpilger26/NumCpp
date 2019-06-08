@@ -188,10 +188,10 @@ namespace nc
         /// @return             dtype
         ///
         template<typename dtype>
-        dtype gaussian(dtype inX, dtype inY, dtype inSigma) noexcept
+        double gaussian(dtype inX, dtype inY, dtype inSigma) noexcept
         {
             const double exponent = -(utils::sqr(inX) + utils::sqr(inY)) / (2 * utils::sqr(inSigma));
-            return static_cast<dtype>(std::exp(exponent));
+            return std::exp(exponent);
         }
 
         //============================================================================
@@ -1039,7 +1039,7 @@ namespace nc
             NdArray<double> kernel(1, kernelSize);
             for (double i = 0; i < kernelSize; ++i)
             {
-                kernel[static_cast<int32>(i)] = gaussian(i - kernalHalfSize, 0.0, inSigma);
+                kernel[static_cast<uint32>(i)] = gaussian(i - kernalHalfSize, 0.0, inSigma);
             }
 
             // normalize the kernel

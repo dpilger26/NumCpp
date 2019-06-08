@@ -136,11 +136,12 @@ namespace nc
                 }
 
                 // normalize the input vector
-                NdArray<double> normAxis = inAxis.template astype<double>() / inAxis.template astype<double>().norm().item();
+                NdArray<double> normAxis = inAxis.template astype<double>() / 
+                    inAxis.template astype<double>().norm().item();
 
-                const double i = static_cast<double>(normAxis[0]) * std::sin(inAngle / 2.0);
-                const double j = static_cast<double>(normAxis[1]) * std::sin(inAngle / 2.0);
-                const double k = static_cast<double>(normAxis[2]) * std::sin(inAngle / 2.0);
+                const double i = normAxis[0] * std::sin(inAngle / 2.0);
+                const double j = normAxis[1] * std::sin(inAngle / 2.0);
+                const double k = normAxis[2] * std::sin(inAngle / 2.0);
                 const double s = std::cos(inAngle / 2.0);
 
                 return Quaternion(i, j, k, s);

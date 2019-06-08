@@ -3086,9 +3086,10 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    dtype squareSum = 0;
-                    std::for_each(cbegin(), cend(), [&squareSum](dtype value) noexcept -> void { squareSum += value * value; });
-                    NdArray<double> returnArray = { std::sqrt(static_cast<double>(squareSum) / static_cast<double>(size_)) };
+                    double squareSum = 0;
+                    std::for_each(cbegin(), cend(), [&squareSum](dtype value) noexcept -> void
+                        { squareSum += utils::sqr(static_cast<double>(value)); });
+                    NdArray<double> returnArray = { std::sqrt(squareSum / static_cast<double>(size_)) };
 
                     return returnArray;
                 }
@@ -3097,9 +3098,10 @@ namespace nc
                     NdArray<double> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        dtype squareSum = 0;
-                        std::for_each(cbegin(row), cend(row), [&squareSum](dtype value) noexcept -> void { squareSum += value * value; });
-                        returnArray(0, row) = std::sqrt(static_cast<double>(squareSum) / static_cast<double>(shape_.cols));
+                        double squareSum = 0;
+                        std::for_each(cbegin(row), cend(row), [&squareSum](dtype value) noexcept -> void
+                            { squareSum += utils::sqr(static_cast<double>(value)); });
+                        returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(shape_.cols));
                     }
 
                     return returnArray;
@@ -3110,10 +3112,11 @@ namespace nc
                     NdArray<double> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        dtype squareSum = 0;
+                        double squareSum = 0;
                         std::for_each(transposedArray.cbegin(row), transposedArray.cend(row),
-                            [&squareSum](dtype value) noexcept -> void { squareSum += value * value; });
-                        returnArray(0, row) = std::sqrt(static_cast<double>(squareSum) / static_cast<double>(transposedArray.shape_.cols));
+                            [&squareSum](dtype value) noexcept -> void
+                            { squareSum += utils::sqr(static_cast<double>(value)); });
+                        returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.shape_.cols));
                     }
 
                     return returnArray;

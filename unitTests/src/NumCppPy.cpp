@@ -1860,34 +1860,30 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtype>
     np::ndarray nansSquare(uint32 inSquareSize)
     {
-        return nc2Boost(nans<dtype>(inSquareSize));
+        return nc2Boost(nans(inSquareSize));
     }
 
     //================================================================================
 
-    template<typename dtype>
     np::ndarray nansRowCol(uint32 inNumRows, uint32 inNumCols)
     {
-        return nc2Boost(nans<dtype>(inNumRows, inNumCols));
+        return nc2Boost(nans(inNumRows, inNumCols));
     }
 
     //================================================================================
 
-    template<typename dtype>
     np::ndarray nansShape(const Shape& inShape)
     {
-        return nc2Boost(nans<dtype>(inShape));
+        return nc2Boost(nans(inShape));
     }
 
     //================================================================================
 
-    template<typename dtype>
     np::ndarray nansList(uint32 inNumRows, uint32 inNumCols)
     {
-        return nc2Boost(nans<dtype>({ inNumRows, inNumCols }));
+        return nc2Boost(nans({ inNumRows, inNumCols }));
     }
 
     //================================================================================
@@ -3180,10 +3176,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("nanmin", &nanmin<double>);
     bp::def("nanpercentile", &nanpercentile<double>);
     bp::def("nanprod", &nanprod<double>);
-    bp::def("nansSquare", &MethodsInterface::nansSquare<double>);
-    bp::def("nansRowCol", &MethodsInterface::nansRowCol<double>);
-    bp::def("nansShape", &MethodsInterface::nansShape<double>);
-    bp::def("nansList", &MethodsInterface::nansList<double>);
+    bp::def("nansSquare", &MethodsInterface::nansSquare);
+    bp::def("nansRowCol", &MethodsInterface::nansRowCol);
+    bp::def("nansShape", &MethodsInterface::nansShape);
+    bp::def("nansList", &MethodsInterface::nansList);
     bp::def("nans_like", &nans_like<double>);
     bp::def("nanstdev", &nanstdev<double>);
     bp::def("nansum", &nansum<double>);

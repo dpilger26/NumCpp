@@ -621,14 +621,11 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> nanprod(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept;
 
-    template<typename dtype>
-    NdArray<dtype> nans(uint32 inSquareSize) noexcept;
+    inline NdArray<double> nans(uint32 inSquareSize) noexcept;
 
-    template<typename dtype>
-    NdArray<dtype> nans(uint32 inNumRows, uint32 inNumCols) noexcept;
+    inline NdArray<double> nans(uint32 inNumRows, uint32 inNumCols) noexcept;
 
-    template<typename dtype>
-    NdArray<dtype> nans(const Shape& inShape) noexcept;
+    inline NdArray<double> nans(const Shape& inShape) noexcept;
 
     template<typename dtype>
     NdArray<double> nans_like(const NdArray<dtype>& inArray) noexcept;
@@ -734,7 +731,7 @@ namespace nc
     NdArray<double> radians(const NdArray<dtype>& inArray) noexcept;
 
     template<typename dtype>
-    NdArray<dtype> reciprocal(const NdArray<dtype>& inArray) noexcept;
+    NdArray<double> reciprocal(const NdArray<dtype>& inArray) noexcept;
 
     template<typename dtype>
     dtype remainder(dtype inValue1, dtype inValue2) noexcept;
@@ -1870,7 +1867,7 @@ namespace nc
                 std::transform(inArray.cbegin(), inArray.cend(), inWeights.cbegin(),
                     weightedArray.begin(), std::multiplies<double>());
 
-                double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
+                double sum = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0);
                 NdArray<double> returnArray = { sum /= inWeights.template astype<double>().sum().item() };
 
                 return returnArray;
@@ -1893,7 +1890,7 @@ namespace nc
                     std::transform(inArray.cbegin(row), inArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), std::multiplies<double>());
 
-                    double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
+                    double sum = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0);
                     returnArray(0, row) = sum / weightSum;
                 }
 
@@ -1919,7 +1916,7 @@ namespace nc
                     std::transform(transposedArray.cbegin(row), transposedArray.cend(row), inWeights.cbegin(),
                         weightedArray.begin(), std::multiplies<double>());
 
-                    double sum = static_cast<double>(std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0));
+                    double sum = std::accumulate(weightedArray.begin(), weightedArray.end(), 0.0);
                     returnArray(0, row) = sum / weightSum;
                 }
 
@@ -5668,10 +5665,12 @@ namespace nc
             case Axis::NONE:
             {
                 double sum = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+                    [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                    { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
 
                 const double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(), inArray.cend(), 0.0,
-                    [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+                    [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                    { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
 
                 NdArray<double> returnArray = { sum /= numberNonNan };
 
@@ -5684,10 +5683,12 @@ namespace nc
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                        { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
 
                     double numberNonNan = static_cast<double>(std::accumulate(inArray.cbegin(row), inArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                        { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
 
                     returnArray(0, row) = sum / numberNonNan;
                 }
@@ -5702,10 +5703,12 @@ namespace nc
                 for (uint32 row = 0; row < transShape.rows; ++row)
                 {
                     double sum = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                        { return std::isnan(inValue2) ? inValue1 : inValue1 + inValue2; }));
 
                     double numberNonNan = static_cast<double>(std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), 0.0,
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
+                        { return std::isnan(inValue2) ? inValue1 : inValue1 + 1; }));
 
                     returnArray(0, row) = sum / numberNonNan;
                 }
@@ -6061,10 +6064,9 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype> nans(uint32 inSquareSize) noexcept
+    inline NdArray<double> nans(uint32 inSquareSize) noexcept
     {
-        return full(inSquareSize, static_cast<dtype>(constants::nan));
+        return full(inSquareSize, constants::nan);
     }
 
     //============================================================================
@@ -6077,10 +6079,9 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype> nans(uint32 inNumRows, uint32 inNumCols) noexcept
+    inline NdArray<double> nans(uint32 inNumRows, uint32 inNumCols) noexcept
     {
-        return full(inNumRows, inNumCols, static_cast<dtype>(constants::nan));
+        return full(inNumRows, inNumCols, constants::nan);
     }
 
     //============================================================================
@@ -6093,10 +6094,9 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<dtype> nans(const Shape& inShape) noexcept
+    inline NdArray<double> nans(const Shape& inShape) noexcept
     {
-        return full(inShape, static_cast<dtype>(constants::nan));
+        return full(inShape, constants::nan);
     }
 
     //============================================================================
@@ -6995,13 +6995,13 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> reciprocal(const NdArray<dtype>& inArray) noexcept
+    NdArray<double> reciprocal(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<dtype> returnArray(inArray.shape());
+        NdArray<double> returnArray(inArray.shape());
         uint32 counter = 0;
         for (auto value : inArray)
         {
-            returnArray[counter++] = static_cast<dtype>(1.0) / value;
+            returnArray[counter++] = 1.0 / static_cast<double>(value);
         }
 
         return returnArray;
@@ -7268,9 +7268,9 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> rint(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<dtype> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double { return std::rint(static_cast<double>(inValue)); });
+            [](dtype inValue) noexcept -> dtype { return std::rint(inValue); });
 
         return returnArray;
     }
