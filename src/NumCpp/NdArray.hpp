@@ -1281,7 +1281,8 @@ namespace nc
                     std::vector<uint32> idx(size_);
                     std::iota(idx.begin(), idx.end(), 0);
                     std::stable_sort(idx.begin(), idx.end(),
-                        [this](uint32 i1, uint32 i2) noexcept -> bool {return this->array_[i1] < this->array_[i2]; });
+                        [this](uint32 i1, uint32 i2) noexcept -> bool
+                        {return this->array_[i1] < this->array_[i2]; });
                     return NdArray<uint32>(idx);
                 }
                 case Axis::COL:
@@ -2307,31 +2308,30 @@ namespace nc
         /// @return
         ///				norm
         ///
-        NdArray<dtype> norm(Axis inAxis = Axis::NONE) const noexcept
+        NdArray<double> norm(Axis inAxis = Axis::NONE) const noexcept
         {
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    dtype sumOfSquares = 0;
-                    for (auto value : *this)
-                    {
-                        sumOfSquares += utils::sqr(value);
-                    }
+                    double sumOfSquares = 0.0;
+                    std::for_each(cbegin(), cend(),
+                        [&sumOfSquares](dtype value) noexcept -> void
+                        { sumOfSquares += utils::sqr(static_cast<double>(value)); });
 
-                    NdArray<dtype> returnArray = { std::sqrt(sumOfSquares) };
+                    NdArray<double> returnArray = { std::sqrt(sumOfSquares) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<dtype> returnArray(1, shape_.rows);
+                    NdArray<double> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        dtype sumOfSquares = 0;
-                        for (uint32 col = 0; col < shape_.cols; ++col)
-                        {
-                            sumOfSquares += utils::sqr(operator()(row, col));
-                        }
+                        double sumOfSquares = 0.0;
+                        std::for_each(cbegin(row), cend(row),
+                            [&sumOfSquares](dtype value) noexcept -> void
+                            { sumOfSquares += utils::sqr(static_cast<double>(value)); });
+
                         returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
 
@@ -2340,14 +2340,14 @@ namespace nc
                 case Axis::ROW:
                 {
                     NdArray<dtype> transposedArray = transpose();
-                    NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
+                    NdArray<double> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        dtype sumOfSquares = 0;
-                        for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
-                        {
-                            sumOfSquares += utils::sqr(transposedArray(row, col));
-                        }
+                        double sumOfSquares = 0.0;
+                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row),
+                            [&sumOfSquares](dtype value) noexcept -> void
+                            { sumOfSquares += utils::sqr(static_cast<double>(value)); });
+
                         returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
 
@@ -2357,7 +2357,7 @@ namespace nc
                 {
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
-                    return NdArray<dtype>(0);
+                    return NdArray<double>(0);
                 }
             }
         }
