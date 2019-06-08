@@ -16,12 +16,12 @@ def doTest():
 
     print(colored('Testing Ra', 'magenta'))
     print(colored('Testing Default Constructor', 'cyan'))
-    ra = NumCpp.RaDouble()
+    ra = NumCpp.Ra()
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing Degree Constructor', 'cyan'))
     randDegrees = np.random.rand(1).item() * 360
-    ra = NumCpp.RaDouble(randDegrees)
+    ra = NumCpp.Ra(randDegrees)
     raPy = Longitude(randDegrees, unit=u.deg)
     if (round(ra.degrees(), 9) == round(randDegrees, 9) and
         ra.hours() == raPy.hms.h and
@@ -35,8 +35,8 @@ def doTest():
     print(colored('Testing hms Constructor', 'cyan'))
     hours = np.random.randint(0, 24, [1,], dtype=np.uint8).item()
     minutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
-    seconds = np.random.rand(1).astype(np.float32).item() * 60
-    ra = NumCpp.RaDouble(hours, minutes, seconds)
+    seconds = np.random.rand(1).astype(np.double).item() * 60
+    ra = NumCpp.Ra(hours, minutes, seconds)
     degreesPy = (hours + minutes / 60 + seconds / 3600) * 15
     if (round(ra.degrees(), 9) == round(degreesPy, 9) and
         ra.hours() == hours and
@@ -47,19 +47,8 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing astype', 'cyan'))
-    raF = ra.asFloat()
-    if (round(ra.degrees(), 4) == round(raF.degrees(), 4) and
-        ra.hours() == raF.hours() and
-        ra.minutes() == raF.minutes() and
-        round(ra.seconds(), 4) == round(raF.seconds(), 4) and
-        round(ra.radians(), 4) == round(raF.radians(), 4)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
     print(colored('Testing equality operator', 'cyan'))
-    ra2 = NumCpp.RaDouble(ra)
+    ra2 = NumCpp.Ra(ra)
     if ra == ra2:
         print(colored('\tPASS', 'green'))
     else:
@@ -67,7 +56,7 @@ def doTest():
 
     print(colored('Testing not equality operator', 'cyan'))
     randDegrees = np.random.rand(1).item() * 360
-    ra2 = NumCpp.RaDouble(randDegrees)
+    ra2 = NumCpp.Ra(randDegrees)
     if ra != ra2:
         print(colored('\tPASS', 'green'))
     else:
@@ -79,12 +68,12 @@ def doTest():
 
     print(colored('Testing Dec', 'magenta'))
     print(colored('Testing Default Constructor', 'cyan'))
-    dec = NumCpp.DecDouble()
+    dec = NumCpp.Dec()
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing Degree Constructor', 'cyan'))
     randDegrees = np.random.rand(1).item() * 180 - 90
-    dec = NumCpp.DecDouble(randDegrees)
+    dec = NumCpp.Dec(randDegrees)
     decPy = Latitude(randDegrees, unit=u.deg)
     sign = NumCpp.Sign.NEGATIVE if randDegrees < 0 else NumCpp.Sign.POSITIVE
     if (round(dec.degrees(), 8) == round(randDegrees, 8) and
@@ -101,8 +90,8 @@ def doTest():
     sign = NumCpp.Sign.POSITIVE if np.random.randint(-1, 1) == 0 else NumCpp.Sign.NEGATIVE
     degrees = np.random.randint(0, 91, [1, ], dtype=np.uint8).item()
     minutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
-    seconds = np.random.rand(1).astype(np.float32).item() * 60
-    dec = NumCpp.DecDouble(sign, degrees, minutes, seconds)
+    seconds = np.random.rand(1).astype(np.double).item() * 60
+    dec = NumCpp.Dec(sign, degrees, minutes, seconds)
     degreesPy = degrees + minutes / 60 + seconds / 3600
     if sign == NumCpp.Sign.NEGATIVE:
         degreesPy *= -1
@@ -116,20 +105,8 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing astype', 'cyan'))
-    decF = dec.asFloat()
-    if (round(dec.degrees(), 4) == round(decF.degrees(), 4) and
-        dec.sign() == decF.sign() and
-        dec.degreesWhole() == decF.degreesWhole() and
-        dec.minutes() == decF.minutes() and
-        round(dec.seconds(), 4) == round(decF.seconds(), 4) and
-        round(dec.radians(), 4) == round(decF.radians(), 4)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
     print(colored('Testing equality operator', 'cyan'))
-    dec2 = NumCpp.DecDouble(dec)
+    dec2 = NumCpp.Dec(dec)
     if dec == dec2:
         print(colored('\tPASS', 'green'))
     else:
@@ -137,7 +114,7 @@ def doTest():
 
     print(colored('Testing not equality operator', 'cyan'))
     randDegrees = np.random.rand(1).item() * 180 - 90
-    dec2 = NumCpp.DecDouble(randDegrees)
+    dec2 = NumCpp.Dec(randDegrees)
     if dec != dec2:
         print(colored('\tPASS', 'green'))
     else:
@@ -149,17 +126,17 @@ def doTest():
 
     print(colored('Testing Coordinate', 'magenta'))
     print(colored('Testing Default Constructor', 'cyan'))
-    coord = NumCpp.CoordinateDouble()
+    coord = NumCpp.Coordinate()
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing Degree Constructor', 'cyan'))
     raDegrees = np.random.rand(1).item() * 360
-    ra = NumCpp.RaDouble(raDegrees)
+    ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
-    dec = NumCpp.DecDouble(decDegrees)
+    dec = NumCpp.Dec(decDegrees)
 
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)
-    cCoord = NumCpp.CoordinateDouble(raDegrees, decDegrees)
+    cCoord = NumCpp.Coordinate(raDegrees, decDegrees)
     if (cCoord.ra() == ra and
         cCoord.dec() == dec and
         round(cCoord.x(), 10) == round(pyCoord.cartesian.x.value, 10) and
@@ -171,12 +148,12 @@ def doTest():
 
     print(colored('Testing Ra/Dec Constructor', 'cyan'))
     raDegrees = np.random.rand(1).item() * 360
-    ra = NumCpp.RaDouble(raDegrees)
+    ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
-    dec = NumCpp.DecDouble(decDegrees)
+    dec = NumCpp.Dec(decDegrees)
 
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)
-    cCoord = NumCpp.CoordinateDouble(ra, dec)
+    cCoord = NumCpp.Coordinate(ra, dec)
     if (cCoord.ra() == ra and
         cCoord.dec() == dec and
         round(cCoord.x(), 10) == round(pyCoord.cartesian.x.value, 10) and
@@ -188,11 +165,11 @@ def doTest():
 
     print(colored('Testing x/y/z Constructor', 'cyan'))
     raDegrees = np.random.rand(1).item() * 360
-    ra = NumCpp.RaDouble(raDegrees)
+    ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
-    dec = NumCpp.DecDouble(decDegrees)
+    dec = NumCpp.Dec(decDegrees)
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)
-    cCoord = NumCpp.CoordinateDouble(pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
+    cCoord = NumCpp.Coordinate(pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value)
     if (round(cCoord.ra().degrees(), 9) == round(ra.degrees(), 9) and
         round(cCoord.dec().degrees(), 9) == round(dec.degrees(), 9) and
         round(cCoord.x(), 9) == round(pyCoord.cartesian.x.value, 9) and
@@ -204,14 +181,14 @@ def doTest():
 
     print(colored('Testing NdArray Constructor', 'cyan'))
     raDegrees = np.random.rand(1).item() * 360
-    ra = NumCpp.RaDouble(raDegrees)
+    ra = NumCpp.Ra(raDegrees)
     decDegrees = np.random.rand(1).item() * 180 - 90
-    dec = NumCpp.DecDouble(decDegrees)
+    dec = NumCpp.Dec(decDegrees)
     pyCoord = SkyCoord(raDegrees, decDegrees, unit=u.deg)
     vec = np.asarray([pyCoord.cartesian.x.value, pyCoord.cartesian.y.value, pyCoord.cartesian.z.value])
     cVec = NumCpp.NdArray(1, 3)
     cVec.setArray(vec)
-    cCoord = NumCpp.CoordinateDouble(cVec)
+    cCoord = NumCpp.Coordinate(cVec)
     if (round(cCoord.ra().degrees(), 9) == round(ra.degrees(), 9) and
         round(cCoord.dec().degrees(), 9) == round(dec.degrees(), 9) and
         round(cCoord.x(), 9) == round(pyCoord.cartesian.x.value, 9) and
@@ -222,20 +199,20 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing hms/dms Constructor', 'cyan'))
-    raHours = np.random.randint(0, 24, [1,], dtype=np.uint8).item()
+    raHours = np.random.randint(0, 24, [1, ], dtype=np.uint8).item()
     raMinutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
-    raSeconds = np.random.rand(1).astype(np.float32).item() * 60
+    raSeconds = np.random.rand(1).astype(np.double).item() * 60
     raDegreesPy = (raHours + raMinutes / 60 + raSeconds / 3600) * 15
 
     decSign = NumCpp.Sign.POSITIVE if np.random.randint(-1, 1) == 0 else NumCpp.Sign.NEGATIVE
     decDegrees = np.random.randint(0, 91, [1, ], dtype=np.uint8).item()
     decMinutes = np.random.randint(0, 60, [1, ], dtype=np.uint8).item()
-    decSeconds = np.random.rand(1).astype(np.float32).item() * 60
+    decSeconds = np.random.rand(1).astype(np.double).item() * 60
     decDegreesPy = decDegrees + decMinutes / 60 + decSeconds / 3600
     if decSign == NumCpp.Sign.NEGATIVE:
         decDegreesPy *= -1
 
-    cCoord = NumCpp.CoordinateDouble(raHours, raMinutes, raSeconds, decSign, decDegrees, decMinutes, decSeconds)
+    cCoord = NumCpp.Coordinate(raHours, raMinutes, raSeconds, decSign, decDegrees, decMinutes, decSeconds)
     cRa = cCoord.ra()
     cDec = cCoord.dec()
     pyCoord = SkyCoord(raDegreesPy, decDegreesPy, unit=u.deg)
@@ -256,7 +233,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing equality operator', 'cyan'))
-    cCoord2 = NumCpp.CoordinateDouble(cCoord)
+    cCoord2 = NumCpp.Coordinate(cCoord)
     if cCoord2 == cCoord:
         print(colored('\tPASS', 'green'))
     else:
@@ -265,7 +242,7 @@ def doTest():
     print(colored('Testing not equality operator', 'cyan'))
     raDegrees = np.random.rand(1).item() * 360
     decDegrees = np.random.rand(1).item() * 180 - 90
-    cCoord2 = NumCpp.CoordinateDouble(raDegrees, decDegrees)
+    cCoord2 = NumCpp.Coordinate(raDegrees, decDegrees)
     if cCoord2 != cCoord:
         print(colored('\tPASS', 'green'))
     else:

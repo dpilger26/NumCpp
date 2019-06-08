@@ -901,7 +901,7 @@ namespace nc
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1)).flatten();
 
-                    output(row - boundarySize, col - boundarySize) = dot<dtype>(window, weightsFlat).item();
+                    output(row - boundarySize, col - boundarySize) = dot(window, weightsFlat).item();
                 }
             }
 
@@ -937,7 +937,7 @@ namespace nc
             {
                 NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)].flatten();
 
-                output[i - boundarySize] = dot<dtype>(window, weightsFlat).item();
+                output[i - boundarySize] = dot(window, weightsFlat).item();
             }
 
             return output;

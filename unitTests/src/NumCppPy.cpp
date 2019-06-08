@@ -195,10 +195,10 @@ namespace NdArrayInterface
 
     //================================================================================
 
-    template<typename dtypeOut = double, typename dtype>
+    template<typename dtype>
     np::ndarray dot(const NdArray<dtype>& self, const NdArray<dtype>& inOtherArray)
     {
-        return nc2Boost(self.template dot<dtypeOut>(inOtherArray));
+        return nc2Boost(self.dot(inOtherArray));
     }
 
     //================================================================================
@@ -1486,10 +1486,10 @@ namespace MethodsInterface
 
     //================================================================================
 
-    template<typename dtypeOut = double, typename dtype>
+    template<typename dtype>
     np::ndarray dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return nc2Boost(nc::dot<dtypeOut>(inArray1, inArray2));
+        return nc2Boost(nc::dot(inArray1, inArray2));
     }
 
     //================================================================================
@@ -2618,8 +2618,7 @@ namespace RotationsInterface
 
 namespace RaInterface
 {
-    template<typename dtype>
-    void print(const coordinates::RA<dtype>& inRa)
+    void print(const coordinates::RA& inRa)
     {
         std::cout << inRa;
     }
@@ -2627,8 +2626,7 @@ namespace RaInterface
 
 namespace DecInterface
 {
-    template<typename dtype>
-    void print(const coordinates::Dec<dtype>& self)
+    void print(const coordinates::Dec& self)
     {
         std::cout << self;
     }
@@ -2636,32 +2634,27 @@ namespace DecInterface
 
 namespace CoordinateInterface
 {
-    template<typename dtype>
-    void print(const coordinates::Coordinate<dtype>& self)
+    void print(const coordinates::Coordinate& self)
     {
         std::cout << self;
     }
 
-    template<typename dtype>
-    dtype degreeSeperationCoordinate(const coordinates::Coordinate<dtype>& self, const coordinates::Coordinate<dtype>& inOtherCoordinate)
+    double degreeSeperationCoordinate(const coordinates::Coordinate& self, const coordinates::Coordinate& inOtherCoordinate)
     {
         return self.degreeSeperation(inOtherCoordinate);
     }
 
-    template<typename dtype>
-    dtype degreeSeperationVector(const coordinates::Coordinate<dtype>& self, const NdArray<dtype>& inVec)
+    double degreeSeperationVector(const coordinates::Coordinate& self, const NdArray<double>& inVec)
     {
         return self.degreeSeperation(inVec);
     }
 
-    template<typename dtype>
-    dtype radianSeperationCoordinate(const coordinates::Coordinate<dtype>& self, const coordinates::Coordinate<dtype>& inOtherCoordinate)
+    double radianSeperationCoordinate(const coordinates::Coordinate& self, const coordinates::Coordinate& inOtherCoordinate)
     {
         return self.radianSeperation(inOtherCoordinate);
     }
 
-    template<typename dtype>
-    dtype radianSeperationVector(const coordinates::Coordinate<dtype>& self, const NdArray<dtype>& inVec)
+    double radianSeperationVector(const coordinates::Coordinate& self, const NdArray<double>& inVec)
     {
         return self.radianSeperation(inVec);
     }
@@ -2816,8 +2809,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("cumsum", &NdArrayInterface::cumsum<double, double>)
         //.def("cumsum", &NdArrayInterface::cumsum<double, float>)
         .def("diagonal", &NdArrayInterface::diagonal<double>)
-        .def("dot", &NdArrayInterface::dot<double, double>)
-        //.def("dot", &NdArrayInterface::dot<double, float>)
+        .def("dot", &NdArrayInterface::dot<double>)
         .def("dump", &NdArrayDouble::dump)
         .def("fill", &NdArrayInterface::fill<double>)
         .def("flatten", &NdArrayInterface::flatten<double>)
@@ -3094,8 +3086,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("diff", &MethodsInterface::diff<double>);
     bp::def("divide", &MethodsInterface::divide<double, double>);
     //bp::def("divide", &MethodsInterface::divide<float, double>);
-    bp::def("dot", &MethodsInterface::dot<double, double>);
-    //bp::def("dot", &MethodsInterface::dot<float, double>);
+    bp::def("dot", &MethodsInterface::dot<double>);
     bp::def("dump", &dump<double>);
     bp::def("emptyRowCol", &MethodsInterface::emptyRowCol<double>);
     bp::def("emptyShape", &MethodsInterface::emptyShape<double>);
@@ -3184,7 +3175,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("logical_not", &logical_not<double>);
     bp::def("logical_or", &logical_or<double>);
     bp::def("logical_xor", &logical_xor<double>);
-    bp::def("matmul", &matmul<double, double>);
+    bp::def("matmul", &matmul<double>);
     //bp::def("matmul", &matmul<float, double>);
     bp::def("max", &max<double>);
     bp::def("maximum", &maximum<double>);
@@ -3438,7 +3429,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("hat", &LinalgInterface::hatArray<double>);
     bp::def("inv", &linalg::inv<double>);
     bp::def("lstsq", &linalg::lstsq<double>);
-    bp::def("matrix_power", &linalg::matrix_power<double, double>);
+    bp::def("matrix_power", &linalg::matrix_power<double>);
     //bp::def("matrix_power", &linalg::matrix_power<float, float>);
     bp::def("multi_dot", &LinalgInterface::multi_dot<double, double>);
     //bp::def("multi_dot", &LinalgInterface::multi_dot<float, float>);
@@ -3584,136 +3575,66 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("windowExceedances", &imageProcessing::windowExceedances);
 
     // Coordinates.hpp
-    typedef coordinates::RA<double> RaDouble;
-    typedef coordinates::RA<float> RaFloat;
-    typedef coordinates::Dec<double> DecDouble;
-    typedef coordinates::Dec<float> DecFloat;
-    typedef coordinates::Coordinate<double> CoordinateDouble;
-    typedef coordinates::Coordinate<float> CoordinateFloat;
-
-    bp::class_<RaDouble>
-        ("RaDouble", bp::init<>())
+    bp::class_<coordinates::RA>
+        ("Ra", bp::init<>())
         .def(bp::init<double>())
         .def(bp::init<uint8, uint8, double>())
-        .def(bp::init<RaDouble>())
-        .def("asFloat", &RaDouble::astype<float>)
-        .def("degrees", &RaDouble::degrees)
-        .def("radians", &RaDouble::radians)
-        .def("hours", &RaDouble::hours)
-        .def("minutes", &RaDouble::minutes)
-        .def("seconds", &RaDouble::seconds)
-        .def("__str__", &RaDouble::str)
-        .def("print", &RaDouble::print)
-        .def("__eq__", &RaDouble::operator==)
-        .def("__ne__", &RaDouble::operator!=)
-        .def("print", &RaInterface::print<double>);
-
-    bp::class_<RaFloat>
-        ("RaFloat", bp::init<>())
-        .def(bp::init<double>())
-        .def(bp::init<uint8, uint8, double>())
-        .def(bp::init<RaFloat>())
-        .def("asDouble", &RaFloat::astype<double>)
-        .def("degrees", &RaFloat::degrees)
-        .def("radians", &RaFloat::radians)
-        .def("hours", &RaFloat::hours)
-        .def("minutes", &RaFloat::minutes)
-        .def("seconds", &RaFloat::seconds)
-        .def("__str__", &RaFloat::str)
-        .def("print", &RaFloat::print)
-        .def("__eq__", &RaFloat::operator==)
-        .def("__ne__", &RaFloat::operator!=)
-        .def("print", &RaInterface::print<float>);
+        .def(bp::init<coordinates::RA>())
+        .def("degrees", &coordinates::RA::degrees)
+        .def("radians", &coordinates::RA::radians)
+        .def("hours", &coordinates::RA::hours)
+        .def("minutes", &coordinates::RA::minutes)
+        .def("seconds", &coordinates::RA::seconds)
+        .def("__str__", &coordinates::RA::str)
+        .def("print", &coordinates::RA::print)
+        .def("__eq__", &coordinates::RA::operator==)
+        .def("__ne__", &coordinates::RA::operator!=)
+        .def("print", &RaInterface::print);
 
     bp::enum_<coordinates::Sign>("Sign")
         .value("POSITIVE", coordinates::Sign::POSITIVE)
         .value("NEGATIVE", coordinates::Sign::NEGATIVE);
 
-    bp::class_<DecDouble>
-        ("DecDouble", bp::init<>())
+    bp::class_<coordinates::Dec>
+        ("Dec", bp::init<>())
         .def(bp::init<double>())
         .def(bp::init<coordinates::Sign, uint8, uint8, double>())
-        .def(bp::init<DecDouble>())
-        .def("asFloat", &DecDouble::astype<float>)
-        .def("sign", &DecDouble::sign)
-        .def("degrees", &DecDouble::degrees)
-        .def("radians", &DecDouble::radians)
-        .def("degreesWhole", &DecDouble::degreesWhole)
-        .def("minutes", &DecDouble::minutes)
-        .def("seconds", &DecDouble::seconds)
-        .def("__str__", &DecDouble::str)
-        .def("print", &DecDouble::print)
-        .def("__eq__", &DecDouble::operator==)
-        .def("__ne__", &DecDouble::operator!=)
-        .def("print", &DecInterface::print<double>);
+        .def(bp::init<coordinates::Dec>())
+        .def("sign", &coordinates::Dec::sign)
+        .def("degrees", &coordinates::Dec::degrees)
+        .def("radians", &coordinates::Dec::radians)
+        .def("degreesWhole", &coordinates::Dec::degreesWhole)
+        .def("minutes", &coordinates::Dec::minutes)
+        .def("seconds", &coordinates::Dec::seconds)
+        .def("__str__", &coordinates::Dec::str)
+        .def("print", &coordinates::Dec::print)
+        .def("__eq__", &coordinates::Dec::operator==)
+        .def("__ne__", &coordinates::Dec::operator!=)
+        .def("print", &DecInterface::print);
 
-    bp::class_<DecFloat>
-        ("DecFloat", bp::init<>())
-        .def(bp::init<float>())
-        .def(bp::init<coordinates::Sign, uint8, uint8, float>())
-        .def(bp::init<DecFloat>())
-        .def("asDouble", &DecFloat::astype<double>)
-        .def("sign", &DecFloat::sign)
-        .def("degrees", &DecFloat::degrees)
-        .def("radians", &DecFloat::radians)
-        .def("degreesWhole", &DecFloat::degreesWhole)
-        .def("minutes", &DecFloat::minutes)
-        .def("seconds", &DecFloat::seconds)
-        .def("__str__", &DecFloat::str)
-        .def("print", &DecFloat::print)
-        .def("__eq__", &DecFloat::operator==)
-        .def("__ne__", &DecFloat::operator!=)
-        .def("print", &DecInterface::print<float>);
-
-    bp::class_<CoordinateDouble>
-        ("CoordinateDouble", bp::init<>())
+    bp::class_<coordinates::Coordinate>
+        ("Coordinate", bp::init<>())
         .def(bp::init<double, double>())
         .def(bp::init<uint8, uint8, double, coordinates::Sign, uint8, uint8, double>())
         .def(bp::init<double, double, double>())
-        .def(bp::init<RaDouble, DecDouble>())
+        .def(bp::init<coordinates::RA, coordinates::Dec>())
         .def(bp::init<NdArrayDouble>())
-        .def(bp::init<CoordinateDouble>())
-        .def("asFloat", &CoordinateDouble::astype<float>)
-        .def("dec", &CoordinateDouble::dec, bp::return_internal_reference<>())
-        .def("ra", &CoordinateDouble::ra, bp::return_internal_reference<>())
-        .def("x", &CoordinateDouble::x)
-        .def("y", &CoordinateDouble::y)
-        .def("z", &CoordinateDouble::z)
-        .def("xyz", &CoordinateDouble::xyz)
-        .def("degreeSeperation", &CoordinateInterface::degreeSeperationCoordinate<double>)
-        .def("degreeSeperation", &CoordinateInterface::degreeSeperationVector<double>)
-        .def("radianSeperation", &CoordinateInterface::radianSeperationCoordinate<double>)
-        .def("radianSeperation", &CoordinateInterface::radianSeperationVector<double>)
-        .def("__str__", &CoordinateDouble::str)
-        .def("print", &CoordinateDouble::print)
-        .def("__eq__", &CoordinateDouble::operator==)
-        .def("__ne__", &CoordinateDouble::operator!=)
-        .def("print", &CoordinateInterface::print<double>);
-
-    bp::class_<CoordinateFloat>
-        ("CoordinateFloat", bp::init<>())
-        .def(bp::init<float, float>())
-        .def(bp::init<uint8, uint8, float, coordinates::Sign, uint8, uint8, float>())
-        .def(bp::init<float, float, float>())
-        .def(bp::init<RaFloat, DecFloat>())
-        .def(bp::init<NdArrayFloat>())
-        .def(bp::init<CoordinateFloat>())
-        .def("asDouble", &CoordinateFloat::astype<double>)
-        .def("dec", &CoordinateFloat::dec, bp::return_internal_reference<>())
-        .def("ra", &CoordinateFloat::ra, bp::return_internal_reference<>())
-        .def("x", &CoordinateFloat::x)
-        .def("y", &CoordinateFloat::y)
-        .def("z", &CoordinateFloat::z)
-        .def("xyz", &CoordinateFloat::xyz)
-        .def("degreeSeperation", &CoordinateInterface::degreeSeperationCoordinate<float>)
-        .def("degreeSeperation", &CoordinateInterface::degreeSeperationVector<float>)
-        .def("radianSeperation", &CoordinateInterface::radianSeperationCoordinate<float>)
-        .def("radianSeperation", &CoordinateInterface::radianSeperationVector<float>)
-        .def("__str__", &CoordinateFloat::str)
-        .def("print", &CoordinateFloat::print)
-        .def("__eq__", &CoordinateFloat::operator==)
-        .def("__ne__", &CoordinateFloat::operator!=)
-        .def("print", &CoordinateInterface::print<float>);
+        .def(bp::init<coordinates::Coordinate>())
+        .def("dec", &coordinates::Coordinate::dec, bp::return_internal_reference<>())
+        .def("ra", &coordinates::Coordinate::ra, bp::return_internal_reference<>())
+        .def("x", &coordinates::Coordinate::x)
+        .def("y", &coordinates::Coordinate::y)
+        .def("z", &coordinates::Coordinate::z)
+        .def("xyz", &coordinates::Coordinate::xyz)
+        .def("degreeSeperation", &CoordinateInterface::degreeSeperationCoordinate)
+        .def("degreeSeperation", &CoordinateInterface::degreeSeperationVector)
+        .def("radianSeperation", &CoordinateInterface::radianSeperationCoordinate)
+        .def("radianSeperation", &CoordinateInterface::radianSeperationVector)
+        .def("__str__", &coordinates::Coordinate::str)
+        .def("print", &coordinates::Coordinate::print)
+        .def("__eq__", &coordinates::Coordinate::operator==)
+        .def("__ne__", &coordinates::Coordinate::operator!=)
+        .def("print", &coordinates::Coordinate::print);
 
     // DataCube
     typedef DataCube<double> DataCubeDouble;

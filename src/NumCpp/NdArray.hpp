@@ -1725,19 +1725,18 @@ namespace nc
         /// @return
         ///				dot product
         ///
-        template<typename dtypeOut>
-        NdArray<dtypeOut> dot(const NdArray<dtype>& inOtherArray) const
+        NdArray<dtype> dot(const NdArray<dtype>& inOtherArray) const
         {
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
             {
-                dtypeOut dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), static_cast<dtype>(0));
-                NdArray<dtypeOut> returnArray = { dotProduct };
+                dtype dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), static_cast<dtype>(0));
+                NdArray<dtype> returnArray = { dotProduct };
                 return returnArray;
             }
             else if (shape_.cols == inOtherArray.shape_.rows)
             {
                 // 2D array, use matrix multiplication
-                NdArray<dtypeOut> returnArray(shape_.rows, inOtherArray.shape_.cols);
+                NdArray<dtype> returnArray(shape_.rows, inOtherArray.shape_.cols);
                 auto otherArrayT = inOtherArray.transpose();
 
                 for (uint32 i = 0; i < shape_.rows; ++i)

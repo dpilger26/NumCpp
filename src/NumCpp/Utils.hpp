@@ -51,6 +51,9 @@ namespace nc
         template<typename dtype>
         inline bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon = DtypeInfo<dtype>::epsilon()) noexcept
         {
+            // only works with integer types
+            static_assert(!DtypeInfo<dtype>::isInteger(), "Type Error in utils::essentiallyEqual: only works for floating point types.");
+
             return std::abs(inValue1 - inValue2) <= ((std::abs(inValue1) > std::abs(inValue2) ? 
                 std::abs(inValue2) : std::abs(inValue1)) * inEpsilon);
         }

@@ -47,37 +47,31 @@ namespace nc
     {
         //================================================================================
         ///						Holds a right ascension object
-        template<typename dtype>
         class RA
         {
         private:
             //====================================Attributes==============================
             uint8   hours_{ 0 };
             uint8   minutes_{ 0 };
-            dtype   seconds_{ 0.0 };
-            dtype   degrees_{ 0.0 };
-            dtype   radians_{ 0.0 };
+            double  seconds_{ 0.0 };
+            double  degrees_{ 0.0 };
+            double  radians_{ 0.0 };
 
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            RA() noexcept
-            {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::RA: constructor can only be called with floating point types.");
-            }
+            RA() noexcept = default;
 
             //============================================================================
             ///						Constructor
             ///
             /// @param      inDegrees
             ///
-            RA(dtype inDegrees) :
+            RA(double inDegrees) :
                 degrees_(inDegrees),
-                radians_(static_cast<dtype>(deg2rad(inDegrees)))
+                radians_(deg2rad(inDegrees))
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::RA: constructor can only be called with floating point types.");
-
                 if (inDegrees < 0 || inDegrees >= 360)
                 {
                     std::string errStr = "ERROR: NC::coordinates::RA: input degrees must be of the range [0, 360)";
@@ -88,7 +82,7 @@ namespace nc
                 hours_ = static_cast<uint8>(std::floor(degrees_ / 15.0));
                 const double decMinutes = (degrees_ - static_cast<double>(hours_) * 15.0) * 4.0;
                 minutes_ = static_cast<uint8>(std::floor(decMinutes));
-                seconds_ = static_cast<dtype>((decMinutes - static_cast<double>(minutes_)) * 60.0);
+                seconds_ = static_cast<double>((decMinutes - static_cast<double>(minutes_)) * 60.0);
             }
 
             //============================================================================
@@ -98,28 +92,13 @@ namespace nc
             /// @param          inMinutes
             /// @param          inSeconds
             ///
-            RA(uint8 inHours, uint8 inMinutes, dtype inSeconds)  noexcept :
+            RA(uint8 inHours, uint8 inMinutes, double inSeconds)  noexcept :
                 hours_(inHours),
                 minutes_(inMinutes),
                 seconds_(inSeconds)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::RA: constructor can only be called with floating point types.");
-
-                degrees_ = static_cast<dtype>(static_cast<double>(hours_) * 15.0 + static_cast<double>(minutes_) / 4.0 + static_cast<double>(seconds_) / 240.0);
-                radians_ = static_cast<dtype>(deg2rad(degrees_));
-            }
-
-            //============================================================================
-            ///						Returns a copy of the RA object as a different type
-            ///
-            /// @return     RA
-            ///
-            template<typename dtypeOut>
-            RA<dtypeOut> astype() noexcept
-            {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::RA::astype: method can only be called with floating point types.");
-
-                return RA<dtypeOut>(hours_, minutes_, static_cast<dtypeOut>(seconds_));
+                degrees_ = static_cast<double>(hours_) * 15.0 + static_cast<double>(minutes_) / 4.0 + seconds_ / 240.0;
+                radians_ = deg2rad(degrees_);
             }
 
             //============================================================================
@@ -127,7 +106,7 @@ namespace nc
             ///
             /// @return     radians
             ///
-            dtype radians() const noexcept
+            double radians() const noexcept
             {
                 return radians_;
             }
@@ -137,7 +116,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            dtype degrees() const noexcept
+            double degrees() const noexcept
             {
                 return degrees_;
             }
@@ -167,7 +146,7 @@ namespace nc
             ///
             /// @return     seconds
             ///
-            dtype seconds() const noexcept
+            double seconds() const noexcept
             {
                 return seconds_;
             }
@@ -199,9 +178,9 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator==(const RA<dtype>& inRhs) const noexcept
+            bool operator==(const RA& inRhs) const noexcept
             {
-                return degrees_ == inRhs.degrees_;
+                return utils::essentiallyEqual(degrees_, inRhs.degrees_);
             }
 
             //============================================================================
@@ -211,7 +190,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator!=(const RA<dtype>& inRhs) const noexcept
+            bool operator!=(const RA& inRhs) const noexcept
             {
                 return !(*this == inRhs);
             }
@@ -222,7 +201,7 @@ namespace nc
             /// @param      inStream
             /// @param      inRa
             ///
-            friend std::ostream& operator<<(std::ostream& inStream, const RA<dtype>& inRa)
+            friend std::ostream& operator<<(std::ostream& inStream, const RA& inRa)
             {
                 inStream << inRa.str();
                 return inStream;
@@ -235,7 +214,6 @@ namespace nc
 
         //================================================================================
         ///						Holds a Declination object
-        template<typename dtype>
         class Dec
         {
         private:
@@ -243,30 +221,25 @@ namespace nc
             Sign            sign_{ Sign::POSITIVE };
             uint8           degreesWhole_{ 0 };
             uint8           minutes_{ 0 };
-            dtype           seconds_{ 0.0 };
-            dtype           degrees_{ 0.0 };
-            dtype           radians_{ 0.0 };
+            double          seconds_{ 0.0 };
+            double          degrees_{ 0.0 };
+            double          radians_{ 0.0 };
 
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            Dec() noexcept
-            {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::Dec: constructor can only be called with floating point types.");
-            }
+            Dec() noexcept = default;
 
             //============================================================================
             ///						Constructor
             ///
             /// @param      inDegrees
             ///
-            Dec(dtype inDegrees) :
+            Dec(double inDegrees) :
                 degrees_(inDegrees),
-                radians_(static_cast<dtype>(deg2rad(inDegrees)))
+                radians_(deg2rad(inDegrees))
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::Dec: constructor can only be called with floating point types.");
-
                 if (inDegrees < -90 || inDegrees > 90)
                 {
                     std::string errStr = "ERROR: NC::coordinates::Dec: input degrees must be of the range [-90, 90]";
@@ -275,12 +248,12 @@ namespace nc
                 }
 
                 sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;
-                dtype absDegrees = std::abs(degrees_);
+                double absDegrees = std::abs(degrees_);
                 degreesWhole_ = static_cast<uint8>(std::floor(absDegrees));
 
                 const double decMinutes = (absDegrees - static_cast<double>(degreesWhole_)) * 60.0;
                 minutes_ = static_cast<uint8>(std::floor(decMinutes));
-                seconds_ = static_cast<dtype>((decMinutes - static_cast<double>(minutes_)) * 60.0);
+                seconds_ = (decMinutes - static_cast<double>(minutes_)) * 60.0;
             }
 
             //============================================================================
@@ -291,31 +264,16 @@ namespace nc
             /// @param      inMinutes
             /// @param      inSeconds
             ///
-            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, dtype inSeconds)  noexcept :
+            Dec(Sign inSign, uint8 inDegrees, uint8 inMinutes, double inSeconds)  noexcept :
                 sign_(inSign),
                 degreesWhole_(inDegrees),
                 minutes_(inMinutes),
                 seconds_(inSeconds)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::Dec: constructor can only be called with floating point types.");
-
-                degrees_ = static_cast<dtype>(static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + static_cast<double>(seconds_) / 3600.0);
+                degrees_ = static_cast<double>(degreesWhole_) + static_cast<double>(minutes_) / 60.0 + seconds_ / 3600.0;
                 degrees_ *= sign_ == Sign::NEGATIVE ? -1 : 1;
 
-                radians_ = static_cast<dtype>(deg2rad(degrees_));
-            }
-
-            //============================================================================
-            ///						Returns a copy of the Dec object as a different type
-            ///
-            /// @return     Dec
-            ///
-            template<typename dtypeOut>
-            Dec<dtypeOut> astype() noexcept
-            {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::Dec::astype: method can only be called with floating point types.");
-
-                return Dec<dtypeOut>(sign_, degreesWhole_, minutes_, static_cast<dtypeOut>(seconds_));
+                radians_ = deg2rad(degrees_);
             }
 
             //============================================================================
@@ -333,7 +291,7 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            dtype degrees() const noexcept
+            double degrees() const noexcept
             {
                 return degrees_;
             }
@@ -343,7 +301,7 @@ namespace nc
             ///
             /// @return     minutes
             ///
-            dtype radians() const noexcept
+            double radians() const noexcept
             {
                 return radians_;
             }
@@ -373,7 +331,7 @@ namespace nc
             ///
             /// @return     seconds
             ///
-            dtype seconds() const noexcept
+            double seconds() const noexcept
             {
                 return seconds_;
             }
@@ -406,9 +364,9 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator==(const Dec<dtype>& inRhs) const noexcept
+            bool operator==(const Dec& inRhs) const noexcept
             {
-                return degrees_ == inRhs.degrees_;
+                return utils::essentiallyEqual(degrees_, inRhs.degrees_);
             }
 
             //============================================================================
@@ -418,7 +376,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator!=(const Dec<dtype>& inRhs) const noexcept
+            bool operator!=(const Dec& inRhs) const noexcept
             {
                 return !(*this == inRhs);
             }
@@ -431,7 +389,7 @@ namespace nc
             ///
             /// @return     std::ostream
             ///
-            friend std::ostream& operator<<(std::ostream& inStream, const Dec<dtype>& inDec)
+            friend std::ostream& operator<<(std::ostream& inStream, const Dec& inDec)
             {
                 inStream << inDec.str();
                 return inStream;
@@ -440,32 +398,31 @@ namespace nc
 
         //================================================================================
         ///						Holds a full coordinate object
-        template<typename dtype>
         class Coordinate
         {
         private:
             //====================================Attributes==============================
-            RA<dtype>       ra_;
-            Dec<dtype>      dec_;
-            dtype           x_{ 1.0 };
-            dtype           y_{ 0.0 };
-            dtype           z_{ 0.0 };
+            RA      ra_;
+            Dec     dec_;
+            double  x_{ 1.0 };
+            double  y_{ 0.0 };
+            double  z_{ 0.0 };
 
             //============================================================================
             ///						Converts polar coordinates to cartesian coordinates
             ///
             void cartesianToPolar()
             {
-                dtype degreesRa = static_cast<dtype>(rad2deg(std::atan2(y_, x_)));
+                double degreesRa = rad2deg(std::atan2(y_, x_));
                 if (degreesRa < 0)
                 {
                     degreesRa += 360;
                 }
-                ra_ = RA<dtype>(degreesRa);
+                ra_ = RA(degreesRa);
 
-                const double r = std::sqrt(static_cast<double>(utils::sqr(x_)) + static_cast<double>(utils::sqr(y_)) + static_cast<double>(utils::sqr(z_)));
-                dtype degreesDec = static_cast<dtype>(rad2deg(std::asin(static_cast<double>(z_) / r)));
-                dec_ = Dec<dtype>(degreesDec);
+                const double r = std::sqrt(utils::sqr(x_) + utils::sqr(y_) + utils::sqr(z_));
+                double degreesDec = rad2deg(std::asin(z_ / r));
+                dec_ = Dec(degreesDec);
             }
 
             //============================================================================
@@ -473,22 +430,19 @@ namespace nc
             ///
             void polarToCartesian() noexcept
             {
-                const double raRadians = deg2rad(static_cast<double>(ra_.degrees()));
-                const double decRadians = deg2rad(static_cast<double>(dec_.degrees()));
+                const double raRadians = deg2rad(ra_.degrees());
+                const double decRadians = deg2rad(dec_.degrees());
 
-                x_ = static_cast<dtype>(std::cos(raRadians) * std::cos(decRadians));
-                y_ = static_cast<dtype>(std::sin(raRadians) * std::cos(decRadians));
-                z_ = static_cast<dtype>(std::sin(decRadians));
+                x_ = std::cos(raRadians) * std::cos(decRadians);
+                y_ = std::sin(raRadians) * std::cos(decRadians);
+                z_ = std::sin(decRadians);
             }
 
         public:
             //============================================================================
             ///						Default Constructor, not super usefull on its own
             ///
-            Coordinate() noexcept
-            {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::Dec: constructor can only be called with floating point types.");
-            }
+            Coordinate() noexcept = default;
 
             //============================================================================
             ///						Constructor
@@ -496,11 +450,10 @@ namespace nc
             /// @param      inRaDegrees
             /// @param      inDecDegrees
             ///
-            Coordinate(dtype inRaDegrees, dtype inDecDegrees) :
+            Coordinate(double inRaDegrees, double inDecDegrees) :
                 ra_(inRaDegrees),
                 dec_(inDecDegrees)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
             }
 
@@ -515,12 +468,11 @@ namespace nc
             /// @param              inDecMinutes
             /// @param              inDecSeconds
             ///
-            Coordinate(uint8 inRaHours, uint8 inRaMinutes, dtype inRaSeconds, Sign inSign,
-                uint8 inDecDegreesWhole, uint8 inDecMinutes, dtype inDecSeconds)  noexcept :
+            Coordinate(uint8 inRaHours, uint8 inRaMinutes, double inRaSeconds, Sign inSign,
+                uint8 inDecDegreesWhole, uint8 inDecMinutes, double inDecSeconds)  noexcept :
                 ra_(inRaHours, inRaMinutes, inRaSeconds),
                 dec_(inSign, inDecDegreesWhole, inDecMinutes, inDecSeconds)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
             }
 
@@ -530,11 +482,10 @@ namespace nc
             /// @param				inRA
             /// @param              inDec
             ///
-            Coordinate(const RA<dtype>& inRA, const Dec<dtype>& inDec) noexcept :
+            Coordinate(const RA& inRA, const Dec& inDec) noexcept :
                 ra_(inRA),
                 dec_(inDec)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::Dec: constructor can only be called with floating point types.");
                 polarToCartesian();
             }
 
@@ -545,12 +496,11 @@ namespace nc
             /// @param              inY
             /// @param              inZ
             ///
-            Coordinate(dtype inX, dtype inY, dtype inZ) :
+            Coordinate(double inX, double inY, double inZ) :
                 x_(inX),
                 y_(inY),
                 z_(inZ)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::Dec: constructor can only be called with floating point types.");
                 cartesianToPolar();
             }
 
@@ -559,10 +509,8 @@ namespace nc
             ///
             /// @param				inCartesianVector
             ///
-            Coordinate(const NdArray<dtype> inCartesianVector)
+            Coordinate(const NdArray<double> inCartesianVector)
             {
-                static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: NC::coordinates::Dec: constructor can only be called with floating point types.");
-
                 if (inCartesianVector.size() != 3)
                 {
                     std::string errStr = "ERROR: NC::coordinates::Dec: constructor NdArray input must be of length 3.";
@@ -578,22 +526,11 @@ namespace nc
             }
 
             //============================================================================
-            ///						Returns a new Coordinate object with the specified type
-            ///
-            /// @return     Coordinate
-            ///
-            template<typename dtypeOut>
-            Coordinate<dtypeOut> astype()
-            {
-                return Coordinate<dtypeOut>(static_cast<dtypeOut>(ra_.degrees()), static_cast<dtypeOut>(dec_.degrees()));
-            }
-
-            //============================================================================
             ///						Returns the Dec object
             ///
             /// @return             Dec
             ///
-            const Dec<dtype>& dec() const noexcept
+            const Dec& dec() const noexcept
             {
                 return dec_;
             }
@@ -603,7 +540,7 @@ namespace nc
             ///
             /// @return     RA
             ///
-            const RA<dtype>& ra() const noexcept
+            const RA& ra() const noexcept
             {
                 return ra_;
             }
@@ -613,7 +550,7 @@ namespace nc
             ///
             /// @return     x
             ///
-            dtype x() const noexcept
+            double x() const noexcept
             {
                 return x_;
             }
@@ -623,7 +560,7 @@ namespace nc
             ///
             /// @return     y
             ///
-            dtype y() const noexcept
+            double y() const noexcept
             {
                 return y_;
             }
@@ -633,7 +570,7 @@ namespace nc
             ///
             /// @return     z
             ///
-            dtype z() const noexcept
+            double z() const noexcept
             {
                 return z_;
             }
@@ -643,9 +580,9 @@ namespace nc
             ///
             /// @return     NdArray
             ///
-            NdArray<dtype> xyz() const
+            NdArray<double> xyz() const
             {
-                NdArray<dtype> out = { x_, y_, z_ };
+                NdArray<double> out = { x_, y_, z_ };
                 return out;
             }
 
@@ -656,9 +593,9 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            dtype degreeSeperation(const Coordinate<dtype>& inOtherCoordinate) const
+            double degreeSeperation(const Coordinate& inOtherCoordinate) const
             {
-                return static_cast<dtype>(rad2deg(radianSeperation(inOtherCoordinate)));
+                return rad2deg(radianSeperation(inOtherCoordinate));
             }
 
             //============================================================================
@@ -669,9 +606,9 @@ namespace nc
             ///
             /// @return     degrees
             ///
-            dtype degreeSeperation(const NdArray<dtype>& inVector) const
+            double degreeSeperation(const NdArray<double>& inVector) const
             {
-                return static_cast<dtype>(rad2deg(radianSeperation(inVector)));
+                return rad2deg(radianSeperation(inVector));
             }
 
             //============================================================================
@@ -681,9 +618,9 @@ namespace nc
             ///
             /// @return     radians
             ///
-            dtype radianSeperation(const Coordinate<dtype>& inOtherCoordinate) const
+            double radianSeperation(const Coordinate& inOtherCoordinate) const
             {
-                return static_cast<dtype>(std::acos(dot<double>(xyz(), inOtherCoordinate.xyz()).item()));
+                return std::acos(dot(xyz(), inOtherCoordinate.xyz()).item());
             }
 
             //============================================================================
@@ -694,7 +631,7 @@ namespace nc
             ///
             /// @return     radians
             ///
-            dtype radianSeperation(const NdArray<dtype>& inVector) const
+            double radianSeperation(const NdArray<double>& inVector) const
             {
                 if (inVector.size() != 3)
                 {
@@ -703,7 +640,7 @@ namespace nc
                     throw std::invalid_argument(errStr);
                 }
 
-                return static_cast<dtype>(std::acos(dot<dtype>(xyz(), inVector.flatten()).item()));
+                return std::acos(dot(xyz(), inVector.flatten()).item());
             }
 
             //============================================================================
@@ -735,7 +672,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator==(const Coordinate<dtype>& inRhs) const noexcept
+            bool operator==(const Coordinate& inRhs) const noexcept
             {
                 return ra_ == inRhs.ra_ && dec_ == inRhs.dec_;
             }
@@ -747,7 +684,7 @@ namespace nc
             ///
             /// @return     bool
             ///
-            bool operator!=(const Coordinate<dtype>& inRhs) const noexcept
+            bool operator!=(const Coordinate& inRhs) const noexcept
             {
                 return !(*this == inRhs);
             }
@@ -760,7 +697,7 @@ namespace nc
             ///
             /// @return     std::ostream
             ///
-            friend std::ostream& operator<<(std::ostream& inStream, const Coordinate<dtype>& inCoord)
+            friend std::ostream& operator<<(std::ostream& inStream, const Coordinate& inCoord)
             {
                 inStream << inCoord.str();
                 return inStream;
@@ -775,8 +712,7 @@ namespace nc
         ///
         /// @return             degrees
         ///
-        template<typename dtype>
-        inline dtype degreeSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2) noexcept
+        inline double degreeSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2) noexcept
         {
             return inCoordinate1.degreeSeperation(inCoordinate2);
         }
@@ -790,11 +726,10 @@ namespace nc
         ///
         /// @return             degrees
         ///
-        template<typename dtype>
-        inline dtype degreeSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2) noexcept
+        inline double degreeSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2) noexcept
         {
-            Coordinate<dtype> inCoord1(inVector1);
-            return inCoord1.degreeSeperation(inVector1);
+            Coordinate inCoord1(inVector1);
+            return inCoord1.degreeSeperation(inVector2);
         }
 
         //============================================================================
@@ -805,8 +740,7 @@ namespace nc
         ///
         /// @return             radians
         ///
-        template<typename dtype>
-        inline dtype radianSeperation(const Coordinate<dtype>& inCoordinate1, const Coordinate<dtype>& inCoordinate2) noexcept
+        inline double radianSeperation(const Coordinate& inCoordinate1, const Coordinate& inCoordinate2) noexcept
         {
             return inCoordinate1.radianSeperation(inCoordinate2);
         }
@@ -820,11 +754,10 @@ namespace nc
         ///
         /// @return             radians
         ///
-        template<typename dtype>
-        inline dtype radianSeperation(const NdArray<dtype>& inVector1, const NdArray<dtype>& inVector2) noexcept
+        inline double radianSeperation(const NdArray<double>& inVector1, const NdArray<double>& inVector2) noexcept
         {
-            Coordinate<dtype> inCoord1(inVector1);
-            return inCoord1.radianSeperation(inVector1);
+            Coordinate inCoord1(inVector1);
+            return inCoord1.radianSeperation(inVector2);
         }
     }
 }

@@ -178,7 +178,7 @@ namespace nc
                 q(3, 1) = -inQuat2.j();
                 q(3, 2) = -inQuat2.k();
 
-                NdArray<double> omega = q.transpose().template dot<double>(qDot.transpose());
+                NdArray<double> omega = q.transpose().dot(qDot.transpose());
                 return omega *= 2;
             }
 
@@ -760,7 +760,7 @@ namespace nc
                     throw std::invalid_argument(errStr);
                 }
 
-                return toDCM().template dot<double>(inVec.template astype<double>());
+                return toDCM().dot(inVec.template astype<double>());
             }
 
             //============================================================================

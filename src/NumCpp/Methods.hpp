@@ -305,8 +305,8 @@ namespace nc
     template<typename dtypeOut, typename dtype>
     NdArray<dtypeOut> divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
-    template<typename dtypeOut, typename dtype>
-    NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+    template<typename dtype>
+    NdArray<dtype> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
     void dump(const NdArray<dtype>& inArray, const std::string& inFilename);
@@ -557,8 +557,8 @@ namespace nc
     template<typename dtype>
     NdArray<bool> logical_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
-    template<typename dtypeOut, typename dtype>
-    NdArray<dtypeOut> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+    template<typename dtype>
+    NdArray<dtype> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
     NdArray<dtype> max(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept;
@@ -3157,10 +3157,10 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    template<typename dtype>
+    NdArray<dtype> dot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return inArray1.template dot<dtypeOut>(inArray2);
+        return inArray1.dot(inArray2);
     }
 
     //============================================================================
@@ -4453,7 +4453,7 @@ namespace nc
     // Method Description:
     ///						Given the "legs" of a right triangle, return its hypotenuse.
     ///
-    ///						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
+    ///						Equivalent to sqrt(x1**2 + x2**2), element - wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
     ///
@@ -5288,10 +5288,10 @@ namespace nc
     /// @return
     ///				NdArray
     ///
-    template<typename dtypeOut = double, typename dtype>
-    NdArray<dtypeOut> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    template<typename dtype>
+    NdArray<dtype> matmul(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        return inArray1.template dot<dtypeOut>(inArray2);
+        return inArray1.dot(inArray2);
     }
 
     //============================================================================
