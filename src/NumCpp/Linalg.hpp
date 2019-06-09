@@ -958,7 +958,7 @@ namespace nc
             }
             else if (inPower == 1)
             {
-                return inArray.astype<double>();
+                return inArray.template astype<double>();
             }
             else if (inPower == -1)
             {
@@ -966,7 +966,7 @@ namespace nc
             }
             else if (inPower > 1)
             {
-                NdArray<double> inArrayDouble = inArray.astype<double>();
+                NdArray<double> inArrayDouble = inArray.template astype<double>();
                 NdArray<double> returnArray = dot(inArrayDouble, inArrayDouble);
                 for (int16 i = 2; i < inPower; ++i)
                 {
