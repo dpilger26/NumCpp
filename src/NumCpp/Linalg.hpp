@@ -64,7 +64,7 @@ namespace nc
         NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12) noexcept;
 
         template<typename dtype>
-        NdArray<dtype> matrix_power(const NdArray<dtype>& inArray, int16 inPower);
+        NdArray<double> matrix_power(const NdArray<dtype>& inArray, int16 inPower);
 
         template<typename dtype>
         NdArray<dtype> multi_dot(const std::initializer_list<NdArray<dtype> >& inList);
@@ -942,7 +942,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
+        NdArray<double> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
@@ -954,11 +954,11 @@ namespace nc
 
             if (inPower == 0)
             {
-                return identity<dtype>(inShape.rows);
+                return identity<double>(inShape.rows);
             }
             else if (inPower == 1)
             {
-                return inArray.copy();
+                return inArray.astype<double>();
             }
             else if (inPower == -1)
             {
@@ -966,10 +966,11 @@ namespace nc
             }
             else if (inPower > 1)
             {
-                NdArray<dtype> returnArray = dot(inArray, inArray);
+                NdArray<double> inArrayDouble = inArray.astype<double>();
+                NdArray<double> returnArray = dot(inArrayDouble, inArrayDouble);
                 for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = dot(returnArray, inArray);
+                    returnArray = dot(returnArray, inArrayDouble);
                 }
                 return returnArray;
             }
@@ -982,7 +983,7 @@ namespace nc
                 {
                     returnArray = dot(returnArray, inverse);
                 }
-                return returnArray.astype<dtype>();
+                return returnArray;
             }
         }
 

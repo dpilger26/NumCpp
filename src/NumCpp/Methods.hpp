@@ -655,7 +655,7 @@ namespace nc
     NdArray<uint32> nonzero(const NdArray<dtype>& inArray) noexcept;
 
     template<typename dtype>
-    NdArray<dtype> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept;
+    NdArray<double> norm(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept;
 
     template<typename dtype>
     NdArray<bool> not_equal(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
@@ -734,10 +734,10 @@ namespace nc
     NdArray<double> reciprocal(const NdArray<dtype>& inArray) noexcept;
 
     template<typename dtype>
-    dtype remainder(dtype inValue1, dtype inValue2) noexcept;
+    double remainder(dtype inValue1, dtype inValue2) noexcept;
 
     template<typename dtype>
-    NdArray<dtype> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
+    NdArray<double> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2);
 
     template<typename dtype>
     NdArray<dtype> repeat(const NdArray<dtype>& inArray, uint32 inNumRows, uint32 inNumCols) noexcept;
@@ -6358,7 +6358,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> norm(const NdArray<dtype>& inArray, Axis inAxis) noexcept
+    NdArray<double> norm(const NdArray<dtype>& inArray, Axis inAxis) noexcept
     {
         return inArray.norm(inAxis);
     }
@@ -7015,9 +7015,9 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    dtype remainder(dtype inValue1, dtype inValue2) noexcept
+    double remainder(dtype inValue1, dtype inValue2) noexcept
     {
-        return std::remainder(inValue1, inValue2);
+        return std::remainder(static_cast<double>(inValue1), static_cast<double>(inValue2));
     }
 
     //============================================================================
@@ -7033,7 +7033,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    NdArray<double> remainder(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         if (inArray1.shape() != inArray2.shape())
         {
@@ -7042,10 +7042,10 @@ namespace nc
             throw std::invalid_argument(errStr);
         }
 
-        NdArray<dtype> returnArray(inArray1.shape());
+        NdArray<double> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
-            [](dtype inValue1, dtype inValue2) noexcept -> dtype
-        { return std::remainder(inValue1, inValue2); });
+            [](dtype inValue1, dtype inValue2) noexcept -> double
+        { return remainder(inValue1, inValue2); });
 
         return returnArray;
     }

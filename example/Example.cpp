@@ -20,7 +20,7 @@ int main()
     auto a7 = nc::NdArray<int>(3, 4) = 0;
     auto a8 = nc::ones<int>(3, 4);
     auto a9 = nc::NdArray<int>(3, 4) = 1;
-    auto a10 = nc::nans<double>(3, 4);
+    auto a10 = nc::nans(3, 4);
     auto a11 = nc::NdArray<double>(3, 4) = nc::constants::nan;
     auto a12 = nc::empty<int>(3, 4);
     auto a13 = nc::NdArray<int>(3, 4);
@@ -127,7 +127,7 @@ int main()
     // Basic Functions
     auto a52 = nc::abs(a);
     auto a53 = nc::sign(a);
-    auto a54 = nc::remainder<double>(a, b);
+    auto a54 = nc::remainder(a, b);
     auto a55 = nc::clip(a, 3, 8);
     auto xp = nc::linspace<double>(0.0, 2.0 * nc::constants::pi, 100);
     auto fp = nc::sin(xp);
