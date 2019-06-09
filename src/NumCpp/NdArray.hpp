@@ -308,10 +308,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
-            for (uint32 i = 0; i < size_; ++i)
-            {
-                std::copy(inPtr, inPtr + size_, begin());
-            }
+            std::copy(inPtr, inPtr + size_, begin());
         }
 
         //============================================================================
@@ -1621,7 +1618,7 @@ namespace nc
         ///						Returns the raw pointer to the underlying data
         /// @return dtype*
         ///
-        dtype* data() noexcept
+        dtype* data() const noexcept
         {
             return array_;
         }
@@ -1633,7 +1630,7 @@ namespace nc
         ///                     to the underlying data.
         /// @return dtype*
         ///
-        dtype* dataRelease() noexcept
+        dtype* dataRelease() const noexcept
         {
             ownsPtr_ = false;
             return array_;
@@ -2284,14 +2281,14 @@ namespace nc
         NdArray<uint32> nonzero() const noexcept
         {
             std::vector<uint32> indices;
-            uint32 counter = 0;
+            uint32 idx = 0;
             for (auto value : *this)
             {
                 if (value != static_cast<dtype>(0))
                 {
-                    indices.push_back(counter);
+                    indices.push_back(idx);
                 }
-                ++counter;
+                ++idx;
             }
 
             return NdArray<uint32>(indices);
@@ -3262,24 +3259,23 @@ namespace nc
                 {
                     double meanValue = mean(inAxis).item();
                     double sum = 0;
-                    for (auto value : *this)
-                    {
-                        sum += utils::sqr(static_cast<double>(value) - meanValue);
-                    }
+                    std::for_each(cbegin(), cend(), [&sum, meanValue](dtype value) noexcept-> void
+                        { sum += utils::sqr(static_cast<double>(value) - meanValue); });
+
                     NdArray<double> returnArray = { std::sqrt(sum / size_) };
                     return returnArray;
                 }
                 case Axis::COL:
                 {
-                    NdArray<double> meanValue = mean(inAxis);
+                    NdArray<double> meanValueArray = mean(inAxis);
                     NdArray<double> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
+                        double meanValue = meanValueArray[row];
                         double sum = 0;
-                        for (uint32 col = 0; col < shape_.cols; ++col)
-                        {
-                            sum += utils::sqr(static_cast<double>(operator()(row, col)) - meanValue[row]);
-                        }
+                        std::for_each(cbegin(row), cend(row), [&sum, meanValue](dtype value) noexcept-> void
+                            { sum += utils::sqr(static_cast<double>(value) - meanValue); });
+
                         returnArray(0, row) = std::sqrt(sum / shape_.cols);
                     }
 
@@ -3287,16 +3283,17 @@ namespace nc
                 }
                 case Axis::ROW:
                 {
-                    NdArray<double> meanValue = mean(inAxis);
+                    NdArray<double> meanValueArray = mean(inAxis);
                     NdArray<dtype> transposedArray = transpose();
                     NdArray<double> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
+                        double meanValue = meanValueArray[row];
                         double sum = 0;
-                        for (uint32 col = 0; col < transposedArray.shape_.cols; ++col)
-                        {
-                            sum += utils::sqr(static_cast<double>(transposedArray(row, col)) - meanValue[row]);
-                        }
+                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row),
+                            [&sum, meanValue](dtype value) noexcept-> void
+                            { sum += utils::sqr(static_cast<double>(value) - meanValue); });
+
                         returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
                     }
 
