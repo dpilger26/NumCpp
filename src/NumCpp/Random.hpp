@@ -75,10 +75,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::bernoulli_distribution<dtype> dist(inP);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -114,11 +114,11 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+            const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta); 
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -158,10 +158,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::binomial_distribution<dtype, double> dist(inN, inP);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -190,10 +190,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::chi_squared_distribution<dtype> dist(inDof);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -257,10 +257,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::cauchy_distribution<dtype> dist(inMean, inSigma);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -286,10 +286,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -311,10 +311,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::exponential_distribution<dtype> dist(inScaleValue);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -349,10 +349,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::extreme_value_distribution<dtype> dist(inA, inB);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -389,10 +389,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::fisher_f_distribution<dtype> dist(inDofN, inDofD);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -429,10 +429,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -464,10 +464,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::geometric_distribution<dtype, double> dist(inP);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -490,10 +490,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -523,10 +523,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::lognormal_distribution<dtype> dist(inMean, inSigma);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -566,10 +566,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::negative_binomial_distribution<dtype, double> dist(inN, inP);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -606,10 +606,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::non_central_chi_squared_distribution<dtype> dist(inK, inLambda);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -639,10 +639,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::normal_distribution<dtype> dist(inMean, inSigma);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -707,10 +707,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::poisson_distribution<dtype, double> dist(inMean);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -732,10 +732,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::uniform_01<dtype> dist;
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -769,10 +769,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::uniform_real_distribution<dtype> dist(inLow, inHigh - DtypeInfo<dtype>::epsilon());
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -809,10 +809,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -834,10 +834,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::normal_distribution<dtype> dist;
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -910,10 +910,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             boost::random::student_t_distribution<dtype> dist(inDof);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
@@ -1061,10 +1061,10 @@ namespace nc
             NdArray<dtype> returnArray(inShape);
 
             const boost::random::weibull_distribution<dtype> dist(inA, inB);
-            for (auto& value : returnArray)
-            {
-                value = dist(generator_);
-            }
+
+            std::for_each(returnArray.begin(), returnArray.end(), 
+                [&dist](dtype& value) noexcept -> void
+                { value = dist(generator_); });
 
             return returnArray;
         }
