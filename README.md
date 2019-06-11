@@ -60,7 +60,7 @@ Many initializer functions are provided that return `NdArray`s for common needs.
 |                                                          | ```nc::NdArray<dtype>(3, 4) a = 0```                     |
 | ```np.ones([3, 4])```                                    | ```nc::ones<dtype>(3, 4)```                              |
 |                                                          | ```nc::NdArray<dtype>(3, 4) a = 1```                     |
-| ```np.nans([3, 4])```                                    | ```nc::nans<double>(3, 4)```                             |
+| ```np.nans([3, 4])```                                    | ```nc::nans(3, 4)```                                     |
 |                                                          | ```nc::NdArray<double>(3, 4) a = nc::constants::nan```   |
 | ```np.empty([3, 4])```                                   | ```nc::empty<dtype>(3, 4)```                             |
 |                                                          | ```nc::NdArray<dtype>(3, 4) a```                         |
@@ -170,10 +170,10 @@ Reducers accumulate values of `NdArray`s along specified axes. When no axis is s
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.sum(a)```                                          | ```nc::sum<dtypeOut>(a)```                               |
-| ```np.sum(a, axis=0)```                                  | ```nc::sum<dtypeOut>(a, nc::Axis::ROW)```                |
-| ```np.prod(a)```                                         | ```nc::prod<dtypeOut>(a)```                              |
-| ```np.prod(a, axis=0)```                                 | ```nc::prod<dtypeOut>(a, nc::Axis::ROW)```               |
+| ```np.sum(a)```                                          | ```nc::sum(a)```                                         |
+| ```np.sum(a, axis=0)```                                  | ```nc::sum(a, nc::Axis::ROW)```                          |
+| ```np.prod(a)```                                         | ```nc::prod(a)```                                        |
+| ```np.prod(a, axis=0)```                                 | ```nc::prod(a, nc::Axis::ROW)```                         |
 | ```np.mean(a)```                                         | ```nc::mean(a)```                                        |
 | ```np.mean(a, axis=0)```                                 | ```nc::mean(a, nc::Axis::ROW)```                         |
 | ```np.count_nonzero(a)```                                | ```nc::count_nonzero(a)```                               |
@@ -188,7 +188,7 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 | print(a)                                                 | ```a.print()```                                          |
 |                                                          | ```std::cout << a```                                     |
 | ```a.tofile(filename, sep=’\n’)```                       | ```a.tofile(filename, "\n")```                           |
-| ```np.fromfile(filename, sep=’\n’)```                    | ```nc::fromfile<dtype>(filename, "\n")```                 |
+| ```np.fromfile(filename, sep=’\n’)```                    | ```nc::fromfile<dtype>(filename, "\n")```                |
 | ```np.dump(a, filename)```                               | ```nc::dump(a, filename)```                              |
 | ```np.load(filename)```                                  | ```nc::load<dtype>(filename)```                          |
 
@@ -202,7 +202,7 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
 | ```np.abs(a)```                                          | ```nc::abs(a)```                                         |
 | ```np.sign(a)```                                         | ```nc::sign(a)```                                        |
-| ```np.remainder(a, b)```                                 | ```nc::remainder<dtypeOut>(a, b)```                      |
+| ```np.remainder(a, b)```                                 | ```nc::remainder(a, b)```                                |
 | ```np.clip(a, 3, 8)```                                   | ```nc::clip(a, 3, 8)```                                  |
 | ```np.interp(x, xp, fp)```                               | ```nc::interp(x, xp, fp)```                              |
 
@@ -219,7 +219,7 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.power(a, 4)```                                     | ```nc::power<dtypeOut>(a, 4)```                          |
+| ```np.power(a, 4)```                                     | ```nc::power(a, 4)```                                    |
 | ```np.sqrt(a)```                                         | ```nc::sqrt(a)```                                        |
 | ```np.square(a)```                                       | ```nc::square(a)```                                      |
 | ```np.cbrt(a)```                                         | ```nc::cbrt(a)```                                        |
@@ -251,11 +251,11 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.linalg.norm(a)```                                  | ```nc::norm<dtypeOut>(a)```                              |
-| ```np.dot(a, b)```                                       | ```nc::dot<dtypeOut>(a, b)```                            |
+| ```np.linalg.norm(a)```                                  | ```nc::norm(a)```                                        |
+| ```np.dot(a, b)```                                       | ```nc::dot(a, b)```                                      |
 | ```np.linalg.det(a)```                                   | ```nc::linalg::det(a)```                                 |
 | ```np.linalg.inv(a)```                                   | ```nc::linalg::inv(a)```                                 |
 | ```np.linalg.lstsq(a, b)```                              | ```nc::linalg::lstsq(a, b)```                            |
-| ```np.linalg.matrix_power(a, 3)```                       | ```nc::linalg::matrix_power<dtypeOut>(a, 3)```           |
-| ```Np.linalg..multi_dot(a, b, c)```                      | ```nc::linalg::multi_dot<dtypeOut>({a, b, c})```         |
+| ```np.linalg.matrix_power(a, 3)```                       | ```nc::linalg::matrix_power(a, 3)```                     |
+| ```Np.linalg.multi_dot(a, b, c)```                       | ```nc::linalg::multi_dot({a, b, c})```                   |
 | ```np.linalg.svd(a)```                                   | ```nc::linalg::svd(a)```                                 |

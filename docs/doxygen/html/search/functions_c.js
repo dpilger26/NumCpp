@@ -2,8 +2,8 @@ var searchData=
 [
   ['makepositiveandvalidate',['makePositiveAndValidate',['../classnc_1_1_slice.html#a4d518d51dad679d9a9c6938b065e38f8',1,'nc::Slice']]],
   ['map2dict',['map2dict',['../namespacenc.html#ad0110c42ec3efc6f79199b3b07519b85',1,'nc']]],
-  ['matmul',['matmul',['../namespacenc.html#a8ed3f5e13cabb302d0565f9bf3ed3e94',1,'nc']]],
-  ['matrix_5fpower',['matrix_power',['../namespacenc_1_1linalg.html#ad9ce5029f1c9c8a07f33249b1d90af75',1,'nc::linalg']]],
+  ['matmul',['matmul',['../namespacenc.html#a666207bcb1e7fe5993aa707cfd8b1f50',1,'nc']]],
+  ['matrix_5fpower',['matrix_power',['../namespacenc_1_1linalg.html#a59c33bf492f64017c673a151f890dcbf',1,'nc::linalg']]],
   ['max',['max',['../classnc_1_1_dtype_info.html#a2a3dc0ba2812411660219f61189d8aca',1,'nc::DtypeInfo::max()'],['../classnc_1_1_nd_array.html#a1da78e30bcb54c80c887b454a2342d42',1,'nc::NdArray::max()'],['../namespacenc.html#aea39f46713d556f182a9cd82c9338113',1,'nc::max()']]],
   ['maximum',['maximum',['../namespacenc.html#a2020a56b0977393a81377f4b64d62252',1,'nc']]],
   ['maximumfilter',['maximumFilter',['../namespacenc_1_1filter.html#a998f7c3ef568195b9281e3219f3f983e',1,'nc::filter']]],
@@ -17,10 +17,10 @@ var searchData=
   ['minimum',['minimum',['../namespacenc.html#a36c2bae02fa93658d5f9268018de444f',1,'nc']]],
   ['minimumfilter',['minimumFilter',['../namespacenc_1_1filter.html#acb20cc1171cb1a4dd83b8f77de33a906',1,'nc::filter']]],
   ['minumumfilter1d',['minumumFilter1d',['../namespacenc_1_1filter.html#a199c5c6c2c9b94f6f98f1a4b68f1fc75',1,'nc::filter']]],
-  ['minutes',['minutes',['../classnc_1_1coordinates_1_1_r_a.html#a03ccd3734dc9e855c5a89be3fe60cc85',1,'nc::coordinates::RA::minutes()'],['../classnc_1_1coordinates_1_1_dec.html#a086630d14bdee4a27c5779f04a4d3033',1,'nc::coordinates::Dec::minutes()']]],
+  ['minutes',['minutes',['../classnc_1_1coordinates_1_1_r_a.html#a7f4f4c06b26cad116e250a0dc7553b02',1,'nc::coordinates::RA::minutes()'],['../classnc_1_1coordinates_1_1_dec.html#aeaa851b538014aae5bf909117e8fcb42',1,'nc::coordinates::Dec::minutes()']]],
   ['mirrorboundary',['mirrorBoundary',['../namespacenc_1_1filter.html#a32195e6b62bfec9d92c1bbd50f34349f',1,'nc::filter']]],
   ['mirrorboundary1d',['mirrorBoundary1d',['../namespacenc_1_1filter.html#ab4e7bce587004f88fd6d69338c1524d3',1,'nc::filter']]],
   ['mod',['mod',['../namespacenc.html#afeea794af5fd07c9ce88cdabab63ae53',1,'nc']]],
-  ['multi_5fdot',['multi_dot',['../namespacenc_1_1linalg.html#a1caf510cec744943c17616b828458d9f',1,'nc::linalg']]],
+  ['multi_5fdot',['multi_dot',['../namespacenc_1_1linalg.html#a46188c640b2c3ee74418db676e8f3bce',1,'nc::linalg']]],
   ['multiply',['multiply',['../namespacenc.html#ae574e8cd3ecbd5736c9707196f29c985',1,'nc']]]
 ];

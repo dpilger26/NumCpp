@@ -63,11 +63,11 @@ namespace nc
         template<typename dtype>
         NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1.e-12) noexcept;
 
-        template<typename dtypeOut, typename dtype>
-        NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower);
+        template<typename dtype>
+        NdArray<double> matrix_power(const NdArray<dtype>& inArray, int16 inPower);
 
-        template<typename dtypeOut, typename dtype>
-        NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList);
+        template<typename dtype>
+        NdArray<dtype> multi_dot(const std::initializer_list<NdArray<dtype> >& inList);
 
         template<typename dtype>
         void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt) noexcept;
@@ -941,8 +941,8 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double, typename dtype>
-        NdArray<dtypeOut> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
+        template<typename dtype>
+        NdArray<double> matrix_power(const NdArray<dtype>& inArray, int16 inPower)
         {
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
@@ -954,34 +954,36 @@ namespace nc
 
             if (inPower == 0)
             {
-                return identity<dtypeOut>(inShape.rows);
+                return identity<double>(inShape.rows);
             }
             else if (inPower == 1)
             {
-                return inArray.template astype<dtypeOut>();
+                return inArray.template astype<double>();
             }
             else if (inPower == -1)
             {
-                return inv(inArray).template astype<dtypeOut>();
+                return inv(inArray);
             }
             else if (inPower > 1)
             {
-                NdArray<dtypeOut> returnArray = dot<dtypeOut>(inArray, inArray);
+                NdArray<double> inArrayDouble = inArray.template astype<double>();
+                NdArray<double> returnArray = dot(inArrayDouble, inArrayDouble);
                 for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = dot<dtypeOut>(returnArray, inArray.template astype<dtypeOut>());
+                    returnArray = dot(returnArray, inArrayDouble);
                 }
                 return returnArray;
             }
             else
             {
                 NdArray<double> inverse = inv(inArray);
-                NdArray<double> returnArray = dot<double>(inverse, inverse);
-                for (int16 i = 2; i < std::abs(inPower); ++i)
+                NdArray<double> returnArray = dot(inverse, inverse);
+                inPower *= -1;
+                for (int16 i = 2; i < inPower; ++i)
                 {
-                    returnArray = dot<double>(returnArray, inverse);
+                    returnArray = dot(returnArray, inverse);
                 }
-                return returnArray.template astype<dtypeOut>();
+                return returnArray;
             }
         }
 
@@ -998,8 +1000,8 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        template<typename dtypeOut = double, typename dtype>
-        NdArray<dtypeOut> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
+        template<typename dtype>
+        NdArray<dtype> multi_dot(const std::initializer_list<NdArray<dtype> >& inList)
         {
             typename std::initializer_list<NdArray<dtype> >::iterator iter = inList.begin();
 
@@ -1011,14 +1013,14 @@ namespace nc
             }
             else if (inList.size() == 1)
             {
-                return iter->template astype<dtypeOut>();
+                return iter->copy();
             }
 
-            NdArray<dtypeOut> returnArray = dot<dtypeOut>(*iter, *(iter + 1));
+            NdArray<dtype> returnArray = dot<dtype>(*iter, *(iter + 1));
             iter += 2;
             for (; iter < inList.end(); ++iter)
             {
-                returnArray = dot<dtypeOut>(returnArray, iter->template astype<dtypeOut>());
+                returnArray = dot(returnArray, *iter);
             }
 
             return returnArray;

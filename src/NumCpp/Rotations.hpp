@@ -109,7 +109,7 @@ namespace nc
                     throw std::invalid_argument(errStr);
                 }
 
-                double norm = std::sqrt(square(inArray).template sum<double>().item());
+                double norm = std::sqrt(square(inArray).sum().item());
                 data_[0] = inArray[0] / norm;
                 data_[1] = inArray[1] / norm;
                 data_[2] = inArray[2] / norm;
@@ -136,11 +136,12 @@ namespace nc
                 }
 
                 // normalize the input vector
-                NdArray<double> normAxis = inAxis.template astype<double>() / inAxis.template norm<double>().item();
+                NdArray<double> normAxis = inAxis.template astype<double>() / 
+                    inAxis.template astype<double>().norm().item();
 
-                const double i = static_cast<double>(normAxis[0]) * std::sin(inAngle / 2.0);
-                const double j = static_cast<double>(normAxis[1]) * std::sin(inAngle / 2.0);
-                const double k = static_cast<double>(normAxis[2]) * std::sin(inAngle / 2.0);
+                const double i = normAxis[0] * std::sin(inAngle / 2.0);
+                const double j = normAxis[1] * std::sin(inAngle / 2.0);
+                const double k = normAxis[2] * std::sin(inAngle / 2.0);
                 const double s = std::cos(inAngle / 2.0);
 
                 return Quaternion(i, j, k, s);
@@ -178,7 +179,7 @@ namespace nc
                 q(3, 1) = -inQuat2.j();
                 q(3, 2) = -inQuat2.k();
 
-                NdArray<double> omega = q.transpose().template dot<double>(qDot.transpose());
+                NdArray<double> omega = q.transpose().dot(qDot.transpose());
                 return omega *= 2;
             }
 
@@ -760,7 +761,7 @@ namespace nc
                     throw std::invalid_argument(errStr);
                 }
 
-                return toDCM().template dot<double>(inVec.template astype<double>());
+                return toDCM().dot(inVec.template astype<double>());
             }
 
             //============================================================================

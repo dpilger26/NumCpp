@@ -10,7 +10,7 @@ var searchData=
   ['tofile',['tofile',['../classnc_1_1_nd_array.html#aa94662d12c0f3558fa78344c8cfe95cd',1,'nc::NdArray::tofile()'],['../namespacenc.html#a4a3f6b571a0b4761515a67f98957de2a',1,'nc::tofile()']]],
   ['tondarray',['toNdArray',['../classnc_1_1rotations_1_1_quaternion.html#a4a11c1c0daf982f9367e4541e5735e71',1,'nc::rotations::Quaternion']]],
   ['tostlvector',['toStlVector',['../classnc_1_1_nd_array.html#a7fb4764e4f24c72c6299f0142d394070',1,'nc::NdArray::toStlVector()'],['../namespacenc.html#a5f01d5eb73eab70467f884e421ad2e71',1,'nc::toStlVector()']]],
-  ['trace',['trace',['../classnc_1_1_nd_array.html#a24877745816c5835730e98e2562eeccf',1,'nc::NdArray::trace()'],['../namespacenc.html#aeacbe588ffa1d7f4f33223b31c437c17',1,'nc::trace()']]],
+  ['trace',['trace',['../classnc_1_1_nd_array.html#af46899aa9486c6189a0db53228774f76',1,'nc::NdArray::trace()'],['../namespacenc.html#a4a75035db8c766b2cececb1f3e4d5b74',1,'nc::trace()']]],
   ['transpose',['transpose',['../classnc_1_1_nd_array.html#aae29c9fbae3e92ce432703ffd7722d8b',1,'nc::NdArray::transpose()'],['../namespacenc.html#a83a59c9f29b6b5e8660c7d258ce3ea83',1,'nc::transpose()']]],
   ['trapz',['trapz',['../namespacenc.html#a12e7a847f3a0a663f04c11e494a77e7e',1,'nc::trapz(const NdArray&lt; dtype &gt; &amp;inArray, double dx=1.0, Axis inAxis=Axis::NONE) noexcept'],['../namespacenc.html#a4d3e8e18ea6e0a61cfcda1711cce9e78',1,'nc::trapz(const NdArray&lt; dtype &gt; &amp;inArrayY, const NdArray&lt; dtype &gt; &amp;inArrayX, Axis inAxis=Axis::NONE)']]],
   ['triangle',['triangle',['../classnc_1_1_random.html#a3419c1f88a3c562441af695afd387daf',1,'nc::Random']]],

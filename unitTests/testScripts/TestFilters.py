@@ -192,7 +192,7 @@ def test2D():
 
     for mode in modes.keys():
         print(colored(f'Testing complementaryMedianFilter: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        shape = np.random.randint(100, 200, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
@@ -209,7 +209,7 @@ def test2D():
             print(colored('\tFAIL', 'red'))
 
         print(colored(f'Testing convolve: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        shape = np.random.randint(100, 200, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(10, 20, shape).astype(np.double)
@@ -229,7 +229,7 @@ def test2D():
             print(colored('\tFAIL', 'red'))
 
         print(colored(f'Testing gaussianFilter: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        shape = np.random.randint(100, 200, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape).astype(np.double)
@@ -244,7 +244,7 @@ def test2D():
             print(colored('\tFAIL', 'red'))
 
         print(colored(f'Testing laplaceFilter: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        shape = np.random.randint(100, 200, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape).astype(np.double)
@@ -258,7 +258,7 @@ def test2D():
             print(colored('\tFAIL', 'red'))
 
         print(colored(f'Testing maximumFilter: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        shape = np.random.randint(100, 200, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
@@ -275,7 +275,7 @@ def test2D():
             print(colored('\tFAIL', 'red'))
 
         print(colored(f'Testing medianFilter: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        shape = np.random.randint(100, 200, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
@@ -292,7 +292,7 @@ def test2D():
             print(colored('\tFAIL', 'red'))
 
         print(colored(f'Testing minimumFilter: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        shape = np.random.randint(100, 200, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
@@ -309,7 +309,7 @@ def test2D():
             print(colored('\tFAIL', 'red'))
 
         print(colored(f'Testing percentileFilter: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        shape = np.random.randint(100, 200, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
@@ -327,7 +327,7 @@ def test2D():
             print(colored('\tFAIL', 'red'))
 
         print(colored(f'Testing rankFilter: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        shape = np.random.randint(100, 200, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape)
@@ -345,7 +345,7 @@ def test2D():
             print(colored('\tFAIL', 'red'))
 
         print(colored(f'Testing uniformFilter: mode = {mode}', 'cyan'))
-        shape = np.random.randint(1000, 2000, [2,]).tolist()
+        shape = np.random.randint(100, 200, [2,]).tolist()
         cShape = NumCpp.Shape(shape[0], shape[1])
         cArray = NumCpp.NdArray(cShape)
         data = np.random.randint(100, 1000, shape).astype(np.double)

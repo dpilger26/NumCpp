@@ -51,7 +51,7 @@ namespace nc
 
         // forward declare all functions
         template<typename dtype>
-        dtype gaussian(dtype inX, dtype inY, dtype inSigma) noexcept;
+        double gaussian(dtype inX, dtype inY, double inSigma) noexcept;
 
         template<typename dtype>
         void fillCorners(NdArray<dtype>& inArray, uint32 inBorderWidth);
@@ -188,10 +188,12 @@ namespace nc
         /// @return             dtype
         ///
         template<typename dtype>
-        dtype gaussian(dtype inX, dtype inY, dtype inSigma) noexcept
+        double gaussian(dtype inX, dtype inY, double inSigma) noexcept
         {
-            const double exponent = -(utils::sqr(inX) + utils::sqr(inY)) / (2 * utils::sqr(inSigma));
-            return static_cast<dtype>(std::exp(exponent));
+            double exponent = utils::sqr(static_cast<double>(inX)) + utils::sqr(static_cast<double>(inY));
+            exponent /= 2;
+            exponent /= utils::sqr(inSigma);
+            return std::exp(-exponent);
         }
 
         //============================================================================
@@ -901,7 +903,7 @@ namespace nc
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1)).flatten();
 
-                    output(row - boundarySize, col - boundarySize) = dot<dtype>(window, weightsFlat).item();
+                    output(row - boundarySize, col - boundarySize) = dot(window, weightsFlat).item();
                 }
             }
 
@@ -937,7 +939,7 @@ namespace nc
             {
                 NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)].flatten();
 
-                output[i - boundarySize] = dot<dtype>(window, weightsFlat).item();
+                output[i - boundarySize] = dot(window, weightsFlat).item();
             }
 
             return output;
@@ -989,7 +991,7 @@ namespace nc
             }
 
             // normalize the kernel
-            kernel /= kernel.template sum<double>().item();
+            kernel /= kernel.sum().item();
 
             // perform the convolution
             NdArray<dtype> output = convolve(inImageArray.template astype<double>(),
@@ -1039,11 +1041,11 @@ namespace nc
             NdArray<double> kernel(1, kernelSize);
             for (double i = 0; i < kernelSize; ++i)
             {
-                kernel[static_cast<int32>(i)] = gaussian(i - kernalHalfSize, 0.0, inSigma);
+                kernel[static_cast<uint32>(i)] = gaussian(i - kernalHalfSize, 0.0, inSigma);
             }
 
             // normalize the kernel
-            kernel /= kernel.template sum<double>().item();
+            kernel /= kernel.sum().item();
 
             // perform the convolution
             NdArray<dtype> output = convolve1d(inImageArray.template astype<double>(),
