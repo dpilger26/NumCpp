@@ -1,17 +1,16 @@
 var classnc_1_1coordinates_1_1_r_a =
 [
-    [ "RA", "classnc_1_1coordinates_1_1_r_a.html#a749e948a7c4db141f5c20edf4bb93a0d", null ],
-    [ "RA", "classnc_1_1coordinates_1_1_r_a.html#a5f1c4744a04e0d4ab5c27b502ac970be", null ],
-    [ "RA", "classnc_1_1coordinates_1_1_r_a.html#ab2a8696173d751986d882f227cdcd2d1", null ],
-    [ "astype", "classnc_1_1coordinates_1_1_r_a.html#a0993b9d5a6572a856e67403ce19f1829", null ],
-    [ "degrees", "classnc_1_1coordinates_1_1_r_a.html#a9903336ca3a984ed4cd6729e5139cc66", null ],
-    [ "hours", "classnc_1_1coordinates_1_1_r_a.html#aea4c232c6ab7c5587e4ed7634a305b2b", null ],
-    [ "minutes", "classnc_1_1coordinates_1_1_r_a.html#a03ccd3734dc9e855c5a89be3fe60cc85", null ],
-    [ "operator!=", "classnc_1_1coordinates_1_1_r_a.html#a1c3a1612ed21946da80540bf6f41528d", null ],
-    [ "operator==", "classnc_1_1coordinates_1_1_r_a.html#a9cd39d11b9175e3389168464100dff8d", null ],
-    [ "print", "classnc_1_1coordinates_1_1_r_a.html#ad5d1be4a4823e1a5aaa2ba4f2d4d786f", null ],
-    [ "radians", "classnc_1_1coordinates_1_1_r_a.html#a30955a363a6c197b8d653daaea6d1c50", null ],
-    [ "seconds", "classnc_1_1coordinates_1_1_r_a.html#abb26234a622d2dca5ebd28f49e809de2", null ],
-    [ "str", "classnc_1_1coordinates_1_1_r_a.html#a782e0b5096e668662804a6612fe87179", null ],
-    [ "operator<<", "classnc_1_1coordinates_1_1_r_a.html#acba639d6020d3614a9cf1d47587c30fa", null ]
+    [ "RA", "classnc_1_1coordinates_1_1_r_a.html#aecba08a8023c2db83cad9a4081acc2f8", null ],
+    [ "RA", "classnc_1_1coordinates_1_1_r_a.html#ab14fd57fb6ab65c4d8ca668d549a507f", null ],
+    [ "RA", "classnc_1_1coordinates_1_1_r_a.html#a7566e8350b9075ae0f0406fce26b7900", null ],
+    [ "degrees", "classnc_1_1coordinates_1_1_r_a.html#aaf73bcb5e2afd0e075c452148f67a3bd", null ],
+    [ "hours", "classnc_1_1coordinates_1_1_r_a.html#a52af78880f6c5a5ec8750a7ad20c2e2d", null ],
+    [ "minutes", "classnc_1_1coordinates_1_1_r_a.html#a7f4f4c06b26cad116e250a0dc7553b02", null ],
+    [ "operator!=", "classnc_1_1coordinates_1_1_r_a.html#ab9354c5b4942674a815b2315e8b92978", null ],
+    [ "operator==", "classnc_1_1coordinates_1_1_r_a.html#ab9e22496d5fdc265ee5a5d77ec97c184", null ],
+    [ "print", "classnc_1_1coordinates_1_1_r_a.html#a1f935f2825ee66373e5a5b0635851d8e", null ],
+    [ "radians", "classnc_1_1coordinates_1_1_r_a.html#a8a9f875774dd8375cbc72c7fbfbebc2a", null ],
+    [ "seconds", "classnc_1_1coordinates_1_1_r_a.html#af0c9b649f60a70bbf421a6eb5b169cda", null ],
+    [ "str", "classnc_1_1coordinates_1_1_r_a.html#a37824a93eb9e0a02237d4e654040761b", null ],
+    [ "operator<<", "classnc_1_1coordinates_1_1_r_a.html#aa7b5289b9d14da6e7b4393be2fddfc33", null ]
 ];

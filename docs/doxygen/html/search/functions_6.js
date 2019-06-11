@@ -1,7 +1,7 @@
 var searchData=
 [
   ['gamma',['gamma',['../classnc_1_1_random.html#a93a1804dff12c99cbfea67d63b6c1705',1,'nc::Random']]],
-  ['gaussian',['gaussian',['../namespacenc_1_1filter.html#a9fe5455df27ff5f9e89c7dcc0ed843cf',1,'nc::filter']]],
+  ['gaussian',['gaussian',['../namespacenc_1_1filter.html#acb4710192adc0a359fc8e24410988fa3',1,'nc::filter']]],
   ['gaussianfilter',['gaussianFilter',['../namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024',1,'nc::filter']]],
   ['gaussianfilter1d',['gaussianFilter1d',['../namespacenc_1_1filter.html#a03cc5a48e29d6f25636789b65366f243',1,'nc::filter']]],
   ['gcd',['gcd',['../namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec',1,'nc::gcd(dtype inValue1, dtype inValue2) noexcept'],['../namespacenc.html#abb00c960bb157ef6a8b15fb01a20955e',1,'nc::gcd(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],

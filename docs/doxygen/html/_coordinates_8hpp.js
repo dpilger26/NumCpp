@@ -7,8 +7,8 @@ var _coordinates_8hpp =
       [ "NEGATIVE", "_coordinates_8hpp.html#a07a05f0462e5f74f05cbd04664c4ca94a50546bf973283065b6ccf09faf7a580a", null ],
       [ "POSITIVE", "_coordinates_8hpp.html#a07a05f0462e5f74f05cbd04664c4ca94aab6c31432785221bae58327ef5f6ea58", null ]
     ] ],
-    [ "degreeSeperation", "_coordinates_8hpp.html#ab6d00080e1f11687438a096cc342c9ba", null ],
-    [ "degreeSeperation", "_coordinates_8hpp.html#a6c1b17b53ef28cb4266d25bd48259538", null ],
-    [ "radianSeperation", "_coordinates_8hpp.html#a7113bddc2847b5a9984d7562776079c2", null ],
-    [ "radianSeperation", "_coordinates_8hpp.html#a6ecfe4961b7ca6b6a809b3d21ad91bc6", null ]
+    [ "degreeSeperation", "_coordinates_8hpp.html#a235970449246ff4c3acf6924b65b2068", null ],
+    [ "degreeSeperation", "_coordinates_8hpp.html#a86698ce3b556e7e38d0b8c8034719244", null ],
+    [ "radianSeperation", "_coordinates_8hpp.html#ac26247590cae76bd0e551a3300680f55", null ],
+    [ "radianSeperation", "_coordinates_8hpp.html#a0fd3df39e04b072bf988390bce990f7c", null ]
 ];
