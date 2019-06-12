@@ -250,8 +250,14 @@ namespace nc
             }
             case ReturnPolicy::TAKE_OWNERSHIP:
             {
-                typename pybind11::capsule garbageCollect(inArray.dataRelease(), [](void* ptr) { delete[] ptr; });
-                return pybind11::array_t<dtype>(shape, strides, inArray.dataRelease(), garbageCollect);
+                typename pybind11::capsule garbageCollect(inArray.dataRelease(), 
+                    [](void* ptr) 
+                    {
+                        dtype* dataPtr = reinterpret_cast<dtype*>(ptr);
+                        delete[] dataPtr; 
+                    }
+                );
+                return pybind11::array_t<dtype>(shape, strides, inArray.data(), garbageCollect);
             }
             default:
             {
