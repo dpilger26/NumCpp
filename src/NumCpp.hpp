@@ -53,6 +53,7 @@
 #include"NumCpp/Timer.hpp"
 #include"NumCpp/Types.hpp"
 #include"NumCpp/Utils.hpp"
+#include"NumCpp/Vector.hpp"
 
 #ifdef INCLUDE_PYTHON_INTERFACE
 #include"NumCpp/PythonInterface.hpp"
