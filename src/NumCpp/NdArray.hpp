@@ -1630,7 +1630,7 @@ namespace nc
         ///                     to the underlying data.
         /// @return dtype*
         ///
-        dtype* dataRelease() const noexcept
+        dtype* dataRelease() noexcept
         {
             ownsPtr_ = false;
             return array_;

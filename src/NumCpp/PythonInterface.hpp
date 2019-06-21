@@ -178,6 +178,14 @@ namespace nc
 #endif
 
 #ifdef INCLUDE_PYBIND_PYTHON_INTERFACE
+
+    /// Enum for the pybind array return policy
+    enum class ReturnPolicy { COPY, REFERENCE, TAKE_OWNERSHIP };
+
+    static const std::map<ReturnPolicy, std::string> returnPolicyStringMap = { {ReturnPolicy::COPY, "COPY"},
+    {ReturnPolicy::REFERENCE, "REFERENCE"},
+    {ReturnPolicy::TAKE_OWNERSHIP, "TAKE_OWNERSHIP"} };
+
     //============================================================================
     ///						converts a numpy array to a numcpp NdArray using pybind bindings
     ///                     Python will still own the underlying data.
@@ -218,27 +226,45 @@ namespace nc
     ///						converts a numcpp NdArray to numpy array using pybind bindings
     ///
     /// @param     inArray: the input array
-    /// @param     transferOwnership: whether or not to transfer ownership to python. 
-    ///                               Requires that the NdArray owns its data.
+    /// @param     returnPolicy: the return policy
     ///
     /// @return    pybind11::array_t
     ///
     template<typename dtype>
-    inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray, bool transferOwnership = true) noexcept
+    inline pybind11::array_t<dtype> nc2pybind(NdArray<dtype>& inArray, ReturnPolicy returnPolicy = ReturnPolicy::COPY) noexcept
     {
         Shape inShape = inArray.shape();
         std::vector<pybind11::ssize_t> shape{ inShape.rows, inShape.cols };
         std::vector<pybind11::ssize_t> strides{ inShape.cols * sizeof(dtype), sizeof(dtype) };
 
-        if (inArray.ownsInternalData() && transferOwnership)
+        switch (returnPolicy)
         {
-            typename py::capsule transfer(inArray.begin(), [](void* ptr) { delete[] ptr; });  // python now owns the memory
-            return pybind11::array_t<dtype>(shape, strides, inArray.dataRelease(), transfer);
-        }
-        else
-        {
-            typename py::capsule reference(inArray.begin(), [](void* ptr) {});  // original owner still owns the memory, passing back reference
-            return pybind11::array_t<dtype>(shape, strides, inArray.data(), reference);
+            case ReturnPolicy::COPY:
+            {
+                return pybind11::array_t<dtype>(shape, strides, inArray.data());
+            }
+            case ReturnPolicy::REFERENCE:
+            {
+                typename pybind11::capsule reference(inArray.data(), [](void* ptr) {});
+                return pybind11::array_t<dtype>(shape, strides, inArray.data(), reference);
+            }
+            case ReturnPolicy::TAKE_OWNERSHIP:
+            {
+                typename pybind11::capsule garbageCollect(inArray.dataRelease(), 
+                    [](void* ptr) 
+                    {
+                        dtype* dataPtr = reinterpret_cast<dtype*>(ptr);
+                        delete[] dataPtr; 
+                    }
+                );
+                return pybind11::array_t<dtype>(shape, strides, inArray.data(), garbageCollect);
+            }
+            default:
+            {
+                std::stringstream sstream;
+                sstream << "ReturnPolicy " << returnPolicyStringMap.at(returnPolicy) << " has not been implemented yet" << std::endl;
+                throw std::runtime_error(sstream.str());
+            }
         }
     }
 #endif
