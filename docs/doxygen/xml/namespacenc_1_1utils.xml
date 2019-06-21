@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacenc_1_1utils" kind="namespace" language="C++">
+    <compoundname>nc::utils</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacenc_1_1utils_1af058ceabca43da922cd50333901abf05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::utils::cube</definition>
+        <argsstring>(dtype inValue) noexcept</argsstring>
+        <name>cube</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cubes in input value</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>cubed value </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="95" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1ab8f33a7e18654f6870deaa8f9c038195" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool nc::utils::essentiallyEqual</definition>
+        <argsstring>(dtype inValue1, dtype inValue2, dtype inEpsilon=DtypeInfo&lt; dtype &gt;::epsilon()) noexcept</argsstring>
+        <name>essentiallyEqual</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue1</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inValue2</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inEpsilon</declname>
+          <defval><ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo</ref>&lt; dtype &gt;::epsilon()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>tests that 2 floating point values are &quot;essentially equal&quot;</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inValue2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inEpsilon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="52" bodyend="59"/>
+        <references refid="namespacenc_1a4a45571b060fcb2c3e323fb8f8d7b00e" compoundref="_methods_8hpp" startline="967" endline="970">nc::abs</references>
+        <referencedby refid="classnc_1_1coordinates_1_1_r_a_1ab9e22496d5fdc265ee5a5d77ec97c184" compoundref="_coordinates_8hpp" startline="181" endline="184">nc::coordinates::RA::operator==</referencedby>
+        <referencedby refid="classnc_1_1coordinates_1_1_dec_1a5b264a9d7bb9b2c1b537b03a5eac7265" compoundref="_coordinates_8hpp" startline="367" endline="370">nc::coordinates::Dec::operator==</referencedby>
+        <referencedby refid="namespacenc_1_1image_processing_1a356989d12dda6e1b0748d22d50d4ecaa" compoundref="_image_processing_8hpp" startline="1295" endline="1384">nc::imageProcessing::generateThreshold</referencedby>
+        <referencedby refid="namespacenc_1a2cf08c4e457f7b13ce36325c5d72ab7e" compoundref="_methods_8hpp" startline="5863" endline="6035">nc::nanpercentile</referencedby>
+        <referencedby refid="namespacenc_1a70a98622a4f6890bd7794a3d6451561b" compoundref="_methods_8hpp" startline="6525" endline="6650">nc::percentile</referencedby>
+        <referencedby refid="classnc_1_1rotations_1_1_quaternion_1a314478702a3da52f2be3f422057d8732" compoundref="_rotations_8hpp" startline="362" endline="387">nc::rotations::Quaternion::nlerp</referencedby>
+        <referencedby refid="classnc_1_1rotations_1_1_quaternion_1a82f40acb2292256faffab2b88aa38208" compoundref="_rotations_8hpp" startline="626" endline="632">nc::rotations::Quaternion::operator==</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a084b547369a9345dde8a42ffd3d5576b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double nc::utils::interp</definition>
+        <argsstring>(dtype inValue1, dtype inValue2, double inPercent) noexcept</argsstring>
+        <name>interp</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue1</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inValue2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inPercent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the linear interpolation between two points</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inValue2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPercent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>linear interpolated point </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="148" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a2e3a14fbbce38b0f8710ea0d92ee2ffc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string nc::utils::num2str</definition>
+        <argsstring>(dtype inNumber) noexcept</argsstring>
+        <name>num2str</name>
+        <param>
+          <type>dtype</type>
+          <declname>inNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts the number into a string</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="69" bodyend="72"/>
+        <referencedby refid="classnc_1_1coordinates_1_1_r_a_1a37824a93eb9e0a02237d4e654040761b" compoundref="_coordinates_8hpp" startline="159" endline="164">nc::coordinates::RA::str</referencedby>
+        <referencedby refid="classnc_1_1coordinates_1_1_dec_1a91ddbec1fadfdcc049930dc439da4608" compoundref="_coordinates_8hpp" startline="344" endline="350">nc::coordinates::Dec::str</referencedby>
+        <referencedby refid="classnc_1_1image_processing_1_1_pixel_1ae47f279d2f0ba0921027e787e3773ee8" compoundref="_image_processing_8hpp" startline="226" endline="231">nc::imageProcessing::Pixel&lt; dtype &gt;::str</referencedby>
+        <referencedby refid="classnc_1_1image_processing_1_1_cluster_1aaa1ee55d0c47196847b8bb1a76258bd3" compoundref="_image_processing_8hpp" startline="571" endline="579">nc::imageProcessing::Cluster&lt; dtype &gt;::str</referencedby>
+        <referencedby refid="classnc_1_1image_processing_1_1_centroid_1aa39ae81638b8f7ed7b81d4476e2a6316" compoundref="_image_processing_8hpp" startline="1079" endline="1086">nc::imageProcessing::Centroid&lt; dtype &gt;::str</referencedby>
+        <referencedby refid="classnc_1_1_nd_array_1ae6c1faadee65ae35236c3551784cd5f1" compoundref="_nd_array_8hpp" startline="709" endline="722">nc::NdArray&lt; bool &gt;::at</referencedby>
+        <referencedby refid="classnc_1_1_nd_array_1a13e5756a193d375c0b52e5929a41ca2f" compoundref="_nd_array_8hpp" startline="1719" endline="1751">nc::NdArray&lt; bool &gt;::dot</referencedby>
+        <referencedby refid="classnc_1_1_nd_array_1afe2a5101c43fc9b3df55500364dfe477" compoundref="_nd_array_8hpp" startline="2399" endline="2449">nc::NdArray&lt; bool &gt;::partition</referencedby>
+        <referencedby refid="classnc_1_1_nd_array_1a597b9157af97d8be0d38403639aa4b02" compoundref="_nd_array_8hpp" startline="2957" endline="2969">nc::NdArray&lt; bool &gt;::reshape</referencedby>
+        <referencedby refid="classnc_1_1_nd_array_1ab2daa76c0c35263c3426a29c832a6149" compoundref="_nd_array_8hpp" startline="3318" endline="3341">nc::NdArray&lt; bool &gt;::str</referencedby>
+        <referencedby refid="classnc_1_1_poly1d_1a342131534c0d1324be479b6a41e76525" compoundref="_polynomial_8hpp" startline="70" endline="95">nc::Poly1d&lt; dtype &gt;::Poly1d</referencedby>
+        <referencedby refid="classnc_1_1_poly1d_1a16f1c9b8cddcfcf8999277d6446251e1" compoundref="_polynomial_8hpp" startline="128" endline="138">nc::Poly1d&lt; dtype &gt;::str</referencedby>
+        <referencedby refid="classnc_1_1rotations_1_1_quaternion_1ad03a97f148be61e687944af11fe45c99" compoundref="_rotations_8hpp" startline="525" endline="531">nc::rotations::Quaternion::str</referencedby>
+        <referencedby refid="classnc_1_1_shape_1a22ce97e4e960e7bc01ac5632e9ca719b" compoundref="_shape_8hpp" startline="125" endline="129">nc::Shape::str</referencedby>
+        <referencedby refid="classnc_1_1_slice_1a81dea6ea9f0d86337bf60e1bc291044a" compoundref="_slice_8hpp" startline="94" endline="98">nc::Slice::str</referencedby>
+        <referencedby refid="classnc_1_1_slice_1a4d518d51dad679d9a9c6938b065e38f8" compoundref="_slice_8hpp" startline="127" endline="177">nc::Slice::makePositiveAndValidate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a716a63ef8627c73f6cc4146481fcabdf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::utils::power</definition>
+        <argsstring>(dtype inValue, uint8 inPower) noexcept</argsstring>
+        <name>power</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <declname>inPower</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Raises the input value to an integer power</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPower</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>inValue raised to inPower </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="109" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="109" bodyend="122"/>
+        <referencedby refid="classnc_1_1_nd_array_1a3f1c7b94cf5f2b2beb961ef426e0e29f" compoundref="_nd_array_8hpp" startline="3142" endline="3159">nc::NdArray&lt; bool &gt;::round</referencedby>
+        <referencedby refid="classnc_1_1_poly1d_1a7eed4e24b0713965446130e44d2d30f4" compoundref="_polynomial_8hpp" startline="159" endline="169">nc::Poly1d&lt; dtype &gt;::operator()</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a740be01844f1a3a82547731eefbd067e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double nc::utils::powerf</definition>
+        <argsstring>(dtype inValue, double inPower) noexcept</argsstring>
+        <name>powerf</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inPower</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Raises the input value to a floating point power</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPower</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>inValue raised to inPower </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="133" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1aa83b87460956ee562b1ecaad9e0bb0f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::utils::sqr</definition>
+        <argsstring>(dtype inValue) noexcept</argsstring>
+        <name>sqr</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Squares in input value</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>squared value </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="82" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="82" bodyend="85"/>
+        <referencedby refid="namespacenc_1_1filter_1acb4710192adc0a359fc8e24410988fa3" compoundref="_filter_8hpp" startline="191" endline="197">nc::filter::gaussian</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a6b257d6e403f5f9003934a4fd1fb5feb" compoundref="_filter_8hpp" startline="880" endline="911">nc::filter::convolve</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a972e8e16448b6c4aab483b0e352d3e02" compoundref="_filter_8hpp" startline="1384" endline="1412">nc::filter::rankFilter</referencedby>
+        <referencedby refid="namespacenc_1abc8a093e9b2b3ec34bcb602c64976b60" compoundref="_methods_8hpp" startline="6135" endline="6213">nc::nanstdev</referencedby>
+        <referencedby refid="namespacenc_1a3d58d998049ad0356de1a6b8ad81c72d" compoundref="_methods_8hpp" startline="7833" endline="7836">nc::square</referencedby>
+        <referencedby refid="classnc_1_1_nd_array_1a9a8b5063ec64c9d0d9afdce057db77ea" compoundref="_nd_array_8hpp" startline="2308" endline="2360">nc::NdArray&lt; bool &gt;::norm</referencedby>
+        <referencedby refid="classnc_1_1_nd_array_1a6d2ac80b2f7b1fa818e33bd03d66a224" compoundref="_nd_array_8hpp" startline="3080" endline="3128">nc::NdArray&lt; bool &gt;::rms</referencedby>
+        <referencedby refid="classnc_1_1_nd_array_1a276df134adac8fb7304bc951ef639b45" compoundref="_nd_array_8hpp" startline="3254" endline="3309">nc::NdArray&lt; bool &gt;::stdev</referencedby>
+        <referencedby refid="classnc_1_1rotations_1_1_quaternion_1a3ba2fb2c68554ec78a0957dc1fd7752d" compoundref="_rotations_8hpp" startline="87" endline="94">nc::rotations::Quaternion::Quaternion</referencedby>
+        <referencedby refid="classnc_1_1rotations_1_1_quaternion_1a32d6c7cf2ff12d988e169fd936aaf397" compoundref="_rotations_8hpp" startline="540" endline="560">nc::rotations::Quaternion::toDCM</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module for basic utility funcions. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="41" column="1"/>
+  </compounddef>
+</doxygen>

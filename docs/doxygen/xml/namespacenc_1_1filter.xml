@@ -1,0 +1,2336 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacenc_1_1filter" kind="namespace" language="C++">
+    <compoundname>nc::filter</compoundname>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Boundary</name>
+        <enumvalue id="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" prot="public">
+          <name>REFLECT</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6a8d6b5cada83510220f59e00ce86d4d92" prot="public">
+          <name>CONSTANT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6aad135772d7cf93dd0ccf9d2474b34e6a" prot="public">
+          <name>NEAREST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6a72a92ae9c1d172cdda196686278fbfc6" prot="public">
+          <name>MIRROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0" prot="public">
+          <name>WRAP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Boundary condition to apply to the image filter. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="50" bodyend="50"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::addBoundary</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue=0)</argsstring>
+        <name>addBoundary</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inKernalSize</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wrap boundary</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inKernalSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="93" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="690" bodyend="729"/>
+        <references refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">REFLECT</references>
+        <references refid="namespacenc_1_1filter_1a668b6c63836542f26d963a619f5658d1" compoundref="_filter_8hpp" startline="269" endline="326">reflectBoundary</references>
+        <references refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6a8d6b5cada83510220f59e00ce86d4d92">CONSTANT</references>
+        <references refid="namespacenc_1_1filter_1af68e859c2c3de0e63a7de5d3c833e9ba" compoundref="_filter_8hpp" startline="366" endline="387">constantBoundary</references>
+        <references refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6aad135772d7cf93dd0ccf9d2474b34e6a">NEAREST</references>
+        <references refid="namespacenc_1_1filter_1a239ebb21f57cfb56544c4247eed568d3" compoundref="_filter_8hpp" startline="426" endline="465">nearestBoundary</references>
+        <references refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6a72a92ae9c1d172cdda196686278fbfc6">MIRROR</references>
+        <references refid="namespacenc_1_1filter_1a32195e6b62bfec9d92c1bbd50f34349f" compoundref="_filter_8hpp" startline="503" endline="560">mirrorBoundary</references>
+        <references refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0">WRAP</references>
+        <references refid="namespacenc_1_1filter_1a0eefb360788d364ffccc6b809c692bd9" compoundref="_filter_8hpp" startline="599" endline="650">wrapBoundary</references>
+        <referencedby refid="namespacenc_1_1filter_1a6b257d6e403f5f9003934a4fd1fb5feb" compoundref="_filter_8hpp" startline="880" endline="911">convolve</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a998f7c3ef568195b9281e3219f3f983e" compoundref="_filter_8hpp" startline="1092" endline="1115">maximumFilter</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a95757a16eed25316be6e6a5c9ca4156a" compoundref="_filter_8hpp" startline="1164" endline="1187">medianFilter</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1acb20cc1171cb1a4dd83b8f77de33a906" compoundref="_filter_8hpp" startline="1236" endline="1259">minimumFilter</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a08dada208b5d6ec6a1ebbac1825367cc" compoundref="_filter_8hpp" startline="1309" endline="1333">percentileFilter</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a972e8e16448b6c4aab483b0e352d3e02" compoundref="_filter_8hpp" startline="1384" endline="1412">rankFilter</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a6bebba3c4767e33ec5710cb24b1a9952" compoundref="_filter_8hpp" startline="1462" endline="1485">uniformFilter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::addBoundary1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue=0)</argsstring>
+        <name>addBoundary1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inKernalSize</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wrap boundary</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inKernalSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="96" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="743" bodyend="782"/>
+        <references refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df">REFLECT</references>
+        <references refid="namespacenc_1_1filter_1aee9c0973c07ffabdfd3fd92c3a182a90" compoundref="_filter_8hpp" startline="338" endline="353">reflectBoundary1d</references>
+        <references refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6a8d6b5cada83510220f59e00ce86d4d92">CONSTANT</references>
+        <references refid="namespacenc_1_1filter_1a9412ca408039db0ef03bb7c977f363cc" compoundref="_filter_8hpp" startline="400" endline="414">constantBoundary1d</references>
+        <references refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6aad135772d7cf93dd0ccf9d2474b34e6a">NEAREST</references>
+        <references refid="namespacenc_1_1filter_1a0dbad7f335cf620e347ccd0929c2bdfb" compoundref="_filter_8hpp" startline="477" endline="491">nearestBoundary1d</references>
+        <references refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6a72a92ae9c1d172cdda196686278fbfc6">MIRROR</references>
+        <references refid="namespacenc_1_1filter_1ab4e7bce587004f88fd6d69338c1524d3" compoundref="_filter_8hpp" startline="572" endline="587">mirrorBoundary1d</references>
+        <references refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0">WRAP</references>
+        <references refid="namespacenc_1_1filter_1ad3b7def57ca0a84025e13305e4f97387" compoundref="_filter_8hpp" startline="662" endline="676">wrapBoundary1d</references>
+        <referencedby refid="namespacenc_1_1filter_1a005c1e50b02c5eb7203e2e3d2d6ccc62" compoundref="_filter_8hpp" startline="927" endline="946">convolve1d</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a3a38656bef30277181e8377066a15849" compoundref="_filter_8hpp" startline="1131" endline="1148">maximumFilter1d</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1ab248bc3704fcde26c518a092724fd826" compoundref="_filter_8hpp" startline="1203" endline="1220">medianFilter1d</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a199c5c6c2c9b94f6f98f1a4b68f1fc75" compoundref="_filter_8hpp" startline="1275" endline="1292">minumumFilter1d</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1ae7265e1ffe92fe29523a541fa27a1611" compoundref="_filter_8hpp" startline="1350" endline="1367">percentileFilter1d</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a543f334070e494f6fba9a943a832415e" compoundref="_filter_8hpp" startline="1429" endline="1446">rankFilter1d</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1afcf603e5055c7bc01aed09067357e004" compoundref="_filter_8hpp" startline="1501" endline="1518">uniformFilter1d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a328e0d2fa1a5f472de162c4ee0e1f8e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::complementaryMedianFilter</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>complementaryMedianFilter</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a multidimensional complemenatry median filter.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>square size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="105" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="835" bodyend="842"/>
+        <references refid="namespacenc_1_1filter_1a95757a16eed25316be6e6a5c9ca4156a" compoundref="_filter_8hpp" startline="1164" endline="1187">medianFilter</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a3a525dfb96209c3163c95357f8d30b91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::complementaryMedianFilter1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>complementaryMedianFilter1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculate a one-dimensional complemenatry median filter.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>square size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="109" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="856" bodyend="863"/>
+        <references refid="namespacenc_1_1filter_1ab248bc3704fcde26c518a092724fd826" compoundref="_filter_8hpp" startline="1203" endline="1220">medianFilter1d</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1af68e859c2c3de0e63a7de5d3c833e9ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::constantBoundary</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, uint32 inBoundarySize, dtype inConstantValue=0)</argsstring>
+        <name>constantBoundary</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBoundarySize</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constant boundary</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundarySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="366" bodyend="387"/>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
+        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <references refid="namespacenc_1_1filter_1a4b11eab67d220d1a912057ddf9206449" compoundref="_filter_8hpp" startline="207" endline="228">fillCorners</references>
+        <referencedby refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a9412ca408039db0ef03bb7c977f363cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::constantBoundary1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, uint32 inBoundarySize, dtype inConstantValue=0)</argsstring>
+        <name>constantBoundary1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBoundarySize</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constant boundary1d</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundarySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="72" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="400" bodyend="414"/>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <referencedby refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a6b257d6e403f5f9003934a4fd1fb5feb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::convolve</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, const NdArray&lt; dtype &gt; &amp;inWeights, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>convolve</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inWeights</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a multidimensional kernel convolution.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html#scipy.ndimage.convolve">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve.html#scipy.ndimage.convolve</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>square size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inWeights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="113" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="880" bodyend="911"/>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="namespacenc_1_1utils_1aa83b87460956ee562b1ecaad9e0bb0f1" compoundref="_utils_8hpp" startline="82" endline="85">nc::utils::sqr</references>
+        <references refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</references>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="namespacenc_1afee9039247b1185f0d619017be3a6109" compoundref="_methods_8hpp" startline="7379" endline="7403">nc::rot90</references>
+        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
+        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
+        <references refid="classnc_1_1_nd_array_1a5169b9ad613ce03c7cb748b05e978028" compoundref="_nd_array_8hpp" startline="1834" endline="1839">nc::NdArray&lt; dtype &gt;::flatten</references>
+        <references refid="namespacenc_1a50b693e816ecaa711b09997abaacec9a" compoundref="_methods_8hpp" startline="3162" endline="3165">nc::dot</references>
+        <referencedby refid="namespacenc_1_1filter_1ad167f1f3b185f666c70d2e2dc9d21024" compoundref="_filter_8hpp" startline="962" endline="1004">gaussianFilter</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a03fcb2476bd35393869fb23167566f10" compoundref="_filter_8hpp" startline="1072" endline="1076">laplace</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a005c1e50b02c5eb7203e2e3d2d6ccc62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::convolve1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, const NdArray&lt; dtype &gt; &amp;inWeights, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>convolve1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inWeights</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a one-dimensional kernel convolution.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.convolve1d.html#scipy.ndimage.convolve1d</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inWeights</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="117" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="927" bodyend="946"/>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</references>
+        <references refid="namespacenc_1ad18044535b3dddd0d8ffd10ae41ac396" compoundref="_methods_8hpp" startline="3728" endline="3731">nc::fliplr</references>
+        <references refid="classnc_1_1_nd_array_1a5169b9ad613ce03c7cb748b05e978028" compoundref="_nd_array_8hpp" startline="1834" endline="1839">nc::NdArray&lt; dtype &gt;::flatten</references>
+        <references refid="namespacenc_1a50b693e816ecaa711b09997abaacec9a" compoundref="_methods_8hpp" startline="3162" endline="3165">nc::dot</references>
+        <referencedby refid="namespacenc_1_1filter_1a03cc5a48e29d6f25636789b65366f243" compoundref="_filter_8hpp" startline="1020" endline="1057">gaussianFilter1d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a4b11eab67d220d1a912057ddf9206449" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void nc::filter::fillCorners</definition>
+        <argsstring>(NdArray&lt; dtype &gt; &amp;inArray, uint32 inBorderWidth)</argsstring>
+        <name>fillCorners</name>
+        <param>
+          <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBorderWidth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>extends the corner values</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBorderWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="207" bodyend="228"/>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
+        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <referencedby refid="namespacenc_1_1filter_1af68e859c2c3de0e63a7de5d3c833e9ba" compoundref="_filter_8hpp" startline="366" endline="387">constantBoundary</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a239ebb21f57cfb56544c4247eed568d3" compoundref="_filter_8hpp" startline="426" endline="465">nearestBoundary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a551dbb36022e793d28635926402c8cd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void nc::filter::fillCorners</definition>
+        <argsstring>(NdArray&lt; dtype &gt; &amp;inArray, uint32 inBorderWidth, dtype inFillValue)</argsstring>
+        <name>fillCorners</name>
+        <param>
+          <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBorderWidth</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inFillValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>extends the corner values</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBorderWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inFillValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="239" bodyend="256"/>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
+        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1acb4710192adc0a359fc8e24410988fa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double nc::filter::gaussian</definition>
+        <argsstring>(dtype inX, dtype inY, double inSigma) noexcept</argsstring>
+        <name>gaussian</name>
+        <param>
+          <type>dtype</type>
+          <declname>inX</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inY</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inSigma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>samples a gaussian of mean zero and input STD sigma</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSigma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>dtype </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="191" bodyend="197"/>
+        <references refid="namespacenc_1_1utils_1aa83b87460956ee562b1ecaad9e0bb0f1" compoundref="_utils_8hpp" startline="82" endline="85">nc::utils::sqr</references>
+        <references refid="namespacenc_1ab138b681799463226a8ef60f87d30ac7" compoundref="_methods_8hpp" startline="3353" endline="3356">nc::exp</references>
+        <referencedby refid="namespacenc_1_1filter_1ad167f1f3b185f666c70d2e2dc9d21024" compoundref="_filter_8hpp" startline="962" endline="1004">gaussianFilter</referencedby>
+        <referencedby refid="namespacenc_1_1filter_1a03cc5a48e29d6f25636789b65366f243" compoundref="_filter_8hpp" startline="1020" endline="1057">gaussianFilter1d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1ad167f1f3b185f666c70d2e2dc9d21024" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::gaussianFilter</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, double inSigma, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>gaussianFilter</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inSigma</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a multidimensional gaussian filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.gaussian_filter.html#scipy.ndimage.gaussian_filter</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSigma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Standard deviation for Gaussian kernel </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="121" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="962" bodyend="1004"/>
+        <references refid="namespacenc_1aea39f46713d556f182a9cd82c9338113" compoundref="_methods_8hpp" startline="5330" endline="5333">nc::max</references>
+        <references refid="namespacenc_1a291189b2c2bc35a608b393ab1c06e84a" compoundref="_methods_8hpp" startline="2192" endline="2195">nc::ceil</references>
+        <references refid="namespacenc_1_1filter_1acb4710192adc0a359fc8e24410988fa3" compoundref="_filter_8hpp" startline="191" endline="197">gaussian</references>
+        <references refid="classnc_1_1_nd_array_1ab1dfe260680abf6a8cc4fdf56c1b15c2" compoundref="_nd_array_8hpp" startline="3354" endline="3392">nc::NdArray&lt; dtype &gt;::sum</references>
+        <references refid="classnc_1_1_nd_array_1a4f5da296a91f836fa7627fad29828117" compoundref="_nd_array_8hpp" startline="1892" endline="1904">nc::NdArray&lt; dtype &gt;::item</references>
+        <references refid="namespacenc_1_1filter_1a6b257d6e403f5f9003934a4fd1fb5feb" compoundref="_filter_8hpp" startline="880" endline="911">convolve</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a03cc5a48e29d6f25636789b65366f243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::gaussianFilter1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, double inSigma, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>gaussianFilter1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inSigma</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculate a one-dimensional gaussian filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.generic_filter1d.html#scipy.ndimage.generic_filter1d</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSigma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Standard deviation for Gaussian kernel </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="125" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1020" bodyend="1057"/>
+        <references refid="namespacenc_1aea39f46713d556f182a9cd82c9338113" compoundref="_methods_8hpp" startline="5330" endline="5333">nc::max</references>
+        <references refid="namespacenc_1a291189b2c2bc35a608b393ab1c06e84a" compoundref="_methods_8hpp" startline="2192" endline="2195">nc::ceil</references>
+        <references refid="namespacenc_1_1filter_1acb4710192adc0a359fc8e24410988fa3" compoundref="_filter_8hpp" startline="191" endline="197">gaussian</references>
+        <references refid="classnc_1_1_nd_array_1ab1dfe260680abf6a8cc4fdf56c1b15c2" compoundref="_nd_array_8hpp" startline="3354" endline="3392">nc::NdArray&lt; dtype &gt;::sum</references>
+        <references refid="classnc_1_1_nd_array_1a4f5da296a91f836fa7627fad29828117" compoundref="_nd_array_8hpp" startline="1892" endline="1904">nc::NdArray&lt; dtype &gt;::item</references>
+        <references refid="namespacenc_1_1filter_1a005c1e50b02c5eb7203e2e3d2d6ccc62" compoundref="_filter_8hpp" startline="927" endline="946">convolve1d</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a03fcb2476bd35393869fb23167566f10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::laplace</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>laplace</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculate the 2D laplace filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.laplace.html#scipy.ndimage.laplace">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.laplace.html#scipy.ndimage.laplace</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="129" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1072" bodyend="1076"/>
+        <references refid="namespacenc_1_1filter_1a6b257d6e403f5f9003934a4fd1fb5feb" compoundref="_filter_8hpp" startline="880" endline="911">convolve</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a998f7c3ef568195b9281e3219f3f983e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::maximumFilter</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>maximumFilter</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a multidimensional maximum filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter.html#scipy.ndimage.maximum_filter</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>square size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="133" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1092" bodyend="1115"/>
+        <references refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</references>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" compoundref="_nd_array_8hpp" startline="1917" endline="1954">nc::NdArray&lt; dtype &gt;::max</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a3a38656bef30277181e8377066a15849" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::maximumFilter1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>maximumFilter1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a one-dimensional maximum filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter1d.html#scipy.ndimage.maximum_filter1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.maximum_filter1d.html#scipy.ndimage.maximum_filter1d</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>linear size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="137" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1131" bodyend="1148"/>
+        <references refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</references>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" compoundref="_nd_array_8hpp" startline="1917" endline="1954">nc::NdArray&lt; dtype &gt;::max</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a95757a16eed25316be6e6a5c9ca4156a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::medianFilter</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>medianFilter</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a multidimensional median filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>square size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="141" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1164" bodyend="1187"/>
+        <references refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</references>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_nd_array_1a8c0907a69c368e28047f034ade0d3c24" compoundref="_nd_array_8hpp" startline="2070" endline="2117">nc::NdArray&lt; dtype &gt;::median</references>
+        <referencedby refid="namespacenc_1_1filter_1a328e0d2fa1a5f472de162c4ee0e1f8e4" compoundref="_filter_8hpp" startline="835" endline="842">complementaryMedianFilter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1ab248bc3704fcde26c518a092724fd826" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::medianFilter1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>medianFilter1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a one-dimensional median filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>linear size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="145" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1203" bodyend="1220"/>
+        <references refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</references>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="classnc_1_1_nd_array_1a8c0907a69c368e28047f034ade0d3c24" compoundref="_nd_array_8hpp" startline="2070" endline="2117">nc::NdArray&lt; dtype &gt;::median</references>
+        <referencedby refid="namespacenc_1_1filter_1a3a525dfb96209c3163c95357f8d30b91" compoundref="_filter_8hpp" startline="856" endline="863">complementaryMedianFilter1d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1acb20cc1171cb1a4dd83b8f77de33a906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::minimumFilter</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>minimumFilter</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a multidimensional minimum filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter.html#scipy.ndimage.minimum_filter</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>square size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="149" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1236" bodyend="1259"/>
+        <references refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</references>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_nd_array_1a7a863a1318f753addcf8163191085061" compoundref="_nd_array_8hpp" startline="1967" endline="2004">nc::NdArray&lt; dtype &gt;::min</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a199c5c6c2c9b94f6f98f1a4b68f1fc75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::minumumFilter1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>minumumFilter1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a one-dimensional minumum filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter1d.html#scipy.ndimage.minimum_filter1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.minimum_filter1d.html#scipy.ndimage.minimum_filter1d</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>linear size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="153" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1275" bodyend="1292"/>
+        <references refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</references>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="classnc_1_1_nd_array_1a7a863a1318f753addcf8163191085061" compoundref="_nd_array_8hpp" startline="1967" endline="2004">nc::NdArray&lt; dtype &gt;::min</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a32195e6b62bfec9d92c1bbd50f34349f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::mirrorBoundary</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, uint32 inBoundarySize)</argsstring>
+        <name>mirrorBoundary</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBoundarySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mirror boundary</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundarySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="81" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="503" bodyend="560"/>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
+        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <references refid="namespacenc_1a649f515cc6211ba022413fb3f59c3957" compoundref="_methods_8hpp" startline="3745" endline="3748">nc::flipud</references>
+        <referencedby refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1ab4e7bce587004f88fd6d69338c1524d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::mirrorBoundary1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, uint32 inBoundarySize)</argsstring>
+        <name>mirrorBoundary1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBoundarySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mirror boundary1d</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundarySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="84" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="572" bodyend="587"/>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <references refid="namespacenc_1ad18044535b3dddd0d8ffd10ae41ac396" compoundref="_methods_8hpp" startline="3728" endline="3731">nc::fliplr</references>
+        <referencedby refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a239ebb21f57cfb56544c4247eed568d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::nearestBoundary</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, uint32 inBoundarySize)</argsstring>
+        <name>nearestBoundary</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBoundarySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Nearest boundary</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundarySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="75" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="426" bodyend="465"/>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
+        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <references refid="namespacenc_1_1filter_1a4b11eab67d220d1a912057ddf9206449" compoundref="_filter_8hpp" startline="207" endline="228">fillCorners</references>
+        <referencedby refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a0dbad7f335cf620e347ccd0929c2bdfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::nearestBoundary1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, uint32 inBoundarySize)</argsstring>
+        <name>nearestBoundary1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBoundarySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Nearest boundary1d</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundarySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="78" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="477" bodyend="491"/>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <references refid="classnc_1_1_nd_array_1a5173e2d0a9fe983213193d8a4dfde21c" compoundref="_nd_array_8hpp" startline="1848" endline="1851">nc::NdArray&lt; dtype &gt;::front</references>
+        <references refid="classnc_1_1_nd_array_1a94c5752747b9b937c092632af9c7a7aa" compoundref="_nd_array_8hpp" startline="1357" endline="1360">nc::NdArray&lt; dtype &gt;::back</references>
+        <referencedby refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a08dada208b5d6ec6a1ebbac1825367cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::percentileFilter</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, uint8 inPercentile, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>percentileFilter</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <declname>inPercentile</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a multidimensional percentile filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>square size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPercentile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>percentile [0, 100] </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="157" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1309" bodyend="1333"/>
+        <references refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</references>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">nc::NONE</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1ae7265e1ffe92fe29523a541fa27a1611" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::percentileFilter1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, uint8 inPercentile, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>percentileFilter1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <declname>inPercentile</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a one-dimensional percentile filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.percentile_filter.html#scipy.ndimage.percentile_filter</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>linear size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPercentile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>percentile [0, 100] </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="161" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1350" bodyend="1367"/>
+        <references refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</references>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a972e8e16448b6c4aab483b0e352d3e02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::rankFilter</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, uint32 inRank, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>rankFilter</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inRank</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a multidimensional rank filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>square size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inRank</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>([0, inSize^2 - 1]) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="165" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1384" bodyend="1412"/>
+        <references refid="namespacenc_1_1utils_1aa83b87460956ee562b1ecaad9e0bb0f1" compoundref="_utils_8hpp" startline="82" endline="85">nc::utils::sqr</references>
+        <references refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</references>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="namespacenc_1ab3e511ec0e360b85ecbb2879f29fc829" compoundref="_methods_8hpp" startline="7775" endline="7780">nc::sort</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a543f334070e494f6fba9a943a832415e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::rankFilter1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, uint8 inRank, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>rankFilter1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <declname>inRank</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a one-dimensional rank filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.rank_filter.html#scipy.ndimage.rank_filter</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>linear size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inRank</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>([0, inSize^2 - 1]) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="169" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1429" bodyend="1446"/>
+        <references refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</references>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="namespacenc_1ab3e511ec0e360b85ecbb2879f29fc829" compoundref="_methods_8hpp" startline="7775" endline="7780">nc::sort</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a668b6c63836542f26d963a619f5658d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::reflectBoundary</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, uint32 inBoundarySize)</argsstring>
+        <name>reflectBoundary</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBoundarySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reflects the boundaries</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundarySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="63" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="269" bodyend="326"/>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
+        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <references refid="namespacenc_1a649f515cc6211ba022413fb3f59c3957" compoundref="_methods_8hpp" startline="3745" endline="3748">nc::flipud</references>
+        <referencedby refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1aee9c0973c07ffabdfd3fd92c3a182a90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::reflectBoundary1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, uint32 inBoundarySize)</argsstring>
+        <name>reflectBoundary1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBoundarySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reflects the boundaries</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundarySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="338" bodyend="353"/>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <references refid="namespacenc_1ad18044535b3dddd0d8ffd10ae41ac396" compoundref="_methods_8hpp" startline="3728" endline="3731">nc::fliplr</references>
+        <referencedby refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a6492a5b4779e713e9c3adb6091d6a063" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::trimBoundary</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageWithBoundary, uint32 inSize)</argsstring>
+        <name>trimBoundary</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageWithBoundary</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>trims the boundary off to make the image back to the original size</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageWithBoundary</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="99" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="794" bodyend="803"/>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
+        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a83d1ec752c3eb5e785f87daaa090d318" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::trimBoundary1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageWithBoundary, uint32 inSize)</argsstring>
+        <name>trimBoundary1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageWithBoundary</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>trims the boundary off to make the image back to the original size</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageWithBoundary</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="102" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="815" bodyend="821"/>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a6bebba3c4767e33ec5710cb24b1a9952" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::uniformFilter</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>uniformFilter</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a multidimensional uniform filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter.html#scipy.ndimage.uniform_filter</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>square size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="173" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1462" bodyend="1485"/>
+        <references refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</references>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_nd_array_1a6e6476097ba788402df110a2a3e8e12a" compoundref="_nd_array_8hpp" startline="2017" endline="2058">nc::NdArray&lt; dtype &gt;::mean</references>
+        <references refid="classnc_1_1_nd_array_1a4f5da296a91f836fa7627fad29828117" compoundref="_nd_array_8hpp" startline="1892" endline="1904">nc::NdArray&lt; dtype &gt;::item</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1afcf603e5055c7bc01aed09067357e004" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::uniformFilter1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, uint32 inSize, Boundary inBoundaryType=Boundary::REFLECT, dtype inConstantValue=0)</argsstring>
+        <name>uniformFilter1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inSize</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kindref="member">Boundary</ref></type>
+          <declname>inBoundaryType</declname>
+          <defval><ref refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae4f6a05f82ed398f984f4bc1a55838df" kindref="member">Boundary::REFLECT</ref></defval>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inConstantValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a one-dimensional uniform filter.</para><para>SciPy Reference: <ulink url="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.uniform_filter1d.html#scipy.ndimage.uniform_filter1d</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>linear size of the kernel to apply </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundaryType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>boundary mode (default Reflect) options (reflect, constant, nearest, mirror, wrap) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inConstantValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contant value if boundary = &apos;constant&apos; (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="177" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="1501" bodyend="1518"/>
+        <references refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</references>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="classnc_1_1_nd_array_1a6e6476097ba788402df110a2a3e8e12a" compoundref="_nd_array_8hpp" startline="2017" endline="2058">nc::NdArray&lt; dtype &gt;::mean</references>
+        <references refid="classnc_1_1_nd_array_1a4f5da296a91f836fa7627fad29828117" compoundref="_nd_array_8hpp" startline="1892" endline="1904">nc::NdArray&lt; dtype &gt;::item</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1a0eefb360788d364ffccc6b809c692bd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::wrapBoundary</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, uint32 inBoundarySize)</argsstring>
+        <name>wrapBoundary</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBoundarySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wrap boundary</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundarySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="87" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="599" bodyend="650"/>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
+        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <referencedby refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" compoundref="_filter_8hpp" startline="690" endline="729">addBoundary</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1filter_1ad3b7def57ca0a84025e13305e4f97387" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt; dtype &gt; nc::filter::wrapBoundary1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImage, uint32 inBoundarySize)</argsstring>
+        <name>wrapBoundary1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImage</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inBoundarySize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Wrap boundary1d</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBoundarySize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="90" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" bodystart="662" bodyend="676"/>
+        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
+        <references refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" compoundref="_nd_array_8hpp" startline="2577" endline="2582">nc::NdArray&lt; dtype &gt;::put</references>
+        <referencedby refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" compoundref="_filter_8hpp" startline="743" endline="782">addBoundary1d</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Image and signal filtering. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Filter.hpp" line="46" column="1"/>
+  </compounddef>
+</doxygen>

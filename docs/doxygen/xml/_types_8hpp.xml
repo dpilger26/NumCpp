@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_types_8hpp" kind="file" language="C++">
+    <compoundname>Types.hpp</compoundname>
+    <includes local="no">cstdint</includes>
+    <includedby refid="_constants_8hpp" local="yes">Constants.hpp</includedby>
+    <includedby refid="_coordinates_8hpp" local="yes">Coordinates.hpp</includedby>
+    <includedby refid="_data_cube_8hpp" local="yes">DataCube.hpp</includedby>
+    <includedby refid="_f_f_t_8hpp" local="yes">FFT.hpp</includedby>
+    <includedby refid="_filter_8hpp" local="yes">Filter.hpp</includedby>
+    <includedby refid="_image_processing_8hpp" local="yes">ImageProcessing.hpp</includedby>
+    <includedby refid="_linalg_8hpp" local="yes">Linalg.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
+    <includedby refid="_nd_array_8hpp" local="yes">NdArray.hpp</includedby>
+    <includedby refid="_polynomial_8hpp" local="yes">Polynomial.hpp</includedby>
+    <includedby refid="_random_8hpp" local="yes">Random.hpp</includedby>
+    <includedby refid="_rotations_8hpp" local="yes">Rotations.hpp</includedby>
+    <includedby refid="_shape_8hpp" local="yes">Shape.hpp</includedby>
+    <includedby refid="_slice_8hpp" local="yes">Slice.hpp</includedby>
+    <includedby refid="_num_cpp_8hpp" local="yes">NumCpp.hpp</includedby>
+    <includedby refid="_boost_numpy_ndarray_helper_8hpp" local="yes">BoostNumpyNdarrayHelper.hpp</includedby>
+    <incdepgraph>
+      <node id="590">
+        <label>Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="591" relation="include">
+        </childnode>
+      </node>
+      <node id="591">
+        <label>cstdint</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="595">
+        <label>Methods.hpp</label>
+        <link refid="_methods_8hpp"/>
+        <childnode refid="596" relation="include">
+        </childnode>
+        <childnode refid="597" relation="include">
+        </childnode>
+        <childnode refid="598" relation="include">
+        </childnode>
+        <childnode refid="599" relation="include">
+        </childnode>
+        <childnode refid="594" relation="include">
+        </childnode>
+        <childnode refid="601" relation="include">
+        </childnode>
+        <childnode refid="600" relation="include">
+        </childnode>
+      </node>
+      <node id="592">
+        <label>Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="593" relation="include">
+        </childnode>
+        <childnode refid="596" relation="include">
+        </childnode>
+        <childnode refid="603" relation="include">
+        </childnode>
+        <childnode refid="604" relation="include">
+        </childnode>
+        <childnode refid="597" relation="include">
+        </childnode>
+        <childnode refid="598" relation="include">
+        </childnode>
+        <childnode refid="599" relation="include">
+        </childnode>
+        <childnode refid="595" relation="include">
+        </childnode>
+        <childnode refid="602" relation="include">
+        </childnode>
+        <childnode refid="605" relation="include">
+        </childnode>
+        <childnode refid="601" relation="include">
+        </childnode>
+        <childnode refid="600" relation="include">
+        </childnode>
+        <childnode refid="607" relation="include">
+        </childnode>
+        <childnode refid="608" relation="include">
+        </childnode>
+        <childnode refid="594" relation="include">
+        </childnode>
+        <childnode refid="609" relation="include">
+        </childnode>
+      </node>
+      <node id="600">
+        <label>Rotations.hpp</label>
+        <link refid="_rotations_8hpp"/>
+        <childnode refid="594" relation="include">
+        </childnode>
+      </node>
+      <node id="607">
+        <label>Shape.hpp</label>
+        <link refid="_shape_8hpp"/>
+        <childnode refid="599" relation="include">
+        </childnode>
+        <childnode refid="602" relation="include">
+        </childnode>
+        <childnode refid="601" relation="include">
+        </childnode>
+        <childnode refid="594" relation="include">
+        </childnode>
+        <childnode refid="606" relation="include">
+        </childnode>
+      </node>
+      <node id="597">
+        <label>Filter.hpp</label>
+        <link refid="_filter_8hpp"/>
+        <childnode refid="594" relation="include">
+        </childnode>
+      </node>
+      <node id="598">
+        <label>ImageProcessing.hpp</label>
+        <link refid="_image_processing_8hpp"/>
+        <childnode refid="594" relation="include">
+        </childnode>
+      </node>
+      <node id="605">
+        <label>Polynomial.hpp</label>
+        <link refid="_polynomial_8hpp"/>
+        <childnode refid="595" relation="include">
+        </childnode>
+        <childnode refid="594" relation="include">
+        </childnode>
+      </node>
+      <node id="606">
+        <label>PythonInterface.hpp</label>
+        <link refid="_python_interface_8hpp"/>
+        <childnode refid="594" relation="include">
+        </childnode>
+      </node>
+      <node id="593">
+        <label>Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="594" relation="include">
+        </childnode>
+        <childnode refid="595" relation="include">
+        </childnode>
+        <childnode refid="602" relation="include">
+        </childnode>
+      </node>
+      <node id="599">
+        <label>Linalg.hpp</label>
+        <link refid="_linalg_8hpp"/>
+        <childnode refid="594" relation="include">
+        </childnode>
+        <childnode refid="600" relation="include">
+        </childnode>
+      </node>
+      <node id="603">
+        <label>DataCube.hpp</label>
+        <link refid="_data_cube_8hpp"/>
+        <childnode refid="594" relation="include">
+        </childnode>
+      </node>
+      <node id="609">
+        <label>BoostNumpyNdarrayHelper.hpp</label>
+        <link refid="_boost_numpy_ndarray_helper_8hpp"/>
+        <childnode refid="606" relation="include">
+        </childnode>
+      </node>
+      <node id="602">
+        <label>NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="596" relation="include">
+        </childnode>
+        <childnode refid="603" relation="include">
+        </childnode>
+        <childnode refid="604" relation="include">
+        </childnode>
+        <childnode refid="597" relation="include">
+        </childnode>
+        <childnode refid="598" relation="include">
+        </childnode>
+        <childnode refid="599" relation="include">
+        </childnode>
+        <childnode refid="595" relation="include">
+        </childnode>
+        <childnode refid="594" relation="include">
+        </childnode>
+        <childnode refid="605" relation="include">
+        </childnode>
+        <childnode refid="601" relation="include">
+        </childnode>
+        <childnode refid="600" relation="include">
+        </childnode>
+        <childnode refid="606" relation="include">
+        </childnode>
+      </node>
+      <node id="604">
+        <label>FFT.hpp</label>
+        <link refid="_f_f_t_8hpp"/>
+        <childnode refid="594" relation="include">
+        </childnode>
+      </node>
+      <node id="608">
+        <label>Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="602" relation="include">
+        </childnode>
+        <childnode refid="594" relation="include">
+        </childnode>
+      </node>
+      <node id="596">
+        <label>Coordinates.hpp</label>
+        <link refid="_coordinates_8hpp"/>
+        <childnode refid="594" relation="include">
+        </childnode>
+      </node>
+      <node id="594">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="601">
+        <label>Random.hpp</label>
+        <link refid="_random_8hpp"/>
+        <childnode refid="594" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacenc">nc</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.0</para></simplesect>
+</para><sect1 id="_utils_8hpp_1License">
+<title>License</title>
+<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<sect1 id="_utils_8hpp_1Description">
+<title>Description</title>
+<para>Usefull types </para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//====================================Typedefs====================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="namespacenc_1a84c132684426d342ab833e05286fea3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int64_t<sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a84c132684426d342ab833e05286fea3b" kindref="member">int64</ref>;</highlight></codeline>
+<codeline lineno="37" refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int32_t<sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref>;</highlight></codeline>
+<codeline lineno="38" refid="namespacenc_1a7ef41205a09ddd32ee926953ad8145c1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int16_t<sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a7ef41205a09ddd32ee926953ad8145c1" kindref="member">int16</ref>;</highlight></codeline>
+<codeline lineno="39" refid="namespacenc_1a0002211f73639f83890a15f3e9ba0fba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>int8_t<sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a0002211f73639f83890a15f3e9ba0fba" kindref="member">int8</ref>;</highlight></codeline>
+<codeline lineno="40" refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint64_t<sp/><sp/><sp/><sp/><ref refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kindref="member">uint64</ref>;</highlight></codeline>
+<codeline lineno="41" refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint32_t<sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref>;</highlight></codeline>
+<codeline lineno="42" refid="namespacenc_1a58dcfca0b29c16ffb4ca118b2a1cb399" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint16_t<sp/><sp/><sp/><sp/><ref refid="namespacenc_1a58dcfca0b29c16ffb4ca118b2a1cb399" kindref="member">uint16</ref>;</highlight></codeline>
+<codeline lineno="43" refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//================================================================================</highlight></codeline>
+<codeline lineno="47" refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84" kindref="member">Axis</ref><sp/>{<sp/><ref refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693" kindref="member">NONE</ref><sp/>=<sp/>0,<sp/><ref refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7" kindref="member">ROW</ref>,<sp/><ref refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84aa44a065875f5d66d41474bb9bfb0ce05" kindref="member">COL</ref><sp/>};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//================================================================================</highlight></codeline>
+<codeline lineno="51" refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152" kindref="member">Endian</ref><sp/>{<sp/><ref refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152af78504d96ba7177dc0c6784905ac8743" kindref="member">NATIVE</ref><sp/>=<sp/>0,<sp/><ref refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152aa60c6c694491d75b439073b8cb05b139" kindref="member">BIG</ref>,<sp/><ref refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152a1314341b466dcb5e2c880b76414c49fe" kindref="member">LITTLE</ref><sp/>};</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Types.hpp"/>
+  </compounddef>
+</doxygen>

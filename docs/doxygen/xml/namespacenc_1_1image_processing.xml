@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacenc_1_1image_processing" kind="namespace" language="C++">
+    <compoundname>nc::imageProcessing</compoundname>
+    <innerclass refid="classnc_1_1image_processing_1_1_centroid" prot="public">nc::imageProcessing::Centroid</innerclass>
+    <innerclass refid="classnc_1_1image_processing_1_1_cluster" prot="public">nc::imageProcessing::Cluster</innerclass>
+    <innerclass refid="classnc_1_1image_processing_1_1_cluster_maker" prot="public">nc::imageProcessing::ClusterMaker</innerclass>
+    <innerclass refid="classnc_1_1image_processing_1_1_pixel" prot="public">nc::imageProcessing::Pixel</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1a7a12116f72c16ad1c65560da87d708f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
+        <definition>NdArray&lt; bool &gt; nc::imageProcessing::applyThreshold</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, dtype inThreshold) noexcept</argsstring>
+        <name>applyThreshold</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inThreshold</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies a threshold to an image</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inThreshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> of booleans of pixels that exceeded the threshold </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1163" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1189" bodyend="1192"/>
+        <referencedby refid="namespacenc_1_1image_processing_1ae77f0e4be503e5773e7f4a9915c2972e" compoundref="_image_processing_8hpp" startline="1245" endline="1281">generateCentroids</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1adc4af12032e170cd22a36a802cca789e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_centroid" kindref="compound">Centroid</ref>&lt; dtype &gt; &gt;</type>
+        <definition>std::vector&lt; Centroid&lt; dtype &gt; &gt; nc::imageProcessing::centroidClusters</definition>
+        <argsstring>(const std::vector&lt; Cluster&lt; dtype &gt; &gt; &amp;inClusters) noexcept</argsstring>
+        <name>centroidClusters</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_cluster" kindref="compound">Cluster</ref>&lt; dtype &gt; &gt; &amp;</type>
+          <declname>inClusters</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Center of Mass centroids clusters</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inClusters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;Centroid&gt; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1166" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1203" bodyend="1213"/>
+        <referencedby refid="namespacenc_1_1image_processing_1ae77f0e4be503e5773e7f4a9915c2972e" compoundref="_image_processing_8hpp" startline="1245" endline="1281">generateCentroids</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1aef086af8befb6a2129a0572eb11605f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_cluster" kindref="compound">Cluster</ref>&lt; dtype &gt; &gt;</type>
+        <definition>std::vector&lt; Cluster&lt; dtype &gt; &gt; nc::imageProcessing::clusterPixels</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, const NdArray&lt; bool &gt; &amp;inExceedances, uint8 inBorderWidth=0)</argsstring>
+        <name>clusterPixels</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt; &amp;</type>
+          <declname>inExceedances</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <declname>inBorderWidth</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clusters exceedance pixels from an image</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inExceedances</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBorderWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>border to apply around exceedance pixels post clustering (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;Cluster&gt; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1169" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1226" bodyend="1230"/>
+        <references refid="classnc_1_1image_processing_1_1_cluster_maker_1a37c172d7253190e76b065ed2547c3020" compoundref="_image_processing_8hpp" startline="919" endline="922">nc::imageProcessing::ClusterMaker&lt; dtype &gt;::begin</references>
+        <references refid="classnc_1_1image_processing_1_1_cluster_maker_1a7d5ceccddb2db3b143c772ec9d66460a" compoundref="_image_processing_8hpp" startline="931" endline="934">nc::imageProcessing::ClusterMaker&lt; dtype &gt;::end</references>
+        <referencedby refid="namespacenc_1_1image_processing_1ae77f0e4be503e5773e7f4a9915c2972e" compoundref="_image_processing_8hpp" startline="1245" endline="1281">generateCentroids</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1ae77f0e4be503e5773e7f4a9915c2972e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_centroid" kindref="compound">Centroid</ref>&lt; dtype &gt; &gt;</type>
+        <definition>std::vector&lt; Centroid&lt; dtype &gt; &gt; nc::imageProcessing::generateCentroids</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth=0)</argsstring>
+        <name>generateCentroids</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inRate</declname>
+        </param>
+        <param>
+          <type>const std::string</type>
+          <declname>inWindowType</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <declname>inBorderWidth</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a list of centroids givin an input exceedance rate</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inRate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>exceedance rate </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inWindowType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(string &quot;pre&quot;, or &quot;post&quot; for where to apply the exceedance windowing) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBorderWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>border to apply (default 0) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;Centroid&gt; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1172" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1245" bodyend="1281"/>
+        <references refid="namespacenc_1_1image_processing_1a356989d12dda6e1b0748d22d50d4ecaa" compoundref="_image_processing_8hpp" startline="1295" endline="1384">generateThreshold</references>
+        <references refid="namespacenc_1_1image_processing_1a7a12116f72c16ad1c65560da87d708f1" compoundref="_image_processing_8hpp" startline="1189" endline="1192">applyThreshold</references>
+        <references refid="namespacenc_1_1image_processing_1a6613333b700d2e8c41f1a60505bc9715" compoundref="_image_processing_8hpp" startline="1395" endline="1424">windowExceedances</references>
+        <references refid="namespacenc_1_1image_processing_1aef086af8befb6a2129a0572eb11605f5" compoundref="_image_processing_8hpp" startline="1226" endline="1230">clusterPixels</references>
+        <references refid="namespacenc_1_1image_processing_1adc4af12032e170cd22a36a802cca789e" compoundref="_image_processing_8hpp" startline="1203" endline="1213">centroidClusters</references>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1a356989d12dda6e1b0748d22d50d4ecaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::imageProcessing::generateThreshold</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, double inRate)</argsstring>
+        <name>generateThreshold</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inImageArray</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inRate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Calculates a threshold such that the input rate of pixels exceeds the threshold. Really should only be used for integer input array values. If using floating point data, user beware...</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inImageArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inRate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>dtype </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1175" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1295" bodyend="1384"/>
+        <references refid="namespacenc_1a832da7fc615ea4e1da7bed94a4488ea6" compoundref="_methods_8hpp" startline="3762" endline="3765">nc::floor</references>
+        <references refid="classnc_1_1_nd_array_1a7a863a1318f753addcf8163191085061" compoundref="_nd_array_8hpp" startline="1967" endline="2004">nc::NdArray&lt; dtype &gt;::min</references>
+        <references refid="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" compoundref="_nd_array_8hpp" startline="1917" endline="1954">nc::NdArray&lt; dtype &gt;::max</references>
+        <references refid="namespacenc_1_1utils_1ab8f33a7e18654f6870deaa8f9c038195" compoundref="_utils_8hpp" startline="52" endline="59">nc::utils::essentiallyEqual</references>
+        <references refid="namespacenc_1a49ca5ca0de10a6321946fb1f41e39ed3" compoundref="_methods_8hpp" startline="4373" endline="4422">nc::histogram</references>
+        <referencedby refid="namespacenc_1_1image_processing_1ae77f0e4be503e5773e7f4a9915c2972e" compoundref="_image_processing_8hpp" startline="1245" endline="1281">generateCentroids</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1a6613333b700d2e8c41f1a60505bc9715" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
+        <definition>NdArray&lt; bool &gt; nc::imageProcessing::windowExceedances</definition>
+        <argsstring>(const NdArray&lt; bool &gt; &amp;inExceedances, uint8 inBorderWidth) noexcept</argsstring>
+        <name>windowExceedances</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt; &amp;</type>
+          <declname>inExceedances</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <declname>inBorderWidth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Window expand around exceedance pixels</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inExceedances</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inBorderWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;bool&gt;</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1177" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1395" bodyend="1424"/>
+        <references refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" compoundref="_nd_array_8hpp" startline="3183" endline="3186">nc::NdArray&lt; dtype &gt;::shape</references>
+        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
+        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
+        <references refid="namespacenc_1aea39f46713d556f182a9cd82c9338113" compoundref="_methods_8hpp" startline="5330" endline="5333">nc::max</references>
+        <referencedby refid="namespacenc_1_1image_processing_1ae77f0e4be503e5773e7f4a9915c2972e" compoundref="_image_processing_8hpp" startline="1245" endline="1281">generateCentroids</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class for basic image processing. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="51" column="1"/>
+  </compounddef>
+</doxygen>
