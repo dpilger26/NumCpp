@@ -2572,6 +2572,16 @@ namespace LinalgInterface
 
 namespace RotationsInterface
 {
+    np::ndarray angleAxisRotationNdArray(const NdArray<double>& inAxis, double inAngle)
+    {
+        return nc2Boost(rotations::Quaternion::angleAxisRotation(inAxis, inAngle).toNdArray());
+    }
+
+    np::ndarray angleAxisRotationVec3(const NdArray<double>& inAxis, double inAngle)
+    {
+        return nc2Boost(rotations::Quaternion::angleAxisRotation(Vec3(inAxis), inAngle).toNdArray());
+    }
+
     np::ndarray angularVelocity(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inTime)
     {
         return nc2Boost(inQuat1.angularVelocity(inQuat2, inTime));
@@ -2580,6 +2590,16 @@ namespace RotationsInterface
     np::ndarray nlerp(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inPercent)
     {
         return nc2Boost(inQuat1.nlerp(inQuat2, inPercent).toNdArray());
+    }
+
+    np::ndarray rotateNdArray(const rotations::Quaternion& inQuat, const NdArray<double>& inVec)
+    {
+        return nc2Boost(inQuat.rotate(inVec));
+    }
+
+    np::ndarray rotateVec3(const rotations::Quaternion& inQuat, const NdArray<double>& inVec)
+    {
+        return nc2Boost(inQuat.rotate(Vec3(inVec)).toNdArray());
     }
 
     np::ndarray slerp(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inPercent)
@@ -2598,8 +2618,7 @@ namespace RotationsInterface
         return nc2Boost(returnQuat.toNdArray());
     }
 
-    template<typename dtype>
-    np::ndarray multiplyArray(const rotations::Quaternion& inQuat, const NdArray<dtype>& inArray)
+    np::ndarray multiplyArray(const rotations::Quaternion& inQuat, const NdArray<double>& inArray)
     {
         NdArray<double> returnArray = inQuat * inArray;
         return nc2Boost(returnArray);
@@ -2609,6 +2628,16 @@ namespace RotationsInterface
     {
         const rotations::Quaternion returnQuat = inQuat1 * inQuat2;
         return nc2Boost(returnQuat.toNdArray());
+    }
+
+    np::ndarray angleAxisRotationDcmNdArray(const NdArray<double>& inAxis, double inAngle)
+    {
+        return nc2Boost(rotations::DCM::angleAxisRotation(inAxis, inAngle));
+    }
+
+    np::ndarray angleAxisRotationDcmVec3(const NdArray<double>& inAxis, double inAngle)
+    {
+        return nc2Boost(rotations::DCM::angleAxisRotation(Vec3(inAxis), inAngle));
     }
 }
 
@@ -3399,7 +3428,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         ("Quaternion", bp::init<>())
         .def(bp::init<double, double, double, double>())
         .def(bp::init<NdArray<double> >())
-        .def("angleAxisRotation", &rotations::Quaternion::angleAxisRotation<double>).staticmethod("angleAxisRotation")
+        .def("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationNdArray).staticmethod("angleAxisRotationNdArray")
+        .def("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationVec3).staticmethod("angleAxisRotationVec3")
         .def("angularVelocity", &RotationsInterface::angularVelocity)
         .def("conjugate", &rotations::Quaternion::conjugate)
         .def("i", &rotations::Quaternion::i)
@@ -3407,13 +3437,12 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("inverse", &rotations::Quaternion::inverse)
         .def("j", &rotations::Quaternion::j)
         .def("k", &rotations::Quaternion::k)
-        .def("fromDCM", &rotations::Quaternion::fromDCM<double>).staticmethod("fromDCM")
-        .def("nlerp", &RotationsInterface::nlerp)
+        .def("fromDCM", &rotations::Quaternion::fromDCM).staticmethod("fromDCM")
         .def("nlerp", &RotationsInterface::nlerp)
         .def("print", &rotations::Quaternion::print)
-        .def("rotate", &rotations::Quaternion::rotate<double>)
+        .def("rotateNdArray", &RotationsInterface::rotateNdArray)
+        .def("rotateVec3", &RotationsInterface::rotateVec3)
         .def("s", &rotations::Quaternion::s)
-        .def("slerp", &RotationsInterface::slerp)
         .def("slerp", &RotationsInterface::slerp)
         .def("toDCM", &RotationsInterface::toDCM)
         .def("toNdArray", &rotations::Quaternion::toNdArray)
@@ -3426,18 +3455,18 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__sub__", &rotations::Quaternion::operator-)
         .def("__mul__", &RotationsInterface::multiplyScaler)
         .def("__mul__", &RotationsInterface::multiplyQuaternion)
-        .def("__mul__", &RotationsInterface::multiplyArray<double>)
+        .def("__mul__", &RotationsInterface::multiplyArray)
         .def("__truediv__", &rotations::Quaternion::operator/)
         .def("__str__", &rotations::Quaternion::str);
 
-    typedef rotations::DCM<double> DCMDouble;
-    bp::class_<DCMDouble>
+    bp::class_<rotations::DCM>
         ("DCM", bp::init<>())
-        .def("angleAxisRotation", &DCMDouble::angleAxisRotation).staticmethod("angleAxisRotation")
-        .def("isValid", &DCMDouble::isValid).staticmethod("isValid")
-        .def("xRotation", &DCMDouble::xRotation).staticmethod("xRotation")
-        .def("yRotation", &DCMDouble::yRotation).staticmethod("yRotation")
-        .def("zRotation", &DCMDouble::zRotation).staticmethod("zRotation");
+        .def("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationDcmNdArray).staticmethod("angleAxisRotationNdArray")
+        .def("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationDcmVec3).staticmethod("angleAxisRotationVec3")
+        .def("isValid", &rotations::DCM::isValid).staticmethod("isValid")
+        .def("xRotation", &rotations::DCM::xRotation).staticmethod("xRotation")
+        .def("yRotation", &rotations::DCM::yRotation).staticmethod("yRotation")
+        .def("zRotation", &rotations::DCM::zRotation).staticmethod("zRotation");
 
     // Filters.hpp
     bp::enum_<filter::Boundary>("Mode")

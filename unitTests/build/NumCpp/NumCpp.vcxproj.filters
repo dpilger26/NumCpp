@@ -16,6 +16,9 @@
     <Filter Include="Header Files\NumCpp">
       <UniqueIdentifier>{153afb87-5c04-4b4f-af9c-6f757719681b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\NumCpp\Vector">
+      <UniqueIdentifier>{49aa777d-1c1f-4fee-a1b9-d7216cb44de8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\NumCpp.hpp">
@@ -83,6 +86,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\NumCpp\Vector.hpp">
       <Filter>Header Files\NumCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NumCpp\Vector\Vec2.hpp">
+      <Filter>Header Files\NumCpp\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NumCpp\Vector\Vec3.hpp">
+      <Filter>Header Files\NumCpp\Vector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
