@@ -2715,6 +2715,52 @@ namespace RandomInterface
     }
 }
 
+namespace Vec2Interface
+{
+    Vec2& plusEqualScaler(Vec2& self, double scaler)
+    {
+        return self += scaler;
+    }
+
+    Vec2& plusEqualVec2(Vec2& self, const Vec2& rhs)
+    {
+        return self += rhs;
+    }
+
+    Vec2& minusEqualScaler(Vec2& self, double scaler)
+    {
+        return self -= scaler;
+    }
+
+    Vec2& minusEqualVec2(Vec2& self, const Vec2& rhs)
+    {
+        return self -= rhs;
+    }
+}
+
+namespace Vec3Interface
+{
+    Vec3& plusEqualScaler(Vec3& self, double scaler)
+    {
+        return self += scaler;
+    }
+
+    Vec3& plusEqualVec3(Vec3& self, const Vec3& rhs)
+    {
+        return self += rhs;
+    }
+
+    Vec3& minusEqualScaler(Vec3& self, double scaler)
+    {
+        return self -= scaler;
+    }
+
+    Vec3& minusEqualVec3(Vec3& self, const Vec3& rhs)
+    {
+        return self -= rhs;
+    }
+}
+
 //================================================================================
 
 BOOST_PYTHON_MODULE(NumCpp)
@@ -3661,4 +3707,68 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__imul__", &Poly1d::operator*=, bp::return_internal_reference<>())
         .def("__pow__", &Poly1d::operator^)
         .def("__ipow__", &Poly1d::operator^=, bp::return_internal_reference<>());
+
+    // Vec2.hpp
+    bp::class_<Vec2>
+        ("Vec2", bp::init<>())
+        .def(bp::init<double, double>())
+        .def(bp::init<NdArray<double> >())
+        .def_readwrite("x", &Vec2::x)
+        .def_readwrite("y", &Vec2::y)
+        .def("angle", &Vec2::angle)
+        .def("clampMagnitude", &Vec2::clampMagnitude)
+        .def("distance", &Vec2::distance)
+        .def("dot", &Vec2::dot)
+        .def("down", &Vec2::down).staticmethod("down")
+        .def("left", &Vec2::left).staticmethod("left")
+        .def("lerp", &Vec2::lerp)
+        .def("norm", &Vec2::norm)
+        .def("normalize", &Vec2::normalize)
+        .def("project", &Vec2::project)
+        .def("right", &Vec2::right).staticmethod("right")
+        .def("__str__", &Vec2::toString)
+        .def("toNdArray", &Vec2::toNdArray)
+        .def("up", &Vec2::up).staticmethod("up")
+        .def("__eq__", &Vec2::operator==)
+        .def("__ne__", &Vec2::operator!=)
+        .def("__iadd__", &Vec2Interface::plusEqualScaler, bp::return_internal_reference<>())
+        .def("__iadd__", &Vec2Interface::plusEqualVec2, bp::return_internal_reference<>())
+        .def("__isub__", &Vec2Interface::minusEqualVec2, bp::return_internal_reference<>())
+        .def("__isub__", &Vec2Interface::minusEqualScaler, bp::return_internal_reference<>())
+        .def("__imul__", &Vec2::operator*=, bp::return_internal_reference<>())
+        .def("__idiv__", &Vec2::operator/=, bp::return_internal_reference<>());
+
+    // Vec3.hpp
+    bp::class_<Vec3>
+        ("Vec3", bp::init<>())
+        .def(bp::init<double, double, double>())
+        .def(bp::init<NdArray<double> >())
+        .def_readwrite("x", &Vec3::x)
+        .def_readwrite("y", &Vec3::y)
+        .def_readwrite("z", &Vec3::z)
+        .def("angle", &Vec3::angle)
+        .def("back", &Vec3::back).staticmethod("back")
+        .def("clampMagnitude", &Vec3::clampMagnitude)
+        .def("cross", &Vec3::cross)
+        .def("distance", &Vec3::distance)
+        .def("dot", &Vec3::dot)
+        .def("down", &Vec3::down).staticmethod("down")
+        .def("forward", &Vec3::forward).staticmethod("forward")
+        .def("left", &Vec3::left).staticmethod("left")
+        .def("lerp", &Vec3::lerp)
+        .def("norm", &Vec3::norm)
+        .def("normalize", &Vec3::normalize)
+        .def("project", &Vec3::project)
+        .def("right", &Vec3::right).staticmethod("right")
+        .def("__str__", &Vec3::toString)
+        .def("toNdArray", &Vec3::toNdArray)
+        .def("up", &Vec3::up).staticmethod("up")
+        .def("__eq__", &Vec3::operator==)
+        .def("__ne__", &Vec3::operator!=)
+        .def("__iadd__", &Vec3Interface::plusEqualScaler, bp::return_internal_reference<>())
+        .def("__iadd__", &Vec3Interface::plusEqualVec3, bp::return_internal_reference<>())
+        .def("__isub__", &Vec3Interface::minusEqualScaler, bp::return_internal_reference<>())
+        .def("__isub__", &Vec3Interface::minusEqualVec3, bp::return_internal_reference<>())
+        .def("__imul__", &Vec3::operator*=, bp::return_internal_reference<>())
+        .def("__idiv__", &Vec3::operator/=, bp::return_internal_reference<>());
 }
