@@ -8,6 +8,8 @@ else:
     sys.path.append(r'../build/x64/Release')
 import NumCpp
 
+DECIMALS_TO_ROUND = 9
+
 
 ####################################################################################
 def doTest():
@@ -53,8 +55,160 @@ def testVec2():
     vec2_2py = vectormath.Vector2(*components2)
     vec2_1cpp = NumCpp.Vec2(*components1)
     vec2_2cpp = NumCpp.Vec2(*components2)
+    if (round(vec2_1py.angle(vec2_2py), DECIMALS_TO_ROUND) ==
+            round(vec2_1cpp.angle(vec2_2cpp), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
-    if vec2_1py.angle(vec2_2py) == vec2_1cpp.angle(vec2_2cpp):
+    print(colored('Testing up', 'cyan'))
+    vec2 = NumCpp.Vec2.up()
+    if vec2.x == 0 and vec2.y == 1:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing down', 'cyan'))
+    vec2 = NumCpp.Vec2.down()
+    if vec2.x == 0 and vec2.y == -1:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing right', 'cyan'))
+    vec2 = NumCpp.Vec2.right()
+    if vec2.x == 1 and vec2.y == 0:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing down', 'cyan'))
+    vec2 = NumCpp.Vec2.left()
+    if vec2.x == -1 and vec2.y == -0:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing dot', 'cyan'))
+    components1 = np.random.rand(2)
+    components2 = np.random.rand(2)
+    vec2_1py = vectormath.Vector2(*components1)
+    vec2_2py = vectormath.Vector2(*components2)
+    vec2_1cpp = NumCpp.Vec2(*components1)
+    vec2_2cpp = NumCpp.Vec2(*components2)
+    if (round(vec2_1py.dot(vec2_2py), DECIMALS_TO_ROUND) ==
+            round(vec2_1cpp.dot(vec2_2cpp), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing norm', 'cyan'))
+    components = np.random.rand(2)
+    vec2py = vectormath.Vector2(*components)
+    vec2cpp = NumCpp.Vec2(*components)
+    if (round(vec2py.length, DECIMALS_TO_ROUND) ==
+            round(vec2cpp.norm(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing normalize', 'cyan'))
+    components = np.random.rand(2)
+    vec2py = vectormath.Vector2(*components)
+    vec2cpp = NumCpp.Vec2(*components)
+    if np.array_equal(np.round(vec2py.normalize(), DECIMALS_TO_ROUND),
+                      np.round(vec2cpp.normalize().toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator==', 'cyan'))
+    components = np.random.rand(2)
+    vec2_1cpp = NumCpp.Vec2(*components)
+    vec2_2cpp = NumCpp.Vec2(*components)
+    if vec2_1cpp == vec2_2cpp:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator!=', 'cyan'))
+    if not (vec2_1cpp != vec2_2cpp):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator+= Vec2', 'cyan'))
+    components1 = np.random.rand(2)
+    components2 = np.random.rand(2)
+    vec2_1py = vectormath.Vector2(*components1)
+    vec2_2py = vectormath.Vector2(*components2)
+    vec2_1cpp = NumCpp.Vec2(*components1)
+    vec2_2cpp = NumCpp.Vec2(*components2)
+    vec2_1cpp += vec2_2cpp
+    if np.array_equal(np.round(vec2_1py + vec2_2py, DECIMALS_TO_ROUND),
+                      np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator+= scaler', 'cyan'))
+    components1 = np.random.rand(2)
+    scaler = np.random.rand(1).item()
+    vec2_1py = vectormath.Vector2(*components1)
+    vec2_1cpp = NumCpp.Vec2(*components1)
+    vec2_1cpp += scaler
+    if np.array_equal(np.round(vec2_1py + scaler, DECIMALS_TO_ROUND),
+                      np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator-=', 'cyan'))
+    components1 = np.random.rand(2)
+    components2 = np.random.rand(2)
+    vec2_1py = vectormath.Vector2(*components1)
+    vec2_2py = vectormath.Vector2(*components2)
+    vec2_1cpp = NumCpp.Vec2(*components1)
+    vec2_2cpp = NumCpp.Vec2(*components2)
+    vec2_1cpp -= vec2_2cpp
+    if np.array_equal(np.round(vec2_1py - vec2_2py, DECIMALS_TO_ROUND),
+                      np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator-= scaler', 'cyan'))
+    components1 = np.random.rand(2)
+    scaler = np.random.rand(1).item()
+    vec2_1py = vectormath.Vector2(*components1)
+    vec2_1cpp = NumCpp.Vec2(*components1)
+    vec2_1cpp -= scaler
+    if np.array_equal(np.round(vec2_1py - scaler, DECIMALS_TO_ROUND),
+                      np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator*=', 'cyan'))
+    components1 = np.random.rand(2)
+    scaler = np.random.rand(1).item()
+    vec2_1py = vectormath.Vector2(*components1)
+    vec2_1cpp = NumCpp.Vec2(*components1)
+    vec2_1cpp *= scaler
+    if np.array_equal(np.round(vec2_1py * scaler, DECIMALS_TO_ROUND),
+                      np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator/=', 'cyan'))
+    components1 = np.random.rand(2)
+    scaler = np.random.rand(1).item()
+    vec2_1py = vectormath.Vector2(*components1)
+    vec2_1cpp = NumCpp.Vec2(*components1)
+    vec2_1cpp /= scaler
+    if np.array_equal(np.round(vec2_1py / scaler, DECIMALS_TO_ROUND),
+                      np.round(vec2_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -62,7 +216,7 @@ def testVec2():
 
 ####################################################################################
 def testVec3():
-    print(colored('Testing Vec2 Class', 'magenta'))
+    print(colored('Testing Vec3 Class', 'magenta'))
 
     print(colored('Testing Default Constructor', 'cyan'))
     NumCpp.Vec3()
@@ -98,8 +252,187 @@ def testVec3():
     vec3_2py = vectormath.Vector3(*components2)
     vec3_1cpp = NumCpp.Vec3(*components1)
     vec3_2cpp = NumCpp.Vec3(*components2)
+    if (round(vec3_1py.angle(vec3_2py), DECIMALS_TO_ROUND) ==
+            round(vec3_1cpp.angle(vec3_2cpp), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
-    if vec3_1py.angle(vec3_2py) == vec3_1cpp.angle(vec3_2cpp):
+    print(colored('Testing up', 'cyan'))
+    vec3 = NumCpp.Vec3.up()
+    if vec3.x == 0 and vec3.y == 1 and vec3.z == 0:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing down', 'cyan'))
+    vec3 = NumCpp.Vec3.down()
+    if vec3.x == 0 and vec3.y == -1 and vec3.z == 0:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing right', 'cyan'))
+    vec3 = NumCpp.Vec3.right()
+    if vec3.x == 1 and vec3.y == 0 and vec3.z == 0:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing down', 'cyan'))
+    vec3 = NumCpp.Vec3.left()
+    if vec3.x == -1 and vec3.y == -0 and vec3.z == 0:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing forward', 'cyan'))
+    vec3 = NumCpp.Vec3.forward()
+    if vec3.x == 0 and vec3.y == 0 and vec3.z == 1:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing back', 'cyan'))
+    vec3 = NumCpp.Vec3.back()
+    if vec3.x == 0 and vec3.y == -0 and vec3.z == -1:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing dot', 'cyan'))
+    components1 = np.random.rand(3)
+    components2 = np.random.rand(3)
+    vec3_1py = vectormath.Vector3(*components1)
+    vec3_2py = vectormath.Vector3(*components2)
+    vec3_1cpp = NumCpp.Vec3(*components1)
+    vec3_2cpp = NumCpp.Vec3(*components2)
+    if (round(vec3_1py.dot(vec3_2py), DECIMALS_TO_ROUND) ==
+            round(vec3_1cpp.dot(vec3_2cpp), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing cross', 'cyan'))
+    components1 = np.random.rand(3)
+    components2 = np.random.rand(3)
+    vec3_1py = vectormath.Vector3(*components1)
+    vec3_2py = vectormath.Vector3(*components2)
+    vec3_1cpp = NumCpp.Vec3(*components1)
+    vec3_2cpp = NumCpp.Vec3(*components2)
+    if np.array_equal(np.round(vec3_1py.cross(vec3_2py), DECIMALS_TO_ROUND),
+                      np.round(vec3_1cpp.cross(vec3_2cpp).toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing norm', 'cyan'))
+    components = np.random.rand(3)
+    vec3py = vectormath.Vector3(*components)
+    vec3cpp = NumCpp.Vec3(*components)
+    if (round(vec3py.length, DECIMALS_TO_ROUND) ==
+            round(vec3cpp.norm(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing normalize', 'cyan'))
+    components = np.random.rand(3)
+    vec3py = vectormath.Vector3(*components)
+    vec3cpp = NumCpp.Vec3(*components)
+    if np.array_equal(np.round(vec3py.normalize(), DECIMALS_TO_ROUND),
+                      np.round(vec3cpp.normalize().toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator==', 'cyan'))
+    components = np.random.rand(3)
+    vec3_1cpp = NumCpp.Vec3(*components)
+    vec3_2cpp = NumCpp.Vec3(*components)
+    if vec3_1cpp == vec3_2cpp:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator!=', 'cyan'))
+    if not (vec3_1cpp != vec3_2cpp):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator+= Vec3', 'cyan'))
+    components1 = np.random.rand(3)
+    components2 = np.random.rand(3)
+    vec3_1py = vectormath.Vector3(*components1)
+    vec3_2py = vectormath.Vector3(*components2)
+    vec3_1cpp = NumCpp.Vec3(*components1)
+    vec3_2cpp = NumCpp.Vec3(*components2)
+    vec3_1cpp += vec3_2cpp
+    if np.array_equal(np.round(vec3_1py + vec3_2py, DECIMALS_TO_ROUND),
+                      np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator+= scaler', 'cyan'))
+    components1 = np.random.rand(3)
+    scaler = np.random.rand(1).item()
+    vec3_1py = vectormath.Vector3(*components1)
+    vec3_1cpp = NumCpp.Vec3(*components1)
+    vec3_1cpp += scaler
+    if np.array_equal(np.round(vec3_1py + scaler, DECIMALS_TO_ROUND),
+                      np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator-=', 'cyan'))
+    components1 = np.random.rand(3)
+    components2 = np.random.rand(3)
+    vec3_1py = vectormath.Vector3(*components1)
+    vec3_2py = vectormath.Vector3(*components2)
+    vec3_1cpp = NumCpp.Vec3(*components1)
+    vec3_2cpp = NumCpp.Vec3(*components2)
+    vec3_1cpp -= vec3_2cpp
+    if np.array_equal(np.round(vec3_1py - vec3_2py, DECIMALS_TO_ROUND),
+                      np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator-= scaler', 'cyan'))
+    components1 = np.random.rand(3)
+    scaler = np.random.rand(1).item()
+    vec3_1py = vectormath.Vector3(*components1)
+    vec3_1cpp = NumCpp.Vec3(*components1)
+    vec3_1cpp -= scaler
+    if np.array_equal(np.round(vec3_1py - scaler, DECIMALS_TO_ROUND),
+                      np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator*=', 'cyan'))
+    components1 = np.random.rand(3)
+    scaler = np.random.rand(1).item()
+    vec3_1py = vectormath.Vector3(*components1)
+    vec3_1cpp = NumCpp.Vec3(*components1)
+    vec3_1cpp *= scaler
+    if np.array_equal(np.round(vec3_1py * scaler, DECIMALS_TO_ROUND),
+                      np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing operator/=', 'cyan'))
+    components1 = np.random.rand(3)
+    scaler = np.random.rand(1).item()
+    vec3_1py = vectormath.Vector3(*components1)
+    vec3_1cpp = NumCpp.Vec3(*components1)
+    vec3_1cpp /= scaler
+    if np.array_equal(np.round(vec3_1py / scaler, DECIMALS_TO_ROUND),
+                      np.round(vec3_1cpp.toNdArray().flatten(), DECIMALS_TO_ROUND)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

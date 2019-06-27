@@ -2717,6 +2717,11 @@ namespace RandomInterface
 
 namespace Vec2Interface
 {
+    np::ndarray toNdArray(const Vec2& self)
+    {
+        return nc2Boost(self.toNdArray());
+    }
+
     Vec2& plusEqualScaler(Vec2& self, double scaler)
     {
         return self += scaler;
@@ -2736,10 +2741,70 @@ namespace Vec2Interface
     {
         return self -= rhs;
     }
+
+    Vec2 addVec2(const Vec2& vec1, const Vec2& vec2)
+    {
+        return vec1 + vec2;
+    }
+
+    Vec2 addVec2Scaler(const Vec2& vec1, double scaler)
+    {
+        return vec1 + scaler;
+    }
+
+    Vec2 addScalerVec2(const Vec2& vec1, double scaler)
+    {
+        return vec1 + scaler;
+    }
+
+    Vec2 minusVec2(const Vec2& vec1, const Vec2& vec2)
+    {
+        return vec1 - vec2;
+    }
+
+    Vec2 minusVec2Scaler(const Vec2& vec1, double scaler)
+    {
+        return vec1 - scaler;
+    }
+
+    Vec2 minusScalerVec2(const Vec2& vec1, double scaler)
+    {
+        return vec1 - scaler;
+    }
+
+    Vec2 multVec2Scaler(const Vec2& vec1, double scaler)
+    {
+        return vec1 * scaler;
+    }
+
+    Vec2 multScalerVec2(const Vec2& vec1, double scaler)
+    {
+        return vec1 * scaler;
+    }
+
+    np::ndarray multVec2NdArray(const Vec2& vec, np::ndarray ndArray)
+    {
+        return nc2Boost(vec * boost2Nc<double>(ndArray));
+    }
+
+    np::ndarray multNdArrayVec2(np::ndarray ndArray, const Vec2& vec)
+    {
+        return nc2Boost(boost2Nc<double>(ndArray) * vec);
+    }
+
+    Vec2 divVec2Scaler(const Vec2& vec1, double scaler)
+    {
+        return vec1 / scaler;
+    }
 }
 
 namespace Vec3Interface
 {
+    np::ndarray toNdArray(const Vec3& self)
+    {
+        return nc2Boost(self.toNdArray());
+    }
+
     Vec3& plusEqualScaler(Vec3& self, double scaler)
     {
         return self += scaler;
@@ -2758,6 +2823,61 @@ namespace Vec3Interface
     Vec3& minusEqualVec3(Vec3& self, const Vec3& rhs)
     {
         return self -= rhs;
+    }
+
+    Vec3 addVec3(const Vec3& vec1, const Vec3& vec2)
+    {
+        return vec1 + vec2;
+    }
+
+    Vec3 addVec3Scaler(const Vec3& vec1, double scaler)
+    {
+        return vec1 + scaler;
+    }
+
+    Vec3 addScalerVec3(const Vec3& vec1, double scaler)
+    {
+        return vec1 + scaler;
+    }
+
+    Vec3 minusVec3(const Vec3& vec1, const Vec3& vec2)
+    {
+        return vec1 - vec2;
+    }
+
+    Vec3 minusVec3Scaler(const Vec3& vec1, double scaler)
+    {
+        return vec1 - scaler;
+    }
+
+    Vec3 minusScalerVec3(const Vec3& vec1, double scaler)
+    {
+        return vec1 - scaler;
+    }
+
+    Vec3 multVec3Scaler(const Vec3& vec1, double scaler)
+    {
+        return vec1 * scaler;
+    }
+
+    Vec3 multScalerVec3(const Vec3& vec1, double scaler)
+    {
+        return vec1 * scaler;
+    }
+
+    np::ndarray multVec3NdArray(const Vec3& vec, np::ndarray ndArray)
+    {
+        return nc2Boost(vec * boost2Nc<double>(ndArray));
+    }
+
+    np::ndarray multNdArrayVec3(np::ndarray ndArray, const Vec3& vec)
+    {
+        return nc2Boost(boost2Nc<double>(ndArray) * vec);
+    }
+
+    Vec3 divVec3Scaler(const Vec3& vec1, double scaler)
+    {
+        return vec1 / scaler;
     }
 }
 
@@ -3727,7 +3847,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("project", &Vec2::project)
         .def("right", &Vec2::right).staticmethod("right")
         .def("__str__", &Vec2::toString)
-        .def("toNdArray", &Vec2::toNdArray)
+        .def("toNdArray", &Vec2Interface::toNdArray)
         .def("up", &Vec2::up).staticmethod("up")
         .def("__eq__", &Vec2::operator==)
         .def("__ne__", &Vec2::operator!=)
@@ -3736,7 +3856,19 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__isub__", &Vec2Interface::minusEqualVec2, bp::return_internal_reference<>())
         .def("__isub__", &Vec2Interface::minusEqualScaler, bp::return_internal_reference<>())
         .def("__imul__", &Vec2::operator*=, bp::return_internal_reference<>())
-        .def("__idiv__", &Vec2::operator/=, bp::return_internal_reference<>());
+        .def("__itruediv__", &Vec2::operator/=, bp::return_internal_reference<>());
+
+    bp::def("Vec2_addVec2", &Vec2Interface::addVec2);
+    bp::def("Vec2_addVec2Scaler", &Vec2Interface::addVec2Scaler);
+    bp::def("Vec2_addScalerVec2", &Vec2Interface::addScalerVec2);
+    bp::def("Vec2_minusVec2", &Vec2Interface::minusVec2);
+    bp::def("Vec2_minusVec2Scaler", &Vec2Interface::minusVec2Scaler);
+    bp::def("Vec2_minusScalerVec2", &Vec2Interface::minusScalerVec2);
+    bp::def("Vec2_multVec2Scaler", &Vec2Interface::multVec2Scaler);
+    bp::def("Vec2_multScalerVec2", &Vec2Interface::multScalerVec2);
+    bp::def("Vec2_multVec2NdArray", &Vec2Interface::multVec2NdArray);
+    bp::def("Vec2_multNdArrayVec2", &Vec2Interface::multNdArrayVec2);
+    bp::def("Vec2_divVec2Scaler", &Vec2Interface::divVec2Scaler);
 
     // Vec3.hpp
     bp::class_<Vec3>
@@ -3761,7 +3893,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("project", &Vec3::project)
         .def("right", &Vec3::right).staticmethod("right")
         .def("__str__", &Vec3::toString)
-        .def("toNdArray", &Vec3::toNdArray)
+        .def("toNdArray", &Vec3Interface::toNdArray)
         .def("up", &Vec3::up).staticmethod("up")
         .def("__eq__", &Vec3::operator==)
         .def("__ne__", &Vec3::operator!=)
@@ -3770,5 +3902,17 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__isub__", &Vec3Interface::minusEqualScaler, bp::return_internal_reference<>())
         .def("__isub__", &Vec3Interface::minusEqualVec3, bp::return_internal_reference<>())
         .def("__imul__", &Vec3::operator*=, bp::return_internal_reference<>())
-        .def("__idiv__", &Vec3::operator/=, bp::return_internal_reference<>());
+        .def("__itruediv__", &Vec3::operator/=, bp::return_internal_reference<>());
+
+    bp::def("Vec3_addVec3", &Vec3Interface::addVec3);
+    bp::def("Vec3_addVec3Scaler", &Vec3Interface::addVec3Scaler);
+    bp::def("Vec3_addScalerVec3", &Vec3Interface::addScalerVec3);
+    bp::def("Vec3_minusVec3", &Vec3Interface::minusVec3);
+    bp::def("Vec3_minusVec3Scaler", &Vec3Interface::minusVec3Scaler);
+    bp::def("Vec3_minusScalerVec3", &Vec3Interface::minusScalerVec3);
+    bp::def("Vec3_multVec3Scaler", &Vec3Interface::multVec3Scaler);
+    bp::def("Vec3_multScalerVec3", &Vec3Interface::multScalerVec3);
+    bp::def("Vec3_multVec3NdArray", &Vec3Interface::multVec3NdArray);
+    bp::def("Vec3_multNdArrayVec3", &Vec3Interface::multNdArrayVec3);
+    bp::def("Vec3_divVec3Scaler", &Vec3Interface::divVec3Scaler);
 }
