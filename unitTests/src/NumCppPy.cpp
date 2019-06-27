@@ -2754,7 +2754,7 @@ namespace Vec2Interface
 
     Vec2 addScalerVec2(const Vec2& vec1, double scaler)
     {
-        return vec1 + scaler;
+        return scaler + vec1;
     }
 
     Vec2 minusVec2(const Vec2& vec1, const Vec2& vec2)
@@ -2769,7 +2769,7 @@ namespace Vec2Interface
 
     Vec2 minusScalerVec2(const Vec2& vec1, double scaler)
     {
-        return vec1 - scaler;
+        return scaler - vec1;
     }
 
     Vec2 multVec2Scaler(const Vec2& vec1, double scaler)
@@ -2779,17 +2779,17 @@ namespace Vec2Interface
 
     Vec2 multScalerVec2(const Vec2& vec1, double scaler)
     {
-        return vec1 * scaler;
+        return scaler * vec1;
     }
 
-    np::ndarray multVec2NdArray(const Vec2& vec, np::ndarray ndArray)
+    double multVec2NdArray(const Vec2& vec, np::ndarray ndArray)
     {
-        return nc2Boost(vec * boost2Nc<double>(ndArray));
+        return vec * boost2Nc<double>(ndArray);
     }
 
-    np::ndarray multNdArrayVec2(np::ndarray ndArray, const Vec2& vec)
+    double multNdArrayVec2(np::ndarray ndArray, const Vec2& vec)
     {
-        return nc2Boost(boost2Nc<double>(ndArray) * vec);
+        return boost2Nc<double>(ndArray) * vec;
     }
 
     Vec2 divVec2Scaler(const Vec2& vec1, double scaler)
@@ -2852,7 +2852,7 @@ namespace Vec3Interface
 
     Vec3 minusScalerVec3(const Vec3& vec1, double scaler)
     {
-        return vec1 - scaler;
+        return scaler - vec1;
     }
 
     Vec3 multVec3Scaler(const Vec3& vec1, double scaler)
@@ -2865,14 +2865,14 @@ namespace Vec3Interface
         return vec1 * scaler;
     }
 
-    np::ndarray multVec3NdArray(const Vec3& vec, np::ndarray ndArray)
+    double multVec3NdArray(const Vec3& vec, np::ndarray ndArray)
     {
-        return nc2Boost(vec * boost2Nc<double>(ndArray));
+        return vec * boost2Nc<double>(ndArray);
     }
 
-    np::ndarray multNdArrayVec3(np::ndarray ndArray, const Vec3& vec)
+    double multNdArrayVec3(np::ndarray ndArray, const Vec3& vec)
     {
-        return nc2Boost(boost2Nc<double>(ndArray) * vec);
+        return boost2Nc<double>(ndArray) * vec;
     }
 
     Vec3 divVec3Scaler(const Vec3& vec1, double scaler)

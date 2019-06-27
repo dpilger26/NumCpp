@@ -543,9 +543,9 @@ namespace nc
     /// @param      ndArray
     /// @return     NdArray
     ///				
-    inline NdArray<double> operator*(const Vec2& vec, const NdArray<double>& ndArray)
+    inline double operator*(const Vec2& vec, const NdArray<double>& ndArray)
     {
-        return vec.toNdArray().dot(ndArray);
+        return vec.toNdArray().flatten().dot(ndArray.flatten()).item();
     }
 
     //============================================================================
@@ -556,9 +556,9 @@ namespace nc
     /// @param      vec
     /// @return     NdArray
     ///				
-    inline NdArray<double> operator*(const NdArray<double>& ndArray, const Vec2& vec)
+    inline double operator*(const NdArray<double>& ndArray, const Vec2& vec)
     {
-        return ndArray.dot(vec.toNdArray());
+        return ndArray.flatten().dot(vec.toNdArray().flatten()).item();
     }
 
     //============================================================================
