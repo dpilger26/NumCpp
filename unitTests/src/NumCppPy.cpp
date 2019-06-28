@@ -2782,16 +2782,6 @@ namespace Vec2Interface
         return scaler * vec1;
     }
 
-    double multVec2NdArray(const Vec2& vec, np::ndarray ndArray)
-    {
-        return vec * boost2Nc<double>(ndArray);
-    }
-
-    double multNdArrayVec2(np::ndarray ndArray, const Vec2& vec)
-    {
-        return boost2Nc<double>(ndArray) * vec;
-    }
-
     Vec2 divVec2Scaler(const Vec2& vec1, double scaler)
     {
         return vec1 / scaler;
@@ -2868,16 +2858,6 @@ namespace Vec3Interface
     Vec3 multScalerVec3(const Vec3& vec1, double scaler)
     {
         return vec1 * scaler;
-    }
-
-    double multVec3NdArray(const Vec3& vec, np::ndarray ndArray)
-    {
-        return vec * boost2Nc<double>(ndArray);
-    }
-
-    double multNdArrayVec3(np::ndarray ndArray, const Vec3& vec)
-    {
-        return boost2Nc<double>(ndArray) * vec;
     }
 
     Vec3 divVec3Scaler(const Vec3& vec1, double scaler)
@@ -3876,8 +3856,6 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("Vec2_minusScalerVec2", &Vec2Interface::minusScalerVec2);
     bp::def("Vec2_multVec2Scaler", &Vec2Interface::multVec2Scaler);
     bp::def("Vec2_multScalerVec2", &Vec2Interface::multScalerVec2);
-    bp::def("Vec2_multVec2NdArray", &Vec2Interface::multVec2NdArray);
-    bp::def("Vec2_multNdArrayVec2", &Vec2Interface::multNdArrayVec2);
     bp::def("Vec2_divVec2Scaler", &Vec2Interface::divVec2Scaler);
     bp::def("Vec2_print", &Vec2Interface::print);
 
@@ -3923,8 +3901,6 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("Vec3_minusScalerVec3", &Vec3Interface::minusScalerVec3);
     bp::def("Vec3_multVec3Scaler", &Vec3Interface::multVec3Scaler);
     bp::def("Vec3_multScalerVec3", &Vec3Interface::multScalerVec3);
-    bp::def("Vec3_multVec3NdArray", &Vec3Interface::multVec3NdArray);
-    bp::def("Vec3_multNdArrayVec3", &Vec3Interface::multNdArrayVec3);
     bp::def("Vec3_divVec3Scaler", &Vec3Interface::divVec3Scaler);
     bp::def("Vec3_print", &Vec3Interface::print);
 }

@@ -335,30 +335,6 @@ def testVec2():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing operator* NdArray', 'cyan'))
-    components1 = np.random.rand(2)
-    components2 = np.random.rand(2)
-    vec2_1py = vectormath.Vector2(*components1)
-    vec2_2py = vectormath.Vector2(*components2)
-    vec2_1cpp = NumCpp.Vec2(*components1)
-    if (round(vec2_1py.dot(vec2_2py), DECIMALS_TO_ROUND) ==
-            round(NumCpp.Vec2_multVec2NdArray(vec2_1cpp, components2), DECIMALS_TO_ROUND)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
-    print(colored('Testing NdArray operator* Vec2', 'cyan'))
-    components1 = np.random.rand(2)
-    components2 = np.random.rand(2)
-    vec2_1py = vectormath.Vector2(*components1)
-    vec2_2py = vectormath.Vector2(*components2)
-    vec2_1cpp = NumCpp.Vec2(*components1)
-    if (round(vec2_1py.dot(vec2_2py), DECIMALS_TO_ROUND) ==
-            round(NumCpp.Vec2_multNdArrayVec2(components2, vec2_1cpp), DECIMALS_TO_ROUND)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
     print(colored('Testing operator/ scaler', 'cyan'))
     components = np.random.rand(2)
     scaler = np.random.rand(1).item()
@@ -716,30 +692,6 @@ def testVec3():
     if np.array_equal(np.round(vec3py * scaler, DECIMALS_TO_ROUND),
                       np.round((NumCpp.Vec3_multScalerVec3(vec3cpp, scaler)).toNdArray().flatten(),
                                DECIMALS_TO_ROUND)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
-    print(colored('Testing operator* NdArray', 'cyan'))
-    components1 = np.random.rand(3)
-    components2 = np.random.rand(3)
-    vec3_1py = vectormath.Vector3(*components1)
-    vec3_2py = vectormath.Vector3(*components2)
-    vec3_1cpp = NumCpp.Vec3(*components1)
-    if (round(vec3_1py.dot(vec3_2py), DECIMALS_TO_ROUND) ==
-            round(NumCpp.Vec3_multVec3NdArray(vec3_1cpp, components2), DECIMALS_TO_ROUND)):
-        print(colored('\tPASS', 'green'))
-    else:
-        print(colored('\tFAIL', 'red'))
-
-    print(colored('Testing NdArray operator* Vec3', 'cyan'))
-    components1 = np.random.rand(3)
-    components2 = np.random.rand(3)
-    vec3_1py = vectormath.Vector3(*components1)
-    vec3_2py = vectormath.Vector3(*components2)
-    vec3_1cpp = NumCpp.Vec3(*components1)
-    if (round(vec3_1py.dot(vec3_2py), DECIMALS_TO_ROUND) ==
-            round(NumCpp.Vec3_multNdArrayVec3(components2, vec3_1cpp), DECIMALS_TO_ROUND)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

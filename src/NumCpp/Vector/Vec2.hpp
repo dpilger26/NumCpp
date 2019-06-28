@@ -537,32 +537,6 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Matrix mulitplication
-    ///
-    /// @param      vec
-    /// @param      ndArray
-    /// @return     NdArray
-    ///				
-    inline double operator*(const Vec2& vec, const NdArray<double>& ndArray)
-    {
-        return vec.toNdArray().flatten().dot(ndArray.flatten()).item();
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Matrix mulitplication
-    ///
-    /// @param      ndArray
-    /// @param      vec
-    /// @return     NdArray
-    ///				
-    inline double operator*(const NdArray<double>& ndArray, const Vec2& vec)
-    {
-        return ndArray.flatten().dot(vec.toNdArray().flatten()).item();
-    }
-
-    //============================================================================
-    // Method Description:
     ///						Scalar division
     ///
     /// @param      vec
