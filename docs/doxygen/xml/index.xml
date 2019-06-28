@@ -300,7 +300,7 @@
     <member refid="classnc_1_1_nd_array_1aa3981c4c80a9df2155c9745f5dec3dcf" kind="function"><name>cumprod</name></member>
     <member refid="classnc_1_1_nd_array_1acb502b6a54cff2c2cf82bd9d4d82aa16" kind="function"><name>cumsum</name></member>
     <member refid="classnc_1_1_nd_array_1ad102f8fe8139a17ede04f83a03007bf3" kind="function"><name>data</name></member>
-    <member refid="classnc_1_1_nd_array_1a5dd1edf4ebb4de0e8ae38351385b68d4" kind="function"><name>dataRelease</name></member>
+    <member refid="classnc_1_1_nd_array_1aa91013877b9bd37a0411167f2e8eec75" kind="function"><name>dataRelease</name></member>
     <member refid="classnc_1_1_nd_array_1a58959d58c043612b0ecb869ea5280382" kind="function"><name>diagonal</name></member>
     <member refid="classnc_1_1_nd_array_1a13e5756a193d375c0b52e5929a41ca2f" kind="function"><name>dot</name></member>
     <member refid="classnc_1_1_nd_array_1a1a75a88440cb5460da17b23e0dd6b030" kind="function"><name>dump</name></member>
@@ -498,11 +498,12 @@
     <member refid="classnc_1_1_random_1aed7b5774e94cfa1cca50f383ff3a3612" kind="function"><name>weibull</name></member>
   </compound>
   <compound refid="classnc_1_1rotations_1_1_d_c_m" kind="class"><name>nc::rotations::DCM</name>
-    <member refid="classnc_1_1rotations_1_1_d_c_m_1a7a11261d59892e485106cb0f521c807e" kind="function"><name>angleAxisRotation</name></member>
-    <member refid="classnc_1_1rotations_1_1_d_c_m_1a54aee041952dac8c6c0b19c765b87f0a" kind="function"><name>isValid</name></member>
-    <member refid="classnc_1_1rotations_1_1_d_c_m_1a48873cfa84400708a37572229f437c27" kind="function"><name>xRotation</name></member>
-    <member refid="classnc_1_1rotations_1_1_d_c_m_1a17a2805d79056527c4f122372f36dbb4" kind="function"><name>yRotation</name></member>
-    <member refid="classnc_1_1rotations_1_1_d_c_m_1a305466e543dc94582f9684f3c22010da" kind="function"><name>zRotation</name></member>
+    <member refid="classnc_1_1rotations_1_1_d_c_m_1a0743bb21193dc68627aabffd6b4c2a2d" kind="function"><name>angleAxisRotation</name></member>
+    <member refid="classnc_1_1rotations_1_1_d_c_m_1a19bba3a08c542c26a07536019847a4c8" kind="function"><name>angleAxisRotation</name></member>
+    <member refid="classnc_1_1rotations_1_1_d_c_m_1ab229737433b6c93522aa38f0ad94ca50" kind="function"><name>isValid</name></member>
+    <member refid="classnc_1_1rotations_1_1_d_c_m_1a7679a0d5443e2abdee0c376ef5f6d1e1" kind="function"><name>xRotation</name></member>
+    <member refid="classnc_1_1rotations_1_1_d_c_m_1a9c495cb1fc84c70042d652d84bcddea4" kind="function"><name>yRotation</name></member>
+    <member refid="classnc_1_1rotations_1_1_d_c_m_1aa0c71aecc70f9354665b0c81cdf366ce" kind="function"><name>zRotation</name></member>
   </compound>
   <compound refid="classnc_1_1rotations_1_1_quaternion" kind="class"><name>nc::rotations::Quaternion</name>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ac5bfff33006b91593264660913a08786" kind="variable"><name>data_</name></member>
@@ -520,7 +521,8 @@
     <member refid="classnc_1_1rotations_1_1_quaternion_1adcf57fd29d62e19f5c764750262ff7c3" kind="function"><name>operator!=</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1adad6ca92266f6090930addc585900805" kind="function"><name>operator*</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ad63920fa01f5bd4949c0fbb3ff7c7137" kind="function"><name>operator*</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1af3870229595bf00f7afe33f186fbb349" kind="function"><name>operator*</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a10fd2d44927d59f19e37c45586072d14" kind="function"><name>operator*</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a7a76d280d13d7c7542c6f815ed5dbd22" kind="function"><name>operator*</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1aaaa8a1bd7130e7ce6a819284584a84c5" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a17636913a3a1e810a81a558dc986fd54" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a53c84fdd06a1f980c7c74a185d568156" kind="function"><name>operator+</name></member>
@@ -531,15 +533,17 @@
     <member refid="classnc_1_1rotations_1_1_quaternion_1a859df40774ccff755560604b930c934d" kind="function"><name>operator/=</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a82f40acb2292256faffab2b88aa38208" kind="function"><name>operator==</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a44994f000aba8de9f11a169a62782ebd" kind="function"><name>print</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1ac0d338fe7e9bb4a3a9ab2386f3f4f7c4" kind="function"><name>rotate</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a2e19c4d0b48d7f73e0aa273d85435370" kind="function"><name>rotate</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a3e0593a2ad77fad88afdfb8a34b9c036" kind="function"><name>rotate</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a075b6f1befef247f5d638c91e1a451fd" kind="function"><name>s</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a687155cd6469c095941b94a738119da9" kind="function"><name>slerp</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ad03a97f148be61e687944af11fe45c99" kind="function"><name>str</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a32d6c7cf2ff12d988e169fd936aaf397" kind="function"><name>toDCM</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a4a11c1c0daf982f9367e4541e5735e71" kind="function"><name>toNdArray</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1aafb38c20ae954808d18179e227223bd9" kind="function"><name>angleAxisRotation</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a85d8ffbb801f97a2e2af9080c99875b9" kind="function"><name>angleAxisRotation</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1ac54705d64f7d96981f216fe0e982597c" kind="function"><name>angleAxisRotation</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ab7905c39ef162eb7667abcd3131430ea" kind="function"><name>angularVelocity</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1a2006b918951028c977fd975e63c486ab" kind="function"><name>fromDCM</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a103b9122e9af4a42b69d0938ebab8f92" kind="function"><name>fromDCM</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ae093d333b66b63eeef5704be4a374af2" kind="function"><name>identity</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a314478702a3da52f2be3f422057d8732" kind="function"><name>nlerp</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a7a39f199e4d1ad773b93c69e66ae0415" kind="function"><name>slerp</name></member>
@@ -589,6 +593,70 @@
     <member refid="classnc_1_1_timer_1a4a08ec3e6ba7a7979cb9e72d0cf3f2f7" kind="function"><name>tic</name></member>
     <member refid="classnc_1_1_timer_1a23b01baabe26a986a0124233d7e9b83f" kind="function"><name>toc</name></member>
   </compound>
+  <compound refid="classnc_1_1_vec2" kind="class"><name>nc::Vec2</name>
+    <member refid="classnc_1_1_vec2_1a36a67b9395b397e1b8e9364a39a5c458" kind="variable"><name>x</name></member>
+    <member refid="classnc_1_1_vec2_1ad7a5bc1612f92f7e49112cf58caeaace" kind="variable"><name>y</name></member>
+    <member refid="classnc_1_1_vec2_1a10032e67a062d820241f053d5affd1b8" kind="function"><name>Vec2</name></member>
+    <member refid="classnc_1_1_vec2_1a90648eb3e7f49292d0a4174dea32be61" kind="function"><name>Vec2</name></member>
+    <member refid="classnc_1_1_vec2_1abfb713c893dbd31d7c94b4741e82530b" kind="function"><name>Vec2</name></member>
+    <member refid="classnc_1_1_vec2_1a93a9f0c675265005a60c77179625ddd2" kind="function"><name>Vec2</name></member>
+    <member refid="classnc_1_1_vec2_1a271ca2cae96a1df44486fbcc2c0f890f" kind="function"><name>angle</name></member>
+    <member refid="classnc_1_1_vec2_1abb0f6f8cacc680a464425d908e1e55cc" kind="function"><name>clampMagnitude</name></member>
+    <member refid="classnc_1_1_vec2_1a63c2b2b7a16828af770d38176b6cb3aa" kind="function"><name>distance</name></member>
+    <member refid="classnc_1_1_vec2_1a231781cc06b8f005a1dda5003498ec99" kind="function"><name>dot</name></member>
+    <member refid="classnc_1_1_vec2_1a91e6417e5b9903ed6bee3ad90c0c38f4" kind="function"><name>lerp</name></member>
+    <member refid="classnc_1_1_vec2_1ab6922f6c089b20e9d019301fddc6dc0a" kind="function"><name>norm</name></member>
+    <member refid="classnc_1_1_vec2_1a8d8a3ec28ef8336ab02dcd964a3e836c" kind="function"><name>normalize</name></member>
+    <member refid="classnc_1_1_vec2_1ac83768c682c162ec9dffe1bfb9637338" kind="function"><name>operator!=</name></member>
+    <member refid="classnc_1_1_vec2_1a72ac39ba88f909cb5552f6b379509f81" kind="function"><name>operator*=</name></member>
+    <member refid="classnc_1_1_vec2_1a21b1c9c0aa0b7e8886f1b4a7c255bb9e" kind="function"><name>operator+=</name></member>
+    <member refid="classnc_1_1_vec2_1af441d4bbee40c07f9b86fbd056ff637e" kind="function"><name>operator+=</name></member>
+    <member refid="classnc_1_1_vec2_1abfb0b00888fa37d52a895d06f2b39133" kind="function"><name>operator-=</name></member>
+    <member refid="classnc_1_1_vec2_1a13a2bbc2595248211e0bc97de51e13b5" kind="function"><name>operator-=</name></member>
+    <member refid="classnc_1_1_vec2_1a1a1c875b11ea5571cb2b71778a692472" kind="function"><name>operator/=</name></member>
+    <member refid="classnc_1_1_vec2_1af04a7f20ae8ac7a59ae44f7819668fa0" kind="function"><name>operator==</name></member>
+    <member refid="classnc_1_1_vec2_1aa5cb2f954360d7be97c443da16694383" kind="function"><name>project</name></member>
+    <member refid="classnc_1_1_vec2_1a774f9304228506198344275ea5ecad48" kind="function"><name>toNdArray</name></member>
+    <member refid="classnc_1_1_vec2_1aae1fa965b6d2d58638ae98c3e2cd834b" kind="function"><name>toString</name></member>
+    <member refid="classnc_1_1_vec2_1a77b594a5fcfc2fbe21bf74a2cada49ad" kind="function"><name>down</name></member>
+    <member refid="classnc_1_1_vec2_1af079d8f3e74672d478cecd31f31ad6de" kind="function"><name>left</name></member>
+    <member refid="classnc_1_1_vec2_1a7474381764f21c1897235c5b26065ecf" kind="function"><name>right</name></member>
+    <member refid="classnc_1_1_vec2_1a9be39bc9a56e94afb8d9b27d660e2d17" kind="function"><name>up</name></member>
+  </compound>
+  <compound refid="classnc_1_1_vec3" kind="class"><name>nc::Vec3</name>
+    <member refid="classnc_1_1_vec3_1a7f71dd08d58a1327739de6041e3362bb" kind="variable"><name>x</name></member>
+    <member refid="classnc_1_1_vec3_1a969dd1c195f4c78fc3a93292391e29c1" kind="variable"><name>y</name></member>
+    <member refid="classnc_1_1_vec3_1a0896ee691f46ce0bd669b869fe6acb41" kind="variable"><name>z</name></member>
+    <member refid="classnc_1_1_vec3_1a12bace66cd4d205755cee98ac6d658fa" kind="function"><name>Vec3</name></member>
+    <member refid="classnc_1_1_vec3_1a4d20d8d7b40777677e83923055af35fa" kind="function"><name>Vec3</name></member>
+    <member refid="classnc_1_1_vec3_1a4056d1e369726710d6f1049b277486dd" kind="function"><name>Vec3</name></member>
+    <member refid="classnc_1_1_vec3_1a4668419f4c870900466d4aa198247767" kind="function"><name>Vec3</name></member>
+    <member refid="classnc_1_1_vec3_1a523ca42cbdd088851cc5a299da988cee" kind="function"><name>angle</name></member>
+    <member refid="classnc_1_1_vec3_1a4f3cfcbd67a402820cc8e0576dccd2e4" kind="function"><name>clampMagnitude</name></member>
+    <member refid="classnc_1_1_vec3_1af8173f6e61e9a63beae3092fd8dc4378" kind="function"><name>cross</name></member>
+    <member refid="classnc_1_1_vec3_1a301f3edcb8cb17e7e3e5dbdd5255bdd2" kind="function"><name>distance</name></member>
+    <member refid="classnc_1_1_vec3_1ac9f2bf549a4b800f140de060a0281a7e" kind="function"><name>dot</name></member>
+    <member refid="classnc_1_1_vec3_1ab4878c8a4ebcd94fd0baf93059b50ac6" kind="function"><name>lerp</name></member>
+    <member refid="classnc_1_1_vec3_1a6c177e1f5c00584279a0527d3053dee8" kind="function"><name>norm</name></member>
+    <member refid="classnc_1_1_vec3_1a6356b462b11a156b923a7c79b9747c25" kind="function"><name>normalize</name></member>
+    <member refid="classnc_1_1_vec3_1aad142760da8d2b3493462b4542e42673" kind="function"><name>operator!=</name></member>
+    <member refid="classnc_1_1_vec3_1a02ec360e4ebb7b4a6b629eedf8d24a2f" kind="function"><name>operator*=</name></member>
+    <member refid="classnc_1_1_vec3_1afef859d21f4332089843c5d337c1ce01" kind="function"><name>operator+=</name></member>
+    <member refid="classnc_1_1_vec3_1a2b1c4e63a7233fb56e2f037807dffb68" kind="function"><name>operator+=</name></member>
+    <member refid="classnc_1_1_vec3_1a70251860269c7cb5becbe988a0b2c48e" kind="function"><name>operator-=</name></member>
+    <member refid="classnc_1_1_vec3_1a208820649ed763a5dcc9405c4aa481f2" kind="function"><name>operator-=</name></member>
+    <member refid="classnc_1_1_vec3_1a431b2ac6af51bf59d804adbe5c8a7700" kind="function"><name>operator/=</name></member>
+    <member refid="classnc_1_1_vec3_1a2cc63855706091881f765b63dcf52c44" kind="function"><name>operator==</name></member>
+    <member refid="classnc_1_1_vec3_1aaba2a76701fbf17582641cefeb513f1c" kind="function"><name>project</name></member>
+    <member refid="classnc_1_1_vec3_1a6b598b3ea3e950081df48026b5132459" kind="function"><name>toNdArray</name></member>
+    <member refid="classnc_1_1_vec3_1a3af99e8df35bad1893f2d2a1a6082e21" kind="function"><name>toString</name></member>
+    <member refid="classnc_1_1_vec3_1adc234f42c117f403d74118b241643f47" kind="function"><name>back</name></member>
+    <member refid="classnc_1_1_vec3_1a378aab1464927647b27f71d5934fa02b" kind="function"><name>down</name></member>
+    <member refid="classnc_1_1_vec3_1ad7345116f8a9dff10bc270aead177281" kind="function"><name>forward</name></member>
+    <member refid="classnc_1_1_vec3_1a420ddd65124a23faf9a872ca05eebc6f" kind="function"><name>left</name></member>
+    <member refid="classnc_1_1_vec3_1a97f256a22ee3c5db29c484f2a3c6458e" kind="function"><name>right</name></member>
+    <member refid="classnc_1_1_vec3_1aa60cf66defb2fcf04fc989c0e1f07f7e" kind="function"><name>up</name></member>
+  </compound>
   <compound refid="namespacenc" kind="namespace"><name>nc</name>
     <member refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84" kind="enum"><name>Axis</name></member>
     <member refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693" kind="enumvalue"><name>NONE</name></member>
@@ -601,6 +669,10 @@
     <member refid="namespacenc_1abd2ee82bb59dd1ace46a8d8d493e947b" kind="enum"><name>Order</name></member>
     <member refid="namespacenc_1abd2ee82bb59dd1ace46a8d8d493e947ba800618943025315f869e4e1f09471012" kind="enumvalue"><name>F</name></member>
     <member refid="namespacenc_1abd2ee82bb59dd1ace46a8d8d493e947ba0d61f8370cad1d412f80b84d143e1257" kind="enumvalue"><name>C</name></member>
+    <member refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49" kind="enum"><name>ReturnPolicy</name></member>
+    <member refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49ae8606d021da140a92c7eba8d9b8af84f" kind="enumvalue"><name>COPY</name></member>
+    <member refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49adcd320d017d7f3c317bc8b234287bc9f" kind="enumvalue"><name>REFERENCE</name></member>
+    <member refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49a9419303c1fae01a65adc8d1835aa2c6d" kind="enumvalue"><name>TAKE_OWNERSHIP</name></member>
     <member refid="namespacenc_1a7ef41205a09ddd32ee926953ad8145c1" kind="typedef"><name>int16</name></member>
     <member refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kind="typedef"><name>int32</name></member>
     <member refid="namespacenc_1a84c132684426d342ab833e05286fea3b" kind="typedef"><name>int64</name></member>
@@ -610,6 +682,7 @@
     <member refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kind="typedef"><name>uint64</name></member>
     <member refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kind="typedef"><name>uint8</name></member>
     <member refid="namespacenc_1ac1a8cfb8f9378e1c4da7bc09e93cb77a" kind="variable"><name>generator_</name></member>
+    <member refid="namespacenc_1adb1fab04424021c2a9e4ff2ebf34bdb3" kind="variable"><name>returnPolicyStringMap</name></member>
     <member refid="namespacenc_1a4a45571b060fcb2c3e323fb8f8d7b00e" kind="function"><name>abs</name></member>
     <member refid="namespacenc_1a5251a8cc0a2a09fd87c66149e1172244" kind="function"><name>abs</name></member>
     <member refid="namespacenc_1ab4a75fada8db6e1f30e187712fa69f2a" kind="function"><name>add</name></member>
@@ -814,7 +887,7 @@
     <member refid="namespacenc_1a6d8fc67276e548961c289ca82cf3e68a" kind="function"><name>nanvar</name></member>
     <member refid="namespacenc_1a66464387c8d92793b5355e2afd107cbc" kind="function"><name>nbytes</name></member>
     <member refid="namespacenc_1affc3d3665f4e132238fdd39bcf137f53" kind="function"><name>nc2Boost</name></member>
-    <member refid="namespacenc_1ad30d3f881b5375ed3b2941a7b88ea660" kind="function"><name>nc2pybind</name></member>
+    <member refid="namespacenc_1a36d8b97a2aa8a500ba39e0295ead4eb1" kind="function"><name>nc2pybind</name></member>
     <member refid="namespacenc_1ad31609dc9bda02826fdbe6b7b6303807" kind="function"><name>negative</name></member>
     <member refid="namespacenc_1aa9e935b20cfc837317372b5466338963" kind="function"><name>newbyteorder</name></member>
     <member refid="namespacenc_1a75ebcb2c2d18d8edb89d1222865d4ae1" kind="function"><name>newbyteorder</name></member>
@@ -825,6 +898,30 @@
     <member refid="namespacenc_1a59dd2eaa4234ab8653beb7bda2fb6b7c" kind="function"><name>ones</name></member>
     <member refid="namespacenc_1a6cda3d052089c53c18f31cdc41c9e9c8" kind="function"><name>ones</name></member>
     <member refid="namespacenc_1a4bb4975aae4fb03107fbf2a3812ceb8f" kind="function"><name>ones_like</name></member>
+    <member refid="namespacenc_1a8248dae03ae96d459320f42d60fdf424" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1a1769d68f44f9c98d94dd412bc32a9bb5" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1ace6d6bf5d703e886d8f137cf73be5021" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1af51c9efd8dbadbdc664972bd96583a72" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1af4ecba4e059c6dcf672644a3c1bff75d" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1a39b128708b2225a00de527c8ec83d72a" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1a9f50afa50b63aea110be8b9b477d1cb4" kind="function"><name>operator+</name></member>
+    <member refid="namespacenc_1a43fad0472de9a72d2680623200138907" kind="function"><name>operator+</name></member>
+    <member refid="namespacenc_1ab769651a09123be0a13a54a82aaa088a" kind="function"><name>operator+</name></member>
+    <member refid="namespacenc_1a5ded64221f16b9a774bc35de58204e28" kind="function"><name>operator+</name></member>
+    <member refid="namespacenc_1a26bec2e52fdab966f0f3714d1e2ea8bb" kind="function"><name>operator+</name></member>
+    <member refid="namespacenc_1ac6f8a785c25c21f9b4b8328dfd7da6c6" kind="function"><name>operator+</name></member>
+    <member refid="namespacenc_1a7c52ae6f5c5daf9d27c292e0451cccc3" kind="function"><name>operator-</name></member>
+    <member refid="namespacenc_1af29a28cada8fd30111a2c6d41a110ff8" kind="function"><name>operator-</name></member>
+    <member refid="namespacenc_1ad279cbad60173006f6883e0d18b0147e" kind="function"><name>operator-</name></member>
+    <member refid="namespacenc_1a7cf1dfd7144b41f4d748af9fb8aa5ffb" kind="function"><name>operator-</name></member>
+    <member refid="namespacenc_1a7227073082d530baaf7ebb96ee06995b" kind="function"><name>operator-</name></member>
+    <member refid="namespacenc_1a6935362e6d04b73f04c0e8191ae3098d" kind="function"><name>operator-</name></member>
+    <member refid="namespacenc_1af87da9c66c9e535066221e4f85f3ed90" kind="function"><name>operator-</name></member>
+    <member refid="namespacenc_1a7c61e5d343e6439c26abb36db5a0b948" kind="function"><name>operator-</name></member>
+    <member refid="namespacenc_1abe2fc114afe7f62aacf55a9288f45c4a" kind="function"><name>operator/</name></member>
+    <member refid="namespacenc_1a0a070b4ec8a29ee1a357c53857d4778a" kind="function"><name>operator/</name></member>
+    <member refid="namespacenc_1ac5bf4d5c39fe1087aafc7f94b6fb552b" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespacenc_1a3b5bc5508bcc2c2f03bfb8fe675d2e6e" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacenc_1a8c8e42bbbbb509664e1a7ee3c4641e6e" kind="function"><name>pad</name></member>
     <member refid="namespacenc_1ae8625a7837cbbe94256235e8599c1493" kind="function"><name>partition</name></member>
     <member refid="namespacenc_1a70a98622a4f6890bd7794a3d6451561b" kind="function"><name>percentile</name></member>
@@ -1072,9 +1169,17 @@
   </compound>
   <compound refid="_utils_8hpp" kind="file"><name>Utils.hpp</name>
   </compound>
+  <compound refid="_vec2_8hpp" kind="file"><name>Vec2.hpp</name>
+  </compound>
+  <compound refid="_vec3_8hpp" kind="file"><name>Vec3.hpp</name>
+  </compound>
+  <compound refid="_vector_8hpp" kind="file"><name>Vector.hpp</name>
+  </compound>
   <compound refid="dir_2fcd863c5241ce58f3be9e1580bcd1ab" kind="dir"><name>NumCpp</name>
   </compound>
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_1d9c8f2f04a249dd67e71f1be8df1f0b" kind="dir"><name>Vector</name>
   </compound>
   <compound refid="_example_8cpp-example" kind="example"><name>Example.cpp</name>
   </compound>

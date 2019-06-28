@@ -3,20 +3,15 @@
   <compounddef id="classnc_1_1rotations_1_1_d_c_m" kind="class" language="C++" prot="public">
     <compoundname>nc::rotations::DCM</compoundname>
     <includes refid="_rotations_8hpp" local="no">Rotations.hpp</includes>
-    <templateparamlist>
-      <param>
-        <type>typename dtype</type>
-      </param>
-    </templateparamlist>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a7a11261d59892e485106cb0f521c807e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a0743bb21193dc68627aabffd6b4c2a2d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
-        <definition>static NdArray&lt;double&gt; nc::rotations::DCM&lt; dtype &gt;::angleAxisRotation</definition>
-        <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray, double inAngle)</argsstring>
+        <definition>static NdArray&lt;double&gt; nc::rotations::DCM::angleAxisRotation</definition>
+        <argsstring>(const NdArray&lt; double &gt; &amp;inAxis, double inAngle)</argsstring>
         <name>angleAxisRotation</name>
         <param>
-          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
-          <declname>inArray</declname>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
+          <declname>inAxis</declname>
         </param>
         <param>
           <type>double</type>
@@ -27,7 +22,7 @@
         <detaileddescription>
 <para>returns a direction cosine matrix that rotates about the input axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>inArray</parametername>
+<parametername>inAxis</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>(cartesian vector with x,y,z) </para></parameterdescription>
@@ -44,21 +39,52 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="873" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="873" bodyend="883"/>
-        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
-        <references refid="classnc_1_1rotations_1_1_quaternion_1aafb38c20ae954808d18179e227223bd9" compoundref="_rotations_8hpp" startline="129" endline="148">nc::rotations::Quaternion::angleAxisRotation</references>
-        <references refid="classnc_1_1rotations_1_1_quaternion_1a32d6c7cf2ff12d988e169fd936aaf397" compoundref="_rotations_8hpp" startline="540" endline="560">nc::rotations::Quaternion::toDCM</references>
-        <referencedby refid="classnc_1_1rotations_1_1_d_c_m_1a48873cfa84400708a37572229f437c27" compoundref="_rotations_8hpp" startline="917" endline="920">nc::rotations::DCM&lt; dtype &gt;::xRotation</referencedby>
-        <referencedby refid="classnc_1_1rotations_1_1_d_c_m_1a17a2805d79056527c4f122372f36dbb4" compoundref="_rotations_8hpp" startline="932" endline="935">nc::rotations::DCM&lt; dtype &gt;::yRotation</referencedby>
-        <referencedby refid="classnc_1_1rotations_1_1_d_c_m_1a305466e543dc94582f9684f3c22010da" compoundref="_rotations_8hpp" startline="947" endline="950">nc::rotations::DCM&lt; dtype &gt;::zRotation</referencedby>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="908" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="908" bodyend="911"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a54aee041952dac8c6c0b19c765b87f0a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a19bba3a08c542c26a07536019847a4c8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>static NdArray&lt;double&gt; nc::rotations::DCM::angleAxisRotation</definition>
+        <argsstring>(const Vec3 &amp;inAxis, double inAngle)</argsstring>
+        <name>angleAxisRotation</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
+          <declname>inAxis</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns a direction cosine matrix that rotates about the input axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inAxis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(in radians) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="923" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="923" bodyend="926"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1ab229737433b6c93522aa38f0ad94ca50" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
-        <definition>static bool nc::rotations::DCM&lt; dtype &gt;::isValid</definition>
-        <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray) noexcept</argsstring>
+        <definition>static bool nc::rotations::DCM::isValid</definition>
+        <argsstring>(const NdArray&lt; double &gt; &amp;inArray) noexcept</argsstring>
         <name>isValid</name>
         <param>
-          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
           <declname>inArray</declname>
         </param>
         <briefdescription>
@@ -76,14 +102,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="895" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="895" bodyend="905"/>
-        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">nc::Shape::rows</references>
-        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">nc::Shape::cols</references>
-        <references refid="namespacenc_1a41f18de9a9c6b9ae0b2053a22400baba" compoundref="_methods_8hpp" startline="7416" endline="7420">nc::round</references>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="938" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="938" bodyend="948"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a48873cfa84400708a37572229f437c27" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a7679a0d5443e2abdee0c376ef5f6d1e1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
-        <definition>static NdArray&lt;double&gt; nc::rotations::DCM&lt; dtype &gt;::xRotation</definition>
+        <definition>static NdArray&lt;double&gt; nc::rotations::DCM::xRotation</definition>
         <argsstring>(double inAngle)</argsstring>
         <name>xRotation</name>
         <param>
@@ -105,12 +128,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="917" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="917" bodyend="920"/>
-        <references refid="classnc_1_1rotations_1_1_d_c_m_1a7a11261d59892e485106cb0f521c807e" compoundref="_rotations_8hpp" startline="873" endline="883">nc::rotations::DCM&lt; dtype &gt;::angleAxisRotation</references>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="960" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="960" bodyend="963"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a17a2805d79056527c4f122372f36dbb4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a9c495cb1fc84c70042d652d84bcddea4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
-        <definition>static NdArray&lt;double&gt; nc::rotations::DCM&lt; dtype &gt;::yRotation</definition>
+        <definition>static NdArray&lt;double&gt; nc::rotations::DCM::yRotation</definition>
         <argsstring>(double inAngle)</argsstring>
         <name>yRotation</name>
         <param>
@@ -132,12 +154,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="932" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="932" bodyend="935"/>
-        <references refid="classnc_1_1rotations_1_1_d_c_m_1a7a11261d59892e485106cb0f521c807e" compoundref="_rotations_8hpp" startline="873" endline="883">nc::rotations::DCM&lt; dtype &gt;::angleAxisRotation</references>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="975" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="975" bodyend="978"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1a305466e543dc94582f9684f3c22010da" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_d_c_m_1aa0c71aecc70f9354665b0c81cdf366ce" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
-        <definition>static NdArray&lt;double&gt; nc::rotations::DCM&lt; dtype &gt;::zRotation</definition>
+        <definition>static NdArray&lt;double&gt; nc::rotations::DCM::zRotation</definition>
         <argsstring>(double inAngle)</argsstring>
         <name>zRotation</name>
         <param>
@@ -159,8 +180,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="947" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="947" bodyend="950"/>
-        <references refid="classnc_1_1rotations_1_1_d_c_m_1a7a11261d59892e485106cb0f521c807e" compoundref="_rotations_8hpp" startline="873" endline="883">nc::rotations::DCM&lt; dtype &gt;::angleAxisRotation</references>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="990" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="990" bodyend="993"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -168,18 +188,19 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="31">
-        <label>nc::rotations::DCM&lt; dtype &gt;</label>
+      <node id="29">
+        <label>nc::rotations::DCM</label>
         <link refid="classnc_1_1rotations_1_1_d_c_m"/>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="861" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="860" bodyend="951"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="896" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="895" bodyend="994"/>
     <listofallmembers>
-      <member refid="classnc_1_1rotations_1_1_d_c_m_1a7a11261d59892e485106cb0f521c807e" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>angleAxisRotation</name></member>
-      <member refid="classnc_1_1rotations_1_1_d_c_m_1a54aee041952dac8c6c0b19c765b87f0a" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>isValid</name></member>
-      <member refid="classnc_1_1rotations_1_1_d_c_m_1a48873cfa84400708a37572229f437c27" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>xRotation</name></member>
-      <member refid="classnc_1_1rotations_1_1_d_c_m_1a17a2805d79056527c4f122372f36dbb4" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>yRotation</name></member>
-      <member refid="classnc_1_1rotations_1_1_d_c_m_1a305466e543dc94582f9684f3c22010da" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>zRotation</name></member>
+      <member refid="classnc_1_1rotations_1_1_d_c_m_1a0743bb21193dc68627aabffd6b4c2a2d" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>angleAxisRotation</name></member>
+      <member refid="classnc_1_1rotations_1_1_d_c_m_1a19bba3a08c542c26a07536019847a4c8" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>angleAxisRotation</name></member>
+      <member refid="classnc_1_1rotations_1_1_d_c_m_1ab229737433b6c93522aa38f0ad94ca50" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>isValid</name></member>
+      <member refid="classnc_1_1rotations_1_1_d_c_m_1a7679a0d5443e2abdee0c376ef5f6d1e1" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>xRotation</name></member>
+      <member refid="classnc_1_1rotations_1_1_d_c_m_1a9c495cb1fc84c70042d652d84bcddea4" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>yRotation</name></member>
+      <member refid="classnc_1_1rotations_1_1_d_c_m_1aa0c71aecc70f9354665b0c81cdf366ce" prot="public" virt="non-virtual"><scope>nc::rotations::DCM</scope><name>zRotation</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

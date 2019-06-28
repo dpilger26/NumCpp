@@ -15,171 +15,74 @@
     <includes local="yes">pybind11/numpy.h</includes>
     <includedby refid="_num_cpp_8hpp" local="yes">NumCpp.hpp</includedby>
     <incdepgraph>
-      <node id="447">
+      <node id="459">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="427">
+      <node id="439">
         <label>NumCpp/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="428" relation="include">
+        <childnode refid="440" relation="include">
         </childnode>
       </node>
-      <node id="450">
+      <node id="462">
         <label>functional</label>
       </node>
-      <node id="431">
+      <node id="443">
         <label>limits</label>
       </node>
-      <node id="440">
+      <node id="452">
         <label>boost/python/numpy.hpp</label>
       </node>
-      <node id="428">
+      <node id="440">
         <label>cstdint</label>
       </node>
-      <node id="442">
+      <node id="454">
         <label>NumCpp/Shape.hpp</label>
         <link refid="_shape_8hpp"/>
-        <childnode refid="427" relation="include">
-        </childnode>
-        <childnode refid="429" relation="include">
-        </childnode>
-        <childnode refid="436" relation="include">
-        </childnode>
-        <childnode refid="437" relation="include">
-        </childnode>
-        <childnode refid="433" relation="include">
-        </childnode>
-      </node>
-      <node id="432">
-        <label>cmath</label>
-      </node>
-      <node id="437">
-        <label>stdexcept</label>
-      </node>
-      <node id="453">
-        <label>numeric</label>
-      </node>
-      <node id="433">
-        <label>string</label>
-      </node>
-      <node id="455">
-        <label>map</label>
-      </node>
-      <node id="451">
-        <label>fstream</label>
-      </node>
-      <node id="457">
-        <label>pybind11/numpy.h</label>
-      </node>
-      <node id="425">
-        <label>PythonInterface.hpp</label>
-        <link refid="_python_interface_8hpp"/>
-        <childnode refid="426" relation="include">
+        <childnode refid="439" relation="include">
         </childnode>
         <childnode refid="441" relation="include">
         </childnode>
-        <childnode refid="442" relation="include">
+        <childnode refid="448" relation="include">
         </childnode>
-        <childnode refid="436" relation="include">
-        </childnode>
-        <childnode refid="455" relation="include">
-        </childnode>
-        <childnode refid="437" relation="include">
-        </childnode>
-        <childnode refid="438" relation="include">
-        </childnode>
-        <childnode refid="439" relation="include">
-        </childnode>
-        <childnode refid="440" relation="include">
-        </childnode>
-        <childnode refid="456" relation="include">
-        </childnode>
-        <childnode refid="457" relation="include">
-        </childnode>
-      </node>
-      <node id="444">
-        <label>NumCpp/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="427" relation="include">
-        </childnode>
-        <childnode refid="432" relation="include">
-        </childnode>
-        <childnode refid="431" relation="include">
-        </childnode>
-        <childnode refid="433" relation="include">
-        </childnode>
-      </node>
-      <node id="426">
-        <label>NumCpp/BoostNumpyNdarrayHelper.hpp</label>
-        <link refid="_boost_numpy_ndarray_helper_8hpp"/>
-        <childnode refid="427" relation="include">
-        </childnode>
-        <childnode refid="429" relation="include">
-        </childnode>
-        <childnode refid="434" relation="include">
-        </childnode>
-        <childnode refid="432" relation="include">
-        </childnode>
-        <childnode refid="435" relation="include">
-        </childnode>
-        <childnode refid="436" relation="include">
-        </childnode>
-        <childnode refid="433" relation="include">
-        </childnode>
-        <childnode refid="437" relation="include">
-        </childnode>
-        <childnode refid="438" relation="include">
-        </childnode>
-        <childnode refid="439" relation="include">
-        </childnode>
-        <childnode refid="440" relation="include">
-        </childnode>
-      </node>
-      <node id="445">
-        <label>boost/algorithm/clamp.hpp</label>
-      </node>
-      <node id="439">
-        <label>boost/python.hpp</label>
-      </node>
-      <node id="429">
-        <label>NumCpp/Utils.hpp</label>
-        <link refid="_utils_8hpp"/>
-        <childnode refid="430" relation="include">
-        </childnode>
-        <childnode refid="432" relation="include">
-        </childnode>
-        <childnode refid="433" relation="include">
-        </childnode>
-      </node>
-      <node id="435">
-        <label>vector</label>
-      </node>
-      <node id="441">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="430" relation="include">
-        </childnode>
-        <childnode refid="442" relation="include">
-        </childnode>
-        <childnode refid="443" relation="include">
-        </childnode>
-        <childnode refid="427" relation="include">
-        </childnode>
-        <childnode refid="429" relation="include">
-        </childnode>
-        <childnode refid="444" relation="include">
+        <childnode refid="449" relation="include">
         </childnode>
         <childnode refid="445" relation="include">
         </childnode>
-        <childnode refid="446" relation="include">
+      </node>
+      <node id="444">
+        <label>cmath</label>
+      </node>
+      <node id="449">
+        <label>stdexcept</label>
+      </node>
+      <node id="465">
+        <label>numeric</label>
+      </node>
+      <node id="445">
+        <label>string</label>
+      </node>
+      <node id="467">
+        <label>map</label>
+      </node>
+      <node id="463">
+        <label>fstream</label>
+      </node>
+      <node id="469">
+        <label>pybind11/numpy.h</label>
+      </node>
+      <node id="437">
+        <label>PythonInterface.hpp</label>
+        <link refid="_python_interface_8hpp"/>
+        <childnode refid="438" relation="include">
         </childnode>
-        <childnode refid="447" relation="include">
+        <childnode refid="453" relation="include">
+        </childnode>
+        <childnode refid="454" relation="include">
         </childnode>
         <childnode refid="448" relation="include">
         </childnode>
-        <childnode refid="434" relation="include">
-        </childnode>
-        <childnode refid="432" relation="include">
+        <childnode refid="467" relation="include">
         </childnode>
         <childnode refid="449" relation="include">
         </childnode>
@@ -189,77 +92,174 @@
         </childnode>
         <childnode refid="452" relation="include">
         </childnode>
-        <childnode refid="436" relation="include">
+        <childnode refid="468" relation="include">
         </childnode>
-        <childnode refid="453" relation="include">
+        <childnode refid="469" relation="include">
+        </childnode>
+      </node>
+      <node id="456">
+        <label>NumCpp/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="439" relation="include">
+        </childnode>
+        <childnode refid="444" relation="include">
+        </childnode>
+        <childnode refid="443" relation="include">
+        </childnode>
+        <childnode refid="445" relation="include">
+        </childnode>
+      </node>
+      <node id="438">
+        <label>NumCpp/BoostNumpyNdarrayHelper.hpp</label>
+        <link refid="_boost_numpy_ndarray_helper_8hpp"/>
+        <childnode refid="439" relation="include">
+        </childnode>
+        <childnode refid="441" relation="include">
+        </childnode>
+        <childnode refid="446" relation="include">
+        </childnode>
+        <childnode refid="444" relation="include">
+        </childnode>
+        <childnode refid="447" relation="include">
+        </childnode>
+        <childnode refid="448" relation="include">
+        </childnode>
+        <childnode refid="445" relation="include">
+        </childnode>
+        <childnode refid="449" relation="include">
+        </childnode>
+        <childnode refid="450" relation="include">
+        </childnode>
+        <childnode refid="451" relation="include">
+        </childnode>
+        <childnode refid="452" relation="include">
+        </childnode>
+      </node>
+      <node id="457">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="451">
+        <label>boost/python.hpp</label>
+      </node>
+      <node id="441">
+        <label>NumCpp/Utils.hpp</label>
+        <link refid="_utils_8hpp"/>
+        <childnode refid="442" relation="include">
+        </childnode>
+        <childnode refid="444" relation="include">
+        </childnode>
+        <childnode refid="445" relation="include">
+        </childnode>
+      </node>
+      <node id="447">
+        <label>vector</label>
+      </node>
+      <node id="453">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="442" relation="include">
         </childnode>
         <childnode refid="454" relation="include">
         </childnode>
-        <childnode refid="437" relation="include">
+        <childnode refid="455" relation="include">
         </childnode>
-        <childnode refid="433" relation="include">
+        <childnode refid="439" relation="include">
         </childnode>
-        <childnode refid="438" relation="include">
+        <childnode refid="441" relation="include">
         </childnode>
-        <childnode refid="435" relation="include">
+        <childnode refid="456" relation="include">
+        </childnode>
+        <childnode refid="457" relation="include">
+        </childnode>
+        <childnode refid="458" relation="include">
+        </childnode>
+        <childnode refid="459" relation="include">
+        </childnode>
+        <childnode refid="460" relation="include">
+        </childnode>
+        <childnode refid="446" relation="include">
+        </childnode>
+        <childnode refid="444" relation="include">
+        </childnode>
+        <childnode refid="461" relation="include">
+        </childnode>
+        <childnode refid="462" relation="include">
+        </childnode>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="464" relation="include">
+        </childnode>
+        <childnode refid="448" relation="include">
+        </childnode>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="449" relation="include">
+        </childnode>
+        <childnode refid="445" relation="include">
+        </childnode>
+        <childnode refid="450" relation="include">
+        </childnode>
+        <childnode refid="447" relation="include">
         </childnode>
       </node>
-      <node id="446">
+      <node id="458">
         <label>boost/filesystem.hpp</label>
       </node>
-      <node id="438">
+      <node id="450">
         <label>utility</label>
       </node>
-      <node id="456">
+      <node id="468">
         <label>pybind11/pybind11.h</label>
       </node>
-      <node id="443">
+      <node id="455">
         <label>NumCpp/Slice.hpp</label>
         <link refid="_slice_8hpp"/>
-        <childnode refid="427" relation="include">
+        <childnode refid="439" relation="include">
         </childnode>
-        <childnode refid="429" relation="include">
+        <childnode refid="441" relation="include">
         </childnode>
-        <childnode refid="436" relation="include">
+        <childnode refid="448" relation="include">
         </childnode>
-        <childnode refid="437" relation="include">
+        <childnode refid="449" relation="include">
         </childnode>
-        <childnode refid="433" relation="include">
+        <childnode refid="445" relation="include">
         </childnode>
-      </node>
-      <node id="436">
-        <label>iostream</label>
-      </node>
-      <node id="449">
-        <label>deque</label>
       </node>
       <node id="448">
+        <label>iostream</label>
+      </node>
+      <node id="461">
+        <label>deque</label>
+      </node>
+      <node id="460">
         <label>boost/endian/conversion.hpp</label>
       </node>
-      <node id="454">
+      <node id="466">
         <label>set</label>
       </node>
-      <node id="434">
+      <node id="446">
         <label>algorithm</label>
       </node>
-      <node id="452">
+      <node id="464">
         <label>initializer_list</label>
       </node>
-      <node id="430">
+      <node id="442">
         <label>NumCpp/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="431" relation="include">
+        <childnode refid="443" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="458">
+      <node id="470">
         <label>PythonInterface.hpp</label>
         <link refid="_python_interface_8hpp"/>
-        <childnode refid="459" relation="include">
+        <childnode refid="471" relation="include">
         </childnode>
       </node>
-      <node id="459">
+      <node id="471">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
@@ -270,10 +270,10 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
 <simplesect kind="version"><para>1.0</para></simplesect>
-</para><sect1 id="_utils_8hpp_1License">
+</para><sect1 id="_vector_8hpp_1License">
 <title>License</title>
 <para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
-<sect1 id="_utils_8hpp_1Description">
+<sect1 id="_vector_8hpp_1Description">
 <title>Description</title>
 <para>A module for interacting with python </para></sect1>
     </detaileddescription>
@@ -400,56 +400,82 @@
 <codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="179"><highlight class="normal"></highlight></codeline>
 <codeline lineno="180"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>INCLUDE_PYBIND_PYTHON_INTERFACE</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight></codeline>
-<codeline lineno="189"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="190" refid="namespacenc_1a9e90b53998009ca25fab17910fb6e82a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/><ref refid="namespacenc_1a9e90b53998009ca25fab17910fb6e82a" kindref="member">pybind2nc</ref>(pybind11::array_t&lt;dtype,<sp/>pybind11::array::c_style&gt;&amp;<sp/>numpyArray)</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dtype*<sp/>dataPtr<sp/>=<sp/>numpyArray.mutable_data();</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(numpyArray.ndim())</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(dataPtr,<sp/>0,<sp/>0,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/><ref refid="namespacenc_1a25f36ba02112a206936fae22b0724bb9" kindref="member">size</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(numpyArray.size());</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(dataPtr,<sp/>1,<sp/><ref refid="namespacenc_1a25f36ba02112a206936fae22b0724bb9" kindref="member">size</ref>,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>numRows<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(numpyArray.shape(0));</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>numCols<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(numpyArray.shape(1));</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(dataPtr,<sp/>numRows,<sp/>numCols,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::invalid_argument(</highlight><highlight class="stringliteral">&quot;ERROR:<sp/>input<sp/>array<sp/>must<sp/>be<sp/>no<sp/>more<sp/>than<sp/>2<sp/>dimensional.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"></highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight></codeline>
-<codeline lineno="226"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="227" refid="namespacenc_1ad30d3f881b5375ed3b2941a7b88ea660" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>pybind11::array_t&lt;dtype&gt;<sp/><ref refid="namespacenc_1ad30d3f881b5375ed3b2941a7b88ea660" kindref="member">nc2pybind</ref>(<ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>transferOwnership<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)<sp/>noexcept</highlight></codeline>
-<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_shape" kindref="compound">Shape</ref><sp/>inShape<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" kindref="member">shape</ref>();</highlight></codeline>
-<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;pybind11::ssize_t&gt;<sp/><ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>{<sp/>inShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>,<sp/>inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>};</highlight></codeline>
-<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;pybind11::ssize_t&gt;<sp/>strides{<sp/>inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dtype),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dtype)<sp/>};</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"></highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inArray.<ref refid="classnc_1_1_nd_array_1a2fe5e5e6e6844dcc8576c597285c994f" kindref="member">ownsInternalData</ref>()<sp/>&amp;&amp;<sp/>transferOwnership)</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>py::capsule<sp/>transfer(inArray.<ref refid="classnc_1_1_nd_array_1a90547fcd7b438dd9e0d77d2f8fd3036d" kindref="member">begin</ref>(),<sp/>[](</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr)<sp/>{<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>ptr;<sp/>});<sp/><sp/></highlight><highlight class="comment">//<sp/>python<sp/>now<sp/>owns<sp/>the<sp/>memory</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pybind11::array_t&lt;dtype&gt;(<ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>,<sp/>strides,<sp/>inArray.<ref refid="classnc_1_1_nd_array_1a5dd1edf4ebb4de0e8ae38351385b68d4" kindref="member">dataRelease</ref>(),<sp/>transfer);</highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>py::capsule<sp/>reference(inArray.<ref refid="classnc_1_1_nd_array_1a90547fcd7b438dd9e0d77d2f8fd3036d" kindref="member">begin</ref>(),<sp/>[](</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr)<sp/>{});<sp/><sp/></highlight><highlight class="comment">//<sp/>original<sp/>owner<sp/>still<sp/>owns<sp/>the<sp/>memory,<sp/>passing<sp/>back<sp/>reference</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pybind11::array_t&lt;dtype&gt;(<ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>,<sp/>strides,<sp/>inArray.<ref refid="classnc_1_1_nd_array_1ad102f8fe8139a17ede04f83a03007bf3" kindref="member">data</ref>(),<sp/>reference);</highlight></codeline>
-<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="244"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="245"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183" refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49" kindref="member">ReturnPolicy</ref><sp/>{<sp/><ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49ae8606d021da140a92c7eba8d9b8af84f" kindref="member">COPY</ref>,<sp/><ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49adcd320d017d7f3c317bc8b234287bc9f" kindref="member">REFERENCE</ref>,<sp/><ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49a9419303c1fae01a65adc8d1835aa2c6d" kindref="member">TAKE_OWNERSHIP</ref><sp/>};</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="namespacenc_1adb1fab04424021c2a9e4ff2ebf34bdb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::map&lt;ReturnPolicy,<sp/>std::string&gt;<sp/><ref refid="namespacenc_1adb1fab04424021c2a9e4ff2ebf34bdb3" kindref="member">returnPolicyStringMap</ref><sp/>=<sp/>{<sp/>{<ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49ae8606d021da140a92c7eba8d9b8af84f" kindref="member">ReturnPolicy::COPY</ref>,<sp/></highlight><highlight class="stringliteral">&quot;COPY&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>{<ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49adcd320d017d7f3c317bc8b234287bc9f" kindref="member">ReturnPolicy::REFERENCE</ref>,<sp/></highlight><highlight class="stringliteral">&quot;REFERENCE&quot;</highlight><highlight class="normal">},</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>{<ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49a9419303c1fae01a65adc8d1835aa2c6d" kindref="member">ReturnPolicy::TAKE_OWNERSHIP</ref>,<sp/></highlight><highlight class="stringliteral">&quot;TAKE_OWNERSHIP&quot;</highlight><highlight class="normal">}<sp/>};</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="198" refid="namespacenc_1a9e90b53998009ca25fab17910fb6e82a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/><ref refid="namespacenc_1a9e90b53998009ca25fab17910fb6e82a" kindref="member">pybind2nc</ref>(pybind11::array_t&lt;dtype,<sp/>pybind11::array::c_style&gt;&amp;<sp/>numpyArray)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dtype*<sp/>dataPtr<sp/>=<sp/>numpyArray.mutable_data();</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(numpyArray.ndim())</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>0:</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(dataPtr,<sp/>0,<sp/>0,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/><ref refid="namespacenc_1a25f36ba02112a206936fae22b0724bb9" kindref="member">size</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(numpyArray.size());</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(dataPtr,<sp/>1,<sp/><ref refid="namespacenc_1a25f36ba02112a206936fae22b0724bb9" kindref="member">size</ref>,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>numRows<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(numpyArray.shape(0));</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>numCols<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(numpyArray.shape(1));</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(dataPtr,<sp/>numRows,<sp/>numCols,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::invalid_argument(</highlight><highlight class="stringliteral">&quot;ERROR:<sp/>input<sp/>array<sp/>must<sp/>be<sp/>no<sp/>more<sp/>than<sp/>2<sp/>dimensional.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="234" refid="namespacenc_1a36d8b97a2aa8a500ba39e0295ead4eb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>pybind11::array_t&lt;dtype&gt;<sp/><ref refid="namespacenc_1a36d8b97a2aa8a500ba39e0295ead4eb1" kindref="member">nc2pybind</ref>(<ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray,<sp/><ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49" kindref="member">ReturnPolicy</ref><sp/>returnPolicy<sp/>=<sp/><ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49ae8606d021da140a92c7eba8d9b8af84f" kindref="member">ReturnPolicy::COPY</ref>)<sp/>noexcept</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_shape" kindref="compound">Shape</ref><sp/>inShape<sp/>=<sp/>inArray.shape();</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;pybind11::ssize_t&gt;<sp/><ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>{<sp/>inShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>,<sp/>inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>};</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;pybind11::ssize_t&gt;<sp/>strides{<sp/>inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dtype),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dtype)<sp/>};</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(returnPolicy)</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49ae8606d021da140a92c7eba8d9b8af84f" kindref="member">ReturnPolicy::COPY</ref>:</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pybind11::array_t&lt;dtype&gt;(<ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>,<sp/>strides,<sp/>inArray.data());</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49adcd320d017d7f3c317bc8b234287bc9f" kindref="member">ReturnPolicy::REFERENCE</ref>:</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>pybind11::capsule<sp/>reference(inArray.data(),<sp/>[](</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr)<sp/>{});</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pybind11::array_t&lt;dtype&gt;(<ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>,<sp/>strides,<sp/>inArray.data(),<sp/>reference);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49a9419303c1fae01a65adc8d1835aa2c6d" kindref="member">ReturnPolicy::TAKE_OWNERSHIP</ref>:</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>pybind11::capsule<sp/>garbageCollect(inArray.dataRelease(),<sp/></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr)<sp/></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dtype*<sp/>dataPtr<sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">dtype*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(ptr);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/>dataPtr;<sp/></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pybind11::array_t&lt;dtype&gt;(<ref refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kindref="member">shape</ref>,<sp/>strides,<sp/>inArray.data(),<sp/>garbageCollect);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::stringstream<sp/>sstream;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sstream<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ReturnPolicy<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="namespacenc_1adb1fab04424021c2a9e4ff2ebf34bdb3" kindref="member">returnPolicyStringMap</ref>.at(returnPolicy)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>has<sp/>not<sp/>been<sp/>implemented<sp/>yet&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::runtime_error(sstream.str());</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/PythonInterface.hpp"/>
   </compounddef>

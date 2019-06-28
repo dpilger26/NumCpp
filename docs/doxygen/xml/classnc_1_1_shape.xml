@@ -17,67 +17,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" line="47" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" bodystart="47" bodyend="-1"/>
-        <referencedby refid="classnc_1_1_data_cube_1a00f652afe3e8734f7d0707b12afd6a65" compoundref="_data_cube_8hpp" startline="239" endline="258">nc::DataCube&lt; dtype &gt;::push_back</referencedby>
-        <referencedby refid="classnc_1_1_data_cube_1a320959d355bddd6993d851cf67a0f88d" compoundref="_data_cube_8hpp" startline="265" endline="284">nc::DataCube&lt; dtype &gt;::push_front</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a4b11eab67d220d1a912057ddf9206449" compoundref="_filter_8hpp" startline="207" endline="228">nc::filter::fillCorners</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a668b6c63836542f26d963a619f5658d1" compoundref="_filter_8hpp" startline="269" endline="326">nc::filter::reflectBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1af68e859c2c3de0e63a7de5d3c833e9ba" compoundref="_filter_8hpp" startline="366" endline="387">nc::filter::constantBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a239ebb21f57cfb56544c4247eed568d3" compoundref="_filter_8hpp" startline="426" endline="465">nc::filter::nearestBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a32195e6b62bfec9d92c1bbd50f34349f" compoundref="_filter_8hpp" startline="503" endline="560">nc::filter::mirrorBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a0eefb360788d364ffccc6b809c692bd9" compoundref="_filter_8hpp" startline="599" endline="650">nc::filter::wrapBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a6492a5b4779e713e9c3adb6091d6a063" compoundref="_filter_8hpp" startline="794" endline="803">nc::filter::trimBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a6b257d6e403f5f9003934a4fd1fb5feb" compoundref="_filter_8hpp" startline="880" endline="911">nc::filter::convolve</referencedby>
-        <referencedby refid="classnc_1_1image_processing_1_1_cluster_maker_1a17c7a9f6260f7d6d0aea002b7e5e6ae6" compoundref="_image_processing_8hpp" startline="830" endline="862">nc::imageProcessing::ClusterMaker&lt; dtype &gt;::ClusterMaker</referencedby>
-        <referencedby refid="namespacenc_1_1image_processing_1a6613333b700d2e8c41f1a60505bc9715" compoundref="_image_processing_8hpp" startline="1395" endline="1424">nc::imageProcessing::windowExceedances</referencedby>
-        <referencedby refid="namespacenc_1_1linalg_1a55bafcebbc897458164e8dc511b6119c" compoundref="_linalg_8hpp" startline="705" endline="761">nc::linalg::det</referencedby>
-        <referencedby refid="namespacenc_1_1linalg_1a2eeb58d0a34e50e79fcfe59f71c61b4d" compoundref="_linalg_8hpp" startline="824" endline="896">nc::linalg::inv</referencedby>
-        <referencedby refid="namespacenc_1_1linalg_1a59c33bf492f64017c673a151f890dcbf" compoundref="_linalg_8hpp" startline="945" endline="988">nc::linalg::matrix_power</referencedby>
-        <referencedby refid="namespacenc_1aadf90a1e77b251c318146a945c75e908" compoundref="_methods_8hpp" startline="1165" endline="1221">nc::append</referencedby>
-        <referencedby refid="namespacenc_1a171381462e430870904ae2a24ce2541a" compoundref="_methods_8hpp" startline="1852" endline="1931">nc::average</referencedby>
-        <referencedby refid="namespacenc_1a1fd4b60fc74fcb37dff8faa08e877241" compoundref="_methods_8hpp" startline="2266" endline="2305">nc::column_stack</referencedby>
-        <referencedby refid="namespacenc_1a065b2d856561ca3d57a47f9981eaa126" compoundref="_methods_8hpp" startline="2528" endline="2570">nc::count_nonzero</referencedby>
-        <referencedby refid="namespacenc_1ab414231c92c4fc20d778edc2c9b5dc12" compoundref="_methods_8hpp" startline="2585" endline="2706">nc::cross</referencedby>
-        <referencedby refid="namespacenc_1a90d99a9f0f7927372ae5fdc8fd3c0469" compoundref="_methods_8hpp" startline="2861" endline="2951">nc::deleteIndices</referencedby>
-        <referencedby refid="namespacenc_1afc4f106e2d4a9a2f211c6725cdd74929" compoundref="_methods_8hpp" startline="3068" endline="3131">nc::diff</referencedby>
-        <referencedby refid="namespacenc_1a59bb4a3d7f8626712b6fc1f25d5a0462" compoundref="_methods_8hpp" startline="5751" endline="5824">nc::nanmedian</referencedby>
-        <referencedby refid="namespacenc_1abc8a093e9b2b3ec34bcb602c64976b60" compoundref="_methods_8hpp" startline="6135" endline="6213">nc::nanstdev</referencedby>
-        <referencedby refid="namespacenc_1a8c8e42bbbbb509664e1a7ee3c4641e6e" compoundref="_methods_8hpp" startline="6467" endline="6479">nc::pad</referencedby>
-        <referencedby refid="namespacenc_1acac1ebbc5e3f3ef8d09874f3fcf1b22b" compoundref="_methods_8hpp" startline="7304" endline="7364">nc::roll</referencedby>
-        <referencedby refid="namespacenc_1a4d53bca44b0a1ec255de0bc72d048bf2" compoundref="_methods_8hpp" startline="7449" endline="7488">nc::row_stack</referencedby>
-        <referencedby refid="namespacenc_1a12e7a847f3a0a663f04c11e494a77e7e" compoundref="_methods_8hpp" startline="8140" endline="8199">nc::trapz</referencedby>
-        <referencedby refid="namespacenc_1aa8c48ea18ba4dce93b75dc9bb0882e9b" compoundref="_methods_8hpp" startline="8398" endline="8404">nc::tril</referencedby>
-        <referencedby refid="namespacenc_1aa9142bfbdbfd81f2bd0d6c093a359ea4" compoundref="_methods_8hpp" startline="8492" endline="8498">nc::triu</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aa04abd2ad7ff2b1edefb9f0c5b5fa760" compoundref="_nd_array_8hpp" startline="185" endline="213">nc::NdArray&lt; bool &gt;::NdArray</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aa1c1a56d402b0f43745c075ff42f5bcb" compoundref="_nd_array_8hpp" startline="469" endline="482">nc::NdArray&lt; bool &gt;::operator()</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a377c1b5393aabc2b00496643a5c5da03" compoundref="_nd_array_8hpp" startline="680" endline="683">nc::NdArray&lt; bool &gt;::cSlice</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a6264f04fea2a2d9a4589f752fdb52f43" compoundref="_nd_array_8hpp" startline="757" endline="780">nc::NdArray&lt; bool &gt;::at</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a7e4010114ca11be6e10903ab4bd4d9dd" compoundref="_nd_array_8hpp" startline="900" endline="910">nc::NdArray&lt; bool &gt;::begin</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a4301cb892e3fcc6017786f2f88f9ceb9" compoundref="_nd_array_8hpp" startline="957" endline="967">nc::NdArray&lt; bool &gt;::end</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aa75d85def3d58bfb531a6e2626cd7799" compoundref="_nd_array_8hpp" startline="1015" endline="1025">nc::NdArray&lt; bool &gt;::cbegin</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a72e0f298458da1647e3ecedebb64cd36" compoundref="_nd_array_8hpp" startline="1048" endline="1057">nc::NdArray&lt; bool &gt;::cend</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aa290cea4123e76ea8165d2dde8974b2d" compoundref="_nd_array_8hpp" startline="1272" endline="1329">nc::NdArray&lt; bool &gt;::argsort</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aa3981c4c80a9df2155c9745f5dec3dcf" compoundref="_nd_array_8hpp" startline="1501" endline="1551">nc::NdArray&lt; bool &gt;::cumprod</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1acb502b6a54cff2c2cf82bd9d4d82aa16" compoundref="_nd_array_8hpp" startline="1564" endline="1614">nc::NdArray&lt; bool &gt;::cumsum</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a58959d58c043612b0ecb869ea5280382" compoundref="_nd_array_8hpp" startline="1650" endline="1703">nc::NdArray&lt; bool &gt;::diagonal</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a13e5756a193d375c0b52e5929a41ca2f" compoundref="_nd_array_8hpp" startline="1719" endline="1751">nc::NdArray&lt; bool &gt;::dot</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a6e6476097ba788402df110a2a3e8e12a" compoundref="_nd_array_8hpp" startline="2017" endline="2058">nc::NdArray&lt; bool &gt;::mean</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a8c0907a69c368e28047f034ade0d3c24" compoundref="_nd_array_8hpp" startline="2070" endline="2117">nc::NdArray&lt; bool &gt;::median</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1afe2a5101c43fc9b3df55500364dfe477" compoundref="_nd_array_8hpp" startline="2399" endline="2449">nc::NdArray&lt; bool &gt;::partition</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aabbc32dbf4831ee72376fdf0d2f22b3f" compoundref="_nd_array_8hpp" startline="2702" endline="2720">nc::NdArray&lt; bool &gt;::put</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1ada6c26cecef37f5db019011b458a6c12" compoundref="_nd_array_8hpp" startline="2900" endline="2930">nc::NdArray&lt; bool &gt;::repeat</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a597b9157af97d8be0d38403639aa4b02" compoundref="_nd_array_8hpp" startline="2957" endline="2969">nc::NdArray&lt; bool &gt;::reshape</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a5b886044df5232dc1ba6a8e01c92c9dd" compoundref="_nd_array_8hpp" startline="3028" endline="3052">nc::NdArray&lt; bool &gt;::resizeSlow</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a6d2ac80b2f7b1fa818e33bd03d66a224" compoundref="_nd_array_8hpp" startline="3080" endline="3128">nc::NdArray&lt; bool &gt;::rms</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a276df134adac8fb7304bc951ef639b45" compoundref="_nd_array_8hpp" startline="3254" endline="3309">nc::NdArray&lt; bool &gt;::stdev</referencedby>
-        <referencedby refid="namespacenc_1ac49e5a284be9238624ebd3f548fcb474" compoundref="_python_interface_8hpp" startline="62" endline="103">nc::boost2Nc</referencedby>
-        <referencedby refid="namespacenc_1affc3d3665f4e132238fdd39bcf137f53" compoundref="_python_interface_8hpp" startline="113" endline="127">nc::nc2Boost</referencedby>
-        <referencedby refid="namespacenc_1ad30d3f881b5375ed3b2941a7b88ea660" compoundref="_python_interface_8hpp" startline="227" endline="243">nc::nc2pybind</referencedby>
-        <referencedby refid="classnc_1_1rotations_1_1_quaternion_1a2006b918951028c977fd975e63c486ab" compoundref="_rotations_8hpp" startline="284" endline="350">nc::rotations::Quaternion::fromDCM</referencedby>
-        <referencedby refid="classnc_1_1rotations_1_1_d_c_m_1a54aee041952dac8c6c0b19c765b87f0a" compoundref="_rotations_8hpp" startline="895" endline="905">nc::rotations::DCM&lt; dtype &gt;::isValid</referencedby>
-        <referencedby refid="classnc_1_1_shape_1a0267d8b7eb226fdc442be5c914f9c870" compoundref="_shape_8hpp" startline="82" endline="85">operator==</referencedby>
-        <referencedby refid="classnc_1_1_shape_1ab29f87cc8479a2d0610a918cd9b08bbc" compoundref="_shape_8hpp" startline="104" endline="107">size</referencedby>
-        <referencedby refid="classnc_1_1_shape_1abcd1dafbc4c959f49d40b70d78a3ef2c" compoundref="_shape_8hpp" startline="115" endline="118">isnull</referencedby>
-        <referencedby refid="classnc_1_1_shape_1a22ce97e4e960e7bc01ac5632e9ca719b" compoundref="_shape_8hpp" startline="125" endline="129">str</referencedby>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" prot="public" static="no" mutable="no">
         <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
@@ -92,81 +31,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" line="46" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" bodystart="46" bodyend="-1"/>
-        <referencedby refid="classnc_1_1_data_cube_1a00f652afe3e8734f7d0707b12afd6a65" compoundref="_data_cube_8hpp" startline="239" endline="258">nc::DataCube&lt; dtype &gt;::push_back</referencedby>
-        <referencedby refid="classnc_1_1_data_cube_1a320959d355bddd6993d851cf67a0f88d" compoundref="_data_cube_8hpp" startline="265" endline="284">nc::DataCube&lt; dtype &gt;::push_front</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a4b11eab67d220d1a912057ddf9206449" compoundref="_filter_8hpp" startline="207" endline="228">nc::filter::fillCorners</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a668b6c63836542f26d963a619f5658d1" compoundref="_filter_8hpp" startline="269" endline="326">nc::filter::reflectBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1af68e859c2c3de0e63a7de5d3c833e9ba" compoundref="_filter_8hpp" startline="366" endline="387">nc::filter::constantBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a239ebb21f57cfb56544c4247eed568d3" compoundref="_filter_8hpp" startline="426" endline="465">nc::filter::nearestBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a32195e6b62bfec9d92c1bbd50f34349f" compoundref="_filter_8hpp" startline="503" endline="560">nc::filter::mirrorBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a0eefb360788d364ffccc6b809c692bd9" compoundref="_filter_8hpp" startline="599" endline="650">nc::filter::wrapBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a6492a5b4779e713e9c3adb6091d6a063" compoundref="_filter_8hpp" startline="794" endline="803">nc::filter::trimBoundary</referencedby>
-        <referencedby refid="namespacenc_1_1filter_1a6b257d6e403f5f9003934a4fd1fb5feb" compoundref="_filter_8hpp" startline="880" endline="911">nc::filter::convolve</referencedby>
-        <referencedby refid="classnc_1_1image_processing_1_1_cluster_maker_1a17c7a9f6260f7d6d0aea002b7e5e6ae6" compoundref="_image_processing_8hpp" startline="830" endline="862">nc::imageProcessing::ClusterMaker&lt; dtype &gt;::ClusterMaker</referencedby>
-        <referencedby refid="namespacenc_1_1image_processing_1a6613333b700d2e8c41f1a60505bc9715" compoundref="_image_processing_8hpp" startline="1395" endline="1424">nc::imageProcessing::windowExceedances</referencedby>
-        <referencedby refid="namespacenc_1_1linalg_1a55bafcebbc897458164e8dc511b6119c" compoundref="_linalg_8hpp" startline="705" endline="761">nc::linalg::det</referencedby>
-        <referencedby refid="namespacenc_1_1linalg_1a2eeb58d0a34e50e79fcfe59f71c61b4d" compoundref="_linalg_8hpp" startline="824" endline="896">nc::linalg::inv</referencedby>
-        <referencedby refid="namespacenc_1_1linalg_1a59c33bf492f64017c673a151f890dcbf" compoundref="_linalg_8hpp" startline="945" endline="988">nc::linalg::matrix_power</referencedby>
-        <referencedby refid="namespacenc_1aadf90a1e77b251c318146a945c75e908" compoundref="_methods_8hpp" startline="1165" endline="1221">nc::append</referencedby>
-        <referencedby refid="namespacenc_1a171381462e430870904ae2a24ce2541a" compoundref="_methods_8hpp" startline="1852" endline="1931">nc::average</referencedby>
-        <referencedby refid="namespacenc_1a1fd4b60fc74fcb37dff8faa08e877241" compoundref="_methods_8hpp" startline="2266" endline="2305">nc::column_stack</referencedby>
-        <referencedby refid="namespacenc_1a065b2d856561ca3d57a47f9981eaa126" compoundref="_methods_8hpp" startline="2528" endline="2570">nc::count_nonzero</referencedby>
-        <referencedby refid="namespacenc_1ab414231c92c4fc20d778edc2c9b5dc12" compoundref="_methods_8hpp" startline="2585" endline="2706">nc::cross</referencedby>
-        <referencedby refid="namespacenc_1a90d99a9f0f7927372ae5fdc8fd3c0469" compoundref="_methods_8hpp" startline="2861" endline="2951">nc::deleteIndices</referencedby>
-        <referencedby refid="namespacenc_1afc4f106e2d4a9a2f211c6725cdd74929" compoundref="_methods_8hpp" startline="3068" endline="3131">nc::diff</referencedby>
-        <referencedby refid="namespacenc_1ab422b1ce1e6f64bac61882f142373645" compoundref="_methods_8hpp" startline="5672" endline="5736">nc::nanmean</referencedby>
-        <referencedby refid="namespacenc_1a59bb4a3d7f8626712b6fc1f25d5a0462" compoundref="_methods_8hpp" startline="5751" endline="5824">nc::nanmedian</referencedby>
-        <referencedby refid="namespacenc_1a2cf08c4e457f7b13ce36325c5d72ab7e" compoundref="_methods_8hpp" startline="5863" endline="6035">nc::nanpercentile</referencedby>
-        <referencedby refid="namespacenc_1abc8a093e9b2b3ec34bcb602c64976b60" compoundref="_methods_8hpp" startline="6135" endline="6213">nc::nanstdev</referencedby>
-        <referencedby refid="namespacenc_1a8c8e42bbbbb509664e1a7ee3c4641e6e" compoundref="_methods_8hpp" startline="6467" endline="6479">nc::pad</referencedby>
-        <referencedby refid="namespacenc_1a70a98622a4f6890bd7794a3d6451561b" compoundref="_methods_8hpp" startline="6525" endline="6650">nc::percentile</referencedby>
-        <referencedby refid="namespacenc_1acac1ebbc5e3f3ef8d09874f3fcf1b22b" compoundref="_methods_8hpp" startline="7304" endline="7364">nc::roll</referencedby>
-        <referencedby refid="namespacenc_1a4d53bca44b0a1ec255de0bc72d048bf2" compoundref="_methods_8hpp" startline="7449" endline="7488">nc::row_stack</referencedby>
-        <referencedby refid="namespacenc_1a12e7a847f3a0a663f04c11e494a77e7e" compoundref="_methods_8hpp" startline="8140" endline="8199">nc::trapz</referencedby>
-        <referencedby refid="namespacenc_1aa8c48ea18ba4dce93b75dc9bb0882e9b" compoundref="_methods_8hpp" startline="8398" endline="8404">nc::tril</referencedby>
-        <referencedby refid="namespacenc_1aa9142bfbdbfd81f2bd0d6c093a359ea4" compoundref="_methods_8hpp" startline="8492" endline="8498">nc::triu</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aa1c1a56d402b0f43745c075ff42f5bcb" compoundref="_nd_array_8hpp" startline="469" endline="482">nc::NdArray&lt; bool &gt;::operator()</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aea1061c8c6954ca960412a7f4b323405" compoundref="_nd_array_8hpp" startline="695" endline="698">nc::NdArray&lt; bool &gt;::rSlice</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a6264f04fea2a2d9a4589f752fdb52f43" compoundref="_nd_array_8hpp" startline="757" endline="780">nc::NdArray&lt; bool &gt;::at</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a7e4010114ca11be6e10903ab4bd4d9dd" compoundref="_nd_array_8hpp" startline="900" endline="910">nc::NdArray&lt; bool &gt;::begin</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a4301cb892e3fcc6017786f2f88f9ceb9" compoundref="_nd_array_8hpp" startline="957" endline="967">nc::NdArray&lt; bool &gt;::end</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aa75d85def3d58bfb531a6e2626cd7799" compoundref="_nd_array_8hpp" startline="1015" endline="1025">nc::NdArray&lt; bool &gt;::cbegin</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a72e0f298458da1647e3ecedebb64cd36" compoundref="_nd_array_8hpp" startline="1048" endline="1057">nc::NdArray&lt; bool &gt;::cend</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a92737efa2e525a62ad07e63534bd8e36" compoundref="_nd_array_8hpp" startline="1070" endline="1108">nc::NdArray&lt; bool &gt;::all</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1abe14645f18b0cf6b62e622f0db0624e0" compoundref="_nd_array_8hpp" startline="1121" endline="1159">nc::NdArray&lt; bool &gt;::any</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aa5266474ab548ecfc80cb6a30001c797" compoundref="_nd_array_8hpp" startline="1173" endline="1209">nc::NdArray&lt; bool &gt;::argmax</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1ac9d8a31bc6539479176a8894411286db" compoundref="_nd_array_8hpp" startline="1223" endline="1259">nc::NdArray&lt; bool &gt;::argmin</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aa290cea4123e76ea8165d2dde8974b2d" compoundref="_nd_array_8hpp" startline="1272" endline="1329">nc::NdArray&lt; bool &gt;::argsort</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a129666b27611423b46c05c7fdbe937d4" compoundref="_nd_array_8hpp" startline="1437" endline="1474">nc::NdArray&lt; bool &gt;::contains</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aa3981c4c80a9df2155c9745f5dec3dcf" compoundref="_nd_array_8hpp" startline="1501" endline="1551">nc::NdArray&lt; bool &gt;::cumprod</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1acb502b6a54cff2c2cf82bd9d4d82aa16" compoundref="_nd_array_8hpp" startline="1564" endline="1614">nc::NdArray&lt; bool &gt;::cumsum</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a58959d58c043612b0ecb869ea5280382" compoundref="_nd_array_8hpp" startline="1650" endline="1703">nc::NdArray&lt; bool &gt;::diagonal</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a13e5756a193d375c0b52e5929a41ca2f" compoundref="_nd_array_8hpp" startline="1719" endline="1751">nc::NdArray&lt; bool &gt;::dot</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" compoundref="_nd_array_8hpp" startline="1917" endline="1954">nc::NdArray&lt; bool &gt;::max</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a7a863a1318f753addcf8163191085061" compoundref="_nd_array_8hpp" startline="1967" endline="2004">nc::NdArray&lt; bool &gt;::min</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a6e6476097ba788402df110a2a3e8e12a" compoundref="_nd_array_8hpp" startline="2017" endline="2058">nc::NdArray&lt; bool &gt;::mean</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a8c0907a69c368e28047f034ade0d3c24" compoundref="_nd_array_8hpp" startline="2070" endline="2117">nc::NdArray&lt; bool &gt;::median</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a9a8b5063ec64c9d0d9afdce057db77ea" compoundref="_nd_array_8hpp" startline="2308" endline="2360">nc::NdArray&lt; bool &gt;::norm</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1afe2a5101c43fc9b3df55500364dfe477" compoundref="_nd_array_8hpp" startline="2399" endline="2449">nc::NdArray&lt; bool &gt;::partition</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aea4d359f558a7d463a843c147bc2a948" compoundref="_nd_array_8hpp" startline="2472" endline="2513">nc::NdArray&lt; bool &gt;::prod</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1ae90b5d8ba2a2466c40a1fd374b69598b" compoundref="_nd_array_8hpp" startline="2526" endline="2566">nc::NdArray&lt; bool &gt;::ptp</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1aabbc32dbf4831ee72376fdf0d2f22b3f" compoundref="_nd_array_8hpp" startline="2702" endline="2720">nc::NdArray&lt; bool &gt;::put</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1ada6c26cecef37f5db019011b458a6c12" compoundref="_nd_array_8hpp" startline="2900" endline="2930">nc::NdArray&lt; bool &gt;::repeat</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a597b9157af97d8be0d38403639aa4b02" compoundref="_nd_array_8hpp" startline="2957" endline="2969">nc::NdArray&lt; bool &gt;::reshape</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a5b886044df5232dc1ba6a8e01c92c9dd" compoundref="_nd_array_8hpp" startline="3028" endline="3052">nc::NdArray&lt; bool &gt;::resizeSlow</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a6d2ac80b2f7b1fa818e33bd03d66a224" compoundref="_nd_array_8hpp" startline="3080" endline="3128">nc::NdArray&lt; bool &gt;::rms</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a0022f6849d04ff050f9c795477e98333" compoundref="_nd_array_8hpp" startline="3213" endline="3241">nc::NdArray&lt; bool &gt;::sort</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1a276df134adac8fb7304bc951ef639b45" compoundref="_nd_array_8hpp" startline="3254" endline="3309">nc::NdArray&lt; bool &gt;::stdev</referencedby>
-        <referencedby refid="classnc_1_1_nd_array_1ab1dfe260680abf6a8cc4fdf56c1b15c2" compoundref="_nd_array_8hpp" startline="3354" endline="3392">nc::NdArray&lt; bool &gt;::sum</referencedby>
-        <referencedby refid="namespacenc_1ac49e5a284be9238624ebd3f548fcb474" compoundref="_python_interface_8hpp" startline="62" endline="103">nc::boost2Nc</referencedby>
-        <referencedby refid="namespacenc_1affc3d3665f4e132238fdd39bcf137f53" compoundref="_python_interface_8hpp" startline="113" endline="127">nc::nc2Boost</referencedby>
-        <referencedby refid="namespacenc_1ad30d3f881b5375ed3b2941a7b88ea660" compoundref="_python_interface_8hpp" startline="227" endline="243">nc::nc2pybind</referencedby>
-        <referencedby refid="classnc_1_1rotations_1_1_quaternion_1a2006b918951028c977fd975e63c486ab" compoundref="_rotations_8hpp" startline="284" endline="350">nc::rotations::Quaternion::fromDCM</referencedby>
-        <referencedby refid="classnc_1_1rotations_1_1_d_c_m_1a54aee041952dac8c6c0b19c765b87f0a" compoundref="_rotations_8hpp" startline="895" endline="905">nc::rotations::DCM&lt; dtype &gt;::isValid</referencedby>
-        <referencedby refid="classnc_1_1_shape_1a0267d8b7eb226fdc442be5c914f9c870" compoundref="_shape_8hpp" startline="82" endline="85">operator==</referencedby>
-        <referencedby refid="classnc_1_1_shape_1ab29f87cc8479a2d0610a918cd9b08bbc" compoundref="_shape_8hpp" startline="104" endline="107">size</referencedby>
-        <referencedby refid="classnc_1_1_shape_1abcd1dafbc4c959f49d40b70d78a3ef2c" compoundref="_shape_8hpp" startline="115" endline="118">isnull</referencedby>
-        <referencedby refid="classnc_1_1_shape_1a22ce97e4e960e7bc01ac5632e9ca719b" compoundref="_shape_8hpp" startline="125" endline="129">str</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -257,10 +121,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" line="115" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" bodystart="115" bodyend="118"/>
-        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">rows</references>
-        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">cols</references>
-        <referencedby refid="namespacenc_1a1fd4b60fc74fcb37dff8faa08e877241" compoundref="_methods_8hpp" startline="2266" endline="2305">nc::column_stack</referencedby>
-        <referencedby refid="namespacenc_1a4d53bca44b0a1ec255de0bc72d048bf2" compoundref="_methods_8hpp" startline="7449" endline="7488">nc::row_stack</referencedby>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_shape_1a56c44db7af73bc585c83e094da8996b5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -313,8 +173,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" line="82" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" bodystart="82" bodyend="85"/>
-        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">rows</references>
-        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">cols</references>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_shape_1a8bebd2bf23c9e0cfc1917006af3594c9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -342,10 +200,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" line="104" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" bodystart="104" bodyend="107"/>
-        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">rows</references>
-        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">cols</references>
-        <referencedby refid="classnc_1_1_nd_array_1ada6c26cecef37f5db019011b458a6c12" compoundref="_nd_array_8hpp" startline="2900" endline="2930">nc::NdArray&lt; bool &gt;::repeat</referencedby>
-        <referencedby refid="namespacenc_1ac49e5a284be9238624ebd3f548fcb474" compoundref="_python_interface_8hpp" startline="62" endline="103">nc::boost2Nc</referencedby>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1_shape_1a22ce97e4e960e7bc01ac5632e9ca719b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
@@ -360,9 +214,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" line="125" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Shape.hpp" bodystart="125" bodyend="129"/>
-        <references refid="namespacenc_1_1utils_1a2e3a14fbbce38b0f8710ea0d92ee2ffc" compoundref="_utils_8hpp" startline="69" endline="72">nc::utils::num2str</references>
-        <references refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" compoundref="_shape_8hpp" startline="46">rows</references>
-        <references refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" compoundref="_shape_8hpp" startline="47">cols</references>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
@@ -409,7 +260,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="35">
+      <node id="33">
         <label>nc::Shape</label>
         <link refid="classnc_1_1_shape"/>
       </node>

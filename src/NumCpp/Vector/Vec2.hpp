@@ -244,10 +244,10 @@ namespace nc
         /// @param      otherVec
         /// @return     Vec2
         ///
-        Vec2 project(const Vec2& vec) const noexcept
+        Vec2 project(const Vec2& otherVec) const noexcept
         {
-            double projectedMagnitude = norm() * std::cos(angle(vec));
-            return vec.normalize() *= projectedMagnitude;
+            double projectedMagnitude = norm() * std::cos(angle(otherVec));
+            return otherVec.normalize() *= projectedMagnitude;
         }
 
         //============================================================================
@@ -410,26 +410,26 @@ namespace nc
     // Method Description:
     ///						Adds the scaler to the vector
     ///
-    /// @param      vec
-    /// @param      scaler
+    /// @param      lhs
+    /// @param      rhs
     /// @return     Vec2
     ///
-    inline Vec2 operator+(const Vec2& vec, double scaler) noexcept
+    inline Vec2 operator+(const Vec2& lhs, double rhs) noexcept
     {
-        return Vec2(vec) += scaler;
+        return Vec2(lhs) += rhs;
     }
 
     //============================================================================
     // Method Description:
     ///						Adds the scaler to the vector
     ///
-    /// @param      scaler
-    /// @param      vec
+    /// @param      lhs
+    /// @param      rhs
     /// @return     Vec2
     ///
-    inline Vec2 operator+(double scaler, const Vec2& vec) noexcept
+    inline Vec2 operator+(double lhs, const Vec2& rhs) noexcept
     {
-        return Vec2(vec) += scaler;
+        return Vec2(rhs) += lhs;
     }
 
     //============================================================================
@@ -460,26 +460,26 @@ namespace nc
     // Method Description:
     ///						Subtracts the scaler from the vector
     ///
-    /// @param      vec
-    /// @param      scaler
+    /// @param      lhs
+    /// @param      rhs
     /// @return     Vec2
     ///
-    inline Vec2 operator-(const Vec2& vec, double scaler) noexcept
+    inline Vec2 operator-(const Vec2& lhs, double rhs) noexcept
     {
-        return Vec2(vec) -= scaler;
+        return Vec2(lhs) -= rhs;
     }
 
     //============================================================================
     // Method Description:
     ///						Subtracts the scaler from the vector
     ///
-    /// @param      scaler
-    /// @param      vec
+    /// @param      lhs
+    /// @param      rhs
     /// @return     Vec2
     ///
-    inline Vec2 operator-(double scaler, const Vec2& vec) noexcept
+    inline Vec2 operator-(double lhs, const Vec2& rhs) noexcept
     {
-        return -Vec2(vec) += scaler;
+        return -Vec2(rhs) += lhs;
     }
 
     //============================================================================
@@ -499,53 +499,53 @@ namespace nc
     // Method Description:
     ///						Scalar mulitplication
     ///
-    /// @param      vec
-    /// @param      scaler
+    /// @param      lhs
+    /// @param      rhs
     /// @return     Vec2
     ///
-    inline Vec2 operator*(const Vec2& vec, double scaler) noexcept
+    inline Vec2 operator*(const Vec2& lhs, double rhs) noexcept
     {
-        return Vec2(vec) *= scaler;
+        return Vec2(lhs) *= rhs;
     }
 
     //============================================================================
     // Method Description:
     ///						Scalar mulitplication
     ///
-    /// @param      vec
-    /// @param      scaler
+    /// @param      lhs
+    /// @param      rhs
     /// @return     Vec2
     ///
-    inline Vec2 operator*(double scaler, const Vec2& vec) noexcept
+    inline Vec2 operator*(double lhs, const Vec2& rhs) noexcept
     {
-        return Vec2(vec) *= scaler;
+        return Vec2(rhs) *= lhs;
     }
 
     //============================================================================
     // Method Description:
     ///						Vector mulitplication (dot product)
     ///
-    /// @param      rhs
     /// @param      lhs
+    /// @param      rhs
     /// @return     dot product
     ///				
     ///
-    inline double operator*(const Vec2& vec1, const Vec2& vec2) noexcept
+    inline double operator*(const Vec2& lhs, const Vec2& rhs) noexcept
     {
-        return vec1.dot(vec2);
+        return lhs.dot(rhs);
     }
 
     //============================================================================
     // Method Description:
     ///						Scalar division
     ///
-    /// @param      vec
-    /// @param      scaler
+    /// @param      lhs
+    /// @param      rhs
     /// @return     Vec2
     ///
-    inline Vec2 operator/(const Vec2& vec, double scaler) noexcept
+    inline Vec2 operator/(const Vec2& lhs, double rhs) noexcept
     {
-        return Vec2(vec) /= scaler;
+        return Vec2(lhs) /= rhs;
     }
 
     //============================================================================

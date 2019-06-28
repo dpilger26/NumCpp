@@ -349,7 +349,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="512" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="512" bodyend="526"/>
-        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1coordinates_1_1_coordinate_1ab5502c231ff400b90fc9ede39a524eed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="classnc_1_1coordinates_1_1_dec" kindref="compound">Dec</ref> &amp;</type>
@@ -390,9 +389,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="596" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="596" bodyend="599"/>
-        <references refid="namespacenc_1a08f4ef3bf79eaa0944f869a4013940e9" compoundref="_methods_8hpp" startline="6916" endline="6919">nc::rad2deg</references>
-        <references refid="classnc_1_1coordinates_1_1_coordinate_1a169974783c87c9bbc89ccb4ea2ea4123" compoundref="_coordinates_8hpp" startline="621" endline="624">radianSeperation</references>
-        <referencedby refid="namespacenc_1_1coordinates_1a86698ce3b556e7e38d0b8c8034719244" compoundref="_coordinates_8hpp" startline="729" endline="733">nc::coordinates::degreeSeperation</referencedby>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1coordinates_1_1_coordinate_1a223ae10750fed3706997220e76f25c0d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -419,8 +415,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="609" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="609" bodyend="612"/>
-        <references refid="namespacenc_1a08f4ef3bf79eaa0944f869a4013940e9" compoundref="_methods_8hpp" startline="6916" endline="6919">nc::rad2deg</references>
-        <references refid="classnc_1_1coordinates_1_1_coordinate_1a169974783c87c9bbc89ccb4ea2ea4123" compoundref="_coordinates_8hpp" startline="621" endline="624">radianSeperation</references>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1coordinates_1_1_coordinate_1a8d139bb6b4d2d315d32d6fa818dab93d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -526,10 +520,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="621" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="621" bodyend="624"/>
-        <references refid="namespacenc_1a50b693e816ecaa711b09997abaacec9a" compoundref="_methods_8hpp" startline="3162" endline="3165">nc::dot</references>
-        <references refid="classnc_1_1coordinates_1_1_coordinate_1a01ff982f40caae2429c20d0ba66e4afc" compoundref="_coordinates_8hpp" startline="583" endline="587">xyz</references>
-        <referencedby refid="classnc_1_1coordinates_1_1_coordinate_1a9fd37a2cb2c3b45aee933e4e5f95d074" compoundref="_coordinates_8hpp" startline="596" endline="599">degreeSeperation</referencedby>
-        <referencedby refid="namespacenc_1_1coordinates_1a0fd3df39e04b072bf988390bce990f7c" compoundref="_coordinates_8hpp" startline="757" endline="761">nc::coordinates::radianSeperation</referencedby>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1coordinates_1_1_coordinate_1ae01f4143ae771a0f8bccefc4bba78b86" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -556,10 +546,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="634" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="634" bodyend="644"/>
-        <references refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" compoundref="_nd_array_8hpp" startline="3197" endline="3200">nc::NdArray&lt; dtype &gt;::size</references>
-        <references refid="namespacenc_1a50b693e816ecaa711b09997abaacec9a" compoundref="_methods_8hpp" startline="3162" endline="3165">nc::dot</references>
-        <references refid="classnc_1_1coordinates_1_1_coordinate_1a01ff982f40caae2429c20d0ba66e4afc" compoundref="_coordinates_8hpp" startline="583" endline="587">xyz</references>
-        <references refid="classnc_1_1_nd_array_1a5169b9ad613ce03c7cb748b05e978028" compoundref="_nd_array_8hpp" startline="1834" endline="1839">nc::NdArray&lt; dtype &gt;::flatten</references>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1coordinates_1_1_coordinate_1a04a60dd7bc2ef5be41c8006e2797997f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
@@ -574,10 +560,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="651" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="651" bodyend="658"/>
-        <references refid="classnc_1_1coordinates_1_1_r_a_1a37824a93eb9e0a02237d4e654040761b" compoundref="_coordinates_8hpp" startline="159" endline="164">nc::coordinates::RA::str</references>
-        <references refid="classnc_1_1coordinates_1_1_dec_1a91ddbec1fadfdcc049930dc439da4608" compoundref="_coordinates_8hpp" startline="344" endline="350">nc::coordinates::Dec::str</references>
-        <references refid="classnc_1_1coordinates_1_1_coordinate_1a01ff982f40caae2429c20d0ba66e4afc" compoundref="_coordinates_8hpp" startline="583" endline="587">xyz</references>
-        <references refid="classnc_1_1_nd_array_1ab2daa76c0c35263c3426a29c832a6149" compoundref="_nd_array_8hpp" startline="3318" endline="3341">nc::NdArray&lt; dtype &gt;::str</references>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1coordinates_1_1_coordinate_1aded7d56f04931cfbb07488d45d6bfce5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -606,8 +588,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="583" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="583" bodyend="587"/>
-        <referencedby refid="classnc_1_1coordinates_1_1_coordinate_1a169974783c87c9bbc89ccb4ea2ea4123" compoundref="_coordinates_8hpp" startline="621" endline="624">radianSeperation</referencedby>
-        <referencedby refid="classnc_1_1coordinates_1_1_coordinate_1a04a60dd7bc2ef5be41c8006e2797997f" compoundref="_coordinates_8hpp" startline="651" endline="658">str</referencedby>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1coordinates_1_1_coordinate_1a624e354f60ca0822c5a60e9ee6432bc6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>

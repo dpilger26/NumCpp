@@ -900,7 +900,7 @@ namespace nc
             ///						returns a direction cosine matrix that rotates about
             ///						the input axis by the input angle
             ///
-            /// @param				inArray (cartesian vector with x,y,z)
+            /// @param				inAxis (cartesian vector with x,y,z)
             /// @param				inAngle (in radians)
             /// @return
             ///				NdArray

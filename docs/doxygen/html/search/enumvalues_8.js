@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wrap',['WRAP',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0',1,'nc::filter']]]
+  ['take_5fownership',['TAKE_OWNERSHIP',['../namespacenc.html#a8923c4426e2acad9cb531ab917750b49a9419303c1fae01a65adc8d1835aa2c6d',1,'nc']]]
 ];

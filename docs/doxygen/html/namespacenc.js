@@ -12,5 +12,7 @@ var namespacenc =
     [ "Random", "classnc_1_1_random.html", "classnc_1_1_random" ],
     [ "Shape", "classnc_1_1_shape.html", "classnc_1_1_shape" ],
     [ "Slice", "classnc_1_1_slice.html", "classnc_1_1_slice" ],
-    [ "Timer", "classnc_1_1_timer.html", "classnc_1_1_timer" ]
+    [ "Timer", "classnc_1_1_timer.html", "classnc_1_1_timer" ],
+    [ "Vec2", "classnc_1_1_vec2.html", "classnc_1_1_vec2" ],
+    [ "Vec3", "classnc_1_1_vec3.html", "classnc_1_1_vec3" ]
 ];
