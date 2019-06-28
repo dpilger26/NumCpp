@@ -2796,6 +2796,11 @@ namespace Vec2Interface
     {
         return vec1 / scaler;
     }
+
+    void print(const Vec2& vec)
+    {
+        std::cout << vec;
+    }
 }
 
 namespace Vec3Interface
@@ -2878,6 +2883,11 @@ namespace Vec3Interface
     Vec3 divVec3Scaler(const Vec3& vec1, double scaler)
     {
         return vec1 / scaler;
+    }
+
+    void print(const Vec3& vec)
+    {
+        std::cout << vec;
     }
 }
 
@@ -3869,6 +3879,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("Vec2_multVec2NdArray", &Vec2Interface::multVec2NdArray);
     bp::def("Vec2_multNdArrayVec2", &Vec2Interface::multNdArrayVec2);
     bp::def("Vec2_divVec2Scaler", &Vec2Interface::divVec2Scaler);
+    bp::def("Vec2_print", &Vec2Interface::print);
 
     // Vec3.hpp
     bp::class_<Vec3>
@@ -3915,4 +3926,5 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("Vec3_multVec3NdArray", &Vec3Interface::multVec3NdArray);
     bp::def("Vec3_multNdArrayVec3", &Vec3Interface::multNdArrayVec3);
     bp::def("Vec3_divVec3Scaler", &Vec3Interface::divVec3Scaler);
+    bp::def("Vec3_print", &Vec3Interface::print);
 }

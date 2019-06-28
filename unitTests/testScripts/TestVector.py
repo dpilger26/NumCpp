@@ -89,6 +89,30 @@ def testVec2():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing clampMagnitude', 'cyan'))
+    components = np.random.rand(2) + 10
+    clampMag = np.random.randint(1, 10, [1, ]).item()
+    vec2 = NumCpp.Vec2(*components)
+    clampedVec = vec2.clampMagnitude(float(clampMag))
+    if (np.round(clampedVec.norm(), DECIMALS_TO_ROUND) == clampMag and
+            np.round(vec2.dot(clampedVec) / vec2.norm() / clampedVec.norm(), DECIMALS_TO_ROUND) == 1):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing distance', 'cyan'))
+    components1 = np.random.rand(2)
+    components2 = np.random.rand(2)
+    vec2_1py = vectormath.Vector2(*components1)
+    vec2_2py = vectormath.Vector2(*components2)
+    vec2_1cpp = NumCpp.Vec2(*components1)
+    vec2_2cpp = NumCpp.Vec2(*components2)
+    if (round((vec2_2py - vec2_1py).length, DECIMALS_TO_ROUND) ==
+            round(vec2_1cpp.distance(vec2_2cpp), DECIMALS_TO_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing dot', 'cyan'))
     components1 = np.random.rand(2)
     components2 = np.random.rand(2)
@@ -347,6 +371,9 @@ def testVec2():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing print', 'cyan'))
+    NumCpp.Vec2_print(vec2cpp)
+
 
 ####################################################################################
 def testVec3():
@@ -430,6 +457,30 @@ def testVec3():
     print(colored('Testing back', 'cyan'))
     vec3 = NumCpp.Vec3.back()
     if vec3.x == 0 and vec3.y == -0 and vec3.z == -1:
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing clampMagnitude', 'cyan'))
+    components = np.random.rand(3) + 10
+    clampMag = np.random.randint(1, 10, [1, ]).item()
+    vec3 = NumCpp.Vec3(*components)
+    clampedVec = vec3.clampMagnitude(float(clampMag))
+    if (np.round(clampedVec.norm(), DECIMALS_TO_ROUND) == clampMag and
+            np.round(vec3.dot(clampedVec) / vec3.norm() / clampedVec.norm(), DECIMALS_TO_ROUND) == 1):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing distance', 'cyan'))
+    components1 = np.random.rand(3)
+    components2 = np.random.rand(3)
+    vec3_1py = vectormath.Vector3(*components1)
+    vec3_2py = vectormath.Vector3(*components2)
+    vec3_1cpp = NumCpp.Vec3(*components1)
+    vec3_2cpp = NumCpp.Vec3(*components2)
+    if (round((vec3_2py - vec3_1py).length, DECIMALS_TO_ROUND) ==
+            round(vec3_1cpp.distance(vec3_2cpp), DECIMALS_TO_ROUND)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -704,6 +755,9 @@ def testVec3():
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing print', 'cyan'))
+    NumCpp.Vec3_print(vec3cpp)
 
 
 ####################################################################################

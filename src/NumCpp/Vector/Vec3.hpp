@@ -160,8 +160,7 @@ namespace nc
             }
             else
             {
-                Vec3 returnVec = Vec3(*this);
-                returnVec /= magnitude;
+                Vec3 returnVec = Vec3(*this).normalize();
                 returnVec *= maxLength;
                 return returnVec;
             }
