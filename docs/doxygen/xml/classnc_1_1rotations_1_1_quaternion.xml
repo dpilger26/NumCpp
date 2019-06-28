@@ -1,0 +1,1237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classnc_1_1rotations_1_1_quaternion" kind="class" language="C++" prot="public">
+    <compoundname>nc::rotations::Quaternion</compoundname>
+    <includes refid="_rotations_8hpp" local="no">Rotations.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classnc_1_1rotations_1_1_quaternion_1ac5bfff33006b91593264660913a08786" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nc::rotations::Quaternion::data_[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>data_</name>
+        <initializer>= { 0.0, 0.0, 0.0, 1.0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ae9d47af3f78d727f62588a0f209f01f1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::rotations::Quaternion::normalize</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>normalize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>renormalizes the quaternion </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="63" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="63" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ae4b67d060aa58aa6d22813d6ab851ec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>nc::rotations::Quaternion::Quaternion</definition>
+        <argsstring>() noexcept=default</argsstring>
+        <name>Quaternion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default Constructor, not super usefull on its own </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="77" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a3ba2fb2c68554ec78a0957dc1fd7752d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::rotations::Quaternion::Quaternion</definition>
+        <argsstring>(double inI, double inJ, double inK, double inS) noexcept</argsstring>
+        <name>Quaternion</name>
+        <param>
+          <type>double</type>
+          <declname>inI</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inJ</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inK</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inS</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inI</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inJ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="88" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="88" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1addcc7fb7b4acd4201e7f5b90ef207f4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::rotations::Quaternion::Quaternion</definition>
+        <argsstring>(const NdArray&lt; double &gt; &amp;inArray)</argsstring>
+        <name>Quaternion</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(size = 4) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="104" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="104" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a1ed072758066ed454d9ba0452dc5a2d0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>NdArray&lt;double&gt; nc::rotations::Quaternion::angularVelocity</definition>
+        <argsstring>(const Quaternion &amp;inQuat2, double inTime) const noexcept</argsstring>
+        <name>angularVelocity</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inQuat2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>angular velocity vector between the two quaternions. The norm of the array is the magnitude</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inQuat2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(seperation time) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="209" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="209" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ade406544e8360506bb77102d17b14e61" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>Quaternion nc::rotations::Quaternion::conjugate</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>conjugate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>quaternion conjugate</para><para><simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="221" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="221" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a5a661b367dff916e8bdb5e28ac608ecd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::rotations::Quaternion::i</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the i component</para><para><simplesect kind="return"><para>double </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="233" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="233" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a9b0634474b2ff27f9443ba256ea00ab1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>Quaternion nc::rotations::Quaternion::inverse</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>inverse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>quaternion inverse</para><para><simplesect kind="return"><para>Quaterion </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="257" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="257" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1acb62c703a1f96333bf76ad0735cb8b97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::rotations::Quaternion::j</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>j</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the j component</para><para><simplesect kind="return"><para>double </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="270" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="270" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1aa2eee61d3a428a558f28d1bb6cc6a048" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::rotations::Quaternion::k</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>k</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the k component</para><para><simplesect kind="return"><para>double </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="282" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="282" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ab055510c1338490b957de867cecaf790" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>Quaternion nc::rotations::Quaternion::nlerp</definition>
+        <argsstring>(const Quaternion &amp;inQuat2, double inPercent) const</argsstring>
+        <name>nlerp</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inQuat2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inPercent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>linearly interpolates between the two quaternions</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inQuat2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPercent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(0, 1) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="408" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="408" bodyend="411"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1adcf57fd29d62e19f5c764750262ff7c3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::rotations::Quaternion::operator!=</definition>
+        <argsstring>(const Quaternion &amp;inRhs) const noexcept</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>equality operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="666" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="666" bodyend="669"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1adad6ca92266f6090930addc585900805" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>Quaternion nc::rotations::Quaternion::operator*</definition>
+        <argsstring>(const Quaternion &amp;inRhs) const noexcept</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>multiplication operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="748" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="748" bodyend="751"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ad63920fa01f5bd4949c0fbb3ff7c7137" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>Quaternion nc::rotations::Quaternion::operator*</definition>
+        <argsstring>(double inScalar) const noexcept</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>double</type>
+          <declname>inScalar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>multiplication operator, only useful for multiplying by negative 1, all others will be renormalized back out</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inScalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="763" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="763" bodyend="766"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a10fd2d44927d59f19e37c45586072d14" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>NdArray&lt;double&gt; nc::rotations::Quaternion::operator*</definition>
+        <argsstring>(const NdArray&lt; double &gt; &amp;inVec) const</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
+          <declname>inVec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>multiplication operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inVec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="777" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="777" bodyend="787"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a7a76d280d13d7c7542c6f815ed5dbd22" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
+        <definition>Vec3 nc::rotations::Quaternion::operator*</definition>
+        <argsstring>(const Vec3 &amp;inVec3) const noexcept</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
+          <declname>inVec3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>multiplication operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inVec3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="798" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="798" bodyend="801"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1aaaa8a1bd7130e7ce6a819284584a84c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+        <definition>Quaternion&amp; nc::rotations::Quaternion::operator*=</definition>
+        <argsstring>(const Quaternion &amp;inRhs) noexcept</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>multiplication assignment operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="812" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="812" bodyend="826"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a17636913a3a1e810a81a558dc986fd54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+        <definition>Quaternion&amp; nc::rotations::Quaternion::operator*=</definition>
+        <argsstring>(double inScalar) noexcept</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>double</type>
+          <declname>inScalar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>multiplication operator, only useful for multiplying by negative 1, all others will be renormalized back out</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inScalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="838" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="838" bodyend="847"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a53c84fdd06a1f980c7c74a185d568156" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>Quaternion nc::rotations::Quaternion::operator+</definition>
+        <argsstring>(const Quaternion &amp;inRhs) const noexcept</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>addition operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="680" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="680" bodyend="683"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1af2b75597d538e55cfdd1215c35c9c6fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+        <definition>Quaternion&amp; nc::rotations::Quaternion::operator+=</definition>
+        <argsstring>(const Quaternion &amp;inRhs) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>addition assignment operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="694" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="694" bodyend="703"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ad6eb2370d77e01a944c4b32a48966e76" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>Quaternion nc::rotations::Quaternion::operator-</definition>
+        <argsstring>(const Quaternion &amp;inRhs) const noexcept</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>subtraction operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="714" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="714" bodyend="717"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a60f1f33144c887cde1338fd80183638f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+        <definition>Quaternion&amp; nc::rotations::Quaternion::operator-=</definition>
+        <argsstring>(const Quaternion &amp;inRhs) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>subtraction assignment operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="728" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="728" bodyend="737"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ab054e067fc333a48582e291f95120866" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>Quaternion nc::rotations::Quaternion::operator/</definition>
+        <argsstring>(const Quaternion &amp;inRhs) const noexcept</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>division operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="858" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="858" bodyend="861"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a859df40774ccff755560604b930c934d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+        <definition>Quaternion&amp; nc::rotations::Quaternion::operator/=</definition>
+        <argsstring>(const Quaternion &amp;inRhs) noexcept</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>division assignment operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="872" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="872" bodyend="875"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a82f40acb2292256faffab2b88aa38208" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::rotations::Quaternion::operator==</definition>
+        <argsstring>(const Quaternion &amp;inRhs) const noexcept</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>equality operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="649" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="649" bodyend="655"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a44994f000aba8de9f11a169a62782ebd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::rotations::Quaternion::print</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>print</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>prints the <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> to the console </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="417" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="417" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a2e19c4d0b48d7f73e0aa273d85435370" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>NdArray&lt;double&gt; nc::rotations::Quaternion::rotate</definition>
+        <argsstring>(const NdArray&lt; double &gt; &amp;inVector) const</argsstring>
+        <name>rotate</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
+          <declname>inVector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>rotate a vector using the quaternion</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inVector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(cartesian vector with x,y,z components) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> (cartesian vector with x,y,z components) </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="431" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="431" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a3e0593a2ad77fad88afdfb8a34b9c036" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
+        <definition>Vec3 nc::rotations::Quaternion::rotate</definition>
+        <argsstring>(const Vec3 &amp;inVec3) const noexcept</argsstring>
+        <name>rotate</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
+          <declname>inVec3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>rotate a vector using the quaternion</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inVec3</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="452" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="452" bodyend="455"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a075b6f1befef247f5d638c91e1a451fd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::rotations::Quaternion::s</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>s</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the s component</para><para><simplesect kind="return"><para>double </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="464" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="464" bodyend="467"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a687155cd6469c095941b94a738119da9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>Quaternion nc::rotations::Quaternion::slerp</definition>
+        <argsstring>(const Quaternion &amp;inQuat2, double inPercent) const</argsstring>
+        <name>slerp</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inQuat2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inPercent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>spherical linear interpolates between the two quaternions</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inQuat2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPercent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(0, 1) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="536" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="536" bodyend="539"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ad03a97f148be61e687944af11fe45c99" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string nc::rotations::Quaternion::str</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the quaternion as a string representation</para><para><simplesect kind="return"><para>std::string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="548" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="548" bodyend="554"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a32d6c7cf2ff12d988e169fd936aaf397" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>NdArray&lt;double&gt; nc::rotations::Quaternion::toDCM</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>toDCM</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the direction cosine matrix</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="563" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="563" bodyend="583"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a4a11c1c0daf982f9367e4541e5735e71" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>NdArray&lt;double&gt; nc::rotations::Quaternion::toNdArray</definition>
+        <argsstring>() const</argsstring>
+        <name>toNdArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the quaternion as an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref></para><para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="592" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="592" bodyend="596"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a85d8ffbb801f97a2e2af9080c99875b9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion nc::rotations::Quaternion::angleAxisRotation</definition>
+        <argsstring>(const NdArray&lt; double &gt; &amp;inAxis, double inAngle)</argsstring>
+        <name>angleAxisRotation</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
+          <declname>inAxis</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns a quaternion to rotate about the input axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inAxis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(x,y,z vector components) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(radians) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="129" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="129" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ac54705d64f7d96981f216fe0e982597c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion nc::rotations::Quaternion::angleAxisRotation</definition>
+        <argsstring>(const Vec3 &amp;inAxis, double inAngle) noexcept</argsstring>
+        <name>angleAxisRotation</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
+          <declname>inAxis</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns a quaternion to rotate about the input axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inAxis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(radians) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="158" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="158" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ab7905c39ef162eb7667abcd3131430ea" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>static NdArray&lt;double&gt; nc::rotations::Quaternion::angularVelocity</definition>
+        <argsstring>(const Quaternion &amp;inQuat1, const Quaternion &amp;inQuat2, double inTime) noexcept</argsstring>
+        <name>angularVelocity</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inQuat1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inQuat2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>angular velocity vector between the two quaternions. The norm of the array is the magnitude</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inQuat1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inQuat2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(seperation time) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="174" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="174" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a103b9122e9af4a42b69d0938ebab8f92" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion nc::rotations::Quaternion::fromDCM</definition>
+        <argsstring>(const NdArray&lt; double &gt; &amp;inDcm)</argsstring>
+        <name>fromDCM</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
+          <declname>inDcm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>converts from a direction cosine matrix to a quaternion</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inDcm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="296" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="296" bodyend="360"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1ae093d333b66b63eeef5704be4a374af2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion nc::rotations::Quaternion::identity</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>identity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>quaternion identity (0,0,0,1)</para><para><simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="245" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="245" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a314478702a3da52f2be3f422057d8732" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion nc::rotations::Quaternion::nlerp</definition>
+        <argsstring>(const Quaternion &amp;inQuat1, const Quaternion &amp;inQuat2, double inPercent)</argsstring>
+        <name>nlerp</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inQuat1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inQuat2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inPercent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>linearly interpolates between the two quaternions</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inQuat1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inQuat2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPercent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>[0, 1] </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="372" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="372" bodyend="397"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a7a39f199e4d1ad773b93c69e66ae0415" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion nc::rotations::Quaternion::slerp</definition>
+        <argsstring>(const Quaternion &amp;inQuat1, const Quaternion &amp;inQuat2, double inPercent)</argsstring>
+        <name>slerp</name>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inQuat1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inQuat2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inPercent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>spherical linear interpolates between the two quaternions</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inQuat1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inQuat2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPercent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(0, 1) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="479" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="479" bodyend="525"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a11697b4e29f40fd56b791fa2bc956eb5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion nc::rotations::Quaternion::xRotation</definition>
+        <argsstring>(double inAngle)</argsstring>
+        <name>xRotation</name>
+        <param>
+          <type>double</type>
+          <declname>inAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns a quaternion to rotate about the x-axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(radians) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="607" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="607" bodyend="610"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1aeeaf2e45baa526aa7c31fc03f66ca109" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion nc::rotations::Quaternion::yRotation</definition>
+        <argsstring>(double inAngle)</argsstring>
+        <name>yRotation</name>
+        <param>
+          <type>double</type>
+          <declname>inAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns a quaternion to rotate about the y-axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(radians) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="621" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="621" bodyend="624"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1rotations_1_1_quaternion_1a02ffc6360355ca7f4d125a70b8930315" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion nc::rotations::Quaternion::zRotation</definition>
+        <argsstring>(double inAngle)</argsstring>
+        <name>zRotation</name>
+        <param>
+          <type>double</type>
+          <declname>inAngle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns a quaternion to rotate about the y-axis by the input angle</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inAngle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(radians) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="635" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="635" bodyend="638"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classnc_1_1rotations_1_1_quaternion_1a6b7cbc0cd1087f742488b555aef19c10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;inOStream, const Quaternion &amp;inQuat) noexcept</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>inOStream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> &amp;</type>
+          <declname>inQuat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>IO operator for the <ref refid="classnc_1_1rotations_1_1_quaternion" kindref="compound">Quaternion</ref> class</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inOStream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inQuat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::ostream&amp; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="886" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="886" bodyend="890"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Holds a unit quaternion. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="31">
+        <label>nc::rotations::Quaternion</label>
+        <link refid="classnc_1_1rotations_1_1_quaternion"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Rotations.hpp" bodystart="53" bodyend="891"/>
+    <listofallmembers>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a85d8ffbb801f97a2e2af9080c99875b9" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>angleAxisRotation</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ac54705d64f7d96981f216fe0e982597c" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>angleAxisRotation</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ab7905c39ef162eb7667abcd3131430ea" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>angularVelocity</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a1ed072758066ed454d9ba0452dc5a2d0" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>angularVelocity</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ade406544e8360506bb77102d17b14e61" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>conjugate</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ac5bfff33006b91593264660913a08786" prot="private" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>data_</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a103b9122e9af4a42b69d0938ebab8f92" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>fromDCM</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a5a661b367dff916e8bdb5e28ac608ecd" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>i</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ae093d333b66b63eeef5704be4a374af2" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>identity</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a9b0634474b2ff27f9443ba256ea00ab1" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>inverse</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1acb62c703a1f96333bf76ad0735cb8b97" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>j</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1aa2eee61d3a428a558f28d1bb6cc6a048" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>k</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a314478702a3da52f2be3f422057d8732" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>nlerp</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ab055510c1338490b957de867cecaf790" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>nlerp</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ae9d47af3f78d727f62588a0f209f01f1" prot="private" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>normalize</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1adcf57fd29d62e19f5c764750262ff7c3" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator!=</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1adad6ca92266f6090930addc585900805" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator*</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ad63920fa01f5bd4949c0fbb3ff7c7137" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator*</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a10fd2d44927d59f19e37c45586072d14" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator*</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a7a76d280d13d7c7542c6f815ed5dbd22" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator*</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1aaaa8a1bd7130e7ce6a819284584a84c5" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator*=</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a17636913a3a1e810a81a558dc986fd54" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator*=</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a53c84fdd06a1f980c7c74a185d568156" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator+</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1af2b75597d538e55cfdd1215c35c9c6fe" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator+=</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ad6eb2370d77e01a944c4b32a48966e76" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator-</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a60f1f33144c887cde1338fd80183638f" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator-=</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ab054e067fc333a48582e291f95120866" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator/</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a859df40774ccff755560604b930c934d" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator/=</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a6b7cbc0cd1087f742488b555aef19c10" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a82f40acb2292256faffab2b88aa38208" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>operator==</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a44994f000aba8de9f11a169a62782ebd" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>print</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ae4b67d060aa58aa6d22813d6ab851ec8" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>Quaternion</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a3ba2fb2c68554ec78a0957dc1fd7752d" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>Quaternion</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1addcc7fb7b4acd4201e7f5b90ef207f4d" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>Quaternion</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a2e19c4d0b48d7f73e0aa273d85435370" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>rotate</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a3e0593a2ad77fad88afdfb8a34b9c036" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>rotate</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a075b6f1befef247f5d638c91e1a451fd" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>s</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a7a39f199e4d1ad773b93c69e66ae0415" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>slerp</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a687155cd6469c095941b94a738119da9" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>slerp</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1ad03a97f148be61e687944af11fe45c99" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>str</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a32d6c7cf2ff12d988e169fd936aaf397" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>toDCM</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a4a11c1c0daf982f9367e4541e5735e71" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>toNdArray</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a11697b4e29f40fd56b791fa2bc956eb5" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>xRotation</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1aeeaf2e45baa526aa7c31fc03f66ca109" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>yRotation</name></member>
+      <member refid="classnc_1_1rotations_1_1_quaternion_1a02ffc6360355ca7f4d125a70b8930315" prot="public" virt="non-virtual"><scope>nc::rotations::Quaternion</scope><name>zRotation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

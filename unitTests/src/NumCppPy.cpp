@@ -2572,6 +2572,16 @@ namespace LinalgInterface
 
 namespace RotationsInterface
 {
+    np::ndarray angleAxisRotationNdArray(const NdArray<double>& inAxis, double inAngle)
+    {
+        return nc2Boost(rotations::Quaternion::angleAxisRotation(inAxis, inAngle).toNdArray());
+    }
+
+    np::ndarray angleAxisRotationVec3(const NdArray<double>& inAxis, double inAngle)
+    {
+        return nc2Boost(rotations::Quaternion::angleAxisRotation(Vec3(inAxis), inAngle).toNdArray());
+    }
+
     np::ndarray angularVelocity(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inTime)
     {
         return nc2Boost(inQuat1.angularVelocity(inQuat2, inTime));
@@ -2580,6 +2590,16 @@ namespace RotationsInterface
     np::ndarray nlerp(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inPercent)
     {
         return nc2Boost(inQuat1.nlerp(inQuat2, inPercent).toNdArray());
+    }
+
+    np::ndarray rotateNdArray(const rotations::Quaternion& inQuat, const NdArray<double>& inVec)
+    {
+        return nc2Boost(inQuat.rotate(inVec));
+    }
+
+    np::ndarray rotateVec3(const rotations::Quaternion& inQuat, const NdArray<double>& inVec)
+    {
+        return nc2Boost(inQuat.rotate(Vec3(inVec)).toNdArray());
     }
 
     np::ndarray slerp(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inPercent)
@@ -2598,8 +2618,7 @@ namespace RotationsInterface
         return nc2Boost(returnQuat.toNdArray());
     }
 
-    template<typename dtype>
-    np::ndarray multiplyArray(const rotations::Quaternion& inQuat, const NdArray<dtype>& inArray)
+    np::ndarray multiplyArray(const rotations::Quaternion& inQuat, const NdArray<double>& inArray)
     {
         NdArray<double> returnArray = inQuat * inArray;
         return nc2Boost(returnArray);
@@ -2609,6 +2628,16 @@ namespace RotationsInterface
     {
         const rotations::Quaternion returnQuat = inQuat1 * inQuat2;
         return nc2Boost(returnQuat.toNdArray());
+    }
+
+    np::ndarray angleAxisRotationDcmNdArray(const NdArray<double>& inAxis, double inAngle)
+    {
+        return nc2Boost(rotations::DCM::angleAxisRotation(inAxis, inAngle));
+    }
+
+    np::ndarray angleAxisRotationDcmVec3(const NdArray<double>& inAxis, double inAngle)
+    {
+        return nc2Boost(rotations::DCM::angleAxisRotation(Vec3(inAxis), inAngle));
     }
 }
 
@@ -2683,6 +2712,162 @@ namespace RandomInterface
     np::ndarray choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
     {
         return nc2Boost(nc::Random<dtype>::choice(inArray, inNum));
+    }
+}
+
+namespace Vec2Interface
+{
+    np::ndarray toNdArray(const Vec2& self)
+    {
+        return nc2Boost(self.toNdArray());
+    }
+
+    Vec2& plusEqualScaler(Vec2& self, double scaler)
+    {
+        return self += scaler;
+    }
+
+    Vec2& plusEqualVec2(Vec2& self, const Vec2& rhs)
+    {
+        return self += rhs;
+    }
+
+    Vec2& minusEqualScaler(Vec2& self, double scaler)
+    {
+        return self -= scaler;
+    }
+
+    Vec2& minusEqualVec2(Vec2& self, const Vec2& rhs)
+    {
+        return self -= rhs;
+    }
+
+    Vec2 addVec2(const Vec2& vec1, const Vec2& vec2)
+    {
+        return vec1 + vec2;
+    }
+
+    Vec2 addVec2Scaler(const Vec2& vec1, double scaler)
+    {
+        return vec1 + scaler;
+    }
+
+    Vec2 addScalerVec2(const Vec2& vec1, double scaler)
+    {
+        return scaler + vec1;
+    }
+
+    Vec2 minusVec2(const Vec2& vec1, const Vec2& vec2)
+    {
+        return vec1 - vec2;
+    }
+
+    Vec2 minusVec2Scaler(const Vec2& vec1, double scaler)
+    {
+        return vec1 - scaler;
+    }
+
+    Vec2 minusScalerVec2(const Vec2& vec1, double scaler)
+    {
+        return scaler - vec1;
+    }
+
+    Vec2 multVec2Scaler(const Vec2& vec1, double scaler)
+    {
+        return vec1 * scaler;
+    }
+
+    Vec2 multScalerVec2(const Vec2& vec1, double scaler)
+    {
+        return scaler * vec1;
+    }
+
+    Vec2 divVec2Scaler(const Vec2& vec1, double scaler)
+    {
+        return vec1 / scaler;
+    }
+
+    void print(const Vec2& vec)
+    {
+        std::cout << vec;
+    }
+}
+
+namespace Vec3Interface
+{
+    np::ndarray toNdArray(const Vec3& self)
+    {
+        return nc2Boost(self.toNdArray());
+    }
+
+    Vec3& plusEqualScaler(Vec3& self, double scaler)
+    {
+        return self += scaler;
+    }
+
+    Vec3& plusEqualVec3(Vec3& self, const Vec3& rhs)
+    {
+        return self += rhs;
+    }
+
+    Vec3& minusEqualScaler(Vec3& self, double scaler)
+    {
+        return self -= scaler;
+    }
+
+    Vec3& minusEqualVec3(Vec3& self, const Vec3& rhs)
+    {
+        return self -= rhs;
+    }
+
+    Vec3 addVec3(const Vec3& vec1, const Vec3& vec2)
+    {
+        return vec1 + vec2;
+    }
+
+    Vec3 addVec3Scaler(const Vec3& vec1, double scaler)
+    {
+        return vec1 + scaler;
+    }
+
+    Vec3 addScalerVec3(const Vec3& vec1, double scaler)
+    {
+        return vec1 + scaler;
+    }
+
+    Vec3 minusVec3(const Vec3& vec1, const Vec3& vec2)
+    {
+        return vec1 - vec2;
+    }
+
+    Vec3 minusVec3Scaler(const Vec3& vec1, double scaler)
+    {
+        return vec1 - scaler;
+    }
+
+    Vec3 minusScalerVec3(const Vec3& vec1, double scaler)
+    {
+        return scaler - vec1;
+    }
+
+    Vec3 multVec3Scaler(const Vec3& vec1, double scaler)
+    {
+        return vec1 * scaler;
+    }
+
+    Vec3 multScalerVec3(const Vec3& vec1, double scaler)
+    {
+        return vec1 * scaler;
+    }
+
+    Vec3 divVec3Scaler(const Vec3& vec1, double scaler)
+    {
+        return vec1 / scaler;
+    }
+
+    void print(const Vec3& vec)
+    {
+        std::cout << vec;
     }
 }
 
@@ -3399,7 +3584,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         ("Quaternion", bp::init<>())
         .def(bp::init<double, double, double, double>())
         .def(bp::init<NdArray<double> >())
-        .def("angleAxisRotation", &rotations::Quaternion::angleAxisRotation<double>).staticmethod("angleAxisRotation")
+        .def("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationNdArray).staticmethod("angleAxisRotationNdArray")
+        .def("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationVec3).staticmethod("angleAxisRotationVec3")
         .def("angularVelocity", &RotationsInterface::angularVelocity)
         .def("conjugate", &rotations::Quaternion::conjugate)
         .def("i", &rotations::Quaternion::i)
@@ -3407,13 +3593,12 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("inverse", &rotations::Quaternion::inverse)
         .def("j", &rotations::Quaternion::j)
         .def("k", &rotations::Quaternion::k)
-        .def("fromDCM", &rotations::Quaternion::fromDCM<double>).staticmethod("fromDCM")
-        .def("nlerp", &RotationsInterface::nlerp)
+        .def("fromDCM", &rotations::Quaternion::fromDCM).staticmethod("fromDCM")
         .def("nlerp", &RotationsInterface::nlerp)
         .def("print", &rotations::Quaternion::print)
-        .def("rotate", &rotations::Quaternion::rotate<double>)
+        .def("rotateNdArray", &RotationsInterface::rotateNdArray)
+        .def("rotateVec3", &RotationsInterface::rotateVec3)
         .def("s", &rotations::Quaternion::s)
-        .def("slerp", &RotationsInterface::slerp)
         .def("slerp", &RotationsInterface::slerp)
         .def("toDCM", &RotationsInterface::toDCM)
         .def("toNdArray", &rotations::Quaternion::toNdArray)
@@ -3426,18 +3611,18 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__sub__", &rotations::Quaternion::operator-)
         .def("__mul__", &RotationsInterface::multiplyScaler)
         .def("__mul__", &RotationsInterface::multiplyQuaternion)
-        .def("__mul__", &RotationsInterface::multiplyArray<double>)
+        .def("__mul__", &RotationsInterface::multiplyArray)
         .def("__truediv__", &rotations::Quaternion::operator/)
         .def("__str__", &rotations::Quaternion::str);
 
-    typedef rotations::DCM<double> DCMDouble;
-    bp::class_<DCMDouble>
+    bp::class_<rotations::DCM>
         ("DCM", bp::init<>())
-        .def("angleAxisRotation", &DCMDouble::angleAxisRotation).staticmethod("angleAxisRotation")
-        .def("isValid", &DCMDouble::isValid).staticmethod("isValid")
-        .def("xRotation", &DCMDouble::xRotation).staticmethod("xRotation")
-        .def("yRotation", &DCMDouble::yRotation).staticmethod("yRotation")
-        .def("zRotation", &DCMDouble::zRotation).staticmethod("zRotation");
+        .def("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationDcmNdArray).staticmethod("angleAxisRotationNdArray")
+        .def("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationDcmVec3).staticmethod("angleAxisRotationVec3")
+        .def("isValid", &rotations::DCM::isValid).staticmethod("isValid")
+        .def("xRotation", &rotations::DCM::xRotation).staticmethod("xRotation")
+        .def("yRotation", &rotations::DCM::yRotation).staticmethod("yRotation")
+        .def("zRotation", &rotations::DCM::zRotation).staticmethod("zRotation");
 
     // Filters.hpp
     bp::enum_<filter::Boundary>("Mode")
@@ -3632,4 +3817,90 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__imul__", &Poly1d::operator*=, bp::return_internal_reference<>())
         .def("__pow__", &Poly1d::operator^)
         .def("__ipow__", &Poly1d::operator^=, bp::return_internal_reference<>());
+
+    // Vec2.hpp
+    bp::class_<Vec2>
+        ("Vec2", bp::init<>())
+        .def(bp::init<double, double>())
+        .def(bp::init<NdArray<double> >())
+        .def_readwrite("x", &Vec2::x)
+        .def_readwrite("y", &Vec2::y)
+        .def("angle", &Vec2::angle)
+        .def("clampMagnitude", &Vec2::clampMagnitude)
+        .def("distance", &Vec2::distance)
+        .def("dot", &Vec2::dot)
+        .def("down", &Vec2::down).staticmethod("down")
+        .def("left", &Vec2::left).staticmethod("left")
+        .def("lerp", &Vec2::lerp)
+        .def("norm", &Vec2::norm)
+        .def("normalize", &Vec2::normalize)
+        .def("project", &Vec2::project)
+        .def("right", &Vec2::right).staticmethod("right")
+        .def("__str__", &Vec2::toString)
+        .def("toNdArray", &Vec2Interface::toNdArray)
+        .def("up", &Vec2::up).staticmethod("up")
+        .def("__eq__", &Vec2::operator==)
+        .def("__ne__", &Vec2::operator!=)
+        .def("__iadd__", &Vec2Interface::plusEqualScaler, bp::return_internal_reference<>())
+        .def("__iadd__", &Vec2Interface::plusEqualVec2, bp::return_internal_reference<>())
+        .def("__isub__", &Vec2Interface::minusEqualVec2, bp::return_internal_reference<>())
+        .def("__isub__", &Vec2Interface::minusEqualScaler, bp::return_internal_reference<>())
+        .def("__imul__", &Vec2::operator*=, bp::return_internal_reference<>())
+        .def("__itruediv__", &Vec2::operator/=, bp::return_internal_reference<>());
+
+    bp::def("Vec2_addVec2", &Vec2Interface::addVec2);
+    bp::def("Vec2_addVec2Scaler", &Vec2Interface::addVec2Scaler);
+    bp::def("Vec2_addScalerVec2", &Vec2Interface::addScalerVec2);
+    bp::def("Vec2_minusVec2", &Vec2Interface::minusVec2);
+    bp::def("Vec2_minusVec2Scaler", &Vec2Interface::minusVec2Scaler);
+    bp::def("Vec2_minusScalerVec2", &Vec2Interface::minusScalerVec2);
+    bp::def("Vec2_multVec2Scaler", &Vec2Interface::multVec2Scaler);
+    bp::def("Vec2_multScalerVec2", &Vec2Interface::multScalerVec2);
+    bp::def("Vec2_divVec2Scaler", &Vec2Interface::divVec2Scaler);
+    bp::def("Vec2_print", &Vec2Interface::print);
+
+    // Vec3.hpp
+    bp::class_<Vec3>
+        ("Vec3", bp::init<>())
+        .def(bp::init<double, double, double>())
+        .def(bp::init<NdArray<double> >())
+        .def_readwrite("x", &Vec3::x)
+        .def_readwrite("y", &Vec3::y)
+        .def_readwrite("z", &Vec3::z)
+        .def("angle", &Vec3::angle)
+        .def("back", &Vec3::back).staticmethod("back")
+        .def("clampMagnitude", &Vec3::clampMagnitude)
+        .def("cross", &Vec3::cross)
+        .def("distance", &Vec3::distance)
+        .def("dot", &Vec3::dot)
+        .def("down", &Vec3::down).staticmethod("down")
+        .def("forward", &Vec3::forward).staticmethod("forward")
+        .def("left", &Vec3::left).staticmethod("left")
+        .def("lerp", &Vec3::lerp)
+        .def("norm", &Vec3::norm)
+        .def("normalize", &Vec3::normalize)
+        .def("project", &Vec3::project)
+        .def("right", &Vec3::right).staticmethod("right")
+        .def("__str__", &Vec3::toString)
+        .def("toNdArray", &Vec3Interface::toNdArray)
+        .def("up", &Vec3::up).staticmethod("up")
+        .def("__eq__", &Vec3::operator==)
+        .def("__ne__", &Vec3::operator!=)
+        .def("__iadd__", &Vec3Interface::plusEqualScaler, bp::return_internal_reference<>())
+        .def("__iadd__", &Vec3Interface::plusEqualVec3, bp::return_internal_reference<>())
+        .def("__isub__", &Vec3Interface::minusEqualScaler, bp::return_internal_reference<>())
+        .def("__isub__", &Vec3Interface::minusEqualVec3, bp::return_internal_reference<>())
+        .def("__imul__", &Vec3::operator*=, bp::return_internal_reference<>())
+        .def("__itruediv__", &Vec3::operator/=, bp::return_internal_reference<>());
+
+    bp::def("Vec3_addVec3", &Vec3Interface::addVec3);
+    bp::def("Vec3_addVec3Scaler", &Vec3Interface::addVec3Scaler);
+    bp::def("Vec3_addScalerVec3", &Vec3Interface::addScalerVec3);
+    bp::def("Vec3_minusVec3", &Vec3Interface::minusVec3);
+    bp::def("Vec3_minusVec3Scaler", &Vec3Interface::minusVec3Scaler);
+    bp::def("Vec3_minusScalerVec3", &Vec3Interface::minusScalerVec3);
+    bp::def("Vec3_multVec3Scaler", &Vec3Interface::multVec3Scaler);
+    bp::def("Vec3_multScalerVec3", &Vec3Interface::multScalerVec3);
+    bp::def("Vec3_divVec3Scaler", &Vec3Interface::divVec3Scaler);
+    bp::def("Vec3_print", &Vec3Interface::print);
 }

@@ -21,7 +21,7 @@ var searchData=
   ['isnan',['isnan',['../namespacenc.html#ac28569da874c0b37a4c50c86b31a98ab',1,'nc::isnan(dtype inValue) noexcept'],['../namespacenc.html#a6c34c13f7c2b60982f2a25d7d5df6a22',1,'nc::isnan(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['isnull',['isnull',['../classnc_1_1_shape.html#abcd1dafbc4c959f49d40b70d78a3ef2c',1,'nc::Shape']]],
   ['issigned',['isSigned',['../classnc_1_1_dtype_info.html#a039ecfb9a5bd9fe0cb751a59f28055d1',1,'nc::DtypeInfo']]],
-  ['isvalid',['isValid',['../classnc_1_1rotations_1_1_d_c_m.html#a54aee041952dac8c6c0b19c765b87f0a',1,'nc::rotations::DCM']]],
+  ['isvalid',['isValid',['../classnc_1_1rotations_1_1_d_c_m.html#ab229737433b6c93522aa38f0ad94ca50',1,'nc::rotations::DCM']]],
   ['item',['item',['../classnc_1_1_nd_array.html#a4f5da296a91f836fa7627fad29828117',1,'nc::NdArray']]],
   ['iterator',['iterator',['../classnc_1_1_data_cube.html#adfed19a7fda0e5d4742ae4818c338a99',1,'nc::DataCube::iterator()'],['../classnc_1_1_nd_array.html#af5fd346e89b4a6117ed4a2296fe68959',1,'nc::NdArray::iterator()']]]
 ];

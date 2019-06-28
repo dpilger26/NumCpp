@@ -14,7 +14,9 @@ import TestRotations
 import TestPolynomial
 import TestFFT
 import TestUtils
+import TestVector
 import TestDtypeInfo
+
 
 #################################################################################
 def doTest():
@@ -34,7 +36,9 @@ def doTest():
     TestFilters.doTest()
     TestPolynomial.doTest()
     TestFFT.doTest()
+    TestVector.doTest()
     TestImageProcessing.doTest()
+
 
 #################################################################################
 if __name__ == '__main__':

@@ -37,5 +37,8 @@ var files_dup =
       [ "Timer", "classnc_1_1_timer.html", "classnc_1_1_timer" ]
     ] ],
     [ "Types.hpp", "_types_8hpp.html", "_types_8hpp" ],
-    [ "Utils.hpp", "_utils_8hpp.html", "_utils_8hpp" ]
+    [ "Utils.hpp", "_utils_8hpp.html", "_utils_8hpp" ],
+    [ "Vec2.hpp", "_vec2_8hpp.html", "_vec2_8hpp" ],
+    [ "Vec3.hpp", "_vec3_8hpp.html", "_vec3_8hpp" ],
+    [ "Vector.hpp", "_vector_8hpp.html", null ]
 ];

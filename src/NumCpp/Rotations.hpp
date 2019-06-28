@@ -34,6 +34,7 @@
 #include"NumCpp/NdArray.hpp"
 #include"NumCpp/Types.hpp"
 #include"NumCpp/Utils.hpp"
+#include"NumCpp/Vector/Vec3.hpp"
 
 #include<cmath>
 #include<iostream>
@@ -125,8 +126,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            template<typename dtype>
-            static Quaternion angleAxisRotation(const NdArray<dtype>& inAxis, double inAngle)
+            static Quaternion angleAxisRotation(const NdArray<double>& inAxis, double inAngle)
             {
                 if (inAxis.size() != 3)
                 {
@@ -136,8 +136,7 @@ namespace nc
                 }
 
                 // normalize the input vector
-                NdArray<double> normAxis = inAxis.template astype<double>() / 
-                    inAxis.template astype<double>().norm().item();
+                NdArray<double> normAxis = inAxis / inAxis.norm().item();
 
                 const double i = normAxis[0] * std::sin(inAngle / 2.0);
                 const double j = normAxis[1] * std::sin(inAngle / 2.0);
@@ -145,6 +144,20 @@ namespace nc
                 const double s = std::cos(inAngle / 2.0);
 
                 return Quaternion(i, j, k, s);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						returns a quaternion to rotate about the input axis by the input angle
+            ///
+            /// @param			inAxis 
+            /// @param			inAngle (radians)
+            /// @return
+            ///				Quaternion
+            ///
+            static Quaternion angleAxisRotation(const Vec3& inAxis, double inAngle) noexcept
+            {
+                return angleAxisRotation(inAxis.toNdArray(), inAngle);
             }
 
             //============================================================================
@@ -280,8 +293,7 @@ namespace nc
             /// @return
             ///				Quaternion
             ///
-            template<typename dtype>
-            static Quaternion fromDCM(const NdArray<dtype>& inDcm)
+            static Quaternion fromDCM(const NdArray<double>& inDcm)
             {
                 const Shape inShape = inDcm.shape();
                 if (!(inShape.rows == 3 && inShape.cols == 3))
@@ -291,13 +303,11 @@ namespace nc
                     throw std::invalid_argument(errStr);
                 }
 
-                NdArray<double> dcm = inDcm.template astype<double>();
-
                 NdArray<double> checks(1, 4);
-                checks[0] = dcm(0, 0) + dcm(1, 1) + dcm(2, 2);
-                checks[1] = dcm(0, 0) - dcm(1, 1) + dcm(2, 2);
-                checks[2] = dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
-                checks[3] = dcm(0, 0) + dcm(1, 1) - dcm(2, 2);
+                checks[0] = inDcm(0, 0) + inDcm(1, 1) + inDcm(2, 2);
+                checks[1] = inDcm(0, 0) - inDcm(1, 1) + inDcm(2, 2);
+                checks[2] = inDcm(0, 0) - inDcm(1, 1) - inDcm(2, 2);
+                checks[3] = inDcm(0, 0) + inDcm(1, 1) - inDcm(2, 2);
 
                 uint32 maxIdx = argmax(checks).item();
 
@@ -310,37 +320,37 @@ namespace nc
                 {
                     case 0:
                     {
-                        q3 = 0.5 * std::sqrt(1 + dcm(0, 0) + dcm(1, 1) + dcm(2, 2));
-                        q0 = (dcm(1, 2) - dcm(2, 1)) / (4 * q3);
-                        q1 = (dcm(2, 0) - dcm(0, 2)) / (4 * q3);
-                        q2 = (dcm(0, 1) - dcm(1, 0)) / (4 * q3);
+                        q3 = 0.5 * std::sqrt(1 + inDcm(0, 0) + inDcm(1, 1) + inDcm(2, 2));
+                        q0 = (inDcm(1, 2) - inDcm(2, 1)) / (4 * q3);
+                        q1 = (inDcm(2, 0) - inDcm(0, 2)) / (4 * q3);
+                        q2 = (inDcm(0, 1) - inDcm(1, 0)) / (4 * q3);
 
                         break;
                     }
                     case 1:
                     {
-                        q2 = 0.5 * std::sqrt(1 - dcm(0, 0) - dcm(1, 1) + dcm(2, 2));
-                        q0 = (dcm(0, 2) + dcm(2, 0)) / (4 * q2);
-                        q1 = (dcm(1, 2) + dcm(2, 1)) / (4 * q2);
-                        q3 = (dcm(0, 1) - dcm(1, 0)) / (4 * q2);
+                        q2 = 0.5 * std::sqrt(1 - inDcm(0, 0) - inDcm(1, 1) + inDcm(2, 2));
+                        q0 = (inDcm(0, 2) + inDcm(2, 0)) / (4 * q2);
+                        q1 = (inDcm(1, 2) + inDcm(2, 1)) / (4 * q2);
+                        q3 = (inDcm(0, 1) - inDcm(1, 0)) / (4 * q2);
 
                         break;
                     }
                     case 2:
                     {
-                        q0 = 0.5 * std::sqrt(1 + dcm(0, 0) - dcm(1, 1) - dcm(2, 2));
-                        q1 = (dcm(0, 1) + dcm(1, 0)) / (4 * q0);
-                        q2 = (dcm(0, 2) + dcm(2, 0)) / (4 * q0);
-                        q3 = (dcm(1, 2) - dcm(2, 1)) / (4 * q0);
+                        q0 = 0.5 * std::sqrt(1 + inDcm(0, 0) - inDcm(1, 1) - inDcm(2, 2));
+                        q1 = (inDcm(0, 1) + inDcm(1, 0)) / (4 * q0);
+                        q2 = (inDcm(0, 2) + inDcm(2, 0)) / (4 * q0);
+                        q3 = (inDcm(1, 2) - inDcm(2, 1)) / (4 * q0);
 
                         break;
                     }
                     case 3:
                     {
-                        q1 = 0.5 * std::sqrt(1 - dcm(0, 0) + dcm(1, 1) - dcm(2, 2));
-                        q0 = (dcm(0, 1) + dcm(1, 0)) / (4 * q1);
-                        q2 = (dcm(1, 2) + dcm(2, 1)) / (4 * q1);
-                        q3 = (dcm(2, 0) - dcm(0, 2)) / (4 * q1);
+                        q1 = 0.5 * std::sqrt(1 - inDcm(0, 0) + inDcm(1, 1) - inDcm(2, 2));
+                        q0 = (inDcm(0, 1) + inDcm(1, 0)) / (4 * q1);
+                        q2 = (inDcm(1, 2) + inDcm(2, 1)) / (4 * q1);
+                        q3 = (inDcm(2, 0) - inDcm(0, 2)) / (4 * q1);
 
                         break;
                     }
@@ -418,8 +428,7 @@ namespace nc
             /// @return
             ///				NdArray<double> (cartesian vector with x,y,z components)
             ///
-            template<typename dtype>
-            NdArray<double> rotate(const NdArray<dtype>& inVector) const
+            NdArray<double> rotate(const NdArray<double>& inVector) const
             {
                 if (inVector.size() != 3)
                 {
@@ -429,6 +438,20 @@ namespace nc
                 }
 
                 return *this * inVector;
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						rotate a vector using the quaternion
+            ///
+            /// @param
+            ///				inVec3
+            /// @return
+            ///				Vec3
+            ///
+            Vec3 rotate(const Vec3& inVec3) const noexcept
+            {
+                return *this * inVec3;
             }
 
             //============================================================================
@@ -583,7 +606,7 @@ namespace nc
             ///
             static Quaternion xRotation(double inAngle)
             {
-                return angleAxisRotation<double>({ 1.0, 0.0, 0.0 }, inAngle);
+                return angleAxisRotation(NdArray<double>{ 1.0, 0.0, 0.0 }, inAngle);
             }
 
             //============================================================================
@@ -597,7 +620,7 @@ namespace nc
             ///
             static Quaternion yRotation(double inAngle)
             {
-                return angleAxisRotation<double>({ 0.0, 1.0, 0.0 }, inAngle);
+                return angleAxisRotation(NdArray<double>{ 0.0, 1.0, 0.0 }, inAngle);
             }
 
             //============================================================================
@@ -611,7 +634,7 @@ namespace nc
             ///
             static Quaternion zRotation(double inAngle)
             {
-                return angleAxisRotation<double>({ 0.0, 0.0, 1.0 }, inAngle);
+                return angleAxisRotation(NdArray<double>{ 0.0, 0.0, 1.0 }, inAngle);
             }
 
             //============================================================================
@@ -751,8 +774,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            template<typename dtype>
-            NdArray<double> operator*(const NdArray<dtype>& inVec) const
+            NdArray<double> operator*(const NdArray<double>& inVec) const
             {
                 if (inVec.size() != 3)
                 {
@@ -761,7 +783,21 @@ namespace nc
                     throw std::invalid_argument(errStr);
                 }
 
-                return toDCM().dot(inVec.template astype<double>());
+                return toDCM().dot(inVec);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						multiplication operator
+            ///
+            /// @param
+            ///				inVec3
+            /// @return
+            ///				Vec3
+            ///
+            Vec3 operator*(const Vec3& inVec3) const noexcept
+            {
+                return *this * inVec3.toNdArray();
             }
 
             //============================================================================
@@ -856,7 +892,6 @@ namespace nc
 
         //================================================================================
         /// Factory methods for generating direction cosine matrices and vectors
-        template<typename dtype>
         class DCM
         {
         public:
@@ -865,21 +900,29 @@ namespace nc
             ///						returns a direction cosine matrix that rotates about
             ///						the input axis by the input angle
             ///
-            /// @param				inArray (cartesian vector with x,y,z)
+            /// @param				inAxis (cartesian vector with x,y,z)
             /// @param				inAngle (in radians)
             /// @return
             ///				NdArray
             ///
-            static NdArray<double> angleAxisRotation(const NdArray<dtype>& inArray, double inAngle)
+            static NdArray<double> angleAxisRotation(const NdArray<double>& inAxis, double inAngle)
             {
-                if (inArray.size() != 3)
-                {
-                    std::string errStr = "ERROR: rotations::Quaternion::angleAxisRotationDcm: input array must be of size = 3.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
-                }
+                return Quaternion::angleAxisRotation(inAxis, inAngle).toDCM();
+            }
 
-                return Quaternion::angleAxisRotation(inArray, inAngle).toDCM();
+            //============================================================================
+            // Method Description:
+            ///						returns a direction cosine matrix that rotates about
+            ///						the input axis by the input angle
+            ///
+            /// @param				inAxis
+            /// @param				inAngle (in radians)
+            /// @return
+            ///				NdArray
+            ///
+            static NdArray<double> angleAxisRotation(const Vec3& inAxis, double inAngle)
+            {
+                return Quaternion::angleAxisRotation(inAxis, inAngle).toDCM();
             }
 
             //============================================================================
@@ -892,12 +935,12 @@ namespace nc
             /// @return
             ///				bool
             ///
-            static bool isValid(const NdArray<dtype>& inArray) noexcept
+            static bool isValid(const NdArray<double>& inArray) noexcept
             {
                 const Shape inShape = inArray.shape();
                 if (!(inShape.rows == inShape.cols &&
-                    round(linalg::det<dtype>(inArray), 2) == 1 &&
-                    round(linalg::det<dtype>(inArray.transpose()), 2) == 1))
+                    round(linalg::det<double>(inArray), 2) == 1 &&
+                    round(linalg::det<double>(inArray.transpose()), 2) == 1))
                 {
                     return false;
                 }
@@ -916,7 +959,7 @@ namespace nc
             ///
             static NdArray<double> xRotation(double inAngle)
             {
-                return DCM<dtype>::angleAxisRotation({ 1.0, 0.0, 0.0 }, inAngle);
+                return DCM::angleAxisRotation(NdArray<double>{ 1.0, 0.0, 0.0 }, inAngle);
             }
 
             //============================================================================
@@ -931,7 +974,7 @@ namespace nc
             ///
             static NdArray<double> yRotation(double inAngle)
             {
-                return DCM<dtype>::angleAxisRotation({ 0.0, 1.0, 0.0 }, inAngle);
+                return DCM::angleAxisRotation(NdArray<double>{ 0.0, 1.0, 0.0 }, inAngle);
             }
 
             //============================================================================
@@ -946,7 +989,7 @@ namespace nc
             ///
             static NdArray<double> zRotation(double inAngle)
             {
-                return DCM<dtype>::angleAxisRotation({ 0.0, 0.0, 1.0 }, inAngle);
+                return DCM::angleAxisRotation(NdArray<double>{ 0.0, 0.0, 1.0 }, inAngle);
             }
         };
     }

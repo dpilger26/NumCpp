@@ -1,0 +1,666 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classnc_1_1_vec2" kind="class" language="C++" prot="public">
+    <compoundname>nc::Vec2</compoundname>
+    <includes refid="_vec2_8hpp" local="no">Vec2.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classnc_1_1_vec2_1a36a67b9395b397e1b8e9364a39a5c458" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nc::Vec2::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1_vec2_1ad7a5bc1612f92f7e49112cf58caeaace" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nc::Vec2::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnc_1_1_vec2_1a10032e67a062d820241f053d5affd1b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::Vec2::Vec2</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Vec2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default Constructor </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a90648eb3e7f49292d0a4174dea32be61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::Vec2::Vec2</definition>
+        <argsstring>(double inX, double inY) noexcept</argsstring>
+        <name>Vec2</name>
+        <param>
+          <type>double</type>
+          <declname>inX</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the x component </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the y component </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="71" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1abfb713c893dbd31d7c94b4741e82530b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::Vec2::Vec2</definition>
+        <argsstring>(const std::initializer_list&lt; double &gt; &amp;inList)</argsstring>
+        <name>Vec2</name>
+        <param>
+          <type>const std::initializer_list&lt; double &gt; &amp;</type>
+          <declname>inList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="82" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="82" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a93a9f0c675265005a60c77179625ddd2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::Vec2::Vec2</definition>
+        <argsstring>(const NdArray&lt; double &gt; &amp;ndArray)</argsstring>
+        <name>Vec2</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt; &amp;</type>
+          <declname>ndArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ndArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="99" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="99" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a271ca2cae96a1df44486fbcc2c0f890f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::Vec2::angle</definition>
+        <argsstring>(const Vec2 &amp;otherVec) const noexcept</argsstring>
+        <name>angle</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+          <declname>otherVec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the angle between the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>otherVec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the angle in radians </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="117" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="117" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1abb0f6f8cacc680a464425d908e1e55cc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
+        <definition>Vec2 nc::Vec2::clampMagnitude</definition>
+        <argsstring>(double maxLength) const noexcept</argsstring>
+        <name>clampMagnitude</name>
+        <param>
+          <type>double</type>
+          <declname>maxLength</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a copy of the vector with its magnitude clamped to maxLength</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="137" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="137" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a63c2b2b7a16828af770d38176b6cb3aa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::Vec2::distance</definition>
+        <argsstring>(const Vec2 &amp;otherVec) const noexcept</argsstring>
+        <name>distance</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+          <declname>otherVec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the distance between the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>otherVec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the distance (equivalent to (a - b).<ref refid="classnc_1_1_vec2_1ab6922f6c089b20e9d019301fddc6dc0a" kindref="member">norm()</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="159" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="159" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a231781cc06b8f005a1dda5003498ec99" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::Vec2::dot</definition>
+        <argsstring>(const Vec2 &amp;otherVec) const noexcept</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+          <declname>otherVec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the dot product of the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>otherVec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the dot product </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="171" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="171" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a91e6417e5b9903ed6bee3ad90c0c38f4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
+        <definition>Vec2 nc::Vec2::lerp</definition>
+        <argsstring>(const Vec2 &amp;otherVec, double t) const noexcept</argsstring>
+        <name>lerp</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+          <declname>otherVec</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Linearly interpolates between two vectors</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>otherVec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the amount to interpolate by (clamped from [0, 1]); </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="206" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="206" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1ab6922f6c089b20e9d019301fddc6dc0a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::Vec2::norm</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>norm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the magnitude of the vector</para><para><simplesect kind="return"><para>magnitude of the vector </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="224" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="224" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a8d8a3ec28ef8336ab02dcd964a3e836c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
+        <definition>Vec2 nc::Vec2::normalize</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>normalize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a new normalized <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="235" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="235" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1ac83768c682c162ec9dffe1bfb9637338" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::Vec2::operator!=</definition>
+        <argsstring>(const Vec2 &amp;rhs) const noexcept</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Not Equality operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="319" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="319" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a72ac39ba88f909cb5552f6b379509f81" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+        <definition>Vec2&amp; nc::Vec2::operator*=</definition>
+        <argsstring>(double scaler) noexcept</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>double</type>
+          <declname>scaler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scalar mulitplication</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scaler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="387" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="387" bodyend="392"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a21b1c9c0aa0b7e8886f1b4a7c255bb9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+        <definition>Vec2&amp; nc::Vec2::operator+=</definition>
+        <argsstring>(double scaler) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>double</type>
+          <declname>scaler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds the scaler to the vector</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scaler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="331" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="331" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1af441d4bbee40c07f9b86fbd056ff637e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+        <definition>Vec2&amp; nc::Vec2::operator+=</definition>
+        <argsstring>(const Vec2 &amp;rhs) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="345" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="345" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1abfb0b00888fa37d52a895d06f2b39133" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+        <definition>Vec2&amp; nc::Vec2::operator-=</definition>
+        <argsstring>(double scaler) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>double</type>
+          <declname>scaler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Subtracts the scaler from the vector</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scaler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="359" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="359" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a13a2bbc2595248211e0bc97de51e13b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+        <definition>Vec2&amp; nc::Vec2::operator-=</definition>
+        <argsstring>(const Vec2 &amp;rhs) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Subtracts the two vectors</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="373" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="373" bodyend="378"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a1a1c875b11ea5571cb2b71778a692472" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+        <definition>Vec2&amp; nc::Vec2::operator/=</definition>
+        <argsstring>(double scaler) noexcept</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>double</type>
+          <declname>scaler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Scalar division</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scaler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="401" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="401" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1af04a7f20ae8ac7a59ae44f7819668fa0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::Vec2::operator==</definition>
+        <argsstring>(const Vec2 &amp;rhs) const noexcept</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Equality operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="307" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="307" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1aa5cb2f954360d7be97c443da16694383" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
+        <definition>Vec2 nc::Vec2::project</definition>
+        <argsstring>(const Vec2 &amp;otherVec) const noexcept</argsstring>
+        <name>project</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> &amp;</type>
+          <declname>otherVec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Projects the vector onto the input vector</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>otherVec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="247" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="247" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a774f9304228506198344275ea5ecad48" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>NdArray&lt;double&gt; nc::Vec2::toNdArray</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>toNdArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> as an <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref></para><para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="283" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="283" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1aae1fa965b6d2d58638ae98c3e2cd834b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string nc::Vec2::toString</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>toString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> as a string</para><para><simplesect kind="return"><para>std::string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="270" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="270" bodyend="275"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classnc_1_1_vec2_1a77b594a5fcfc2fbe21bf74a2cada49ad" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
+        <definition>static Vec2 nc::Vec2::down</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>down</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the unit vector [0, -1]</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="182" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="182" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1af079d8f3e74672d478cecd31f31ad6de" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
+        <definition>static Vec2 nc::Vec2::left</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the unit vector [-1, 0]</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="193" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="193" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a7474381764f21c1897235c5b26065ecf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
+        <definition>static Vec2 nc::Vec2::right</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the unit vector [1, 0]</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="259" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="259" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_vec2_1a9be39bc9a56e94afb8d9b27d660e2d17" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
+        <definition>static Vec2 nc::Vec2::up</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>up</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the unit vector [0, 1]</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="295" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="295" bodyend="298"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Holds a 2D vector. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="39">
+        <label>nc::Vec2</label>
+        <link refid="classnc_1_1_vec2"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Vector/Vec2.hpp" bodystart="48" bodyend="407"/>
+    <listofallmembers>
+      <member refid="classnc_1_1_vec2_1a271ca2cae96a1df44486fbcc2c0f890f" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>angle</name></member>
+      <member refid="classnc_1_1_vec2_1abb0f6f8cacc680a464425d908e1e55cc" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>clampMagnitude</name></member>
+      <member refid="classnc_1_1_vec2_1a63c2b2b7a16828af770d38176b6cb3aa" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>distance</name></member>
+      <member refid="classnc_1_1_vec2_1a231781cc06b8f005a1dda5003498ec99" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>dot</name></member>
+      <member refid="classnc_1_1_vec2_1a77b594a5fcfc2fbe21bf74a2cada49ad" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>down</name></member>
+      <member refid="classnc_1_1_vec2_1af079d8f3e74672d478cecd31f31ad6de" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>left</name></member>
+      <member refid="classnc_1_1_vec2_1a91e6417e5b9903ed6bee3ad90c0c38f4" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>lerp</name></member>
+      <member refid="classnc_1_1_vec2_1ab6922f6c089b20e9d019301fddc6dc0a" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>norm</name></member>
+      <member refid="classnc_1_1_vec2_1a8d8a3ec28ef8336ab02dcd964a3e836c" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>normalize</name></member>
+      <member refid="classnc_1_1_vec2_1ac83768c682c162ec9dffe1bfb9637338" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>operator!=</name></member>
+      <member refid="classnc_1_1_vec2_1a72ac39ba88f909cb5552f6b379509f81" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>operator*=</name></member>
+      <member refid="classnc_1_1_vec2_1a21b1c9c0aa0b7e8886f1b4a7c255bb9e" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>operator+=</name></member>
+      <member refid="classnc_1_1_vec2_1af441d4bbee40c07f9b86fbd056ff637e" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>operator+=</name></member>
+      <member refid="classnc_1_1_vec2_1abfb0b00888fa37d52a895d06f2b39133" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>operator-=</name></member>
+      <member refid="classnc_1_1_vec2_1a13a2bbc2595248211e0bc97de51e13b5" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>operator-=</name></member>
+      <member refid="classnc_1_1_vec2_1a1a1c875b11ea5571cb2b71778a692472" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>operator/=</name></member>
+      <member refid="classnc_1_1_vec2_1af04a7f20ae8ac7a59ae44f7819668fa0" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>operator==</name></member>
+      <member refid="classnc_1_1_vec2_1aa5cb2f954360d7be97c443da16694383" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>project</name></member>
+      <member refid="classnc_1_1_vec2_1a7474381764f21c1897235c5b26065ecf" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>right</name></member>
+      <member refid="classnc_1_1_vec2_1a774f9304228506198344275ea5ecad48" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>toNdArray</name></member>
+      <member refid="classnc_1_1_vec2_1aae1fa965b6d2d58638ae98c3e2cd834b" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>toString</name></member>
+      <member refid="classnc_1_1_vec2_1a9be39bc9a56e94afb8d9b27d660e2d17" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>up</name></member>
+      <member refid="classnc_1_1_vec2_1a10032e67a062d820241f053d5affd1b8" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>Vec2</name></member>
+      <member refid="classnc_1_1_vec2_1a90648eb3e7f49292d0a4174dea32be61" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>Vec2</name></member>
+      <member refid="classnc_1_1_vec2_1abfb713c893dbd31d7c94b4741e82530b" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>Vec2</name></member>
+      <member refid="classnc_1_1_vec2_1a93a9f0c675265005a60c77179625ddd2" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>Vec2</name></member>
+      <member refid="classnc_1_1_vec2_1a36a67b9395b397e1b8e9364a39a5c458" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>x</name></member>
+      <member refid="classnc_1_1_vec2_1ad7a5bc1612f92f7e49112cf58caeaace" prot="public" virt="non-virtual"><scope>nc::Vec2</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

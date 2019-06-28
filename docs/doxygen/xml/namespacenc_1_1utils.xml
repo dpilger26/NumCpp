@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacenc_1_1utils" kind="namespace" language="C++">
+    <compoundname>nc::utils</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacenc_1_1utils_1af058ceabca43da922cd50333901abf05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::utils::cube</definition>
+        <argsstring>(dtype inValue) noexcept</argsstring>
+        <name>cube</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cubes in input value</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>cubed value </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="95" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1ab8f33a7e18654f6870deaa8f9c038195" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool nc::utils::essentiallyEqual</definition>
+        <argsstring>(dtype inValue1, dtype inValue2, dtype inEpsilon=DtypeInfo&lt; dtype &gt;::epsilon()) noexcept</argsstring>
+        <name>essentiallyEqual</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue1</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inValue2</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inEpsilon</declname>
+          <defval><ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo</ref>&lt; dtype &gt;::epsilon()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>tests that 2 floating point values are &quot;essentially equal&quot;</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inValue2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inEpsilon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="52" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a084b547369a9345dde8a42ffd3d5576b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double nc::utils::interp</definition>
+        <argsstring>(dtype inValue1, dtype inValue2, double inPercent) noexcept</argsstring>
+        <name>interp</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue1</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inValue2</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inPercent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the linear interpolation between two points</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inValue2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPercent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>linear interpolated point </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="148" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a2e3a14fbbce38b0f8710ea0d92ee2ffc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string nc::utils::num2str</definition>
+        <argsstring>(dtype inNumber) noexcept</argsstring>
+        <name>num2str</name>
+        <param>
+          <type>dtype</type>
+          <declname>inNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts the number into a string</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a716a63ef8627c73f6cc4146481fcabdf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::utils::power</definition>
+        <argsstring>(dtype inValue, uint8 inPower) noexcept</argsstring>
+        <name>power</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <declname>inPower</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Raises the input value to an integer power</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPower</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>inValue raised to inPower </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="109" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="109" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a740be01844f1a3a82547731eefbd067e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>double</type>
+        <definition>double nc::utils::powerf</definition>
+        <argsstring>(dtype inValue, double inPower) noexcept</argsstring>
+        <name>powerf</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inPower</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Raises the input value to a floating point power</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPower</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>inValue raised to inPower </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="133" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="133" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1aa83b87460956ee562b1ecaad9e0bb0f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>dtype</type>
+        <definition>dtype nc::utils::sqr</definition>
+        <argsstring>(dtype inValue) noexcept</argsstring>
+        <name>sqr</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Squares in input value</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>squared value </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="82" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="82" bodyend="85"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Module for basic utility funcions. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="41" column="1"/>
+  </compounddef>
+</doxygen>

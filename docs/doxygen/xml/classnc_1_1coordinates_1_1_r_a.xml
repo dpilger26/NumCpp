@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classnc_1_1coordinates_1_1_r_a" kind="class" language="C++" prot="public">
+    <compoundname>nc::coordinates::RA</compoundname>
+    <includes refid="_coordinates_8hpp" local="no">Coordinates.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classnc_1_1coordinates_1_1_r_a_1a093039e1665ee5deb71f7b060676c67f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nc::coordinates::RA::degrees_</definition>
+        <argsstring></argsstring>
+        <name>degrees_</name>
+        <initializer>{ 0.0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1coordinates_1_1_r_a_1a7176a9176d4cfaa7399ccd4f642593f0" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+        <definition>uint8 nc::coordinates::RA::hours_</definition>
+        <argsstring></argsstring>
+        <name>hours_</name>
+        <initializer>{ 0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1coordinates_1_1_r_a_1ae24778b65d0af639e858668ce6fbaf01" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+        <definition>uint8 nc::coordinates::RA::minutes_</definition>
+        <argsstring></argsstring>
+        <name>minutes_</name>
+        <initializer>{ 0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1coordinates_1_1_r_a_1af8b8618b21d5427544ccacf7c590e908" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nc::coordinates::RA::radians_</definition>
+        <argsstring></argsstring>
+        <name>radians_</name>
+        <initializer>{ 0.0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1coordinates_1_1_r_a_1a68f8e24b1ef45a8b18dcad7b326a089f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double nc::coordinates::RA::seconds_</definition>
+        <argsstring></argsstring>
+        <name>seconds_</name>
+        <initializer>{ 0.0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1aecba08a8023c2db83cad9a4081acc2f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>nc::coordinates::RA::RA</definition>
+        <argsstring>() noexcept=default</argsstring>
+        <name>RA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default Constructor, not super usefull on its own </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="64" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1ab14fd57fb6ab65c4d8ca668d549a507f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::coordinates::RA::RA</definition>
+        <argsstring>(double inDegrees)</argsstring>
+        <name>RA</name>
+        <param>
+          <type>double</type>
+          <declname>inDegrees</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inDegrees</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="71" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="71" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1a7566e8350b9075ae0f0406fce26b7900" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::coordinates::RA::RA</definition>
+        <argsstring>(uint8 inHours, uint8 inMinutes, double inSeconds) noexcept</argsstring>
+        <name>RA</name>
+        <param>
+          <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <declname>inHours</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+          <declname>inMinutes</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inSeconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inHours</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inMinutes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSeconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="95" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="95" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1aaf73bcb5e2afd0e075c452148f67a3bd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::coordinates::RA::degrees</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>degrees</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the degrees value</para><para><simplesect kind="return"><para>degrees </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="119" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="119" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1a52af78880f6c5a5ec8750a7ad20c2e2d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+        <definition>uint8 nc::coordinates::RA::hours</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>hours</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the hour value</para><para><simplesect kind="return"><para>hours </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="129" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="129" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1a7f4f4c06b26cad116e250a0dc7553b02" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kindref="member">uint8</ref></type>
+        <definition>uint8 nc::coordinates::RA::minutes</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>minutes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the minute value</para><para><simplesect kind="return"><para>minutes </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="139" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="139" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1ab9354c5b4942674a815b2315e8b92978" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::coordinates::RA::operator!=</definition>
+        <argsstring>(const RA &amp;inRhs) const noexcept</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1coordinates_1_1_r_a" kindref="compound">RA</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Not equality operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="193" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="193" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1ab9e22496d5fdc265ee5a5d77ec97c184" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::coordinates::RA::operator==</definition>
+        <argsstring>(const RA &amp;inRhs) const noexcept</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classnc_1_1coordinates_1_1_r_a" kindref="compound">RA</ref> &amp;</type>
+          <declname>inRhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Equality operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="181" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="181" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1a1f935f2825ee66373e5a5b0635851d8e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::coordinates::RA::print</definition>
+        <argsstring>() const</argsstring>
+        <name>print</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints the <ref refid="classnc_1_1coordinates_1_1_r_a" kindref="compound">RA</ref> object to the console </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="169" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="169" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1a8a9f875774dd8375cbc72c7fbfbebc2a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::coordinates::RA::radians</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>radians</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the radians value</para><para><simplesect kind="return"><para>radians </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="109" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="109" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1af0c9b649f60a70bbf421a6eb5b169cda" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::coordinates::RA::seconds</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>seconds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the seconds value</para><para><simplesect kind="return"><para>seconds </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="149" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="149" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1coordinates_1_1_r_a_1a37824a93eb9e0a02237d4e654040761b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string nc::coordinates::RA::str</definition>
+        <argsstring>() const</argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the <ref refid="classnc_1_1coordinates_1_1_r_a" kindref="compound">RA</ref> object as a string representation</para><para><simplesect kind="return"><para>std::string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="159" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="159" bodyend="164"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classnc_1_1coordinates_1_1_r_a_1aa7b5289b9d14da6e7b4393be2fddfc33" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;inStream, const RA &amp;inRa)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>inStream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1coordinates_1_1_r_a" kindref="compound">RA</ref> &amp;</type>
+          <declname>inRa</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ostream operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inStream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inRa</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="204" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="204" bodyend="208"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Holds a right ascension object. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="7">
+        <label>nc::coordinates::RA</label>
+        <link refid="classnc_1_1coordinates_1_1_r_a"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Coordinates.hpp" bodystart="50" bodyend="209"/>
+    <listofallmembers>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1aaf73bcb5e2afd0e075c452148f67a3bd" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>degrees</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1a093039e1665ee5deb71f7b060676c67f" prot="private" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>degrees_</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1a52af78880f6c5a5ec8750a7ad20c2e2d" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>hours</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1a7176a9176d4cfaa7399ccd4f642593f0" prot="private" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>hours_</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1a7f4f4c06b26cad116e250a0dc7553b02" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>minutes</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1ae24778b65d0af639e858668ce6fbaf01" prot="private" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>minutes_</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1ab9354c5b4942674a815b2315e8b92978" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>operator!=</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1aa7b5289b9d14da6e7b4393be2fddfc33" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1ab9e22496d5fdc265ee5a5d77ec97c184" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>operator==</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1a1f935f2825ee66373e5a5b0635851d8e" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>print</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1aecba08a8023c2db83cad9a4081acc2f8" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>RA</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1ab14fd57fb6ab65c4d8ca668d549a507f" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>RA</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1a7566e8350b9075ae0f0406fce26b7900" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>RA</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1a8a9f875774dd8375cbc72c7fbfbebc2a" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>radians</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1af8b8618b21d5427544ccacf7c590e908" prot="private" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>radians_</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1af0c9b649f60a70bbf421a6eb5b169cda" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>seconds</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1a68f8e24b1ef45a8b18dcad7b326a089f" prot="private" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>seconds_</name></member>
+      <member refid="classnc_1_1coordinates_1_1_r_a_1a37824a93eb9e0a02237d4e654040761b" prot="public" virt="non-virtual"><scope>nc::coordinates::RA</scope><name>str</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

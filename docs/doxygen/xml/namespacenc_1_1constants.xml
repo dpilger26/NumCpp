@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacenc_1_1constants" kind="namespace" language="C++">
+    <compoundname>nc::constants</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacenc_1_1constants_1ac3fc62713ed109e451648c67faab7581" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <initializer>= 3.0e8</initializer>
+        <briefdescription>
+<para>speed of light </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="43" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1a2c11c386e1a07a17f95122fc4630cbe9" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::DAYS_PER_WEEK</definition>
+        <argsstring></argsstring>
+        <name>DAYS_PER_WEEK</name>
+        <initializer>= 7</initializer>
+        <briefdescription>
+<para>Number of days in a week. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1aebabe96d6c2be3df3d71922b399e24c7" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::e</definition>
+        <argsstring></argsstring>
+        <name>e</name>
+        <initializer>= 2.718281828459045</initializer>
+        <briefdescription>
+<para>eulers number </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="44" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1aef903b1f40001bc712b61f5dec7de716" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::HOURS_PER_DAY</definition>
+        <argsstring></argsstring>
+        <name>HOURS_PER_DAY</name>
+        <initializer>= 24</initializer>
+        <briefdescription>
+<para>Number of hours in a day. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1a4649bfc00f6360ccda3b3f9316e2dc0e" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::inf</definition>
+        <argsstring></argsstring>
+        <name>inf</name>
+        <initializer>= std::numeric_limits&lt;double&gt;::infinity()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="45" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1a2838aa56f95be8020a326aa6b9ba5c68" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::MILLISECONDS_PER_DAY</definition>
+        <argsstring></argsstring>
+        <name>MILLISECONDS_PER_DAY</name>
+        <initializer>= <ref refid="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" kindref="member">SECONDS_PER_DAY</ref> * <ref refid="namespacenc_1_1constants_1a4373df6d6df75334290f4240f174aeb0" kindref="member">MILLISECONDS_PER_SECOND</ref></initializer>
+        <briefdescription>
+<para>Number of milliseconds in a day. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1a4373df6d6df75334290f4240f174aeb0" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::MILLISECONDS_PER_SECOND</definition>
+        <argsstring></argsstring>
+        <name>MILLISECONDS_PER_SECOND</name>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+<para>Number of milliseconds in a second. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1aa018ab3bca299694899f51683d5b3c0f" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::MINUTES_PER_DAY</definition>
+        <argsstring></argsstring>
+        <name>MINUTES_PER_DAY</name>
+        <initializer>= <ref refid="namespacenc_1_1constants_1aef903b1f40001bc712b61f5dec7de716" kindref="member">HOURS_PER_DAY</ref> * <ref refid="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" kindref="member">MINUTES_PER_HOUR</ref></initializer>
+        <briefdescription>
+<para>Number of minutes in a day. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::MINUTES_PER_HOUR</definition>
+        <argsstring></argsstring>
+        <name>MINUTES_PER_HOUR</name>
+        <initializer>= 60</initializer>
+        <briefdescription>
+<para>Number of minutes in an hour. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1af94758715a9a5157d7ca95ab89d390ac" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double nc::constants::nan</definition>
+        <argsstring></argsstring>
+        <name>nan</name>
+        <initializer>= std::nan(&quot;1&quot;)</initializer>
+        <briefdescription>
+<para>NaN. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="47" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1a2f1219a120c9cc1434486d9de75a8221" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::pi</definition>
+        <argsstring></argsstring>
+        <name>pi</name>
+        <initializer>= 3.14159265358979323846</initializer>
+        <briefdescription>
+<para>Pi. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="46" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::SECONDS_PER_DAY</definition>
+        <argsstring></argsstring>
+        <name>SECONDS_PER_DAY</name>
+        <initializer>= <ref refid="namespacenc_1_1constants_1aa018ab3bca299694899f51683d5b3c0f" kindref="member">MINUTES_PER_DAY</ref> * <ref refid="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" kindref="member">SECONDS_PER_MINUTE</ref></initializer>
+        <briefdescription>
+<para>Number of seconds in a day. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1ad635a54557e853e1ee098d0ead5f1902" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::SECONDS_PER_HOUR</definition>
+        <argsstring></argsstring>
+        <name>SECONDS_PER_HOUR</name>
+        <initializer>= <ref refid="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" kindref="member">MINUTES_PER_HOUR</ref> * <ref refid="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" kindref="member">SECONDS_PER_MINUTE</ref></initializer>
+        <briefdescription>
+<para>Number of seconds in an hour. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::SECONDS_PER_MINUTE</definition>
+        <argsstring></argsstring>
+        <name>SECONDS_PER_MINUTE</name>
+        <initializer>= 60</initializer>
+        <briefdescription>
+<para>Number of seconds in a minute. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1ac36cac5f19ce5f81b2acc562f247f0be" prot="public" static="no" mutable="no">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::constants::SECONDS_PER_WEEK</definition>
+        <argsstring></argsstring>
+        <name>SECONDS_PER_WEEK</name>
+        <initializer>= <ref refid="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" kindref="member">SECONDS_PER_DAY</ref> * <ref refid="namespacenc_1_1constants_1a2c11c386e1a07a17f95122fc4630cbe9" kindref="member">DAYS_PER_WEEK</ref></initializer>
+        <briefdescription>
+<para>Number of seconds in a week. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacenc_1_1constants_1a3d553d6bfa16d7ae8cd1dbae150891ea" prot="public" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string nc::constants::VERSION</definition>
+        <argsstring></argsstring>
+        <name>VERSION</name>
+        <initializer>= &quot;1.0&quot;</initializer>
+        <briefdescription>
+<para>Current NumCpp version number. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Holds usefull constants. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp" line="42" column="1"/>
+  </compounddef>
+</doxygen>

@@ -12,5 +12,6 @@ var searchData=
   ['union1d',['union1d',['../namespacenc.html#a9dc5a706d1cbeb822ace82eac5ace756',1,'nc']]],
   ['unique',['unique',['../namespacenc.html#a4ff98c91846a1eda6681ea2ef476d06e',1,'nc']]],
   ['unwrap',['unwrap',['../namespacenc.html#aac5e942220c693fb9e65fcc3ff4fc50f',1,'nc::unwrap(dtype inValue) noexcept'],['../namespacenc.html#a33324987d9f105f585ac96295635e599',1,'nc::unwrap(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
+  ['up',['up',['../classnc_1_1_vec2.html#a9be39bc9a56e94afb8d9b27d660e2d17',1,'nc::Vec2::up()'],['../classnc_1_1_vec3.html#aa60cf66defb2fcf04fc989c0e1f07f7e',1,'nc::Vec3::up()']]],
   ['utils_2ehpp',['Utils.hpp',['../_utils_8hpp.html',1,'']]]
 ];

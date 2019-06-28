@@ -43,12 +43,23 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing angleAxisRotation', 'cyan'))
+    print(colored('Testing angleAxisRotationArray', 'cyan'))
     axis = np.random.randint(1,10, [3,])
     angle = np.random.rand(1).item() * np.pi
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
-    if np.array_equal(np.round(NumCpp.Quaternion.angleAxisRotation(cAxis, angle).toNdArray().getNumpyArray().flatten(), 10),
+    if np.array_equal(np.round(NumCpp.Quaternion.angleAxisRotationNdArray(cAxis, angle).flatten(), 10),
+                      np.round(quatRotateAngleAxis(axis, angle), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing angleAxisRotationVec3', 'cyan'))
+    axis = np.random.randint(1,10, [3,])
+    angle = np.random.rand(1).item() * np.pi
+    cAxis = NumCpp.NdArray(1, 3)
+    cAxis.setArray(axis)
+    if np.array_equal(np.round(NumCpp.Quaternion.angleAxisRotationVec3(cAxis, angle).flatten(), 10),
                       np.round(quatRotateAngleAxis(axis, angle), 10)):
         print(colored('\tPASS', 'green'))
     else:
@@ -73,7 +84,7 @@ def doTest():
     q1 = np.asarray([cross[0] * np.sin(theta1 / 2), cross[1] * np.sin(theta1 / 2), cross[2] * np.sin(theta1 / 2), np.cos(theta1 / 2)])
     quat0 = NumCpp.Quaternion(q0[0], q0[1], q0[2], q0[3])
     quat1 = NumCpp.Quaternion(q1[0], q1[1], q1[2], q1[3])
-    crossTo = quat0.rotate(cCross).getNumpyArray().flatten()
+    crossTo = quat0.rotateNdArray(cCross).flatten()
 
     w = quat0.angularVelocity(quat1, time).flatten()
     angularVelocity = np.linalg.norm(w)
@@ -150,15 +161,28 @@ def doTest():
     cQuat1.print()
     print(colored('\tPASS', 'green'))
 
-    print(colored('Testing rotate', 'cyan'))
+    print(colored('Testing rotateNdArray', 'cyan'))
     myQuat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumCpp.Quaternion(myQuat[0].item(), myQuat[1].item(), myQuat[2].item(), myQuat[3].item())
     vec = np.random.rand(3, 1) * 10
     cVec = NumCpp.NdArray(3, 1)
     cVec.setArray(vec)
-    newVec = cQuat.rotate(cVec)
+    newVec = cQuat.rotateNdArray(cVec)
     newVecPy = np.asarray(np.matrix(cQuat.toDCM()) * np.matrix(vec))
-    if np.array_equal(np.round(newVec.getNumpyArray().flatten(), 10), np.round(newVecPy.flatten(), 10)):
+    if np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing rotateVec3', 'cyan'))
+    myQuat = np.random.randint(1, 5, [4, ]).astype(np.double)
+    cQuat = NumCpp.Quaternion(myQuat[0].item(), myQuat[1].item(), myQuat[2].item(), myQuat[3].item())
+    vec = np.random.rand(3, 1) * 10
+    cVec = NumCpp.NdArray(3, 1)
+    cVec.setArray(vec)
+    newVec = cQuat.rotateVec3(cVec)
+    newVecPy = np.asarray(np.matrix(cQuat.toDCM()) * np.matrix(vec))
+    if np.array_equal(np.round(newVec.flatten(), 10), np.round(newVecPy.flatten(), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -301,12 +325,23 @@ def doTest():
 
     print(colored('Testing DCM', 'magenta'))
 
-    print(colored('Testing angleAxisRotationDCM', 'cyan'))
+    print(colored('Testing angleAxisRotationNdArray', 'cyan'))
     radians = np.random.rand(1) * 2 * np.pi
     axis = np.random.rand(3)
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
-    rot = NumCpp.DCM.angleAxisRotation(cAxis, radians.item()).getNumpyArray()
+    rot = NumCpp.DCM.angleAxisRotationNdArray(cAxis, radians.item())
+    if np.all(np.round(rot, 10) == np.round(angleAxisRotation(axis, radians.item()), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing angleAxisRotationVec3', 'cyan'))
+    radians = np.random.rand(1) * 2 * np.pi
+    axis = np.random.rand(3)
+    cAxis = NumCpp.NdArray(1, 3)
+    cAxis.setArray(axis)
+    rot = NumCpp.DCM.angleAxisRotationVec3(cAxis, radians.item())
     if np.all(np.round(rot, 10) == np.round(angleAxisRotation(axis, radians.item()), 10)):
         print(colored('\tPASS', 'green'))
     else:
