@@ -327,7 +327,8 @@ namespace nc
         ///
         NdArray<double> toNdArray() const noexcept
         {
-            return { {x}, {y}, {z} };
+            NdArray<double> returnArray = { x, y, z };
+            return returnArray.transpose();
         }
 
         //============================================================================
