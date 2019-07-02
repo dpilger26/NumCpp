@@ -151,7 +151,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>../../../src;$(EIGEN_INCLUDES);$(BOOST_INCLUDES);$(PYBIND_INCLUDES);$(PYTHON_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../src;$(BOOST_INCLUDES);$(PYBIND_INCLUDES);$(PYTHON_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>INCLUDE_PYTHON_INTERFACE;INCLUDE_BOOST_PYTHON_INTERFACE;INCLUDE_PYBIND_PYTHON_INTERFACE;BOOST_PYTHON_STATIC_LIB;BOOST_NUMPY_STATIC_LIB;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
