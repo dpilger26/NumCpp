@@ -47,6 +47,5 @@
 #include"NumCpp/Utils.hpp"
 #include"NumCpp/Vector.hpp"
 
-
 /// \example Example.cpp
 /// Examples from the Quick Start Guide in README.md at [GitHub Repository](https://github.com/dpilger26/NumCpp)
