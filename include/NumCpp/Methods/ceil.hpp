@@ -37,39 +37,37 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Return the ceiling of the input.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
     ///
-    /// @param
-    ///				inValue
+    /// @param				inValue
     /// @return
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    dtype ceil(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return std::ceil(inValue);
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Return the ceiling of the input, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
     ///
-    /// @param
-    ///				inArray
+    /// @param				inArray
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> ceil(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<dtype> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            [](dtype inValue) noexcept -> dtype
+            { return ceil(inValue); });
 
         return returnArray;
     }

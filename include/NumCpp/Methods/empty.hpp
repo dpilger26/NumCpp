@@ -28,49 +28,43 @@
 ///
 #pragma once
 
+#include"NumCpp/Core/Shape.hpp"
+#include"NumCpp/Core/Types.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
-
-#include<algorithm>
-#include<cmath>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Return a new array of given shape and type, without initializing entries.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
-    ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inArray
+    /// @param				inNumRows
+    /// @param				inNumCols
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> empty(uint32 inNumRows, uint32 inNumCols) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        return NdArray<dtype>(inNumRows, inNumCols);
+    }
 
-        return returnArray;
+    //============================================================================
+    // Method Description:
+    ///						Return a new array of given shape and type, without initializing entries.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.empty.html
+    ///
+    /// @param
+    ///				inShape
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> empty(const Shape& inShape) noexcept
+    {
+        return NdArray<dtype>(inShape);
     }
 }

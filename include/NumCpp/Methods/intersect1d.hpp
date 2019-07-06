@@ -31,46 +31,35 @@
 #include"NumCpp/NdArray/NdArray.hpp"
 
 #include<algorithm>
-#include<cmath>
+#include<set>
+#include<vector>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Find the intersection of two arrays.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						Return the sorted, unique values that are in both of the input arrays.
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.intersect1d.html
     ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    /// @param				inArray1
+    /// @param				inArray2
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inArray
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> intersect1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        std::vector<dtype> res(inArray1.size() + inArray2.size());
+        std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
+        std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
-        return returnArray;
+        const typename std::vector<dtype>::iterator iter = std::set_intersection(in1.begin(), in1.end(),
+            in2.begin(), in2.end(), res.begin());
+        res.resize(iter - res.begin());
+        return NdArray<dtype>(res);
     }
 }

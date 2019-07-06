@@ -28,49 +28,32 @@
 ///
 #pragma once
 
+#include"NumCpp/Core/Types.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
-
-#include<algorithm>
-#include<cmath>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Find flat indices of nonzero elements.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    /// @param      mask: the mask to apply to the array
+    /// @param      n: the first n indices to return (optional, default all)
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
-    ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inArray
     /// @return
     ///				NdArray
     ///
-    template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    inline NdArray<uint32> find(const NdArray<bool>& mask, uint32 n) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        NdArray<uint32> indices = mask.nonzero();
 
-        return returnArray;
+        if (indices.size() <= n)
+        {
+            return indices;
+        }
+        else
+        {
+            return indices[Slice(0, n)];
+        }
     }
 }

@@ -31,45 +31,38 @@
 #include"NumCpp/NdArray/NdArray.hpp"
 
 #include<algorithm>
-#include<cmath>
+#include<iostream>
+#include<string>
+#include<stdexcept>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Compute the truth value of x1 XOR x2 element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.logical_xor.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
+    /// @param				inArray1
+    /// @param				inArray2
     ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inArray
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<bool> logical_xor(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        if (inArray1.shape() != inArray2.shape())
+        {
+            std::string errStr = "ERROR: logical_xor: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
+        }
+
+        NdArray<bool> returnArray(inArray1.shape());
+        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+            [](dtype inValue1, dtype inValue2) noexcept -> bool
+            { return (inValue1 != 0) != (inValue2 != 0); });
 
         return returnArray;
     }

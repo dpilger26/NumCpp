@@ -32,44 +32,63 @@
 
 #include<algorithm>
 #include<cmath>
+#include<iostream>
+#include<string>
+#include<stdexcept>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Given the "legs" of a right triangle, return its hypotenuse.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
     ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    /// @param				inValue1
+    /// @param				inValue2
     ///
-    /// @param
-    ///				inArray
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    double hypot(dtype inValue1, dtype inValue2) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        return std::hypot(static_cast<double>(inValue1), static_cast<double>(inValue2));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Given the "legs" of a right triangle, return its hypotenuse.
+    ///
+    ///						Equivalent to sqrt(x1**2 + x2**2), element - wise.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
+    ///
+    ///
+    /// @param				inArray1
+    /// @param				inArray2
+    ///
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<double> hypot(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        if (inArray1.shape() != inArray2.shape())
+        {
+            std::string errStr = "ERROR: hypot: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
+        }
+
+        NdArray<dtype> returnArray(inArray1.shape());
+
+        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+            [](dtype inValue1, dtype inValue2) noexcept -> double
+        { return hypot(inValue1, inValue2); });
 
         return returnArray;
     }

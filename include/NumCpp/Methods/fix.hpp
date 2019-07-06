@@ -37,9 +37,9 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Round to nearest integer towards zero.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
     ///
     /// @param
     ///				inValue
@@ -47,16 +47,16 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    dtype fix(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return inValue > 0 ? std::floor(inValue) : std::ceil(inValue);
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Round to nearest integer towards zero.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fix.html
     ///
     /// @param
     ///				inArray
@@ -64,12 +64,13 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> fix(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<double> returnArray(inArray.shape());
+
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            { return fix(inValue); });
 
         return returnArray;
     }

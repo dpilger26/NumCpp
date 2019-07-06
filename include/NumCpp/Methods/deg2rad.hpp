@@ -28,18 +28,18 @@
 ///
 #pragma once
 
+#include"NumCpp/Core/Constants.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
 
 #include<algorithm>
-#include<cmath>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Convert angles from degrees to radians.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.deg2rad.html
     ///
     /// @param
     ///				inValue
@@ -47,16 +47,16 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    double deg2rad(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return inValue * constants::pi / 180.0;
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Convert angles from degrees to radians.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.deg2rad.html
     ///
     /// @param
     ///				inArray
@@ -64,12 +64,12 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<double> deg2rad(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            [](dtype inValue) noexcept -> double 
+            { return deg2rad(inValue); });
 
         return returnArray;
     }

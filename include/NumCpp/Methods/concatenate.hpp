@@ -28,49 +28,64 @@
 ///
 #pragma once
 
-#include"NumCpp/NdArray/NdArray.hpp"
+#include"NumCpp/Core/Shape.hpp"
+#include"NumCpp/Core/Types.hpp"
+#include"NumCpp/Methods/column_stack.hpp"
+#include"NumCpp/Methods/row_stack.hpp"
 
 #include<algorithm>
-#include<cmath>
+#include<initializer_list>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Join a sequence of arrays along an existing axis.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.concatenate.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
-    ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inArray
+    /// @param				inArrayList
+    /// @param				inAxis (Optional, default NONE)
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> concatenate(const std::initializer_list<NdArray<dtype> >& inArrayList, Axis inAxis)
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        switch (inAxis)
+        {
+            case Axis::NONE:
+            {
+                uint32 finalSize = 0;
+                for (auto& ndarray : inArrayList)
+                {
+                    finalSize += ndarray.size();
+                }
 
-        return returnArray;
+                NdArray<dtype> returnArray(1, finalSize);
+                uint32 offset = 0;
+                for (auto& ndarray : inArrayList)
+                {
+                    std::copy(ndarray.cbegin(), ndarray.cend(), returnArray.begin() + offset);
+                    offset += ndarray.size();
+                }
+
+                return returnArray;
+            }
+            case Axis::ROW:
+            {
+                return row_stack(inArrayList);
+            }
+            case Axis::COL:
+            {
+                return column_stack(inArrayList);
+            }
+            default:
+            {
+                // this isn't actually possible, just putting this here to get rid
+                // of the compiler warning.
+                return NdArray<dtype>(0);
+            }
+        }
     }
 }

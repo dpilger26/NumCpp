@@ -28,49 +28,45 @@
 ///
 #pragma once
 
+#include"NumCpp/Core/DtypeInfo.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
 
-#include<algorithm>
-#include<cmath>
+#include"boost/integer/common_factor_rt.hpp"
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Returns the least common multiple of |x1| and |x2|
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
     ///
-    /// @param
-    ///				inValue
+    /// @param      inValue1
+    /// @param      inValue2
     /// @return
-    ///				value
+    ///				dtype
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    dtype lcm(dtype inValue1, dtype inValue2) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
+        return boost::integer::lcm(inValue1, inValue2);
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Returns the least common multiple of the values of the input array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.lcm.html
     ///
-    /// @param
-    ///				inArray
+    /// @param      inArray
     /// @return
-    ///				NdArray
+    ///				NdArray<double>
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    dtype lcm(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
-
-        return returnArray;
+        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
+        return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
 }

@@ -32,44 +32,37 @@
 
 #include<algorithm>
 #include<cmath>
+#include<iostream>
+#include<string>
+#include<stdexcept>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Change the sign of x1 to that of x2, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.copysign.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
-    ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inArray
+    /// @param				inArray1
+    /// @param				inArray2
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> copySign(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        if (inArray1.shape() != inArray2.shape())
+        {
+            std::string errStr = "ERROR: copysign: input arrays are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
+        }
+
+        NdArray<dtype> returnArray(inArray1.shape());
+        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+            [](dtype inValue1, dtype inValue2) noexcept -> dtype
+            { return inValue2 < 0 ? std::abs(inValue1) * -1 : std::abs(inValue1); });
 
         return returnArray;
     }

@@ -32,44 +32,61 @@
 
 #include<algorithm>
 #include<cmath>
+#include<iostream>
+#include<string>
+#include<stdexcept>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						minimum of inputs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						Compare two value and returns a value containing the
+    ///						minima
     ///
-    /// @param
-    ///				inValue
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
+    ///
+    /// @param				inValue1
+    /// @param				inValue2
     /// @return
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    dtype fmin(dtype inValue1, dtype inValue2) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return std::min(inValue1, inValue2);
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Element-wise minimum of array elements.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						Compare two arrays and returns a new array containing the
+    ///						element - wise minima
     ///
-    /// @param
-    ///				inArray
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fmin.html
+    ///
+    /// @param				inArray1
+    /// @param				inArray2
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> fmin(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        if (inArray1.shape() != inArray2.shape())
+        {
+            std::string errStr = "ERROR: fmin: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
+        }
+
+        NdArray<double> returnArray(inArray1.shape());
+
+        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+            [](dtype inValue1, dtype inValue2) noexcept -> double
+            { return min(inValue1, inValue2); });
 
         return returnArray;
     }

@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include"NumCpp/Core/DtypeInfo.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
 
 #include<algorithm>
@@ -37,39 +38,44 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Test for NaN and return result as a boolean.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
     ///
     /// @param
     ///				inValue
+    ///
     /// @return
-    ///				value
+    ///				bool
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    bool isnan(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: isnan: can only be used with floating point types.");
+        return std::isnan(inValue);
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Test element-wise for NaN and return result as a boolean array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isnan.html
     ///
     /// @param
     ///				inArray
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<bool> isnan(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
+        static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: isnan: can only be used with floating point types.");
+
+        NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            [](dtype inValue) noexcept -> bool 
+            { return isnan(inValue); });
 
         return returnArray;
     }

@@ -37,39 +37,41 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Base-2 logarithm of x.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
     ///
     /// @param
     ///				inValue
+    ///
     /// @return
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    double log2(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return std::log2(static_cast<double>(inValue));
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Base-2 logarithm of x.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.log2.html
     ///
     /// @param
     ///				inArray
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<double> log2(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            { return log2(inValue); });
 
         return returnArray;
     }

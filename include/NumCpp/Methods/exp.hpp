@@ -37,9 +37,9 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Calculate the exponential of the input value.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
     ///
     /// @param
     ///				inValue
@@ -47,16 +47,16 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    double exp(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return std::exp(static_cast<double>(inValue));
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Calculate the exponential of all elements in the input array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.exp.html
     ///
     /// @param
     ///				inArray
@@ -64,12 +64,13 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<double> exp(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<double> returnArray(inArray.shape());
+
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            [](dtype inValue) noexcept -> double 
+            { return exp(inValue); });
 
         return returnArray;
     }

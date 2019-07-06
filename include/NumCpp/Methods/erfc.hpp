@@ -30,46 +30,45 @@
 
 #include"NumCpp/NdArray/NdArray.hpp"
 
+#include"boost/math/special_functions/erf.hpp"
+
 #include<algorithm>
-#include<cmath>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						Returns the complement of the error function of inValue.
     ///
     /// @param
     ///				inValue
     /// @return
-    ///				value
+    ///				double
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    double erfc(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return boost::math::erfc(static_cast<double>(inValue));
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						Returns the element-wise complement of the error
+    ///                     function of inValue.
     ///
     /// @param
     ///				inArray
     /// @return
-    ///				NdArray
+    ///				NdArray<double>
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<double> erfc(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<double> returnArray(inArray.shape());
+
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            [](dtype inValue)  -> double
+            { return erfc(inValue); });
 
         return returnArray;
     }

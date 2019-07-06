@@ -28,49 +28,26 @@
 ///
 #pragma once
 
+#include"NumCpp/Core/Types.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
-
-#include<algorithm>
-#include<cmath>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Shift the bits of an integer to the right.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.right_shift.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
+    /// @param				inArray
+    /// @param				inNumBits
     ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inArray
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> right_shift(const NdArray<dtype>& inArray, uint8 inNumBits) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
-
-        return returnArray;
+        return inArray >> inNumBits;
     }
 }

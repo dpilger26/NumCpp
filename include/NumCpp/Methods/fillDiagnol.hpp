@@ -28,49 +28,31 @@
 ///
 #pragma once
 
+#include"NumCpp/Core/Shape.hpp"
+#include"NumCpp/Core/Types.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
-
-#include<algorithm>
-#include<cmath>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Fill the main diagonal of the given array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.fill_diagonal.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
+    /// @param      inArray
+    /// @param      inValue
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    void fillDiagonal(NdArray<dtype>& inArray, dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray
-    ///
-    template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
-    {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
-
-        return returnArray;
+        const auto inShape = inArray.shape();
+        for (uint32 row = 0; row < inShape.rows; ++row)
+        {
+            if (row < inShape.cols)
+            {
+                inArray(row, row) = inValue;
+            }
+        }
     }
 }

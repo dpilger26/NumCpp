@@ -30,46 +30,46 @@
 
 #include"NumCpp/NdArray/NdArray.hpp"
 
+#include"boost/math/special_functions/erf.hpp"
+
 #include<algorithm>
-#include<cmath>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						Calculate the error function of all elements in the input array.
+    ///                     Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
     ///
     /// @param
     ///				inValue
     /// @return
-    ///				value
+    ///				double
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    double erf(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return boost::math::erf(static_cast<double>(inValue));
     }
 
-    //============================================================================
+        //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						Calculate the error function of all elements in the input array.
+    ///                     Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
     ///
     /// @param
     ///				inArray
     /// @return
-    ///				NdArray
+    ///				NdArray<double>
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<double> erf(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<double> returnArray(inArray.shape());
+
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            [](dtype inValue) -> double
+            { return erf(inValue); });
 
         return returnArray;
     }

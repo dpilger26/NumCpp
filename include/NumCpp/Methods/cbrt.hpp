@@ -37,39 +37,37 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Return the cube-root of an array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
     ///
-    /// @param
-    ///				inValue
+    /// @param				inValue
     /// @return
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    double cbrt(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return std::cbrt(static_cast<double>(inValue));
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Return the cube-root of an array, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.cbrt.html
     ///
-    /// @param
-    ///				inArray
+    /// @param				inArray
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<double> cbrt(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            { return cbrt(inValue); });
 
         return returnArray;
     }

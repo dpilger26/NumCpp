@@ -28,48 +28,65 @@
 ///
 #pragma once
 
+#include"NumCpp/Core/Shape.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
 
-#include<algorithm>
-#include<cmath>
+#include<initializer_list>
+#include<iostream>
+#include<string>
+#include<stdexcept>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Stack 1-D arrays as columns into a 2-D array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
-    ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.column_stack.html
     ///
     /// @param
-    ///				inArray
+    ///				inArrayList: {list} of arrays to stack
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> column_stack(const std::initializer_list<NdArray<dtype> >& inArrayList)
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        // first loop through to calculate the final size of the array
+        Shape finalShape;
+        for (auto& ndarray : inArrayList)
+        {
+            if (finalShape.isnull())
+            {
+                finalShape = ndarray.shape();
+            }
+            else if (ndarray.shape().rows != finalShape.rows)
+            {
+                std::string errStr = "ERROR: column_stack: input arrays must have the same number of rows.";
+                std::cerr << errStr << std::endl;
+                throw std::invalid_argument(errStr);
+            }
+            else
+            {
+                finalShape.cols += ndarray.shape().cols;
+            }
+        }
+
+        // now that we know the final size, contruct the output array
+        NdArray<dtype> returnArray(finalShape);
+        uint32 colStart = 0;
+        for (auto& ndarray : inArrayList)
+        {
+            const Shape theShape = ndarray.shape();
+            for (uint32 row = 0; row < theShape.rows; ++row)
+            {
+                for (uint32 col = 0; col < theShape.cols; ++col)
+                {
+                    returnArray(row, colStart + col) = ndarray(row, col);
+                }
+            }
+            colStart += theShape.cols;
+        }
 
         return returnArray;
     }

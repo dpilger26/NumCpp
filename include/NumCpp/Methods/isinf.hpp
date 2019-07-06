@@ -37,39 +37,41 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Test for inf and return result as a boolean.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html
     ///
     /// @param
     ///				inValue
+    ///
     /// @return
-    ///				value
+    ///				bool
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    bool isinf(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return std::isinf(inValue);
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Test element-wise for inf and return result as a boolean array.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isinf.html
     ///
     /// @param
     ///				inArray
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<bool> isinf(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            [](dtype inValue) noexcept -> bool 
+            { return isinf(inValue); });
 
         return returnArray;
     }

@@ -37,9 +37,9 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Return the floor of the input.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
     ///
     /// @param
     ///				inValue
@@ -47,16 +47,16 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    dtype floor(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return std::floor(inValue);
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Return the floor of the input, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
     ///
     /// @param
     ///				inArray
@@ -64,12 +64,13 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> floor(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<double> returnArray(inArray.shape());
+
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            { return floor(inValue); });
 
         return returnArray;
     }

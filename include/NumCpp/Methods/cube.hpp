@@ -29,34 +29,30 @@
 #pragma once
 
 #include"NumCpp/NdArray/NdArray.hpp"
+#include"NumCpp/Utils/cube.hpp"
 
 #include<algorithm>
-#include<cmath>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						Cubes the input
     ///
     /// @param
     ///				inValue
     /// @return
-    ///				value
+    ///				cubed value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    dtype cube(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return utils::cube(inValue);
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						Cubes the elements of the array
     ///
     /// @param
     ///				inArray
@@ -64,12 +60,12 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> cube(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
+        NdArray<dtype> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+            [](dtype inValue) noexcept -> dtype 
+            { return cube(inValue); });
 
         return returnArray;
     }

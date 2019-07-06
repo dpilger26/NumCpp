@@ -30,47 +30,43 @@
 
 #include"NumCpp/NdArray/NdArray.hpp"
 
-#include<algorithm>
-#include<cmath>
+#include"boost/algorithm/clamp.hpp"
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Clip (limit) the value.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
-    ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inArray
+    /// @param				inValue
+    /// @param				inMinValue
+    /// @param				inMaxValue
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    dtype clip(dtype inValue, dtype inMinValue, dtype inMaxValue) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        return boost::algorithm::clamp(inValue, inMinValue, inMaxValue);
+    }
 
-        return returnArray;
+    //============================================================================
+    // Method Description:
+    ///						Clip (limit) the values in an array.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.clip.html
+    ///
+    /// @param				inArray
+    /// @param				inMinValue
+    /// @param				inMaxValue
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> clip(const NdArray<dtype>& inArray, dtype inMinValue, dtype inMaxValue) noexcept
+    {
+        return inArray.clip(inMinValue, inMaxValue);
     }
 }

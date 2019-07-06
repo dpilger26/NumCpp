@@ -28,48 +28,61 @@
 ///
 #pragma once
 
+#include"NumCpp/Core/Types.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
 
 #include<algorithm>
 #include<cmath>
+#include<iostream>
+#include<string>
+#include<stdexcept>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Returns x1 * 2^x2.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
     ///
-    /// @param
-    ///				inValue
+    /// @param				inValue1
+    /// @param				inValue2
+    ///
     /// @return
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    dtype ldexp(dtype inValue1, uint8 inValue2) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return static_cast<dtype>(std::ldexp(static_cast<double>(inValue1), inValue2));
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Returns x1 * 2^x2, element-wise.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ldexp.html
     ///
-    /// @param
-    ///				inArray
+    /// @param				inArray1
+    /// @param				inArray2
+    ///
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> ldexp(const NdArray<dtype>& inArray1, const NdArray<uint8>& inArray2)
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        if (inArray1.shape() != inArray2.shape())
+        {
+            std::string errStr = "ERROR: ldexp: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
+        }
+
+        NdArray<dtype> returnArray(inArray1.shape());
+        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+            [](dtype inValue1, uint8 inValue2) noexcept -> dtype
+        { return ldexp(inValue1, inValue2); });
 
         return returnArray;
     }

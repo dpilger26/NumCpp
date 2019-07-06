@@ -28,18 +28,18 @@
 ///
 #pragma once
 
+#include"NumCpp/Methods/rad2deg.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
 
 #include<algorithm>
-#include<cmath>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Convert angles from degrees to radians.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
     ///
     /// @param
     ///				inValue
@@ -47,16 +47,16 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    double degrees(dtype inValue) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return rad2deg(inValue);
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Convert angles from degrees to radians.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
     ///
     /// @param
     ///				inArray
@@ -64,13 +64,8 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<double> degrees(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
-
-        return returnArray;
+        return rad2deg(inArray);
     }
 }

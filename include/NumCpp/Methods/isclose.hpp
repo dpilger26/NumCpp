@@ -32,44 +32,44 @@
 
 #include<algorithm>
 #include<cmath>
+#include<iostream>
+#include<string>
+#include<stdexcept>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Returns a boolean array where two arrays are element-wise
+    ///						equal within a tolerance.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///						For finite values, isclose uses the following equation to test whether two floating point values are equivalent.
+    ///						absolute(a - b) <= (atol + rtol * absolute(b))
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.isclose.html
     ///
-    template<typename dtype>
-    double arctanh(dtype inValue) noexcept
-    {
-        return std::atanh(static_cast<double>(inValue));
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    /// @param				inArray1
+    /// @param				inArray2
+    /// @param				inRtol: relative tolerance (default 1e-5)
+    /// @param				inAtol: absolute tolerance (default 1e-9)
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
-    ///
-    /// @param
-    ///				inArray
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol, double inAtol)
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
+        if (inArray1.shape() != inArray2.shape())
+        {
+            std::string errStr = "ERROR: isclose: input array shapes are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
+        }
+
+        NdArray<bool> returnArray(inArray1.shape());
+        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+            [inRtol, inAtol](dtype inValueA, dtype inValueB) noexcept -> bool
+        { return std::abs(inValueA - inValueB) <= (inAtol + inRtol * std::abs(inValueB)); });
 
         return returnArray;
     }

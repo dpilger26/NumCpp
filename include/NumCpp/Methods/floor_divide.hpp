@@ -28,49 +28,44 @@
 ///
 #pragma once
 
+#include"NumCpp/Methods/floor.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
 
-#include<algorithm>
 #include<cmath>
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent.
+    ///						Return the largest integer smaller or equal to the division of the inputs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
     ///
-    /// @param
-    ///				inValue
+    /// @param				inValue1
+    /// @param				inValue2
     /// @return
     ///				value
     ///
     template<typename dtype>
-    double arctanh(dtype inValue) noexcept
+    dtype floor_divide(dtype inValue1, dtype inValue2) noexcept
     {
-        return std::atanh(static_cast<double>(inValue));
+        return std::floor(inValue1 / inValue2);
     }
 
     //============================================================================
     // Method Description:
-    ///						Trigonometric inverse hyperbolic tangent, element-wise.
+    ///						Return the largest integer smaller or equal to the division of the inputs.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.arctanh.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor_divide.html
     ///
-    /// @param
-    ///				inArray
+    /// @param				inArray1
+    /// @param				inArray2
     /// @return
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> arctanh(const NdArray<dtype>& inArray)  noexcept
+    NdArray<dtype> floor_divide(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
-            { return arctanh(inValue); });
-
-        return returnArray;
+        return floor(inArray1 / inArray2);
     }
 }
