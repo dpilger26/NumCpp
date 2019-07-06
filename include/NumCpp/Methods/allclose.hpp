@@ -1,9 +1,6 @@
-/// @section Description
-/// A C++ Implementation of the Python Numpy Library
-///
+/// @file
 /// @author David Pilger <dpilger26@gmail.com>
 /// [GitHub Repository](https://github.com/dpilger26/NumCpp)
-///
 /// @version 1.0
 ///
 /// @section License
@@ -26,27 +23,44 @@
 /// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 /// DEALINGS IN THE SOFTWARE.
 ///
-/// @section Testing
-/// Compiled and tested with Visual Studio 2017/2019, and g++ 7.3.0/8.0, clang 6.0, with Boost version 1.68 and 1.70.
+/// @section Description
+/// Methods for working with NdArrays
 ///
 #pragma once
 
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS // for fopen with Visual Studio
-#endif
+#include"NumCpp/Methods/abs.hpp"
+#include"NumCpp/Methods/all.hpp"
+#include"NumCpp/NdArray/NdArray.hpp"
 
-#include"NumCpp/Coordinates.hpp"
-#include"NumCpp/Core.hpp"
-#include"NumCpp/Filter.hpp"
-#include"NumCpp/ImageProcessing.hpp"
-#include"NumCpp/Linalg.hpp"
-#include"NumCpp/Methods.hpp"
-#include"NumCpp/Polynomial.hpp"
-#include"NumCpp/PythonInterface.hpp"
-#include"NumCpp/Random.hpp"
-#include"NumCpp/Rotations.hpp"
-#include"NumCpp/Utils.hpp"
-#include"NumCpp/Vector.hpp"
+#include<iostream>
+#include<stdexcept>
+#include<string>
 
-/// \example Example.cpp
-/// Examples from the Quick Start Guide in README.md at [GitHub Repository](https://github.com/dpilger26/NumCpp)
+namespace nc
+{
+    //============================================================================
+    // Method Description:
+    ///						Returns True if two arrays are element-wise equal within a tolerance.
+    ///						inTolerance must be a positive number
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.allclose.html
+    ///
+    /// @param				inArray1
+    /// @param				inArray2
+    /// @param				inTolerance: (Optional, default 1e-5)
+    /// @return
+    ///				bool
+    ///
+    template<typename dtype>
+    bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance)
+    {
+        if (inArray1.shape() != inArray2.shape())
+        {
+            std::string errStr = "ERROR: allclose: input array dimensions are not consistant.";
+            std::cerr << errStr << std::endl;
+            throw std::invalid_argument(errStr);
+        }
+
+        return all(abs(inArray1 - inArray2) < inTolerance).item();
+    }
+}
