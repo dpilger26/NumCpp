@@ -55,7 +55,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep)
+    NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "")
     {
         boost::filesystem::path p(inFilename);
         if (!boost::filesystem::exists(inFilename))

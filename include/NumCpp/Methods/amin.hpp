@@ -45,7 +45,7 @@ namespace nc
     ///				min value
     ///
     template<typename dtype>
-    NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis inAxis) noexcept
+    NdArray<dtype> amin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return inArray.min(inAxis);
     }

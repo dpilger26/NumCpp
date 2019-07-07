@@ -52,7 +52,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx, Axis inAxis) noexcept
+    NdArray<double> trapz(const NdArray<dtype>& inArray, double dx = 1.0, Axis inAxis = Axis::NONE) noexcept
     {
         const Shape inShape = inArray.shape();
         switch (inAxis)
@@ -127,7 +127,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis inAxis)
+    NdArray<double> trapz(const NdArray<dtype>& inArrayY, const NdArray<dtype>& inArrayX, Axis inAxis = Axis::NONE)
     {
         const Shape inShapeY = inArrayY.shape();
         const Shape inShapeX = inArrayX.shape();

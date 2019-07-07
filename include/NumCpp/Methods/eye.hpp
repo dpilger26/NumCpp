@@ -48,7 +48,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(uint32 inN, int32 inK) noexcept
+    NdArray<dtype> eye(uint32 inN, int32 inK = 0) noexcept
     {
         return eye<dtype>(inN, inN, inK);
     }
@@ -68,7 +68,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK) noexcept
+    NdArray<dtype> eye(uint32 inN, uint32 inM, int32 inK = 0) noexcept
     {
         NdArray<dtype> returnArray(inN, inM);
         returnArray.zeros();
@@ -117,7 +117,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> eye(const Shape& inShape, int32 inK) noexcept
+    NdArray<dtype> eye(const Shape& inShape, int32 inK = 0) noexcept
     {
         return eye<dtype>(inShape.rows, inShape.cols, inK);
     }

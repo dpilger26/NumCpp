@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim)
+    NdArray<dtype> trim_zeros(const NdArray<dtype>& inArray, const std::string inTrim = "fb")
     {
         if (inTrim == "f")
         {

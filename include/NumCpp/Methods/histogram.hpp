@@ -54,7 +54,7 @@ namespace nc
     ///				std::pair of NdArrays; first is histogram counts, seconds is the bin edges
     ///
     template<typename dtype>
-    std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins)
+    std::pair<NdArray<uint32>, NdArray<double> > histogram(const NdArray<dtype>& inArray, uint32 inNumBins = 10)
     {
         if (inNumBins == 0)
         {

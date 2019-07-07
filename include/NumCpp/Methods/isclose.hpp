@@ -57,7 +57,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol, double inAtol)
+    NdArray<bool> isclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inRtol = 1e-05, double inAtol = 1e-08)
     {
         if (inArray1.shape() != inArray2.shape())
         {

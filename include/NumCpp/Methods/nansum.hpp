@@ -50,7 +50,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> nansum(const NdArray<dtype>& inArray, Axis inAxis) noexcept
+    NdArray<dtype> nansum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         NdArray<dtype> arrayCopy(inArray);
         std::for_each(arrayCopy.begin(), arrayCopy.end(),

@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis) noexcept
+    NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         NdArray<dtype> arrayCopy(inArray);
         std::for_each(arrayCopy.begin(), arrayCopy.end(),

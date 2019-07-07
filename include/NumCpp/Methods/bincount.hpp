@@ -58,7 +58,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength)
+    NdArray<dtype> bincount(const NdArray<dtype>& inArray, uint16 inMinLength = 1)
     {
         // only works with integer input types
         static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: bincount: can only use with integer types.");
@@ -111,7 +111,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength)
+    NdArray<dtype> bincount(const NdArray<dtype>& inArray, const NdArray<dtype>& inWeights, uint16 inMinLength = 1)
     {
         // only works with integer input types
         static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: bincount: can only use with integer types.");

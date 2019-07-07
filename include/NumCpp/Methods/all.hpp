@@ -45,7 +45,7 @@ namespace nc
     ///				bool
     ///
     template<typename dtype>
-    NdArray<bool> all(const NdArray<dtype>& inArray, Axis inAxis) noexcept
+    NdArray<bool> all(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return inArray.all(inAxis);
     }

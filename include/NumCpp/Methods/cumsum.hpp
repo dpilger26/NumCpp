@@ -45,7 +45,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> cumsum(const NdArray<dtype>& inArray, Axis inAxis) noexcept
+    NdArray<dtype> cumsum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return inArray.cumsum(inAxis);
     }

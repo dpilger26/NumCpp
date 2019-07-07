@@ -48,7 +48,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(uint32 inN, int32 inOffset) noexcept
+    NdArray<dtype> tril(uint32 inN, int32 inOffset = 0) noexcept
     {
         uint32 rowStart = 0;
         uint32 colStart = 0;
@@ -94,7 +94,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset) noexcept
+    NdArray<dtype> tril(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept
     {
         uint32 rowStart = 0;
         uint32 colStart = 0;
@@ -143,7 +143,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset) noexcept
+    NdArray<dtype> tril(const NdArray<dtype>& inArray, int32 inOffset = 0) noexcept
     {
         const Shape inShape = inArray.shape();
         auto outArray = inArray.copy();

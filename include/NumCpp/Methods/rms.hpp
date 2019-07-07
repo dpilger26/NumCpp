@@ -44,7 +44,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis) noexcept
+    NdArray<double> rms(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return inArray.rms(inAxis);
     }

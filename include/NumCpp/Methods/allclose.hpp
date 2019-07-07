@@ -52,7 +52,7 @@ namespace nc
     ///				bool
     ///
     template<typename dtype>
-    bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance)
+    bool allclose(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2, double inTolerance = 1e-5)
     {
         if (inArray1.shape() != inArray2.shape())
         {

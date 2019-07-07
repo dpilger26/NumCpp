@@ -60,7 +60,7 @@ namespace nc
     ///
     template<typename dtype>
     NdArray<dtype> nanpercentile(const NdArray<dtype>& inArray, double inPercentile,
-        Axis inAxis, const std::string& inInterpMethod)
+        Axis inAxis = Axis::NONE, const std::string& inInterpMethod = "linear")
     {
         if (inPercentile < 0.0 || inPercentile > 100.0)
         {

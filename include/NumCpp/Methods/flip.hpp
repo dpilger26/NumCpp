@@ -47,7 +47,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> flip(const NdArray<dtype>& inArray, Axis inAxis) noexcept
+    NdArray<dtype> flip(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         switch (inAxis)
         {

@@ -58,7 +58,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep)
+    NdArray<dtype> arange(dtype inStart, dtype inStop, dtype inStep = 1)
     {
         if (inStep > 0 && inStop < inStart)
         {

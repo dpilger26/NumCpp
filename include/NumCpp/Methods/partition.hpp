@@ -51,7 +51,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis inAxis)
+    NdArray<dtype> partition(const NdArray<dtype>& inArray, uint32 inKth, Axis inAxis = Axis::NONE)
     {
         NdArray<dtype> returnArray(inArray);
         returnArray.partition(inKth, inAxis);

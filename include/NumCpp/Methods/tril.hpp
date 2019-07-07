@@ -48,7 +48,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, int32 inOffset) noexcept
+    NdArray<dtype> triu(uint32 inN, int32 inOffset = 0) noexcept
     {
         return tril<dtype>(inN, -inOffset).transpose();
     }
@@ -68,7 +68,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset) noexcept
+    NdArray<dtype> triu(uint32 inN, uint32 inM, int32 inOffset = 0) noexcept
     {
         // because i'm stealing the lines of code from tril and reversing it, this is necessary
         inOffset -= 1;
@@ -120,7 +120,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset) noexcept
+    NdArray<dtype> triu(const NdArray<dtype>& inArray, int32 inOffset = 0) noexcept
     {
         const Shape inShape = inArray.shape();
         auto outArray = inArray.copy();

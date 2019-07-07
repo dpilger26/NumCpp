@@ -60,7 +60,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum, bool endPoint)
+    NdArray<dtype> linspace(dtype inStart, dtype inStop,  inNum = 50, bool endPoint = true)
     {
         if (inNum == 0)
         {

@@ -52,7 +52,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis)
+    NdArray<double> gradient(const NdArray<dtype>& inArray, Axis inAxis = Axis::ROW)
     {
         switch (inAxis)
         {

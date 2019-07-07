@@ -47,7 +47,7 @@ namespace nc
     ///				None
     ///
     template<typename dtype>
-    void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const std::string& inSep)
+    void tofile(const NdArray<dtype>& inArray, const std::string& inFilename, const std::string& inSep = "")
     {
         return inArray.tofile(inFilename, inSep);
     }

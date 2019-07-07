@@ -52,7 +52,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis) noexcept
+    NdArray<double> nanmean(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         switch (inAxis)
         {

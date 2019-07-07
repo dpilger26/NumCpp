@@ -43,7 +43,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> min(const NdArray<dtype>& inArray, Axis inAxis) noexcept
+    NdArray<dtype> min(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         return inArray.min(inAxis);
     }
