@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Filter/Boundaries/Boundary.hpp"
-#include"NumCpp/Filter/Filters/Filters2d/medianFilter.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
+#include "NumCpp/Filter/Filters/Filters2d/medianFilter.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {

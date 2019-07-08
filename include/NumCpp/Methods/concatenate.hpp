@@ -28,13 +28,13 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Methods/column_stack.hpp"
-#include"NumCpp/Methods/row_stack.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Methods/column_stack.hpp"
+#include "NumCpp/Methods/row_stack.hpp"
 
-#include<algorithm>
-#include<initializer_list>
+#include <algorithm>
+#include <initializer_list>
 
 namespace nc
 {

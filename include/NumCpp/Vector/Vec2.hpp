@@ -28,16 +28,16 @@
 ///
 #pragma once
 
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Utils/essentiallyEqual.hpp"
-#include"NumCpp/Utils/interp.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
+#include "NumCpp/Utils/interp.hpp"
 
-#include<cmath>
-#include<initializer_list>
-#include<iostream>
-#include<sstream>
-#include<stdexcept>
-#include<string>
+#include <cmath>
+#include <initializer_list>
+#include <iostream>
+#include <sstream>
+#include <stdexcept>
+#include <string>
 
 //====================================================================================
 

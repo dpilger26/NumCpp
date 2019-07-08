@@ -28,33 +28,33 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/DtypeInfo.hpp"
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/Core/Slice.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Core/Constants.hpp"
-#include"NumCpp/Utils/num2str.hpp"
-#include"NumCpp/Utils/power.hpp"
-#include"NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Slice.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Utils/num2str.hpp"
+#include "NumCpp/Utils/power.hpp"
+#include "NumCpp/Utils/sqr.hpp"
 
-#include<boost/algorithm/clamp.hpp>
-#include<boost/filesystem.hpp>
-#include<boost/predef/other/endian.h>
-#include<boost/endian/conversion.hpp>
+#include <boost/algorithm/clamp.hpp>
+#include <boost/filesystem.hpp>
+#include <boost/predef/other/endian.h>
+#include <boost/endian/conversion.hpp>
 
-#include<algorithm>
-#include<cmath>
-#include<deque>
-#include<functional>
-#include<fstream>
-#include<initializer_list>
-#include<iostream>
-#include<numeric>
-#include<set>
-#include<stdexcept>
-#include<string>
-#include<utility>
-#include<vector>
+#include <algorithm>
+#include <cmath>
+#include <deque>
+#include <functional>
+#include <fstream>
+#include <initializer_list>
+#include <iostream>
+#include <numeric>
+#include <set>
+#include <stdexcept>
+#include <string>
+#include <utility>
+#include <vector>
 
 namespace nc
 {

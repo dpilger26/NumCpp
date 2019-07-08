@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include<cmath>
-#include<limits>
-#include<string>
+#include <cmath>
+#include <limits>
+#include <string>
 
 namespace nc
 {

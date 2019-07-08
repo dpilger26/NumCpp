@@ -29,11 +29,11 @@
 
 #pragma once
 
-#include"NumCpp/ImageProcessing/Centroid.hpp"
-#include"NumCpp/ImageProcessing/Cluster.hpp"
+#include "NumCpp/ImageProcessing/Centroid.hpp"
+#include "NumCpp/ImageProcessing/Cluster.hpp"
 
-#include<utility>
-#include<vector>
+#include <utility>
+#include <vector>
 
 namespace nc
 {

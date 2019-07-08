@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Random/normal.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Random/normal.hpp"
 
 namespace nc
 {

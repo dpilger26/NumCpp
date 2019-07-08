@@ -28,12 +28,12 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/Core/Slice.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
-#include"NumCpp/Methods/Methods.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Slice.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
+#include "NumCpp/Methods/percentile.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -56,7 +56,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
+        NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, double inPercentile,
             Boundary inBoundaryType, dtype inConstantValue)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
@@ -75,7 +75,7 @@ namespace nc
                         Slice(col - boundarySize, col + boundarySize + 1));
 
                     output(row - boundarySize, col - boundarySize) = 
-                        percentile<dtype>(window, inPercentile, Axis::NONE, "nearest").item();
+                        percentile(window, inPercentile, Axis::NONE, "nearest").item();
                 }
             }
 

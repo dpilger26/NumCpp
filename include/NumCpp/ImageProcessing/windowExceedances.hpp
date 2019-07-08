@@ -29,11 +29,11 @@
 
 #pragma once
 
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<cmath>
+#include <cmath>
 
 namespace nc
 {

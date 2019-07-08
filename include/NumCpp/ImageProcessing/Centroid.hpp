@@ -28,12 +28,12 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Utils/num2str.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/num2str.hpp"
 
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 
 namespace nc
 {

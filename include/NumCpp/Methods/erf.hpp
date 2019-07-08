@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include"boost/math/special_functions/erf.hpp"
+#include "boost/math/special_functions/erf.hpp"
 
-#include<algorithm>
+#include <algorithm>
 
 namespace nc
 {

@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<algorithm>
-#include<functional>
+#include <algorithm>
+#include <functional>
 
 namespace nc
 {

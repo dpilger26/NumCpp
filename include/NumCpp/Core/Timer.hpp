@@ -28,12 +28,12 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Types.hpp"
 
-#include<chrono>
-#include<iostream>
-#include<string>
-#include<cstdint>
+#include <chrono>
+#include <iostream>
+#include <string>
+#include <cstdint>
 
 namespace nc
 {

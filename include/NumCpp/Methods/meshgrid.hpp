@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Methods/arange.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Methods/arange.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<utility>
+#include <utility>
 
 namespace nc
 {

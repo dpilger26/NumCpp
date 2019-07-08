@@ -28,16 +28,16 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Random/generator.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Random/generator.hpp"
 
 #include <boost/random/extreme_value_distribution.hpp>
 
-#include<algorithm>
-#include<iostream>
-#include<stdexcept>
-#include<string>
+#include <algorithm>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {

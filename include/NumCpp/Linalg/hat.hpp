@@ -28,13 +28,12 @@
 ///
 #pragma once
 
-#include"NumCpp/Methods/Methods.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Vector/Vec3.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Vector/Vec3.hpp"
 
-#include<iostream>
-#include<stdexcept>
-#include<string>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {

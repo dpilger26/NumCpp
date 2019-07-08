@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Linalg/det.hpp"
-#include"NumCpp/Linalg/hat.hpp"
-#include"NumCpp/Linalg/inv.hpp"
-#include"NumCpp/Linalg/lstsq.hpp"
-#include"NumCpp/Linalg/matrix_power.hpp"
-#include"NumCpp/Linalg/multi_dot.hpp"
-#include"NumCpp/Linalg/svd.hpp"
+#include "NumCpp/Linalg/det.hpp"
+#include "NumCpp/Linalg/hat.hpp"
+#include "NumCpp/Linalg/inv.hpp"
+#include "NumCpp/Linalg/lstsq.hpp"
+#include "NumCpp/Linalg/matrix_power.hpp"
+#include "NumCpp/Linalg/multi_dot.hpp"
+#include "NumCpp/Linalg/svd.hpp"

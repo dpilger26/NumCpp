@@ -28,30 +28,30 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Constants.hpp"
-#include"NumCpp/Core/DtypeInfo.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Polynomial.hpp"
+#include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Polynomial.hpp"
 
-#include"boost/algorithm/clamp.hpp"
-#include"boost/filesystem.hpp"
-#include"boost/integer/common_factor_rt.hpp"
-#include"boost/math/special_functions/erf.hpp"
+#include "boost/algorithm/clamp.hpp"
+#include "boost/filesystem.hpp"
+#include "boost/integer/common_factor_rt.hpp"
+#include "boost/math/special_functions/erf.hpp"
 
-#include<algorithm>
-#include<bitset>
-#include<cmath>
-#include<fstream>
-#include<functional>
-#include<initializer_list>
-#include<iostream>
-#include<set>
-#include<sstream>
-#include<stdexcept>
-#include<string>
-#include<utility>
-#include<vector>
+#include <algorithm>
+#include <bitset>
+#include <cmath>
+#include <fstream>
+#include <functional>
+#include <initializer_list>
+#include <iostream>
+#include <set>
+#include <sstream>
+#include <stdexcept>
+#include <string>
+#include <utility>
+#include <vector>
 
 namespace nc
 {

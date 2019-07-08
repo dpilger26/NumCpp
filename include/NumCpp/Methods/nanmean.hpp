@@ -28,14 +28,14 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/DtypeInfo.hpp"
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Methods/max.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Methods/max.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<algorithm>
-#include<cmath>
+#include <algorithm>
+#include <cmath>
 
 namespace nc
 {

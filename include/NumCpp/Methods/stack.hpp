@@ -28,15 +28,15 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Methods/column_stack.hpp"
-#include"NumCpp/Methods/row_stack.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Methods/column_stack.hpp"
+#include "NumCpp/Methods/row_stack.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<initializer_list>
-#include<iostream>
-#include<string>
-#include<stdexcept>
+#include <initializer_list>
+#include <iostream>
+#include <string>
+#include <stdexcept>
 
 namespace nc
 {

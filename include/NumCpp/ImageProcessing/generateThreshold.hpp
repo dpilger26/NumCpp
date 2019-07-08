@@ -29,15 +29,15 @@
 
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Core/DtypeInfo.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Utils/essentiallyEqual.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
-#include<cmath>
-#include<iostream>
-#include<string>
-#include<stdexcept>
+#include <cmath>
+#include <iostream>
+#include <string>
+#include <stdexcept>
 
 namespace nc
 {

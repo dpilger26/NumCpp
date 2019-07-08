@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
 
 namespace nc
 {

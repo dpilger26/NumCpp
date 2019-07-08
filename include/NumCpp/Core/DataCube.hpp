@@ -28,16 +28,16 @@
 ///
 #pragma once
 
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
 
-#include"boost/filesystem.hpp"
+#include "boost/filesystem.hpp"
 
-#include<deque>
-#include<iostream>
-#include<limits>
-#include<stdexcept>
-#include<string>
+#include <deque>
+#include <iostream>
+#include <limits>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {

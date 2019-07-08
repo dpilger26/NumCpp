@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include"NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Utils/sqr.hpp"
 
-#include<cmath>
+#include <cmath>
 
 namespace nc
 {

@@ -29,17 +29,17 @@
 
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<algorithm>
-#include<cmath>
-#include<iostream>
-#include<set>
-#include<stdexcept>
-#include<string>
-#include<utility>
-#include<vector>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <set>
+#include <stdexcept>
+#include <string>
+#include <utility>
+#include <vector>
 
 namespace nc
 {

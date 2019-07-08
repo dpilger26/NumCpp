@@ -28,15 +28,15 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Filter/Filters/Filters2d/convolve.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Utils/gaussian.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Filter/Filters/Filters2d/convolve.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/gaussian.hpp"
 
-#include<cmath>
-#include<iostream>
-#include<string>
-#include<utility>
+#include <cmath>
+#include <iostream>
+#include <string>
+#include <utility>
 
 namespace nc
 {

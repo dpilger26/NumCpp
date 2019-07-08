@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include"NumCpp/Coordinates/Coordinate.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Coordinates/Coordinate.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {

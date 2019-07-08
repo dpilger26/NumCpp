@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Methods/floor.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Methods/floor.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<cmath>
+#include <cmath>
 
 namespace nc
 {

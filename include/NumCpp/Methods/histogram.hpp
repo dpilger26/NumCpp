@@ -28,15 +28,15 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Methods/linspace.hpp"
-#include"NumCpp/Methods/zeros.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Methods/linspace.hpp"
+#include "NumCpp/Methods/zeros.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<iostream>
-#include<string>
-#include<stdexcept>
-#include<utility>
+#include <iostream>
+#include <string>
+#include <stdexcept>
+#include <utility>
 
 namespace nc
 {

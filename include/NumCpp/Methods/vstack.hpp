@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Methods/row_stack.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Methods/row_stack.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<initializer_list>
+#include <initializer_list>
 
 namespace nc
 {

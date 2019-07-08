@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Methods/nanstdev.hpp"
-#include"NumCpp/Methods/square.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Methods/nanstdev.hpp"
+#include "NumCpp/Methods/square.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {

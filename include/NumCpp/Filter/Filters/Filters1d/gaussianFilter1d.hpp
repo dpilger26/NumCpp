@@ -28,16 +28,16 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Filter/Boundaries/Boundary.hpp"
-#include"NumCpp/Filter/Filters/Filters1d/convolve1d.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Utils/gaussian1d.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
+#include "NumCpp/Filter/Filters/Filters1d/convolve1d.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/gaussian1d.hpp"
 
-#include<cmath>
-#include<iostream>
-#include<stdexcept>
-#include<string>
+#include <cmath>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {

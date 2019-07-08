@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include<iostream>
-#include<string>
-#include<stdexcept>
+#include <iostream>
+#include <string>
+#include <stdexcept>
 
 namespace nc
 {

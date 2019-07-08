@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/DtypeInfo.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include"boost/integer/common_factor_rt.hpp"
+#include "boost/integer/common_factor_rt.hpp"
 
 namespace nc
 {

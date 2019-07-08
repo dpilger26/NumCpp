@@ -1,9 +1,9 @@
-#include"NumCpp.hpp"
+#include "NumCpp.hpp"
 
-#include<functional>
-#include<iostream>
-#include<string>
-#include<utility>
+#include <functional>
+#include <iostream>
+#include <string>
+#include <utility>
 
 #ifndef BOOST_PYTHON_STATIC_LIB
 #define BOOST_PYTHON_STATIC_LIB

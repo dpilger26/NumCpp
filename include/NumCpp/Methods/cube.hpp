@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Utils/cube.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/cube.hpp"
 
-#include<algorithm>
+#include <algorithm>
 
 namespace nc
 {

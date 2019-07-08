@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include"NumCpp/Methods/Methods.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Linalg/svd/SVDClass.hpp"
+#include "NumCpp/Linalg/svd/SVDClass.hpp"
+#include "NumCpp/Methods/diagflat.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<utility>
+#include <utility>
 
 namespace nc
 {

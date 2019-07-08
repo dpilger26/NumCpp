@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include"NumCpp/Linalg/svd/SVDClass.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Linalg/svd/SVDClass.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {

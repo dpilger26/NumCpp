@@ -28,11 +28,12 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Filter/Boundaries/Boundary.hpp"
-#include"NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp"
-#include"NumCpp/Methods/Methods.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
+#include "NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp"
+#include "NumCpp/Methods/dot.hpp"
+#include "NumCpp/Methods/fliplr.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {

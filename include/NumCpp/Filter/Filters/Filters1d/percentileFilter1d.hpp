@@ -28,12 +28,12 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Slice.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Filter/Boundaries/Boundary.hpp"
-#include"NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp"
-#include"NumCpp/Methods/Methods.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Slice.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
+#include "NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp"
+#include "NumCpp/Methods/percentile.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {
@@ -56,7 +56,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inPercentile,
+        NdArray<dtype> percentileFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, double inPercentile,
             Boundary inBoundaryType, dtype inConstantValue)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
@@ -69,7 +69,7 @@ namespace nc
             {
                 NdArray<dtype> window = arrayWithBoundary[Slice(i - boundarySize, i + boundarySize + 1)];
 
-                output[i - boundarySize] = percentile<dtype>(window, inPercentile).item();
+                output[i - boundarySize] = percentile(window, inPercentile).item();
             }
 
             return output;

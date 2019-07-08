@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Constants.hpp"
-#include"NumCpp/Core/DataCube.hpp"
-#include"NumCpp/Core/DtypeInfo.hpp"
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/Core/Slice.hpp"
-#include"NumCpp/Core/Timer.hpp"
-#include"NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Core/DataCube.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Slice.hpp"
+#include "NumCpp/Core/Timer.hpp"
+#include "NumCpp/Core/Types.hpp"

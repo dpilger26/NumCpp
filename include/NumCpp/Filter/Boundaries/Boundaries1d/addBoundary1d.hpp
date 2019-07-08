@@ -28,18 +28,18 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Filter/Boundaries/Boundary.hpp"
-#include"NumCpp/Filter/Boundaries/Boundaries1d/constant1d.hpp"
-#include"NumCpp/Filter/Boundaries/Boundaries1d/mirror1d.hpp"
-#include"NumCpp/Filter/Boundaries/Boundaries1d/nearest1d.hpp"
-#include"NumCpp/Filter/Boundaries/Boundaries1d/reflect1d.hpp"
-#include"NumCpp/Filter/Boundaries/Boundaries1d/wrap1d.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
+#include "NumCpp/Filter/Boundaries/Boundaries1d/constant1d.hpp"
+#include "NumCpp/Filter/Boundaries/Boundaries1d/mirror1d.hpp"
+#include "NumCpp/Filter/Boundaries/Boundaries1d/nearest1d.hpp"
+#include "NumCpp/Filter/Boundaries/Boundaries1d/reflect1d.hpp"
+#include "NumCpp/Filter/Boundaries/Boundaries1d/wrap1d.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<iostream>
-#include<stdexcept>
-#include<string>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {

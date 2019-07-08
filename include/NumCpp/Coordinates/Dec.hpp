@@ -28,14 +28,14 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Utils/essentiallyEqual.hpp"
-#include"NumCpp/Utils/num2str.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
+#include "NumCpp/Utils/num2str.hpp"
 
-#include<cmath>
-#include<iostream>
-#include<stdexcept>
-#include<string>
+#include <cmath>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {

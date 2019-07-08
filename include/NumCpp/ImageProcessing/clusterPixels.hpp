@@ -29,10 +29,10 @@
 
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<vector>
+#include <vector>
 
 namespace nc
 {

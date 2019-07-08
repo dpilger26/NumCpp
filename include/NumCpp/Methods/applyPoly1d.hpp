@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include"NumCpp/Methods/applyFunction.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Polynomial.hpp"
+#include "NumCpp/Methods/applyFunction.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Polynomial.hpp"
 
 namespace nc
 {

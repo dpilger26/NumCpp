@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include"NumCpp/Filter/Filters/Filters2d/convolve.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Filter/Filters/Filters2d/convolve.hpp"
+#include "NumCpp/NdArray.hpp"
 
 namespace nc
 {

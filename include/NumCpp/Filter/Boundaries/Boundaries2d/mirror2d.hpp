@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/Core/Slice.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Methods/Methods.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Slice.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Methods/flipud.hpp"
 
 namespace nc
 {

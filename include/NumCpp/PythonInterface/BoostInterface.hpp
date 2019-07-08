@@ -30,16 +30,16 @@
 
 #ifdef INCLUDE_BOOST_PYTHON_INTERFACE
 
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp"
 
-#include"boost/python.hpp"
-#include"boost/python/numpy.hpp"
+#include "boost/python.hpp"
+#include "boost/python/numpy.hpp"
 
-#include<map>
-#include<stdexcept>
-#include<string>
+#include <map>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {

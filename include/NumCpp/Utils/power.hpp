@@ -28,7 +28,7 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Types.hpp"
 
 namespace nc
 {

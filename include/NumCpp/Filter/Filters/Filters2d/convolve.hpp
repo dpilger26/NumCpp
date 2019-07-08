@@ -28,18 +28,19 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/Core/Slice.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Filter/Boundaries/Boundary.hpp"
-#include"NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Methods/Methods.hpp"
-#include"NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Slice.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Filter/Boundaries/Boundary.hpp"
+#include "NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Methods/dot.hpp"
+#include "NumCpp/Methods/rot90.hpp"
+#include "NumCpp/Utils/sqr.hpp"
 
-#include<iostream>
-#include<stdexcept>
-#include<string>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {

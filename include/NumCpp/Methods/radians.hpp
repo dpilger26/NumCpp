@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Methods/deg2rad.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Methods/deg2rad.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<algorithm>
+#include <algorithm>
 
 namespace nc
 {

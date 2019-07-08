@@ -28,19 +28,21 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Linalg/hat.hpp"
-#include"NumCpp/Methods/Methods.hpp"
-#include"NumCpp/Ndarray/NdArray.hpp"
-#include"NumCpp/Utils/essentiallyEqual.hpp"
-#include"NumCpp/Utils/num2str.hpp"
-#include"NumCpp/Utils/sqr.hpp"
-#include"NumCpp/Vector/Vec3.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Linalg/hat.hpp"
+#include "NumCpp/Methods/argmax.hpp"
+#include "NumCpp/Methods/clip.hpp"
+#include "NumCpp/Methods/square.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
+#include "NumCpp/Utils/num2str.hpp"
+#include "NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Vector/Vec3.hpp"
 
-#include<cmath>
-#include<iostream>
-#include<stdexcept>
-#include<string>
+#include <cmath>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {

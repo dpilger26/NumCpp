@@ -28,14 +28,14 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Methods/nanmean.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Methods/nanmean.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/sqr.hpp"
 
-#include<algorithm>
-#include<cmath>
+#include <algorithm>
+#include <cmath>
 
 namespace nc
 {

@@ -28,11 +28,11 @@
 ///
 #pragma once
 
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<algorithm>
-#include<set>
-#include<vector>
+#include <algorithm>
+#include <set>
+#include <vector>
 
 namespace nc
 {

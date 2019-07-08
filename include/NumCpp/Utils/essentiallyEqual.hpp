@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
 
-#include<cmath>
-#include<string>
+#include <cmath>
+#include <string>
 
 namespace nc
 {

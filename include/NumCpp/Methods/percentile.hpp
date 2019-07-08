@@ -28,18 +28,18 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Shape.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Methods/argmin.hpp"
-#include"NumCpp/Methods/clip.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Utils/essentiallyEqual.hpp"
+#include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Methods/argmin.hpp"
+#include "NumCpp/Methods/clip.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
-#include<algorithm>
-#include<cmath>
-#include<iostream>
-#include<string>
-#include<stdexcept>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <string>
+#include <stdexcept>
 
 namespace nc
 {

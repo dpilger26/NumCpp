@@ -29,18 +29,18 @@
 
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/ImageProcessing/applyThreshold.hpp"
-#include"NumCpp/ImageProcessing/centroidClusters.hpp"
-#include"NumCpp/ImageProcessing/clusterPixels.hpp"
-#include"NumCpp/ImageProcessing/generateThreshold.hpp"
-#include"NumCpp/ImageProcessing/windowExceedances.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/ImageProcessing/applyThreshold.hpp"
+#include "NumCpp/ImageProcessing/centroidClusters.hpp"
+#include "NumCpp/ImageProcessing/clusterPixels.hpp"
+#include "NumCpp/ImageProcessing/generateThreshold.hpp"
+#include "NumCpp/ImageProcessing/windowExceedances.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include<iostream>
-#include<stdexcept>
-#include<string>
-#include<vector>
+#include <iostream>
+#include <stdexcept>
+#include <string>
+#include <vector>
 
 namespace nc
 {

@@ -28,17 +28,17 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/DtypeInfo.hpp"
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Utils/num2str.hpp"
-#include"NumCpp/Utils/power.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/num2str.hpp"
+#include "NumCpp/Utils/power.hpp"
 
-#include<algorithm>
-#include<iostream>
-#include<stdexcept>
-#include<string>
-#include<vector>
+#include <algorithm>
+#include <iostream>
+#include <stdexcept>
+#include <string>
+#include <vector>
 
 namespace nc
 {

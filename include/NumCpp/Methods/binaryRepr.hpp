@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
 
-#include<bitset>
-#include<string>
+#include <bitset>
+#include <string>
 
 namespace nc
 {

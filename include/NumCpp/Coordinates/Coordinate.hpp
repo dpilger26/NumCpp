@@ -28,14 +28,14 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/NdArray/NdArray.hpp"
-#include"NumCpp/Utils/sqr.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/sqr.hpp"
 
-#include<cmath>
-#include<iostream>
-#include<stdexcept>
-#include<string>
+#include <cmath>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {

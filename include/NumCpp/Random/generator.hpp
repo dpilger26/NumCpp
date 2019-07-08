@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Types.hpp"
 
-#include<random>
+#include <random>
 
 namespace nc
 {

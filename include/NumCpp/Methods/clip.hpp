@@ -28,9 +28,9 @@
 ///
 #pragma once
 
-#include"NumCpp/NdArray/NdArray.hpp"
+#include "NumCpp/NdArray.hpp"
 
-#include"boost/algorithm/clamp.hpp"
+#include "boost/algorithm/clamp.hpp"
 
 namespace nc
 {

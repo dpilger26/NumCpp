@@ -28,8 +28,8 @@
 ///
 #pragma once
 
-#include"NumCpp/Core/DtypeInfo.hpp"
-#include"NumCpp/Random/randFloat.hpp"
+#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Random/randFloat.hpp"
 
 namespace nc
 {

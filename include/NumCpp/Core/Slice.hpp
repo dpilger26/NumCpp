@@ -29,13 +29,13 @@
 
 #pragma once
 
-#include"NumCpp/Core/Types.hpp"
-#include"NumCpp/Utils/num2str.hpp"
+#include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Utils/num2str.hpp"
 
-#include<algorithm>
-#include<iostream>
-#include<stdexcept>
-#include<string>
+#include <algorithm>
+#include <iostream>
+#include <stdexcept>
+#include <string>
 
 namespace nc
 {
