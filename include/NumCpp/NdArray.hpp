@@ -3644,6 +3644,20 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Negative Operator
+        ///
+        /// @param
+        ///				inOtherArray
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<dtype> operator-() noexcept
+        {
+            return copy() *= -1;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Subtracts the elements of two arrays
         ///
         /// @param

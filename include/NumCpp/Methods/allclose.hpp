@@ -32,6 +32,7 @@
 #include"NumCpp/Methods/all.hpp"
 #include"NumCpp/NdArray/NdArray.hpp"
 
+#include<cmath>
 #include<iostream>
 #include<stdexcept>
 #include<string>
@@ -61,6 +62,14 @@ namespace nc
             throw std::invalid_argument(errStr);
         }
 
-        return all(abs(inArray1 - inArray2) < inTolerance).item();
+        for (uint32 i = 0; i < inArray1.size(); ++i1)
+        {
+            if (std::abs(inArray1[i] - inArray2[i]) > inTolerance)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

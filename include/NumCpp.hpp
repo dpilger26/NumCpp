@@ -41,6 +41,7 @@
 #include"NumCpp/ImageProcessing.hpp"
 #include"NumCpp/Linalg.hpp"
 #include"NumCpp/Methods.hpp"
+#include"NumCpp/NdArray.hpp"
 #include"NumCpp/Polynomial.hpp"
 #include"NumCpp/PythonInterface.hpp"
 #include"NumCpp/Random.hpp"

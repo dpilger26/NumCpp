@@ -47,6 +47,6 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> negative(const NdArray<dtype>& inArray) noexcept
     {
-        return inArray.copy() *= -1;
+        return -inArray;
     }
 }

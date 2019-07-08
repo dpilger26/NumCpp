@@ -33,7 +33,6 @@
 
 #include"boost/filesystem.hpp"
 
-#include<cstdio>
 #include<fstream>
 #include<iostream>
 #include<string>
@@ -68,21 +67,21 @@ namespace nc
         if (inSep.compare("") == 0)
         {
             // read in as binary file
-            std::ifstream in(inFilename.c_str(), std::ios::in | std::ios::binary);
-            in.seekg(0, in.end);
-            const uint32 fileSize = static_cast<uint32>(in.tellg());
-
-            FILE* filePtr = fopen(inFilename.c_str(), "rb");
-            if (filePtr == nullptr)
+            std::ifstream file(inFilename.c_str(), std::ios::in | std::ios::binary);
+            if (!file.is_open())
             {
-                std::string errStr = "ERROR: fromfile: unable to open the file.";
+                std::string errStr = "ERROR: fromfile: unable to open file.";
                 std::cerr << errStr << std::endl;
                 throw std::invalid_argument(errStr);
             }
 
+            in.seekg(0, file.end);
+            const uint32 fileSize = static_cast<uint32>(file.tellg());
+            in.seekg(0, file.beg);
+
             char* fileBuffer = new char[fileSize];
-            const size_t bytesRead = fread(fileBuffer, sizeof(char), fileSize, filePtr);
-            fclose(filePtr);
+            const size_t bytesRead = file.read(fileBuffer, fileSize);
+            file.close();
 
             NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer), static_cast<uint32>(bytesRead));
             delete[] fileBuffer;
