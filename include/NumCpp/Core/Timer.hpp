@@ -33,7 +33,6 @@
 #include <chrono>
 #include <iostream>
 #include <string>
-#include <cstdint>
 
 namespace nc
 {

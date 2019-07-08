@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -62,8 +63,7 @@ namespace nc
             if (inRank < 0 || inRank >= utils::sqr(inSize))
             {
                 std::string errMsg = "ERROR: NC::Filters::rankFilter: rank not within filter footprint size.";
-                std::cerr << errMsg << std::endl;
-                std::invalid_argument(errMsg);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
