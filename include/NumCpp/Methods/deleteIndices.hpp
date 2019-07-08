@@ -31,6 +31,7 @@
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
+#include "NumCpp/Methods/unique.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <string>

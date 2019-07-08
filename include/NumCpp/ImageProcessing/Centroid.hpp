@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/ImageProcessing/Cluster.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 

@@ -50,7 +50,7 @@ namespace nc
         ///
         template<typename dtype>
         NdArray<dtype> complementaryMedianFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize,
-            Boundary inBoundaryType, dtype inConstantValue)
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> inImageArrayCopy(inImageArray);
             inImageArrayCopy -= medianFilter1d(inImageArray, inSize, inBoundaryType, inConstantValue);

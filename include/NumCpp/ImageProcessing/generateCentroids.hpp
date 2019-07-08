@@ -58,7 +58,7 @@ namespace nc
         ///				std::vector<Centroid>
         ///
         template<typename dtype>
-        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth)
+        std::vector<Centroid<dtype> > generateCentroids(const NdArray<dtype>& inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth = 0)
         {
             uint8 borderWidthPre = 0;
             uint8 borderWidthPost = 0;

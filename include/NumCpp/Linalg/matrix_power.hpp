@@ -32,6 +32,7 @@
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Methods/dot.hpp"
+#include "NumCpp/Methods/identity.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <string>

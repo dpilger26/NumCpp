@@ -31,6 +31,7 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/ImageProcessing/Pixel.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
 #include <algorithm>
@@ -77,7 +78,7 @@ namespace nc
             /// @param
             ///              inClusterId
             ///
-            Cluster(uint32 inClusterId) :
+            Cluster() :
                 clusterId_(-1)
             {}
 

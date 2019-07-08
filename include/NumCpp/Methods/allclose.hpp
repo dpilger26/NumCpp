@@ -60,7 +60,7 @@ namespace nc
             error::throwInvalidArgument(errStr);
         }
 
-        for (uint32 i = 0; i < inArray1.size(); ++i1)
+        for (uint32 i = 0; i < inArray1.size(); ++i)
         {
             if (std::abs(inArray1[i] - inArray2[i]) > inTolerance)
             {

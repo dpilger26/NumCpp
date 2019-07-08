@@ -67,9 +67,9 @@ namespace nc
             /// @param              inIntensity: pixel intensity
             ///
             Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept :
-                row_(inRow),
-                col_(inCol),
-                intensity_(inIntensity)
+                row(inRow),
+                col(inCol),
+                intensity(inIntensity)
             {};
 
             //=============================================================================
@@ -84,7 +84,7 @@ namespace nc
             ///
             bool operator==(const Pixel<dtype>& rhs) const noexcept
             {
-                return row_ == rhs.row_ && col_ == rhs.col_ && intensity_ == rhs.intensity_;
+                return row == rhs.row && col == rhs.col && intensity == rhs.intensity;
             }
 
             //=============================================================================
@@ -117,13 +117,13 @@ namespace nc
             ///
             bool operator<(const Pixel<dtype>& rhs) const noexcept
             {
-                if (row_ < rhs.row_)
+                if (row < rhs.row)
                 {
                     return true;
                 }
-                else if (row_ == rhs.row_)
+                else if (row == rhs.row)
                 {
-                    if (col_ < rhs.col_)
+                    if (col < rhs.col)
                     {
                         return true;
                     }

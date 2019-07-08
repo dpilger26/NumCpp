@@ -72,9 +72,9 @@ namespace nc
                 error::throwInvalidArgument(errStr);
             }
 
-            in.seekg(0, file.end);
+            file.seekg(0, file.end);
             const uint32 fileSize = static_cast<uint32>(file.tellg());
-            in.seekg(0, file.beg);
+            file.seekg(0, file.beg);
 
             char* fileBuffer = new char[fileSize];
             const size_t bytesRead = file.read(fileBuffer, fileSize);

@@ -61,7 +61,7 @@ namespace nc
         ///
         template<typename dtype>
         NdArray<dtype> convolve(const NdArray<dtype>& inImageArray, uint32 inSize,
-            const NdArray<dtype>& inWeights, Boundary inBoundaryType, dtype inConstantValue)
+            const NdArray<dtype>& inWeights, Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inWeights.size() != utils::sqr(inSize))
             {

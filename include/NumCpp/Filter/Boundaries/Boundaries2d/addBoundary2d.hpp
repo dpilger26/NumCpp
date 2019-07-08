@@ -58,7 +58,7 @@ namespace nc
             ///				NdArray
             ///
             template<typename dtype>
-            NdArray<dtype> addBoundary2d(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue)
+            NdArray<dtype> addBoundary2d(const NdArray<dtype>& inImage, Boundary inBoundaryType, uint32 inKernalSize, dtype inConstantValue = 0)
             {
                 if (inKernalSize % 2 == 0)
                 {

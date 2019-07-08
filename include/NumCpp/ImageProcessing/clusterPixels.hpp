@@ -49,7 +49,7 @@ namespace nc
         ///				std::vector<Cluster>
         ///
         template<typename dtype>
-        std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth)
+        std::vector<Cluster<dtype> > clusterPixels(const NdArray<dtype>& inImageArray, const NdArray<bool>& inExceedances, uint8 inBorderWidth = 0)
         {
             ClusterMaker<dtype> clusterMaker(&inExceedances, &inImageArray, inBorderWidth);
             return std::vector<Cluster<dtype> >(clusterMaker.begin(), clusterMaker.end());

@@ -55,7 +55,7 @@ namespace nc
         ///
         template<typename dtype>
         NdArray<dtype> convolve1d(const NdArray<dtype>& inImageArray, const NdArray<dtype>& inWeights,
-            Boundary inBoundaryType, dtype inConstantValue)
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             const uint32 boundarySize = inWeights.size() / 2; // integer division
             NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);

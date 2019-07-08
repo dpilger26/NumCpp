@@ -55,7 +55,7 @@ namespace nc
         ///
         template<typename dtype>
         NdArray<dtype> percentileFilter(const NdArray<dtype>& inImageArray, uint32 inSize, double inPercentile,
-            Boundary inBoundaryType, dtype inConstantValue)
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             NdArray<dtype> arrayWithBoundary = addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());

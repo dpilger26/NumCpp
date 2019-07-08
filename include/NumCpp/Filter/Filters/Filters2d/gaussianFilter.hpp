@@ -57,7 +57,7 @@ namespace nc
         ///
         template<typename dtype>
         NdArray<dtype> gaussianFilter(const NdArray<dtype>& inImageArray, double inSigma,
-            Boundary inBoundaryType, dtype inConstantValue)
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inSigma <= 0)
             {
@@ -82,7 +82,7 @@ namespace nc
                 for (double col = 0; col < kernelSize; ++col)
                 {
                     kernel(static_cast<uint32>(row), static_cast<uint32>(col)) =
-                        gaussian(row - kernalHalfSize, col - kernalHalfSize, inSigma);
+                        utils::gaussian(row - kernalHalfSize, col - kernalHalfSize, inSigma);
                 }
             }
 

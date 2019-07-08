@@ -56,7 +56,7 @@ namespace nc
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance) noexcept
+        NdArray<double> lstsq(const NdArray<dtype>& inA, const NdArray<dtype>& inB, double inTolerance = 1e-12) noexcept
         {
             SVD svdSolver(inA.template astype<double>());
             const double threshold = inTolerance * svdSolver.s().front();

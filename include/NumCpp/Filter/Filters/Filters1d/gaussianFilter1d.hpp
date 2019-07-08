@@ -57,7 +57,7 @@ namespace nc
         ///
         template<typename dtype>
         NdArray<dtype> gaussianFilter1d(const NdArray<dtype>& inImageArray, double inSigma,
-            Boundary inBoundaryType, dtype inConstantValue)
+            Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             if (inSigma <= 0)
             {

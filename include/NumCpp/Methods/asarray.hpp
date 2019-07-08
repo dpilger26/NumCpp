@@ -83,7 +83,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> asarray(const std::deque<dtype>& inSet) noexcept
+    NdArray<dtype> asarray(const std::set<dtype>& inSet) noexcept
     {
         return NdArray<dtype>(inSet);
     }
