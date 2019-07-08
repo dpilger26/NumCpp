@@ -24,7 +24,8 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// Create an array of the given shape and populate it with
+///	random samples from a uniform distribution over [0, 1).
 ///
 #pragma once
 
@@ -59,7 +60,7 @@ namespace nc
 
             boost::random::uniform_01<dtype> dist;
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

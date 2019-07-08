@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "standard normal" distrubution
 ///
 #pragma once
 

@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Usefull utility type functions
+/// tests that 2 floating point values are "essentially equal"
 ///
 #pragma once
 
@@ -35,8 +35,6 @@
 
 namespace nc
 {
-    //================================Rotations Namespace=============================
-    /// Module for basic utility funcions
     namespace utils
     {
         //============================================================================
@@ -54,7 +52,7 @@ namespace nc
             // only works with integer types
             static_assert(!DtypeInfo<dtype>::isInteger(), "Type Error in utils::essentiallyEqual: only works for floating point types.");
 
-            return std::abs(inValue1 - inValue2) <= ((std::abs(inValue1) > std::abs(inValue2) ? 
+            return std::abs(inValue1 - inValue2) <= ((std::abs(inValue1) > std::abs(inValue2) ?
                 std::abs(inValue2) : std::abs(inValue1)) * inEpsilon);
         }
     }

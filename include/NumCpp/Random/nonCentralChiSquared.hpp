@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "non central chi squared" distrubution.
 ///
 #pragma once
 
@@ -74,7 +74,7 @@ namespace nc
 
             boost::random::non_central_chi_squared_distribution<dtype> dist(inK, inLambda);
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

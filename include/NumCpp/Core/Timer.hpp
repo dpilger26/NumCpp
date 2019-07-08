@@ -49,8 +49,8 @@ namespace nc
 
     private:
         //==============================Attributes====================================
-        std::string		name_{""};
-        std::string		unit_{""};
+        std::string		name_{ "" };
+        std::string		unit_{ "" };
         TimePoint		start_;
 
         void setUnits()
@@ -89,7 +89,7 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        Timer() noexcept:
+        Timer() noexcept :
             start_(ChronoClock::now())
         {
             setUnits();
@@ -100,7 +100,7 @@ namespace nc
         ///
         /// @param      inName
         ///
-        Timer(const std::string& inName) noexcept:
+        Timer(const std::string& inName) noexcept :
             name_(inName + " "),
             start_(ChronoClock::now())
         {

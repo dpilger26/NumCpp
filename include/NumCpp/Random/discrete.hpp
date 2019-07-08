@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "discrete" distrubution.
 ///
 #pragma once
 
@@ -64,7 +64,7 @@ namespace nc
 
             boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

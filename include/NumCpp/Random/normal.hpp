@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "normal" distrubution.
 ///
 #pragma once
 
@@ -68,7 +68,7 @@ namespace nc
 
             boost::random::normal_distribution<dtype> dist(inMean, inSigma);
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

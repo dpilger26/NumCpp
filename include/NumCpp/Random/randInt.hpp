@@ -24,7 +24,8 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// Return random integers from low (inclusive) to high (exclusive),
+///	with the given shape
 ///
 #pragma once
 
@@ -76,7 +77,7 @@ namespace nc
 
             const boost::random::uniform_int_distribution<dtype> dist(inLow, inHigh - 1);
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

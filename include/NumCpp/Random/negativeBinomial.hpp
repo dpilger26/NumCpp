@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "negative Binomial" distribution.
 ///
 #pragma once
 
@@ -46,7 +46,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Create an array of the given shape and populate it with
-        ///						random samples from the �negative Binomial� distribution.
+        ///						random samples from the "negative Binomial" distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.negative_binomial.html#numpy.random.negative_binomial
         ///
@@ -78,7 +78,7 @@ namespace nc
 
             const boost::random::negative_binomial_distribution<dtype, double> dist(inN, inP);
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

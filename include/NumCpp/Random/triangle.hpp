@@ -24,7 +24,8 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// Create an array of the given shape and populate it with
+///	random samples from the "triangle" distribution.
 ///
 #pragma once
 
@@ -89,7 +90,7 @@ namespace nc
 
             boost::random::triangle_distribution<dtype> dist(inA, inB, inC);
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

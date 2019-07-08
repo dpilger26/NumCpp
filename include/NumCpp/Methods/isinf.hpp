@@ -70,7 +70,7 @@ namespace nc
     {
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> bool 
+            [](dtype inValue) noexcept -> bool
             { return isinf(inValue); });
 
         return returnArray;

@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Adds the boundaries for 1D arrays
+/// Mirror boundary
 ///
 #pragma once
 
@@ -101,9 +101,9 @@ namespace nc
 
                 outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), lowerLeft);
                 outArray.put(Slice(0, inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols), lowerRight);
-                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), 
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows),
                     Slice(0, inBoundarySize), upperLeft);
-                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), 
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows),
                     Slice(outShape.cols - inBoundarySize, outShape.cols), upperRight);
 
                 return outArray;

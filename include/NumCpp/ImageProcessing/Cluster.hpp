@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for basic image processing
+/// Holds the information for a cluster of pixels
 ///
 
 #pragma once
@@ -42,9 +42,6 @@
 
 namespace nc
 {
-    //================================================================================
-    // Class Description:
-    ///						Class for basic image processing
     namespace imageProcessing
     {
         //================================================================================
@@ -374,7 +371,7 @@ namespace nc
             {
                 std::string out;
                 uint32 counter = 0;
-                std::for_each(begin(), end(), 
+                std::for_each(begin(), end(),
                     [&](const Pixel<dtype>& pixel) { out += "Pixel " + utils::num2str(counter++) + ":" + pixel.str(); });
 
                 return out;

@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-///						samples a 2D gaussian of mean zero and input STD sigma
+///	samples a 2D gaussian of mean zero and input STD sigma
 ///
 #pragma once
 

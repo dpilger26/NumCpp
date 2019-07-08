@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Adds the boundaries for 1D arrays
+/// Constant boundary1d
 ///
 #pragma once
 

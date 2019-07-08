@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Adds the boundaries for 1D arrays
+/// trims the boundary off to make the image back to the original size
 ///
 #pragma once
 

@@ -40,7 +40,7 @@
 namespace nc
 {
     namespace linalg
-    {   
+    {
         // =============================================================================
         // Class Description:
         ///              performs the singular value decomposition of a general matrix,
@@ -66,11 +66,11 @@ namespace nc
             ///              inMatrix: matrix to perform SVD on
             ///
             SVD(const NdArray<double>& inMatrix) :
-                    m_(inMatrix.shape().rows),
-                    n_(inMatrix.shape().cols),
-                    u_(inMatrix),
-                    v_(n_, n_),
-                    s_(1, n_)
+                m_(inMatrix.shape().rows),
+                n_(inMatrix.shape().cols),
+                u_(inMatrix),
+                v_(n_, n_),
+                s_(1, n_)
             {
                 eps_ = std::numeric_limits<double>::epsilon();
                 decompose();
@@ -194,9 +194,9 @@ namespace nc
                 uint32  i = 0;
                 uint32  its = 0;
                 uint32  j = 0;
-                uint32  jj= 0;
+                uint32  jj = 0;
                 uint32  k = 0;
-                uint32  l = 0; 
+                uint32  l = 0;
                 uint32  nm = 0;
 
                 double  anorm = 0.0;
@@ -651,7 +651,7 @@ namespace nc
             {
                 const double absa = std::abs(inA);
                 const double absb = std::abs(inB);
-                return (absa > absb ? absa * std::sqrt(1.0 + utils::sqr(absb / absa)) : 
+                return (absa > absb ? absa * std::sqrt(1.0 + utils::sqr(absb / absa)) :
                     (absb == 0.0 ? 0.0 : absb * std::sqrt(1.0 + utils::sqr(absa / absb))));
             }
         };

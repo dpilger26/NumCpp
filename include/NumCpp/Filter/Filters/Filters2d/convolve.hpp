@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Image and signal filtering
+/// Calculates a multidimensional kernel convolution.
 ///
 #pragma once
 
@@ -43,8 +43,6 @@
 
 namespace nc
 {
-    //================================================================================
-    ///						Image and signal filtering
     namespace filter
     {
         //============================================================================

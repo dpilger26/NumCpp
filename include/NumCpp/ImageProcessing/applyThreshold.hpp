@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for basic image processing
+/// Applies a threshold to an image
 ///
 #pragma once
 
@@ -44,7 +44,7 @@ namespace nc
         ///				NdArray of booleans of pixels that exceeded the threshold
         ///
         template<typename dtype>
-        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) noexcept 
+        NdArray<bool> applyThreshold(const NdArray<dtype>& inImageArray, dtype inThreshold) noexcept
         {
             return inImageArray > inThreshold;
         }

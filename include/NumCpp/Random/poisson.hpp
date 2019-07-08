@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "poisson" distribution
 ///
 #pragma once
 
@@ -45,7 +45,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Create an array of the given shape and populate it with
-        ///						random samples from the �poisson� distribution.
+        ///						random samples from the "poisson" distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.poisson.html#numpy.random.poisson
         ///
@@ -67,7 +67,7 @@ namespace nc
 
             const boost::random::poisson_distribution<dtype, double> dist(inMean);
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

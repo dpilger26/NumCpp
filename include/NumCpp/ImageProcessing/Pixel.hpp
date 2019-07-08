@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for basic image processing
+/// Holds the information for a single pixel
 ///
 
 #pragma once
@@ -38,9 +38,6 @@
 
 namespace nc
 {
-    //================================================================================
-    // Class Description:
-    ///						Class for basic image processing
     namespace imageProcessing
     {
         //================================================================================
@@ -70,7 +67,7 @@ namespace nc
             /// @param              inCol: pixel column
             /// @param              inIntensity: pixel intensity
             ///
-            Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept:
+            Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept :
                 row_(inRow),
                 col_(inCol),
                 intensity_(inIntensity)

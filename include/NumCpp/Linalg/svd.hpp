@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Compute the dot product of two or more arrays in a single function call.
+/// matrix svd
 ///
 #pragma once
 

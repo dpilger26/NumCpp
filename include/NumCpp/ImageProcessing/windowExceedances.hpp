@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for basic image processing
+/// Window expand around exceedance pixels
 ///
 
 #pragma once
@@ -37,9 +37,6 @@
 
 namespace nc
 {
-    //================================================================================
-    // Class Description:
-    ///						Class for basic image processing
     namespace imageProcessing
     {
         //============================================================================

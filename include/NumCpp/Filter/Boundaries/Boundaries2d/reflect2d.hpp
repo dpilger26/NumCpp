@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Adds the boundaries for 1D arrays
+/// Reflects the boundaries
 ///
 #pragma once
 
@@ -39,7 +39,7 @@ namespace nc
     namespace filter
     {
         namespace boundary
-        { 
+        {
             //============================================================================
             // Method Description:
             ///						Reflects the boundaries
@@ -59,7 +59,7 @@ namespace nc
                 outShape.cols += inBoundarySize * 2;
 
                 NdArray<dtype> outArray(outShape);
-                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), 
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
                     Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
 
                 for (uint32 row = 0; row < inBoundarySize; ++row)
@@ -89,26 +89,26 @@ namespace nc
                 }
 
                 // now fill in the corners
-                NdArray<dtype> lowerLeft = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), 
+                NdArray<dtype> lowerLeft = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize),
                     Slice(0, inBoundarySize)));
-                NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize), 
+                NdArray<dtype> lowerRight = flipud(outArray(Slice(inBoundarySize, 2 * inBoundarySize),
                     Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
                 const uint32 upperRowStart = outShape.rows - 2 * inBoundarySize;
-                NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize), 
+                NdArray<dtype> upperLeft = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
                     Slice(0, inBoundarySize)));
                 NdArray<dtype> upperRight = flipud(outArray(Slice(upperRowStart, upperRowStart + inBoundarySize),
                     Slice(outShape.cols - inBoundarySize, outShape.cols)));
 
                 outArray.put(Slice(0, inBoundarySize), Slice(0, inBoundarySize), lowerLeft);
                 outArray.put(Slice(0, inBoundarySize), Slice(outShape.cols - inBoundarySize, outShape.cols), lowerRight);
-                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), 
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows),
                     Slice(0, inBoundarySize), upperLeft);
-                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows), 
+                outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows),
                     Slice(outShape.cols - inBoundarySize, outShape.cols), upperRight);
 
                 return outArray;
             }
-        } 
+        }
     }
 }

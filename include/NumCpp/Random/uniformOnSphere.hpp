@@ -24,7 +24,8 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// Such a distribution produces random numbers uniformly
+///	distributed on the unit sphere of arbitrary dimension dim.
 ///
 #pragma once
 

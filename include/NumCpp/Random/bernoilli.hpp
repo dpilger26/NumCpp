@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "bernoulli" distribution.
 ///
 #pragma once
 
@@ -45,7 +45,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Create an array of the given shape and populate it with
-        ///						random samples from the �bernoulli� distribution.
+        ///						random samples from the "bernoulli" distribution.
         ///
         /// @param				inShape
         /// @param				inP (probability of success [0, 1])
@@ -65,7 +65,7 @@ namespace nc
 
             const boost::random::bernoulli_distribution<dtype> dist(inP);
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

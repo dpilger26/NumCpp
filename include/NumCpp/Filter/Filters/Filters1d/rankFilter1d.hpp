@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Image and signal filtering
+/// Calculates a one-dimensional rank filter.
 ///
 #pragma once
 
@@ -37,8 +37,6 @@
 
 namespace nc
 {
-    //================================================================================
-    ///						Image and signal filtering
     namespace filter
     {
         //============================================================================

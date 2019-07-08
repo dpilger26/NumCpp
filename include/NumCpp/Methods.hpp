@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Simple Vector classes
+/// Methods for interacting with NdArrays
 ///
 #pragma once
 

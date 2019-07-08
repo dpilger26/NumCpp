@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Adds the boundaries for 1D arrays
+/// extends the corner values
 ///
 #pragma once
 
@@ -54,19 +54,19 @@ namespace nc
                 const int32 numCols = static_cast<int32>(inShape.cols);
 
                 // top left
-                inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth), 
+                inArray.put(Slice(0, inBorderWidth), Slice(0, inBorderWidth),
                     inArray(inBorderWidth, inBorderWidth));
 
                 // top right
-                inArray.put(Slice(0, inBorderWidth), Slice(numCols - inBorderWidth, numCols), 
+                inArray.put(Slice(0, inBorderWidth), Slice(numCols - inBorderWidth, numCols),
                     inArray(inBorderWidth, numCols - inBorderWidth - 1));
 
                 // bottom left
-                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(0, inBorderWidth), 
+                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(0, inBorderWidth),
                     inArray(numRows - inBorderWidth - 1, inBorderWidth));
 
                 // bottom right
-                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(numCols - inBorderWidth, numCols), 
+                inArray.put(Slice(numRows - inBorderWidth, numRows), Slice(numCols - inBorderWidth, numCols),
                     inArray(numRows - inBorderWidth - 1, numCols - inBorderWidth - 1));
             }
 

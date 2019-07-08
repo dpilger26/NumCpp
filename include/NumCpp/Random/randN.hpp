@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "standard normal" distribution.
 ///
 #pragma once
 
@@ -43,7 +43,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Create an array of the given shape and populate it with
-        ///						random samples from the �standard normal� distribution.
+        ///						random samples from the "standard normal" distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html#numpy.random.randn
         ///
@@ -59,7 +59,7 @@ namespace nc
 
             boost::random::normal_distribution<dtype> dist;
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

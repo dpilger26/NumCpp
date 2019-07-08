@@ -73,7 +73,7 @@ namespace nc
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [inExponent](dtype inValue) noexcept -> double
-        { return powerf(inValue, inExponent); });
+            { return powerf(inValue, inExponent); });
 
         return returnArray;
     }
@@ -101,7 +101,7 @@ namespace nc
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), inExponents.cbegin(), returnArray.begin(),
             [](dtype inValue, double inExponent) noexcept -> double
-        { return powerf(inValue, inExponent); });
+            { return powerf(inValue, inExponent); });
 
         return returnArray;
     }

@@ -68,7 +68,7 @@ namespace nc
     {
         NdArray<double> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double 
+            [](dtype inValue) noexcept -> double
             { return tanh(inValue); });
 
         return returnArray;

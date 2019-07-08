@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for basic image processing
+/// holds the information for a centroid
 ///
 #pragma once
 
@@ -37,9 +37,6 @@
 
 namespace nc
 {
-    //================================================================================
-    // Class Description:
-    ///						Class for basic image processing
     namespace imageProcessing
     {
         //================================================================================
@@ -203,7 +200,7 @@ namespace nc
                 inStream << inCentriod.str();
                 return inStream;
             }
-            
+
         private:
             //==================================Attributes================================///
             double          row_{ 0.0 };

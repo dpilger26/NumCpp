@@ -65,7 +65,7 @@ namespace nc
 
                 NdArray<dtype> returnArray(1, inArray.size() - 1);
                 std::transform(inArray.cbegin(), inArray.cend() - 1, inArray.cbegin() + 1, returnArray.begin(),
-                    [](dtype inValue1, dtype inValue2) noexcept -> dtype 
+                    [](dtype inValue1, dtype inValue2) noexcept -> dtype
                     { return inValue2 - inValue1; });
 
                 return returnArray;
@@ -81,7 +81,7 @@ namespace nc
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     std::transform(inArray.cbegin(row), inArray.cend(row) - 1, inArray.cbegin(row) + 1, returnArray.begin(row),
-                        [](dtype inValue1, dtype inValue2) noexcept -> dtype 
+                        [](dtype inValue1, dtype inValue2) noexcept -> dtype
                         { return inValue2 - inValue1; });
                 }
 

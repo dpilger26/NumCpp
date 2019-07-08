@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "F" distrubution.
 ///
 #pragma once
 
@@ -74,7 +74,7 @@ namespace nc
 
             boost::random::fisher_f_distribution<dtype> dist(inDofN, inDofD);
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

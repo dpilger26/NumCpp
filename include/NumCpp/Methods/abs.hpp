@@ -52,7 +52,7 @@ namespace nc
         return std::abs(inValue);
     }
 
-        //============================================================================
+    //============================================================================
     // Method Description:
     ///						Calculate the absolute value element-wise.
     ///

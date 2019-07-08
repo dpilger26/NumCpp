@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "beta" distribution.
 ///
 #pragma once
 
@@ -45,7 +45,7 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Create an array of the given shape and populate it with
-        ///						random samples from the �beta� distribution.
+        ///						random samples from the "beta" distribution.
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.beta.html#numpy.random.beta
         ///
@@ -72,9 +72,9 @@ namespace nc
 
             NdArray<dtype> returnArray(inShape);
 
-            const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta); 
+            const boost::random::beta_distribution<dtype> dist(inAlpha, inBeta);
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

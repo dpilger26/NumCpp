@@ -125,7 +125,7 @@ namespace nc
                 returnArray[-1] = static_cast<double>(inArray[-1]) - static_cast<double>(inArray[-2]);
 
                 std::transform(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.begin() + 1,
-                    [](dtype value1, dtype value2) noexcept -> double 
+                    [](dtype value1, dtype value2) noexcept -> double
                     { return (static_cast<double>(value1) - static_cast<double>(value2)) / 2.0; });
 
                 return returnArray;

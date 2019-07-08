@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Adds the boundaries for 1D arrays
+/// Constant boundary
 ///
 #pragma once
 
@@ -59,14 +59,14 @@ namespace nc
                 outShape.cols += inBoundarySize * 2;
 
                 NdArray<dtype> outArray(outShape);
-                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), 
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
                     Slice(inBoundarySize, inBoundarySize + inShape.cols), inImage);
                 fillCorners(outArray, inBoundarySize, inConstantValue);
 
                 outArray.put(Slice(0, inBoundarySize), Slice(inBoundarySize, inBoundarySize + inShape.cols), inConstantValue); /// bottom
                 outArray.put(Slice(outShape.rows - inBoundarySize, outShape.rows),
                     Slice(inBoundarySize, inBoundarySize + inShape.cols), inConstantValue); /// top
-                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows), 
+                outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
                     Slice(0, inBoundarySize), inConstantValue); /// left
                 outArray.put(Slice(inBoundarySize, inBoundarySize + inShape.rows),
                     Slice(outShape.cols - inBoundarySize, outShape.cols), inConstantValue); /// right

@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Adds the boundaries for 1D arrays
+/// Wrap boundary
 ///
 #pragma once
 
@@ -82,7 +82,7 @@ namespace nc
                     inImage(Slice(0, inShape.rows), Slice(0, inBoundarySize)));
 
                 // now fill in the corners
-                NdArray<dtype> lowerLeft = outArray(Slice(inBoundarySize, 2 * inBoundarySize), 
+                NdArray<dtype> lowerLeft = outArray(Slice(inBoundarySize, 2 * inBoundarySize),
                     Slice(0, inBoundarySize));
                 NdArray<dtype> lowerRight = outArray(Slice(inBoundarySize, 2 * inBoundarySize),
                     Slice(outShape.cols - inBoundarySize, outShape.cols));

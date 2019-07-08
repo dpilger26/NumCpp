@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// "gamma" distrubution.
 ///
 #pragma once
 
@@ -74,7 +74,7 @@ namespace nc
 
             boost::random::gamma_distribution<dtype> dist(inGammaShape, inScaleValue);
 
-            std::for_each(returnArray.begin(), returnArray.end(), 
+            std::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
                 { value = dist(generator_); });
 

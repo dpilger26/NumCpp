@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Usefull utility type functions
+/// Random number distributions
 ///
 #pragma once
 

@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// Modify a sequence in-place by shuffling its contents.
 ///
 #pragma once
 

@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// Seeds the random number generator
 ///
 #pragma once
 
@@ -41,7 +41,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Seeds the random number generator_
+        ///						Seeds the random number generator
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.seed.html#numpy.random.seed
         ///

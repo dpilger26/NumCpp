@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Standard NumCpp error
+/// Standard NumCpp errors
 ///
 #pragma once
 

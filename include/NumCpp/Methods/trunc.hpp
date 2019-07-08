@@ -70,7 +70,7 @@ namespace nc
     {
         NdArray<dtype> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> dtype 
+            [](dtype inValue) noexcept -> dtype
             { return trunc(inValue); });
 
         return returnArray;

@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Image and signal filtering
+/// Calculate a one-dimensional gaussian filter.
 ///
 #pragma once
 
@@ -40,8 +40,6 @@
 
 namespace nc
 {
-    //================================================================================
-    ///						Image and signal filtering
     namespace filter
     {
         //============================================================================

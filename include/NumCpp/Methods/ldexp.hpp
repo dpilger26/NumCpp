@@ -80,7 +80,7 @@ namespace nc
         NdArray<dtype> returnArray(inArray1.shape());
         std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [](dtype inValue1, uint8 inValue2) noexcept -> dtype
-        { return ldexp(inValue1, inValue2); });
+            { return ldexp(inValue1, inValue2); });
 
         return returnArray;
     }

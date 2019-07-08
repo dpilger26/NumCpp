@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Image and signal filtering
+/// Calculate the 2D laplace filter.
 ///
 #pragma once
 
@@ -33,8 +33,6 @@
 
 namespace nc
 {
-    //================================================================================
-    ///						Image and signal filtering
     namespace filter
     {
         //============================================================================

@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Image and signal filtering
+/// Calculates a multidimensional percentile filter.
 ///
 #pragma once
 
@@ -37,8 +37,6 @@
 
 namespace nc
 {
-    //================================================================================
-    ///						Image and signal filtering
     namespace filter
     {
         //============================================================================
@@ -74,7 +72,7 @@ namespace nc
                     NdArray<dtype> window = arrayWithBoundary(Slice(row - boundarySize, row + boundarySize + 1),
                         Slice(col - boundarySize, col + boundarySize + 1));
 
-                    output(row - boundarySize, col - boundarySize) = 
+                    output(row - boundarySize, col - boundarySize) =
                         percentile(window, inPercentile, Axis::NONE, "nearest").item();
                 }
             }

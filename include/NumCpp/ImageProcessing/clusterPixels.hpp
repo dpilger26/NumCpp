@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for basic image processing
+/// Clusters exceedance pixels from an image
 ///
 
 #pragma once
@@ -36,9 +36,6 @@
 
 namespace nc
 {
-    //================================================================================
-    // Class Description:
-    ///						Class for basic image processing
     namespace imageProcessing
     {
         //============================================================================

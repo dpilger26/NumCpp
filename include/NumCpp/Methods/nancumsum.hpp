@@ -53,7 +53,7 @@ namespace nc
     {
         NdArray<dtype> arrayCopy(inArray);
         std::for_each(arrayCopy.begin(), arrayCopy.end(),
-            [](dtype& value) noexcept -> void 
+            [](dtype& value) noexcept -> void
             { if (std::isnan(value)) { value = static_cast<dtype>(0); }; });
 
         return cumsum(arrayCopy, inAxis);

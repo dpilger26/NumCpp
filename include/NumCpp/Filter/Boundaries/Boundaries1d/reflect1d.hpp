@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Adds the boundaries for 1D arrays
+/// Reflects the boundaries
 ///
 #pragma once
 
@@ -60,7 +60,7 @@ namespace nc
                 outArray.put(Slice(0, inBoundarySize), fliplr(inImage[Slice(0, inBoundarySize)]));
 
                 // right
-                outArray.put(Slice(inImage.size() + inBoundarySize, outSize), 
+                outArray.put(Slice(inImage.size() + inBoundarySize, outSize),
                     fliplr(inImage[Slice(-static_cast<int32>(inBoundarySize), inImage.size())]));
 
                 return outArray;

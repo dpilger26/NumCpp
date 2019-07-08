@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// A module for generating random numbers
+/// Randomly permute a sequence, or return a permuted range
 ///
 #pragma once
 
