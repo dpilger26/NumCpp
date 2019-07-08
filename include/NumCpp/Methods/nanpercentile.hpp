@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Methods/argmin.hpp"
@@ -38,9 +39,7 @@
 
 #include <algorithm>
 #include <cmath>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 #include <vector>
 
 namespace nc
@@ -65,8 +64,7 @@ namespace nc
         if (inPercentile < 0.0 || inPercentile > 100.0)
         {
             std::string errStr = "ERROR: percentile: input percentile value must be of the range [0, 100].";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         if (inInterpMethod.compare("linear") != 0 &&
@@ -77,8 +75,7 @@ namespace nc
         {
             std::string errStr = "ERROR: percentile: input interpolation method is not a vaid option.\n";
             errStr += "\tValid options are 'linear', 'lower', 'higher', 'nearest', 'midpoint'.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         switch (inAxis)

@@ -28,12 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -58,8 +57,7 @@ namespace nc
             if (inShape.rows != inShape.cols)
             {
                 std::string errStr = "ERROR: linalg::inv: input array must be square.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             const uint32 order = inShape.rows;

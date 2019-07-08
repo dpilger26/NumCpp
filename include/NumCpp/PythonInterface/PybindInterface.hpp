@@ -30,15 +30,14 @@
 
 #ifdef INCLUDE_PYBIND_PYTHON_INTERFACE
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include "pybind11/pybind11.h"
 #include "pybind11/numpy.h"
 
-#include <iostream>
 #include <map>
-#include <stdexcept>
 #include <utility>
 
 namespace nc
@@ -83,7 +82,7 @@ namespace nc
                 }
                 default:
                 {
-                    throw std::invalid_argument("ERROR: input array must be no more than 2 dimensional.");
+                    error::throwInvalidArgument("ERROR: input array must be no more than 2 dimensional.");
                 }
             }
         }
@@ -129,7 +128,7 @@ namespace nc
                 {
                     std::stringstream sstream;
                     sstream << "ReturnPolicy " << returnPolicyStringMap.at(returnPolicy) << " has not been implemented yet" << std::endl;
-                    throw std::runtime_error(sstream.str());
+                    error::throwInvalidArgument(sstream.str());
                 }
             }
         }

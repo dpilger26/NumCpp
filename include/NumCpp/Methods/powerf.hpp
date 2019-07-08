@@ -28,15 +28,14 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/powerf.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -96,8 +95,7 @@ namespace nc
         if (inArray.shape() != inExponents.shape())
         {
             std::string errStr = "ERROR: powerf: input array shapes are not consistant.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         NdArray<double> returnArray(inArray.shape());

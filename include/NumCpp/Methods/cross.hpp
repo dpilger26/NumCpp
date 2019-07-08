@@ -28,13 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -56,8 +55,7 @@ namespace nc
         if (inArray1.shape() != inArray2.shape())
         {
             std::string errStr = "ERROR: cross: the input array dimensions are not consistant.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         switch (inAxis)
@@ -68,8 +66,7 @@ namespace nc
                 if (arraySize != inArray2.size() || arraySize < 2 || arraySize > 3)
                 {
                     std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 NdArray<dtype> in1 = inArray1.flatten();
@@ -105,8 +102,7 @@ namespace nc
                 if (arrayShape != inArray2.shape() || arrayShape.rows < 2 || arrayShape.rows > 3)
                 {
                     std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 Shape returnArrayShape;
@@ -138,8 +134,7 @@ namespace nc
                 if (arrayShape != inArray2.shape() || arrayShape.cols < 2 || arrayShape.cols > 3)
                 {
                     std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 Shape returnArrayShape;

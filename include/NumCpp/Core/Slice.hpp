@@ -29,12 +29,12 @@
 
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
 #include <algorithm>
 #include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -135,8 +135,7 @@ namespace nc
             if (start > static_cast<int32>(inArraySize - 1))
             {
                 std::string errStr = "ERROR: Invalid start value for array of size " + utils::num2str(inArraySize) + ".";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             /// convert the stop value
@@ -147,8 +146,7 @@ namespace nc
             if (stop > static_cast<int32>(inArraySize))
             {
                 std::string errStr = "ERROR: Invalid stop value for array of size " + utils::num2str(inArraySize) + ".";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             /// do some error checking
@@ -157,8 +155,7 @@ namespace nc
                 if (step < 0)
                 {
                     std::string errStr = "ERROR: Invalid slice values.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
             }
 
@@ -167,8 +164,7 @@ namespace nc
                 if (step > 0)
                 {
                     std::string errStr = "ERROR: Invalid slice values.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 /// otherwise flip things around for my own sanity

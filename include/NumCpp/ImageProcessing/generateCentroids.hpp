@@ -29,6 +29,7 @@
 
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/ImageProcessing/applyThreshold.hpp"
 #include "NumCpp/ImageProcessing/centroidClusters.hpp"
@@ -37,8 +38,6 @@
 #include "NumCpp/ImageProcessing/windowExceedances.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
-#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -77,8 +76,7 @@ namespace nc
             else
             {
                 std::string errStr = "ERROR imageProcessing::generateCentroids: input window type options are ['pre', 'post']";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             // generate the threshold

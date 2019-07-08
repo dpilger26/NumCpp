@@ -29,13 +29,13 @@
 
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
 #include <algorithm>
 #include <iostream>
 #include <limits>
-#include <stdexcept>
 #include <string>
 #include <utility>
 #include <vector>
@@ -160,8 +160,7 @@ namespace nc
                 if (inIndex >= pixels_.size())
                 {
                     std::string errStr = "ERROR: imageProcessing::Cluster::at: index exceeds cluster size.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
                 return pixels_[inIndex];
             }

@@ -30,13 +30,12 @@
 
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Types.hpp"
 
 #include "boost/filesystem.hpp"
 
 #include <deque>
-#include <iostream>
 #include <limits>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -136,8 +135,7 @@ namespace nc
             if (!boost::filesystem::exists(p.parent_path()))
             {
                 std::string errStr = "ERROR: DataCube::dump: Input path does not exist:\n\t" + p.parent_path().string();
-                std::cerr << errStr << std::endl;
-                throw std::runtime_error(errStr);
+                error::throwRuntime(errStr);
             }
 
             std::string ext = "";
@@ -250,8 +248,7 @@ namespace nc
             if (inputShape != elementShape_)
             {
                 std::string errStr = "ERROR: NC::DataCube::push_back: element arrays must all be the same shape.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             cube_.push_back(inArray);
@@ -276,8 +273,7 @@ namespace nc
             if (inputShape != elementShape_)
             {
                 std::string errStr = "ERROR: NC::DataCube::push_front: element arrays must all be the same shape.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             cube_.push_front(inArray);

@@ -28,13 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Methods/dot.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -65,8 +64,7 @@ namespace nc
             if (inShape.rows != inShape.cols)
             {
                 std::string errStr = "ERROR: linalg::matrix_power: input matrix must be square.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             if (inPower == 0)

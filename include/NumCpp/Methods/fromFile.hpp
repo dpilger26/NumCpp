@@ -28,15 +28,14 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include "boost/filesystem.hpp"
 
 #include <fstream>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -60,8 +59,7 @@ namespace nc
         if (!boost::filesystem::exists(inFilename))
         {
             std::string errStr = "ERROR: fromfile: input filename does not exist.\n\t" + inFilename;
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         if (inSep.compare("") == 0)
@@ -71,8 +69,7 @@ namespace nc
             if (!file.is_open())
             {
                 std::string errStr = "ERROR: fromfile: unable to open file.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             in.seekg(0, file.end);
@@ -94,8 +91,7 @@ namespace nc
             if (!(inSep.compare(" ") == 0 || inSep.compare("\t") == 0 || inSep.compare("\n") == 0))
             {
                 std::string errStr = "ERROR: fromfile: only [' ', '\\t', '\\n'] seperators are supported";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             std::vector<dtype> values;
@@ -124,8 +120,7 @@ namespace nc
             else
             {
                 std::string errStr = "ERROR: fromfile: unable to open file.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             return NdArray<dtype>(values);

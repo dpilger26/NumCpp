@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -51,7 +52,6 @@
 #include <iostream>
 #include <numeric>
 #include <set>
-#include <stdexcept>
 #include <string>
 #include <utility>
 #include <vector>
@@ -198,8 +198,7 @@ namespace nc
                 else if (list.size() != shape_.cols)
                 {
                     std::string errStr = "ERROR: NdArray::Constructor: All rows of the initializer list needs to have the same number of elements";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
             }
 
@@ -545,8 +544,7 @@ namespace nc
             if (inMask.shape() != shape_)
             {
                 std::string errStr = "ERROR: operator[]: input inMask must have the same shape as the NdArray it will be masking.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             auto indices = inMask.nonzero();
@@ -573,8 +571,7 @@ namespace nc
             if (inIndices.max().item() > size_ - 1)
             {
                 std::string errStr = "ERROR: operator[]: input indices must be less than the array size.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             auto outArray = NdArray<dtype>(1, static_cast<uint32>(inIndices.size()));
@@ -716,8 +713,7 @@ namespace nc
             {
                 std::string errStr = "ERROR: NdArray::at: Input index " + utils::num2str(inIndex);
                 errStr += " is out of bounds for array of size " + utils::num2str(size_) + ".";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             return operator[](inIndex);
@@ -740,8 +736,7 @@ namespace nc
             {
                 std::string errStr = "ERROR: NdArray::at: Input index " + utils::num2str(inIndex);
                 errStr += " is out of bounds for array of size " + utils::num2str(size_) + ".";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             return operator[](inIndex);
@@ -764,8 +759,7 @@ namespace nc
             {
                 std::string errStr = "ERROR: NdArray::at: Row index " + utils::num2str(inRowIndex);
                 errStr += " is out of bounds for array of size " + utils::num2str(shape_.rows) + ".";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             // this doesn't allow for calling the first element as -size_...
@@ -774,8 +768,7 @@ namespace nc
             {
                 std::string errStr = "ERROR: NdArray::at: Column index " + utils::num2str(inColIndex);
                 errStr += " is out of bounds for array of size " + utils::num2str(shape_.cols) + ".";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             return operator()(inRowIndex, inColIndex);
@@ -798,8 +791,7 @@ namespace nc
             {
                 std::string errStr = "ERROR: NdArray::at: Row index " + utils::num2str(inRowIndex);
                 errStr += " is out of bounds for array of size " + utils::num2str(shape_.rows) + ".";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             // this doesn't allow for calling the first element as -size_...
@@ -808,8 +800,7 @@ namespace nc
             {
                 std::string errStr = "ERROR: NdArray::at: Column index " + utils::num2str(inColIndex);
                 errStr += " is out of bounds for array of size " + utils::num2str(shape_.cols) + ".";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             return operator()(inRowIndex, inColIndex);
@@ -904,8 +895,7 @@ namespace nc
             if (inRow >= shape_.rows)
             {
                 std::string errStr = "ERROR: NdArray::begin: input row is greater than the number of rows in the array.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             return array_ + inRow * shape_.cols;
@@ -961,8 +951,7 @@ namespace nc
             if (inRow >= shape_.rows)
             {
                 std::string errStr = "ERROR: NdArray::begin: input row is greater than the number of rows in the array.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             return array_ + inRow * shape_.cols + shape_.cols;
@@ -1019,8 +1008,7 @@ namespace nc
             if (inRow >= shape_.rows)
             {
                 std::string errStr = "ERROR: NdArray::begin: input row is greater than the number of rows in the array.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             return array_ + inRow * shape_.cols;
@@ -1052,8 +1040,7 @@ namespace nc
             if (inRow >= shape_.rows)
             {
                 std::string errStr = "ERROR: NdArray::begin: input row is greater than the number of rows in the array.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
             return array_ + inRow * shape_.cols + shape_.cols;
         }
@@ -1747,8 +1734,7 @@ namespace nc
                 std::string errStr = "ERROR: NdArray::Array shapes of [" + utils::num2str(shape_.rows) + ", " + utils::num2str(shape_.cols) + "]";
                 errStr += " and [" + utils::num2str(inOtherArray.shape_.rows) + ", " + utils::num2str(inOtherArray.shape_.cols) + "]";
                 errStr += " are not consistent.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
         }
 
@@ -1768,8 +1754,7 @@ namespace nc
             if (!boost::filesystem::exists(p.parent_path()))
             {
                 std::string errStr = "ERROR: NdArray::dump: Input path does not exist:\n\t" + p.parent_path().string();
-                std::cerr << errStr << std::endl;
-                throw std::runtime_error(errStr);
+                error::throwRuntime(errStr);
             }
 
             std::string ext = "";
@@ -1900,8 +1885,7 @@ namespace nc
             else
             {
                 std::string errStr = "ERROR: NdArray::item: Can only convert an array of size 1 to a C++ scalar";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
         }
 
@@ -2408,7 +2392,7 @@ namespace nc
                     {
                         std::string errStr = "ERROR: NdArray::partition: kth(=" + utils::num2str(inKth);
                         errStr += ") out of bounds (" + utils::num2str(size_) + ")";
-                        throw std::invalid_argument(errStr);
+                        error::throwInvalidArgument(errStr);
                     }
                     std::nth_element(begin(), begin() + inKth, end());
                     break;
@@ -2419,8 +2403,7 @@ namespace nc
                     {
                         std::string errStr = "ERROR: NdArray::partition: kth(=" + utils::num2str(inKth);
                         errStr += ") out of bounds (" + utils::num2str(shape_.cols) + ")";
-                        std::cerr << errStr << std::endl;
-                        throw std::invalid_argument(errStr);
+                        error::throwInvalidArgument(errStr);
                     }
 
                     for (uint32 row = 0; row < shape_.rows; ++row)
@@ -2435,8 +2418,7 @@ namespace nc
                     {
                         std::string errStr = "ERROR: NdArray::partition: kth(=" + utils::num2str(inKth);
                         errStr += ") out of bounds (" + utils::num2str(shape_.rows) + ")";
-                        std::cerr << errStr << std::endl;
-                        throw std::invalid_argument(errStr);
+                        error::throwInvalidArgument(errStr);
                     }
 
                     NdArray<dtype> transposedArray = transpose();
@@ -2633,8 +2615,7 @@ namespace nc
             if (inIndices.size() != inValues.size())
             {
                 std::string errStr = "ERROR: NdArray::put: Input indices do not match values dimensions.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             uint32 counter = 0;
@@ -2862,8 +2843,7 @@ namespace nc
             if (inMask.shape() != shape_)
             {
                 std::string errStr = "ERROR: putMask: input inMask must be the same shape as the array it is masking.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             return put(inMask.nonzero(), inValue);
@@ -2881,8 +2861,7 @@ namespace nc
             if (inMask.shape() != shape_)
             {
                 std::string errStr = "ERROR: putMask: input inMask must be the same shape as the array it is masking.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             return put(inMask.nonzero(), inValues);
@@ -2962,8 +2941,7 @@ namespace nc
             {
                 std::string errStr = "ERROR: NdArray::reshape: Cannot reshape array of size " + utils::num2str(size_) + " into shape ";
                 errStr += "[" + utils::num2str(inNumRows) + ", " + utils::num2str(inNumCols) + "]";
-                std::cerr << errStr << std::endl;
-                throw std::runtime_error(errStr);
+                error::throwRuntime(errStr);
             }
 
             shape_.rows = inNumRows;
@@ -3432,8 +3410,7 @@ namespace nc
                 if (!boost::filesystem::exists(p.parent_path()))
                 {
                     std::string errStr = "ERROR: NdArray::tofile: Input path does not exist:\n\t" + p.parent_path().string();
-                    std::cerr << errStr << std::endl;
-                    throw std::runtime_error(errStr);
+                    error::throwRuntime(errStr);
                 }
 
                 std::string ext = "";
@@ -3616,8 +3593,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator+=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::plus<dtype>());
@@ -3698,8 +3674,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator-=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
@@ -3766,8 +3741,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator*=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::multiplies<dtype>());
@@ -3834,8 +3808,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator/=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::divides<dtype>());
@@ -3905,8 +3878,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator%=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::modulus<dtype>());
@@ -3931,8 +3903,7 @@ namespace nc
             if (inScalar == 0)
             {
                 std::string errStr = "ERROR: NdArray::operator%=: modulus by zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             std::for_each(begin(), end(),
@@ -3986,8 +3957,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator|=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_or<dtype>());
@@ -4060,8 +4030,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator&=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_and<dtype>());
@@ -4134,8 +4103,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator^=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_xor<dtype>());
@@ -4177,8 +4145,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator&&: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<dtype> returnArray(shape_);
@@ -4220,8 +4187,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator||: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<dtype> returnArray(shape_);
@@ -4318,8 +4284,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator==: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);
@@ -4362,8 +4327,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator!=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);
@@ -4406,8 +4370,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator<: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);
@@ -4450,8 +4413,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator>: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);
@@ -4494,8 +4456,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator<=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);
@@ -4538,8 +4499,7 @@ namespace nc
             if (shape_ != inOtherArray.shape_)
             {
                 std::string errStr = "ERROR: NdArray::operator>=: Array dimensions do not match.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<bool> returnArray(shape_);

@@ -28,12 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -58,15 +57,13 @@ namespace nc
         if (shapeA != inB.shape())
         {
             std::string errStr = "ERROR: where: input inA and inB must be the same shapes.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         if (shapeMask != shapeA)
         {
             std::string errStr = "ERROR: where: input inMask must be the same shape as the input arrays.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         auto outArray = NdArray<dtype>(shapeMask);

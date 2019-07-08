@@ -28,13 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
 #include <string>
-#include <stdexcept>
 #include <vector>
 
 namespace nc
@@ -78,8 +77,7 @@ namespace nc
                 if (indices.max().item() >= inShape.rows)
                 {
                     std::string errStr = "ERROR: deleteIndices: input index value is greater than the number of rows in the array.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 const uint32 numNewRows = inShape.rows - indices.size();
@@ -108,8 +106,7 @@ namespace nc
                 if (indices.max().item() >= inShape.cols)
                 {
                     std::string errStr = "ERROR: deleteIndices: input index value is greater than the number of cols in the array.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 const uint32 numNewCols = inShape.cols - indices.size();

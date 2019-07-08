@@ -29,13 +29,12 @@
 #pragma once
 
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -73,8 +72,7 @@ namespace nc
         if (maxValue + 1 > DtypeInfo<dtype>::max())
         {
             std::string errStr = "Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         const uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
@@ -119,8 +117,7 @@ namespace nc
         if (inArray.shape() != inWeights.shape())
         {
             std::string errStr = "ERROR: bincount: weights array must be the same shape as the input array.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         dtype maxValue = inArray.max().item();
@@ -133,8 +130,7 @@ namespace nc
         if (maxValue + 1 > DtypeInfo<dtype>::max())
         {
             std::string errStr = "Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         const uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);

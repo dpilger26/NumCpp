@@ -28,13 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -72,8 +71,7 @@ namespace nc
                 if (inShape.cols != appendShape.cols)
                 {
                     std::string errStr = "ERROR: append: all the input array dimensions except for the concatenation axis must match exactly";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 NdArray<dtype> returnArray(inShape.rows + appendShape.rows, inShape.cols);
@@ -89,8 +87,7 @@ namespace nc
                 if (inShape.rows != appendShape.rows)
                 {
                     std::string errStr = "ERROR: append: all the input array dimensions except for the concatenation axis must match exactly";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 NdArray<dtype> returnArray(inShape.rows, inShape.cols + appendShape.cols);

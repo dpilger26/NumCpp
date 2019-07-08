@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -38,8 +39,6 @@
 #include "NumCpp/Methods/rot90.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -69,8 +68,7 @@ namespace nc
             if (inWeights.size() != utils::sqr(inSize))
             {
                 std::string errStr = "ERROR: NC::Filters::convolve: input weights do no match input kernal size.";
-                std::cout << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);

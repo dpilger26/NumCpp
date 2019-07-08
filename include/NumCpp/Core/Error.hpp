@@ -30,7 +30,6 @@
 
 #include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -41,7 +40,7 @@ namespace nc
         ///
         /// @param      msg: the message to throw
         ///
-        void throwInvalidArgument(const std::string msg = "")
+        inline void throwInvalidArgument(const std::string msg = "")
         {
             std::cerr << msg << std::endl;
             throw std::invalid_argument(msg);
@@ -52,7 +51,7 @@ namespace nc
         ///
         /// @param      msg: the message to throw
         ///
-        void throwRuntime(const std::string msg = "")
+        inline void throwRuntime(const std::string msg = "")
         {
             std::cerr << msg << std::endl;
             throw std::runtime_error(msg);

@@ -28,14 +28,13 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -62,8 +61,7 @@ namespace nc
                 if (inShape.rows < 2)
                 {
                     std::string errStr = "ERROR: gradient: input array must have more than 1 row.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 // first do the first and last rows
@@ -91,8 +89,7 @@ namespace nc
                 if (inShape.cols < 2)
                 {
                     std::string errStr = "ERROR: gradient: input array must have more than 1 columns.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 // first do the first and last columns
@@ -120,8 +117,7 @@ namespace nc
                 if (inArray.size() < 2)
                 {
                     std::string errStr = "ERROR: gradient: input array must have more than 1 element.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 auto returnArray = NdArray<double>(1, inArray.size());

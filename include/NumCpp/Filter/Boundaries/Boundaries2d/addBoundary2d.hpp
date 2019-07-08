@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Filter/Boundaries/Boundary.hpp"
@@ -37,8 +38,6 @@
 #include "NumCpp/Filter/Boundaries/Boundaries2d/reflect2d.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/wrap2d.hpp"
 
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -64,8 +63,7 @@ namespace nc
                 if (inKernalSize % 2 == 0)
                 {
                     std::string errStr = "ERROR: imageProcessing::filter::addBoundary: input kernal size must be an odd value.";
-                    std::cout << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 const uint32 boundarySize = inKernalSize / 2; // integer division
@@ -95,7 +93,7 @@ namespace nc
                     default:
                     {
                         // This can't actually happen but just adding to get rid of compiler warning
-                        throw std::invalid_argument("ERROR!");
+                        error::throwInvalidArgument("ERROR!");
                     }
                 }
             }

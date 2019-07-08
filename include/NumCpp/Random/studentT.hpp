@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
@@ -35,8 +36,6 @@
 #include "boost/random/student_t_distribution.hpp"
 
 #include <algorithm>
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -61,8 +60,7 @@ namespace nc
             if (inDof <= 0)
             {
                 std::string errStr = "Error: studentT: degrees of freedom must be greater than zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);

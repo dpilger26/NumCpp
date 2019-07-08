@@ -28,13 +28,18 @@
 ///
 #pragma once
 
+#include "NumCpp/Coordinates/Dec.hpp"
+#include "NumCpp/Coordinates/RA.hpp"
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Methods/deg2rad.hpp"
+#include "NumCpp/Methods/dot.hpp"
+#include "NumCpp/Methods/rad2deg.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 
 #include <cmath>
 #include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -159,8 +164,7 @@ namespace nc
                 if (inCartesianVector.size() != 3)
                 {
                     std::string errStr = "ERROR: NC::coordinates::Dec: constructor NdArray input must be of length 3.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 x_ = inCartesianVector[0];
@@ -281,8 +285,7 @@ namespace nc
                 if (inVector.size() != 3)
                 {
                     std::string errStr = "ERROR: NC::coordinates::Coordinate::radianSeperation: input vector must be of length 3.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 return std::acos(dot(xyz(), inVector.flatten()).item());

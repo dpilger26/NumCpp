@@ -28,13 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <initializer_list>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -63,8 +62,7 @@ namespace nc
             else if (ndarray.shape().rows != finalShape.rows)
             {
                 std::string errStr = "ERROR: column_stack: input arrays must have the same number of rows.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
             else
             {

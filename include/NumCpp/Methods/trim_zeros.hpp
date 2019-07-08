@@ -28,13 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -149,8 +148,7 @@ namespace nc
         else
         {
             std::string errStr = "ERROR: trim_zeros: trim options are 'f' = front, 'b' = back, 'fb' = front and back.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
     }
 }

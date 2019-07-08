@@ -35,8 +35,6 @@
 #include "NumCpp/Methods/sort.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc

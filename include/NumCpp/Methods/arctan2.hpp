@@ -28,13 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
 #include <cmath>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -72,8 +71,7 @@ namespace nc
         if (inX.shape() != inY.shape())
         {
             std::string errStr = "Error: arctan2: input array shapes are not consistant.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         NdArray<double> returnArray(inY.shape());

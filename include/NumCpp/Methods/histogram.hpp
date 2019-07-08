@@ -28,14 +28,13 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Methods/linspace.hpp"
 #include "NumCpp/Methods/zeros.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
 #include <string>
-#include <stdexcept>
 #include <utility>
 
 namespace nc
@@ -59,8 +58,7 @@ namespace nc
         if (inNumBins == 0)
         {
             std::string errStr = "ERROR: histogram: number of bins must be positive.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         NdArray<uint32> histo = zeros<uint32>(1, inNumBins);

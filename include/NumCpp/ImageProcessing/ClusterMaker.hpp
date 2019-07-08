@@ -29,14 +29,13 @@
 
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
 #include <cmath>
-#include <iostream>
 #include <set>
-#include <stdexcept>
 #include <string>
 #include <utility>
 #include <vector>
@@ -76,8 +75,7 @@ namespace nc
                 if (xcds_->shape() != intensities_->shape())
                 {
                     std::string errStr = "ERROR: imageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 shape_ = xcds_->shape();
@@ -145,8 +143,7 @@ namespace nc
                 if (inIndex >= clusters_.size())
                 {
                     std::string errStr = "ERROR: imageProcessing::ClusterMaker::at: index exceeds cluster size.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
                 return clusters_[inIndex];
             }

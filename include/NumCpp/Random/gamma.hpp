@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
@@ -35,8 +36,6 @@
 #include "boost/random/gamma_distribution.hpp"
 
 #include <algorithm>
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -62,15 +61,13 @@ namespace nc
             if (inGammaShape <= 0)
             {
                 std::string errStr = "Error: gamma: input gamma shape should be greater than zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             if (inScaleValue <= 0)
             {
                 std::string errStr = "Error: gamma: input scale should be greater than zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);

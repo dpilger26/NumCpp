@@ -28,12 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Methods/dot.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
 #include <initializer_list>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -61,8 +60,7 @@ namespace nc
             if (inList.size() == 0)
             {
                 std::string errStr = "ERROR: linalg::multi_dot: input empty list of arrays.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
             else if (inList.size() == 1)
             {

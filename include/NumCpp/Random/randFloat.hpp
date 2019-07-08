@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
@@ -35,8 +36,6 @@
 #include "boost/random/uniform_real_distribution.hpp"
 
 #include <algorithm>
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -62,8 +61,7 @@ namespace nc
             if (inLow == inHigh)
             {
                 std::string errStr = "Error: randFloat: input low value must be less than the input high value.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
             else if (inLow > inHigh - DtypeInfo<dtype>::epsilon())
             {

@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/Methods/argmax.hpp"
@@ -41,7 +42,6 @@
 
 #include <cmath>
 #include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -107,8 +107,7 @@ namespace nc
                 if (inArray.size() != 4)
                 {
                     std::string errStr = "ERROR: rotations:::Quaternion::Quaternion(NdArray): input array must be of size = 4.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 double norm = std::sqrt(square(inArray).sum().item());
@@ -132,8 +131,7 @@ namespace nc
                 if (inAxis.size() != 3)
                 {
                     std::string errStr = "ERROR: rotations::Quaternion::angleAxisRotation: input axis must be a cartesion vector of length = 3.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 // normalize the input vector
@@ -300,8 +298,7 @@ namespace nc
                 if (!(inShape.rows == 3 && inShape.cols == 3))
                 {
                     std::string errStr = "ERROR: rotations::Quaternion::fromDcm: input direction cosine matrix must have shape = (3,3).";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 NdArray<double> checks(1, 4);
@@ -375,8 +372,7 @@ namespace nc
                 if (inPercent < 0.0 || inPercent > 1.0)
                 {
                     std::string errStr = "ERROR: rotations::Quaternion::nlerp: input percent must be of the range [0,1].";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 if (utils::essentiallyEqual(inPercent, 0.0))
@@ -434,8 +430,7 @@ namespace nc
                 if (inVector.size() != 3)
                 {
                     std::string errStr = "ERROR: rotations::Quaternion::rotate: input inVector must be a cartesion vector of length = 3.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 return *this * inVector;
@@ -482,8 +477,7 @@ namespace nc
                 if (inPercent < 0 || inPercent > 1)
                 {
                     std::string errStr = "ERROR: rotations::Quaternion::slerp: input percent must be of the range [0, 1]";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 if (inPercent == 0)
@@ -780,8 +774,7 @@ namespace nc
                 if (inVec.size() != 3)
                 {
                     std::string errStr = "ERROR: rotations::Quaternion::operator*: input vector must be a cartesion vector of length = 3.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 return toDCM().dot(inVec);

@@ -28,12 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
 #include <set>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -58,8 +57,7 @@ namespace nc
         if (inArray1.shape() != inArray2.shape())
         {
             std::string errStr = "ERROR: union1d: input array shapes are not consistant.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         std::set<dtype> theSet(inArray1.cbegin(), inArray1.cend());

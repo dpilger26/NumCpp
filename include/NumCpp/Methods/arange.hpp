@@ -28,11 +28,10 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
 #include <string>
-#include <stdexcept>
 #include <vector>
 
 namespace nc
@@ -63,15 +62,13 @@ namespace nc
         if (inStep > 0 && inStop < inStart)
         {
             std::string errStr = "ERROR: arange: stop value must be larger than the start value for positive step.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         if (inStep < 0 && inStop > inStart)
         {
             std::string errStr = "ERROR: arange: start value must be larger than the stop value for negative step.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         std::vector<dtype> values;
@@ -123,8 +120,7 @@ namespace nc
         if (inStop <= 0)
         {
             std::string errStr = "ERROR: arange: stop value must ge greater than 0.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         return arange<dtype>(0, inStop, 1);

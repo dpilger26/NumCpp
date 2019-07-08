@@ -29,15 +29,14 @@
 
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include <cmath>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -63,8 +62,7 @@ namespace nc
             if (inRate < 0.0 || inRate > 1.0)
             {
                 std::string errStr = "ERROR: imageProcessing::generateThreshold: input rate must be of the range [0, 1]";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             // first build a histogram

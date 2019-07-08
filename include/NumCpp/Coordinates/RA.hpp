@@ -29,12 +29,12 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
 #include <cmath>
 #include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -71,8 +71,7 @@ namespace nc
                 if (inDegrees < 0 || inDegrees >= 360)
                 {
                     std::string errStr = "ERROR: NC::coordinates::RA: input degrees must be of the range [0, 360)";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 hours_ = static_cast<uint8>(std::floor(degrees_ / 15.0));

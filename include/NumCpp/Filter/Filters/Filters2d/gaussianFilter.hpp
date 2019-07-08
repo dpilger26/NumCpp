@@ -28,13 +28,13 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Filter/Filters/Filters2d/convolve.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/gaussian.hpp"
 
 #include <cmath>
-#include <iostream>
 #include <string>
 #include <utility>
 
@@ -64,8 +64,7 @@ namespace nc
             if (inSigma <= 0)
             {
                 std::string errStr = "ERROR: NC::Filters::gaussianFilter: input sigma value must be greater than zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             // calculate the kernel size based off of the input sigma value

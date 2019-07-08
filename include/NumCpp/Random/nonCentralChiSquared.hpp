@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
@@ -35,8 +36,6 @@
 #include "boost/random/non_central_chi_squared_distribution.hpp"
 
 #include <algorithm>
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -62,15 +61,13 @@ namespace nc
             if (inK <= 0)
             {
                 std::string errStr = "Error: nonCentralChiSquared: input k must be greater than zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             if (inLambda <= 0)
             {
                 std::string errStr = "Error: nonCentralChiSquared: input lambda must be greater than zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);

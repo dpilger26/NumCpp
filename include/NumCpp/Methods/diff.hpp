@@ -33,9 +33,7 @@
 #include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {

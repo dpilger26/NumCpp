@@ -29,13 +29,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <cmath>
-#include <iostream>
 #include <limits>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -132,8 +131,7 @@ namespace nc
                 if (inInput.size() != m_)
                 {
                     std::string errStr = "ERROR: SVD::solve bad sizes.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 NdArray<double> returnArray(1, n_);
@@ -463,8 +461,7 @@ namespace nc
                         if (its == 29)
                         {
                             std::string errStr = "ERROR: no convergence in 30 svdcmp iterations";
-                            std::cerr << errStr << std::endl;
-                            throw std::invalid_argument(errStr);
+                            error::throwInvalidArgument(errStr);
                         }
 
                         x = s_[l];

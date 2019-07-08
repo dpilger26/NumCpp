@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
@@ -35,8 +36,6 @@
 #include "boost/random/triangle_distribution.hpp"
 
 #include <algorithm>
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -63,22 +62,19 @@ namespace nc
             if (inA < 0)
             {
                 std::string errStr = "Error: triangle: input A must be greater than or equal to zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             if (inB < 0)
             {
                 std::string errStr = "Error: triangle: input B must be greater than or equal to zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             if (inC < 0)
             {
                 std::string errStr = "Error: triangle: input C must be greater than or equal to zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             const bool aLessB = inA <= inB;
@@ -86,8 +82,7 @@ namespace nc
             if (!(aLessB && bLessC))
             {
                 std::string errStr = "Error: triangle: inputs must be a <= b <= c.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);

@@ -29,12 +29,12 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
 #include <cmath>
 #include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -76,8 +76,7 @@ namespace nc
                 if (inDegrees < -90 || inDegrees > 90)
                 {
                     std::string errStr = "ERROR: NC::coordinates::Dec: input degrees must be of the range [-90, 90]";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;

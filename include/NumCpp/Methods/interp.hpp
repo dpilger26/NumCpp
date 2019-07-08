@@ -28,12 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/interp.hpp"
 
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -77,15 +76,13 @@ namespace nc
         if (inXp.size() != inFp.size())
         {
             std::string errStr = "ERROR: interp: inXp and inFp need to be the same size().";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         if (inX.min().item() < inXp.min().item() || inX.max().item() > inXp.max().item())
         {
             std::string errStr = "ERROR: interp: endpoints of inX should be contained within inXp.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         // sort the input inXp and inFp data

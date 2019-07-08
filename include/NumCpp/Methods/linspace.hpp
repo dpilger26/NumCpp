@@ -28,12 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 
 
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -60,7 +59,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<dtype> linspace(dtype inStart, dtype inStop,  inNum = 50, bool endPoint = true)
+    NdArray<dtype> linspace(dtype inStart, dtype inStop, uint32 inNum = 50, bool endPoint = true)
     {
         if (inNum == 0)
         {
@@ -75,8 +74,7 @@ namespace nc
         if (inStop <= inStart)
         {
             std::string errStr = "ERROR: linspace: stop value must be greater than the start value.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         if (endPoint)

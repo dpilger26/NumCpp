@@ -30,6 +30,7 @@
 
 #ifdef INCLUDE_BOOST_PYTHON_INTERFACE
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp"
@@ -38,7 +39,6 @@
 #include "boost/python/numpy.hpp"
 
 #include <map>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -59,8 +59,7 @@ namespace nc
             if (helper.numDimensions() > 2)
             {
                 std::string errStr = "ERROR: Can only convert 1 and 2 dimensional arrays.";
-                std::cerr << errStr << std::endl;
-                throw std::runtime_error(errStr);
+                error::throwRuntime(errStr);
             }
 
             Shape arrayShape;

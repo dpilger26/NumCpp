@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/num2str.hpp"
@@ -36,7 +37,6 @@
 
 #include <algorithm>
 #include <iostream>
-#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -73,8 +73,7 @@ namespace nc
             if (inValues.size() > DtypeInfo<uint8>::max())
             {
                 std::string errStr = "Error: Poly1d: can only make a polynomial of order " + utils::num2str(DtypeInfo<uint8>::max()) + ".";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             if (isRoots)

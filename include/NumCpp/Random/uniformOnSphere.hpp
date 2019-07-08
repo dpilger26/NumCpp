@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -36,8 +37,6 @@
 #include "boost/random/uniform_on_sphere.hpp"
 
 #include <algorithm>
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -60,8 +59,7 @@ namespace nc
             if (inDims < 0)
             {
                 std::string errStr = "Error: uniformOnSphere: input dimension must be greater than or equal to zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             boost::random::uniform_on_sphere<dtype> dist(inDims);

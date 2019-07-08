@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/interp.hpp"
@@ -36,7 +37,6 @@
 #include <initializer_list>
 #include <iostream>
 #include <sstream>
-#include <stdexcept>
 #include <string>
 
 //====================================================================================
@@ -84,7 +84,7 @@ namespace nc
         {
             if (inList.size() != 2)
             {
-                throw std::invalid_argument("ERROR: Vec2 constructor: input initializer list must have a size = 2");
+                error::throwInvalidArgument("ERROR: Vec2 constructor: input initializer list must have a size = 2");
             }
 
             x = *inList.begin();
@@ -101,7 +101,7 @@ namespace nc
         {
             if (ndArray.size() != 2)
             {
-                throw std::invalid_argument("ERROR: Vec2 constructor: input NdArray must have a size = 2");
+                error::throwInvalidArgument("ERROR: Vec2 constructor: input NdArray must have a size = 2");
             }
 
             x = ndArray[0];

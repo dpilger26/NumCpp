@@ -28,13 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -135,8 +134,7 @@ namespace nc
         if (inShapeY != inShapeX)
         {
             std::string errStr = "ERROR: trapz: input x and y arrays should be the same shape.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         switch (inAxis)

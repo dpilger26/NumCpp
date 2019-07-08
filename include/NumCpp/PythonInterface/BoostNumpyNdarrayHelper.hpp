@@ -36,9 +36,7 @@
 #include <algorithm>
 #include <cmath>
 #include <vector>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 #include <utility>
 
 #include "boost/python.hpp"

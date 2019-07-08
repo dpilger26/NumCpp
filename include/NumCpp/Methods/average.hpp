@@ -28,14 +28,13 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -78,8 +77,7 @@ namespace nc
                 if (inWeights.shape() != inArray.shape())
                 {
                     std::string errStr = "ERROR: average: input array and weight values are not consistant.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 NdArray<double> weightedArray(inArray.shape());
@@ -97,8 +95,7 @@ namespace nc
                 if (inWeights.size() != arrayShape.cols)
                 {
                     std::string errStr = "ERROR: average: input array and weights value are not consistant.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 double weightSum = inWeights.template astype<double>().sum().item();
@@ -120,8 +117,7 @@ namespace nc
                 if (inWeights.size() != inArray.shape().rows)
                 {
                     std::string errStr = "ERROR: average: input array and weight values are not consistant.";
-                    std::cerr << errStr << std::endl;
-                    throw std::invalid_argument(errStr);
+                    error::throwInvalidArgument(errStr);
                 }
 
                 NdArray<dtype> transposedArray = inArray.transpose();

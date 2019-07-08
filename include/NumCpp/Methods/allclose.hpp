@@ -28,13 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Methods/abs.hpp"
 #include "NumCpp/Methods/all.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <cmath>
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -58,8 +57,7 @@ namespace nc
         if (inArray1.shape() != inArray2.shape())
         {
             std::string errStr = "ERROR: allclose: input array dimensions are not consistant.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         for (uint32 i = 0; i < inArray1.size(); ++i1)

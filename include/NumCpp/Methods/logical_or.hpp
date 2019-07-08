@@ -28,12 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -55,8 +54,7 @@ namespace nc
         if (inArray1.shape() != inArray2.shape())
         {
             std::string errStr = "ERROR: logical_or: input array shapes are not consistant.";
-            std::cerr << errStr << std::endl;
-            throw std::invalid_argument(errStr);
+            error::throwInvalidArgument(errStr);
         }
 
         NdArray<bool> returnArray(inArray1.shape());

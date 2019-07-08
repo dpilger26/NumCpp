@@ -28,15 +28,14 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Methods/column_stack.hpp"
 #include "NumCpp/Methods/row_stack.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <initializer_list>
-#include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace nc
 {
@@ -67,8 +66,7 @@ namespace nc
             default:
             {
                 std::string errStr = "ERROR: stack: inAxis must be either ROW or COL.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
         }
     }

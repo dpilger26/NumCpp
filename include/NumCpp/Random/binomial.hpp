@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
@@ -36,8 +37,6 @@
 #include "boost/random/binomial_distribution.hpp"
 
 #include <algorithm>
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 namespace nc
@@ -66,15 +65,13 @@ namespace nc
             if (inN < 0)
             {
                 std::string errStr = "Error: binomial: input number of trials must be greater than or equal to zero.";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             if (inP < 0 || inP > 1)
             {
                 std::string errStr = "Error: binomial: input probability of sucess must be of the range [0, 1].";
-                std::cerr << errStr << std::endl;
-                throw std::invalid_argument(errStr);
+                error::throwInvalidArgument(errStr);
             }
 
             NdArray<dtype> returnArray(inShape);
