@@ -31,7 +31,7 @@
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Random/randint.hpp"
+#include "NumCpp/Random/randInt.hpp"
 
 namespace nc
 {
