@@ -62,8 +62,7 @@ namespace nc
             {
                 if (inKernalSize % 2 == 0)
                 {
-                    std::string errStr = "ERROR: imageProcessing::filter::addBoundary1d: input kernal size must be an odd value.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input kernal size must be an odd value.");
                 }
 
                 const uint32 boundarySize = inKernalSize / 2; // integer division
@@ -93,7 +92,7 @@ namespace nc
                     default:
                     {
                         // This can't actually happen but just adding to get rid of compiler warning
-                        error::throwInvalidArgument("ERROR!");
+                        THROW_INVALID_ARGUMENT_ERROR("ERROR!");
                     }
                 }
             }

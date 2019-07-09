@@ -56,8 +56,7 @@ namespace nc
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            std::string errStr = "ERROR: allclose: input array dimensions are not consistant.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("input array dimensions are not consistant.");
         }
 
         for (uint32 i = 0; i < inArray1.size(); ++i)

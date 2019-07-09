@@ -59,8 +59,7 @@ namespace nc
 
             if (inList.size() == 0)
             {
-                std::string errStr = "ERROR: linalg::multi_dot: input empty list of arrays.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input empty list of arrays.");
             }
             else if (inList.size() == 1)
             {

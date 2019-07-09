@@ -57,8 +57,7 @@ namespace nc
         {
             if (inP < 0 || inP > 1)
             {
-                std::string errStr = "Error: bernoulli: input probability of sucess must be of the range [0, 1].";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
             }
 
             NdArray<dtype> returnArray(inShape);

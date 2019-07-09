@@ -82,7 +82,7 @@ namespace nc
                 }
                 default:
                 {
-                    error::throwInvalidArgument("ERROR: input array must be no more than 2 dimensional.");
+                    THROW_INVALID_ARGUMENT_ERROR("input array must be no more than 2 dimensional.");
                 }
             }
         }
@@ -128,7 +128,7 @@ namespace nc
                 {
                     std::stringstream sstream;
                     sstream << "ReturnPolicy " << returnPolicyStringMap.at(returnPolicy) << " has not been implemented yet" << std::endl;
-                    error::throwInvalidArgument(sstream.str());
+                    THROW_INVALID_ARGUMENT_ERROR(sstream.str());
                 }
             }
         }

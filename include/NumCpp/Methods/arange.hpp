@@ -61,14 +61,12 @@ namespace nc
     {
         if (inStep > 0 && inStop < inStart)
         {
-            std::string errStr = "ERROR: arange: stop value must be larger than the start value for positive step.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("stop value must be larger than the start value for positive step.");
         }
 
         if (inStep < 0 && inStop > inStart)
         {
-            std::string errStr = "ERROR: arange: start value must be larger than the stop value for negative step.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("start value must be larger than the stop value for negative step.");
         }
 
         std::vector<dtype> values;
@@ -119,8 +117,7 @@ namespace nc
     {
         if (inStop <= 0)
         {
-            std::string errStr = "ERROR: arange: stop value must ge greater than 0.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("stop value must ge greater than 0.");
         }
 
         return arange<dtype>(0, inStop, 1);

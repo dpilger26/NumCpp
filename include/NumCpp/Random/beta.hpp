@@ -60,14 +60,12 @@ namespace nc
         {
             if (inAlpha < 0)
             {
-                std::string errStr = "Error: beta: input alpha must be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input alpha must be greater than zero.");
             }
 
             if (inBeta < 0)
             {
-                std::string errStr = "Error: beta: input beta must be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input beta must be greater than zero.");
             }
 
             NdArray<dtype> returnArray(inShape);

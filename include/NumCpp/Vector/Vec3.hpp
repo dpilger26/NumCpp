@@ -88,7 +88,7 @@ namespace nc
         {
             if (inList.size() != 3)
             {
-                error::throwInvalidArgument("ERROR: Vec3 constructor: input initializer list must have a size = 3");
+                THROW_INVALID_ARGUMENT_ERROR("input initializer list must have a size = 3");
             }
 
             x = *inList.begin();
@@ -106,7 +106,7 @@ namespace nc
         {
             if (ndArray.size() != 3)
             {
-                error::throwInvalidArgument("ERROR: Vec3 constructor: input NdArray must have a size = 3");
+                THROW_INVALID_ARGUMENT_ERROR("input NdArray must have a size = 3");
             }
 
             x = ndArray[0];

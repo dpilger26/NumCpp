@@ -71,8 +71,7 @@ namespace nc
 
         if (maxValue + 1 > DtypeInfo<dtype>::max())
         {
-            std::string errStr = "Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("array values too large, will result in gigantic array that will take up alot of memory...");
         }
 
         const uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);
@@ -116,8 +115,7 @@ namespace nc
 
         if (inArray.shape() != inWeights.shape())
         {
-            std::string errStr = "ERROR: bincount: weights array must be the same shape as the input array.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("weights array must be the same shape as the input array.");
         }
 
         dtype maxValue = inArray.max().item();
@@ -129,8 +127,7 @@ namespace nc
 
         if (maxValue + 1 > DtypeInfo<dtype>::max())
         {
-            std::string errStr = "Error: bincount: array values too large, will result in gigantic array that will take up alot of memory...";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("array values too large, will result in gigantic array that will take up alot of memory...");
         }
 
         const uint16 outArraySize = std::max(static_cast<uint16>(maxValue + 1), inMinLength);

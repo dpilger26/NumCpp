@@ -61,8 +61,7 @@ namespace nc
             }
             else if (ndarray.shape().rows != finalShape.rows)
             {
-                std::string errStr = "ERROR: column_stack: input arrays must have the same number of rows.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input arrays must have the same number of rows.");
             }
             else
             {

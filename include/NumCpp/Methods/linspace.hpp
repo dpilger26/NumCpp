@@ -73,8 +73,7 @@ namespace nc
 
         if (inStop <= inStart)
         {
-            std::string errStr = "ERROR: linspace: stop value must be greater than the start value.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("stop value must be greater than the start value.");
         }
 
         if (endPoint)

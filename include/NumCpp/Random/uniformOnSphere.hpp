@@ -59,8 +59,7 @@ namespace nc
         {
             if (inDims < 0)
             {
-                std::string errStr = "Error: uniformOnSphere: input dimension must be greater than or equal to zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input dimension must be greater than or equal to zero.");
             }
 
             boost::random::uniform_on_sphere<dtype> dist(inDims);

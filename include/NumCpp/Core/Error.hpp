@@ -32,30 +32,28 @@
 #include <stdexcept>
 #include <string>
 
+#define THROW_INVALID_ARGUMENT_ERROR(msg) nc::error::throwError<std::invalid_argument>(__FILE__, __func__, __LINE__, msg)
+#define THROW_RUNTIME_ERROR(msg) nc::error::throwError<std::runtime_error>(__FILE__, __func__, __LINE__, msg)
+
 namespace nc
 {
     namespace error
     {
         //============================================================================
-        ///						Throws an invalid argument error
+        ///						Makes the full error message string
         ///
         /// @param      msg: the message to throw
         ///
-        inline void throwInvalidArgument(const std::string msg = "")
+        template<typename ErrorType>
+        void throwError(const std::string& file,
+            const std::string& function,
+            uint32 line,
+            const std::string& msg = "")
         {
-            std::cerr << msg << std::endl;
-            throw std::invalid_argument(msg);
-        }
-
-        //============================================================================
-        ///						Throws an runtime error
-        ///
-        /// @param      msg: the message to throw
-        ///
-        inline void throwRuntime(const std::string msg = "")
-        {
-            std::cerr << msg << std::endl;
-            throw std::runtime_error(msg);
+            std::string errMsg = "File: " + file + "\n\tFunction: " + function + "\n\tLine: " + std::to_string(line) + "\n\tError: " + msg;
+            std::cerr << errMsg;
+            throw ErrorType(errMsg);
         }
     }
 }
+

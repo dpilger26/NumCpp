@@ -54,8 +54,7 @@ namespace nc
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            std::string errStr = "ERROR: cross: the input array dimensions are not consistant.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("the input array dimensions are not consistant.");
         }
 
         switch (inAxis)
@@ -65,8 +64,7 @@ namespace nc
                 const uint32 arraySize = inArray1.size();
                 if (arraySize != inArray2.size() || arraySize < 2 || arraySize > 3)
                 {
-                    std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("incompatible dimensions for cross product (dimension must be 2 or 3)");
                 }
 
                 NdArray<dtype> in1 = inArray1.flatten();
@@ -101,8 +99,7 @@ namespace nc
                 const Shape arrayShape = inArray1.shape();
                 if (arrayShape != inArray2.shape() || arrayShape.rows < 2 || arrayShape.rows > 3)
                 {
-                    std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("incompatible dimensions for cross product (dimension must be 2 or 3)");
                 }
 
                 Shape returnArrayShape;
@@ -133,8 +130,7 @@ namespace nc
                 const Shape arrayShape = inArray1.shape();
                 if (arrayShape != inArray2.shape() || arrayShape.cols < 2 || arrayShape.cols > 3)
                 {
-                    std::string errStr = "ERROR: cross: incompatible dimensions for cross product (dimension must be 2 or 3)";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("incompatible dimensions for cross product (dimension must be 2 or 3)");
                 }
 
                 Shape returnArrayShape;

@@ -56,8 +56,7 @@ namespace nc
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                std::string errStr = "ERROR: linalg::inv: input array must be square.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input array must be square.");
             }
 
             const uint32 order = inShape.rows;

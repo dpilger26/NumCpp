@@ -76,8 +76,7 @@ namespace nc
             {
                 if (inWeights.shape() != inArray.shape())
                 {
-                    std::string errStr = "ERROR: average: input array and weight values are not consistant.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input array and weight values are not consistant.");
                 }
 
                 NdArray<double> weightedArray(inArray.shape());
@@ -94,8 +93,7 @@ namespace nc
                 const Shape arrayShape = inArray.shape();
                 if (inWeights.size() != arrayShape.cols)
                 {
-                    std::string errStr = "ERROR: average: input array and weights value are not consistant.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input array and weights value are not consistant.");
                 }
 
                 double weightSum = inWeights.template astype<double>().sum().item();
@@ -116,8 +114,7 @@ namespace nc
             {
                 if (inWeights.size() != inArray.shape().rows)
                 {
-                    std::string errStr = "ERROR: average: input array and weight values are not consistant.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input array and weight values are not consistant.");
                 }
 
                 NdArray<dtype> transposedArray = inArray.transpose();

@@ -59,8 +59,7 @@ namespace nc
         {
             if (inMean <= 0)
             {
-                std::string errStr = "Error: poisson: input mean must be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input mean must be greater than zero.");
             }
 
             NdArray<dtype> returnArray(inShape);

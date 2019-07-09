@@ -84,7 +84,7 @@ namespace nc
         {
             if (inList.size() != 2)
             {
-                error::throwInvalidArgument("ERROR: Vec2 constructor: input initializer list must have a size = 2");
+                THROW_INVALID_ARGUMENT_ERROR("input initializer list must have a size = 2");
             }
 
             x = *inList.begin();
@@ -101,7 +101,7 @@ namespace nc
         {
             if (ndArray.size() != 2)
             {
-                error::throwInvalidArgument("ERROR: Vec2 constructor: input NdArray must have a size = 2");
+                THROW_INVALID_ARGUMENT_ERROR("input NdArray must have a size = 2");
             }
 
             x = ndArray[0];

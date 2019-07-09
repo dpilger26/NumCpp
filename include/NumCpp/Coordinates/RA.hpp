@@ -70,8 +70,7 @@ namespace nc
             {
                 if (inDegrees < 0 || inDegrees >= 360)
                 {
-                    std::string errStr = "ERROR: NC::coordinates::RA: input degrees must be of the range [0, 360)";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input degrees must be of the range [0, 360)");
                 }
 
                 hours_ = static_cast<uint8>(std::floor(degrees_ / 15.0));

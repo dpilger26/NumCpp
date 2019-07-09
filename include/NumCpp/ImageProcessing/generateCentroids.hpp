@@ -72,8 +72,7 @@ namespace nc
             }
             else
             {
-                std::string errStr = "ERROR imageProcessing::generateCentroids: input window type options are ['pre', 'post']";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input window type options are ['pre', 'post']");
             }
 
             // generate the threshold

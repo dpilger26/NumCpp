@@ -75,14 +75,12 @@ namespace nc
         // do some error checking first
         if (inXp.size() != inFp.size())
         {
-            std::string errStr = "ERROR: interp: inXp and inFp need to be the same size().";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("inXp and inFp need to be the same size().");
         }
 
         if (inX.min().item() < inXp.min().item() || inX.max().item() > inXp.max().item())
         {
-            std::string errStr = "ERROR: interp: endpoints of inX should be contained within inXp.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("endpoints of inX should be contained within inXp.");
         }
 
         // sort the input inXp and inFp data

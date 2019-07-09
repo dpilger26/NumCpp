@@ -76,8 +76,7 @@ namespace nc
             {
                 if (inDegrees < -90 || inDegrees > 90)
                 {
-                    std::string errStr = "ERROR: NC::coordinates::Dec: input degrees must be of the range [-90, 90]";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input degrees must be of the range [-90, 90]");
                 }
 
                 sign_ = degrees_ < 0 ? Sign::NEGATIVE : Sign::POSITIVE;

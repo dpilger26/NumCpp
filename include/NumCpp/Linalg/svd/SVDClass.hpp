@@ -130,8 +130,7 @@ namespace nc
 
                 if (inInput.size() != m_)
                 {
-                    std::string errStr = "ERROR: SVD::solve bad sizes.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("bad sizes.");
                 }
 
                 NdArray<double> returnArray(1, n_);
@@ -460,8 +459,7 @@ namespace nc
 
                         if (its == 29)
                         {
-                            std::string errStr = "ERROR: no convergence in 30 svdcmp iterations";
-                            error::throwInvalidArgument(errStr);
+                            THROW_INVALID_ARGUMENT_ERROR("no convergence in 30 svdcmp iterations");
                         }
 
                         x = s_[l];

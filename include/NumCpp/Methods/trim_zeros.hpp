@@ -147,8 +147,7 @@ namespace nc
         }
         else
         {
-            std::string errStr = "ERROR: trim_zeros: trim options are 'f' = front, 'b' = back, 'fb' = front and back.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("trim options are 'f' = front, 'b' = back, 'fb' = front and back.");
         }
     }
 }

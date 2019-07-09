@@ -53,8 +53,7 @@ namespace nc
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            std::string errStr = "ERROR: copysign: input arrays are not consistant.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("input arrays are not consistant.");
         }
 
         NdArray<dtype> returnArray(inArray1.shape());

@@ -94,8 +94,7 @@ namespace nc
     {
         if (inArray.shape() != inExponents.shape())
         {
-            std::string errStr = "ERROR: powerf: input array shapes are not consistant.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
         NdArray<double> returnArray(inArray.shape());

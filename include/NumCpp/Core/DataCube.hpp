@@ -133,8 +133,7 @@ namespace nc
             boost::filesystem::path p(inFilename);
             if (!boost::filesystem::exists(p.parent_path()))
             {
-                std::string errStr = "ERROR: DataCube::dump: Input path does not exist:\n\t" + p.parent_path().string();
-                error::throwRuntime(errStr);
+                THROW_RUNTIME_ERROR("Input path does not exist:\n\t" + p.parent_path().string());
             }
 
             std::string ext = "";
@@ -246,8 +245,7 @@ namespace nc
 
             if (inputShape != elementShape_)
             {
-                std::string errStr = "ERROR: NC::DataCube::push_back: element arrays must all be the same shape.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("element arrays must all be the same shape");
             }
 
             cube_.push_back(inArray);
@@ -271,8 +269,7 @@ namespace nc
 
             if (inputShape != elementShape_)
             {
-                std::string errStr = "ERROR: NC::DataCube::push_front: element arrays must all be the same shape.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("element arrays must all be the same shape.");
             }
 
             cube_.push_front(inArray);

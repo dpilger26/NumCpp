@@ -77,8 +77,7 @@ namespace nc
                 const Shape inShape = inArray.shape();
                 if (indices.max().item() >= inShape.rows)
                 {
-                    std::string errStr = "ERROR: deleteIndices: input index value is greater than the number of rows in the array.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input index value is greater than the number of rows in the array.");
                 }
 
                 const uint32 numNewRows = inShape.rows - indices.size();
@@ -106,8 +105,7 @@ namespace nc
                 const Shape inShape = inArray.shape();
                 if (indices.max().item() >= inShape.cols)
                 {
-                    std::string errStr = "ERROR: deleteIndices: input index value is greater than the number of cols in the array.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input index value is greater than the number of cols in the array.");
                 }
 
                 const uint32 numNewCols = inShape.cols - indices.size();

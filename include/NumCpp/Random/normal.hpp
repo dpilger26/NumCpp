@@ -60,8 +60,7 @@ namespace nc
         {
             if (inSigma <= 0)
             {
-                std::string errStr = "Error: cauchy: input sigma must be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input sigma must be greater than zero.");
             }
 
             NdArray<dtype> returnArray(inShape);

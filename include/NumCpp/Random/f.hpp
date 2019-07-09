@@ -60,14 +60,12 @@ namespace nc
         {
             if (inDofN <= 0)
             {
-                std::string errStr = "Error: f: numerator degrees of freedom should be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("numerator degrees of freedom should be greater than zero.");
             }
 
             if (inDofD <= 0)
             {
-                std::string errStr = "Error: f: denominator degrees of freedom should be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("denominator degrees of freedom should be greater than zero.");
             }
 
             NdArray<dtype> returnArray(inShape);

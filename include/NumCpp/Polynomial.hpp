@@ -72,8 +72,7 @@ namespace nc
         {
             if (inValues.size() > DtypeInfo<uint8>::max())
             {
-                std::string errStr = "Error: Poly1d: can only make a polynomial of order " + utils::num2str(DtypeInfo<uint8>::max()) + ".";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("can only make a polynomial of order " + utils::num2str(DtypeInfo<uint8>::max()));
             }
 
             if (isRoots)

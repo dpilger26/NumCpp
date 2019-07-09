@@ -65,8 +65,7 @@ namespace nc
             }
             default:
             {
-                std::string errStr = "ERROR: stack: inAxis must be either ROW or COL.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("inAxis must be either ROW or COL.");
             }
         }
     }

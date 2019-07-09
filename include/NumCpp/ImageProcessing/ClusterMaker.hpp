@@ -71,8 +71,7 @@ namespace nc
             {
                 if (xcds_->shape() != intensities_->shape())
                 {
-                    std::string errStr = "ERROR: imageProcessing::ClusterMaker(): input xcd and intensity arrays must be the same shape.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input xcd and intensity arrays must be the same shape.");
                 }
 
                 shape_ = xcds_->shape();
@@ -139,8 +138,7 @@ namespace nc
             {
                 if (inIndex >= clusters_.size())
                 {
-                    std::string errStr = "ERROR: imageProcessing::ClusterMaker::at: index exceeds cluster size.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("index exceeds cluster size.");
                 }
                 return clusters_[inIndex];
             }

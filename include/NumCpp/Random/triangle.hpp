@@ -62,28 +62,24 @@ namespace nc
         {
             if (inA < 0)
             {
-                std::string errStr = "Error: triangle: input A must be greater than or equal to zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input A must be greater than or equal to zero.");
             }
 
             if (inB < 0)
             {
-                std::string errStr = "Error: triangle: input B must be greater than or equal to zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input B must be greater than or equal to zero.");
             }
 
             if (inC < 0)
             {
-                std::string errStr = "Error: triangle: input C must be greater than or equal to zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input C must be greater than or equal to zero.");
             }
 
             const bool aLessB = inA <= inB;
             const bool bLessC = inB <= inC;
             if (!(aLessB && bLessC))
             {
-                std::string errStr = "Error: triangle: inputs must be a <= b <= c.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("inputs must be a <= b <= c.");
             }
 
             NdArray<dtype> returnArray(inShape);

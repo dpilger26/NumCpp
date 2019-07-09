@@ -134,8 +134,7 @@ namespace nc
             }
             if (start > static_cast<int32>(inArraySize - 1))
             {
-                std::string errStr = "ERROR: Invalid start value for array of size " + utils::num2str(inArraySize) + ".";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("Invalid start value for array of size " + utils::num2str(inArraySize) + ".");
             }
 
             /// convert the stop value
@@ -145,8 +144,7 @@ namespace nc
             }
             if (stop > static_cast<int32>(inArraySize))
             {
-                std::string errStr = "ERROR: Invalid stop value for array of size " + utils::num2str(inArraySize) + ".";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("Invalid stop value for array of size " + utils::num2str(inArraySize) + ".");
             }
 
             /// do some error checking
@@ -154,8 +152,7 @@ namespace nc
             {
                 if (step < 0)
                 {
-                    std::string errStr = "ERROR: Invalid slice values.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("Invalid slice values.");
                 }
             }
 
@@ -163,8 +160,7 @@ namespace nc
             {
                 if (step > 0)
                 {
-                    std::string errStr = "ERROR: Invalid slice values.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("Invalid slice values.");
                 }
 
                 /// otherwise flip things around for my own sanity

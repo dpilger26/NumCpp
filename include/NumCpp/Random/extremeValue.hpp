@@ -58,14 +58,12 @@ namespace nc
         {
             if (inA <= 0)
             {
-                std::string errStr = "Error: extremeValue: input a must be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input a must be greater than zero.");
             }
 
             if (inB <= 0)
             {
-                std::string errStr = "Error: extremeValue: input b must be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input b must be greater than zero.");
             }
 
             NdArray<dtype> returnArray(inShape);

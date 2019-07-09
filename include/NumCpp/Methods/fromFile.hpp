@@ -58,8 +58,7 @@ namespace nc
         boost::filesystem::path p(inFilename);
         if (!boost::filesystem::exists(inFilename))
         {
-            std::string errStr = "ERROR: fromfile: input filename does not exist.\n\t" + inFilename;
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("input filename does not exist.\n\t" + inFilename);
         }
 
         if (inSep.compare("") == 0)
@@ -68,8 +67,7 @@ namespace nc
             std::ifstream file(inFilename.c_str(), std::ios::in | std::ios::binary);
             if (!file.is_open())
             {
-                std::string errStr = "ERROR: fromfile: unable to open file.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("unable to open file.");
             }
 
             file.seekg(0, file.end);
@@ -90,8 +88,7 @@ namespace nc
             // read in as txt file
             if (!(inSep.compare(" ") == 0 || inSep.compare("\t") == 0 || inSep.compare("\n") == 0))
             {
-                std::string errStr = "ERROR: fromfile: only [' ', '\\t', '\\n'] seperators are supported";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("only [' ', '\\t', '\\n'] seperators are supported");
             }
 
             std::vector<dtype> values;
@@ -119,8 +116,7 @@ namespace nc
             }
             else
             {
-                std::string errStr = "ERROR: fromfile: unable to open file.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("unable to open file.");
             }
 
             return NdArray<dtype>(values);

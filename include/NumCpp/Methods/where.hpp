@@ -56,14 +56,12 @@ namespace nc
         const auto shapeA = inA.shape();
         if (shapeA != inB.shape())
         {
-            std::string errStr = "ERROR: where: input inA and inB must be the same shapes.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("input inA and inB must be the same shapes.");
         }
 
         if (shapeMask != shapeA)
         {
-            std::string errStr = "ERROR: where: input inMask must be the same shape as the input arrays.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("input inMask must be the same shape as the input arrays.");
         }
 
         auto outArray = NdArray<dtype>(shapeMask);

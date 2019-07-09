@@ -57,8 +57,7 @@ namespace nc
     {
         if (inNumBins == 0)
         {
-            std::string errStr = "ERROR: histogram: number of bins must be positive.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("number of bins must be positive.");
         }
 
         NdArray<uint32> histo = zeros<uint32>(1, inNumBins);

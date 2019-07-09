@@ -65,8 +65,7 @@ namespace nc
 
             if (inLow == inHigh)
             {
-                std::string errStr = "Error: randint: input low value must be less than the input high value.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input low value must be less than the input high value.");
             }
             else if (inLow > inHigh - 1)
             {

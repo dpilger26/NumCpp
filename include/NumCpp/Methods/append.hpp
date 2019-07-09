@@ -70,8 +70,7 @@ namespace nc
                 const Shape appendShape = inAppendValues.shape();
                 if (inShape.cols != appendShape.cols)
                 {
-                    std::string errStr = "ERROR: append: all the input array dimensions except for the concatenation axis must match exactly";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("all the input array dimensions except for the concatenation axis must match exactly");
                 }
 
                 NdArray<dtype> returnArray(inShape.rows + appendShape.rows, inShape.cols);
@@ -86,8 +85,7 @@ namespace nc
                 const Shape appendShape = inAppendValues.shape();
                 if (inShape.rows != appendShape.rows)
                 {
-                    std::string errStr = "ERROR: append: all the input array dimensions except for the concatenation axis must match exactly";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("all the input array dimensions except for the concatenation axis must match exactly");
                 }
 
                 NdArray<dtype> returnArray(inShape.rows, inShape.cols + appendShape.cols);

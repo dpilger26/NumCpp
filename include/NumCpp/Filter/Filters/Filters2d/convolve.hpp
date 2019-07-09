@@ -65,8 +65,7 @@ namespace nc
         {
             if (inWeights.size() != utils::sqr(inSize))
             {
-                std::string errStr = "ERROR: NC::Filters::convolve: input weights do no match input kernal size.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input weights do no match input kernal size.");
             }
 
             NdArray<dtype> arrayWithBoundary = addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);

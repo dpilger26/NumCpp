@@ -70,8 +70,7 @@ namespace nc
     {
         if (inX.shape() != inY.shape())
         {
-            std::string errStr = "Error: arctan2: input array shapes are not consistant.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
         NdArray<double> returnArray(inY.shape());

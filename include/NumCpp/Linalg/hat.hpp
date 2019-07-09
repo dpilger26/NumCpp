@@ -79,8 +79,7 @@ namespace nc
         {
             if (inVec.size() != 3)
             {
-                std::string errStr = "ERROR: linalg::hat: input vector must be a length 3 cartesian vector.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input vector must be a length 3 cartesian vector.");
             }
 
             return hat(inVec[0], inVec[1], inVec[2]);

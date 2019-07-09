@@ -60,14 +60,12 @@ namespace nc
         {
             if (inK <= 0)
             {
-                std::string errStr = "Error: nonCentralChiSquared: input k must be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input k must be greater than zero.");
             }
 
             if (inLambda <= 0)
             {
-                std::string errStr = "Error: nonCentralChiSquared: input lambda must be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input lambda must be greater than zero.");
             }
 
             NdArray<dtype> returnArray(inShape);

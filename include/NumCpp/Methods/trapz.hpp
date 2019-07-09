@@ -133,8 +133,7 @@ namespace nc
 
         if (inShapeY != inShapeX)
         {
-            std::string errStr = "ERROR: trapz: input x and y arrays should be the same shape.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("input x and y arrays should be the same shape.");
         }
 
         switch (inAxis)

@@ -58,8 +58,7 @@ namespace nc
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                std::string errStr = "ERROR: linalg::determinant: input array must be square with size no larger than 3x3.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input array must be square with size no larger than 3x3.");
             }
 
             if (inShape.rows == 1)

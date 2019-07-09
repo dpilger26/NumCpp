@@ -63,8 +63,7 @@ namespace nc
     {
         if (inPercentile < 0.0 || inPercentile > 100.0)
         {
-            std::string errStr = "ERROR: percentile: input percentile value must be of the range [0, 100].";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("input percentile value must be of the range [0, 100].");
         }
 
         if (inInterpMethod.compare("linear") != 0 &&
@@ -73,9 +72,9 @@ namespace nc
             inInterpMethod.compare("nearest") != 0 &&
             inInterpMethod.compare("midpoint") != 0)
         {
-            std::string errStr = "ERROR: percentile: input interpolation method is not a vaid option.\n";
+            std::string errStr = "input interpolation method is not a vaid option.\n";
             errStr += "\tValid options are 'linear', 'lower', 'higher', 'nearest', 'midpoint'.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR(errStr);
         }
 
         switch (inAxis)

@@ -60,8 +60,7 @@ namespace nc
                 const auto inShape = inArray.shape();
                 if (inShape.rows < 2)
                 {
-                    std::string errStr = "ERROR: gradient: input array must have more than 1 row.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input array must have more than 1 row.");
                 }
 
                 // first do the first and last rows
@@ -88,8 +87,7 @@ namespace nc
                 const auto inShape = inArray.shape();
                 if (inShape.cols < 2)
                 {
-                    std::string errStr = "ERROR: gradient: input array must have more than 1 columns.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input array must have more than 1 columns.");
                 }
 
                 // first do the first and last columns
@@ -116,8 +114,7 @@ namespace nc
                 // will return the gradient of the flattened array
                 if (inArray.size() < 2)
                 {
-                    std::string errStr = "ERROR: gradient: input array must have more than 1 element.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input array must have more than 1 element.");
                 }
 
                 auto returnArray = NdArray<double>(1, inArray.size());

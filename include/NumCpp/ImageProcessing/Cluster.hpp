@@ -157,8 +157,7 @@ namespace nc
             {
                 if (inIndex >= pixels_.size())
                 {
-                    std::string errStr = "ERROR: imageProcessing::Cluster::at: index exceeds cluster size.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("index exceeds cluster size.");
                 }
                 return pixels_[inIndex];
             }

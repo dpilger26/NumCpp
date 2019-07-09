@@ -59,8 +59,7 @@ namespace nc
         {
             if (inDof <= 0)
             {
-                std::string errStr = "Error: studentT: degrees of freedom must be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("degrees of freedom must be greater than zero.");
             }
 
             NdArray<dtype> returnArray(inShape);

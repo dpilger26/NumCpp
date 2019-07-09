@@ -163,8 +163,7 @@ namespace nc
             {
                 if (inCartesianVector.size() != 3)
                 {
-                    std::string errStr = "ERROR: NC::coordinates::Dec: constructor NdArray input must be of length 3.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("NdArray input must be of length 3.");
                 }
 
                 x_ = inCartesianVector[0];
@@ -284,8 +283,7 @@ namespace nc
             {
                 if (inVector.size() != 3)
                 {
-                    std::string errStr = "ERROR: NC::coordinates::Coordinate::radianSeperation: input vector must be of length 3.";
-                    error::throwInvalidArgument(errStr);
+                    THROW_INVALID_ARGUMENT_ERROR("input vector must be of length 3.");
                 }
 
                 return std::acos(dot(xyz(), inVector.flatten()).item());

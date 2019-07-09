@@ -64,8 +64,7 @@ namespace nc
             const Shape inShape = inArray.shape();
             if (inShape.rows != inShape.cols)
             {
-                std::string errStr = "ERROR: linalg::matrix_power: input matrix must be square.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input matrix must be square.");
             }
 
             if (inPower == 0)

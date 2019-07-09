@@ -64,14 +64,12 @@ namespace nc
 
             if (inN < 0)
             {
-                std::string errStr = "Error: negativeBinomial: input number of trials must be greater than or equal to zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input number of trials must be greater than or equal to zero.");
             }
 
             if (inP < 0 || inP > 1)
             {
-                std::string errStr = "Error: negativeBinomial: input probability of sucess must be of the range [0, 1].";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input probability of sucess must be of the range [0, 1].");
             }
 
             NdArray<dtype> returnArray(inShape);

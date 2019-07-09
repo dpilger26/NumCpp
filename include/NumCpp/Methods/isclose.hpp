@@ -60,8 +60,7 @@ namespace nc
     {
         if (inArray1.shape() != inArray2.shape())
         {
-            std::string errStr = "ERROR: isclose: input array shapes are not consistant.";
-            error::throwInvalidArgument(errStr);
+            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
         }
 
         NdArray<bool> returnArray(inArray1.shape());

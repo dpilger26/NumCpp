@@ -60,14 +60,12 @@ namespace nc
         {
             if (inGammaShape <= 0)
             {
-                std::string errStr = "Error: gamma: input gamma shape should be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input gamma shape should be greater than zero.");
             }
 
             if (inScaleValue <= 0)
             {
-                std::string errStr = "Error: gamma: input scale should be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input scale should be greater than zero.");
             }
 
             NdArray<dtype> returnArray(inShape);

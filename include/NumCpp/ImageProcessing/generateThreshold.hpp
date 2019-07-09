@@ -58,8 +58,7 @@ namespace nc
         {
             if (inRate < 0.0 || inRate > 1.0)
             {
-                std::string errStr = "ERROR: imageProcessing::generateThreshold: input rate must be of the range [0, 1]";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input rate must be of the range [0, 1]");
             }
 
             // first build a histogram

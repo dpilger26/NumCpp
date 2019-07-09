@@ -61,8 +61,7 @@ namespace nc
         {
             if (inSigma <= 0)
             {
-                std::string errStr = "ERROR: NC::Filters::gaussianFilter: input sigma value must be greater than zero.";
-                error::throwInvalidArgument(errStr);
+                THROW_INVALID_ARGUMENT_ERROR("input sigma value must be greater than zero.");
             }
 
             // calculate the kernel size based off of the input sigma value
