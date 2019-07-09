@@ -40,25 +40,6 @@ namespace nc
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
     ///
-    /// @param				inN: number of rows and columns (N)
-    /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
-    ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
-    ///
-    /// @return
-    ///				NdArray
-    ///
-    template<typename dtype>
-    NdArray<dtype> eye(uint32 inN, int32 inK = 0) noexcept
-    {
-        return eye<dtype>(inN, inN, inK);
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
-    ///
     /// @param				inN: number of rows (N)
     /// @param				inM: number of columns (M)
     /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
@@ -101,6 +82,25 @@ namespace nc
         }
 
         return returnArray;
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return a 2-D array with ones on the diagonal and zeros elsewhere.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.eye.html
+    ///
+    /// @param				inN: number of rows and columns (N)
+    /// @param				inK: Index of the diagonal: 0 (the default) refers to the main diagonal,
+    ///				a positive value refers to an upper diagonal, and a negative value to a lower diagonal.
+    ///
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> eye(uint32 inN, int32 inK = 0) noexcept
+    {
+        return eye<dtype>(inN, inN, inK);
     }
 
     //============================================================================

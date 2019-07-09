@@ -65,7 +65,7 @@ namespace nc
             /// @return
             ///              None
             ///
-            ClusterMaker(const NdArray<bool> const* const inXcdArrayPtr, const NdArray<dtype> const* const inIntensityArrayPtr, uint8 inBorderWidth = 0) :
+            ClusterMaker(const NdArray<bool>* const inXcdArrayPtr, const NdArray<dtype>* const inIntensityArrayPtr, uint8 inBorderWidth = 0) :
                 xcds_(inXcdArrayPtr),
                 intensities_(inIntensityArrayPtr)
             {

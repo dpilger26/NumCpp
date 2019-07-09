@@ -244,9 +244,8 @@
 #include "NumCpp/Methods/trace.hpp"
 #include "NumCpp/Methods/transpose.hpp"
 #include "NumCpp/Methods/trapz.hpp"
-#include "NumCpp/Methods/tril.hpp"
+#include "NumCpp/Methods/tri.hpp"
 #include "NumCpp/Methods/trim_zeros.hpp"
-#include "NumCpp/Methods/triu.hpp"
 #include "NumCpp/Methods/trunc.hpp"
 
 #include "NumCpp/Methods/union1d.hpp"

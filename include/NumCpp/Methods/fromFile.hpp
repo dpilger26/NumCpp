@@ -75,10 +75,16 @@ namespace nc
             file.seekg(0, file.beg);
 
             char* fileBuffer = new char[fileSize];
-            const size_t bytesRead = file.read(fileBuffer, fileSize);
+            file.read(fileBuffer, fileSize);
+
+            if (file.bad() || file.fail())
+            {
+                THROW_INVALID_ARGUMENT_ERROR("error occured while reading the file");
+            }
+
             file.close();
 
-            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer), static_cast<uint32>(bytesRead));
+            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer), fileSize);
             delete[] fileBuffer;
 
             return returnArray;
