@@ -3613,7 +3613,7 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        NdArray<dtype> operator-() noexcept
+        NdArray<dtype> operator-() const noexcept
         {
             return copy() *= -1;
         }

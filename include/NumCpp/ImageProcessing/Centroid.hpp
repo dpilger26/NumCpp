@@ -230,7 +230,7 @@ namespace nc
 
                 for (auto& pixel : inCluster)
                 {
-                    clusterArray(pixel.row() - rowMin, pixel.col() - colMin) = pixel.intensity();
+                    clusterArray(pixel.row - rowMin, pixel.col - colMin) = pixel.intensity;
                 }
 
                 // first get the row center

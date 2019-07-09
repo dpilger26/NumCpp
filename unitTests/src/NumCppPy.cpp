@@ -24,6 +24,7 @@ namespace bp = boost::python;
 namespace np = boost::python::numpy;
 
 using namespace nc;
+using namespace nc::boostPythonInterface;
 
 //================================================================================
 
@@ -1143,7 +1144,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray asarrayList(dtype inValue1, dtype inValue2)
     {
-        return nc2Boost(asarray<dtype>({ inValue1, inValue2 }));
+        return nc2Boost<dtype>({ {inValue1, inValue2}, {inValue1, inValue2} });
     }
 
     //================================================================================
@@ -2541,9 +2542,21 @@ namespace MethodsInterface
 namespace RandomInterface
 {
     template<typename dtype>
+    dtype choiceSingle(const NdArray<dtype>& inArray)
+    {
+        return random::choice(inArray);
+    }
+
+    template<typename dtype>
+    np::ndarray choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
+    {
+        return nc2Boost(random::choice(inArray, inNum));
+    }
+
+    template<typename dtype>
     np::ndarray permutationScaler(dtype inValue)
     {
-        return nc2Boost(Random<dtype>::permutation(inValue));
+        return nc2Boost(random::permutation(inValue));
     }
 
     //================================================================================
@@ -2551,7 +2564,7 @@ namespace RandomInterface
     template<typename dtype>
     np::ndarray permutationArray(const NdArray<dtype>& inArray)
     {
-        return nc2Boost(Random<dtype>::permutation(inArray));
+        return nc2Boost(random::permutation(inArray));
     }
 }
 
@@ -2697,21 +2710,6 @@ namespace DataCubeInterface
     NdArray<dtype>& getItem(DataCube<dtype>& self, uint32 inIndex)
     {
         return self[inIndex];
-    }
-}
-
-namespace RandomInterface
-{
-    template<typename dtype>
-    dtype choiceSingle(const NdArray<dtype>& inArray)
-    {
-        return nc::Random<dtype>::choice(inArray);
-    }
-
-    template<typename dtype>
-    np::ndarray choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
-    {
-        return nc2Boost(nc::Random<dtype>::choice(inArray, inNum));
     }
 }
 
@@ -3475,100 +3473,96 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("sqr", &utils::sqr<double>);
     bp::def("cube", &utils::cube<double>);
     bp::def("power", &utils::power<double>);
-    bp::def("powerf", &utils::powerf<double>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<float>);
     bp::def("sqr", &utils::sqr<float>);
     bp::def("cube", &utils::cube<float>);
     bp::def("power", &utils::power<float>);
-    bp::def("power", &utils::powerf<float>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<int8>);
     bp::def("sqr", &utils::sqr<int8>);
     bp::def("cube", &utils::cube<int8>);
     bp::def("power", &utils::power<int8>);
-    bp::def("powerf", &utils::powerf<int8>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<int16>);
     bp::def("sqr", &utils::sqr<int16>);
     bp::def("cube", &utils::cube<int16>);
     bp::def("power", &utils::power<int16>);
-    bp::def("powerf", &utils::powerf<int16>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<int32>);
     bp::def("sqr", &utils::sqr<int32>);
     bp::def("cube", &utils::cube<int32>);
     bp::def("power", &utils::power<int32>);
-    bp::def("powerf", &utils::power<int32>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<int64>);
     bp::def("sqr", &utils::sqr<int64>);
     bp::def("cube", &utils::cube<int64>);
     bp::def("power", &utils::power<int64>);
-    bp::def("powerf", &utils::powerf<int64>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<uint8>);
     bp::def("sqr", &utils::sqr<uint8>);
     bp::def("cube", &utils::cube<uint8>);
     bp::def("power", &utils::power<uint8>);
-    bp::def("powerf", &utils::powerf<uint8>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<uint16>);
     bp::def("sqr", &utils::sqr<uint16>);
     bp::def("cube", &utils::cube<uint16>);
     bp::def("power", &utils::power<uint16>);
-    bp::def("powerf", &utils::powerf<uint16>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<uint32>);
     bp::def("sqr", &utils::sqr<uint32>);
     bp::def("cube", &utils::cube<uint32>);
     bp::def("power", &utils::power<uint32>);
-    bp::def("powerf", &utils::powerf<uint32>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<uint64>);
     bp::def("sqr", &utils::sqr<uint64>);
     bp::def("cube", &utils::cube<uint64>);
     bp::def("power", &utils::power<uint64>);
-    bp::def("powerf", &utils::powerf<uint64>);
+    bp::def("powerf", &utils::powerf);
 
     // Random.hpp
-    typedef nc::Random<double> RandomDouble;
-    typedef nc::Random<int32> RandomInt32;
-    bp::class_<RandomDouble>
-        ("Random", bp::init<>())
-        .def("bernoulli", &RandomDouble::bernoulli).staticmethod("bernoulli")
-        .def("beta", &RandomDouble::beta).staticmethod("beta")
-        .def("binomial", &RandomInt32::binomial).staticmethod("binomial")
-        .def("chiSquare", &RandomDouble::chiSquare).staticmethod("chiSquare")
-        .def("choiceSingle", &RandomInterface::choiceSingle<double>).staticmethod("choiceSingle")
-        .def("choiceMultiple", &RandomInterface::choiceMultiple<double>).staticmethod("choiceMultiple")
-        .def("cauchy", &RandomDouble::cauchy).staticmethod("cauchy")
-        .def("discrete", &RandomInt32::discrete).staticmethod("discrete")
-        .def("exponential", &RandomDouble::exponential).staticmethod("exponential")
-        .def("extremeValue", &RandomDouble::extremeValue).staticmethod("extremeValue")
-        .def("f", &RandomDouble::f).staticmethod("f")
-        .def("gamma", &RandomDouble::gamma).staticmethod("gamma")
-        .def("geometric", &RandomInt32::geometric).staticmethod("geometric")
-        .def("laplace", &RandomDouble::laplace).staticmethod("laplace")
-        .def("lognormal", &RandomDouble::lognormal).staticmethod("lognormal")
-        .def("negativeBinomial", &RandomInt32::negativeBinomial).staticmethod("negativeBinomial")
-        .def("nonCentralChiSquared", &RandomDouble::nonCentralChiSquared).staticmethod("nonCentralChiSquared")
-        .def("normal", &RandomDouble::normal).staticmethod("normal")
-        .def("permutationScaler", &RandomInterface::permutationScaler<double>).staticmethod("permutationScaler")
-        .def("permutationArray", &RandomInterface::permutationArray<double>).staticmethod("permutationArray")
-        .def("poisson", &RandomInt32::poisson).staticmethod("poisson")
-        .def("rand", &RandomDouble::rand).staticmethod("rand")
-        .def("randN", &RandomDouble::randN).staticmethod("randN")
-        .def("randFloat", &RandomDouble::randFloat).staticmethod("randFloat")
-        .def("randInt", &RandomInt32::randInt).staticmethod("randInt")
-        .def("seed", &RandomDouble::seed).staticmethod("seed")
-        .def("shuffle", &RandomDouble::shuffle).staticmethod("shuffle")
-        .def("studentT", &RandomDouble::studentT).staticmethod("studentT")
-        .def("standardNormal", &RandomDouble::standardNormal).staticmethod("standardNormal")
-        .def("triangle", &RandomDouble::triangle).staticmethod("triangle")
-        .def("uniform", &RandomDouble::uniform).staticmethod("uniform")
-        .def("uniformOnSphere", &RandomDouble::uniformOnSphere).staticmethod("uniformOnSphere")
-        .def("weibull", &RandomDouble::weibull).staticmethod("weibull");
+    bp::def("bernoulli", &random::bernoulli<double>);
+    bp::def("beta", &random::beta<double>);
+    bp::def("binomial", &random::binomial<int32>);
+    bp::def("chiSquare", &random::chiSquare<double>);
+    bp::def("choiceSingle", &RandomInterface::choiceSingle<double>);
+    bp::def("choiceMultiple", &RandomInterface::choiceMultiple<double>);
+    bp::def("cauchy", &random::cauchy<double>);
+    bp::def("discrete", &random::discrete<int32>);
+    bp::def("exponential", &random::exponential<double>);
+    bp::def("extremeValue", &random::extremeValue<double>);
+    bp::def("f", &random::f<double>);
+    bp::def("gamma", &random::gamma<double>);
+    bp::def("geometric", &random::geometric<int32>);
+    bp::def("laplace", &random::laplace<double>);
+    bp::def("lognormal", &random::lognormal<double>);
+    bp::def("negativeBinomial", &random::negativeBinomial<int32>);
+    bp::def("nonCentralChiSquared", &random::nonCentralChiSquared<double>);
+    bp::def("normal", &random::normal<double>);
+    bp::def("permutationScaler", &RandomInterface::permutationScaler<double>);
+    bp::def("permutationArray", &RandomInterface::permutationArray<double>);
+    bp::def("poisson", &random::poisson<int32>);
+    bp::def("rand", &random::rand<double>);
+    bp::def("randN", &random::randN<double>);
+    bp::def("randFloat", &random::randFloat<double>);
+    bp::def("randInt", &random::randInt<int32>);
+    bp::def("seed", &random::seed);
+    bp::def("shuffle", &random::shuffle<double>);
+    bp::def("studentT", &random::studentT<double>);
+    bp::def("standardNormal", &random::standardNormal<double>);
+    bp::def("triangle", &random::triangle<double>);
+    bp::def("uniform", &random::uniform<double>);
+    bp::def("uniformOnSphere", &random::uniformOnSphere<double>);
+    bp::def("weibull", &random::weibull<double>);
 
     // Linalg.hpp
     bp::def("det", &linalg::det<double>);
@@ -3661,11 +3655,10 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__eq__", &PixelDouble::operator==)
         .def("__ne__", &PixelDouble::operator!=)
         .def("__lt__", &PixelDouble::operator<)
-        .def("clusterId", &PixelDouble::clusterId)
-        .def("setClusterId", &PixelDouble::setClusterId)
-        .def("row", &PixelDouble::row)
-        .def("col", &PixelDouble::col)
-        .def("intensity", &PixelDouble::intensity)
+        .def_readonly("clusterId", &PixelDouble::clusterId)
+        .def_readonly("row", &PixelDouble::row)
+        .def_readonly("col", &PixelDouble::col)
+        .def_readonly("intensity", &PixelDouble::intensity)
         .def("__str__", &PixelDouble::str)
         .def("print", &PixelDouble::print);
 

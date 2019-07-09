@@ -212,8 +212,8 @@ namespace nc
                 // using a set will auto take care of adding duplicate pixels on the edges
 
                 // the 8 surrounding neighbors
-                const int32 row = static_cast<int32>(inPixel.row());
-                const int32 col = static_cast<int32>(inPixel.col());
+                const int32 row = static_cast<int32>(inPixel.row);
+                const int32 col = static_cast<int32>(inPixel.col);
 
                 outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col - 1));
                 outNeighbors.insert(outNeighbors.end(), makePixel(row - 1, col));
@@ -243,7 +243,7 @@ namespace nc
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
                 for (auto& pixel : neighbors)
                 {
-                    if (!xcds_->operator()(pixel.row(), pixel.col()))
+                    if (!xcds_->operator()(pixel.row, pixel.col))
                     {
                         outNeighbors.push_back(pixel);
                     }
@@ -269,7 +269,7 @@ namespace nc
                 // check if the neighboring pixels are exceedances and insert into the xcd vector
                 for (auto& pixel : neighbors)
                 {
-                    if (xcds_->operator()(pixel.row(), pixel.col()))
+                    if (xcds_->operator()(pixel.row, pixel.col))
                     {
                         neighborXcds.push_back(pixel);
                     }
@@ -294,10 +294,10 @@ namespace nc
                 for (auto& currentPixel : xcdsVec_)
                 {
                     // not already visited
-                    if (currentPixel.clusterId() == -1)
+                    if (currentPixel.clusterId == -1)
                     {
                         Cluster<dtype> newCluster(clusterId);    // a new cluster
-                        currentPixel.setClusterId(clusterId);
+                        currentPixel.clusterId = clusterId;
                         newCluster.addPixel(currentPixel);  // assign pixel to cluster
 
                         // get the neighbors
@@ -330,9 +330,9 @@ namespace nc
                             }
 
                             // not already assigned to a cluster
-                            if (currentNeighborPixel.clusterId() == -1)
+                            if (currentNeighborPixel.clusterId == -1)
                             {
-                                currentNeighborPixel.setClusterId(clusterId);
+                                currentNeighborPixel.clusterId = clusterId;
                                 newCluster.addPixel(currentNeighborPixel);
                             }
                         }

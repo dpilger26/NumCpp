@@ -41,6 +41,22 @@ namespace nc
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
     ///
+    /// @param			inSquareSize
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> ones(uint32 inSquareSize) noexcept
+    {
+        return full(inSquareSize, inSquareSize, static_cast<dtype>(1));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Return a new array of given shape and type, filled with ones.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ones.html
+    ///
     /// @param			inNumRows
     /// @param			inNumCols
     /// @return

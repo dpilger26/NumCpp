@@ -58,7 +58,7 @@ namespace nc
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
             const uint32 boundarySize = inWeights.size() / 2; // integer division
-            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);
+            NdArray<dtype> arrayWithBoundary = boundary::addBoundary1d(inImageArray, inBoundaryType, inWeights.size(), inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             NdArray<dtype> weightsFlat = fliplr(inWeights.flatten());

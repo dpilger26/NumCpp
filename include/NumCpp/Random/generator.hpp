@@ -48,7 +48,7 @@ namespace nc
         /// @param
         ///				inSeed
         ///
-        void seed(uint32 inSeed) noexcept
+        inline void seed(uint32 inSeed) noexcept
         {
             generator_.seed(inSeed);
         }

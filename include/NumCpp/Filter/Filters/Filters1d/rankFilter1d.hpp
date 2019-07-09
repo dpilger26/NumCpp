@@ -57,7 +57,7 @@ namespace nc
         NdArray<dtype> rankFilter1d(const NdArray<dtype>& inImageArray, uint32 inSize, uint8 inRank,
             Boundary inBoundaryType = Boundary::REFLECT, dtype inConstantValue = 0)
         {
-            NdArray<dtype> arrayWithBoundary = addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = boundary::addBoundary1d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(1, inImageArray.size());
 
             const uint32 boundarySize = inSize / 2; // integer division

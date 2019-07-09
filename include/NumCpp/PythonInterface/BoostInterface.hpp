@@ -58,8 +58,7 @@ namespace nc
             BoostNdarrayHelper helper(inArray);
             if (helper.numDimensions() > 2)
             {
-                std::string errStr = "ERROR: Can only convert 1 and 2 dimensional arrays.";
-                error::throwRuntime(errStr);
+                THROW_RUNTIME_ERROR("Can only convert 1 and 2 dimensional arrays.");
             }
 
             Shape arrayShape;

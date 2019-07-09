@@ -71,23 +71,23 @@ namespace nc
                 {
                     case Boundary::REFLECT:
                     {
-                        return reflectBoundary1d(inImage, boundarySize);
+                        return reflect1d(inImage, boundarySize);
                     }
                     case Boundary::CONSTANT:
                     {
-                        return constantBoundary1d(inImage, boundarySize, inConstantValue);
+                        return constant1d(inImage, boundarySize, inConstantValue);
                     }
                     case Boundary::NEAREST:
                     {
-                        return nearestBoundary1d(inImage, boundarySize);
+                        return nearest1d(inImage, boundarySize);
                     }
                     case Boundary::MIRROR:
                     {
-                        return mirrorBoundary1d(inImage, boundarySize);
+                        return mirror1d(inImage, boundarySize);
                     }
                     case Boundary::WRAP:
                     {
-                        return wrapBoundary1d(inImage, boundarySize);
+                        return wrap1d(inImage, boundarySize);
                     }
                     default:
                     {

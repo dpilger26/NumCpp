@@ -68,7 +68,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input weights do no match input kernal size.");
             }
 
-            NdArray<dtype> arrayWithBoundary = addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
             NdArray<dtype> weightsFlat = rot90(inWeights, 2).flatten();

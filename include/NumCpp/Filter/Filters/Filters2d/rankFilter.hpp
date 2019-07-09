@@ -65,7 +65,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("rank not within filter footprint size.");
             }
 
-            NdArray<dtype> arrayWithBoundary = addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
+            NdArray<dtype> arrayWithBoundary = boundary::addBoundary2d(inImageArray, inBoundaryType, inSize, inConstantValue);
             NdArray<dtype> output(inImageArray.shape());
 
             const Shape inShape = inImageArray.shape();

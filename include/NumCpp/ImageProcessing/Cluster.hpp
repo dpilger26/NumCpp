@@ -328,33 +328,14 @@ namespace nc
             void addPixel(const Pixel<dtype>& inPixel)
             {
                 pixels_.push_back(inPixel);
-                intensity_ += inPixel.intensity();
+                intensity_ += inPixel.intensity;
 
                 // adjust the cluster bounds
-                const uint32 row = inPixel.row();
-                const uint32 col = inPixel.col();
-                if (row < rowMin_)
-                {
-                    rowMin_ = row;
-                }
-                if (row > rowMax_)
-                {
-                    rowMax_ = row;
-                }
-                if (col < colMin_)
-                {
-                    colMin_ = col;
-                }
-                if (col > colMax_)
-                {
-                    colMax_ = col;
-                }
-
-                // adjust he peak pixel intensity
-                if (inPixel.intensity() > peakPixelIntensity_)
-                {
-                    peakPixelIntensity_ = inPixel.intensity();
-                }
+                rowMin_ = std::min(rowMin_, inPixel.row);
+                rowMax_ = std::max(rowMax_, inPixel.row);
+                colMin_ = std::min(colMin_, inPixel.col);
+                colMax_ = std::max(colMax_, inPixel.col);
+                peakPixelIntensity_ = std::max(peakPixelIntensity_, inPixel.intensity);
 
                 // calculate the energy on detector estimate
                 eod_ = static_cast<double>(peakPixelIntensity_) / static_cast<double>(intensity_);

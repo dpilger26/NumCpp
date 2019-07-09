@@ -73,6 +73,7 @@
 #include "NumCpp/Methods/concatenate.hpp"
 #include "NumCpp/Methods/contains.hpp"
 #include "NumCpp/Methods/copy.hpp"
+#include "NumCpp/Methods/copyto.hpp"
 #include "NumCpp/Methods/copySign.hpp"
 #include "NumCpp/Methods/cos.hpp"
 #include "NumCpp/Methods/cosh.hpp"
