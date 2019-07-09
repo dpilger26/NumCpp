@@ -118,7 +118,7 @@
 #include "NumCpp/Methods/fmod.hpp"
 #include "NumCpp/Methods/fromBuffer.hpp"
 #include "NumCpp/Methods/fromFile.hpp"
-#include "NumCpp/Methods/fromIter.hpp"
+#include "NumCpp/Methods/fromiter.hpp"
 #include "NumCpp/Methods/full.hpp"
 #include "NumCpp/Methods/full_like.hpp"
 
