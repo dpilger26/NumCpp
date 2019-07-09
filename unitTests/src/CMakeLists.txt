@@ -5,7 +5,7 @@ project(${PROJECT_NAME})
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # -fPIC
-set(NUMCPP_INCLUDES ../../src)
+set(NUMCPP_INCLUDES ../../include)
 set(BOOST_MIN_VERSION 1.63.0) # first version with numpy interface
 
 if(NOT CMAKE_BUILD_TYPE)
