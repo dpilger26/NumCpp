@@ -1,5 +1,29 @@
 var searchData=
 [
-  ['shape_2ehpp',['Shape.hpp',['../_shape_8hpp.html',1,'']]],
-  ['slice_2ehpp',['Slice.hpp',['../_slice_8hpp.html',1,'']]]
+  ['cube_2ehpp',['cube.hpp',['../_methods_2cube_8hpp.html',1,'']]],
+  ['interp_2ehpp',['interp.hpp',['../_methods_2interp_8hpp.html',1,'']]],
+  ['matmul_2ehpp',['matmul.hpp',['../matmul_8hpp.html',1,'']]],
+  ['matrix_5fpower_2ehpp',['matrix_power.hpp',['../matrix__power_8hpp.html',1,'']]],
+  ['max_2ehpp',['max.hpp',['../max_8hpp.html',1,'']]],
+  ['maximum_2ehpp',['maximum.hpp',['../maximum_8hpp.html',1,'']]],
+  ['maximumfilter_2ehpp',['maximumFilter.hpp',['../maximum_filter_8hpp.html',1,'']]],
+  ['maximumfilter1d_2ehpp',['maximumFilter1d.hpp',['../maximum_filter1d_8hpp.html',1,'']]],
+  ['mean_2ehpp',['mean.hpp',['../mean_8hpp.html',1,'']]],
+  ['median_2ehpp',['median.hpp',['../median_8hpp.html',1,'']]],
+  ['medianfilter_2ehpp',['medianFilter.hpp',['../median_filter_8hpp.html',1,'']]],
+  ['medianfilter1d_2ehpp',['medianFilter1d.hpp',['../median_filter1d_8hpp.html',1,'']]],
+  ['meshgrid_2ehpp',['meshgrid.hpp',['../meshgrid_8hpp.html',1,'']]],
+  ['methods_2ehpp',['Methods.hpp',['../_methods_8hpp.html',1,'']]],
+  ['min_2ehpp',['min.hpp',['../min_8hpp.html',1,'']]],
+  ['minimum_2ehpp',['minimum.hpp',['../minimum_8hpp.html',1,'']]],
+  ['minimumfilter_2ehpp',['minimumFilter.hpp',['../minimum_filter_8hpp.html',1,'']]],
+  ['minimumfilter1d_2ehpp',['minimumFilter1d.hpp',['../minimum_filter1d_8hpp.html',1,'']]],
+  ['mirror1d_2ehpp',['mirror1d.hpp',['../mirror1d_8hpp.html',1,'']]],
+  ['mirror2d_2ehpp',['mirror2d.hpp',['../mirror2d_8hpp.html',1,'']]],
+  ['mod_2ehpp',['mod.hpp',['../mod_8hpp.html',1,'']]],
+  ['multi_5fdot_2ehpp',['multi_dot.hpp',['../multi__dot_8hpp.html',1,'']]],
+  ['multiply_2ehpp',['multiply.hpp',['../multiply_8hpp.html',1,'']]],
+  ['power_2ehpp',['power.hpp',['../_methods_2power_8hpp.html',1,'']]],
+  ['powerf_2ehpp',['powerf.hpp',['../_methods_2powerf_8hpp.html',1,'']]],
+  ['shape_2ehpp',['shape.hpp',['../_methods_2_shape_8hpp.html',1,'']]]
 ];

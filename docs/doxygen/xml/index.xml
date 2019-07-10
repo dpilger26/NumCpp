@@ -1,31 +1,34 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
-  <compound refid="classnc_1_1_boost_ndarray_helper" kind="class"><name>nc::BoostNdarrayHelper</name>
-    <member refid="classnc_1_1_boost_ndarray_helper_1aac8805608b930070a0f72a845b1021c2" kind="variable"><name>numDimensions_</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a933aaefad1b7ee49b86acf10e960c5c6" kind="variable"><name>order_</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a1f5521c50f761c4d4163d2dbb0278d1b" kind="variable"><name>shape_</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a25bfc14dd9db0c32cc7a512f265d6137" kind="variable"><name>strides_</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a269648dac64b201724aa2d444207b14c" kind="variable"><name>theArray_</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1ae5792d9fb0c0af88730b473cff17ce6c" kind="function"><name>checkIndices1D</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1adf915a9fcba0c9b0cc45b16a1a3084dc" kind="function"><name>checkIndices2D</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1ab4dee34f6c4e07d0fed67bd194d69c63" kind="function"><name>checkIndices3D</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1ad11fc1c0dff73fb019bd6c1aceee9841" kind="function"><name>checkIndicesGeneric</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a96f2cc6ce937378a92fd5bc7b3eb4ec6" kind="function"><name>BoostNdarrayHelper</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a080a485fa710a3ccb1233816ae19d674" kind="function"><name>BoostNdarrayHelper</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1ad4fc3eab4bd169937224e18a39318094" kind="function"><name>getArray</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1ab4703fcb4c9e0ff85895d06274ca9598" kind="function"><name>getArrayAsMatrix</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a7733d98210d4bbd186e374a1e643f67a" kind="function"><name>numDimensions</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a127e3c4b0dd791cf4e5d48b86838fc8c" kind="function"><name>operator()</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1ae0e413531e64db43066429aebc79302d" kind="function"><name>operator()</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a3dfe91791112aa8b1ef00d8b1aec9f6f" kind="function"><name>operator()</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a1966ccb4291117aab38d49e78d328ece" kind="function"><name>order</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1aa95c0475b7e9397d093e47754cbc14be" kind="function"><name>printArray1D</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1abeaa315c3d26bf5637ed1eaa7d4439e6" kind="function"><name>printArray2D</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1ae3ab2a22ba2c20ce7ced9d371bd615e2" kind="function"><name>printArray3D</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a71c1fa8b479202b64e5a970a500078a3" kind="function"><name>shape</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a98ca7d60e1b0dd26f92350a3d73e940f" kind="function"><name>shapeEqual</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a18b8a1c8a4f39ac14a3a88c7e8abb835" kind="function"><name>size</name></member>
-    <member refid="classnc_1_1_boost_ndarray_helper_1a3e04edc94d3004b72aac6d13277e03cf" kind="function"><name>strides</name></member>
+  <compound refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper" kind="class"><name>nc::boostPythonInterface::BoostNdarrayHelper</name>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311" kind="enum"><name>Order</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311a800618943025315f869e4e1f09471012" kind="enumvalue"><name>F</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311a0d61f8370cad1d412f80b84d143e1257" kind="enumvalue"><name>C</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a9e96a9915028eba571a4754c5c2d1404" kind="variable"><name>numDimensions_</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a36763ef3afb32c170faf35d04cf44984" kind="variable"><name>order_</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a00c560b381942f6204e5be5119f350dc" kind="variable"><name>shape_</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a367a65935404f6eeafb5e4df8bacb6a4" kind="variable"><name>strides_</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a5911df7838604bed3d8002b3cddda353" kind="variable"><name>theArray_</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aeba500f0e3cc235e7b490a431bb9516f" kind="function"><name>checkIndices1D</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a35b2287c13aba270d6d6c2e9e300966f" kind="function"><name>checkIndices2D</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a5e5b524f482928de6f290452a8bf917d" kind="function"><name>checkIndices3D</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa401cee13afca12c789a37d869729f30" kind="function"><name>checkIndicesGeneric</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a30364907e676e70f584cb7ccaa5ac547" kind="function"><name>BoostNdarrayHelper</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a961bbdf1557d85a48f1ae40d23ac37fa" kind="function"><name>BoostNdarrayHelper</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ad4ff3ef56ab470aca4ea2acc90824810" kind="function"><name>getArray</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a60dc597b784976e6241bf61686250d72" kind="function"><name>getArrayAsMatrix</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa16c4299e90c836df0f2397dc1c78b1a" kind="function"><name>numDimensions</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ac7d7771239aa10a8599a37b30a434eb1" kind="function"><name>operator()</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a666bb0d7ffa14bad410f0b1419c7ef9d" kind="function"><name>operator()</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa595a1a42ed68d5b5701e31c087cff50" kind="function"><name>operator()</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa235602ad1f2455a86ab7a9944f70d2c" kind="function"><name>order</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aec8b200d42f2235d8fa6789ce760cca4" kind="function"><name>printArray1D</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1acb5f51b3307274d6092886b034816fcf" kind="function"><name>printArray2D</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aea83665f429e95b43612c0d08e61b556" kind="function"><name>printArray3D</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a85eb7408eca779923d5f72bba5c15d94" kind="function"><name>shape</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ab0e47d83edf0a6b6247b30e930e5e8e4" kind="function"><name>shapeEqual</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ac00c6e4cf0c97c1720ae6439228202cb" kind="function"><name>size</name></member>
+    <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a41b50017bc8bd0b71c662b598a0c86a7" kind="function"><name>strides</name></member>
   </compound>
   <compound refid="classnc_1_1coordinates_1_1_coordinate" kind="class"><name>nc::coordinates::Coordinate</name>
     <member refid="classnc_1_1coordinates_1_1_coordinate_1aa7e413d5e418e45479098e7a3dab6fb2" kind="variable"><name>dec_</name></member>
@@ -138,7 +141,6 @@
     <member refid="classnc_1_1image_processing_1_1_centroid_1a2dc8f18c70ec926dc63548ad58d11299" kind="variable"><name>eod_</name></member>
     <member refid="classnc_1_1image_processing_1_1_centroid_1af63580a3917decb6223b3ef7a8c429be" kind="variable"><name>intensity_</name></member>
     <member refid="classnc_1_1image_processing_1_1_centroid_1a25ba28fb7f5f350af12343e246b885dd" kind="variable"><name>row_</name></member>
-    <member refid="classnc_1_1image_processing_1_1_centroid_1abbe27fc0eda557ee241c1fc5f280fc5a" kind="function"><name>centerOfMass</name></member>
     <member refid="classnc_1_1image_processing_1_1_centroid_1a3b97e4ddc31b85eb8c3f84b398429a35" kind="function"><name>Centroid</name></member>
     <member refid="classnc_1_1image_processing_1_1_centroid_1a59d0af7acae8d24d29ccb372440aed22" kind="function"><name>Centroid</name></member>
     <member refid="classnc_1_1image_processing_1_1_centroid_1a4ef0e9b2faa4999af5c3597a60140d6c" kind="function"><name>col</name></member>
@@ -151,6 +153,7 @@
     <member refid="classnc_1_1image_processing_1_1_centroid_1aa3546b7b2430b51650f40fb344ab55a8" kind="function"><name>row</name></member>
     <member refid="classnc_1_1image_processing_1_1_centroid_1aa39ae81638b8f7ed7b81d4476e2a6316" kind="function"><name>str</name></member>
     <member refid="classnc_1_1image_processing_1_1_centroid_1a787da1f79223e97a2788a2ad47e1c394" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="classnc_1_1image_processing_1_1_centroid_1abbe27fc0eda557ee241c1fc5f280fc5a" kind="function"><name>centerOfMass</name></member>
   </compound>
   <compound refid="classnc_1_1image_processing_1_1_cluster" kind="class"><name>nc::imageProcessing::Cluster</name>
     <member refid="classnc_1_1image_processing_1_1_cluster_1a62b3af242c6a62dd79c05ad204a7f7f8" kind="typedef"><name>const_iterator</name></member>
@@ -163,6 +166,7 @@
     <member refid="classnc_1_1image_processing_1_1_cluster_1ad6f3b6a6ef813f7f3ea1e6b3c3467c53" kind="variable"><name>pixels_</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_1afbcacf780ff8945742acdac326ed35cb" kind="variable"><name>rowMax_</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_1a1925205dd98b998c8aeedfc58dc6b8c5" kind="variable"><name>rowMin_</name></member>
+    <member refid="classnc_1_1image_processing_1_1_cluster_1a4bb7b9b5d7edd34a5e7468a5b4979c30" kind="function"><name>Cluster</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_1a129d4f5d1b316dd8193fcaf27a311447" kind="function"><name>Cluster</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_1a9cab13be79b63d9151e60a798ca39cb5" kind="function"><name>addPixel</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_1a5a8d82d40cea566786e8f80ad72a6d10" kind="function"><name>at</name></member>
@@ -193,35 +197,30 @@
     <member refid="classnc_1_1image_processing_1_1_cluster_maker_1afa9ebc28596fb8c53cefeedd58d869f7" kind="variable"><name>shape_</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a81946a8bda044a42cf520482924dd005" kind="variable"><name>xcds_</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_maker_1aac1996d2bf2e947dc523f572ff96c594" kind="variable"><name>xcdsVec_</name></member>
-    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1ae010b9d40ac71506b4fc13b745584e7f" kind="function"><name>expandClusters</name></member>
-    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a02051966aa42065f5b19c0e51cf6330b" kind="function"><name>findNeighborNotXcds</name></member>
-    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a9f344c73ac666a2e92c54645152ab1b1" kind="function"><name>findNeighbors</name></member>
-    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1acf7db014b62448f9c628bcf920f72e7b" kind="function"><name>findNeighborXcds</name></member>
-    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a64eff25979384b99aa3eeedaa5bb9488" kind="function"><name>makePixel</name></member>
-    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1ab06f50b0c69b4777ec19f97329d93d45" kind="function"><name>runClusterMaker</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a17c7a9f6260f7d6d0aea002b7e5e6ae6" kind="function"><name>ClusterMaker</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a679db8e4b1f175af3db67c756c54d6b1" kind="function"><name>at</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a37c172d7253190e76b065ed2547c3020" kind="function"><name>begin</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a7d5ceccddb2db3b143c772ec9d66460a" kind="function"><name>end</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_maker_1ad46d21ec00e2d98b7f32bab71ee227bd" kind="function"><name>operator[]</name></member>
     <member refid="classnc_1_1image_processing_1_1_cluster_maker_1aa142c0bd82e1b181bfccedc8db17dee7" kind="function"><name>size</name></member>
+    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1ae010b9d40ac71506b4fc13b745584e7f" kind="function"><name>expandClusters</name></member>
+    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a02051966aa42065f5b19c0e51cf6330b" kind="function"><name>findNeighborNotXcds</name></member>
+    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a9f344c73ac666a2e92c54645152ab1b1" kind="function"><name>findNeighbors</name></member>
+    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1acf7db014b62448f9c628bcf920f72e7b" kind="function"><name>findNeighborXcds</name></member>
+    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a64eff25979384b99aa3eeedaa5bb9488" kind="function"><name>makePixel</name></member>
+    <member refid="classnc_1_1image_processing_1_1_cluster_maker_1ab06f50b0c69b4777ec19f97329d93d45" kind="function"><name>runClusterMaker</name></member>
   </compound>
   <compound refid="classnc_1_1image_processing_1_1_pixel" kind="class"><name>nc::imageProcessing::Pixel</name>
-    <member refid="classnc_1_1image_processing_1_1_pixel_1a0e6041f85e21f3b50981a1290a970e0a" kind="variable"><name>clusterId_</name></member>
-    <member refid="classnc_1_1image_processing_1_1_pixel_1a44e1da2233006def5ed53a50bb18560d" kind="variable"><name>col_</name></member>
-    <member refid="classnc_1_1image_processing_1_1_pixel_1ab81d76adf1886121c77e116ce3e47e3b" kind="variable"><name>intensity_</name></member>
-    <member refid="classnc_1_1image_processing_1_1_pixel_1a6146a9bc8d61a1e67676b29be37d5dd0" kind="variable"><name>row_</name></member>
+    <member refid="classnc_1_1image_processing_1_1_pixel_1ac22936e8b5b80a1c557faaf9722b3183" kind="variable"><name>clusterId</name></member>
+    <member refid="classnc_1_1image_processing_1_1_pixel_1a6749c7a5513e2b7ee5c027aef104b269" kind="variable"><name>col</name></member>
+    <member refid="classnc_1_1image_processing_1_1_pixel_1a2ffea8fff18945da4971ab4c847a49bd" kind="variable"><name>intensity</name></member>
+    <member refid="classnc_1_1image_processing_1_1_pixel_1a6e712ef3b6547f5cafb6e8db1349658e" kind="variable"><name>row</name></member>
     <member refid="classnc_1_1image_processing_1_1_pixel_1a4a7e03f5f6fb7f5c9831618f6b8d299c" kind="function"><name>Pixel</name></member>
     <member refid="classnc_1_1image_processing_1_1_pixel_1a426469a990f63f7173234ecddb298b04" kind="function"><name>Pixel</name></member>
-    <member refid="classnc_1_1image_processing_1_1_pixel_1a869747b6613987400d768479635c907b" kind="function"><name>clusterId</name></member>
-    <member refid="classnc_1_1image_processing_1_1_pixel_1a1f43a2420fc23750e21c94d578474522" kind="function"><name>col</name></member>
-    <member refid="classnc_1_1image_processing_1_1_pixel_1af48fc163306bef02484e8185e9c09d92" kind="function"><name>intensity</name></member>
     <member refid="classnc_1_1image_processing_1_1_pixel_1a8301175b4093d3a1e5b9f43bc0673c8e" kind="function"><name>operator!=</name></member>
     <member refid="classnc_1_1image_processing_1_1_pixel_1a592926833195d4f2587efef12e4b1148" kind="function"><name>operator&lt;</name></member>
     <member refid="classnc_1_1image_processing_1_1_pixel_1ad0aa7b54731c514b4599e723ab2e0afa" kind="function"><name>operator==</name></member>
     <member refid="classnc_1_1image_processing_1_1_pixel_1a3a8fb91578395ef70a5f6038c4c48062" kind="function"><name>print</name></member>
-    <member refid="classnc_1_1image_processing_1_1_pixel_1a14a430dd867f89a9eb6e112a7a5ce567" kind="function"><name>row</name></member>
-    <member refid="classnc_1_1image_processing_1_1_pixel_1afb36475cace389ddcb52a85141416828" kind="function"><name>setClusterId</name></member>
     <member refid="classnc_1_1image_processing_1_1_pixel_1ae47f279d2f0ba0921027e787e3773ee8" kind="function"><name>str</name></member>
     <member refid="classnc_1_1image_processing_1_1_pixel_1a157a2e98ace3e2185af571a68e5a5b9c" kind="friend"><name>operator&lt;&lt;</name></member>
   </compound>
@@ -354,6 +353,7 @@
     <member refid="classnc_1_1_nd_array_1a4bf97703eb224b0f5794bf02a940ca8d" kind="function"><name>operator++</name></member>
     <member refid="classnc_1_1_nd_array_1abe57d4fe2ffc190ca4bafe9f46cc8532" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1_nd_array_1a04e488dc23b79c7c6af5246305918807" kind="function"><name>operator+=</name></member>
+    <member refid="classnc_1_1_nd_array_1a7b8bd6756f2daa640408cfac5bc480ee" kind="function"><name>operator-</name></member>
     <member refid="classnc_1_1_nd_array_1a66d44478475f9fd63b0ccb2d2c6b2d7f" kind="function"><name>operator-</name></member>
     <member refid="classnc_1_1_nd_array_1a130bf931e0f0c1b2651cc82b05fbb38a" kind="function"><name>operator-</name></member>
     <member refid="classnc_1_1_nd_array_1a387cc67611f5deb901123f62817f1cd9" kind="function"><name>operator--</name></member>
@@ -462,41 +462,6 @@
     <member refid="classnc_1_1_poly1d_1a16f1c9b8cddcfcf8999277d6446251e1" kind="function"><name>str</name></member>
     <member refid="classnc_1_1_poly1d_1a80f939448c8b58ab286c57ab0212b785" kind="friend"><name>operator&lt;&lt;</name></member>
   </compound>
-  <compound refid="classnc_1_1_random" kind="class"><name>nc::Random</name>
-    <member refid="classnc_1_1_random_1a11b3ea85e8fb4c86365107b95b313b44" kind="function"><name>bernoulli</name></member>
-    <member refid="classnc_1_1_random_1a236668f625cd32cbea5288c5eaf54f7c" kind="function"><name>beta</name></member>
-    <member refid="classnc_1_1_random_1a71c188103a657ffca2cdc774f10b0401" kind="function"><name>binomial</name></member>
-    <member refid="classnc_1_1_random_1a4581af3814e86dc1747c9551be235f6f" kind="function"><name>cauchy</name></member>
-    <member refid="classnc_1_1_random_1abb4faf51dcca8ae9759b1262d64d7963" kind="function"><name>chiSquare</name></member>
-    <member refid="classnc_1_1_random_1a21c9eb05244f5b2699aba20c355271d2" kind="function"><name>choice</name></member>
-    <member refid="classnc_1_1_random_1a93cdbd1eb221effd117fa71853a4a85b" kind="function"><name>choice</name></member>
-    <member refid="classnc_1_1_random_1ac012f79d1cf5bb09a8557e338c222719" kind="function"><name>discrete</name></member>
-    <member refid="classnc_1_1_random_1aa035bb7e8e2987dc4a447b839ccc4cd8" kind="function"><name>exponential</name></member>
-    <member refid="classnc_1_1_random_1a53a28374728aaa7087e231f0fae53b08" kind="function"><name>extremeValue</name></member>
-    <member refid="classnc_1_1_random_1a6c5add0fbad5e12b09bcc906bc3e3042" kind="function"><name>f</name></member>
-    <member refid="classnc_1_1_random_1a93a1804dff12c99cbfea67d63b6c1705" kind="function"><name>gamma</name></member>
-    <member refid="classnc_1_1_random_1a1887cf86a1baebbd04a5478d6ba6d0e8" kind="function"><name>geometric</name></member>
-    <member refid="classnc_1_1_random_1a80c55a3bbcc68dc4a7721ca9a3e078ba" kind="function"><name>laplace</name></member>
-    <member refid="classnc_1_1_random_1aee9698e1d4dc96db76926c2ffdccb6d0" kind="function"><name>lognormal</name></member>
-    <member refid="classnc_1_1_random_1a72fc0e0e53cca6b78872c733b6a0ae3c" kind="function"><name>negativeBinomial</name></member>
-    <member refid="classnc_1_1_random_1ac9a8e8794eb51110c451327d7f7cc113" kind="function"><name>nonCentralChiSquared</name></member>
-    <member refid="classnc_1_1_random_1a476e3a7c5c3c861bfdd8a18ddee7513c" kind="function"><name>normal</name></member>
-    <member refid="classnc_1_1_random_1aac7f15f7239f83f1b345ff5dfcca92f7" kind="function"><name>permutation</name></member>
-    <member refid="classnc_1_1_random_1a880cb51bba7860edbf4f4fcc7b6ec5d2" kind="function"><name>permutation</name></member>
-    <member refid="classnc_1_1_random_1a2c9f9e6aa5ca88a6e1f674cf9f4391e3" kind="function"><name>poisson</name></member>
-    <member refid="classnc_1_1_random_1ac73c913bc278f74fd7d5085d03f837e0" kind="function"><name>rand</name></member>
-    <member refid="classnc_1_1_random_1a05b9dec10bb644cf7eddb739080f0a4f" kind="function"><name>randFloat</name></member>
-    <member refid="classnc_1_1_random_1a58118049d8d151830785eea302af5586" kind="function"><name>randInt</name></member>
-    <member refid="classnc_1_1_random_1aa1c4292668a94c9e5a9b554f9c0ca76d" kind="function"><name>randN</name></member>
-    <member refid="classnc_1_1_random_1ab6d07e63c6c81d701128f8200c5e70bb" kind="function"><name>seed</name></member>
-    <member refid="classnc_1_1_random_1a3f774eb455f2e06bc9d931b0c6f7e02e" kind="function"><name>shuffle</name></member>
-    <member refid="classnc_1_1_random_1a5e65e0fed009fe294a460ac746c6ebdc" kind="function"><name>standardNormal</name></member>
-    <member refid="classnc_1_1_random_1a57a05a8245191055af23eb5cf2b636cd" kind="function"><name>studentT</name></member>
-    <member refid="classnc_1_1_random_1a3419c1f88a3c562441af695afd387daf" kind="function"><name>triangle</name></member>
-    <member refid="classnc_1_1_random_1aaaa6a78b45066cdf9e8bd11f55ec37af" kind="function"><name>uniform</name></member>
-    <member refid="classnc_1_1_random_1a87d6d188ab390ea5fed2da488bdb0cfa" kind="function"><name>uniformOnSphere</name></member>
-    <member refid="classnc_1_1_random_1aed7b5774e94cfa1cca50f383ff3a3612" kind="function"><name>weibull</name></member>
-  </compound>
   <compound refid="classnc_1_1rotations_1_1_d_c_m" kind="class"><name>nc::rotations::DCM</name>
     <member refid="classnc_1_1rotations_1_1_d_c_m_1a0743bb21193dc68627aabffd6b4c2a2d" kind="function"><name>angleAxisRotation</name></member>
     <member refid="classnc_1_1rotations_1_1_d_c_m_1a19bba3a08c542c26a07536019847a4c8" kind="function"><name>angleAxisRotation</name></member>
@@ -591,7 +556,7 @@
     <member refid="classnc_1_1_timer_1a2aa595ac4946f888bad3ebe0a2fd7468" kind="function"><name>Timer</name></member>
     <member refid="classnc_1_1_timer_1a836e409a7c47556092849d56d8d3267b" kind="function"><name>setName</name></member>
     <member refid="classnc_1_1_timer_1a4a08ec3e6ba7a7979cb9e72d0cf3f2f7" kind="function"><name>tic</name></member>
-    <member refid="classnc_1_1_timer_1a23b01baabe26a986a0124233d7e9b83f" kind="function"><name>toc</name></member>
+    <member refid="classnc_1_1_timer_1a7c64b31bb98c3e037a587416f3d51015" kind="function"><name>toc</name></member>
   </compound>
   <compound refid="classnc_1_1_vec2" kind="class"><name>nc::Vec2</name>
     <member refid="classnc_1_1_vec2_1a36a67b9395b397e1b8e9364a39a5c458" kind="variable"><name>x</name></member>
@@ -666,13 +631,6 @@
     <member refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152af78504d96ba7177dc0c6784905ac8743" kind="enumvalue"><name>NATIVE</name></member>
     <member refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152aa60c6c694491d75b439073b8cb05b139" kind="enumvalue"><name>BIG</name></member>
     <member refid="namespacenc_1a8dcbcb343147d09e74689ad8a2586152a1314341b466dcb5e2c880b76414c49fe" kind="enumvalue"><name>LITTLE</name></member>
-    <member refid="namespacenc_1abd2ee82bb59dd1ace46a8d8d493e947b" kind="enum"><name>Order</name></member>
-    <member refid="namespacenc_1abd2ee82bb59dd1ace46a8d8d493e947ba800618943025315f869e4e1f09471012" kind="enumvalue"><name>F</name></member>
-    <member refid="namespacenc_1abd2ee82bb59dd1ace46a8d8d493e947ba0d61f8370cad1d412f80b84d143e1257" kind="enumvalue"><name>C</name></member>
-    <member refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49" kind="enum"><name>ReturnPolicy</name></member>
-    <member refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49ae8606d021da140a92c7eba8d9b8af84f" kind="enumvalue"><name>COPY</name></member>
-    <member refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49adcd320d017d7f3c317bc8b234287bc9f" kind="enumvalue"><name>REFERENCE</name></member>
-    <member refid="namespacenc_1a8923c4426e2acad9cb531ab917750b49a9419303c1fae01a65adc8d1835aa2c6d" kind="enumvalue"><name>TAKE_OWNERSHIP</name></member>
     <member refid="namespacenc_1a7ef41205a09ddd32ee926953ad8145c1" kind="typedef"><name>int16</name></member>
     <member refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kind="typedef"><name>int32</name></member>
     <member refid="namespacenc_1a84c132684426d342ab833e05286fea3b" kind="typedef"><name>int64</name></member>
@@ -681,223 +639,218 @@
     <member refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kind="typedef"><name>uint32</name></member>
     <member refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kind="typedef"><name>uint64</name></member>
     <member refid="namespacenc_1a60efb2c7acad2ac3a9a9fcf1e93d0f49" kind="typedef"><name>uint8</name></member>
-    <member refid="namespacenc_1ac1a8cfb8f9378e1c4da7bc09e93cb77a" kind="variable"><name>generator_</name></member>
-    <member refid="namespacenc_1adb1fab04424021c2a9e4ff2ebf34bdb3" kind="variable"><name>returnPolicyStringMap</name></member>
     <member refid="namespacenc_1a4a45571b060fcb2c3e323fb8f8d7b00e" kind="function"><name>abs</name></member>
-    <member refid="namespacenc_1a5251a8cc0a2a09fd87c66149e1172244" kind="function"><name>abs</name></member>
-    <member refid="namespacenc_1ab4a75fada8db6e1f30e187712fa69f2a" kind="function"><name>add</name></member>
+    <member refid="namespacenc_1ae8445c38053ae358e2588b45a8b0ba9b" kind="function"><name>abs</name></member>
+    <member refid="namespacenc_1af5a087b8c1a96061e09f940143eda94a" kind="function"><name>add</name></member>
     <member refid="namespacenc_1a3c13463ad0ab59dcbd9d8efc99b83ca8" kind="function"><name>alen</name></member>
-    <member refid="namespacenc_1a4235edadb0375282eabfa83ee9d2ac33" kind="function"><name>all</name></member>
+    <member refid="namespacenc_1a1448a11e7f7aa4a77d8250ca9b3d27cd" kind="function"><name>all</name></member>
     <member refid="namespacenc_1ac2a107bb7ecfcf649c408069166ed1ea" kind="function"><name>allclose</name></member>
-    <member refid="namespacenc_1a23567c062b1a0c21a53b8b96afd02763" kind="function"><name>amax</name></member>
-    <member refid="namespacenc_1a56fe75564b762f364503eccc3cb89c8d" kind="function"><name>amin</name></member>
-    <member refid="namespacenc_1afe94c34ed37789efef150d21bcf1936e" kind="function"><name>any</name></member>
-    <member refid="namespacenc_1aadf90a1e77b251c318146a945c75e908" kind="function"><name>append</name></member>
-    <member refid="namespacenc_1abf69ea1ebe26e8dc59a6370f1836f3e2" kind="function"><name>applyFunction</name></member>
+    <member refid="namespacenc_1a9c1f08a29e902f0d66bbbd8d5dd7d594" kind="function"><name>amax</name></member>
+    <member refid="namespacenc_1a75fdc7bd7ef781e0a50bd4591424e55b" kind="function"><name>amin</name></member>
+    <member refid="namespacenc_1a81876a5a1673abc6c129095e8e9f9309" kind="function"><name>any</name></member>
+    <member refid="namespacenc_1a95328595c782582b1e75e1c12e92bd81" kind="function"><name>append</name></member>
     <member refid="namespacenc_1a1b8d36bd5087070a720f8d4685c0721c" kind="function"><name>applyFunction</name></member>
     <member refid="namespacenc_1a9a031ffe7bb9bd50161d241aa8bb35b0" kind="function"><name>applyPoly1d</name></member>
-    <member refid="namespacenc_1a8e78c416b2386411d8c6b5226bd4c78a" kind="function"><name>arange</name></member>
-    <member refid="namespacenc_1ac94fc8f9322f93966478e9ffe7db51f2" kind="function"><name>arange</name></member>
-    <member refid="namespacenc_1a2e9892f02e430f84f563d3608f041b34" kind="function"><name>arange</name></member>
+    <member refid="namespacenc_1a465e2385ac78ca4cc23928a4a0cd9f53" kind="function"><name>arange</name></member>
+    <member refid="namespacenc_1a2edad3e052b232bd9075c78aad3c9287" kind="function"><name>arange</name></member>
+    <member refid="namespacenc_1a724165d620d8bff96f8f004c18257ad6" kind="function"><name>arange</name></member>
     <member refid="namespacenc_1aa24aa108f3bd91f2b66077217f9778ce" kind="function"><name>arccos</name></member>
-    <member refid="namespacenc_1a6055d93be89b8be57f9080ea8793969c" kind="function"><name>arccos</name></member>
+    <member refid="namespacenc_1aaf6a4ce5cc3dd860b832805763c8c133" kind="function"><name>arccos</name></member>
     <member refid="namespacenc_1a42e138a8181fed9ef9257708f046daff" kind="function"><name>arccosh</name></member>
-    <member refid="namespacenc_1ad2d10895441f7df1a3203565f3984663" kind="function"><name>arccosh</name></member>
+    <member refid="namespacenc_1a9db8440d6a057152f1dd395a67015894" kind="function"><name>arccosh</name></member>
     <member refid="namespacenc_1a64381893b9faec832dd53c3a6dc2c15a" kind="function"><name>arcsin</name></member>
-    <member refid="namespacenc_1a2f54d8861d41bbd61243658329c41ee3" kind="function"><name>arcsin</name></member>
+    <member refid="namespacenc_1a999a4eef90e7b3f3e7ac2e5e509cc775" kind="function"><name>arcsin</name></member>
     <member refid="namespacenc_1ad23df3dddc17bd0ed604b706d9a9e46b" kind="function"><name>arcsinh</name></member>
-    <member refid="namespacenc_1a32d7af3056b976659172d4f5715ea469" kind="function"><name>arcsinh</name></member>
+    <member refid="namespacenc_1a472556bdd34e831965077134ae55d3a0" kind="function"><name>arcsinh</name></member>
     <member refid="namespacenc_1af2982328417da6b69c6cd02b728f4dc8" kind="function"><name>arctan</name></member>
-    <member refid="namespacenc_1a4ee14f261c78c75b9f4caea40dc6a243" kind="function"><name>arctan</name></member>
+    <member refid="namespacenc_1adc9f2c0050f028044df74ae3097a8bf8" kind="function"><name>arctan</name></member>
     <member refid="namespacenc_1a1a93c38369f33b46266595c3eb6e6f29" kind="function"><name>arctan2</name></member>
-    <member refid="namespacenc_1a2b5d8736929806863f38d9fa23a632c4" kind="function"><name>arctan2</name></member>
+    <member refid="namespacenc_1aa55ba6c33786f749dc35dc251a3eb302" kind="function"><name>arctan2</name></member>
     <member refid="namespacenc_1a33e6911f3786e91e8a5bcbb82308492c" kind="function"><name>arctanh</name></member>
-    <member refid="namespacenc_1a01094d10626c0ad1943b81b04b7f5048" kind="function"><name>arctanh</name></member>
-    <member refid="namespacenc_1af52bc3de3aa137cd5c5ce233ad42f3b0" kind="function"><name>argmax</name></member>
-    <member refid="namespacenc_1a3b6d30ed28a5139b97adf122cedc536d" kind="function"><name>argmin</name></member>
-    <member refid="namespacenc_1af1f9dbd430ee0b6dcb7330d092a79d61" kind="function"><name>argsort</name></member>
-    <member refid="namespacenc_1aa7ccc098309c6eaebda27e6df4aeb006" kind="function"><name>argwhere</name></member>
+    <member refid="namespacenc_1a9338af05f7e3c3cdccfb228da4b7f0d4" kind="function"><name>arctanh</name></member>
+    <member refid="namespacenc_1a2185848c4b822d5636fad30c3eda6275" kind="function"><name>argmax</name></member>
+    <member refid="namespacenc_1a32979f396f8a8c499f30f53341374697" kind="function"><name>argmin</name></member>
+    <member refid="namespacenc_1ad5510f8aa54a5ed677e82fbe2c378b84" kind="function"><name>argsort</name></member>
+    <member refid="namespacenc_1adc823aa321c0439ed138bec2d5505e93" kind="function"><name>argwhere</name></member>
     <member refid="namespacenc_1a8250ef32530487269598328eea9540a7" kind="function"><name>around</name></member>
-    <member refid="namespacenc_1a6fd3795d731bd41c022adc5d1cdbb24c" kind="function"><name>around</name></member>
+    <member refid="namespacenc_1ad0d8d4165ca26f9d063d2f6b0f1400a4" kind="function"><name>around</name></member>
     <member refid="namespacenc_1a0e8c1396cc01ccd9ec8ba549b6347e21" kind="function"><name>array_equal</name></member>
     <member refid="namespacenc_1ac7cfdea4ac1caa81eabdb5dfe33b90b8" kind="function"><name>array_equiv</name></member>
-    <member refid="namespacenc_1acaee4c8e7c5b526ab817cc6be681c7dd" kind="function"><name>asarray</name></member>
-    <member refid="namespacenc_1ab83c5ccbe0d638e46fadfaf8cf86aa57" kind="function"><name>asarray</name></member>
-    <member refid="namespacenc_1aa15c560428b30b2f79cc608810b29168" kind="function"><name>astype</name></member>
-    <member refid="namespacenc_1a86d9f6b52c30c60a61dd46a3a64ac3a7" kind="function"><name>average</name></member>
-    <member refid="namespacenc_1a171381462e430870904ae2a24ce2541a" kind="function"><name>average</name></member>
+    <member refid="namespacenc_1a1a8e453007d48b637c09e17fbcad35af" kind="function"><name>asarray</name></member>
+    <member refid="namespacenc_1a906ea9a95524ed5bc4317acb35d8f9af" kind="function"><name>asarray</name></member>
+    <member refid="namespacenc_1ad4305fc265be41159c3b8c5f810ff7b0" kind="function"><name>asarray</name></member>
+    <member refid="namespacenc_1adb79e903c668fa72bed0d6d5f9327766" kind="function"><name>asarray</name></member>
+    <member refid="namespacenc_1a1eec54daf3cd64f2d821d3a8007700f7" kind="function"><name>asarray</name></member>
+    <member refid="namespacenc_1aa67b4266cc44cb708b920746feb4eba7" kind="function"><name>astype</name></member>
+    <member refid="namespacenc_1a7ac73cd20e5eb704cd1b9cbbb20a53dd" kind="function"><name>average</name></member>
+    <member refid="namespacenc_1a08d310c2089324a7106ff509b862f5c7" kind="function"><name>average</name></member>
     <member refid="namespacenc_1a3b3788718518fe32e78e0400ce816b54" kind="function"><name>binaryRepr</name></member>
-    <member refid="namespacenc_1a0277d104fe80e8190cc4e1326772e768" kind="function"><name>bincount</name></member>
-    <member refid="namespacenc_1af5487b1de68d96d3d65c56642164a9f7" kind="function"><name>bincount</name></member>
-    <member refid="namespacenc_1a5afa3584a513bcb32788d5132a38729d" kind="function"><name>bitwise_and</name></member>
-    <member refid="namespacenc_1af1ed7515abc351517fb7cec8c7dbf1b3" kind="function"><name>bitwise_not</name></member>
-    <member refid="namespacenc_1a3008c967d169052c08854a03eeac728b" kind="function"><name>bitwise_or</name></member>
-    <member refid="namespacenc_1a0fcfb7c2d5da6c8c84afafe62f47f5b5" kind="function"><name>bitwise_xor</name></member>
-    <member refid="namespacenc_1ac49e5a284be9238624ebd3f548fcb474" kind="function"><name>boost2Nc</name></member>
-    <member refid="namespacenc_1a5265f3766d2d329c2361e8e878897890" kind="function"><name>byteswap</name></member>
+    <member refid="namespacenc_1a60bb0f9e8bed0fd6f5c0973cf3b918ca" kind="function"><name>bincount</name></member>
+    <member refid="namespacenc_1aa31a10ae8201c637ab3d203844b81904" kind="function"><name>bincount</name></member>
+    <member refid="namespacenc_1a4a7fa01dbe15029314c6204f930c09af" kind="function"><name>bitwise_and</name></member>
+    <member refid="namespacenc_1a145284f569275c39435651db94f0ad5b" kind="function"><name>bitwise_not</name></member>
+    <member refid="namespacenc_1a6203fb3929a9c533eba79b64342eaa3a" kind="function"><name>bitwise_or</name></member>
+    <member refid="namespacenc_1a07c69919a1dc382fd2ae3ebf1b358319" kind="function"><name>bitwise_xor</name></member>
+    <member refid="namespacenc_1a2484b7b4108b61435ebfec80b2c92080" kind="function"><name>byteswap</name></member>
     <member refid="namespacenc_1a21de0caa1ff8e9e7baed8a8a57f7bcab" kind="function"><name>cbrt</name></member>
-    <member refid="namespacenc_1abfc0d0118edd5861f0a26a41e88667f1" kind="function"><name>cbrt</name></member>
+    <member refid="namespacenc_1a56a122b504ee028142e35c221a1afe46" kind="function"><name>cbrt</name></member>
     <member refid="namespacenc_1a291189b2c2bc35a608b393ab1c06e84a" kind="function"><name>ceil</name></member>
-    <member refid="namespacenc_1a7fe80c46fd6f4d80a1656ab592aa4888" kind="function"><name>ceil</name></member>
+    <member refid="namespacenc_1af762493e829f0334c506cc05c7668270" kind="function"><name>ceil</name></member>
     <member refid="namespacenc_1a6f71d75583176a599a64647109170a08" kind="function"><name>clip</name></member>
-    <member refid="namespacenc_1ac8470132c83da505af29cefa24dea489" kind="function"><name>clip</name></member>
-    <member refid="namespacenc_1a1fd4b60fc74fcb37dff8faa08e877241" kind="function"><name>column_stack</name></member>
-    <member refid="namespacenc_1a6848af2d5c509218538f48808241b1b1" kind="function"><name>concatenate</name></member>
-    <member refid="namespacenc_1ae7d04e8f21e110cfc0f81ac6bad65655" kind="function"><name>contains</name></member>
-    <member refid="namespacenc_1a8fc2a8a065e4a00776255876d40c7d61" kind="function"><name>copy</name></member>
-    <member refid="namespacenc_1ab889b055de45596f5c541cdfc213b5c9" kind="function"><name>copySign</name></member>
-    <member refid="namespacenc_1a8711dc5280db1e77e05eba0bff147936" kind="function"><name>copyto</name></member>
+    <member refid="namespacenc_1aa239fec975131d862028ce7566a09767" kind="function"><name>clip</name></member>
+    <member refid="namespacenc_1a940bbaf9f760ce2d85119beb4a5c23f2" kind="function"><name>column_stack</name></member>
+    <member refid="namespacenc_1a027070169f1750a74315d07c5bbdfb03" kind="function"><name>concatenate</name></member>
+    <member refid="namespacenc_1a9bb25843cf23680c76a0f9852d3be8df" kind="function"><name>contains</name></member>
+    <member refid="namespacenc_1afb6c2bde9854f0ad0b2353ebdc47796d" kind="function"><name>copy</name></member>
+    <member refid="namespacenc_1a9e08e770fd2283734390ab631edc250d" kind="function"><name>copySign</name></member>
+    <member refid="namespacenc_1a1dfc24fe5387ba8ce6f8bad91df73331" kind="function"><name>copyto</name></member>
     <member refid="namespacenc_1affd0f5b31b2bd1b9cea9ab54e25dfab2" kind="function"><name>cos</name></member>
-    <member refid="namespacenc_1a2f13c698853574855bd7f60076d706a8" kind="function"><name>cos</name></member>
+    <member refid="namespacenc_1aa8637ec907af755decf4e11090e1ae68" kind="function"><name>cos</name></member>
     <member refid="namespacenc_1a201b05754dd9d5824747251770b285e6" kind="function"><name>cosh</name></member>
-    <member refid="namespacenc_1a4076791fb98e5d6fcb6ce58ab6ec85de" kind="function"><name>cosh</name></member>
-    <member refid="namespacenc_1a065b2d856561ca3d57a47f9981eaa126" kind="function"><name>count_nonzero</name></member>
-    <member refid="namespacenc_1ab414231c92c4fc20d778edc2c9b5dc12" kind="function"><name>cross</name></member>
+    <member refid="namespacenc_1a13a3d6c7d492dbb0604dd984663b176e" kind="function"><name>cosh</name></member>
+    <member refid="namespacenc_1a5411a4d115e6a44f6d6dcedc2635d085" kind="function"><name>count_nonzero</name></member>
+    <member refid="namespacenc_1a4d1ed581965ed53090824290def38565" kind="function"><name>cross</name></member>
     <member refid="namespacenc_1aff45cec624f58a7303ba39402ce10e79" kind="function"><name>cube</name></member>
-    <member refid="namespacenc_1ad9a828f275a09dac2382a1e94584f5ae" kind="function"><name>cube</name></member>
-    <member refid="namespacenc_1a62e0bd76c4df1bb03d9e55566713b191" kind="function"><name>cumprod</name></member>
-    <member refid="namespacenc_1afb98157ff8c733d7c24252a51e75104a" kind="function"><name>cumsum</name></member>
+    <member refid="namespacenc_1af77c3c9a898c14f90f6b8b5717f8c7ac" kind="function"><name>cube</name></member>
+    <member refid="namespacenc_1a28d0d637d26e013585317f59041279f4" kind="function"><name>cumprod</name></member>
+    <member refid="namespacenc_1a9b0f11444a257df6b6f49039fcbdea71" kind="function"><name>cumsum</name></member>
     <member refid="namespacenc_1a6adef279f0857eb53d76c6f8f9cd791d" kind="function"><name>deg2rad</name></member>
-    <member refid="namespacenc_1abc6d4ba6f504c4eaee656f8c071c5103" kind="function"><name>deg2rad</name></member>
+    <member refid="namespacenc_1a5bb32d6017b8d3d654a8dc3b793731ea" kind="function"><name>deg2rad</name></member>
     <member refid="namespacenc_1ad643a144992a26ebab228cbcc0833039" kind="function"><name>degrees</name></member>
-    <member refid="namespacenc_1adbaac86caf37e0ce1e3017f41e56e92d" kind="function"><name>degrees</name></member>
-    <member refid="namespacenc_1a90d99a9f0f7927372ae5fdc8fd3c0469" kind="function"><name>deleteIndices</name></member>
-    <member refid="namespacenc_1a07c6374c100b62dc48454c4c9d5be6f4" kind="function"><name>deleteIndices</name></member>
-    <member refid="namespacenc_1a0ca5587c27a46c2d97fef54bc64bdc0b" kind="function"><name>deleteIndices</name></member>
-    <member refid="namespacenc_1a17ace954ac48456f1e57b95b8ae62fe3" kind="function"><name>diagflat</name></member>
-    <member refid="namespacenc_1a0655ce58884ccfd25a778af5bbba3e5b" kind="function"><name>diagonal</name></member>
-    <member refid="namespacenc_1afc4f106e2d4a9a2f211c6725cdd74929" kind="function"><name>diff</name></member>
-    <member refid="namespacenc_1adb43a5803f6bc180c446971175074ced" kind="function"><name>divide</name></member>
-    <member refid="namespacenc_1a50b693e816ecaa711b09997abaacec9a" kind="function"><name>dot</name></member>
+    <member refid="namespacenc_1a111b49498db502443a9a11b5611e18a0" kind="function"><name>degrees</name></member>
+    <member refid="namespacenc_1ae59479b36cd7991d9dfc2d836b4d838c" kind="function"><name>deleteIndices</name></member>
+    <member refid="namespacenc_1a7c33539e037218ba9b0b11acfae38363" kind="function"><name>deleteIndices</name></member>
+    <member refid="namespacenc_1a53ddac04b49358cb41736640871bcea2" kind="function"><name>deleteIndices</name></member>
+    <member refid="namespacenc_1a5da8af5a46c4161d78bb68a8399cbaa8" kind="function"><name>diagflat</name></member>
+    <member refid="namespacenc_1a593c1d6df885853f900cf56935529f2c" kind="function"><name>diagonal</name></member>
+    <member refid="namespacenc_1aca24655977cb03ca84ef20aebae3e78f" kind="function"><name>diff</name></member>
+    <member refid="namespacenc_1a48c5c456736ced98b946e89b573c204e" kind="function"><name>divide</name></member>
+    <member refid="namespacenc_1a2c9414f356ae2025a7cde3a192d6d67d" kind="function"><name>dot</name></member>
     <member refid="namespacenc_1af6e71bd96dbc78f9ca018d2da0a7e653" kind="function"><name>dump</name></member>
-    <member refid="namespacenc_1ac80083317dd6664b9f4c6cbca8c41711" kind="function"><name>empty</name></member>
-    <member refid="namespacenc_1a074fa2b83cd4dd6b7ec82495dcc0d123" kind="function"><name>empty</name></member>
-    <member refid="namespacenc_1a2a1e6b9bcd7f8c5cc1e5b8272337436a" kind="function"><name>empty_like</name></member>
+    <member refid="namespacenc_1a30fffe546dfa683048a1cb0d759b54a8" kind="function"><name>empty</name></member>
+    <member refid="namespacenc_1a843b4455fa7d1b333f6a0d5b61c08739" kind="function"><name>empty</name></member>
+    <member refid="namespacenc_1a4b8387f1d94cda01733697e23aca076b" kind="function"><name>empty_like</name></member>
     <member refid="namespacenc_1a6d1bce5e0cf3f24f84a50b945eec7a26" kind="function"><name>endianess</name></member>
-    <member refid="namespacenc_1a6891660e45d9f047bfc3a4625f4a255d" kind="function"><name>equal</name></member>
+    <member refid="namespacenc_1a7440518ae70823ac15ea1711d8df7bfc" kind="function"><name>equal</name></member>
     <member refid="namespacenc_1a4f8946084eba652a3098d75675f464bf" kind="function"><name>erf</name></member>
-    <member refid="namespacenc_1ad02c59de5f9ac67a95f84bf4547801dd" kind="function"><name>erf</name></member>
+    <member refid="namespacenc_1ad4b50ace8229517b335b001618293d22" kind="function"><name>erf</name></member>
     <member refid="namespacenc_1a49f7755f95035f00b24cc1628637b1ec" kind="function"><name>erfc</name></member>
     <member refid="namespacenc_1a9bcdf0fcf4c26cd05d3bccdef7e7cf49" kind="function"><name>erfc</name></member>
     <member refid="namespacenc_1ab138b681799463226a8ef60f87d30ac7" kind="function"><name>exp</name></member>
-    <member refid="namespacenc_1abb6008d399e621c112d9cc9491d34400" kind="function"><name>exp</name></member>
+    <member refid="namespacenc_1a59a6e7cd47686d44b26ba2e344b27fa8" kind="function"><name>exp</name></member>
     <member refid="namespacenc_1a8c19ebd01e34b80990da5c4ccb2a3f36" kind="function"><name>exp2</name></member>
-    <member refid="namespacenc_1aac191ffa605ae2404a45e4a4bf742358" kind="function"><name>exp2</name></member>
+    <member refid="namespacenc_1ac15c46b372fa388b353b0d2d502d0d3e" kind="function"><name>exp2</name></member>
     <member refid="namespacenc_1a390dd897c7e7335baf71396e3c807c47" kind="function"><name>expm1</name></member>
-    <member refid="namespacenc_1a04cfad92e069c625728dc3504381aaab" kind="function"><name>expm1</name></member>
-    <member refid="namespacenc_1a17495ebd52ac1b97057e27a9bf565c9c" kind="function"><name>eye</name></member>
-    <member refid="namespacenc_1a5a7598ad04d29699d557d77c97f7d650" kind="function"><name>eye</name></member>
-    <member refid="namespacenc_1ad9736cf71a65f42437f580c1e98a4c6b" kind="function"><name>eye</name></member>
+    <member refid="namespacenc_1a906066b9a3b02f3aa6b37a12752982d4" kind="function"><name>expm1</name></member>
+    <member refid="namespacenc_1a14b8af9690ed6002ac7b6601f2919fa7" kind="function"><name>eye</name></member>
+    <member refid="namespacenc_1aba42bc76beb86f8f27ee0d3359219052" kind="function"><name>eye</name></member>
+    <member refid="namespacenc_1a2f5eb503d643785b39e4e45a1e994375" kind="function"><name>eye</name></member>
     <member refid="namespacenc_1a7c40717fa80c513ecbb943859d9d1ac2" kind="function"><name>fillDiagonal</name></member>
-    <member refid="namespacenc_1add10b32e8de9d322a82929aa8418b2d5" kind="function"><name>find</name></member>
+    <member refid="namespacenc_1ad9dcc9657ca2bf8c9d57565c20eac5e0" kind="function"><name>find</name></member>
     <member refid="namespacenc_1af259d081804c4be2d33e3a00e937b79c" kind="function"><name>fix</name></member>
-    <member refid="namespacenc_1a746f3eb6d08f15cc1fc55f487a2827fe" kind="function"><name>fix</name></member>
-    <member refid="namespacenc_1a99189dab6682ea4a593f8e402fc7c27d" kind="function"><name>flatnonzero</name></member>
-    <member refid="namespacenc_1afe5fec6dc86ab04cb3f464f31cc2edfa" kind="function"><name>flatten</name></member>
-    <member refid="namespacenc_1a2763bc1a854320a7f0b190b0578fc4d2" kind="function"><name>flip</name></member>
-    <member refid="namespacenc_1ad18044535b3dddd0d8ffd10ae41ac396" kind="function"><name>fliplr</name></member>
-    <member refid="namespacenc_1a649f515cc6211ba022413fb3f59c3957" kind="function"><name>flipud</name></member>
+    <member refid="namespacenc_1aeb3a5457d4bf208d05fc25fdd01edadd" kind="function"><name>fix</name></member>
+    <member refid="namespacenc_1aa8b4954fc86ff8cca5ee2bac092b3319" kind="function"><name>flatnonzero</name></member>
+    <member refid="namespacenc_1af862c04e509137d3a2631b8c19ebb9d7" kind="function"><name>flatten</name></member>
+    <member refid="namespacenc_1a99283060a7a0cdfeb339a22e6c073f40" kind="function"><name>flip</name></member>
+    <member refid="namespacenc_1a082c6a041487d4eaaaab8dd5661f6a49" kind="function"><name>fliplr</name></member>
+    <member refid="namespacenc_1a9580ced05ab14bbec720b59b227fbb33" kind="function"><name>flipud</name></member>
     <member refid="namespacenc_1a832da7fc615ea4e1da7bed94a4488ea6" kind="function"><name>floor</name></member>
-    <member refid="namespacenc_1a74f030ff1819d46d4d1424c06cc6d2ee" kind="function"><name>floor</name></member>
+    <member refid="namespacenc_1a7755d6ee6ec8d09fb3f655bc372274d3" kind="function"><name>floor</name></member>
     <member refid="namespacenc_1ae8e2b2ae79d7a56eefd11986a6de9b21" kind="function"><name>floor_divide</name></member>
-    <member refid="namespacenc_1a9774a32e67a68ebbae6aeba13184b2e1" kind="function"><name>floor_divide</name></member>
+    <member refid="namespacenc_1ab299e0245c7a703a9506ce6f39d9d8e4" kind="function"><name>floor_divide</name></member>
     <member refid="namespacenc_1aebbd1fbc64f00fdeaae6c8cfdf6a7f59" kind="function"><name>fmax</name></member>
-    <member refid="namespacenc_1a385b0eb2a2b01a24655c1056efa0904b" kind="function"><name>fmax</name></member>
+    <member refid="namespacenc_1a99c7f7c680632be6a42ebd6b923df328" kind="function"><name>fmax</name></member>
     <member refid="namespacenc_1a7cd8e4c771d0676279f506f9d7e949e0" kind="function"><name>fmin</name></member>
-    <member refid="namespacenc_1a049faefb421bb143fb6f07403adf9abf" kind="function"><name>fmin</name></member>
+    <member refid="namespacenc_1add4b4f64b2991ac90b24c93ce10a2b80" kind="function"><name>fmin</name></member>
     <member refid="namespacenc_1a4208e3d02b9bc915767eab689c64b30f" kind="function"><name>fmod</name></member>
-    <member refid="namespacenc_1a31e0d2c99574826098d4a1ac984ca5f8" kind="function"><name>fmod</name></member>
-    <member refid="namespacenc_1a20dbade690db6dcc52a2a82d38d61ce2" kind="function"><name>frombuffer</name></member>
-    <member refid="namespacenc_1af884ea4beb54b9a18bc116fe40ec4b7b" kind="function"><name>fromfile</name></member>
-    <member refid="namespacenc_1ac016da417ab4a6cd6cd3b9a8a0c8c62d" kind="function"><name>fromiter</name></member>
-    <member refid="namespacenc_1a3bc36aca391389298e395f6840c48fdf" kind="function"><name>full</name></member>
-    <member refid="namespacenc_1a4c4ac617e83250720605856ec619f40e" kind="function"><name>full</name></member>
-    <member refid="namespacenc_1a5f04a82ba16a9e6e929fd365398fd0c5" kind="function"><name>full</name></member>
-    <member refid="namespacenc_1a2f8a80e13b76b380bde7b2406a81a907" kind="function"><name>full_like</name></member>
+    <member refid="namespacenc_1a87bf4f8636ec0237d958c2ec1d9f1a89" kind="function"><name>fmod</name></member>
+    <member refid="namespacenc_1ab63051224c3748c6ae82b5540eeafa95" kind="function"><name>frombuffer</name></member>
+    <member refid="namespacenc_1ae299ba41f67aeade5634e93fd8b417c9" kind="function"><name>fromfile</name></member>
+    <member refid="namespacenc_1a0b388462989d0cb59531f753a907cce3" kind="function"><name>fromiter</name></member>
+    <member refid="namespacenc_1abf138126612998a96698ac184fc81167" kind="function"><name>full</name></member>
+    <member refid="namespacenc_1a5a5bd5f0d237fc1f682a770eb5f1168d" kind="function"><name>full</name></member>
+    <member refid="namespacenc_1a40202920d9c2557bf6b1dcc4ac971135" kind="function"><name>full</name></member>
+    <member refid="namespacenc_1af041923ee46ead0c33afaca70dff0d0c" kind="function"><name>full_like</name></member>
     <member refid="namespacenc_1a45b5db91eb9f524459fa3878e23ca0ec" kind="function"><name>gcd</name></member>
     <member refid="namespacenc_1abb00c960bb157ef6a8b15fb01a20955e" kind="function"><name>gcd</name></member>
-    <member refid="namespacenc_1acd531e597e05821b01747a0ae3b096b7" kind="function"><name>gradient</name></member>
-    <member refid="namespacenc_1a5a3294d00ff310b4d95b0292adafc94f" kind="function"><name>greater</name></member>
-    <member refid="namespacenc_1a6ecdbcd9d151ddda0b7b4f51f29bf08c" kind="function"><name>greater_equal</name></member>
-    <member refid="namespacenc_1a49ca5ca0de10a6321946fb1f41e39ed3" kind="function"><name>histogram</name></member>
-    <member refid="namespacenc_1a2f1b55ae1381a85f64d781b979e77c43" kind="function"><name>hstack</name></member>
+    <member refid="namespacenc_1ae2a11c3f92effc5991a2e0134f6a9188" kind="function"><name>gradient</name></member>
+    <member refid="namespacenc_1a105d660675a98132264a13b17410a82d" kind="function"><name>greater</name></member>
+    <member refid="namespacenc_1a9a2bbc9879a2b3a9e657328c9d8ad025" kind="function"><name>greater_equal</name></member>
+    <member refid="namespacenc_1a9f8af3a8f7adefd20992fe0686837cf6" kind="function"><name>histogram</name></member>
+    <member refid="namespacenc_1a80a6677582b65c19750b0d82ac182081" kind="function"><name>hstack</name></member>
     <member refid="namespacenc_1a4648674053cd83851d9549bbcc7a8481" kind="function"><name>hypot</name></member>
-    <member refid="namespacenc_1ab847598f9e2e08106edd8c6ae3fa2f7a" kind="function"><name>hypot</name></member>
-    <member refid="namespacenc_1a4791b3c25d3a9466370ad494c63dcf1c" kind="function"><name>identity</name></member>
+    <member refid="namespacenc_1ad2d90c3dcbe0a1e652b0505b637d973a" kind="function"><name>hypot</name></member>
+    <member refid="namespacenc_1a66b0aabfaacc7ec12206b4edf6026b12" kind="function"><name>hypot</name></member>
+    <member refid="namespacenc_1a07bba9a7758bdec112a308ab779a0da6" kind="function"><name>identity</name></member>
     <member refid="namespacenc_1a1ed1aa8a0b9dbedc1438dc575d2236a1" kind="function"><name>interp</name></member>
-    <member refid="namespacenc_1acb0128da9c31422e62814a91d2075d9d" kind="function"><name>interp</name></member>
-    <member refid="namespacenc_1a35cdd4bb265142ff795a9990ed42a5c0" kind="function"><name>intersect1d</name></member>
-    <member refid="namespacenc_1a3d5be28a3c008a2cb248ba3466efb616" kind="function"><name>invert</name></member>
-    <member refid="namespacenc_1a81969bd9383c15d95e6b2150dac1eda5" kind="function"><name>isclose</name></member>
+    <member refid="namespacenc_1a25a0717dab4a33f74927d390b83182ab" kind="function"><name>interp</name></member>
+    <member refid="namespacenc_1a05a1080b20bfa1434ccb96fb08836bc4" kind="function"><name>intersect1d</name></member>
+    <member refid="namespacenc_1a3c647b96f5357e343ac9c72faaf65b18" kind="function"><name>invert</name></member>
+    <member refid="namespacenc_1ae80bdb1c4ce59e2a74cad2d518f50e1e" kind="function"><name>isclose</name></member>
     <member refid="namespacenc_1ac2770d614de64c300c2f10cb39a299c0" kind="function"><name>isinf</name></member>
-    <member refid="namespacenc_1ac4fc33403639972fc780fed688020f5f" kind="function"><name>isinf</name></member>
+    <member refid="namespacenc_1af8a02aaa65404b7609cf4829c9fbdf9f" kind="function"><name>isinf</name></member>
     <member refid="namespacenc_1ac28569da874c0b37a4c50c86b31a98ab" kind="function"><name>isnan</name></member>
-    <member refid="namespacenc_1a6c34c13f7c2b60982f2a25d7d5df6a22" kind="function"><name>isnan</name></member>
+    <member refid="namespacenc_1a5f04fbed6aa9fd7491646d0c1cae051e" kind="function"><name>isnan</name></member>
     <member refid="namespacenc_1a7ffd0c15b8419a5d84458d4009b38b88" kind="function"><name>lcm</name></member>
-    <member refid="namespacenc_1ae01e27fa38d4631afd5d08d6d8a13fac" kind="function"><name>lcm</name></member>
     <member refid="namespacenc_1a631b0ddbe680dd8ae3240afa5e64fb63" kind="function"><name>lcm</name></member>
     <member refid="namespacenc_1aca805ef0273314ddc6c70b2c913bf485" kind="function"><name>ldexp</name></member>
-    <member refid="namespacenc_1af63d2ed4015f416db1734593d322941a" kind="function"><name>ldexp</name></member>
-    <member refid="namespacenc_1ab2427ed627f2d4b860a5cc375957e82c" kind="function"><name>left_shift</name></member>
-    <member refid="namespacenc_1a214ff1cf329d515457a611f0be8e9bd8" kind="function"><name>less</name></member>
-    <member refid="namespacenc_1a052d0b4471adf86a70d91430ccb4873d" kind="function"><name>less_equal</name></member>
-    <member refid="namespacenc_1a0c81830eeffe6bc1e01e1126e80d5000" kind="function"><name>linspace</name></member>
-    <member refid="namespacenc_1aff624e52b19d4e64228e1654cb4bbb1c" kind="function"><name>list2vector</name></member>
-    <member refid="namespacenc_1ad6129b92b4e017a4ca772a59b43960e8" kind="function"><name>load</name></member>
+    <member refid="namespacenc_1a52060ff2d69ed791b3f19c1d78cf8551" kind="function"><name>ldexp</name></member>
+    <member refid="namespacenc_1ab01253ec7c1221c44c5cd6099ff96603" kind="function"><name>left_shift</name></member>
+    <member refid="namespacenc_1a114baa0d21d439b7971dedd4b4042db8" kind="function"><name>less</name></member>
+    <member refid="namespacenc_1ac51b96f0ac720a028ebd856abf1b5785" kind="function"><name>less_equal</name></member>
+    <member refid="namespacenc_1a672fbcbd2271d5fc58bd1b94750bbdcc" kind="function"><name>linspace</name></member>
+    <member refid="namespacenc_1abec5f2e4d2a1598de762e32b839a3067" kind="function"><name>load</name></member>
     <member refid="namespacenc_1afe601bfe09694a30d40e5778de8fb5e7" kind="function"><name>log</name></member>
-    <member refid="namespacenc_1a1f125f30a5b9d1063785ce7160c9595e" kind="function"><name>log</name></member>
+    <member refid="namespacenc_1a538cbbee5da28212921c002de6ed492c" kind="function"><name>log</name></member>
     <member refid="namespacenc_1a2fcd64afc1a4d6f7e5f1863356e1a79f" kind="function"><name>log10</name></member>
-    <member refid="namespacenc_1a84621b40523eac0899d5e9771fc23361" kind="function"><name>log10</name></member>
+    <member refid="namespacenc_1a2046f651570bc661d276ab83eabf6eff" kind="function"><name>log10</name></member>
     <member refid="namespacenc_1af62a0af0394ed6cd4f523f222e7f27ef" kind="function"><name>log1p</name></member>
-    <member refid="namespacenc_1abc81ca59c7b79350114cee9fa60c2578" kind="function"><name>log1p</name></member>
+    <member refid="namespacenc_1aa9fdfb5563eab73ea7759307d88db353" kind="function"><name>log1p</name></member>
     <member refid="namespacenc_1a8c63695b0ff58abd9437c5894ae60062" kind="function"><name>log2</name></member>
-    <member refid="namespacenc_1a878a7255f135befe85730c256f213385" kind="function"><name>log2</name></member>
-    <member refid="namespacenc_1a453e2ee3176ab6e44183872ff41a60e2" kind="function"><name>logical_and</name></member>
-    <member refid="namespacenc_1a2afe0aafbe673372a7b049a9561a1b68" kind="function"><name>logical_not</name></member>
-    <member refid="namespacenc_1a62d069e9c46eda68c15946a3fa74b1ab" kind="function"><name>logical_or</name></member>
-    <member refid="namespacenc_1aae5c773c4e480fc760781013a8def13d" kind="function"><name>logical_xor</name></member>
-    <member refid="namespacenc_1ad0110c42ec3efc6f79199b3b07519b85" kind="function"><name>map2dict</name></member>
-    <member refid="namespacenc_1a666207bcb1e7fe5993aa707cfd8b1f50" kind="function"><name>matmul</name></member>
-    <member refid="namespacenc_1aea39f46713d556f182a9cd82c9338113" kind="function"><name>max</name></member>
-    <member refid="namespacenc_1a2020a56b0977393a81377f4b64d62252" kind="function"><name>maximum</name></member>
-    <member refid="namespacenc_1a7470b6224fdf388c03577cfe3a00e31d" kind="function"><name>mean</name></member>
-    <member refid="namespacenc_1a1521e079b2dd3f8946133f8b12169b58" kind="function"><name>median</name></member>
-    <member refid="namespacenc_1a0b4f10c451d90609f4f9f4e83afaa5a5" kind="function"><name>meshgrid</name></member>
-    <member refid="namespacenc_1a92d65be6d454020492389d91ed4c28c5" kind="function"><name>meshgrid</name></member>
-    <member refid="namespacenc_1ae893a242e94f0da5f9cf31afde5051fe" kind="function"><name>min</name></member>
-    <member refid="namespacenc_1a36c2bae02fa93658d5f9268018de444f" kind="function"><name>minimum</name></member>
-    <member refid="namespacenc_1afeea794af5fd07c9ce88cdabab63ae53" kind="function"><name>mod</name></member>
-    <member refid="namespacenc_1ae574e8cd3ecbd5736c9707196f29c985" kind="function"><name>multiply</name></member>
-    <member refid="namespacenc_1a75582227790ce0c16c908a6a7b9ac53f" kind="function"><name>nanargmax</name></member>
-    <member refid="namespacenc_1a611f45f3b09290d0d6e6c91a2c01ee19" kind="function"><name>nanargmin</name></member>
-    <member refid="namespacenc_1ae63aa8899b29a16b3a5916a046034d27" kind="function"><name>nancumprod</name></member>
-    <member refid="namespacenc_1a818b47bb2f6a404be808defd8d3d322a" kind="function"><name>nancumsum</name></member>
-    <member refid="namespacenc_1a8b1f7cdec4baa7da045ef962651c0e87" kind="function"><name>nanmax</name></member>
-    <member refid="namespacenc_1ab422b1ce1e6f64bac61882f142373645" kind="function"><name>nanmean</name></member>
-    <member refid="namespacenc_1a59bb4a3d7f8626712b6fc1f25d5a0462" kind="function"><name>nanmedian</name></member>
-    <member refid="namespacenc_1ac1686f4cf34cc5ddc758a477484e666c" kind="function"><name>nanmin</name></member>
-    <member refid="namespacenc_1a2cf08c4e457f7b13ce36325c5d72ab7e" kind="function"><name>nanpercentile</name></member>
-    <member refid="namespacenc_1ac41354272013b08c351434698e7d4642" kind="function"><name>nanprod</name></member>
-    <member refid="namespacenc_1a5b60ee2c61a7a6bf2b368c15813f02fe" kind="function"><name>nans</name></member>
-    <member refid="namespacenc_1ad251f6c4255c25ca81c4f95e0f038033" kind="function"><name>nans</name></member>
-    <member refid="namespacenc_1a25b14d82dd90b7642d296169e056b67c" kind="function"><name>nans</name></member>
-    <member refid="namespacenc_1a68f12fa3ab909c4b20ad7970bc4dd535" kind="function"><name>nans_like</name></member>
-    <member refid="namespacenc_1abc8a093e9b2b3ec34bcb602c64976b60" kind="function"><name>nanstdev</name></member>
-    <member refid="namespacenc_1a93998901718915088ee07495c0322c06" kind="function"><name>nansum</name></member>
-    <member refid="namespacenc_1a6d8fc67276e548961c289ca82cf3e68a" kind="function"><name>nanvar</name></member>
+    <member refid="namespacenc_1a95350006c7f0f11899eae2b1f014e031" kind="function"><name>log2</name></member>
+    <member refid="namespacenc_1a951c3f9acd6147a8e2be1ab2cda4d51c" kind="function"><name>logical_and</name></member>
+    <member refid="namespacenc_1a5bc3dc27d0a15ffd2d72fa0f77736dde" kind="function"><name>logical_not</name></member>
+    <member refid="namespacenc_1a0492e302b114ab15b996b1330604478b" kind="function"><name>logical_or</name></member>
+    <member refid="namespacenc_1a7b84e63b2d32e1b59bfef4690c918989" kind="function"><name>logical_xor</name></member>
+    <member refid="namespacenc_1ab39e4a1bc6bcd0f28dbd5806d5f2d0b9" kind="function"><name>matmul</name></member>
+    <member refid="namespacenc_1a5273d0dac1896f082d185c7f0b90d99f" kind="function"><name>max</name></member>
+    <member refid="namespacenc_1a417e75e173adaf0f6a9905a60a62e135" kind="function"><name>maximum</name></member>
+    <member refid="namespacenc_1aff3ef2c818346b63714ca4f3493f0ec9" kind="function"><name>mean</name></member>
+    <member refid="namespacenc_1ab2f8d43b44ab30c20a016e666c11f542" kind="function"><name>median</name></member>
+    <member refid="namespacenc_1ab41fc0d9f63ddb858c0470a665d5d605" kind="function"><name>meshgrid</name></member>
+    <member refid="namespacenc_1af22a0a5783bbf5c03243e6ed19a7062b" kind="function"><name>meshgrid</name></member>
+    <member refid="namespacenc_1a1dcd97ed6259f6a019ff8b59f2ae1adc" kind="function"><name>min</name></member>
+    <member refid="namespacenc_1a8499c0529d36d402e32b3990d31429e8" kind="function"><name>minimum</name></member>
+    <member refid="namespacenc_1ad8b53ff84658514a7007efba44802c5c" kind="function"><name>mod</name></member>
+    <member refid="namespacenc_1a6d7cd3b57c93a891a00d881832fdba77" kind="function"><name>multiply</name></member>
+    <member refid="namespacenc_1a2597b85e4c0d310eea0989012f4bb9c2" kind="function"><name>nanargmax</name></member>
+    <member refid="namespacenc_1af41df38993d239a8a007f3550a127388" kind="function"><name>nanargmin</name></member>
+    <member refid="namespacenc_1a188b73e160906b305321c9d99627b634" kind="function"><name>nancumprod</name></member>
+    <member refid="namespacenc_1a12fd416b8b79416f8f7f9a8bed40d661" kind="function"><name>nancumsum</name></member>
+    <member refid="namespacenc_1acaa28f624e6a75de77ddc3103d7a192f" kind="function"><name>nanmax</name></member>
+    <member refid="namespacenc_1a3b8fb73c14358435fdc4bec01b9b0ff8" kind="function"><name>nanmean</name></member>
+    <member refid="namespacenc_1af6f904295dbadad470fd7f56d3468534" kind="function"><name>nanmedian</name></member>
+    <member refid="namespacenc_1a3d9802109612ac130f5f0c35e17d52bd" kind="function"><name>nanmin</name></member>
+    <member refid="namespacenc_1a007882f79ea4b5bb0d146f7f40e317aa" kind="function"><name>nanpercentile</name></member>
+    <member refid="namespacenc_1ae267cf53b8571f5d257c6cacbfd649a7" kind="function"><name>nanprod</name></member>
+    <member refid="namespacenc_1a2dcf31f9750195b5419ea2b62a1ccc86" kind="function"><name>nans</name></member>
+    <member refid="namespacenc_1a304ce321a6b33e0d450ba0d855aeb444" kind="function"><name>nans</name></member>
+    <member refid="namespacenc_1a01f601fc8a25827103ad5c049bb3aac1" kind="function"><name>nans</name></member>
+    <member refid="namespacenc_1a131cb85eeece0cca9a8d7f972d50ecfa" kind="function"><name>nans_like</name></member>
+    <member refid="namespacenc_1a6726e8614e089ff57ce7edc3afe1b468" kind="function"><name>nanstdev</name></member>
+    <member refid="namespacenc_1aa6500e850019a5cbd11a4976d6cf6106" kind="function"><name>nansum</name></member>
+    <member refid="namespacenc_1a0191d26a462df428c6d88d9b832b3e1f" kind="function"><name>nanvar</name></member>
     <member refid="namespacenc_1a66464387c8d92793b5355e2afd107cbc" kind="function"><name>nbytes</name></member>
-    <member refid="namespacenc_1affc3d3665f4e132238fdd39bcf137f53" kind="function"><name>nc2Boost</name></member>
-    <member refid="namespacenc_1a36d8b97a2aa8a500ba39e0295ead4eb1" kind="function"><name>nc2pybind</name></member>
-    <member refid="namespacenc_1ad31609dc9bda02826fdbe6b7b6303807" kind="function"><name>negative</name></member>
+    <member refid="namespacenc_1a8f1c7a73200dc72efb67995ee60bb76d" kind="function"><name>negative</name></member>
     <member refid="namespacenc_1aa9e935b20cfc837317372b5466338963" kind="function"><name>newbyteorder</name></member>
-    <member refid="namespacenc_1a75ebcb2c2d18d8edb89d1222865d4ae1" kind="function"><name>newbyteorder</name></member>
-    <member refid="namespacenc_1a607cc22048b7c93a5d3ae7b41fb729d3" kind="function"><name>nonzero</name></member>
-    <member refid="namespacenc_1a381304c3932800f38265d6486318d19e" kind="function"><name>norm</name></member>
-    <member refid="namespacenc_1a05f56f872438107587c8dea69950cf25" kind="function"><name>not_equal</name></member>
-    <member refid="namespacenc_1a7029eded803de3acb5a9d949c56db307" kind="function"><name>ones</name></member>
-    <member refid="namespacenc_1a59dd2eaa4234ab8653beb7bda2fb6b7c" kind="function"><name>ones</name></member>
-    <member refid="namespacenc_1a6cda3d052089c53c18f31cdc41c9e9c8" kind="function"><name>ones</name></member>
-    <member refid="namespacenc_1a4bb4975aae4fb03107fbf2a3812ceb8f" kind="function"><name>ones_like</name></member>
+    <member refid="namespacenc_1ac2f8fda6236a8f2c6a8eb259dad5399b" kind="function"><name>newbyteorder</name></member>
+    <member refid="namespacenc_1a6fcb2b43990a7d3bfd76b3d873032d53" kind="function"><name>nonzero</name></member>
+    <member refid="namespacenc_1acd0cb71d7333dddc7cfa8a091768e94a" kind="function"><name>norm</name></member>
+    <member refid="namespacenc_1ac6c0da616068bc667891c0a460431de3" kind="function"><name>not_equal</name></member>
+    <member refid="namespacenc_1a60a5797687e15e70c20c947d90f40fec" kind="function"><name>ones</name></member>
+    <member refid="namespacenc_1add1b1c44934c7fc8f6e6eb55cdc6de1f" kind="function"><name>ones</name></member>
+    <member refid="namespacenc_1a7177538cccb954e75b6b2d9f59aeb43e" kind="function"><name>ones</name></member>
+    <member refid="namespacenc_1a19b8942c347b6887f5d9e8bf66c4fc93" kind="function"><name>ones_like</name></member>
     <member refid="namespacenc_1a8248dae03ae96d459320f42d60fdf424" kind="function"><name>operator*</name></member>
     <member refid="namespacenc_1a1769d68f44f9c98d94dd412bc32a9bb5" kind="function"><name>operator*</name></member>
     <member refid="namespacenc_1ace6d6bf5d703e886d8f137cf73be5021" kind="function"><name>operator*</name></member>
@@ -922,101 +875,106 @@
     <member refid="namespacenc_1a0a070b4ec8a29ee1a357c53857d4778a" kind="function"><name>operator/</name></member>
     <member refid="namespacenc_1ac5bf4d5c39fe1087aafc7f94b6fb552b" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespacenc_1a3b5bc5508bcc2c2f03bfb8fe675d2e6e" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespacenc_1a8c8e42bbbbb509664e1a7ee3c4641e6e" kind="function"><name>pad</name></member>
-    <member refid="namespacenc_1ae8625a7837cbbe94256235e8599c1493" kind="function"><name>partition</name></member>
-    <member refid="namespacenc_1a70a98622a4f6890bd7794a3d6451561b" kind="function"><name>percentile</name></member>
+    <member refid="namespacenc_1a54ebb23ac2a5fef9013f82afd8efd143" kind="function"><name>pad</name></member>
+    <member refid="namespacenc_1a4756e923c974025e793ede125bf0902f" kind="function"><name>partition</name></member>
+    <member refid="namespacenc_1ad902e7f62fd962d9f306a7cd23117837" kind="function"><name>percentile</name></member>
     <member refid="namespacenc_1a8fcacbc0f7af820742c7596462a20924" kind="function"><name>power</name></member>
-    <member refid="namespacenc_1abb4e955fc425c9fd8e460a0eab0a6072" kind="function"><name>power</name></member>
-    <member refid="namespacenc_1accb66c153866ca430e3f2ce0386f92eb" kind="function"><name>power</name></member>
+    <member refid="namespacenc_1a1d499aca051987c91ddeeac011db55fd" kind="function"><name>power</name></member>
+    <member refid="namespacenc_1ad09cd336cd7c12dd32a84c91654fa5d1" kind="function"><name>power</name></member>
     <member refid="namespacenc_1a2e4d491d77aa38680c0ccef22441b1b2" kind="function"><name>powerf</name></member>
-    <member refid="namespacenc_1a38c38f2b36700d891ccbf81329bed54d" kind="function"><name>powerf</name></member>
-    <member refid="namespacenc_1a1f02091675774ae0efe674f3cba7e172" kind="function"><name>powerf</name></member>
+    <member refid="namespacenc_1aae4b1deaad9af4fca07bfdfae9c6f90e" kind="function"><name>powerf</name></member>
+    <member refid="namespacenc_1a3648aa6c907ba05af7d1536c6518ca44" kind="function"><name>powerf</name></member>
     <member refid="namespacenc_1aafebf0f02106dfcc3ac3edbb4aa8b59d" kind="function"><name>print</name></member>
-    <member refid="namespacenc_1a88f46dc8521accf2c95e7eb898689ebf" kind="function"><name>prod</name></member>
-    <member refid="namespacenc_1ad4ca6be792286734daa3d91fc5bcc9b8" kind="function"><name>ptp</name></member>
-    <member refid="namespacenc_1ab9fd9301390e35e8aead617c2c24dd7d" kind="function"><name>put</name></member>
-    <member refid="namespacenc_1a067d9482aba483287169730b7d42ae0e" kind="function"><name>putmask</name></member>
-    <member refid="namespacenc_1a024bd17e5b9f66ea7bb757a162be375d" kind="function"><name>putmask</name></member>
-    <member refid="namespacenc_1a9e90b53998009ca25fab17910fb6e82a" kind="function"><name>pybind2nc</name></member>
+    <member refid="namespacenc_1a161e186091543eb65d990b12e7b279f2" kind="function"><name>prod</name></member>
+    <member refid="namespacenc_1ad6cd0e6e74d9574e251ea5d814bf60ee" kind="function"><name>ptp</name></member>
+    <member refid="namespacenc_1a5047b3f195605e63ef655048a8d07279" kind="function"><name>put</name></member>
+    <member refid="namespacenc_1af6468198b46c36c8a93068c936617725" kind="function"><name>putmask</name></member>
+    <member refid="namespacenc_1a0ae15cbd793c43445aca3660fc209a0c" kind="function"><name>putmask</name></member>
     <member refid="namespacenc_1a08f4ef3bf79eaa0944f869a4013940e9" kind="function"><name>rad2deg</name></member>
-    <member refid="namespacenc_1a3dd7ad21130c11676cf2d292c0f0e11d" kind="function"><name>rad2deg</name></member>
+    <member refid="namespacenc_1a1e4343ecddfd1f94f4256f08e9d0d8ea" kind="function"><name>rad2deg</name></member>
     <member refid="namespacenc_1a362034446d04a8dc9468b5a90f6998c0" kind="function"><name>radians</name></member>
-    <member refid="namespacenc_1a66f8e8d8f43d565bf5c709184627f11e" kind="function"><name>radians</name></member>
-    <member refid="namespacenc_1aa30825d04d9afa89e8ab434535c56cb6" kind="function"><name>reciprocal</name></member>
+    <member refid="namespacenc_1a02193cb36ec03b2d6c86517c55f45207" kind="function"><name>radians</name></member>
+    <member refid="namespacenc_1a10c6d2e558dc7493f3349df8be408f35" kind="function"><name>reciprocal</name></member>
     <member refid="namespacenc_1a12bfc5b4d937aa0366b70fb15270bd41" kind="function"><name>remainder</name></member>
-    <member refid="namespacenc_1abb157bedd0a3a4c5ee9d7dabc57cfde1" kind="function"><name>remainder</name></member>
-    <member refid="namespacenc_1ab05327f86b004d1109eb84255786fde6" kind="function"><name>repeat</name></member>
-    <member refid="namespacenc_1a74456399d0c5250f19b437ea6ac06f99" kind="function"><name>repeat</name></member>
-    <member refid="namespacenc_1a2d711099d8ee30a6e127aa946118bfc4" kind="function"><name>reshape</name></member>
-    <member refid="namespacenc_1a73096b21189fdc428553b7ab7a5ad556" kind="function"><name>reshape</name></member>
-    <member refid="namespacenc_1a23e62805f41c2c3878fd4cec22ae0593" kind="function"><name>resizeFast</name></member>
-    <member refid="namespacenc_1ae5244c329773c955dcf94b3120e8645d" kind="function"><name>resizeFast</name></member>
-    <member refid="namespacenc_1a4aaa0d29fba0d537e19931efe21b2184" kind="function"><name>resizeSlow</name></member>
-    <member refid="namespacenc_1a276e498af952a840bf5fdf74f95cdbe2" kind="function"><name>resizeSlow</name></member>
-    <member refid="namespacenc_1a3934a88b2bb7a4f3de0949eb00e3b4a2" kind="function"><name>right_shift</name></member>
+    <member refid="namespacenc_1a14fb9f7c88fca02b0ef3f5ebd04d9099" kind="function"><name>remainder</name></member>
+    <member refid="namespacenc_1a4a9e4142d273ff96f0805f97c2670019" kind="function"><name>repeat</name></member>
+    <member refid="namespacenc_1a13e275a43c542c5512c62183dce5ed7e" kind="function"><name>repeat</name></member>
+    <member refid="namespacenc_1a4c364a380a0e209eeffb7f0ac72752a9" kind="function"><name>reshape</name></member>
+    <member refid="namespacenc_1a45d9fc095ecf7a127211c507c03d95db" kind="function"><name>reshape</name></member>
+    <member refid="namespacenc_1a49af5a6c859561a36faffe8035e89c2d" kind="function"><name>resizeFast</name></member>
+    <member refid="namespacenc_1ab6de413cdfcf6b788ac35c3b1628976a" kind="function"><name>resizeFast</name></member>
+    <member refid="namespacenc_1aa4509e7da52a53c7f0891c6b78964639" kind="function"><name>resizeSlow</name></member>
+    <member refid="namespacenc_1a19bb4d774854f941f9dc9cebd4643db7" kind="function"><name>resizeSlow</name></member>
+    <member refid="namespacenc_1a4d879614a140fb7606fd1cfcb493a70b" kind="function"><name>right_shift</name></member>
     <member refid="namespacenc_1a9ba33527dbca7d5482cf88899abd827d" kind="function"><name>rint</name></member>
-    <member refid="namespacenc_1aad089cbed60089da7def17fd9b5d143b" kind="function"><name>rint</name></member>
-    <member refid="namespacenc_1a7849bce8e073ce26bbb5d6082bf42f62" kind="function"><name>rms</name></member>
-    <member refid="namespacenc_1acac1ebbc5e3f3ef8d09874f3fcf1b22b" kind="function"><name>roll</name></member>
-    <member refid="namespacenc_1afee9039247b1185f0d619017be3a6109" kind="function"><name>rot90</name></member>
+    <member refid="namespacenc_1aef2508621a2e8f91566fc43ed31ef41c" kind="function"><name>rint</name></member>
+    <member refid="namespacenc_1a2e7c6950a2be94b7162fe0017fd43352" kind="function"><name>rms</name></member>
+    <member refid="namespacenc_1abcdbe6ad8a7d87f8f1006f7fc36626af" kind="function"><name>roll</name></member>
+    <member refid="namespacenc_1afae8b2eed7c619175052c01abd526002" kind="function"><name>rot90</name></member>
     <member refid="namespacenc_1a41f18de9a9c6b9ae0b2053a22400baba" kind="function"><name>round</name></member>
-    <member refid="namespacenc_1a17488aafca1cf8f27267297d98595c1a" kind="function"><name>round</name></member>
-    <member refid="namespacenc_1a4d53bca44b0a1ec255de0bc72d048bf2" kind="function"><name>row_stack</name></member>
-    <member refid="namespacenc_1ac02087737cabe80234ec24c3cb5c70ea" kind="function"><name>setdiff1d</name></member>
+    <member refid="namespacenc_1ac1d4762fb5405bd893d0bc0bb907f6b1" kind="function"><name>round</name></member>
+    <member refid="namespacenc_1a0d82f81eba247f95974bd20039bd56fc" kind="function"><name>row_stack</name></member>
+    <member refid="namespacenc_1adb6b7ca658c4d613fe0c4a695ba3542b" kind="function"><name>setdiff1d</name></member>
     <member refid="namespacenc_1ae2b224742bc8263190d451a44ebe5e34" kind="function"><name>shape</name></member>
     <member refid="namespacenc_1a4a5d98f334e0b50a3cf9c2718485e5e9" kind="function"><name>sign</name></member>
-    <member refid="namespacenc_1a1a1a02bd2ccb906a225485af72bdbc32" kind="function"><name>sign</name></member>
+    <member refid="namespacenc_1a3037cf38efbcd863fc1c10d6697ee7fc" kind="function"><name>sign</name></member>
     <member refid="namespacenc_1af6dcbdfea85cdc84b4ddcf6c978b71f1" kind="function"><name>signbit</name></member>
-    <member refid="namespacenc_1af00ee77fbee7b0f3140415c86ce6da2e" kind="function"><name>signbit</name></member>
+    <member refid="namespacenc_1abf6ca72fd57b3037c2d719d49efc226d" kind="function"><name>signbit</name></member>
     <member refid="namespacenc_1a0d66dc207eb871bba26bff4838992fef" kind="function"><name>sin</name></member>
-    <member refid="namespacenc_1a760a49cda7b6533710be858a20e40bb5" kind="function"><name>sin</name></member>
+    <member refid="namespacenc_1a3b5d51c4bec7306b7ae415e78928d617" kind="function"><name>sin</name></member>
     <member refid="namespacenc_1a72cc296d28dc1e45c0c2b5b323d5b668" kind="function"><name>sinc</name></member>
-    <member refid="namespacenc_1ab1e8170e2906af8be294b2c22e0fa0a6" kind="function"><name>sinc</name></member>
+    <member refid="namespacenc_1aa655c1fc55bdcf228c2fe3bc97480433" kind="function"><name>sinc</name></member>
     <member refid="namespacenc_1ab095a894082329d4a43e38bce13d7ff4" kind="function"><name>sinh</name></member>
-    <member refid="namespacenc_1a26a60f3151234bbc43a9e3f8472cb088" kind="function"><name>sinh</name></member>
+    <member refid="namespacenc_1aa923a9c9288bced0c705c0e8f6ccc12f" kind="function"><name>sinh</name></member>
     <member refid="namespacenc_1a25f36ba02112a206936fae22b0724bb9" kind="function"><name>size</name></member>
-    <member refid="namespacenc_1ab3e511ec0e360b85ecbb2879f29fc829" kind="function"><name>sort</name></member>
+    <member refid="namespacenc_1a31771e9950ef3c2aba7582700de304dd" kind="function"><name>sort</name></member>
     <member refid="namespacenc_1acb264011e6e6cd182cc47f67018a6b3c" kind="function"><name>sqrt</name></member>
-    <member refid="namespacenc_1a9a5bc17befff20dbc4afab1633b1b1e0" kind="function"><name>sqrt</name></member>
+    <member refid="namespacenc_1a423e73416007bff848cd01d429e1e04e" kind="function"><name>sqrt</name></member>
     <member refid="namespacenc_1a3d58d998049ad0356de1a6b8ad81c72d" kind="function"><name>square</name></member>
-    <member refid="namespacenc_1a89f2697e04a5f8e42075265c72219b88" kind="function"><name>square</name></member>
-    <member refid="namespacenc_1ad802c086d7fbd7d07e0fd98b38ea351c" kind="function"><name>stack</name></member>
-    <member refid="namespacenc_1a16cc213a6ea059202635bbc3aabedc90" kind="function"><name>stdev</name></member>
-    <member refid="namespacenc_1abbe8cdd4ceb0820083d1f57001d2f01c" kind="function"><name>sum</name></member>
-    <member refid="namespacenc_1a874072504b77c6f56a0f7c80ca175705" kind="function"><name>swapaxes</name></member>
+    <member refid="namespacenc_1a44c81be022de4700f7fe591873abebc1" kind="function"><name>square</name></member>
+    <member refid="namespacenc_1a656bb4b9fecf40f1f4194964be57c78b" kind="function"><name>stack</name></member>
+    <member refid="namespacenc_1a1eda5d378815c50db0fe3d309d758fe4" kind="function"><name>stdev</name></member>
+    <member refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kind="function"><name>sum</name></member>
+    <member refid="namespacenc_1a81e14e3820dbc4709253de34600cd473" kind="function"><name>swapaxes</name></member>
     <member refid="namespacenc_1a12bb2c0891c334e603cd1510facba22a" kind="function"><name>tan</name></member>
-    <member refid="namespacenc_1ac985b92780cb7ccb02fec2b8b1a0fed0" kind="function"><name>tan</name></member>
+    <member refid="namespacenc_1a4c23aae94201e3ee5f73159ee4ec3ed9" kind="function"><name>tan</name></member>
     <member refid="namespacenc_1a41bb95f5d62c593e84a9c97013d01bea" kind="function"><name>tanh</name></member>
-    <member refid="namespacenc_1a099297154fd4ed63a95bafcf5d717792" kind="function"><name>tanh</name></member>
-    <member refid="namespacenc_1a4e342ec4b643155b1aafd3f5b89623a8" kind="function"><name>tile</name></member>
-    <member refid="namespacenc_1a3f8ca00408c4209b23634380f5eb0c42" kind="function"><name>tile</name></member>
+    <member refid="namespacenc_1ab36934475b66fba9876cd79314d2cade" kind="function"><name>tanh</name></member>
+    <member refid="namespacenc_1a958af86507643fc8ef0c9c3e2c3d882c" kind="function"><name>tile</name></member>
+    <member refid="namespacenc_1ab5604a013c8d5f7fff4d93af8b78bf71" kind="function"><name>tile</name></member>
     <member refid="namespacenc_1a4a3f6b571a0b4761515a67f98957de2a" kind="function"><name>tofile</name></member>
-    <member refid="namespacenc_1a5f01d5eb73eab70467f884e421ad2e71" kind="function"><name>toStlVector</name></member>
+    <member refid="namespacenc_1a41f74193faa6470ce3384a103d53bbfc" kind="function"><name>toStlVector</name></member>
     <member refid="namespacenc_1a4a75035db8c766b2cececb1f3e4d5b74" kind="function"><name>trace</name></member>
-    <member refid="namespacenc_1a83a59c9f29b6b5e8660c7d258ce3ea83" kind="function"><name>transpose</name></member>
-    <member refid="namespacenc_1a12e7a847f3a0a663f04c11e494a77e7e" kind="function"><name>trapz</name></member>
-    <member refid="namespacenc_1a4d3e8e18ea6e0a61cfcda1711cce9e78" kind="function"><name>trapz</name></member>
-    <member refid="namespacenc_1ad1850d44c56b5a13ae13d44e4bbeae83" kind="function"><name>tril</name></member>
-    <member refid="namespacenc_1a16b464bc314efb2183be62a4346f32fc" kind="function"><name>tril</name></member>
-    <member refid="namespacenc_1aa8c48ea18ba4dce93b75dc9bb0882e9b" kind="function"><name>tril</name></member>
-    <member refid="namespacenc_1a13182724941436fd30dd1516dcb003aa" kind="function"><name>trim_zeros</name></member>
-    <member refid="namespacenc_1a326882675fa52ea7e0e266373e844e3e" kind="function"><name>triu</name></member>
+    <member refid="namespacenc_1a4f2a0ece915add7cde89fcfefa30088d" kind="function"><name>transpose</name></member>
+    <member refid="namespacenc_1a829410fad89d9845f8edee22ad643b3a" kind="function"><name>trapz</name></member>
+    <member refid="namespacenc_1a956571b2c934b75025e9168e2ed408f5" kind="function"><name>trapz</name></member>
+    <member refid="namespacenc_1ad9192133ab234457a9e9a5269b88865b" kind="function"><name>tril</name></member>
+    <member refid="namespacenc_1a653a2564e609728da8b1240a478a5625" kind="function"><name>tril</name></member>
+    <member refid="namespacenc_1a5c7a36b3e13fbf9f38a3b77692888b6c" kind="function"><name>tril</name></member>
+    <member refid="namespacenc_1ae989da7b75de6694e5d462e678bfcc59" kind="function"><name>trim_zeros</name></member>
     <member refid="namespacenc_1acc5de905ab2bb273cb01a4fd3fd357df" kind="function"><name>triu</name></member>
-    <member refid="namespacenc_1aa9142bfbdbfd81f2bd0d6c093a359ea4" kind="function"><name>triu</name></member>
+    <member refid="namespacenc_1a9464c274ad7737a74f70afe33a5b2f72" kind="function"><name>triu</name></member>
+    <member refid="namespacenc_1a1fb506ce5644321b766a774447c14faf" kind="function"><name>triu</name></member>
     <member refid="namespacenc_1ac83a50ef99e61f116a86df98196f4a8b" kind="function"><name>trunc</name></member>
-    <member refid="namespacenc_1a8a226f07c6993cf37d33c57b3033ea6c" kind="function"><name>trunc</name></member>
-    <member refid="namespacenc_1a9dc5a706d1cbeb822ace82eac5ace756" kind="function"><name>union1d</name></member>
-    <member refid="namespacenc_1a4ff98c91846a1eda6681ea2ef476d06e" kind="function"><name>unique</name></member>
+    <member refid="namespacenc_1a9e5373a985723f67cb7b5bbb4a65c86d" kind="function"><name>trunc</name></member>
+    <member refid="namespacenc_1a38b544f6e77741848387a3a427579704" kind="function"><name>union1d</name></member>
+    <member refid="namespacenc_1ab254accc5490d12c7d2b396345c50493" kind="function"><name>unique</name></member>
     <member refid="namespacenc_1aac5e942220c693fb9e65fcc3ff4fc50f" kind="function"><name>unwrap</name></member>
-    <member refid="namespacenc_1a33324987d9f105f585ac96295635e599" kind="function"><name>unwrap</name></member>
-    <member refid="namespacenc_1a5e8d61ac187661b9e720a0a2d8e803f7" kind="function"><name>var</name></member>
-    <member refid="namespacenc_1a1bd20e59dcfc31d93c1edee5ec6e89ff" kind="function"><name>vector2list</name></member>
-    <member refid="namespacenc_1a13d295b5ed47008096684efbc255e263" kind="function"><name>vstack</name></member>
-    <member refid="namespacenc_1a7a526300e6258fc6a008cfabc53d679c" kind="function"><name>where</name></member>
-    <member refid="namespacenc_1abfde704ef23d1c8d937f1afcc1622fbe" kind="function"><name>zeros</name></member>
-    <member refid="namespacenc_1aa10b71f168b0242f27bf45a4ec6ab573" kind="function"><name>zeros</name></member>
-    <member refid="namespacenc_1ac104a21525c41f6b4e112f1ea0bbe685" kind="function"><name>zeros</name></member>
-    <member refid="namespacenc_1a310cfe27fe8db7b02c29ab07a917599a" kind="function"><name>zeros_like</name></member>
+    <member refid="namespacenc_1a4a992832492da5b1fccea6eac13af796" kind="function"><name>unwrap</name></member>
+    <member refid="namespacenc_1a60b8f8ed75145d0f528c6e8223a4a1db" kind="function"><name>var</name></member>
+    <member refid="namespacenc_1a8dec1ff4db1d89ab4b3a7d32ff4b5cf3" kind="function"><name>vstack</name></member>
+    <member refid="namespacenc_1ac0af750215d0444ad9f0208620ca206b" kind="function"><name>where</name></member>
+    <member refid="namespacenc_1a003b8abd8ec4640d8fcbc6d2c4872baf" kind="function"><name>zeros</name></member>
+    <member refid="namespacenc_1a6752f0877730a4804ccb83fe9c2074b6" kind="function"><name>zeros</name></member>
+    <member refid="namespacenc_1ab922d98449cc7df43255cae28908aac8" kind="function"><name>zeros</name></member>
+    <member refid="namespacenc_1a44d394dc1931ccf61b6509f406728e5f" kind="function"><name>zeros_like</name></member>
+  </compound>
+  <compound refid="namespacenc_1_1boost_python_interface" kind="namespace"><name>nc::boostPythonInterface</name>
+    <member refid="namespacenc_1_1boost_python_interface_1a7195ee32d5fb06600aba55dc53b193ca" kind="function"><name>boost2Nc</name></member>
+    <member refid="namespacenc_1_1boost_python_interface_1a924e2a76cccb1b95a9ef94ee659265b3" kind="function"><name>list2vector</name></member>
+    <member refid="namespacenc_1_1boost_python_interface_1a902099e2b25ba03effa74ec4f711df98" kind="function"><name>map2dict</name></member>
+    <member refid="namespacenc_1_1boost_python_interface_1ade0e9a078ced194c389c02e7870a8464" kind="function"><name>nc2Boost</name></member>
+    <member refid="namespacenc_1_1boost_python_interface_1a51a40e2866bcdb72f03c5ded0ce94f9b" kind="function"><name>vector2list</name></member>
   </compound>
   <compound refid="namespacenc_1_1constants" kind="namespace"><name>nc::constants</name>
     <member refid="namespacenc_1_1constants_1ac3fc62713ed109e451648c67faab7581" kind="variable"><name>c</name></member>
@@ -1045,7 +1003,8 @@
     <member refid="namespacenc_1_1coordinates_1ac26247590cae76bd0e551a3300680f55" kind="function"><name>radianSeperation</name></member>
     <member refid="namespacenc_1_1coordinates_1a0fd3df39e04b072bf988390bce990f7c" kind="function"><name>radianSeperation</name></member>
   </compound>
-  <compound refid="namespacenc_1_1fft" kind="namespace"><name>nc::fft</name>
+  <compound refid="namespacenc_1_1error" kind="namespace"><name>nc::error</name>
+    <member refid="namespacenc_1_1error_1ae23be92f797ad9d90604456bdf27092f" kind="function"><name>throwError</name></member>
   </compound>
   <compound refid="namespacenc_1_1filter" kind="namespace"><name>nc::filter</name>
     <member refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6" kind="enum"><name>Boundary</name></member>
@@ -1054,120 +1013,779 @@
     <member refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6aad135772d7cf93dd0ccf9d2474b34e6a" kind="enumvalue"><name>NEAREST</name></member>
     <member refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6a72a92ae9c1d172cdda196686278fbfc6" kind="enumvalue"><name>MIRROR</name></member>
     <member refid="namespacenc_1_1filter_1ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0" kind="enumvalue"><name>WRAP</name></member>
-    <member refid="namespacenc_1_1filter_1a66facdd7cb52bd3c43032e761909cb03" kind="function"><name>addBoundary</name></member>
-    <member refid="namespacenc_1_1filter_1af458756f8ba429d5673744c3e86b08a6" kind="function"><name>addBoundary1d</name></member>
-    <member refid="namespacenc_1_1filter_1a328e0d2fa1a5f472de162c4ee0e1f8e4" kind="function"><name>complementaryMedianFilter</name></member>
-    <member refid="namespacenc_1_1filter_1a3a525dfb96209c3163c95357f8d30b91" kind="function"><name>complementaryMedianFilter1d</name></member>
-    <member refid="namespacenc_1_1filter_1af68e859c2c3de0e63a7de5d3c833e9ba" kind="function"><name>constantBoundary</name></member>
-    <member refid="namespacenc_1_1filter_1a9412ca408039db0ef03bb7c977f363cc" kind="function"><name>constantBoundary1d</name></member>
-    <member refid="namespacenc_1_1filter_1a6b257d6e403f5f9003934a4fd1fb5feb" kind="function"><name>convolve</name></member>
-    <member refid="namespacenc_1_1filter_1a005c1e50b02c5eb7203e2e3d2d6ccc62" kind="function"><name>convolve1d</name></member>
-    <member refid="namespacenc_1_1filter_1a4b11eab67d220d1a912057ddf9206449" kind="function"><name>fillCorners</name></member>
-    <member refid="namespacenc_1_1filter_1a551dbb36022e793d28635926402c8cd2" kind="function"><name>fillCorners</name></member>
-    <member refid="namespacenc_1_1filter_1acb4710192adc0a359fc8e24410988fa3" kind="function"><name>gaussian</name></member>
-    <member refid="namespacenc_1_1filter_1ad167f1f3b185f666c70d2e2dc9d21024" kind="function"><name>gaussianFilter</name></member>
-    <member refid="namespacenc_1_1filter_1a03cc5a48e29d6f25636789b65366f243" kind="function"><name>gaussianFilter1d</name></member>
-    <member refid="namespacenc_1_1filter_1a03fcb2476bd35393869fb23167566f10" kind="function"><name>laplace</name></member>
-    <member refid="namespacenc_1_1filter_1a998f7c3ef568195b9281e3219f3f983e" kind="function"><name>maximumFilter</name></member>
-    <member refid="namespacenc_1_1filter_1a3a38656bef30277181e8377066a15849" kind="function"><name>maximumFilter1d</name></member>
-    <member refid="namespacenc_1_1filter_1a95757a16eed25316be6e6a5c9ca4156a" kind="function"><name>medianFilter</name></member>
-    <member refid="namespacenc_1_1filter_1ab248bc3704fcde26c518a092724fd826" kind="function"><name>medianFilter1d</name></member>
-    <member refid="namespacenc_1_1filter_1acb20cc1171cb1a4dd83b8f77de33a906" kind="function"><name>minimumFilter</name></member>
-    <member refid="namespacenc_1_1filter_1a199c5c6c2c9b94f6f98f1a4b68f1fc75" kind="function"><name>minumumFilter1d</name></member>
-    <member refid="namespacenc_1_1filter_1a32195e6b62bfec9d92c1bbd50f34349f" kind="function"><name>mirrorBoundary</name></member>
-    <member refid="namespacenc_1_1filter_1ab4e7bce587004f88fd6d69338c1524d3" kind="function"><name>mirrorBoundary1d</name></member>
-    <member refid="namespacenc_1_1filter_1a239ebb21f57cfb56544c4247eed568d3" kind="function"><name>nearestBoundary</name></member>
-    <member refid="namespacenc_1_1filter_1a0dbad7f335cf620e347ccd0929c2bdfb" kind="function"><name>nearestBoundary1d</name></member>
-    <member refid="namespacenc_1_1filter_1a08dada208b5d6ec6a1ebbac1825367cc" kind="function"><name>percentileFilter</name></member>
-    <member refid="namespacenc_1_1filter_1ae7265e1ffe92fe29523a541fa27a1611" kind="function"><name>percentileFilter1d</name></member>
-    <member refid="namespacenc_1_1filter_1a972e8e16448b6c4aab483b0e352d3e02" kind="function"><name>rankFilter</name></member>
-    <member refid="namespacenc_1_1filter_1a543f334070e494f6fba9a943a832415e" kind="function"><name>rankFilter1d</name></member>
-    <member refid="namespacenc_1_1filter_1a668b6c63836542f26d963a619f5658d1" kind="function"><name>reflectBoundary</name></member>
-    <member refid="namespacenc_1_1filter_1aee9c0973c07ffabdfd3fd92c3a182a90" kind="function"><name>reflectBoundary1d</name></member>
-    <member refid="namespacenc_1_1filter_1a6492a5b4779e713e9c3adb6091d6a063" kind="function"><name>trimBoundary</name></member>
-    <member refid="namespacenc_1_1filter_1a83d1ec752c3eb5e785f87daaa090d318" kind="function"><name>trimBoundary1d</name></member>
-    <member refid="namespacenc_1_1filter_1a6bebba3c4767e33ec5710cb24b1a9952" kind="function"><name>uniformFilter</name></member>
-    <member refid="namespacenc_1_1filter_1afcf603e5055c7bc01aed09067357e004" kind="function"><name>uniformFilter1d</name></member>
-    <member refid="namespacenc_1_1filter_1a0eefb360788d364ffccc6b809c692bd9" kind="function"><name>wrapBoundary</name></member>
-    <member refid="namespacenc_1_1filter_1ad3b7def57ca0a84025e13305e4f97387" kind="function"><name>wrapBoundary1d</name></member>
+    <member refid="namespacenc_1_1filter_1a2343ac38b1ec7c4cbde82a3fe20b4c21" kind="function"><name>complementaryMedianFilter</name></member>
+    <member refid="namespacenc_1_1filter_1aed171f8ad8a79d99c13158c909ac4017" kind="function"><name>complementaryMedianFilter1d</name></member>
+    <member refid="namespacenc_1_1filter_1abc4c77c759de3cd79f3fc02b7461d971" kind="function"><name>convolve</name></member>
+    <member refid="namespacenc_1_1filter_1a21d48fecf984290cb5a4388d50371b13" kind="function"><name>convolve1d</name></member>
+    <member refid="namespacenc_1_1filter_1a91c9fcd09a78eba8a42c5166ebb7709b" kind="function"><name>gaussianFilter</name></member>
+    <member refid="namespacenc_1_1filter_1abda833220ea035db0aa485f6ccf66923" kind="function"><name>gaussianFilter1d</name></member>
+    <member refid="namespacenc_1_1filter_1aae2d06efe29180faf7363b9322588f46" kind="function"><name>laplace</name></member>
+    <member refid="namespacenc_1_1filter_1a237010b21fd77fa3b72c1fda0360f6a9" kind="function"><name>maximumFilter</name></member>
+    <member refid="namespacenc_1_1filter_1a6760bbaeefd6338527665fa2426cf418" kind="function"><name>maximumFilter1d</name></member>
+    <member refid="namespacenc_1_1filter_1a6edb931e0ad73a60625c4854f11ab82a" kind="function"><name>medianFilter</name></member>
+    <member refid="namespacenc_1_1filter_1a39fc9c2648f0d223b63a5f1b7253bb40" kind="function"><name>medianFilter1d</name></member>
+    <member refid="namespacenc_1_1filter_1ad4b7a2f39d82320559353b151aec3585" kind="function"><name>minimumFilter</name></member>
+    <member refid="namespacenc_1_1filter_1aca02565c2b898228312ef781bf4ed29c" kind="function"><name>minumumFilter1d</name></member>
+    <member refid="namespacenc_1_1filter_1a357d5be7b2dc0b511d398acc4c8af1fd" kind="function"><name>percentileFilter</name></member>
+    <member refid="namespacenc_1_1filter_1aee202739b753a067c7cb2aa32a9b1519" kind="function"><name>percentileFilter1d</name></member>
+    <member refid="namespacenc_1_1filter_1a0c2cbe33d4d1ef4f6a1a10320db1c059" kind="function"><name>rankFilter</name></member>
+    <member refid="namespacenc_1_1filter_1ac46eab01f172d2fb3818e0d1cfaf1274" kind="function"><name>rankFilter1d</name></member>
+    <member refid="namespacenc_1_1filter_1a9f41f17a6f7c06ebf7b1f3a1ab3915bb" kind="function"><name>uniformFilter</name></member>
+    <member refid="namespacenc_1_1filter_1ab7f620c737fa95c983523c0950120cd9" kind="function"><name>uniformFilter1d</name></member>
+  </compound>
+  <compound refid="namespacenc_1_1filter_1_1boundary" kind="namespace"><name>nc::filter::boundary</name>
+    <member refid="namespacenc_1_1filter_1_1boundary_1a794f239834d31e60ad7c9d5a552e3f7c" kind="function"><name>addBoundary1d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1a43e1dba909451a24518231243181d79d" kind="function"><name>addBoundary2d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1a09c2e0a7f9ff3c1fbbbee0136d80a2e0" kind="function"><name>constant1d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1a0e0bd2ad1d6ac1b1d248175b9bc422f6" kind="function"><name>constant2d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1ac78b1c70b5d7e26d6013674cdb84690a" kind="function"><name>fillCorners</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1ac2c4c5858898760f48e5aba06ad0eb3c" kind="function"><name>fillCorners</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1aaeb7c9f1da6f817190da9daa622c9c8d" kind="function"><name>mirror1d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1a2aaf003bb59428d53d1849dd188e10b8" kind="function"><name>mirror2d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1ac5f60c43aa94490993eee9fcc1e105b1" kind="function"><name>nearest1d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1a7f70d66ead018652239bb3334a040850" kind="function"><name>nearest2d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1ac423cb3e19b12651c02c2c16d0723b3f" kind="function"><name>reflect1d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1add9a7d70820161e370ecd37212b1f397" kind="function"><name>reflect2d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1abe0b187c76c106e821b9ff94ef280d39" kind="function"><name>trimBoundary1d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1aeff17b6fddc47bd2220fb912b2429162" kind="function"><name>trimBoundary2d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1aa318761ec07aeb7764e2e5f0a7ec9e86" kind="function"><name>wrap1d</name></member>
+    <member refid="namespacenc_1_1filter_1_1boundary_1aeace2e548cf6ecf3aaadbbf000cbead7" kind="function"><name>wrap2d</name></member>
   </compound>
   <compound refid="namespacenc_1_1image_processing" kind="namespace"><name>nc::imageProcessing</name>
-    <member refid="namespacenc_1_1image_processing_1a7a12116f72c16ad1c65560da87d708f1" kind="function"><name>applyThreshold</name></member>
-    <member refid="namespacenc_1_1image_processing_1adc4af12032e170cd22a36a802cca789e" kind="function"><name>centroidClusters</name></member>
-    <member refid="namespacenc_1_1image_processing_1aef086af8befb6a2129a0572eb11605f5" kind="function"><name>clusterPixels</name></member>
-    <member refid="namespacenc_1_1image_processing_1ae77f0e4be503e5773e7f4a9915c2972e" kind="function"><name>generateCentroids</name></member>
+    <member refid="namespacenc_1_1image_processing_1a41a6bb5ba85a0908a874cf9a53ac31c7" kind="function"><name>applyThreshold</name></member>
+    <member refid="namespacenc_1_1image_processing_1ad2838bf346a3d199ee0141fc64be7c5e" kind="function"><name>centroidClusters</name></member>
+    <member refid="namespacenc_1_1image_processing_1a9b0730e1067dc755ee1fa2ecf280c14f" kind="function"><name>clusterPixels</name></member>
+    <member refid="namespacenc_1_1image_processing_1a8d9008c72eceb98b40ada379f9d4587e" kind="function"><name>generateCentroids</name></member>
     <member refid="namespacenc_1_1image_processing_1a356989d12dda6e1b0748d22d50d4ecaa" kind="function"><name>generateThreshold</name></member>
-    <member refid="namespacenc_1_1image_processing_1a6613333b700d2e8c41f1a60505bc9715" kind="function"><name>windowExceedances</name></member>
+    <member refid="namespacenc_1_1image_processing_1a896adf0319f58a2f44cbf3dfaf550fe2" kind="function"><name>windowExceedances</name></member>
   </compound>
   <compound refid="namespacenc_1_1linalg" kind="namespace"><name>nc::linalg</name>
     <member refid="namespacenc_1_1linalg_1a55bafcebbc897458164e8dc511b6119c" kind="function"><name>det</name></member>
-    <member refid="namespacenc_1_1linalg_1a5fff4395bd6f0a9117e4049cd3643f5f" kind="function"><name>hat</name></member>
-    <member refid="namespacenc_1_1linalg_1ad93ac021edcd0c8f81891c93996dee25" kind="function"><name>hat</name></member>
-    <member refid="namespacenc_1_1linalg_1a2eeb58d0a34e50e79fcfe59f71c61b4d" kind="function"><name>inv</name></member>
-    <member refid="namespacenc_1_1linalg_1a7fa37622fd691d32db76726ee7bbc7d3" kind="function"><name>lstsq</name></member>
-    <member refid="namespacenc_1_1linalg_1a59c33bf492f64017c673a151f890dcbf" kind="function"><name>matrix_power</name></member>
-    <member refid="namespacenc_1_1linalg_1a46188c640b2c3ee74418db676e8f3bce" kind="function"><name>multi_dot</name></member>
+    <member refid="namespacenc_1_1linalg_1a52417fc43f9622ef2a527ec84da50ca2" kind="function"><name>hat</name></member>
+    <member refid="namespacenc_1_1linalg_1ae7ced3680f1ae95af4bc2e6b98a5a517" kind="function"><name>hat</name></member>
+    <member refid="namespacenc_1_1linalg_1ae9cdb091717a1c74dc659519d77e0048" kind="function"><name>hat</name></member>
+    <member refid="namespacenc_1_1linalg_1ae36553eb100d8f2c2167e8ecadf2a9fc" kind="function"><name>inv</name></member>
+    <member refid="namespacenc_1_1linalg_1aac53030577bdcf972d77f0c528b2d302" kind="function"><name>lstsq</name></member>
+    <member refid="namespacenc_1_1linalg_1ad27c1996e4e27a6f8ba5d2aed0743bba" kind="function"><name>matrix_power</name></member>
+    <member refid="namespacenc_1_1linalg_1a86ab79e41b748e7ea0ee4f2e0bc462a6" kind="function"><name>multi_dot</name></member>
     <member refid="namespacenc_1_1linalg_1aa2a95731baaa5ff4d5837c601987af22" kind="function"><name>svd</name></member>
   </compound>
-  <compound refid="namespacenc_1_1polynomial" kind="namespace"><name>nc::polynomial</name>
+  <compound refid="namespacenc_1_1pybind_interface" kind="namespace"><name>nc::pybindInterface</name>
+    <member refid="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19" kind="enum"><name>ReturnPolicy</name></member>
+    <member refid="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f" kind="enumvalue"><name>COPY</name></member>
+    <member refid="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19adcd320d017d7f3c317bc8b234287bc9f" kind="enumvalue"><name>REFERENCE</name></member>
+    <member refid="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19a9419303c1fae01a65adc8d1835aa2c6d" kind="enumvalue"><name>TAKE_OWNERSHIP</name></member>
+    <member refid="namespacenc_1_1pybind_interface_1abde82685837c3645f506b0800472ffbc" kind="variable"><name>returnPolicyStringMap</name></member>
+    <member refid="namespacenc_1_1pybind_interface_1a8e469429e67b472cd492aaa10d0beedc" kind="function"><name>nc2pybind</name></member>
+    <member refid="namespacenc_1_1pybind_interface_1a4f1f494ed8dc86610403627954600812" kind="function"><name>pybind2nc</name></member>
+  </compound>
+  <compound refid="namespacenc_1_1random" kind="namespace"><name>nc::random</name>
+    <member refid="namespacenc_1_1random_1aa541047e6b742f1c5251e72f3b7aec95" kind="variable"><name>generator_</name></member>
+    <member refid="namespacenc_1_1random_1ae9acf3bca4da5307534d454cfa55d57c" kind="function"><name>bernoulli</name></member>
+    <member refid="namespacenc_1_1random_1ab7de94b949521786b7bde650b1e813fa" kind="function"><name>beta</name></member>
+    <member refid="namespacenc_1_1random_1a83099ec22905c3ad69984a94d823a3d8" kind="function"><name>binomial</name></member>
+    <member refid="namespacenc_1_1random_1a61dc9fcfaee6e2a74e3f2e1f0e9c039b" kind="function"><name>cauchy</name></member>
+    <member refid="namespacenc_1_1random_1a329370aed893f0e10a8050520cf0bbd4" kind="function"><name>chiSquare</name></member>
+    <member refid="namespacenc_1_1random_1ad60ec32743642bd0540fec0076043fed" kind="function"><name>choice</name></member>
+    <member refid="namespacenc_1_1random_1a550d14627dafe31efa2e66a10d2fce73" kind="function"><name>choice</name></member>
+    <member refid="namespacenc_1_1random_1ae5367b53538e888028853607e1c522a4" kind="function"><name>discrete</name></member>
+    <member refid="namespacenc_1_1random_1acd77c2e563be5d613cb54cc3a10c5520" kind="function"><name>exponential</name></member>
+    <member refid="namespacenc_1_1random_1a6a5f569b594585794e6b268576d2e587" kind="function"><name>extremeValue</name></member>
+    <member refid="namespacenc_1_1random_1aabf17da1f94e6da4ec99085feca10799" kind="function"><name>f</name></member>
+    <member refid="namespacenc_1_1random_1aa706a2bd65cb664ae9af10f713661d79" kind="function"><name>gamma</name></member>
+    <member refid="namespacenc_1_1random_1ae761ff6e68fb0708061704bee4a3a7e3" kind="function"><name>geometric</name></member>
+    <member refid="namespacenc_1_1random_1a2966d8201e87fe94ce575e6338f1e222" kind="function"><name>laplace</name></member>
+    <member refid="namespacenc_1_1random_1a3adc9de1025d27ed485603980657225b" kind="function"><name>lognormal</name></member>
+    <member refid="namespacenc_1_1random_1ac6181e54b9cae303574f9c5fad33cfc2" kind="function"><name>negativeBinomial</name></member>
+    <member refid="namespacenc_1_1random_1af01395c7355ee4c0f36441c40039e82d" kind="function"><name>nonCentralChiSquared</name></member>
+    <member refid="namespacenc_1_1random_1ab655c4af3dac07aeff39efd50c120f4d" kind="function"><name>normal</name></member>
+    <member refid="namespacenc_1_1random_1ae0b8066f06a5f5b5a0baee76c5030892" kind="function"><name>permutation</name></member>
+    <member refid="namespacenc_1_1random_1ad1cc1c17d8fb1d521b0a9ef9b932562b" kind="function"><name>permutation</name></member>
+    <member refid="namespacenc_1_1random_1ae103ffefefe45e4b64067d52a1763f24" kind="function"><name>poisson</name></member>
+    <member refid="namespacenc_1_1random_1a66c8c21d1fe1147027316fff90d68f22" kind="function"><name>rand</name></member>
+    <member refid="namespacenc_1_1random_1a90e5d8da2012ada1194420f31547b6e1" kind="function"><name>randFloat</name></member>
+    <member refid="namespacenc_1_1random_1a54d5323d33f653d56031b8af52ec956b" kind="function"><name>randInt</name></member>
+    <member refid="namespacenc_1_1random_1aed1531eafe5ef2f67c226437003d5999" kind="function"><name>randN</name></member>
+    <member refid="namespacenc_1_1random_1ae71a0895ba1f3bff56f78300e3d8538a" kind="function"><name>seed</name></member>
+    <member refid="namespacenc_1_1random_1a2de486e39f23c66f769b64326d7f3103" kind="function"><name>shuffle</name></member>
+    <member refid="namespacenc_1_1random_1ad0dde51f451dc55192589242f07cf131" kind="function"><name>standardNormal</name></member>
+    <member refid="namespacenc_1_1random_1a5c18c6c123083003f32344baeb0f4ad3" kind="function"><name>studentT</name></member>
+    <member refid="namespacenc_1_1random_1abaeed48339244cfb7f214c7238b13e8b" kind="function"><name>triangle</name></member>
+    <member refid="namespacenc_1_1random_1a1e31096d678b7e4be66f6c59d95e5445" kind="function"><name>uniform</name></member>
+    <member refid="namespacenc_1_1random_1a2f18a1f7b9311d52bbdc4ae7a7b84be6" kind="function"><name>uniformOnSphere</name></member>
+    <member refid="namespacenc_1_1random_1af3a48c59aaa59d37bb5177b962d02bde" kind="function"><name>weibull</name></member>
   </compound>
   <compound refid="namespacenc_1_1rotations" kind="namespace"><name>nc::rotations</name>
   </compound>
   <compound refid="namespacenc_1_1utils" kind="namespace"><name>nc::utils</name>
     <member refid="namespacenc_1_1utils_1af058ceabca43da922cd50333901abf05" kind="function"><name>cube</name></member>
     <member refid="namespacenc_1_1utils_1ab8f33a7e18654f6870deaa8f9c038195" kind="function"><name>essentiallyEqual</name></member>
-    <member refid="namespacenc_1_1utils_1a084b547369a9345dde8a42ffd3d5576b" kind="function"><name>interp</name></member>
+    <member refid="namespacenc_1_1utils_1a5016e06ac7ca186ff6c110b314d30209" kind="function"><name>gaussian</name></member>
+    <member refid="namespacenc_1_1utils_1a263704ee2cc6ab3f77b462522c7150f8" kind="function"><name>gaussian1d</name></member>
+    <member refid="namespacenc_1_1utils_1a154128ff5de9061d0ab4b1bdcd35efd1" kind="function"><name>interp</name></member>
     <member refid="namespacenc_1_1utils_1a2e3a14fbbce38b0f8710ea0d92ee2ffc" kind="function"><name>num2str</name></member>
     <member refid="namespacenc_1_1utils_1a716a63ef8627c73f6cc4146481fcabdf" kind="function"><name>power</name></member>
-    <member refid="namespacenc_1_1utils_1a740be01844f1a3a82547731eefbd067e" kind="function"><name>powerf</name></member>
+    <member refid="namespacenc_1_1utils_1aa132d7462c0595871476eb96396a897a" kind="function"><name>powerf</name></member>
     <member refid="namespacenc_1_1utils_1aa83b87460956ee562b1ecaad9e0bb0f1" kind="function"><name>sqr</name></member>
   </compound>
   <compound refid="namespacestd" kind="namespace"><name>std</name>
   </compound>
+  <compound refid="abs_8hpp" kind="file"><name>abs.hpp</name>
+  </compound>
+  <compound refid="add_8hpp" kind="file"><name>add.hpp</name>
+  </compound>
+  <compound refid="add_boundary1d_8hpp" kind="file"><name>addBoundary1d.hpp</name>
+  </compound>
+  <compound refid="add_boundary2d_8hpp" kind="file"><name>addBoundary2d.hpp</name>
+  </compound>
+  <compound refid="alen_8hpp" kind="file"><name>alen.hpp</name>
+  </compound>
+  <compound refid="all_8hpp" kind="file"><name>all.hpp</name>
+  </compound>
+  <compound refid="allclose_8hpp" kind="file"><name>allclose.hpp</name>
+  </compound>
+  <compound refid="amax_8hpp" kind="file"><name>amax.hpp</name>
+  </compound>
+  <compound refid="amin_8hpp" kind="file"><name>amin.hpp</name>
+  </compound>
+  <compound refid="any_8hpp" kind="file"><name>any.hpp</name>
+  </compound>
+  <compound refid="append_8hpp" kind="file"><name>append.hpp</name>
+  </compound>
+  <compound refid="apply_function_8hpp" kind="file"><name>applyFunction.hpp</name>
+  </compound>
+  <compound refid="apply_poly1d_8hpp" kind="file"><name>applyPoly1d.hpp</name>
+  </compound>
+  <compound refid="apply_threshold_8hpp" kind="file"><name>applyThreshold.hpp</name>
+  </compound>
+  <compound refid="arange_8hpp" kind="file"><name>arange.hpp</name>
+  </compound>
+  <compound refid="arccos_8hpp" kind="file"><name>arccos.hpp</name>
+  </compound>
+  <compound refid="arccosh_8hpp" kind="file"><name>arccosh.hpp</name>
+  </compound>
+  <compound refid="arcsin_8hpp" kind="file"><name>arcsin.hpp</name>
+  </compound>
+  <compound refid="arcsinh_8hpp" kind="file"><name>arcsinh.hpp</name>
+  </compound>
+  <compound refid="arctan_8hpp" kind="file"><name>arctan.hpp</name>
+  </compound>
+  <compound refid="arctan2_8hpp" kind="file"><name>arctan2.hpp</name>
+  </compound>
+  <compound refid="arctanh_8hpp" kind="file"><name>arctanh.hpp</name>
+  </compound>
+  <compound refid="argmax_8hpp" kind="file"><name>argmax.hpp</name>
+  </compound>
+  <compound refid="argmin_8hpp" kind="file"><name>argmin.hpp</name>
+  </compound>
+  <compound refid="argsort_8hpp" kind="file"><name>argsort.hpp</name>
+  </compound>
+  <compound refid="argwhere_8hpp" kind="file"><name>argwhere.hpp</name>
+  </compound>
+  <compound refid="around_8hpp" kind="file"><name>around.hpp</name>
+  </compound>
+  <compound refid="array__equal_8hpp" kind="file"><name>array_equal.hpp</name>
+  </compound>
+  <compound refid="array__equiv_8hpp" kind="file"><name>array_equiv.hpp</name>
+  </compound>
+  <compound refid="asarray_8hpp" kind="file"><name>asarray.hpp</name>
+  </compound>
+  <compound refid="astype_8hpp" kind="file"><name>astype.hpp</name>
+  </compound>
+  <compound refid="average_8hpp" kind="file"><name>average.hpp</name>
+  </compound>
+  <compound refid="bernoilli_8hpp" kind="file"><name>bernoilli.hpp</name>
+  </compound>
+  <compound refid="beta_8hpp" kind="file"><name>beta.hpp</name>
+  </compound>
+  <compound refid="binary_repr_8hpp" kind="file"><name>binaryRepr.hpp</name>
+  </compound>
+  <compound refid="bincount_8hpp" kind="file"><name>bincount.hpp</name>
+  </compound>
+  <compound refid="binomial_8hpp" kind="file"><name>binomial.hpp</name>
+  </compound>
+  <compound refid="bitwise__and_8hpp" kind="file"><name>bitwise_and.hpp</name>
+  </compound>
+  <compound refid="bitwise__not_8hpp" kind="file"><name>bitwise_not.hpp</name>
+  </compound>
+  <compound refid="bitwise__or_8hpp" kind="file"><name>bitwise_or.hpp</name>
+  </compound>
+  <compound refid="bitwise__xor_8hpp" kind="file"><name>bitwise_xor.hpp</name>
+  </compound>
+  <compound refid="_boost_interface_8hpp" kind="file"><name>BoostInterface.hpp</name>
+  </compound>
   <compound refid="_boost_numpy_ndarray_helper_8hpp" kind="file"><name>BoostNumpyNdarrayHelper.hpp</name>
+  </compound>
+  <compound refid="_boundary_8hpp" kind="file"><name>Boundary.hpp</name>
+  </compound>
+  <compound refid="byteswap_8hpp" kind="file"><name>byteswap.hpp</name>
+  </compound>
+  <compound refid="cauchy_8hpp" kind="file"><name>cauchy.hpp</name>
+  </compound>
+  <compound refid="cbrt_8hpp" kind="file"><name>cbrt.hpp</name>
+  </compound>
+  <compound refid="ceil_8hpp" kind="file"><name>ceil.hpp</name>
+  </compound>
+  <compound refid="_centroid_8hpp" kind="file"><name>Centroid.hpp</name>
+  </compound>
+  <compound refid="centroid_clusters_8hpp" kind="file"><name>centroidClusters.hpp</name>
+  </compound>
+  <compound refid="chi_square_8hpp" kind="file"><name>chiSquare.hpp</name>
+  </compound>
+  <compound refid="choice_8hpp" kind="file"><name>choice.hpp</name>
+  </compound>
+  <compound refid="clip_8hpp" kind="file"><name>clip.hpp</name>
+  </compound>
+  <compound refid="_cluster_8hpp" kind="file"><name>Cluster.hpp</name>
+  </compound>
+  <compound refid="_cluster_maker_8hpp" kind="file"><name>ClusterMaker.hpp</name>
+  </compound>
+  <compound refid="cluster_pixels_8hpp" kind="file"><name>clusterPixels.hpp</name>
+  </compound>
+  <compound refid="column__stack_8hpp" kind="file"><name>column_stack.hpp</name>
+  </compound>
+  <compound refid="complementary_median_filter_8hpp" kind="file"><name>complementaryMedianFilter.hpp</name>
+  </compound>
+  <compound refid="complementary_median_filter1d_8hpp" kind="file"><name>complementaryMedianFilter1d.hpp</name>
+  </compound>
+  <compound refid="concatenate_8hpp" kind="file"><name>concatenate.hpp</name>
+  </compound>
+  <compound refid="constant1d_8hpp" kind="file"><name>constant1d.hpp</name>
+  </compound>
+  <compound refid="constant2d_8hpp" kind="file"><name>constant2d.hpp</name>
   </compound>
   <compound refid="_constants_8hpp" kind="file"><name>Constants.hpp</name>
   </compound>
+  <compound refid="contains_8hpp" kind="file"><name>contains.hpp</name>
+  </compound>
+  <compound refid="convolve_8hpp" kind="file"><name>convolve.hpp</name>
+  </compound>
+  <compound refid="convolve1d_8hpp" kind="file"><name>convolve1d.hpp</name>
+  </compound>
+  <compound refid="_coordinate_8hpp" kind="file"><name>Coordinate.hpp</name>
+  </compound>
   <compound refid="_coordinates_8hpp" kind="file"><name>Coordinates.hpp</name>
+  </compound>
+  <compound refid="copy_8hpp" kind="file"><name>copy.hpp</name>
+  </compound>
+  <compound refid="copy_sign_8hpp" kind="file"><name>copySign.hpp</name>
+  </compound>
+  <compound refid="copyto_8hpp" kind="file"><name>copyto.hpp</name>
+  </compound>
+  <compound refid="_core_8hpp" kind="file"><name>Core.hpp</name>
+  </compound>
+  <compound refid="cos_8hpp" kind="file"><name>cos.hpp</name>
+  </compound>
+  <compound refid="cosh_8hpp" kind="file"><name>cosh.hpp</name>
+  </compound>
+  <compound refid="count__nonzero_8hpp" kind="file"><name>count_nonzero.hpp</name>
+  </compound>
+  <compound refid="cross_8hpp" kind="file"><name>cross.hpp</name>
+  </compound>
+  <compound refid="_methods_2cube_8hpp" kind="file"><name>Methods/cube.hpp</name>
+  </compound>
+  <compound refid="_utils_2cube_8hpp" kind="file"><name>Utils/cube.hpp</name>
+  </compound>
+  <compound refid="cumprod_8hpp" kind="file"><name>cumprod.hpp</name>
+  </compound>
+  <compound refid="cumsum_8hpp" kind="file"><name>cumsum.hpp</name>
   </compound>
   <compound refid="_data_cube_8hpp" kind="file"><name>DataCube.hpp</name>
   </compound>
+  <compound refid="_d_c_m_8hpp" kind="file"><name>DCM.hpp</name>
+  </compound>
+  <compound refid="_dec_8hpp" kind="file"><name>Dec.hpp</name>
+  </compound>
+  <compound refid="deg2rad_8hpp" kind="file"><name>deg2rad.hpp</name>
+  </compound>
+  <compound refid="degrees_8hpp" kind="file"><name>degrees.hpp</name>
+  </compound>
+  <compound refid="degree_seperation_8hpp" kind="file"><name>degreeSeperation.hpp</name>
+  </compound>
+  <compound refid="delete_indices_8hpp" kind="file"><name>deleteIndices.hpp</name>
+  </compound>
+  <compound refid="det_8hpp" kind="file"><name>det.hpp</name>
+  </compound>
+  <compound refid="diag_flat_8hpp" kind="file"><name>diagFlat.hpp</name>
+  </compound>
+  <compound refid="diagnol_8hpp" kind="file"><name>diagnol.hpp</name>
+  </compound>
+  <compound refid="diff_8hpp" kind="file"><name>diff.hpp</name>
+  </compound>
+  <compound refid="discrete_8hpp" kind="file"><name>discrete.hpp</name>
+  </compound>
+  <compound refid="divide_8hpp" kind="file"><name>divide.hpp</name>
+  </compound>
+  <compound refid="dot_8hpp" kind="file"><name>dot.hpp</name>
+  </compound>
   <compound refid="_dtype_info_8hpp" kind="file"><name>DtypeInfo.hpp</name>
   </compound>
-  <compound refid="_f_f_t_8hpp" kind="file"><name>FFT.hpp</name>
+  <compound refid="dump_8hpp" kind="file"><name>dump.hpp</name>
+  </compound>
+  <compound refid="empty_8hpp" kind="file"><name>empty.hpp</name>
+  </compound>
+  <compound refid="empty__like_8hpp" kind="file"><name>empty_like.hpp</name>
+  </compound>
+  <compound refid="endianess_8hpp" kind="file"><name>endianess.hpp</name>
+  </compound>
+  <compound refid="equal_8hpp" kind="file"><name>equal.hpp</name>
+  </compound>
+  <compound refid="erf_8hpp" kind="file"><name>erf.hpp</name>
+  </compound>
+  <compound refid="erfc_8hpp" kind="file"><name>erfc.hpp</name>
+  </compound>
+  <compound refid="_error_8hpp" kind="file"><name>Error.hpp</name>
+    <member refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kind="define"><name>THROW_INVALID_ARGUMENT_ERROR</name></member>
+    <member refid="_error_8hpp_1a0f0ce4acf1fd6032112a06ebc50bb05a" kind="define"><name>THROW_RUNTIME_ERROR</name></member>
+  </compound>
+  <compound refid="essentially_equal_8hpp" kind="file"><name>essentiallyEqual.hpp</name>
+  </compound>
+  <compound refid="exp_8hpp" kind="file"><name>exp.hpp</name>
+  </compound>
+  <compound refid="exp2_8hpp" kind="file"><name>exp2.hpp</name>
+  </compound>
+  <compound refid="expm1_8hpp" kind="file"><name>expm1.hpp</name>
+  </compound>
+  <compound refid="exponential_8hpp" kind="file"><name>exponential.hpp</name>
+  </compound>
+  <compound refid="extreme_value_8hpp" kind="file"><name>extremeValue.hpp</name>
+  </compound>
+  <compound refid="eye_8hpp" kind="file"><name>eye.hpp</name>
+  </compound>
+  <compound refid="f_8hpp" kind="file"><name>f.hpp</name>
+  </compound>
+  <compound refid="fill_corners_8hpp" kind="file"><name>fillCorners.hpp</name>
+  </compound>
+  <compound refid="fill_diagnol_8hpp" kind="file"><name>fillDiagnol.hpp</name>
   </compound>
   <compound refid="_filter_8hpp" kind="file"><name>Filter.hpp</name>
   </compound>
+  <compound refid="find_8hpp" kind="file"><name>find.hpp</name>
+  </compound>
+  <compound refid="fix_8hpp" kind="file"><name>fix.hpp</name>
+  </compound>
+  <compound refid="flatnonzero_8hpp" kind="file"><name>flatnonzero.hpp</name>
+  </compound>
+  <compound refid="flatten_8hpp" kind="file"><name>flatten.hpp</name>
+  </compound>
+  <compound refid="flip_8hpp" kind="file"><name>flip.hpp</name>
+  </compound>
+  <compound refid="fliplr_8hpp" kind="file"><name>fliplr.hpp</name>
+  </compound>
+  <compound refid="flipud_8hpp" kind="file"><name>flipud.hpp</name>
+  </compound>
+  <compound refid="floor_8hpp" kind="file"><name>floor.hpp</name>
+  </compound>
+  <compound refid="floor__divide_8hpp" kind="file"><name>floor_divide.hpp</name>
+  </compound>
+  <compound refid="fmax_8hpp" kind="file"><name>fmax.hpp</name>
+  </compound>
+  <compound refid="fmin_8hpp" kind="file"><name>fmin.hpp</name>
+  </compound>
+  <compound refid="fmod_8hpp" kind="file"><name>fmod.hpp</name>
+  </compound>
+  <compound refid="from_buffer_8hpp" kind="file"><name>fromBuffer.hpp</name>
+  </compound>
+  <compound refid="from_file_8hpp" kind="file"><name>fromFile.hpp</name>
+  </compound>
+  <compound refid="fromiter_8hpp" kind="file"><name>fromiter.hpp</name>
+  </compound>
+  <compound refid="full_8hpp" kind="file"><name>full.hpp</name>
+  </compound>
+  <compound refid="full__like_8hpp" kind="file"><name>full_like.hpp</name>
+  </compound>
+  <compound refid="gamma_8hpp" kind="file"><name>gamma.hpp</name>
+  </compound>
+  <compound refid="gaussian_8hpp" kind="file"><name>gaussian.hpp</name>
+  </compound>
+  <compound refid="gaussian1d_8hpp" kind="file"><name>gaussian1d.hpp</name>
+  </compound>
+  <compound refid="gaussian_filter_8hpp" kind="file"><name>gaussianFilter.hpp</name>
+  </compound>
+  <compound refid="gaussian_filter1d_8hpp" kind="file"><name>gaussianFilter1d.hpp</name>
+  </compound>
+  <compound refid="gcd_8hpp" kind="file"><name>gcd.hpp</name>
+  </compound>
+  <compound refid="generate_centroids_8hpp" kind="file"><name>generateCentroids.hpp</name>
+  </compound>
+  <compound refid="generate_threshold_8hpp" kind="file"><name>generateThreshold.hpp</name>
+  </compound>
+  <compound refid="generator_8hpp" kind="file"><name>generator.hpp</name>
+  </compound>
+  <compound refid="geometric_8hpp" kind="file"><name>geometric.hpp</name>
+  </compound>
+  <compound refid="gradient_8hpp" kind="file"><name>gradient.hpp</name>
+  </compound>
+  <compound refid="greater_8hpp" kind="file"><name>greater.hpp</name>
+  </compound>
+  <compound refid="greater__equal_8hpp" kind="file"><name>greater_equal.hpp</name>
+  </compound>
+  <compound refid="hat_8hpp" kind="file"><name>hat.hpp</name>
+  </compound>
+  <compound refid="histogram_8hpp" kind="file"><name>histogram.hpp</name>
+  </compound>
+  <compound refid="hstack_8hpp" kind="file"><name>hstack.hpp</name>
+  </compound>
+  <compound refid="hypot_8hpp" kind="file"><name>hypot.hpp</name>
+  </compound>
+  <compound refid="identity_8hpp" kind="file"><name>identity.hpp</name>
+  </compound>
   <compound refid="_image_processing_8hpp" kind="file"><name>ImageProcessing.hpp</name>
+  </compound>
+  <compound refid="_methods_2interp_8hpp" kind="file"><name>Methods/interp.hpp</name>
+  </compound>
+  <compound refid="_utils_2interp_8hpp" kind="file"><name>Utils/interp.hpp</name>
+  </compound>
+  <compound refid="intersect1d_8hpp" kind="file"><name>intersect1d.hpp</name>
+  </compound>
+  <compound refid="inv_8hpp" kind="file"><name>inv.hpp</name>
+  </compound>
+  <compound refid="invert_8hpp" kind="file"><name>invert.hpp</name>
+  </compound>
+  <compound refid="isclose_8hpp" kind="file"><name>isclose.hpp</name>
+  </compound>
+  <compound refid="isinf_8hpp" kind="file"><name>isinf.hpp</name>
+  </compound>
+  <compound refid="isnan_8hpp" kind="file"><name>isnan.hpp</name>
+  </compound>
+  <compound refid="_filter_2_filters_2_filters2d_2laplace_8hpp" kind="file"><name>Filter/Filters/Filters2d/laplace.hpp</name>
+  </compound>
+  <compound refid="_random_2laplace_8hpp" kind="file"><name>Random/laplace.hpp</name>
+  </compound>
+  <compound refid="lcm_8hpp" kind="file"><name>lcm.hpp</name>
+  </compound>
+  <compound refid="ldexp_8hpp" kind="file"><name>ldexp.hpp</name>
+  </compound>
+  <compound refid="left__shift_8hpp" kind="file"><name>left_shift.hpp</name>
+  </compound>
+  <compound refid="less_8hpp" kind="file"><name>less.hpp</name>
+  </compound>
+  <compound refid="less__equal_8hpp" kind="file"><name>less_equal.hpp</name>
   </compound>
   <compound refid="_linalg_8hpp" kind="file"><name>Linalg.hpp</name>
   </compound>
+  <compound refid="linspace_8hpp" kind="file"><name>linspace.hpp</name>
+  </compound>
+  <compound refid="load_8hpp" kind="file"><name>load.hpp</name>
+  </compound>
+  <compound refid="log_8hpp" kind="file"><name>log.hpp</name>
+  </compound>
+  <compound refid="log10_8hpp" kind="file"><name>log10.hpp</name>
+  </compound>
+  <compound refid="log1p_8hpp" kind="file"><name>log1p.hpp</name>
+  </compound>
+  <compound refid="log2_8hpp" kind="file"><name>log2.hpp</name>
+  </compound>
+  <compound refid="logical__and_8hpp" kind="file"><name>logical_and.hpp</name>
+  </compound>
+  <compound refid="logical__not_8hpp" kind="file"><name>logical_not.hpp</name>
+  </compound>
+  <compound refid="logical__or_8hpp" kind="file"><name>logical_or.hpp</name>
+  </compound>
+  <compound refid="logical__xor_8hpp" kind="file"><name>logical_xor.hpp</name>
+  </compound>
+  <compound refid="lognormal_8hpp" kind="file"><name>lognormal.hpp</name>
+  </compound>
+  <compound refid="lstsq_8hpp" kind="file"><name>lstsq.hpp</name>
+  </compound>
+  <compound refid="matmul_8hpp" kind="file"><name>matmul.hpp</name>
+  </compound>
+  <compound refid="matrix__power_8hpp" kind="file"><name>matrix_power.hpp</name>
+  </compound>
+  <compound refid="max_8hpp" kind="file"><name>max.hpp</name>
+  </compound>
+  <compound refid="maximum_8hpp" kind="file"><name>maximum.hpp</name>
+  </compound>
+  <compound refid="maximum_filter_8hpp" kind="file"><name>maximumFilter.hpp</name>
+  </compound>
+  <compound refid="maximum_filter1d_8hpp" kind="file"><name>maximumFilter1d.hpp</name>
+  </compound>
+  <compound refid="mean_8hpp" kind="file"><name>mean.hpp</name>
+  </compound>
+  <compound refid="median_8hpp" kind="file"><name>median.hpp</name>
+  </compound>
+  <compound refid="median_filter_8hpp" kind="file"><name>medianFilter.hpp</name>
+  </compound>
+  <compound refid="median_filter1d_8hpp" kind="file"><name>medianFilter1d.hpp</name>
+  </compound>
+  <compound refid="meshgrid_8hpp" kind="file"><name>meshgrid.hpp</name>
+  </compound>
   <compound refid="_methods_8hpp" kind="file"><name>Methods.hpp</name>
   </compound>
+  <compound refid="min_8hpp" kind="file"><name>min.hpp</name>
+  </compound>
+  <compound refid="minimum_8hpp" kind="file"><name>minimum.hpp</name>
+  </compound>
+  <compound refid="minimum_filter_8hpp" kind="file"><name>minimumFilter.hpp</name>
+  </compound>
+  <compound refid="minimum_filter1d_8hpp" kind="file"><name>minimumFilter1d.hpp</name>
+  </compound>
+  <compound refid="mirror1d_8hpp" kind="file"><name>mirror1d.hpp</name>
+  </compound>
+  <compound refid="mirror2d_8hpp" kind="file"><name>mirror2d.hpp</name>
+  </compound>
+  <compound refid="mod_8hpp" kind="file"><name>mod.hpp</name>
+  </compound>
+  <compound refid="multi__dot_8hpp" kind="file"><name>multi_dot.hpp</name>
+  </compound>
+  <compound refid="multiply_8hpp" kind="file"><name>multiply.hpp</name>
+  </compound>
+  <compound refid="nanargmax_8hpp" kind="file"><name>nanargmax.hpp</name>
+  </compound>
+  <compound refid="nanargmin_8hpp" kind="file"><name>nanargmin.hpp</name>
+  </compound>
+  <compound refid="nancumprod_8hpp" kind="file"><name>nancumprod.hpp</name>
+  </compound>
+  <compound refid="nancumsum_8hpp" kind="file"><name>nancumsum.hpp</name>
+  </compound>
+  <compound refid="nanmax_8hpp" kind="file"><name>nanmax.hpp</name>
+  </compound>
+  <compound refid="nanmean_8hpp" kind="file"><name>nanmean.hpp</name>
+  </compound>
+  <compound refid="nanmedian_8hpp" kind="file"><name>nanmedian.hpp</name>
+  </compound>
+  <compound refid="nanmin_8hpp" kind="file"><name>nanmin.hpp</name>
+  </compound>
+  <compound refid="nanpercentile_8hpp" kind="file"><name>nanpercentile.hpp</name>
+  </compound>
+  <compound refid="nanprod_8hpp" kind="file"><name>nanprod.hpp</name>
+  </compound>
+  <compound refid="nans_8hpp" kind="file"><name>nans.hpp</name>
+  </compound>
+  <compound refid="nans__like_8hpp" kind="file"><name>nans_like.hpp</name>
+  </compound>
+  <compound refid="nanstdev_8hpp" kind="file"><name>nanstdev.hpp</name>
+  </compound>
+  <compound refid="nansum_8hpp" kind="file"><name>nansum.hpp</name>
+  </compound>
+  <compound refid="nanvar_8hpp" kind="file"><name>nanvar.hpp</name>
+  </compound>
+  <compound refid="nbytes_8hpp" kind="file"><name>nbytes.hpp</name>
+  </compound>
   <compound refid="_nd_array_8hpp" kind="file"><name>NdArray.hpp</name>
+  </compound>
+  <compound refid="nearest1d_8hpp" kind="file"><name>nearest1d.hpp</name>
+  </compound>
+  <compound refid="nearest2d_8hpp" kind="file"><name>nearest2d.hpp</name>
+  </compound>
+  <compound refid="negative_8hpp" kind="file"><name>negative.hpp</name>
+  </compound>
+  <compound refid="negative_binomial_8hpp" kind="file"><name>negativeBinomial.hpp</name>
+  </compound>
+  <compound refid="newbyteorder_8hpp" kind="file"><name>newbyteorder.hpp</name>
+  </compound>
+  <compound refid="non_central_chi_squared_8hpp" kind="file"><name>nonCentralChiSquared.hpp</name>
+  </compound>
+  <compound refid="nonzero_8hpp" kind="file"><name>nonzero.hpp</name>
+  </compound>
+  <compound refid="norm_8hpp" kind="file"><name>norm.hpp</name>
+  </compound>
+  <compound refid="normal_8hpp" kind="file"><name>normal.hpp</name>
+  </compound>
+  <compound refid="not__equal_8hpp" kind="file"><name>not_equal.hpp</name>
+  </compound>
+  <compound refid="num2str_8hpp" kind="file"><name>num2str.hpp</name>
   </compound>
   <compound refid="_num_cpp_8hpp" kind="file"><name>NumCpp.hpp</name>
     <member refid="_num_cpp_8hpp_1af08ec37a8c99d747fb60fa15bc28678b" kind="define"><name>_CRT_SECURE_NO_WARNINGS</name></member>
   </compound>
+  <compound refid="ones_8hpp" kind="file"><name>ones.hpp</name>
+  </compound>
+  <compound refid="ones__like_8hpp" kind="file"><name>ones_like.hpp</name>
+  </compound>
+  <compound refid="pad_8hpp" kind="file"><name>pad.hpp</name>
+  </compound>
+  <compound refid="partition_8hpp" kind="file"><name>partition.hpp</name>
+  </compound>
+  <compound refid="percentile_8hpp" kind="file"><name>percentile.hpp</name>
+  </compound>
+  <compound refid="percentile_filter_8hpp" kind="file"><name>percentileFilter.hpp</name>
+  </compound>
+  <compound refid="percentile_filter1d_8hpp" kind="file"><name>percentileFilter1d.hpp</name>
+  </compound>
+  <compound refid="permutation_8hpp" kind="file"><name>permutation.hpp</name>
+  </compound>
+  <compound refid="_pixel_8hpp" kind="file"><name>Pixel.hpp</name>
+  </compound>
+  <compound refid="poisson_8hpp" kind="file"><name>poisson.hpp</name>
+  </compound>
   <compound refid="_polynomial_8hpp" kind="file"><name>Polynomial.hpp</name>
+  </compound>
+  <compound refid="_methods_2power_8hpp" kind="file"><name>Methods/power.hpp</name>
+  </compound>
+  <compound refid="_utils_2power_8hpp" kind="file"><name>Utils/power.hpp</name>
+  </compound>
+  <compound refid="_methods_2powerf_8hpp" kind="file"><name>Methods/powerf.hpp</name>
+  </compound>
+  <compound refid="_utils_2powerf_8hpp" kind="file"><name>Utils/powerf.hpp</name>
+  </compound>
+  <compound refid="print_8hpp" kind="file"><name>print.hpp</name>
+  </compound>
+  <compound refid="prod_8hpp" kind="file"><name>prod.hpp</name>
+  </compound>
+  <compound refid="ptp_8hpp" kind="file"><name>ptp.hpp</name>
+  </compound>
+  <compound refid="put_8hpp" kind="file"><name>put.hpp</name>
+  </compound>
+  <compound refid="putmask_8hpp" kind="file"><name>putmask.hpp</name>
+  </compound>
+  <compound refid="_pybind_interface_8hpp" kind="file"><name>PybindInterface.hpp</name>
   </compound>
   <compound refid="_python_interface_8hpp" kind="file"><name>PythonInterface.hpp</name>
   </compound>
+  <compound refid="_quaternion_8hpp" kind="file"><name>Quaternion.hpp</name>
+  </compound>
+  <compound refid="_r_a_8hpp" kind="file"><name>RA.hpp</name>
+  </compound>
+  <compound refid="rad2deg_8hpp" kind="file"><name>rad2deg.hpp</name>
+  </compound>
+  <compound refid="radians_8hpp" kind="file"><name>radians.hpp</name>
+  </compound>
+  <compound refid="radian_seperation_8hpp" kind="file"><name>radianSeperation.hpp</name>
+  </compound>
+  <compound refid="rand_8hpp" kind="file"><name>rand.hpp</name>
+  </compound>
+  <compound refid="rand_float_8hpp" kind="file"><name>randFloat.hpp</name>
+  </compound>
+  <compound refid="rand_int_8hpp" kind="file"><name>randInt.hpp</name>
+  </compound>
+  <compound refid="rand_n_8hpp" kind="file"><name>randN.hpp</name>
+  </compound>
   <compound refid="_random_8hpp" kind="file"><name>Random.hpp</name>
+  </compound>
+  <compound refid="rank_filter_8hpp" kind="file"><name>rankFilter.hpp</name>
+  </compound>
+  <compound refid="rank_filter1d_8hpp" kind="file"><name>rankFilter1d.hpp</name>
   </compound>
   <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
   </compound>
+  <compound refid="reciprocal_8hpp" kind="file"><name>reciprocal.hpp</name>
+  </compound>
+  <compound refid="reflect1d_8hpp" kind="file"><name>reflect1d.hpp</name>
+  </compound>
+  <compound refid="reflect2d_8hpp" kind="file"><name>reflect2d.hpp</name>
+  </compound>
+  <compound refid="remainder_8hpp" kind="file"><name>remainder.hpp</name>
+  </compound>
+  <compound refid="repeat_8hpp" kind="file"><name>repeat.hpp</name>
+  </compound>
+  <compound refid="reshape_8hpp" kind="file"><name>reshape.hpp</name>
+  </compound>
+  <compound refid="resize_fast_8hpp" kind="file"><name>resizeFast.hpp</name>
+  </compound>
+  <compound refid="resize_slow_8hpp" kind="file"><name>resizeSlow.hpp</name>
+  </compound>
+  <compound refid="right__shift_8hpp" kind="file"><name>right_shift.hpp</name>
+  </compound>
+  <compound refid="rint_8hpp" kind="file"><name>rint.hpp</name>
+  </compound>
+  <compound refid="rms_8hpp" kind="file"><name>rms.hpp</name>
+  </compound>
+  <compound refid="roll_8hpp" kind="file"><name>roll.hpp</name>
+  </compound>
+  <compound refid="rot90_8hpp" kind="file"><name>rot90.hpp</name>
+  </compound>
   <compound refid="_rotations_8hpp" kind="file"><name>Rotations.hpp</name>
   </compound>
-  <compound refid="_shape_8hpp" kind="file"><name>Shape.hpp</name>
+  <compound refid="round_8hpp" kind="file"><name>round.hpp</name>
+  </compound>
+  <compound refid="row__stack_8hpp" kind="file"><name>row_stack.hpp</name>
+  </compound>
+  <compound refid="setdiff1d_8hpp" kind="file"><name>setdiff1d.hpp</name>
+  </compound>
+  <compound refid="_core_2_shape_8hpp" kind="file"><name>Core/Shape.hpp</name>
+  </compound>
+  <compound refid="_methods_2_shape_8hpp" kind="file"><name>Methods/Shape.hpp</name>
+  </compound>
+  <compound refid="shuffle_8hpp" kind="file"><name>shuffle.hpp</name>
+  </compound>
+  <compound refid="sign_8hpp" kind="file"><name>sign.hpp</name>
+  </compound>
+  <compound refid="signbit_8hpp" kind="file"><name>signbit.hpp</name>
+  </compound>
+  <compound refid="sin_8hpp" kind="file"><name>sin.hpp</name>
+  </compound>
+  <compound refid="sinc_8hpp" kind="file"><name>sinc.hpp</name>
+  </compound>
+  <compound refid="sinh_8hpp" kind="file"><name>sinh.hpp</name>
+  </compound>
+  <compound refid="size_8hpp" kind="file"><name>size.hpp</name>
   </compound>
   <compound refid="_slice_8hpp" kind="file"><name>Slice.hpp</name>
   </compound>
+  <compound refid="sort_8hpp" kind="file"><name>sort.hpp</name>
+  </compound>
+  <compound refid="sqr_8hpp" kind="file"><name>sqr.hpp</name>
+  </compound>
+  <compound refid="sqrt_8hpp" kind="file"><name>sqrt.hpp</name>
+  </compound>
+  <compound refid="square_8hpp" kind="file"><name>square.hpp</name>
+  </compound>
+  <compound refid="stack_8hpp" kind="file"><name>stack.hpp</name>
+  </compound>
+  <compound refid="standard_normal_8hpp" kind="file"><name>standardNormal.hpp</name>
+  </compound>
+  <compound refid="stdev_8hpp" kind="file"><name>stdev.hpp</name>
+  </compound>
+  <compound refid="student_t_8hpp" kind="file"><name>studentT.hpp</name>
+  </compound>
+  <compound refid="sum_8hpp" kind="file"><name>sum.hpp</name>
+  </compound>
+  <compound refid="svd_8hpp" kind="file"><name>svd.hpp</name>
+  </compound>
+  <compound refid="_s_v_d_class_8hpp" kind="file"><name>SVDClass.hpp</name>
+  </compound>
+  <compound refid="swapaxes_8hpp" kind="file"><name>swapaxes.hpp</name>
+  </compound>
+  <compound refid="tan_8hpp" kind="file"><name>tan.hpp</name>
+  </compound>
+  <compound refid="tanh_8hpp" kind="file"><name>tanh.hpp</name>
+  </compound>
+  <compound refid="tile_8hpp" kind="file"><name>tile.hpp</name>
+  </compound>
   <compound refid="_timer_8hpp" kind="file"><name>Timer.hpp</name>
+  </compound>
+  <compound refid="tofile_8hpp" kind="file"><name>tofile.hpp</name>
+  </compound>
+  <compound refid="to_stl_vector_8hpp" kind="file"><name>toStlVector.hpp</name>
+  </compound>
+  <compound refid="trace_8hpp" kind="file"><name>trace.hpp</name>
+  </compound>
+  <compound refid="transpose_8hpp" kind="file"><name>transpose.hpp</name>
+  </compound>
+  <compound refid="trapz_8hpp" kind="file"><name>trapz.hpp</name>
+  </compound>
+  <compound refid="tri_8hpp" kind="file"><name>tri.hpp</name>
+  </compound>
+  <compound refid="triangle_8hpp" kind="file"><name>triangle.hpp</name>
+  </compound>
+  <compound refid="trim__zeros_8hpp" kind="file"><name>trim_zeros.hpp</name>
+  </compound>
+  <compound refid="trim_boundary1d_8hpp" kind="file"><name>trimBoundary1d.hpp</name>
+  </compound>
+  <compound refid="trim_boundary2d_8hpp" kind="file"><name>trimBoundary2d.hpp</name>
+  </compound>
+  <compound refid="trunc_8hpp" kind="file"><name>trunc.hpp</name>
   </compound>
   <compound refid="_types_8hpp" kind="file"><name>Types.hpp</name>
   </compound>
+  <compound refid="uniform_8hpp" kind="file"><name>uniform.hpp</name>
+  </compound>
+  <compound refid="uniform_filter_8hpp" kind="file"><name>uniformFilter.hpp</name>
+  </compound>
+  <compound refid="uniform_filter1d_8hpp" kind="file"><name>uniformFilter1d.hpp</name>
+  </compound>
+  <compound refid="uniform_on_sphere_8hpp" kind="file"><name>uniformOnSphere.hpp</name>
+  </compound>
+  <compound refid="union1d_8hpp" kind="file"><name>union1d.hpp</name>
+  </compound>
+  <compound refid="unique_8hpp" kind="file"><name>unique.hpp</name>
+  </compound>
+  <compound refid="unwrap_8hpp" kind="file"><name>unwrap.hpp</name>
+  </compound>
   <compound refid="_utils_8hpp" kind="file"><name>Utils.hpp</name>
+  </compound>
+  <compound refid="var_8hpp" kind="file"><name>var.hpp</name>
   </compound>
   <compound refid="_vec2_8hpp" kind="file"><name>Vec2.hpp</name>
   </compound>
@@ -1175,11 +1793,61 @@
   </compound>
   <compound refid="_vector_8hpp" kind="file"><name>Vector.hpp</name>
   </compound>
-  <compound refid="dir_2fcd863c5241ce58f3be9e1580bcd1ab" kind="dir"><name>NumCpp</name>
+  <compound refid="vstack_8hpp" kind="file"><name>vstack.hpp</name>
   </compound>
-  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  <compound refid="weibull_8hpp" kind="file"><name>weibull.hpp</name>
   </compound>
-  <compound refid="dir_1d9c8f2f04a249dd67e71f1be8df1f0b" kind="dir"><name>Vector</name>
+  <compound refid="where_8hpp" kind="file"><name>where.hpp</name>
+  </compound>
+  <compound refid="window_exceedances_8hpp" kind="file"><name>windowExceedances.hpp</name>
+  </compound>
+  <compound refid="wrap1d_8hpp" kind="file"><name>wrap1d.hpp</name>
+  </compound>
+  <compound refid="wrap2d_8hpp" kind="file"><name>wrap2d.hpp</name>
+  </compound>
+  <compound refid="zeros_8hpp" kind="file"><name>zeros.hpp</name>
+  </compound>
+  <compound refid="zeros__like_8hpp" kind="file"><name>zeros_like.hpp</name>
+  </compound>
+  <compound refid="dir_fd15cf3044ef18c575a802718b3c6ac6" kind="dir"><name>Boundaries</name>
+  </compound>
+  <compound refid="dir_135bbb5e4eb4ddbda27ac0540001f7fd" kind="dir"><name>Boundaries1d</name>
+  </compound>
+  <compound refid="dir_b6a8313716ea291fbd26120862b344bc" kind="dir"><name>Boundaries2d</name>
+  </compound>
+  <compound refid="dir_821f0d92e31f34ac47de77ab611d6024" kind="dir"><name>Coordinates</name>
+  </compound>
+  <compound refid="dir_a0b3eef1c4a290b815c33ad6e7027cf3" kind="dir"><name>Core</name>
+  </compound>
+  <compound refid="dir_f80dee9f889b1b78f4bee16631eb7d22" kind="dir"><name>Filter</name>
+  </compound>
+  <compound refid="dir_f7abd548f101bada8968797392787ec9" kind="dir"><name>Filters</name>
+  </compound>
+  <compound refid="dir_ccac4f9986402d0375bdb0274c573e10" kind="dir"><name>Filters1d</name>
+  </compound>
+  <compound refid="dir_e70e3c350b58629b2f80cdf8725e71de" kind="dir"><name>Filters2d</name>
+  </compound>
+  <compound refid="dir_d4391026049f7aede16e9c18d53d30b9" kind="dir"><name>ImageProcessing</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+  <compound refid="dir_d784f51d362276329e5940df711baf3d" kind="dir"><name>Linalg</name>
+  </compound>
+  <compound refid="dir_2ff5c967feb5fab3d9f02025b5ed20ef" kind="dir"><name>Methods</name>
+  </compound>
+  <compound refid="dir_34171bd951b13a53aa9f237277a18e40" kind="dir"><name>NumCpp</name>
+  </compound>
+  <compound refid="dir_5de075070a423c280ad6ed943802bf75" kind="dir"><name>PythonInterface</name>
+  </compound>
+  <compound refid="dir_b095eef7754acf39fdbf777c56c024ce" kind="dir"><name>Random</name>
+  </compound>
+  <compound refid="dir_cac3062759fc9841f0966ab05282555a" kind="dir"><name>Rotations</name>
+  </compound>
+  <compound refid="dir_093b14450e434accd2cde91cedff0d18" kind="dir"><name>svd</name>
+  </compound>
+  <compound refid="dir_3762e5d1d8eae0347117ff18be7f517d" kind="dir"><name>Utils</name>
+  </compound>
+  <compound refid="dir_2e8552338a5fe196f81c9ab4a461b773" kind="dir"><name>Vector</name>
   </compound>
   <compound refid="_example_8cpp-example" kind="example"><name>Example.cpp</name>
   </compound>

@@ -75,9 +75,6 @@ namespace nc
             // Description:
             ///              default constructor needed by containers
             ///
-            /// @param
-            ///              inClusterId
-            ///
             Cluster() :
                 clusterId_(-1)
             {}

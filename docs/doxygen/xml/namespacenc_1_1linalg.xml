@@ -33,16 +33,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" bodystart="705" bodyend="761"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/det.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/det.hpp" bodystart="56" bodyend="110"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1linalg_1a5fff4395bd6f0a9117e4049cd3643f5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1linalg_1a52417fc43f9622ef2a527ec84da50ca2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
-        <definition>NdArray&lt; dtype &gt; nc::linalg::hat</definition>
+        <definition>NdArray&lt;dtype&gt; nc::linalg::hat</definition>
         <argsstring>(dtype inX, dtype inY, dtype inZ) noexcept</argsstring>
         <name>hat</name>
         <param>
@@ -86,16 +86,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" bodystart="774" bodyend="788"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" bodystart="52" bodyend="66"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1linalg_1ad93ac021edcd0c8f81891c93996dee25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1linalg_1ae7ced3680f1ae95af4bc2e6b98a5a517" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
-        <definition>NdArray&lt; dtype &gt; nc::linalg::hat</definition>
+        <definition>NdArray&lt;dtype&gt; nc::linalg::hat</definition>
         <argsstring>(const NdArray&lt; dtype &gt; &amp;inVec)</argsstring>
         <name>hat</name>
         <param>
@@ -117,16 +117,42 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" bodystart="800" bodyend="810"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" line="78" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" bodystart="78" bodyend="86"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1linalg_1a2eeb58d0a34e50e79fcfe59f71c61b4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1linalg_1ae9cdb091717a1c74dc659519d77e0048" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>NdArray&lt;double&gt; nc::linalg::hat</definition>
+        <argsstring>(const Vec3 &amp;inVec)</argsstring>
+        <name>hat</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref> &amp;</type>
+          <declname>inVec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>vector hat operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inVec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>3x3 <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" line="97" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/hat.hpp" bodystart="97" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1linalg_1ae36553eb100d8f2c2167e8ecadf2a9fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
-        <definition>NdArray&lt; double &gt; nc::linalg::inv</definition>
+        <definition>NdArray&lt;double&gt; nc::linalg::inv</definition>
         <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray)</argsstring>
         <name>inv</name>
         <param>
@@ -148,17 +174,17 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" bodystart="824" bodyend="896"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/inv.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/inv.hpp" bodystart="54" bodyend="124"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1linalg_1a7fa37622fd691d32db76726ee7bbc7d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1linalg_1aac53030577bdcf972d77f0c528b2d302" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
-        <definition>NdArray&lt; double &gt; nc::linalg::lstsq</definition>
-        <argsstring>(const NdArray&lt; dtype &gt; &amp;inA, const NdArray&lt; dtype &gt; &amp;inB, double inTolerance=1.e-12) noexcept</argsstring>
+        <definition>NdArray&lt;double&gt; nc::linalg::lstsq</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inA, const NdArray&lt; dtype &gt; &amp;inB, double inTolerance=1e-12) noexcept</argsstring>
         <name>lstsq</name>
         <param>
           <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
@@ -171,7 +197,7 @@
         <param>
           <type>double</type>
           <declname>inTolerance</declname>
-          <defval>1.e-12</defval>
+          <defval>1e-12</defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -202,16 +228,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" line="64" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" bodystart="919" bodyend="925"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/lstsq.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/lstsq.hpp" bodystart="59" bodyend="65"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1linalg_1a59c33bf492f64017c673a151f890dcbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1linalg_1ad27c1996e4e27a6f8ba5d2aed0743bba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
-        <definition>NdArray&lt; double &gt; nc::linalg::matrix_power</definition>
+        <definition>NdArray&lt;double&gt; nc::linalg::matrix_power</definition>
         <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray, int16 inPower)</argsstring>
         <name>matrix_power</name>
         <param>
@@ -244,16 +270,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" line="67" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" bodystart="945" bodyend="988"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/matrix_power.hpp" line="62" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/matrix_power.hpp" bodystart="62" bodyend="103"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1linalg_1a46188c640b2c3ee74418db676e8f3bce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1linalg_1a86ab79e41b748e7ea0ee4f2e0bc462a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
-        <definition>NdArray&lt; dtype &gt; nc::linalg::multi_dot</definition>
+        <definition>NdArray&lt;dtype&gt; nc::linalg::multi_dot</definition>
         <argsstring>(const std::initializer_list&lt; NdArray&lt; dtype &gt; &gt; &amp;inList)</argsstring>
         <name>multi_dot</name>
         <param>
@@ -263,7 +289,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Compute the dot product of two or more arrays in a single function call..</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Compute the dot product of two or more arrays in a single function call.</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot">https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.multi_dot.html#numpy.linalg.multi_dot</ulink></para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inList</parametername>
 </parameternamelist>
@@ -275,7 +301,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" line="70" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" bodystart="1004" bodyend="1027"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/multi_dot.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/multi_dot.hpp" bodystart="56" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1linalg_1aa2a95731baaa5ff4d5837c601987af22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -338,13 +364,13 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" line="73" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" bodystart="1041" bodyend="1049"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/svd.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/svd.hpp" bodystart="53" bodyend="61"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Module for basic linear algebra operations. </para>    </briefdescription>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Linalg.hpp" line="49" column="1"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Linalg/det.hpp" line="42" column="1"/>
   </compounddef>
 </doxygen>

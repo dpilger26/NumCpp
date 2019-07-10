@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="classnc_1_1image_processing_1_1_cluster_maker" kind="class" language="C++" prot="public">
     <compoundname>nc::imageProcessing::ClusterMaker</compoundname>
-    <includes refid="_image_processing_8hpp" local="no">ImageProcessing.hpp</includes>
+    <includes refid="_cluster_maker_8hpp" local="no">ClusterMaker.hpp</includes>
     <templateparamlist>
       <param>
         <type>typename</type>
@@ -22,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="817" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="817" bodyend="-1"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="55" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -37,7 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="620" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="620" bodyend="-1"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="178" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1image_processing_1_1_cluster_maker_1a82834efdfc03a7146e5b5270f4e868ff" prot="private" static="no" mutable="no">
         <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; *const</type>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="615" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="615" bodyend="-1"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="173" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="173" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1image_processing_1_1_cluster_maker_1afa9ebc28596fb8c53cefeedd58d869f7" prot="private" static="no" mutable="no">
         <type><ref refid="classnc_1_1_shape" kindref="compound">Shape</ref></type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="618" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="618" bodyend="-1"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="176" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="176" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1image_processing_1_1_cluster_maker_1a81946a8bda044a42cf520482924dd005" prot="private" static="no" mutable="no">
         <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt; *const</type>
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="614" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="614" bodyend="-1"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="172" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classnc_1_1image_processing_1_1_cluster_maker_1aac1996d2bf2e947dc523f572ff96c594" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &gt;</type>
@@ -89,183 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="616" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="616" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-func">
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1ae010b9d40ac71506b4fc13b745584e7f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::imageProcessing::ClusterMaker&lt; dtype &gt;::expandClusters</definition>
-        <argsstring>()</argsstring>
-        <name>expandClusters</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>3x3 dialates the clusters </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="792" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="792" bodyend="813"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1a02051966aa42065f5b19c0e51cf6330b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::imageProcessing::ClusterMaker&lt; dtype &gt;::findNeighborNotXcds</definition>
-        <argsstring>(const Pixel&lt; dtype &gt; &amp;inPixel, std::vector&lt; Pixel&lt; dtype &gt; &gt; &amp;outNeighbors)</argsstring>
-        <name>findNeighborNotXcds</name>
-        <param>
-          <type>const <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &amp;</type>
-          <declname>inPixel</declname>
-        </param>
-        <param>
-          <type>std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &gt; &amp;</type>
-          <declname>outNeighbors</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>finds all of the neighboring pixels to the input pixel that are NOT exceedances</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>inPixel</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>outNeighbors</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>vector of non exceedance neighboring pixels </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="680" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="680" bodyend="693"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1a9f344c73ac666a2e92c54645152ab1b1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::imageProcessing::ClusterMaker&lt; dtype &gt;::findNeighbors</definition>
-        <argsstring>(const Pixel&lt; dtype &gt; &amp;inPixel, std::set&lt; Pixel&lt; dtype &gt; &gt; &amp;outNeighbors)</argsstring>
-        <name>findNeighbors</name>
-        <param>
-          <type>const <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &amp;</type>
-          <declname>inPixel</declname>
-        </param>
-        <param>
-          <type>std::set&lt; <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &gt; &amp;</type>
-          <declname>outNeighbors</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>finds all of the neighboring pixels to the input pixel</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>inPixel</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>outNeighbors</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>None </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="652" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="652" bodyend="668"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1acf7db014b62448f9c628bcf920f72e7b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::imageProcessing::ClusterMaker&lt; dtype &gt;::findNeighborXcds</definition>
-        <argsstring>(const Pixel&lt; dtype &gt; &amp;inPixel, std::vector&lt; uint32 &gt; &amp;outNeighbors)</argsstring>
-        <name>findNeighborXcds</name>
-        <param>
-          <type>const <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &amp;</type>
-          <declname>inPixel</declname>
-        </param>
-        <param>
-          <type>std::vector&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt; &amp;</type>
-          <declname>outNeighbors</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>finds the pixel index of neighboring pixels</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>inPixel</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>outNeighbors</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>vector of neighboring pixel indices </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="705" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="705" bodyend="726"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1a64eff25979384b99aa3eeedaa5bb9488" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt;</type>
-        <definition>Pixel&lt;dtype&gt; nc::imageProcessing::ClusterMaker&lt; dtype &gt;::makePixel</definition>
-        <argsstring>(int32 inRow, int32 inCol) noexcept</argsstring>
-        <name>makePixel</name>
-        <param>
-          <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
-          <declname>inRow</declname>
-        </param>
-        <param>
-          <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
-          <declname>inCol</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>checks that the input row and column have not fallen off of the edge</para><para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>inRow</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>inCol</parametername>
-</parameternamelist>
-<parameterdescription>
-<para></para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>returns a pixel object clipped to the image boundaries </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="632" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="632" bodyend="641"/>
-      </memberdef>
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1ab06f50b0c69b4777ec19f97329d93d45" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>void</type>
-        <definition>void nc::imageProcessing::ClusterMaker&lt; dtype &gt;::runClusterMaker</definition>
-        <argsstring>()</argsstring>
-        <name>runClusterMaker</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>workhorse method that performs the clustering algorithm </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="732" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="732" bodyend="786"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="174" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="174" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -316,7 +140,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="830" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="830" bodyend="862"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="68" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1a679db8e4b1f175af3db67c756c54d6b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="classnc_1_1image_processing_1_1_cluster" kindref="compound">Cluster</ref>&lt; dtype &gt; &amp;</type>
@@ -342,7 +166,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="901" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="901" bodyend="910"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="137" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="137" bodyend="144"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1a37c172d7253190e76b065ed2547c3020" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1image_processing_1_1_cluster_maker_1aa7fef5687edeea445ff20e7a5439c76e" kindref="member">const_iterator</ref></type>
@@ -356,7 +180,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="919" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="919" bodyend="922"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="153" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="153" bodyend="156"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1a7d5ceccddb2db3b143c772ec9d66460a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1image_processing_1_1_cluster_maker_1aa7fef5687edeea445ff20e7a5439c76e" kindref="member">const_iterator</ref></type>
@@ -370,7 +194,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="931" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="931" bodyend="934"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="165" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="165" bodyend="168"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1ad46d21ec00e2d98b7f32bab71ee227bd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const <ref refid="classnc_1_1image_processing_1_1_cluster" kindref="compound">Cluster</ref>&lt; dtype &gt; &amp;</type>
@@ -396,7 +220,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="886" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="886" bodyend="889"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="122" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="122" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1aa142c0bd82e1b181bfccedc8db17dee7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
@@ -410,7 +234,183 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="871" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="871" bodyend="874"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="107" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="107" bodyend="110"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1ae010b9d40ac71506b4fc13b745584e7f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::imageProcessing::ClusterMaker&lt; dtype &gt;::expandClusters</definition>
+        <argsstring>()</argsstring>
+        <name>expandClusters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>3x3 dialates the clusters </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="350" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="350" bodyend="371"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1a02051966aa42065f5b19c0e51cf6330b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::imageProcessing::ClusterMaker&lt; dtype &gt;::findNeighborNotXcds</definition>
+        <argsstring>(const Pixel&lt; dtype &gt; &amp;inPixel, std::vector&lt; Pixel&lt; dtype &gt; &gt; &amp;outNeighbors)</argsstring>
+        <name>findNeighborNotXcds</name>
+        <param>
+          <type>const <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inPixel</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &gt; &amp;</type>
+          <declname>outNeighbors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>finds all of the neighboring pixels to the input pixel that are NOT exceedances</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inPixel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>outNeighbors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>vector of non exceedance neighboring pixels </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="238" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="238" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1a9f344c73ac666a2e92c54645152ab1b1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::imageProcessing::ClusterMaker&lt; dtype &gt;::findNeighbors</definition>
+        <argsstring>(const Pixel&lt; dtype &gt; &amp;inPixel, std::set&lt; Pixel&lt; dtype &gt; &gt; &amp;outNeighbors)</argsstring>
+        <name>findNeighbors</name>
+        <param>
+          <type>const <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inPixel</declname>
+        </param>
+        <param>
+          <type>std::set&lt; <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &gt; &amp;</type>
+          <declname>outNeighbors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>finds all of the neighboring pixels to the input pixel</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inPixel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>outNeighbors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>None </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="210" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="210" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1acf7db014b62448f9c628bcf920f72e7b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::imageProcessing::ClusterMaker&lt; dtype &gt;::findNeighborXcds</definition>
+        <argsstring>(const Pixel&lt; dtype &gt; &amp;inPixel, std::vector&lt; uint32 &gt; &amp;outNeighbors)</argsstring>
+        <name>findNeighborXcds</name>
+        <param>
+          <type>const <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inPixel</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt; &amp;</type>
+          <declname>outNeighbors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>finds the pixel index of neighboring pixels</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inPixel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>outNeighbors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>vector of neighboring pixel indices </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="263" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="263" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1a64eff25979384b99aa3eeedaa5bb9488" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt;</type>
+        <definition>Pixel&lt;dtype&gt; nc::imageProcessing::ClusterMaker&lt; dtype &gt;::makePixel</definition>
+        <argsstring>(int32 inRow, int32 inCol) noexcept</argsstring>
+        <name>makePixel</name>
+        <param>
+          <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+          <declname>inRow</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+          <declname>inCol</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>checks that the input row and column have not fallen off of the edge</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRow</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inCol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>returns a pixel object clipped to the image boundaries </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="190" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="190" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_cluster_maker_1ab06f50b0c69b4777ec19f97329d93d45" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::imageProcessing::ClusterMaker&lt; dtype &gt;::runClusterMaker</definition>
+        <argsstring>()</argsstring>
+        <name>runClusterMaker</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>workhorse method that performs the clustering algorithm </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="290" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="290" bodyend="344"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -423,7 +423,7 @@
         <link refid="classnc_1_1image_processing_1_1_cluster_maker"/>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="611" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="610" bodyend="935"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/ClusterMaker.hpp" bodystart="51" bodyend="372"/>
     <listofallmembers>
       <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a679db8e4b1f175af3db67c756c54d6b1" prot="public" virt="non-virtual"><scope>nc::imageProcessing::ClusterMaker</scope><name>at</name></member>
       <member refid="classnc_1_1image_processing_1_1_cluster_maker_1a37c172d7253190e76b065ed2547c3020" prot="public" virt="non-virtual"><scope>nc::imageProcessing::ClusterMaker</scope><name>begin</name></member>

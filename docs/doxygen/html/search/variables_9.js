@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['returnpolicystringmap',['returnPolicyStringMap',['../namespacenc.html#adb1fab04424021c2a9e4ff2ebf34bdb3',1,'nc']]],
+  ['returnpolicystringmap',['returnPolicyStringMap',['../namespacenc_1_1pybind_interface.html#abde82685837c3645f506b0800472ffbc',1,'nc::pybindInterface']]],
+  ['row',['row',['../classnc_1_1image_processing_1_1_pixel.html#a6e712ef3b6547f5cafb6e8db1349658e',1,'nc::imageProcessing::Pixel']]],
   ['rows',['rows',['../classnc_1_1_shape.html#a6f89f699dea6eb89eef19e00c92b223a',1,'nc::Shape']]]
 ];

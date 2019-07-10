@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacenc_1_1pybind_interface" kind="namespace" language="C++">
+    <compoundname>nc::pybindInterface</compoundname>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ReturnPolicy</name>
+        <enumvalue id="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f" prot="public">
+          <name>COPY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19adcd320d017d7f3c317bc8b234287bc9f" prot="public">
+          <name>REFERENCE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19a9419303c1fae01a65adc8d1835aa2c6d" prot="public">
+          <name>TAKE_OWNERSHIP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enum for the pybind array return policy. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="48" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="48" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacenc_1_1pybind_interface_1abde82685837c3645f506b0800472ffbc" prot="public" static="yes" mutable="no">
+        <type>const std::map&lt; <ref refid="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19" kindref="member">ReturnPolicy</ref>, std::string &gt;</type>
+        <definition>const std::map&lt;ReturnPolicy, std::string&gt; nc::pybindInterface::returnPolicyStringMap</definition>
+        <argsstring></argsstring>
+        <name>returnPolicyStringMap</name>
+        <initializer>= { {<ref refid="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f" kindref="member">ReturnPolicy::COPY</ref>, &quot;COPY&quot;},
+        {ReturnPolicy::REFERENCE, &quot;REFERENCE&quot;},
+        {ReturnPolicy::TAKE_OWNERSHIP, &quot;TAKE_OWNERSHIP&quot;} }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacenc_1_1pybind_interface_1a8e469429e67b472cd492aaa10d0beedc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>pybind11::array_t&lt; dtype &gt;</type>
+        <definition>pybind11::array_t&lt;dtype&gt; nc::pybindInterface::nc2pybind</definition>
+        <argsstring>(NdArray&lt; dtype &gt; &amp;inArray, ReturnPolicy returnPolicy=ReturnPolicy::COPY) noexcept</argsstring>
+        <name>nc2pybind</name>
+        <param>
+          <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19" kindref="member">ReturnPolicy</ref></type>
+          <declname>returnPolicy</declname>
+          <defval><ref refid="namespacenc_1_1pybind_interface_1a0ca16a67f36ad5d1960cd9567208ed19ae8606d021da140a92c7eba8d9b8af84f" kindref="member">ReturnPolicy::COPY</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>converts a numcpp <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to numpy array using pybind bindings</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the input array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>returnPolicy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the return policy</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pybind11::array_t </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="99" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="99" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1pybind_interface_1a4f1f494ed8dc86610403627954600812" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt;dtype&gt; nc::pybindInterface::pybind2nc</definition>
+        <argsstring>(pybind11::array_t&lt; dtype, pybind11::array::c_style &gt; &amp;numpyArray)</argsstring>
+        <name>pybind2nc</name>
+        <param>
+          <type>pybind11::array_t&lt; dtype, pybind11::array::c_style &gt; &amp;</type>
+          <declname>numpyArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>converts a numpy array to a numcpp <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> using pybind bindings Python will still own the underlying data.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>numpyArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>NdArray&lt;dtype&gt; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="63" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="63" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="46" column="1"/>
+  </compounddef>
+</doxygen>

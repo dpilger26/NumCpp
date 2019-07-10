@@ -3612,8 +3612,6 @@ namespace nc
         // Method Description:
         ///						Negative Operator
         ///
-        /// @param
-        ///				inOtherArray
         /// @return
         ///				NdArray
         ///

@@ -6,5 +6,5 @@ var classnc_1_1_timer =
     [ "Timer", "classnc_1_1_timer.html#a2aa595ac4946f888bad3ebe0a2fd7468", null ],
     [ "setName", "classnc_1_1_timer.html#a836e409a7c47556092849d56d8d3267b", null ],
     [ "tic", "classnc_1_1_timer.html#a4a08ec3e6ba7a7979cb9e72d0cf3f2f7", null ],
-    [ "toc", "classnc_1_1_timer.html#a23b01baabe26a986a0124233d7e9b83f", null ]
+    [ "toc", "classnc_1_1_timer.html#a7c64b31bb98c3e037a587416f3d51015", null ]
 ];

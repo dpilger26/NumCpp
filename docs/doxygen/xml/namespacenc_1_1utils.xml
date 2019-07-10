@@ -3,7 +3,7 @@
   <compounddef id="namespacenc_1_1utils" kind="namespace" language="C++">
     <compoundname>nc::utils</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespacenc_1_1utils_1af058ceabca43da922cd50333901abf05" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1af058ceabca43da922cd50333901abf05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -32,9 +32,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="95" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="95" bodyend="98"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" line="43" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" bodystart="43" bodyend="46"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1ab8f33a7e18654f6870deaa8f9c038195" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1ab8f33a7e18654f6870deaa8f9c038195" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -86,24 +86,115 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="52" bodyend="59"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" bodystart="50" bodyend="57"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1a084b547369a9345dde8a42ffd3d5576b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename dtype</type>
-          </param>
-        </templateparamlist>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a5016e06ac7ca186ff6c110b314d30209" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::utils::gaussian</definition>
+        <argsstring>(double inX, double inY, double inSigma) noexcept</argsstring>
+        <name>gaussian</name>
+        <param>
+          <type>double</type>
+          <declname>inX</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inY</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inSigma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>samples a 2D gaussian of mean zero and input STD sigma</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSigma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>dtype </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/gaussian.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/gaussian.hpp" bodystart="49" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a263704ee2cc6ab3f77b462522c7150f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double nc::utils::gaussian1d</definition>
+        <argsstring>(double inX, double inMu, double inSigma) noexcept</argsstring>
+        <name>gaussian1d</name>
+        <param>
+          <type>double</type>
+          <declname>inX</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inMu</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>inSigma</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>samples a 1D gaussian of input mean and sigma</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inMu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inSigma</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>dtype </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/gaussian1d.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/gaussian1d.hpp" bodystart="49" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a154128ff5de9061d0ab4b1bdcd35efd1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
         <definition>double nc::utils::interp</definition>
-        <argsstring>(dtype inValue1, dtype inValue2, double inPercent) noexcept</argsstring>
+        <argsstring>(double inValue1, double inValue2, double inPercent) noexcept</argsstring>
         <name>interp</name>
         <param>
-          <type>dtype</type>
+          <type>double</type>
           <declname>inValue1</declname>
         </param>
         <param>
-          <type>dtype</type>
+          <type>double</type>
           <declname>inValue2</declname>
         </param>
         <param>
@@ -139,9 +230,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="148" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="148" bodyend="151"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/interp.hpp" line="44" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/interp.hpp" bodystart="44" bodyend="47"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1a2e3a14fbbce38b0f8710ea0d92ee2ffc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1a2e3a14fbbce38b0f8710ea0d92ee2ffc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -170,9 +261,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="69" bodyend="72"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/num2str.hpp" line="45" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/num2str.hpp" bodystart="45" bodyend="48"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1a716a63ef8627c73f6cc4146481fcabdf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1a716a63ef8627c73f6cc4146481fcabdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -212,20 +303,15 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="109" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="109" bodyend="122"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/power.hpp" line="46" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/power.hpp" bodystart="46" bodyend="59"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1a740be01844f1a3a82547731eefbd067e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename dtype</type>
-          </param>
-        </templateparamlist>
+      <memberdef kind="function" id="namespacenc_1_1utils_1aa132d7462c0595871476eb96396a897a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
         <definition>double nc::utils::powerf</definition>
-        <argsstring>(dtype inValue, double inPower) noexcept</argsstring>
+        <argsstring>(double inValue, double inPower) noexcept</argsstring>
         <name>powerf</name>
         <param>
-          <type>dtype</type>
+          <type>double</type>
           <declname>inValue</declname>
         </param>
         <param>
@@ -254,9 +340,9 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="133" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="133" bodyend="136"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/powerf.hpp" line="45" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/powerf.hpp" bodystart="45" bodyend="48"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1aa83b87460956ee562b1ecaad9e0bb0f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1aa83b87460956ee562b1ecaad9e0bb0f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -285,13 +371,13 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="82" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" bodystart="82" bodyend="85"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/sqr.hpp" line="43" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/sqr.hpp" bodystart="43" bodyend="46"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Module for basic utility funcions. </para>    </briefdescription>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Utils.hpp" line="41" column="1"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" line="34" column="1"/>
   </compounddef>
 </doxygen>

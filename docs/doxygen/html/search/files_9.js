@@ -1,6 +1,21 @@
 var searchData=
 [
-  ['random_2ehpp',['Random.hpp',['../_random_8hpp.html',1,'']]],
-  ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['rotations_2ehpp',['Rotations.hpp',['../_rotations_8hpp.html',1,'']]]
+  ['lcm_2ehpp',['lcm.hpp',['../lcm_8hpp.html',1,'']]],
+  ['ldexp_2ehpp',['ldexp.hpp',['../ldexp_8hpp.html',1,'']]],
+  ['left_5fshift_2ehpp',['left_shift.hpp',['../left__shift_8hpp.html',1,'']]],
+  ['less_2ehpp',['less.hpp',['../less_8hpp.html',1,'']]],
+  ['less_5fequal_2ehpp',['less_equal.hpp',['../less__equal_8hpp.html',1,'']]],
+  ['linalg_2ehpp',['Linalg.hpp',['../_linalg_8hpp.html',1,'']]],
+  ['linspace_2ehpp',['linspace.hpp',['../linspace_8hpp.html',1,'']]],
+  ['load_2ehpp',['load.hpp',['../load_8hpp.html',1,'']]],
+  ['log_2ehpp',['log.hpp',['../log_8hpp.html',1,'']]],
+  ['log10_2ehpp',['log10.hpp',['../log10_8hpp.html',1,'']]],
+  ['log1p_2ehpp',['log1p.hpp',['../log1p_8hpp.html',1,'']]],
+  ['log2_2ehpp',['log2.hpp',['../log2_8hpp.html',1,'']]],
+  ['logical_5fand_2ehpp',['logical_and.hpp',['../logical__and_8hpp.html',1,'']]],
+  ['logical_5fnot_2ehpp',['logical_not.hpp',['../logical__not_8hpp.html',1,'']]],
+  ['logical_5for_2ehpp',['logical_or.hpp',['../logical__or_8hpp.html',1,'']]],
+  ['logical_5fxor_2ehpp',['logical_xor.hpp',['../logical__xor_8hpp.html',1,'']]],
+  ['lognormal_2ehpp',['lognormal.hpp',['../lognormal_8hpp.html',1,'']]],
+  ['lstsq_2ehpp',['lstsq.hpp',['../lstsq_8hpp.html',1,'']]]
 ];

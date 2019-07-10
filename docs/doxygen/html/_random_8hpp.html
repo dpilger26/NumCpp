@@ -88,48 +88,46 @@ $(document).ready(function(){initNavTree('_random_8hpp.html','');});
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Random.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_dtype_info_8hpp_source.html">NumCpp/DtypeInfo.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_methods_8hpp_source.html">NumCpp/Methods.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_nd_array_8hpp_source.html">NumCpp/NdArray.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_shape_8hpp_source.html">NumCpp/Shape.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_types_8hpp_source.html">NumCpp/Types.hpp</a>&quot;</code><br />
-<code>#include &quot;boost/random.hpp&quot;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;random&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="bernoilli_8hpp_source.html">NumCpp/Random/bernoilli.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="beta_8hpp_source.html">NumCpp/Random/beta.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="binomial_8hpp_source.html">NumCpp/Random/binomial.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cauchy_8hpp_source.html">NumCpp/Random/cauchy.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="chi_square_8hpp_source.html">NumCpp/Random/chiSquare.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="choice_8hpp_source.html">NumCpp/Random/choice.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="discrete_8hpp_source.html">NumCpp/Random/discrete.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="exponential_8hpp_source.html">NumCpp/Random/exponential.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="extreme_value_8hpp_source.html">NumCpp/Random/extremeValue.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="f_8hpp_source.html">NumCpp/Random/f.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gamma_8hpp_source.html">NumCpp/Random/gamma.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="generator_8hpp_source.html">NumCpp/Random/generator.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="geometric_8hpp_source.html">NumCpp/Random/geometric.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_random_2laplace_8hpp_source.html">NumCpp/Random/laplace.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lognormal_8hpp_source.html">NumCpp/Random/lognormal.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="negative_binomial_8hpp_source.html">NumCpp/Random/negativeBinomial.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="non_central_chi_squared_8hpp_source.html">NumCpp/Random/nonCentralChiSquared.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="normal_8hpp_source.html">NumCpp/Random/normal.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="permutation_8hpp_source.html">NumCpp/Random/permutation.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="poisson_8hpp_source.html">NumCpp/Random/poisson.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="rand_8hpp_source.html">NumCpp/Random/rand.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="rand_float_8hpp_source.html">NumCpp/Random/randFloat.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="rand_int_8hpp_source.html">NumCpp/Random/randInt.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="rand_n_8hpp_source.html">NumCpp/Random/randN.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="shuffle_8hpp_source.html">NumCpp/Random/shuffle.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="standard_normal_8hpp_source.html">NumCpp/Random/standardNormal.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="student_t_8hpp_source.html">NumCpp/Random/studentT.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="triangle_8hpp_source.html">NumCpp/Random/triangle.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="uniform_8hpp_source.html">NumCpp/Random/uniform.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="uniform_on_sphere_8hpp_source.html">NumCpp/Random/uniformOnSphere.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="weibull_8hpp_source.html">NumCpp/Random/weibull.hpp</a>&quot;</code><br />
 </div>
 <p><a href="_random_8hpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_random.html">nc::Random&lt; dtype &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for generating random numbers.  <a href="classnc_1_1_random.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacenc"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc.html">nc</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ac1a8cfb8f9378e1c4da7bc09e93cb77a"><td class="memItemLeft" align="right" valign="top">static std::mt19937_64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc.html#ac1a8cfb8f9378e1c4da7bc09e93cb77a">nc::generator_</a></td></tr>
-<tr class="memdesc:ac1a8cfb8f9378e1c4da7bc09e93cb77a"><td class="mdescLeft">&#160;</td><td class="mdescRight">generator function  <a href="namespacenc.html#ac1a8cfb8f9378e1c4da7bc09e93cb77a">More...</a><br /></td></tr>
-<tr class="separator:ac1a8cfb8f9378e1c4da7bc09e93cb77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>David Pilger <a href="#" onclick="location.href='mai'+'lto:'+'dpi'+'lg'+'er2'+'6@'+'gma'+'il'+'.co'+'m'; return false;">dpilg<span style="display: none;">.nosp@m.</span>er26<span style="display: none;">.nosp@m.</span>@gmai<span style="display: none;">.nosp@m.</span>l.co<span style="display: none;">.nosp@m.</span>m</a> <a href="https://github.com/dpilger26/NumCpp">GitHub Repository</a> </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.0</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.1</dd></dl>
 <h1><a class="anchor" id="License"></a>
 License</h1>
 <p>Copyright 2019 David Pilger</p>
@@ -138,13 +136,13 @@ License</h1>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <h1><a class="anchor" id="Description"></a>
 Description</h1>
-<p>A module for generating random numbers </p>
+<p>Random number distributions </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_2fcd863c5241ce58f3be9e1580bcd1ab.html">NumCpp</a></li><li class="navelem"><a class="el" href="_random_8hpp.html">Random.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_34171bd951b13a53aa9f237277a18e40.html">NumCpp</a></li><li class="navelem"><a class="el" href="_random_8hpp.html">Random.hpp</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
