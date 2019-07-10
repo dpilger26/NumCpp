@@ -1729,6 +1729,8 @@ namespace nc
                 errStr += " are not consistent.";
                 THROW_INVALID_ARGUMENT_ERROR(errStr);
             }
+
+            return NdArray<dtype>();  // getting rid of compiler warning
         }
 
         //============================================================================
@@ -1878,6 +1880,8 @@ namespace nc
             {
                 THROW_INVALID_ARGUMENT_ERROR("Can only convert an array of size 1 to a C++ scalar");
             }
+
+            return 0; // getting rid of compiler warning
         }
 
         //============================================================================

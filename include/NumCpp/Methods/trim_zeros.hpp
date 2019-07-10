@@ -149,5 +149,7 @@ namespace nc
         {
             THROW_INVALID_ARGUMENT_ERROR("trim options are 'f' = front, 'b' = back, 'fb' = front and back.");
         }
+
+        return NdArray<dtype>();  // getting rid of compiler warning
     }
 }
