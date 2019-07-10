@@ -356,7 +356,7 @@ def doTest():
         print(colored('\tFAIL', 'red'))
 
     print(colored('Testing arctan2 scaler', 'cyan'))
-    xy = NumCpp.Random.uniformOnSphere(1, 2).getNumpyArray().flatten()
+    xy = NumCpp.uniformOnSphere(1, 2).getNumpyArray().flatten()
     if np.round(NumCpp.arctan2Scaler(xy[1], xy[0]), 9) == np.round(np.arctan2(xy[1], xy[0]), 9):
         print(colored('\tPASS', 'green'))
     else:
@@ -367,7 +367,7 @@ def doTest():
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     cArrayX = NumCpp.NdArray(shape)
     cArrayY = NumCpp.NdArray(shape)
-    xy = NumCpp.Random.uniformOnSphere(np.prod(shapeInput).item(), 2).getNumpyArray()
+    xy = NumCpp.uniformOnSphere(np.prod(shapeInput).item(), 2).getNumpyArray()
     xData = xy[:, 0].reshape(shapeInput)
     yData = xy[:, 1].reshape(shapeInput)
     cArrayX.setArray(xData)

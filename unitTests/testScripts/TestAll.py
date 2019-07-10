@@ -12,7 +12,6 @@ import TestLinalg
 import TestRandom
 import TestRotations
 import TestPolynomial
-import TestFFT
 import TestUtils
 import TestVector
 import TestDtypeInfo
@@ -35,7 +34,6 @@ def doTest():
     TestRotations.doTest()
     TestFilters.doTest()
     TestPolynomial.doTest()
-    TestFFT.doTest()
     TestVector.doTest()
     TestImageProcessing.doTest()
 

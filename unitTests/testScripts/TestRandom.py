@@ -18,7 +18,7 @@ def doTest():
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     p = np.random.rand()
-    r = NumCpp.Random.bernoulli(inShape, p)
+    r = NumCpp.bernoulli(inShape, p)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing beta', 'cyan'))
@@ -26,7 +26,7 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     alpha = np.random.rand()
     beta = np.random.rand()
-    r = NumCpp.Random.beta(inShape, alpha, beta)
+    r = NumCpp.beta(inShape, alpha, beta)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing binomial', 'cyan'))
@@ -34,14 +34,14 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     n = np.random.randint(1, 100, [1,]).item()
     p = np.random.rand()
-    r = NumCpp.Random.binomial(inShape, n, p)
+    r = NumCpp.binomial(inShape, n, p)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing chiSquare', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     dof = np.random.randint(1, 100, [1,]).item()
-    r = NumCpp.Random.chiSquare(inShape, dof)
+    r = NumCpp.chiSquare(inShape, dof)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing choice: Single', 'cyan'))
@@ -50,7 +50,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
-    r = NumCpp.Random.choiceSingle(cArray)
+    r = NumCpp.choiceSingle(cArray)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing choice: Multiple', 'cyan'))
@@ -60,7 +60,7 @@ def doTest():
     data = np.random.rand(shape.rows, shape.cols)
     cArray.setArray(data)
     num = np.random.randint(1, data.size, [1,]).item()
-    r = NumCpp.Random.choiceMultiple(cArray, num)
+    r = NumCpp.choiceMultiple(cArray, num)
     if r.size == num:
         print(colored('\tPASS', 'green'))
 
@@ -69,7 +69,7 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     mean = np.random.randn() * 10
     sigma = np.random.rand() * 10
-    r = NumCpp.Random.cauchy(inShape, mean, sigma)
+    r = NumCpp.cauchy(inShape, mean, sigma)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing discrete', 'cyan'))
@@ -78,14 +78,14 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     weights = np.random.randint(1, 10, [shape.rows, shape.cols])
     cArray.setArray(weights)
-    r = NumCpp.Random.discrete(inShape, cArray)
+    r = NumCpp.discrete(inShape, cArray)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing exponential', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     scale = np.random.rand() * 10
-    r = NumCpp.Random.exponential(inShape, scale)
+    r = NumCpp.exponential(inShape, scale)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing extremeValue', 'cyan'))
@@ -93,7 +93,7 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     a = np.random.rand() * 10
     b = np.random.rand() * 100
-    r = NumCpp.Random.extremeValue(inShape, a, b)
+    r = NumCpp.extremeValue(inShape, a, b)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing f', 'cyan'))
@@ -101,7 +101,7 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     dofN = np.random.rand() * 10
     dofD = np.random.rand() * 100
-    r = NumCpp.Random.f(inShape, dofN, dofD)
+    r = NumCpp.f(inShape, dofN, dofD)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing gamma', 'cyan'))
@@ -109,14 +109,14 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     shape = np.random.rand() * 10
     scale = np.random.rand() * 100
-    r = NumCpp.Random.gamma(inShape, shape, scale)
+    r = NumCpp.gamma(inShape, shape, scale)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing geometric', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     p = np.random.rand()
-    r = NumCpp.Random.geometric(inShape, p)
+    r = NumCpp.geometric(inShape, p)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing laplace', 'cyan'))
@@ -124,7 +124,7 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     loc = np.random.rand() * 10
     scale = np.random.rand() * 100
-    r = NumCpp.Random.laplace(inShape, loc, scale)
+    r = NumCpp.laplace(inShape, loc, scale)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing lognormal', 'cyan'))
@@ -132,7 +132,7 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     mean = np.random.randn() * 10
     sigma = np.random.rand() * 10
-    r = NumCpp.Random.lognormal(inShape, mean, sigma)
+    r = NumCpp.lognormal(inShape, mean, sigma)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing negativeBinomial', 'cyan'))
@@ -140,7 +140,7 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     n = np.random.randint(1, 100, [1,]).item()
     p = np.random.rand()
-    r = NumCpp.Random.negativeBinomial(inShape, n, p)
+    r = NumCpp.negativeBinomial(inShape, n, p)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing nonCentralChiSquared', 'cyan'))
@@ -148,7 +148,7 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     k = np.random.rand() * 10
     l = np.random.rand() * 100
-    r = NumCpp.Random.nonCentralChiSquared(inShape, k, l)
+    r = NumCpp.nonCentralChiSquared(inShape, k, l)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing normal', 'cyan'))
@@ -156,11 +156,11 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     mean = np.random.randn() * 10
     sigma = np.random.rand() * 10
-    r = NumCpp.Random.normal(inShape, mean, sigma)
+    r = NumCpp.normal(inShape, mean, sigma)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing permutation scalar', 'cyan'))
-    r = NumCpp.Random.permutationScaler(np.random.randint(1,100, [1,]).item())
+    r = NumCpp.permutationScaler(np.random.randint(1,100, [1,]).item())
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing permutation array', 'cyan'))
@@ -169,44 +169,44 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 10, [shape.rows, shape.cols])
     cArray.setArray(data)
-    r = NumCpp.Random.permutationArray(cArray)
+    r = NumCpp.permutationArray(cArray)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing poisson', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     mean = np.random.rand() * 10
-    r = NumCpp.Random.poisson(inShape, mean)
+    r = NumCpp.poisson(inShape, mean)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing rand', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    r = NumCpp.Random.rand(inShape)
+    r = NumCpp.rand(inShape)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing randFloat', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     values = np.random.randint(1, 100, [2, ])
-    r = NumCpp.Random.randFloat(inShape, values[0].item(), values[1].item())
+    r = NumCpp.randFloat(inShape, values[0].item(), values[1].item())
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing randInt', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     values = np.random.randint(1, 100, [2, ])
-    r = NumCpp.Random.randInt(inShape, values[0].item(), values[1].item())
+    r = NumCpp.randInt(inShape, values[0].item(), values[1].item())
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing randN', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    r = NumCpp.Random.randN(inShape)
+    r = NumCpp.randN(inShape)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing seed', 'cyan'))
-    NumCpp.Random.seed(np.random.randint(0, 100000, [1,]).item())
+    NumCpp.seed(np.random.randint(0, 100000, [1,]).item())
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing shuffle array', 'cyan'))
@@ -215,20 +215,20 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(1, 10, [shape.rows, shape.cols])
     cArray.setArray(data)
-    NumCpp.Random.shuffle(cArray)
+    NumCpp.shuffle(cArray)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing standardNormal', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
-    r = NumCpp.Random.standardNormal(inShape)
+    r = NumCpp.standardNormal(inShape)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing studentT', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     dof = np.random.randint(1, 100, [1, ]).item()
-    r = NumCpp.Random.studentT(inShape, dof)
+    r = NumCpp.studentT(inShape, dof)
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing triangle', 'cyan'))
@@ -236,26 +236,26 @@ def doTest():
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     values = np.random.rand(3)
     values.sort()
-    r = NumCpp.Random.triangle(inShape, values[0].item(), values[1].item(), values[2].item())
+    r = NumCpp.triangle(inShape, values[0].item(), values[1].item(), values[2].item())
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing uniform', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     values = np.random.randint(1, 100, [2, ])
-    r = NumCpp.Random.uniform(inShape, values[0].item(), values[1].item())
+    r = NumCpp.uniform(inShape, values[0].item(), values[1].item())
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing uniformOnSphere', 'cyan'))
     inputs = np.random.randint(1, 100, [2,])
-    r = NumCpp.Random.uniformOnSphere(inputs[0].item(), inputs[1].item())
+    r = NumCpp.uniformOnSphere(inputs[0].item(), inputs[1].item())
     print(colored('\tPASS', 'green'))
 
     print(colored('Testing weibull', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     inputs = np.random.rand(2)
-    r = NumCpp.Random.weibull(inShape, inputs[0].item(), inputs[1].item())
+    r = NumCpp.weibull(inShape, inputs[0].item(), inputs[1].item())
     print(colored('\tPASS', 'green'))
 
 ####################################################################################
