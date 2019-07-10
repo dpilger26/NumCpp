@@ -406,7 +406,7 @@ namespace nc
                                 break;
                             }
 
-                            if (abs(s_[nm]) <= eps_ * anorm)
+                            if (std::abs(s_[nm]) <= eps_ * anorm)
                             {
                                 break;
                             }
@@ -421,7 +421,7 @@ namespace nc
                                 f = ss * rv1[i];
                                 rv1[i] = c * rv1[i];
 
-                                if (abs(f) <= eps_ * anorm)
+                                if (std::abs(f) <= eps_ * anorm)
                                 {
                                     break;
                                 }
