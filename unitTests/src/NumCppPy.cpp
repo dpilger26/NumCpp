@@ -1806,6 +1806,14 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    dtype hypotScalerTriple(dtype inValue1, dtype inValue2, dtype inValue3) noexcept
+    {
+        return hypot(inValue1, inValue2, inValue3);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray hypotArray(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
         return nc2Boost(hypot(inArray1, inArray2));
@@ -3317,6 +3325,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("histogram", &MethodsInterface::histogram<double>);
     bp::def("hstack", &MethodsInterface::hstack<double>);
     bp::def("hypotScaler", &MethodsInterface::hypotScaler<double>);
+    bp::def("hypotScalerTriple", &MethodsInterface::hypotScalerTriple<double>);
     bp::def("hypotArray", &MethodsInterface::hypotArray<double>);
     bp::def("identity", &identity<double>);
     bp::def("interp", &MethodsInterface::interp<double>);

@@ -2052,6 +2052,16 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing hypot triple scaler', 'cyan'))
+    value1 = np.random.randn(1).item() * 100 + 1000
+    value2 = np.random.randn(1).item() * 100 + 1000
+    value3 = np.random.randn(1).item() * 100 + 1000
+    if (NumCpp.hypotScalerTriple(value1, value2, value3) ==
+            np.sqrt(value1**2 + value2**2 + value3**2)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing hypot array', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())

@@ -30,6 +30,7 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Utils/sqr.hpp"
 
 #include <algorithm>
 #include <cmath>
@@ -41,7 +42,7 @@ namespace nc
     // Method Description:
     ///						Given the "legs" of a right triangle, return its hypotenuse.
     ///
-    ///						Equivalent to sqrt(x1**2 + x2 * *2), element - wise.
+    ///						Equivalent to sqrt(x1**2 + x2**2), element - wise.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
     ///
@@ -56,6 +57,30 @@ namespace nc
     double hypot(dtype inValue1, dtype inValue2) noexcept
     {
         return std::hypot(static_cast<double>(inValue1), static_cast<double>(inValue2));
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Given the "legs" of a right triangle, return its hypotenuse.
+    ///
+    ///						Equivalent to sqrt(x1**2 + x2**2 + x3**2), element - wise.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.hypot.html
+    ///
+    ///
+    /// @param				inValue1
+    /// @param				inValue2
+    /// @param				inValue3
+    ///
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    double hypot(dtype inValue1, dtype inValue2, dtype inValue3) noexcept
+    {
+        return std::sqrt(utils::sqr(static_cast<double>(inValue1)) + 
+            utils::sqr(static_cast<double>(inValue2)) + 
+            utils::sqr(static_cast<double>(inValue3)));
     }
 
     //============================================================================

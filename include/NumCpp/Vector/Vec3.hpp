@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Methods/hypot.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/interp.hpp"
@@ -269,7 +270,7 @@ namespace nc
         ///
         double norm() const noexcept
         {
-            return std::hypot(x, y, z);
+            return hypot(x, y, z);
         }
 
         //============================================================================
