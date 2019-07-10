@@ -3,8 +3,8 @@
   <compounddef id="min_8hpp" kind="file" language="C++">
     <compoundname>min.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="nanmin_8hpp" local="yes">nanmin.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="7755">
         <label>boost/predef/other/endian.h</label>
@@ -201,20 +201,20 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="7767">
+      <node id="7768">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="7768">
+      <node id="7766">
         <label>nanmin.hpp</label>
         <link refid="nanmin_8hpp"/>
-        <childnode refid="7766" relation="include">
+        <childnode refid="7767" relation="include">
         </childnode>
       </node>
-      <node id="7766">
+      <node id="7767">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="7767" relation="include">
+        <childnode refid="7768" relation="include">
         </childnode>
       </node>
       <node id="7765">
@@ -222,7 +222,7 @@
         <link refid="min_8hpp"/>
         <childnode refid="7766" relation="include">
         </childnode>
-        <childnode refid="7768" relation="include">
+        <childnode refid="7767" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

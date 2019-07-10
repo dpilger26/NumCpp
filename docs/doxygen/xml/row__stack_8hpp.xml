@@ -8,10 +8,10 @@
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
     <includes local="no">initializer_list</includes>
     <includes local="no">string</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="concatenate_8hpp" local="yes">concatenate.hpp</includedby>
     <includedby refid="stack_8hpp" local="yes">stack.hpp</includedby>
     <includedby refid="vstack_8hpp" local="yes">vstack.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="12121">
         <label>boost/predef/other/endian.h</label>
@@ -223,39 +223,39 @@
         <link refid="row__stack_8hpp"/>
         <childnode refid="12132" relation="include">
         </childnode>
-        <childnode refid="12134" relation="include">
-        </childnode>
         <childnode refid="12135" relation="include">
         </childnode>
         <childnode refid="12136" relation="include">
         </childnode>
+        <childnode refid="12133" relation="include">
+        </childnode>
       </node>
-      <node id="12133">
+      <node id="12134">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
       <node id="12136">
         <label>vstack.hpp</label>
         <link refid="vstack_8hpp"/>
-        <childnode refid="12132" relation="include">
-        </childnode>
-      </node>
-      <node id="12132">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
         <childnode refid="12133" relation="include">
         </childnode>
       </node>
-      <node id="12134">
+      <node id="12133">
+        <label>Methods.hpp</label>
+        <link refid="_methods_8hpp"/>
+        <childnode refid="12134" relation="include">
+        </childnode>
+      </node>
+      <node id="12132">
         <label>concatenate.hpp</label>
         <link refid="concatenate_8hpp"/>
-        <childnode refid="12132" relation="include">
+        <childnode refid="12133" relation="include">
         </childnode>
       </node>
       <node id="12135">
         <label>stack.hpp</label>
         <link refid="stack_8hpp"/>
-        <childnode refid="12132" relation="include">
+        <childnode refid="12133" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

@@ -4,8 +4,8 @@
     <compoundname>argmax.hpp</compoundname>
     <includes refid="_types_8hpp" local="yes">NumCpp/Core/Types.hpp</includes>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="nanargmax_8hpp" local="yes">nanargmax.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="_quaternion_8hpp" local="yes">Quaternion.hpp</includedby>
     <incdepgraph>
       <node id="791">
@@ -205,14 +205,14 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="803">
+      <node id="804">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="806">
+      <node id="807">
         <label>Rotations.hpp</label>
         <link refid="_rotations_8hpp"/>
-        <childnode refid="803" relation="include">
+        <childnode refid="804" relation="include">
         </childnode>
       </node>
       <node id="805">
@@ -223,22 +223,22 @@
         <childnode refid="807" relation="include">
         </childnode>
       </node>
-      <node id="807">
+      <node id="806">
         <label>DCM.hpp</label>
         <link refid="_d_c_m_8hpp"/>
-        <childnode refid="806" relation="include">
+        <childnode refid="807" relation="include">
+        </childnode>
+      </node>
+      <node id="803">
+        <label>Methods.hpp</label>
+        <link refid="_methods_8hpp"/>
+        <childnode refid="804" relation="include">
         </childnode>
       </node>
       <node id="802">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
-        <childnode refid="803" relation="include">
-        </childnode>
-      </node>
-      <node id="804">
         <label>nanargmax.hpp</label>
         <link refid="nanargmax_8hpp"/>
-        <childnode refid="802" relation="include">
+        <childnode refid="803" relation="include">
         </childnode>
       </node>
       <node id="801">
@@ -246,7 +246,7 @@
         <link refid="argmax_8hpp"/>
         <childnode refid="802" relation="include">
         </childnode>
-        <childnode refid="804" relation="include">
+        <childnode refid="803" relation="include">
         </childnode>
         <childnode refid="805" relation="include">
         </childnode>

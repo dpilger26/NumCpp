@@ -9,8 +9,8 @@
     <includes refid="sqr_8hpp" local="yes">NumCpp/Utils/sqr.hpp</includes>
     <includes local="no">algorithm</includes>
     <includes local="no">cmath</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="nanvar_8hpp" local="yes">nanvar.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="8512">
         <label>boost/predef/other/endian.h</label>
@@ -243,14 +243,14 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="8524">
+      <node id="8525">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="8523">
+      <node id="8524">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="8524" relation="include">
+        <childnode refid="8525" relation="include">
         </childnode>
       </node>
       <node id="8522">
@@ -258,13 +258,13 @@
         <link refid="nanstdev_8hpp"/>
         <childnode refid="8523" relation="include">
         </childnode>
-        <childnode refid="8525" relation="include">
+        <childnode refid="8524" relation="include">
         </childnode>
       </node>
-      <node id="8525">
+      <node id="8523">
         <label>nanvar.hpp</label>
         <link refid="nanvar_8hpp"/>
-        <childnode refid="8523" relation="include">
+        <childnode refid="8524" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

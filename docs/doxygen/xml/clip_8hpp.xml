@@ -4,9 +4,9 @@
     <compoundname>clip.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
     <includes local="yes">boost/algorithm/clamp.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="nanpercentile_8hpp" local="yes">nanpercentile.hpp</includedby>
     <includedby refid="percentile_8hpp" local="yes">percentile.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="_quaternion_8hpp" local="yes">Quaternion.hpp</includedby>
     <incdepgraph>
       <node id="1771">
@@ -206,14 +206,14 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1783">
+      <node id="1784">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="1790">
+      <node id="1791">
         <label>Rotations.hpp</label>
         <link refid="_rotations_8hpp"/>
-        <childnode refid="1783" relation="include">
+        <childnode refid="1784" relation="include">
         </childnode>
       </node>
       <node id="1789">
@@ -227,11 +227,11 @@
       <node id="1785">
         <label>percentile.hpp</label>
         <link refid="percentile_8hpp"/>
-        <childnode refid="1782" relation="include">
-        </childnode>
         <childnode refid="1786" relation="include">
         </childnode>
         <childnode refid="1788" relation="include">
+        </childnode>
+        <childnode refid="1783" relation="include">
         </childnode>
       </node>
       <node id="1781">
@@ -239,9 +239,9 @@
         <link refid="clip_8hpp"/>
         <childnode refid="1782" relation="include">
         </childnode>
-        <childnode refid="1784" relation="include">
-        </childnode>
         <childnode refid="1785" relation="include">
+        </childnode>
+        <childnode refid="1783" relation="include">
         </childnode>
         <childnode refid="1789" relation="include">
         </childnode>
@@ -255,25 +255,25 @@
       <node id="1787">
         <label>Filter.hpp</label>
         <link refid="_filter_8hpp"/>
-        <childnode refid="1783" relation="include">
+        <childnode refid="1784" relation="include">
         </childnode>
       </node>
-      <node id="1791">
+      <node id="1790">
         <label>DCM.hpp</label>
         <link refid="_d_c_m_8hpp"/>
-        <childnode refid="1790" relation="include">
+        <childnode refid="1791" relation="include">
+        </childnode>
+      </node>
+      <node id="1783">
+        <label>Methods.hpp</label>
+        <link refid="_methods_8hpp"/>
+        <childnode refid="1784" relation="include">
         </childnode>
       </node>
       <node id="1782">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
-        <childnode refid="1783" relation="include">
-        </childnode>
-      </node>
-      <node id="1784">
         <label>nanpercentile.hpp</label>
         <link refid="nanpercentile_8hpp"/>
-        <childnode refid="1782" relation="include">
+        <childnode refid="1783" relation="include">
         </childnode>
       </node>
       <node id="1786">

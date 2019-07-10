@@ -12,9 +12,9 @@
     <includes local="no">string</includes>
     <includes local="no">utility</includes>
     <includes local="no">vector</includes>
-    <includedby refid="_image_processing_8hpp" local="yes">ImageProcessing.hpp</includedby>
     <includedby refid="_centroid_8hpp" local="yes">Centroid.hpp</includedby>
     <includedby refid="centroid_clusters_8hpp" local="yes">centroidClusters.hpp</includedby>
+    <includedby refid="_image_processing_8hpp" local="yes">ImageProcessing.hpp</includedby>
     <incdepgraph>
       <node id="1797">
         <label>NumCpp/Core/Types.hpp</label>
@@ -100,30 +100,30 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="1809">
+      <node id="1807">
         <label>centroidClusters.hpp</label>
         <link refid="centroid_clusters_8hpp"/>
-        <childnode refid="1806" relation="include">
-        </childnode>
-        <childnode refid="1810" relation="include">
-        </childnode>
-      </node>
-      <node id="1807">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
-      </node>
-      <node id="1808">
-        <label>Centroid.hpp</label>
-        <link refid="_centroid_8hpp"/>
-        <childnode refid="1806" relation="include">
+        <childnode refid="1808" relation="include">
         </childnode>
         <childnode refid="1809" relation="include">
         </childnode>
       </node>
       <node id="1810">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="1806">
+        <label>Centroid.hpp</label>
+        <link refid="_centroid_8hpp"/>
+        <childnode refid="1807" relation="include">
+        </childnode>
+        <childnode refid="1809" relation="include">
+        </childnode>
+      </node>
+      <node id="1808">
         <label>generateCentroids.hpp</label>
         <link refid="generate_centroids_8hpp"/>
-        <childnode refid="1806" relation="include">
+        <childnode refid="1809" relation="include">
         </childnode>
       </node>
       <node id="1805">
@@ -131,15 +131,15 @@
         <link refid="_cluster_8hpp"/>
         <childnode refid="1806" relation="include">
         </childnode>
-        <childnode refid="1808" relation="include">
+        <childnode refid="1807" relation="include">
         </childnode>
         <childnode refid="1809" relation="include">
         </childnode>
       </node>
-      <node id="1806">
+      <node id="1809">
         <label>ImageProcessing.hpp</label>
         <link refid="_image_processing_8hpp"/>
-        <childnode refid="1807" relation="include">
+        <childnode refid="1810" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

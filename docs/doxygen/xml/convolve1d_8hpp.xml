@@ -9,8 +9,8 @@
     <includes refid="dot_8hpp" local="yes">NumCpp/Methods/dot.hpp</includes>
     <includes refid="fliplr_8hpp" local="yes">NumCpp/Methods/fliplr.hpp</includes>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_filter_8hpp" local="yes">Filter.hpp</includedby>
     <includedby refid="gaussian_filter1d_8hpp" local="yes">gaussianFilter1d.hpp</includedby>
+    <includedby refid="_filter_8hpp" local="yes">Filter.hpp</includedby>
     <incdepgraph>
       <node id="2546">
         <label>boost/predef/other/endian.h</label>
@@ -325,20 +325,20 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2565">
+      <node id="2566">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="2566">
+      <node id="2564">
         <label>gaussianFilter1d.hpp</label>
         <link refid="gaussian_filter1d_8hpp"/>
-        <childnode refid="2564" relation="include">
+        <childnode refid="2565" relation="include">
         </childnode>
       </node>
-      <node id="2564">
+      <node id="2565">
         <label>Filter.hpp</label>
         <link refid="_filter_8hpp"/>
-        <childnode refid="2565" relation="include">
+        <childnode refid="2566" relation="include">
         </childnode>
       </node>
       <node id="2563">
@@ -346,7 +346,7 @@
         <link refid="convolve1d_8hpp"/>
         <childnode refid="2564" relation="include">
         </childnode>
-        <childnode refid="2566" relation="include">
+        <childnode refid="2565" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

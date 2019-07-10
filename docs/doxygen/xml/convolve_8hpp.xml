@@ -13,9 +13,9 @@
     <includes refid="rot90_8hpp" local="yes">NumCpp/Methods/rot90.hpp</includes>
     <includes refid="sqr_8hpp" local="yes">NumCpp/Utils/sqr.hpp</includes>
     <includes local="no">string</includes>
-    <includedby refid="_filter_8hpp" local="yes">Filter.hpp</includedby>
     <includedby refid="gaussian_filter_8hpp" local="yes">gaussianFilter.hpp</includedby>
     <includedby refid="_filter_2_filters_2_filters2d_2laplace_8hpp" local="yes">laplace.hpp</includedby>
+    <includedby refid="_filter_8hpp" local="yes">Filter.hpp</includedby>
     <incdepgraph>
       <node id="2497">
         <label>boost/predef/other/endian.h</label>
@@ -392,26 +392,26 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2520">
+      <node id="2521">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
       <node id="2522">
         <label>laplace.hpp</label>
         <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
-        <childnode refid="2519" relation="include">
-        </childnode>
-      </node>
-      <node id="2519">
-        <label>Filter.hpp</label>
-        <link refid="_filter_8hpp"/>
         <childnode refid="2520" relation="include">
         </childnode>
       </node>
-      <node id="2521">
+      <node id="2520">
+        <label>Filter.hpp</label>
+        <link refid="_filter_8hpp"/>
+        <childnode refid="2521" relation="include">
+        </childnode>
+      </node>
+      <node id="2519">
         <label>gaussianFilter.hpp</label>
         <link refid="gaussian_filter_8hpp"/>
-        <childnode refid="2519" relation="include">
+        <childnode refid="2520" relation="include">
         </childnode>
       </node>
       <node id="2518">
@@ -419,9 +419,9 @@
         <link refid="convolve_8hpp"/>
         <childnode refid="2519" relation="include">
         </childnode>
-        <childnode refid="2521" relation="include">
-        </childnode>
         <childnode refid="2522" relation="include">
+        </childnode>
+        <childnode refid="2520" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

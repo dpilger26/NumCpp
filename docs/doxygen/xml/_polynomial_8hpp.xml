@@ -12,8 +12,8 @@
     <includes local="no">iostream</includes>
     <includes local="no">string</includes>
     <includes local="no">vector</includes>
-    <includedby refid="_num_cpp_8hpp" local="yes">NumCpp.hpp</includedby>
     <includedby refid="apply_poly1d_8hpp" local="yes">applyPoly1d.hpp</includedby>
+    <includedby refid="_num_cpp_8hpp" local="yes">NumCpp.hpp</includedby>
     <incdepgraph>
       <node id="10416">
         <label>boost/predef/other/endian.h</label>
@@ -228,13 +228,13 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="10428">
+      <node id="10427">
         <label>applyPoly1d.hpp</label>
         <link refid="apply_poly1d_8hpp"/>
-        <childnode refid="10429" relation="include">
+        <childnode refid="10428" relation="include">
         </childnode>
       </node>
-      <node id="10427">
+      <node id="10429">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
@@ -243,13 +243,13 @@
         <link refid="_polynomial_8hpp"/>
         <childnode refid="10427" relation="include">
         </childnode>
-        <childnode refid="10428" relation="include">
+        <childnode refid="10429" relation="include">
         </childnode>
       </node>
-      <node id="10429">
+      <node id="10428">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="10427" relation="include">
+        <childnode refid="10429" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

@@ -4,10 +4,10 @@
     <compoundname>argmin.hpp</compoundname>
     <includes refid="_types_8hpp" local="yes">NumCpp/Core/Types.hpp</includes>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="nanargmin_8hpp" local="yes">nanargmin.hpp</includedby>
     <includedby refid="nanpercentile_8hpp" local="yes">nanpercentile.hpp</includedby>
     <includedby refid="percentile_8hpp" local="yes">percentile.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="828">
         <label>boost/predef/other/endian.h</label>
@@ -211,25 +211,25 @@
         <link refid="argmin_8hpp"/>
         <childnode refid="839" relation="include">
         </childnode>
-        <childnode refid="841" relation="include">
-        </childnode>
         <childnode refid="842" relation="include">
         </childnode>
         <childnode refid="843" relation="include">
         </childnode>
+        <childnode refid="840" relation="include">
+        </childnode>
       </node>
-      <node id="840">
+      <node id="841">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
       <node id="843">
         <label>percentile.hpp</label>
         <link refid="percentile_8hpp"/>
-        <childnode refid="839" relation="include">
-        </childnode>
         <childnode refid="844" relation="include">
         </childnode>
         <childnode refid="846" relation="include">
+        </childnode>
+        <childnode refid="840" relation="include">
         </childnode>
       </node>
       <node id="846">
@@ -241,25 +241,25 @@
       <node id="845">
         <label>Filter.hpp</label>
         <link refid="_filter_8hpp"/>
-        <childnode refid="840" relation="include">
-        </childnode>
-      </node>
-      <node id="841">
-        <label>nanargmin.hpp</label>
-        <link refid="nanargmin_8hpp"/>
-        <childnode refid="839" relation="include">
+        <childnode refid="841" relation="include">
         </childnode>
       </node>
       <node id="839">
+        <label>nanargmin.hpp</label>
+        <link refid="nanargmin_8hpp"/>
+        <childnode refid="840" relation="include">
+        </childnode>
+      </node>
+      <node id="840">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="840" relation="include">
+        <childnode refid="841" relation="include">
         </childnode>
       </node>
       <node id="842">
         <label>nanpercentile.hpp</label>
         <link refid="nanpercentile_8hpp"/>
-        <childnode refid="839" relation="include">
+        <childnode refid="840" relation="include">
         </childnode>
       </node>
       <node id="844">

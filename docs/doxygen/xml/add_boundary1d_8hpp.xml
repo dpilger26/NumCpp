@@ -309,26 +309,26 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="108">
+      <node id="109">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
       <node id="112">
         <label>complementaryMedianFilter1d.hpp</label>
         <link refid="complementary_median_filter1d_8hpp"/>
-        <childnode refid="107" relation="include">
-        </childnode>
-      </node>
-      <node id="109">
-        <label>gaussianFilter1d.hpp</label>
-        <link refid="gaussian_filter1d_8hpp"/>
-        <childnode refid="107" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
       </node>
       <node id="107">
+        <label>gaussianFilter1d.hpp</label>
+        <link refid="gaussian_filter1d_8hpp"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+      </node>
+      <node id="108">
         <label>Filter.hpp</label>
         <link refid="_filter_8hpp"/>
-        <childnode refid="108" relation="include">
+        <childnode refid="109" relation="include">
         </childnode>
       </node>
       <node id="105">
@@ -352,33 +352,33 @@
       <node id="110">
         <label>maximumFilter1d.hpp</label>
         <link refid="maximum_filter1d_8hpp"/>
-        <childnode refid="107" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
       </node>
       <node id="116">
         <label>uniformFilter1d.hpp</label>
         <link refid="uniform_filter1d_8hpp"/>
-        <childnode refid="107" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
       </node>
       <node id="114">
         <label>percentileFilter1d.hpp</label>
         <link refid="percentile_filter1d_8hpp"/>
-        <childnode refid="107" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
       </node>
       <node id="111">
         <label>medianFilter1d.hpp</label>
         <link refid="median_filter1d_8hpp"/>
-        <childnode refid="107" relation="include">
-        </childnode>
         <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
         </childnode>
       </node>
       <node id="115">
         <label>rankFilter1d.hpp</label>
         <link refid="rank_filter1d_8hpp"/>
-        <childnode refid="107" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
       </node>
       <node id="106">
@@ -386,13 +386,13 @@
         <link refid="convolve1d_8hpp"/>
         <childnode refid="107" relation="include">
         </childnode>
-        <childnode refid="109" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
       </node>
       <node id="113">
         <label>minimumFilter1d.hpp</label>
         <link refid="minimum_filter1d_8hpp"/>
-        <childnode refid="107" relation="include">
+        <childnode refid="108" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -428,7 +428,7 @@
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
 <codeline lineno="44"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">filter</highlight></codeline>
+<codeline lineno="45" refid="namespacenc_1_1filter" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">filter</highlight></codeline>
 <codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="47" refid="namespacenc_1_1filter_1_1boundary" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">boundary</highlight></codeline>
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>

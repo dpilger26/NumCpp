@@ -3,12 +3,12 @@
   <compounddef id="dot_8hpp" kind="file" language="C++">
     <compoundname>dot.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="_coordinate_8hpp" local="yes">Coordinate.hpp</includedby>
     <includedby refid="convolve1d_8hpp" local="yes">convolve1d.hpp</includedby>
     <includedby refid="convolve_8hpp" local="yes">convolve.hpp</includedby>
     <includedby refid="matrix__power_8hpp" local="yes">matrix_power.hpp</includedby>
     <includedby refid="multi__dot_8hpp" local="yes">multi_dot.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="3511">
         <label>boost/predef/other/endian.h</label>
@@ -205,23 +205,23 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="3523">
+      <node id="3525">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="3535">
+      <node id="3534">
         <label>Linalg.hpp</label>
         <link refid="_linalg_8hpp"/>
-        <childnode refid="3523" relation="include">
+        <childnode refid="3525" relation="include">
         </childnode>
       </node>
-      <node id="3530">
+      <node id="3528">
         <label>gaussianFilter1d.hpp</label>
         <link refid="gaussian_filter1d_8hpp"/>
         <childnode refid="3529" relation="include">
         </childnode>
       </node>
-      <node id="3533">
+      <node id="3532">
         <label>laplace.hpp</label>
         <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
         <childnode refid="3529" relation="include">
@@ -230,7 +230,7 @@
       <node id="3529">
         <label>Filter.hpp</label>
         <link refid="_filter_8hpp"/>
-        <childnode refid="3523" relation="include">
+        <childnode refid="3525" relation="include">
         </childnode>
       </node>
       <node id="3521">
@@ -238,85 +238,85 @@
         <link refid="dot_8hpp"/>
         <childnode refid="3522" relation="include">
         </childnode>
-        <childnode refid="3524" relation="include">
+        <childnode refid="3527" relation="include">
         </childnode>
-        <childnode refid="3528" relation="include">
+        <childnode refid="3530" relation="include">
         </childnode>
-        <childnode refid="3531" relation="include">
+        <childnode refid="3533" relation="include">
         </childnode>
-        <childnode refid="3534" relation="include">
+        <childnode refid="3535" relation="include">
         </childnode>
         <childnode refid="3536" relation="include">
         </childnode>
       </node>
-      <node id="3522">
+      <node id="3536">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="3523" relation="include">
+        <childnode refid="3525" relation="include">
         </childnode>
       </node>
-      <node id="3534">
+      <node id="3533">
         <label>matrix_power.hpp</label>
         <link refid="matrix__power_8hpp"/>
-        <childnode refid="3535" relation="include">
-        </childnode>
-      </node>
-      <node id="3527">
-        <label>radianSeperation.hpp</label>
-        <link refid="radian_seperation_8hpp"/>
-        <childnode refid="3525" relation="include">
+        <childnode refid="3534" relation="include">
         </childnode>
       </node>
       <node id="3526">
+        <label>radianSeperation.hpp</label>
+        <link refid="radian_seperation_8hpp"/>
+        <childnode refid="3524" relation="include">
+        </childnode>
+      </node>
+      <node id="3523">
         <label>degreeSeperation.hpp</label>
         <link refid="degree_seperation_8hpp"/>
+        <childnode refid="3524" relation="include">
+        </childnode>
+      </node>
+      <node id="3524">
+        <label>Coordinates.hpp</label>
+        <link refid="_coordinates_8hpp"/>
         <childnode refid="3525" relation="include">
         </childnode>
       </node>
-      <node id="3525">
-        <label>Coordinates.hpp</label>
-        <link refid="_coordinates_8hpp"/>
-        <childnode refid="3523" relation="include">
-        </childnode>
-      </node>
-      <node id="3532">
+      <node id="3531">
         <label>gaussianFilter.hpp</label>
         <link refid="gaussian_filter_8hpp"/>
         <childnode refid="3529" relation="include">
         </childnode>
       </node>
-      <node id="3524">
+      <node id="3522">
         <label>Coordinate.hpp</label>
         <link refid="_coordinate_8hpp"/>
-        <childnode refid="3525" relation="include">
+        <childnode refid="3523" relation="include">
         </childnode>
         <childnode refid="3526" relation="include">
         </childnode>
-        <childnode refid="3527" relation="include">
+        <childnode refid="3524" relation="include">
         </childnode>
       </node>
-      <node id="3528">
+      <node id="3527">
         <label>convolve1d.hpp</label>
         <link refid="convolve1d_8hpp"/>
-        <childnode refid="3529" relation="include">
+        <childnode refid="3528" relation="include">
         </childnode>
-        <childnode refid="3530" relation="include">
+        <childnode refid="3529" relation="include">
         </childnode>
       </node>
-      <node id="3531">
+      <node id="3530">
         <label>convolve.hpp</label>
         <link refid="convolve_8hpp"/>
-        <childnode refid="3529" relation="include">
+        <childnode refid="3531" relation="include">
         </childnode>
         <childnode refid="3532" relation="include">
         </childnode>
-        <childnode refid="3533" relation="include">
+        <childnode refid="3529" relation="include">
         </childnode>
       </node>
-      <node id="3536">
+      <node id="3535">
         <label>multi_dot.hpp</label>
         <link refid="multi__dot_8hpp"/>
-        <childnode refid="3535" relation="include">
+        <childnode refid="3534" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

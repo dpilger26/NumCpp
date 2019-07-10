@@ -1,10 +1,10 @@
 var searchData=
 [
   ['cauchy',['cauchy',['../namespacenc_1_1random.html#a61dc9fcfaee6e2a74e3f2e1f0e9c039b',1,'nc::random']]],
-  ['cbegin',['cbegin',['../classnc_1_1_nd_array.html#afab8bb1ff84015deae6dc7ed74a68227',1,'nc::NdArray::cbegin() const noexcept'],['../classnc_1_1_nd_array.html#aa75d85def3d58bfb531a6e2626cd7799',1,'nc::NdArray::cbegin(uint32 inRow) const'],['../classnc_1_1_data_cube.html#aff248af13543b07f8755a645e2511506',1,'nc::DataCube::cbegin()']]],
+  ['cbegin',['cbegin',['../classnc_1_1_data_cube.html#aff248af13543b07f8755a645e2511506',1,'nc::DataCube::cbegin()'],['../classnc_1_1_nd_array.html#afab8bb1ff84015deae6dc7ed74a68227',1,'nc::NdArray::cbegin() const noexcept'],['../classnc_1_1_nd_array.html#aa75d85def3d58bfb531a6e2626cd7799',1,'nc::NdArray::cbegin(uint32 inRow) const']]],
   ['cbrt',['cbrt',['../namespacenc.html#a21de0caa1ff8e9e7baed8a8a57f7bcab',1,'nc::cbrt(dtype inValue) noexcept'],['../namespacenc.html#a56a122b504ee028142e35c221a1afe46',1,'nc::cbrt(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['ceil',['ceil',['../namespacenc.html#a291189b2c2bc35a608b393ab1c06e84a',1,'nc::ceil(dtype inValue) noexcept'],['../namespacenc.html#af762493e829f0334c506cc05c7668270',1,'nc::ceil(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
-  ['cend',['cend',['../classnc_1_1_nd_array.html#a01305da9771c34f86b419379ee986f3e',1,'nc::NdArray::cend() const noexcept'],['../classnc_1_1_nd_array.html#a72e0f298458da1647e3ecedebb64cd36',1,'nc::NdArray::cend(uint32 inRow) const'],['../classnc_1_1_data_cube.html#af9484ba42f739c5a4e0a32c0d8f916ca',1,'nc::DataCube::cend()']]],
+  ['cend',['cend',['../classnc_1_1_data_cube.html#af9484ba42f739c5a4e0a32c0d8f916ca',1,'nc::DataCube::cend()'],['../classnc_1_1_nd_array.html#a01305da9771c34f86b419379ee986f3e',1,'nc::NdArray::cend() const noexcept'],['../classnc_1_1_nd_array.html#a72e0f298458da1647e3ecedebb64cd36',1,'nc::NdArray::cend(uint32 inRow) const']]],
   ['centroid',['Centroid',['../classnc_1_1image_processing_1_1_centroid.html#a3b97e4ddc31b85eb8c3f84b398429a35',1,'nc::imageProcessing::Centroid::Centroid()=default'],['../classnc_1_1image_processing_1_1_centroid.html#a59d0af7acae8d24d29ccb372440aed22',1,'nc::imageProcessing::Centroid::Centroid(const Cluster&lt; dtype &gt; &amp;inCluster)']]],
   ['centroidclusters',['centroidClusters',['../namespacenc_1_1image_processing.html#ad2838bf346a3d199ee0141fc64be7c5e',1,'nc::imageProcessing']]],
   ['chisquare',['chiSquare',['../namespacenc_1_1random.html#a329370aed893f0e10a8050520cf0bbd4',1,'nc::random']]],

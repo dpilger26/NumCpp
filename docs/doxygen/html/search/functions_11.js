@@ -26,7 +26,7 @@ var searchData=
   ['rot90',['rot90',['../namespacenc.html#afae8b2eed7c619175052c01abd526002',1,'nc']]],
   ['rotate',['rotate',['../classnc_1_1rotations_1_1_quaternion.html#a2e19c4d0b48d7f73e0aa273d85435370',1,'nc::rotations::Quaternion::rotate(const NdArray&lt; double &gt; &amp;inVector) const'],['../classnc_1_1rotations_1_1_quaternion.html#a3e0593a2ad77fad88afdfb8a34b9c036',1,'nc::rotations::Quaternion::rotate(const Vec3 &amp;inVec3) const noexcept']]],
   ['round',['round',['../classnc_1_1_nd_array.html#a3f1c7b94cf5f2b2beb961ef426e0e29f',1,'nc::NdArray::round()'],['../namespacenc.html#a41f18de9a9c6b9ae0b2053a22400baba',1,'nc::round(dtype inValue, uint8 inDecimals=0) noexcept'],['../namespacenc.html#ac1d4762fb5405bd893d0bc0bb907f6b1',1,'nc::round(const NdArray&lt; dtype &gt; &amp;inArray, uint8 inDecimals=0) noexcept']]],
-  ['row',['row',['../classnc_1_1_nd_array.html#a72747c61318537694bf9a7a594075c78',1,'nc::NdArray::row()'],['../classnc_1_1image_processing_1_1_centroid.html#aa3546b7b2430b51650f40fb344ab55a8',1,'nc::imageProcessing::Centroid::row()']]],
+  ['row',['row',['../classnc_1_1image_processing_1_1_centroid.html#aa3546b7b2430b51650f40fb344ab55a8',1,'nc::imageProcessing::Centroid::row()'],['../classnc_1_1_nd_array.html#a72747c61318537694bf9a7a594075c78',1,'nc::NdArray::row()']]],
   ['row_5fstack',['row_stack',['../namespacenc.html#a0d82f81eba247f95974bd20039bd56fc',1,'nc']]],
   ['rowmax',['rowMax',['../classnc_1_1image_processing_1_1_cluster.html#a58eea870dca4a5c61cfd4db24ea50267',1,'nc::imageProcessing::Cluster']]],
   ['rowmin',['rowMin',['../classnc_1_1image_processing_1_1_cluster.html#ac3f0c485f193a71a6caca9f553970383',1,'nc::imageProcessing::Cluster']]],

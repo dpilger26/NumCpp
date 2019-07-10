@@ -5,10 +5,10 @@
     <includes refid="_constants_8hpp" local="yes">NumCpp/Core/Constants.hpp</includes>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
     <includes local="no">algorithm</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="_coordinate_8hpp" local="yes">Coordinate.hpp</includedby>
     <includedby refid="_dec_8hpp" local="yes">Dec.hpp</includedby>
     <includedby refid="radians_8hpp" local="yes">radians.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="3159">
         <label>boost/predef/other/endian.h</label>
@@ -209,20 +209,20 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="3171">
+      <node id="3173">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="3177">
+      <node id="3176">
         <label>radians.hpp</label>
         <link refid="radians_8hpp"/>
-        <childnode refid="3170" relation="include">
+        <childnode refid="3177" relation="include">
         </childnode>
       </node>
-      <node id="3176">
+      <node id="3175">
         <label>Dec.hpp</label>
         <link refid="_dec_8hpp"/>
-        <childnode refid="3173" relation="include">
+        <childnode refid="3170" relation="include">
         </childnode>
         <childnode refid="3172" relation="include">
         </childnode>
@@ -232,45 +232,45 @@
         <link refid="deg2rad_8hpp"/>
         <childnode refid="3170" relation="include">
         </childnode>
-        <childnode refid="3172" relation="include">
+        <childnode refid="3175" relation="include">
         </childnode>
         <childnode refid="3176" relation="include">
         </childnode>
         <childnode refid="3177" relation="include">
         </childnode>
       </node>
-      <node id="3170">
+      <node id="3177">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="3171" relation="include">
-        </childnode>
-      </node>
-      <node id="3175">
-        <label>radianSeperation.hpp</label>
-        <link refid="radian_seperation_8hpp"/>
         <childnode refid="3173" relation="include">
         </childnode>
       </node>
       <node id="3174">
-        <label>degreeSeperation.hpp</label>
-        <link refid="degree_seperation_8hpp"/>
-        <childnode refid="3173" relation="include">
+        <label>radianSeperation.hpp</label>
+        <link refid="radian_seperation_8hpp"/>
+        <childnode refid="3172" relation="include">
         </childnode>
       </node>
-      <node id="3173">
-        <label>Coordinates.hpp</label>
-        <link refid="_coordinates_8hpp"/>
-        <childnode refid="3171" relation="include">
+      <node id="3171">
+        <label>degreeSeperation.hpp</label>
+        <link refid="degree_seperation_8hpp"/>
+        <childnode refid="3172" relation="include">
         </childnode>
       </node>
       <node id="3172">
+        <label>Coordinates.hpp</label>
+        <link refid="_coordinates_8hpp"/>
+        <childnode refid="3173" relation="include">
+        </childnode>
+      </node>
+      <node id="3170">
         <label>Coordinate.hpp</label>
         <link refid="_coordinate_8hpp"/>
-        <childnode refid="3173" relation="include">
+        <childnode refid="3171" relation="include">
         </childnode>
         <childnode refid="3174" relation="include">
         </childnode>
-        <childnode refid="3175" relation="include">
+        <childnode refid="3172" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

@@ -4,8 +4,8 @@
     <compoundname>cumprod.hpp</compoundname>
     <includes refid="_types_8hpp" local="yes">NumCpp/Core/Types.hpp</includes>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="nancumprod_8hpp" local="yes">nancumprod.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="2975">
         <label>boost/predef/other/endian.h</label>
@@ -204,7 +204,7 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2987">
+      <node id="2988">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
@@ -213,19 +213,19 @@
         <link refid="cumprod_8hpp"/>
         <childnode refid="2986" relation="include">
         </childnode>
+        <childnode refid="2987" relation="include">
+        </childnode>
+      </node>
+      <node id="2987">
+        <label>Methods.hpp</label>
+        <link refid="_methods_8hpp"/>
         <childnode refid="2988" relation="include">
         </childnode>
       </node>
       <node id="2986">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
-        <childnode refid="2987" relation="include">
-        </childnode>
-      </node>
-      <node id="2988">
         <label>nancumprod.hpp</label>
         <link refid="nancumprod_8hpp"/>
-        <childnode refid="2986" relation="include">
+        <childnode refid="2987" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

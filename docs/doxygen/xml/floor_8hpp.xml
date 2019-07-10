@@ -5,8 +5,8 @@
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
     <includes local="no">algorithm</includes>
     <includes local="no">cmath</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="floor__divide_8hpp" local="yes">floor_divide.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="5153">
         <label>boost/predef/other/endian.h</label>
@@ -207,7 +207,7 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="5165">
+      <node id="5166">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
@@ -216,19 +216,19 @@
         <link refid="floor_8hpp"/>
         <childnode refid="5164" relation="include">
         </childnode>
+        <childnode refid="5165" relation="include">
+        </childnode>
+      </node>
+      <node id="5165">
+        <label>Methods.hpp</label>
+        <link refid="_methods_8hpp"/>
         <childnode refid="5166" relation="include">
         </childnode>
       </node>
       <node id="5164">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
-        <childnode refid="5165" relation="include">
-        </childnode>
-      </node>
-      <node id="5166">
         <label>floor_divide.hpp</label>
         <link refid="floor__divide_8hpp"/>
-        <childnode refid="5164" relation="include">
+        <childnode refid="5165" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

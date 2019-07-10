@@ -3,8 +3,8 @@
   <compounddef id="diag_flat_8hpp" kind="file" language="C++">
     <compoundname>diagFlat.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="svd_8hpp" local="yes">svd.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="3341">
         <label>boost/predef/other/endian.h</label>
@@ -201,26 +201,26 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="3353">
+      <node id="3354">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="3355">
+      <node id="3353">
         <label>Linalg.hpp</label>
         <link refid="_linalg_8hpp"/>
-        <childnode refid="3353" relation="include">
-        </childnode>
-      </node>
-      <node id="3354">
-        <label>svd.hpp</label>
-        <link refid="svd_8hpp"/>
-        <childnode refid="3355" relation="include">
+        <childnode refid="3354" relation="include">
         </childnode>
       </node>
       <node id="3352">
+        <label>svd.hpp</label>
+        <link refid="svd_8hpp"/>
+        <childnode refid="3353" relation="include">
+        </childnode>
+      </node>
+      <node id="3355">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="3353" relation="include">
+        <childnode refid="3354" relation="include">
         </childnode>
       </node>
       <node id="3351">
@@ -228,7 +228,7 @@
         <link refid="diag_flat_8hpp"/>
         <childnode refid="3352" relation="include">
         </childnode>
-        <childnode refid="3354" relation="include">
+        <childnode refid="3355" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

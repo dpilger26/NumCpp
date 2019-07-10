@@ -5,8 +5,8 @@
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
     <includes local="no">algorithm</includes>
     <includes local="no">functional</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="apply_poly1d_8hpp" local="yes">applyPoly1d.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="423">
         <label>boost/predef/other/endian.h</label>
@@ -207,20 +207,20 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="436">
+      <node id="434">
         <label>applyPoly1d.hpp</label>
         <link refid="apply_poly1d_8hpp"/>
-        <childnode refid="434" relation="include">
+        <childnode refid="435" relation="include">
         </childnode>
       </node>
-      <node id="435">
+      <node id="436">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="434">
+      <node id="435">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="435" relation="include">
+        <childnode refid="436" relation="include">
         </childnode>
       </node>
       <node id="433">
@@ -228,7 +228,7 @@
         <link refid="apply_function_8hpp"/>
         <childnode refid="434" relation="include">
         </childnode>
-        <childnode refid="436" relation="include">
+        <childnode refid="435" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

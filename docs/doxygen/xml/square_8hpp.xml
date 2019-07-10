@@ -5,8 +5,8 @@
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
     <includes refid="sqr_8hpp" local="yes">NumCpp/Utils/sqr.hpp</includes>
     <includes local="no">algorithm</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="nanvar_8hpp" local="yes">nanvar.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="_quaternion_8hpp" local="yes">Quaternion.hpp</includedby>
     <incdepgraph>
       <node id="13484">
@@ -208,14 +208,14 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="13496">
+      <node id="13497">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="13499">
+      <node id="13500">
         <label>Rotations.hpp</label>
         <link refid="_rotations_8hpp"/>
-        <childnode refid="13496" relation="include">
+        <childnode refid="13497" relation="include">
         </childnode>
       </node>
       <node id="13498">
@@ -226,16 +226,16 @@
         <childnode refid="13500" relation="include">
         </childnode>
       </node>
-      <node id="13500">
+      <node id="13499">
         <label>DCM.hpp</label>
         <link refid="_d_c_m_8hpp"/>
-        <childnode refid="13499" relation="include">
+        <childnode refid="13500" relation="include">
         </childnode>
       </node>
-      <node id="13495">
+      <node id="13496">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="13496" relation="include">
+        <childnode refid="13497" relation="include">
         </childnode>
       </node>
       <node id="13494">
@@ -243,15 +243,15 @@
         <link refid="square_8hpp"/>
         <childnode refid="13495" relation="include">
         </childnode>
-        <childnode refid="13497" relation="include">
+        <childnode refid="13496" relation="include">
         </childnode>
         <childnode refid="13498" relation="include">
         </childnode>
       </node>
-      <node id="13497">
+      <node id="13495">
         <label>nanvar.hpp</label>
         <link refid="nanvar_8hpp"/>
-        <childnode refid="13495" relation="include">
+        <childnode refid="13496" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

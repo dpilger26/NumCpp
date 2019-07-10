@@ -18,5 +18,5 @@ var searchData=
   ['divide',['divide',['../namespacenc.html#a48c5c456736ced98b946e89b573c204e',1,'nc']]],
   ['dot',['dot',['../classnc_1_1_nd_array.html#a13e5756a193d375c0b52e5929a41ca2f',1,'nc::NdArray::dot()'],['../classnc_1_1_vec2.html#a231781cc06b8f005a1dda5003498ec99',1,'nc::Vec2::dot()'],['../classnc_1_1_vec3.html#ac9f2bf549a4b800f140de060a0281a7e',1,'nc::Vec3::dot()'],['../namespacenc.html#a2c9414f356ae2025a7cde3a192d6d67d',1,'nc::dot()']]],
   ['down',['down',['../classnc_1_1_vec2.html#a77b594a5fcfc2fbe21bf74a2cada49ad',1,'nc::Vec2::down()'],['../classnc_1_1_vec3.html#a378aab1464927647b27f71d5934fa02b',1,'nc::Vec3::down()']]],
-  ['dump',['dump',['../classnc_1_1_nd_array.html#a1a75a88440cb5460da17b23e0dd6b030',1,'nc::NdArray::dump()'],['../classnc_1_1_data_cube.html#abbaa9ebba302183cae3563c9eb371ee3',1,'nc::DataCube::dump()'],['../namespacenc.html#af6e71bd96dbc78f9ca018d2da0a7e653',1,'nc::dump()']]]
+  ['dump',['dump',['../classnc_1_1_data_cube.html#abbaa9ebba302183cae3563c9eb371ee3',1,'nc::DataCube::dump()'],['../classnc_1_1_nd_array.html#a1a75a88440cb5460da17b23e0dd6b030',1,'nc::NdArray::dump()'],['../namespacenc.html#af6e71bd96dbc78f9ca018d2da0a7e653',1,'nc::dump()']]]
 ];

@@ -4,9 +4,9 @@
     <compoundname>sort.hpp</compoundname>
     <includes refid="_types_8hpp" local="yes">NumCpp/Core/Types.hpp</includes>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="rank_filter1d_8hpp" local="yes">rankFilter1d.hpp</includedby>
     <includedby refid="rank_filter_8hpp" local="yes">rankFilter.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="13077">
         <label>sort.hpp</label>
@@ -210,37 +210,37 @@
         <link refid="sort_8hpp"/>
         <childnode refid="13108" relation="include">
         </childnode>
-        <childnode refid="13110" relation="include">
+        <childnode refid="13111" relation="include">
         </childnode>
         <childnode refid="13112" relation="include">
         </childnode>
       </node>
-      <node id="13109">
+      <node id="13110">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="13111">
+      <node id="13109">
         <label>Filter.hpp</label>
         <link refid="_filter_8hpp"/>
+        <childnode refid="13110" relation="include">
+        </childnode>
+      </node>
+      <node id="13112">
+        <label>Methods.hpp</label>
+        <link refid="_methods_8hpp"/>
+        <childnode refid="13110" relation="include">
+        </childnode>
+      </node>
+      <node id="13111">
+        <label>rankFilter.hpp</label>
+        <link refid="rank_filter_8hpp"/>
         <childnode refid="13109" relation="include">
         </childnode>
       </node>
       <node id="13108">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
-        <childnode refid="13109" relation="include">
-        </childnode>
-      </node>
-      <node id="13112">
-        <label>rankFilter.hpp</label>
-        <link refid="rank_filter_8hpp"/>
-        <childnode refid="13111" relation="include">
-        </childnode>
-      </node>
-      <node id="13110">
         <label>rankFilter1d.hpp</label>
         <link refid="rank_filter1d_8hpp"/>
-        <childnode refid="13111" relation="include">
+        <childnode refid="13109" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

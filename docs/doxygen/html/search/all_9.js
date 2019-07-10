@@ -20,7 +20,7 @@ var searchData=
   ['invert_2ehpp',['invert.hpp',['../invert_8hpp.html',1,'']]],
   ['isclose',['isclose',['../namespacenc.html#ae80bdb1c4ce59e2a74cad2d518f50e1e',1,'nc']]],
   ['isclose_2ehpp',['isclose.hpp',['../isclose_8hpp.html',1,'']]],
-  ['isempty',['isempty',['../classnc_1_1_nd_array.html#a626fd6565a7a5cf7cf60cece6d24b9c7',1,'nc::NdArray::isempty()'],['../classnc_1_1_data_cube.html#ac569e0c62a9e5cbf21228b85128a53a5',1,'nc::DataCube::isempty()']]],
+  ['isempty',['isempty',['../classnc_1_1_data_cube.html#ac569e0c62a9e5cbf21228b85128a53a5',1,'nc::DataCube::isempty()'],['../classnc_1_1_nd_array.html#a626fd6565a7a5cf7cf60cece6d24b9c7',1,'nc::NdArray::isempty()']]],
   ['isinf',['isinf',['../namespacenc.html#ac2770d614de64c300c2f10cb39a299c0',1,'nc::isinf(dtype inValue) noexcept'],['../namespacenc.html#af8a02aaa65404b7609cf4829c9fbdf9f',1,'nc::isinf(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['isinf_2ehpp',['isinf.hpp',['../isinf_8hpp.html',1,'']]],
   ['isinteger',['isInteger',['../classnc_1_1_dtype_info.html#a10b60bd27123b5c724e2a52526fe8cfe',1,'nc::DtypeInfo']]],
@@ -30,5 +30,5 @@ var searchData=
   ['issigned',['isSigned',['../classnc_1_1_dtype_info.html#a039ecfb9a5bd9fe0cb751a59f28055d1',1,'nc::DtypeInfo']]],
   ['isvalid',['isValid',['../classnc_1_1rotations_1_1_d_c_m.html#ab229737433b6c93522aa38f0ad94ca50',1,'nc::rotations::DCM']]],
   ['item',['item',['../classnc_1_1_nd_array.html#a4f5da296a91f836fa7627fad29828117',1,'nc::NdArray']]],
-  ['iterator',['iterator',['../classnc_1_1_nd_array.html#af5fd346e89b4a6117ed4a2296fe68959',1,'nc::NdArray::iterator()'],['../classnc_1_1_data_cube.html#adfed19a7fda0e5d4742ae4818c338a99',1,'nc::DataCube::iterator()']]]
+  ['iterator',['iterator',['../classnc_1_1_data_cube.html#adfed19a7fda0e5d4742ae4818c338a99',1,'nc::DataCube::iterator()'],['../classnc_1_1_nd_array.html#af5fd346e89b4a6117ed4a2296fe68959',1,'nc::NdArray::iterator()']]]
 ];

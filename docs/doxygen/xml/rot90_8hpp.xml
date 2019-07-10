@@ -7,8 +7,8 @@
     <includes refid="flipud_8hpp" local="yes">NumCpp/Methods/flipud.hpp</includes>
     <includes refid="fliplr_8hpp" local="yes">NumCpp/Methods/fliplr.hpp</includes>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="convolve_8hpp" local="yes">convolve.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="12002">
         <label>boost/predef/other/endian.h</label>
@@ -243,7 +243,7 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="12016">
+      <node id="12018">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
@@ -252,41 +252,41 @@
         <link refid="rot90_8hpp"/>
         <childnode refid="12015" relation="include">
         </childnode>
-        <childnode refid="12017" relation="include">
-        </childnode>
-      </node>
-      <node id="12020">
-        <label>laplace.hpp</label>
-        <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
-        <childnode refid="12018" relation="include">
-        </childnode>
-      </node>
-      <node id="12018">
-        <label>Filter.hpp</label>
-        <link refid="_filter_8hpp"/>
-        <childnode refid="12016" relation="include">
-        </childnode>
-      </node>
-      <node id="12015">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
-        <childnode refid="12016" relation="include">
+        <childnode refid="12020" relation="include">
         </childnode>
       </node>
       <node id="12019">
-        <label>gaussianFilter.hpp</label>
-        <link refid="gaussian_filter_8hpp"/>
-        <childnode refid="12018" relation="include">
+        <label>laplace.hpp</label>
+        <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
+        <childnode refid="12017" relation="include">
         </childnode>
       </node>
       <node id="12017">
+        <label>Filter.hpp</label>
+        <link refid="_filter_8hpp"/>
+        <childnode refid="12018" relation="include">
+        </childnode>
+      </node>
+      <node id="12020">
+        <label>Methods.hpp</label>
+        <link refid="_methods_8hpp"/>
+        <childnode refid="12018" relation="include">
+        </childnode>
+      </node>
+      <node id="12016">
+        <label>gaussianFilter.hpp</label>
+        <link refid="gaussian_filter_8hpp"/>
+        <childnode refid="12017" relation="include">
+        </childnode>
+      </node>
+      <node id="12015">
         <label>convolve.hpp</label>
         <link refid="convolve_8hpp"/>
-        <childnode refid="12018" relation="include">
+        <childnode refid="12016" relation="include">
         </childnode>
         <childnode refid="12019" relation="include">
         </childnode>
-        <childnode refid="12020" relation="include">
+        <childnode refid="12017" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

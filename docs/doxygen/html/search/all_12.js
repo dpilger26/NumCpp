@@ -58,7 +58,7 @@ var searchData=
   ['rotations_2ehpp',['Rotations.hpp',['../_rotations_8hpp.html',1,'']]],
   ['round',['round',['../classnc_1_1_nd_array.html#a3f1c7b94cf5f2b2beb961ef426e0e29f',1,'nc::NdArray::round()'],['../namespacenc.html#a41f18de9a9c6b9ae0b2053a22400baba',1,'nc::round(dtype inValue, uint8 inDecimals=0) noexcept'],['../namespacenc.html#ac1d4762fb5405bd893d0bc0bb907f6b1',1,'nc::round(const NdArray&lt; dtype &gt; &amp;inArray, uint8 inDecimals=0) noexcept']]],
   ['round_2ehpp',['round.hpp',['../round_8hpp.html',1,'']]],
-  ['row',['row',['../classnc_1_1image_processing_1_1_pixel.html#a6e712ef3b6547f5cafb6e8db1349658e',1,'nc::imageProcessing::Pixel::row()'],['../classnc_1_1_nd_array.html#a72747c61318537694bf9a7a594075c78',1,'nc::NdArray::row()'],['../classnc_1_1image_processing_1_1_centroid.html#aa3546b7b2430b51650f40fb344ab55a8',1,'nc::imageProcessing::Centroid::row()'],['../namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7',1,'nc::ROW()']]],
+  ['row',['row',['../classnc_1_1image_processing_1_1_pixel.html#a6e712ef3b6547f5cafb6e8db1349658e',1,'nc::imageProcessing::Pixel::row()'],['../classnc_1_1image_processing_1_1_centroid.html#aa3546b7b2430b51650f40fb344ab55a8',1,'nc::imageProcessing::Centroid::row()'],['../classnc_1_1_nd_array.html#a72747c61318537694bf9a7a594075c78',1,'nc::NdArray::row()'],['../namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7',1,'nc::ROW()']]],
   ['row_5fstack',['row_stack',['../namespacenc.html#a0d82f81eba247f95974bd20039bd56fc',1,'nc']]],
   ['row_5fstack_2ehpp',['row_stack.hpp',['../row__stack_8hpp.html',1,'']]],
   ['rowmax',['rowMax',['../classnc_1_1image_processing_1_1_cluster.html#a58eea870dca4a5c61cfd4db24ea50267',1,'nc::imageProcessing::Cluster']]],

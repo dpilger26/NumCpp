@@ -36,6 +36,6 @@ var searchData=
   ['down',['down',['../classnc_1_1_vec2.html#a77b594a5fcfc2fbe21bf74a2cada49ad',1,'nc::Vec2::down()'],['../classnc_1_1_vec3.html#a378aab1464927647b27f71d5934fa02b',1,'nc::Vec3::down()']]],
   ['dtypeinfo',['DtypeInfo',['../classnc_1_1_dtype_info.html',1,'nc']]],
   ['dtypeinfo_2ehpp',['DtypeInfo.hpp',['../_dtype_info_8hpp.html',1,'']]],
-  ['dump',['dump',['../classnc_1_1_nd_array.html#a1a75a88440cb5460da17b23e0dd6b030',1,'nc::NdArray::dump()'],['../classnc_1_1_data_cube.html#abbaa9ebba302183cae3563c9eb371ee3',1,'nc::DataCube::dump()'],['../namespacenc.html#af6e71bd96dbc78f9ca018d2da0a7e653',1,'nc::dump()']]],
+  ['dump',['dump',['../classnc_1_1_data_cube.html#abbaa9ebba302183cae3563c9eb371ee3',1,'nc::DataCube::dump()'],['../classnc_1_1_nd_array.html#a1a75a88440cb5460da17b23e0dd6b030',1,'nc::NdArray::dump()'],['../namespacenc.html#af6e71bd96dbc78f9ca018d2da0a7e653',1,'nc::dump()']]],
   ['dump_2ehpp',['dump.hpp',['../dump_8hpp.html',1,'']]]
 ];

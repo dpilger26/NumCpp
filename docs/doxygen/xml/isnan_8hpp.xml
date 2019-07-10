@@ -6,8 +6,8 @@
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
     <includes local="no">algorithm</includes>
     <includes local="no">cmath</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="nanpercentile_8hpp" local="yes">nanpercentile.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="6361">
         <label>boost/predef/other/endian.h</label>
@@ -210,20 +210,20 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="6373">
+      <node id="6374">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="6372">
+      <node id="6373">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="6373" relation="include">
+        <childnode refid="6374" relation="include">
         </childnode>
       </node>
-      <node id="6374">
+      <node id="6372">
         <label>nanpercentile.hpp</label>
         <link refid="nanpercentile_8hpp"/>
-        <childnode refid="6372" relation="include">
+        <childnode refid="6373" relation="include">
         </childnode>
       </node>
       <node id="6371">
@@ -231,7 +231,7 @@
         <link refid="isnan_8hpp"/>
         <childnode refid="6372" relation="include">
         </childnode>
-        <childnode refid="6374" relation="include">
+        <childnode refid="6373" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

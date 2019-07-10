@@ -5,8 +5,8 @@
     <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
     <includes local="no">string</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="histogram_8hpp" local="yes">histogram.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="6692">
         <label>boost/predef/other/endian.h</label>
@@ -207,14 +207,14 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="6704">
+      <node id="6705">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="6703">
+      <node id="6704">
         <label>Methods.hpp</label>
         <link refid="_methods_8hpp"/>
-        <childnode refid="6704" relation="include">
+        <childnode refid="6705" relation="include">
         </childnode>
       </node>
       <node id="6702">
@@ -222,13 +222,13 @@
         <link refid="linspace_8hpp"/>
         <childnode refid="6703" relation="include">
         </childnode>
-        <childnode refid="6705" relation="include">
+        <childnode refid="6704" relation="include">
         </childnode>
       </node>
-      <node id="6705">
+      <node id="6703">
         <label>histogram.hpp</label>
         <link refid="histogram_8hpp"/>
-        <childnode refid="6703" relation="include">
+        <childnode refid="6704" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

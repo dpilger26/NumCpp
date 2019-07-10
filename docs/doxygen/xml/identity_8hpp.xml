@@ -3,8 +3,8 @@
   <compounddef id="identity_8hpp" kind="file" language="C++">
     <compoundname>identity.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <includedby refid="matrix__power_8hpp" local="yes">matrix_power.hpp</includedby>
+    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
     <incdepgraph>
       <node id="6070">
         <label>boost/predef/other/endian.h</label>
@@ -201,26 +201,26 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="6082">
+      <node id="6083">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="6084">
+      <node id="6082">
         <label>Linalg.hpp</label>
         <link refid="_linalg_8hpp"/>
-        <childnode refid="6082" relation="include">
+        <childnode refid="6083" relation="include">
+        </childnode>
+      </node>
+      <node id="6084">
+        <label>Methods.hpp</label>
+        <link refid="_methods_8hpp"/>
+        <childnode refid="6083" relation="include">
         </childnode>
       </node>
       <node id="6081">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
-        <childnode refid="6082" relation="include">
-        </childnode>
-      </node>
-      <node id="6083">
         <label>matrix_power.hpp</label>
         <link refid="matrix__power_8hpp"/>
-        <childnode refid="6084" relation="include">
+        <childnode refid="6082" relation="include">
         </childnode>
       </node>
       <node id="6080">
@@ -228,7 +228,7 @@
         <link refid="identity_8hpp"/>
         <childnode refid="6081" relation="include">
         </childnode>
-        <childnode refid="6083" relation="include">
+        <childnode refid="6084" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
