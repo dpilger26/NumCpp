@@ -635,6 +635,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray operatorNegative(const NdArray<dtype>& self)
+    {
+        return nc2Boost(-self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray operatorMinusScaler(const NdArray<dtype>& self, dtype inScaler)
     {
         return nc2Boost(self - inScaler);
@@ -3049,6 +3057,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("zeros", &NdArrayDouble::zeros)
         .def("operatorPlusScaler", &NdArrayInterface::operatorPlusScaler<double>)
         .def("operatorPlusArray", &NdArrayInterface::operatorPlusArray<double>)
+        .def("operatorNegative", &NdArrayInterface::operatorNegative<double>)
         .def("operatorMinusScaler", &NdArrayInterface::operatorMinusScaler<double>)
         .def("operatorMinusArray", &NdArrayInterface::operatorMinusArray<double>)
         .def("operatorMultiplyScaler", &NdArrayInterface::operatorMultiplyScaler<double>)
