@@ -31,7 +31,7 @@
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Methods/flipud.hpp"
+#include "NumCpp/Functions/flipud.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc

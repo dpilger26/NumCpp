@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/Linalg/svd/SVDClass.hpp"
-#include "NumCpp/Methods/diagFlat.hpp"
+#include "NumCpp/Functions/diagFlat.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <utility>

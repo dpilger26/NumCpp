@@ -3,9 +3,9 @@ import TestCoordinates
 import TestDataCube
 import TestDtypeInfo
 import TestFilters
+import TestFunctions
 import TestImageProcessing
 import TestLinalg
-import TestMethods
 import TestNdArray
 import TestPolynomial
 import TestRandom
@@ -25,9 +25,9 @@ def doTest():
     TestDataCube.doTest()
     TestDtypeInfo.doTest()
     TestFilters.doTest()
+    TestFunctions.doTest()
     TestImageProcessing.doTest()
     TestLinalg.doTest()
-    TestMethods.doTest()
     TestNdArray.doTest()
     TestPolynomial.doTest()
     TestRandom.doTest()

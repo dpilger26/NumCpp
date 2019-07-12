@@ -30,7 +30,7 @@
 
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Methods/fliplr.hpp"
+#include "NumCpp/Functions/fliplr.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc

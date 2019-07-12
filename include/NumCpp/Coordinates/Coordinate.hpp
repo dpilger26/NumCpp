@@ -32,9 +32,9 @@
 #include "NumCpp/Coordinates/RA.hpp"
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Methods/deg2rad.hpp"
-#include "NumCpp/Methods/dot.hpp"
-#include "NumCpp/Methods/rad2deg.hpp"
+#include "NumCpp/Functions/deg2rad.hpp"
+#include "NumCpp/Functions/dot.hpp"
+#include "NumCpp/Functions/rad2deg.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/sqr.hpp"
 

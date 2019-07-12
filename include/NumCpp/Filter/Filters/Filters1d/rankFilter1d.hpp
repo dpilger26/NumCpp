@@ -32,7 +32,7 @@
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Filter/Boundaries/Boundary.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries1d/addBoundary1d.hpp"
-#include "NumCpp/Methods/sort.hpp"
+#include "NumCpp/Functions/sort.hpp"
 #include "NumCpp/NdArray.hpp"
 
 namespace nc

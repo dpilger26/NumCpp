@@ -55,9 +55,6 @@
     <Filter Include="Header Files\NumCpp\Linalg\svd">
       <UniqueIdentifier>{dc23dcc2-966c-469c-a96f-c9b1dfdea122}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\NumCpp\Methods">
-      <UniqueIdentifier>{a2661b6d-2912-46db-854b-19a3007bb502}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\NumCpp\PythonInterface">
       <UniqueIdentifier>{8bca1ab6-5966-4d09-8d98-fc8bdc05bfc5}</UniqueIdentifier>
     </Filter>
@@ -72,6 +69,9 @@
     </Filter>
     <Filter Include="Header Files\NumCpp\Special">
       <UniqueIdentifier>{51a5f0b7-0d13-4e68-acf9-be9536e578eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NumCpp\Functions">
+      <UniqueIdentifier>{c76a0d0d-e905-4931-a12c-8bf62f6a7619}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -281,627 +281,6 @@
     <ClInclude Include="..\..\..\include\NumCpp\Linalg\svd.hpp">
       <Filter>Header Files\NumCpp\Linalg</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\amax.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\amin.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\any.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\append.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\applyFunction.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\applyPoly1d.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\arange.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\arccos.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\arccosh.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\arcsin.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\arcsinh.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\arctan.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\arctan2.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\arctanh.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\argmax.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\argmin.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\argsort.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\argwhere.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\around.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\array_equal.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\array_equiv.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\asarray.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\astype.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\average.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\binaryRepr.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\bincount.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\bitwise_and.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\bitwise_not.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\bitwise_or.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\bitwise_xor.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\byteswap.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\cbrt.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\ceil.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\clip.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\column_stack.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\concatenate.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\contains.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\copy.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\copySign.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\copyto.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\cos.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\cosh.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\count_nonzero.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\cross.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\cube.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\cumprod.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\cumsum.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\deg2rad.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\degrees.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\deleteIndices.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\diagFlat.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\diagnol.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\diff.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\divide.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\dot.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\dump.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\empty.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\empty_like.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\endianess.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\equal.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\exp.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\exp2.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\expm1.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\eye.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\fillDiagnol.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\find.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\fix.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\flatnonzero.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\flatten.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\flip.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\fliplr.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\flipud.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\floor.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\floor_divide.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\fmax.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\fmin.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\fmod.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\fromBuffer.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\fromFile.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\fromiter.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\full.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\full_like.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\gcd.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\gradient.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\greater.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\greater_equal.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\histogram.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\hstack.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\hypot.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\identity.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\interp.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\intersect1d.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\invert.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\isclose.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\isinf.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\isnan.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\lcm.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\ldexp.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\left_shift.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\less.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\less_equal.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\linspace.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\load.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\log.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\log1p.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\log2.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\log10.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\logical_and.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\logical_not.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\logical_or.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\logical_xor.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\matmul.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\max.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\maximum.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\mean.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\median.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\meshgrid.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\min.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\minimum.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\mod.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\multiply.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nanargmax.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nanargmin.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nancumprod.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nancumsum.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nanmax.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nanmean.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nanmedian.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nanmin.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nanpercentile.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nanprod.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nans.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nans_like.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nanstdev.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nansum.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nanvar.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nbytes.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\negative.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\newbyteorder.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\nonzero.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\norm.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\not_equal.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\ones.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\ones_like.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\pad.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\partition.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\percentile.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\power.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\powerf.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\print.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\prod.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\ptp.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\put.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\putmask.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\rad2deg.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\radians.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\reciprocal.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\remainder.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\repeat.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\reshape.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\resizeFast.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\resizeSlow.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\right_shift.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\rint.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\rms.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\roll.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\rot90.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\round.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\row_stack.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\setdiff1d.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\shape.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\sign.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\signbit.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\sin.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\sinc.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\sinh.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\size.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\sort.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\sqrt.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\square.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\stack.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\stdev.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\sum.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\swapaxes.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\tan.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\tanh.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\tile.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\tofile.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\toStlVector.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\trace.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\transpose.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\trapz.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\trim_zeros.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\trunc.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\union1d.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\unique.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\unwrap.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\var.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\vstack.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\where.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\zeros.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\zeros_like.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\abs.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\add.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\alen.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\all.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\allclose.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\PythonInterface\BoostInterface.hpp">
       <Filter>Header Files\NumCpp\PythonInterface</Filter>
     </ClInclude>
@@ -1061,9 +440,6 @@
     <ClInclude Include="..\..\..\include\NumCpp\Linalg.hpp">
       <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods.hpp">
-      <Filter>Header Files\NumCpp</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\NdArray.hpp">
       <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
@@ -1082,9 +458,6 @@
     <ClInclude Include="..\..\..\include\NumCpp\Utils.hpp">
       <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\tri.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Special\erf.hpp">
       <Filter>Header Files\NumCpp\Special</Filter>
     </ClInclude>
@@ -1093,6 +466,633 @@
     </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Special.hpp">
       <Filter>Header Files\NumCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\abs.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\add.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\alen.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\all.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\allclose.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\amax.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\amin.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\any.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\append.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\applyFunction.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\applyPoly1d.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\arange.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\arccos.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\arccosh.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\arcsin.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\arcsinh.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\arctan.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\arctan2.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\arctanh.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\argmax.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\argmin.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\argsort.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\argwhere.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\around.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\array_equal.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\array_equiv.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\asarray.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\astype.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\average.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\binaryRepr.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\bincount.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\bitwise_and.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\bitwise_not.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\bitwise_or.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\bitwise_xor.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\byteswap.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\cbrt.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\ceil.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\clip.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\column_stack.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\concatenate.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\contains.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\copy.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\copySign.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\copyto.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\cos.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\cosh.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\count_nonzero.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\cross.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\cube.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\cumprod.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\cumsum.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\deg2rad.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\degrees.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\deleteIndices.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\diagFlat.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\diagnol.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\diff.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\divide.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\dot.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\dump.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\empty.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\empty_like.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\endianess.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\equal.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\exp.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\exp2.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\expm1.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\eye.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\fillDiagnol.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\find.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\fix.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\flatnonzero.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\flatten.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\flip.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\fliplr.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\flipud.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\floor.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\floor_divide.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\fmax.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\fmin.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\fmod.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\fromBuffer.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\fromFile.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\fromiter.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\full.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\full_like.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\gcd.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\gradient.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\greater.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\greater_equal.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\histogram.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\hstack.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\hypot.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\identity.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\interp.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\intersect1d.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\invert.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\isclose.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\isinf.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\isnan.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\lcm.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\ldexp.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\left_shift.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\less.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\less_equal.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\linspace.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\load.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\log.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\log1p.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\log2.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\log10.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\logical_and.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\logical_not.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\logical_or.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\logical_xor.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\matmul.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\max.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\maximum.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\mean.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\median.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\meshgrid.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\min.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\minimum.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\mod.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\multiply.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nanargmax.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nanargmin.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nancumprod.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nancumsum.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nanmax.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nanmean.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nanmedian.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nanmin.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nanpercentile.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nanprod.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nans.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nans_like.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nanstdev.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nansum.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nanvar.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nbytes.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\negative.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\newbyteorder.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\nonzero.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\norm.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\not_equal.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\ones.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\ones_like.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\pad.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\partition.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\percentile.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\power.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\powerf.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\print.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\prod.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\ptp.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\put.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\putmask.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\rad2deg.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\radians.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\reciprocal.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\remainder.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\repeat.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\reshape.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\resizeFast.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\resizeSlow.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\right_shift.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\rint.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\rms.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\roll.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\rot90.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\round.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\row_stack.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\setdiff1d.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\shape.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\sign.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\signbit.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\sin.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\sinc.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\sinh.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\size.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\sort.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\sqrt.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\square.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\stack.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\stdev.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\sum.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\swapaxes.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\tan.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\tanh.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\tile.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\tofile.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\toStlVector.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\trace.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\transpose.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\trapz.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\tri.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\trim_zeros.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\trunc.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\union1d.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\unique.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\unwrap.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\var.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\vstack.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\where.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\zeros.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Functions\zeros_like.hpp">
+      <Filter>Header Files\NumCpp\Functions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

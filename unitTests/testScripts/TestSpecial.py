@@ -11,7 +11,7 @@ import NumCpp
 
 ####################################################################################
 def doTest():
-    print(colored('Testing Methods Module', 'magenta'))
+    print(colored('Testing Special Module', 'magenta'))
 
     print(colored('Testing erf scaler', 'cyan'))
     value = np.random.randn(1).item()

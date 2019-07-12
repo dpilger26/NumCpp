@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Methods/dot.hpp"
+#include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <initializer_list>

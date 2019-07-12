@@ -31,8 +31,8 @@
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Methods/dot.hpp"
-#include "NumCpp/Methods/identity.hpp"
+#include "NumCpp/Functions/dot.hpp"
+#include "NumCpp/Functions/identity.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <string>

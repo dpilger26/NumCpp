@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Methods for working with NdArrays
+/// Special Functions
 ///
 #pragma once
 

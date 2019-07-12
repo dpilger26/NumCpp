@@ -32,7 +32,7 @@
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Methods/flipud.hpp"
+#include "NumCpp/Functions/flipud.hpp"
 
 namespace nc
 {

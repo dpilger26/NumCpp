@@ -33,7 +33,7 @@
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"
-#include "NumCpp/Methods/sort.hpp"
+#include "NumCpp/Functions/sort.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <string>

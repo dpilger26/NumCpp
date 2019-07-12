@@ -24,7 +24,7 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Methods for working with NdArrays
+/// Special Functions
 ///
 #pragma once
 
@@ -55,15 +55,15 @@ namespace nc
         }
 
         //============================================================================
-    // Method Description:
-    ///						Calculate the error function of all elements in the input array.
-    ///                     Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
-    ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray<double>
-    ///
+        // Method Description:
+        ///						Calculate the error function of all elements in the input array.
+        ///                     Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
+        ///
+        /// @param
+        ///				inArray
+        /// @return
+        ///				NdArray<double>
+        ///
         template<typename dtype>
         NdArray<double> erf(const NdArray<dtype>& inArray) noexcept
         {

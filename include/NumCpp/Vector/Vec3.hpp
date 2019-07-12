@@ -29,7 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
-#include "NumCpp/Methods/hypot.hpp"
+#include "NumCpp/Functions/hypot.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Utils/interp.hpp"
