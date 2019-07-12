@@ -70,6 +70,9 @@
     <Filter Include="Header Files\NumCpp\Utils">
       <UniqueIdentifier>{af3f63cb-c0f7-4367-bb52-4c22c5978f4b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\NumCpp\Special">
+      <UniqueIdentifier>{51a5f0b7-0d13-4e68-acf9-be9536e578eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\NumCppPy.cpp">
@@ -456,12 +459,6 @@
       <Filter>Header Files\NumCpp\Methods</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Methods\equal.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\erf.hpp">
-      <Filter>Header Files\NumCpp\Methods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\NumCpp\Methods\erfc.hpp">
       <Filter>Header Files\NumCpp\Methods</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Methods\exp.hpp">
@@ -1087,6 +1084,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Methods\tri.hpp">
       <Filter>Header Files\NumCpp\Methods</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Special\erf.hpp">
+      <Filter>Header Files\NumCpp\Special</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Special\erfc.hpp">
+      <Filter>Header Files\NumCpp\Special</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Special.hpp">
+      <Filter>Header Files\NumCpp</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

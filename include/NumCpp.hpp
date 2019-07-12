@@ -31,10 +31,6 @@
 ///
 #pragma once
 
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS // for fopen with Visual Studio
-#endif
-
 #include "NumCpp/Coordinates.hpp"
 #include "NumCpp/Core.hpp"
 #include "NumCpp/Filter.hpp"
@@ -46,6 +42,7 @@
 #include "NumCpp/PythonInterface.hpp"
 #include "NumCpp/Random.hpp"
 #include "NumCpp/Rotations.hpp"
+#include "NumCpp/Special.hpp"
 #include "NumCpp/Utils.hpp"
 #include "NumCpp/Vector.hpp"
 

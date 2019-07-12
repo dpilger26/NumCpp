@@ -97,8 +97,6 @@
 #include "NumCpp/Methods/empty_like.hpp"
 #include "NumCpp/Methods/endianess.hpp"
 #include "NumCpp/Methods/equal.hpp"
-#include "NumCpp/Methods/erf.hpp"
-#include "NumCpp/Methods/erfc.hpp"
 #include "NumCpp/Methods/exp.hpp"
 #include "NumCpp/Methods/exp2.hpp"
 #include "NumCpp/Methods/expm1.hpp"

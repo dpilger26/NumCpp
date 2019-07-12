@@ -1528,38 +1528,6 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype erfScaler(dtype inValue) noexcept
-    {
-        return erf(inValue);
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    np::ndarray erfArray(const NdArray<dtype>& inArray)
-    {
-        return nc2Boost(erf(inArray));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    dtype erfcScaler(dtype inValue) noexcept
-    {
-        return erfc(inValue);
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    np::ndarray erfcArray(const NdArray<dtype>& inArray)
-    {
-        return nc2Boost(erfc(inArray));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
     dtype expScaler(dtype inValue) noexcept
     {
         return exp(inValue);
@@ -2887,6 +2855,41 @@ namespace Vec3Interface
 
 //================================================================================
 
+namespace SpecialInterface
+{
+    template<typename dtype>
+    dtype erfScaler(dtype inValue) noexcept
+    {
+        return special::erf(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray erfArray(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::erf(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype erfcScaler(dtype inValue) noexcept
+    {
+        return special::erfc(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray erfcArray(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::erfc(inArray));
+    }
+}
+
+//================================================================================
+
 BOOST_PYTHON_MODULE(NumCpp)
 {
     Py_Initialize();
@@ -3278,10 +3281,6 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("empty_like", &empty_like<double>);
     bp::def("endianess", &endianess<double>);
     bp::def("equal", &MethodsInterface::equal<double>);
-    bp::def("erfScaler", &MethodsInterface::erfScaler<double>);
-    bp::def("erfArray", &MethodsInterface::erfArray<double>);
-    bp::def("erfcScaler", &MethodsInterface::erfcScaler<double>);
-    bp::def("erfcArray", &MethodsInterface::erfcArray<double>);
     bp::def("expScaler", &MethodsInterface::expScaler<double>);
     bp::def("expArray", &MethodsInterface::expArray<double>);
     bp::def("exp2Scaler", &MethodsInterface::exp2Scaler<double>);
@@ -3914,4 +3913,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("Vec3_multScalerVec3", &Vec3Interface::multScalerVec3);
     bp::def("Vec3_divVec3Scaler", &Vec3Interface::divVec3Scaler);
     bp::def("Vec3_print", &Vec3Interface::print);
+
+    // Special.hpp
+    bp::def("erfScaler", &SpecialInterface::erfScaler<double>);
+    bp::def("erfArray", &SpecialInterface::erfArray<double>);
+    bp::def("erfcScaler", &SpecialInterface::erfcScaler<double>);
+    bp::def("erfcArray", &SpecialInterface::erfcArray<double>);
 }

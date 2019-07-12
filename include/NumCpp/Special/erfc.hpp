@@ -36,40 +36,43 @@
 
 namespace nc
 {
-    //============================================================================
-    // Method Description:
-    ///						Returns the complement of the error function of inValue.
-    ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				double
-    ///
-    template<typename dtype>
-    double erfc(dtype inValue) noexcept
+    namespace special
     {
-        return boost::math::erfc(static_cast<double>(inValue));
-    }
+        //============================================================================
+        // Method Description:
+        ///						Returns the complement of the error function of inValue.
+        ///
+        /// @param
+        ///				inValue
+        /// @return
+        ///				double
+        ///
+        template<typename dtype>
+        double erfc(dtype inValue) noexcept
+        {
+            return boost::math::erfc(static_cast<double>(inValue));
+        }
 
-    //============================================================================
-    // Method Description:
-    ///						Returns the element-wise complement of the error
-    ///                     function of inValue.
-    ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray<double>
-    ///
-    template<typename dtype>
-    NdArray<double> erfc(const NdArray<dtype>& inArray) noexcept
-    {
-        NdArray<double> returnArray(inArray.shape());
+        //============================================================================
+        // Method Description:
+        ///						Returns the element-wise complement of the error
+        ///                     function of inValue.
+        ///
+        /// @param
+        ///				inArray
+        /// @return
+        ///				NdArray<double>
+        ///
+        template<typename dtype>
+        NdArray<double> erfc(const NdArray<dtype>& inArray) noexcept
+        {
+            NdArray<double> returnArray(inArray.shape());
 
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue)  -> double
-            { return erfc(inValue); });
+            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+                [](dtype inValue)  -> double
+                { return erfc(inValue); });
 
-        return returnArray;
+            return returnArray;
+        }
     }
 }

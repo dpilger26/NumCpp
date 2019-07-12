@@ -36,41 +36,44 @@
 
 namespace nc
 {
-    //============================================================================
+    namespace special
+    {
+        //============================================================================
+        // Method Description:
+        ///						Calculate the error function of all elements in the input array.
+        ///                     Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
+        ///
+        /// @param
+        ///				inValue
+        /// @return
+        ///				double
+        ///
+        template<typename dtype>
+        double erf(dtype inValue) noexcept
+        {
+            return boost::math::erf(static_cast<double>(inValue));
+        }
+
+        //============================================================================
     // Method Description:
     ///						Calculate the error function of all elements in the input array.
     ///                     Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
     ///
     /// @param
-    ///				inValue
+    ///				inArray
     /// @return
-    ///				double
+    ///				NdArray<double>
     ///
-    template<typename dtype>
-    double erf(dtype inValue) noexcept
-    {
-        return boost::math::erf(static_cast<double>(inValue));
-    }
+        template<typename dtype>
+        NdArray<double> erf(const NdArray<dtype>& inArray) noexcept
+        {
+            NdArray<double> returnArray(inArray.shape());
 
-    //============================================================================
-// Method Description:
-///						Calculate the error function of all elements in the input array.
-///                     Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.
-///
-/// @param
-///				inArray
-/// @return
-///				NdArray<double>
-///
-    template<typename dtype>
-    NdArray<double> erf(const NdArray<dtype>& inArray) noexcept
-    {
-        NdArray<double> returnArray(inArray.shape());
+            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+                [](dtype inValue) -> double
+                { return erf(inValue); });
 
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) -> double
-            { return erf(inValue); });
-
-        return returnArray;
+            return returnArray;
+        }
     }
 }
