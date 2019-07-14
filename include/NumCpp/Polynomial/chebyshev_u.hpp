@@ -30,46 +30,46 @@
 
 #include "NumCpp/NdArray.hpp"
 
-#include "boost/math/special_functions/bessel.hpp"
+#include "boost/math/special_functions/chebyshev.hpp"
 
 #include <algorithm>
 
 namespace nc
 {
-    namespace special
+    namespace polynomial
     {
         //============================================================================
         // Method Description:
-        ///	Modified Cylindrical Bessel function of the first kind
+        ///	Chebyshev Polynomial of the second kind
         ///
-        /// @param      inV: the order of the bessel function
-        /// @param      inX: the input value
+        /// @param      n: the order of the chebyshev polynomial
+        /// @param      x: the input value
         /// @return
         ///				double
         ///
-        template<typename dtype1, typename dtype2>
-        double bessel_in(dtype1 inV, dtype2 inX) noexcept
+        template<typename dtype>
+        double chebyshev_u(uint32 n, dtype x) noexcept
         {
-            return boost::math::cyl_bessel_i(static_cast<double>(inV), static_cast<double>(inX));
+            return boost::math::chebyshev_u(n, static_cast<double>(x));
         }
 
         //============================================================================
         // Method Description:
-        ///	Modified Cylindrical Bessel function of the first kind
+        ///	Chebyshev Polynomial of the second kind
         ///
-        /// @param      inV: the order of the bessel function
-        /// @param      inArrayX: the input values
+        /// @param      n: the order of the chebyshev polynomial
+        /// @param      inArrayX: the input value
         /// @return
         ///				NdArray<double>
         ///
-        template<typename dtype1, typename dtype2>
-        NdArray<double> bessel_in(dtype1 inV, const NdArray<dtype2>& inArrayX) noexcept
+        template<typename dtype>
+        NdArray<double> chebyshev_u(uint32 n, const NdArray<dtype>& inArrayX) noexcept
         {
             NdArray<double> returnArray(inArrayX.shape());
 
             std::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [inV](dtype2 inX) -> double
-                { return bessel_in(inV, inX); });
+                [n](dtype x) -> double
+                { return chebyshev_u(n, x); });
 
             return returnArray;
         }

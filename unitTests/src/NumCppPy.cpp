@@ -2698,6 +2698,105 @@ namespace DataCubeInterface
     }
 }
 
+//================================================================================
+
+namespace PolynomialInterface
+{
+    template<typename dtype>
+    dtype chebyshev_t_Scaler(uint32 n, dtype inValue) noexcept
+    {
+        return polynomial::chebyshev_t(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray chebyshev_t_Array(uint32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::chebyshev_t(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype chebyshev_u_Scaler(uint32 n, dtype inValue) noexcept
+    {
+        return polynomial::chebyshev_u(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray chebyshev_u_Array(uint32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::chebyshev_u(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype hermite_Scaler(uint32 n, dtype inValue) noexcept
+    {
+        return polynomial::hermite(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray hermite_Array(uint32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::hermite(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype laguerre_Scaler(uint32 n, dtype inValue) noexcept
+    {
+        return polynomial::hermite(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray laguerre_Array(uint32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::laguerre(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype legendre_p_Scaler(int32 n, dtype inValue) noexcept
+    {
+        return polynomial::legendre_p(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray legendre_p_Array(int32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::legendre_p(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype legendre_q_Scaler(int32 n, dtype inValue) noexcept
+    {
+        return polynomial::legendre_q(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray legendre_q_Array(int32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::legendre_q(n, inArray));
+    }
+}
+
 namespace Vec2Interface
 {
     np::ndarray toNdArray(const Vec2& self)
@@ -4240,6 +4339,19 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__imul__", &Poly1d::operator*=, bp::return_internal_reference<>())
         .def("__pow__", &Poly1d::operator^)
         .def("__ipow__", &Poly1d::operator^=, bp::return_internal_reference<>());
+
+    bp::def("chebyshev_t_Scaler", &PolynomialInterface::chebyshev_t_Scaler<double>);
+    bp::def("chebyshev_t_Array", &PolynomialInterface::chebyshev_t_Array<double>);
+    bp::def("chebyshev_u_Scaler", &PolynomialInterface::chebyshev_u_Scaler<double>);
+    bp::def("chebyshev_u_Array", &PolynomialInterface::chebyshev_u_Array<double>);
+    bp::def("hermite_Scaler", &PolynomialInterface::hermite_Scaler<double>);
+    bp::def("hermite_Array", &PolynomialInterface::hermite_Array<double>);
+    bp::def("laguerre_Scaler", &PolynomialInterface::laguerre_Scaler<double>);
+    bp::def("laguerre_Array", &PolynomialInterface::laguerre_Array<double>);
+    bp::def("legendre_p_Scaler", &PolynomialInterface::legendre_p_Scaler<double>);
+    bp::def("legendre_p_Array", &PolynomialInterface::legendre_p_Array<double>);
+    bp::def("legendre_q_Scaler", &PolynomialInterface::legendre_q_Scaler<double>);
+    bp::def("legendre_q_Array", &PolynomialInterface::legendre_q_Array<double>);
 
     // Vec2.hpp
     bp::class_<Vec2>
