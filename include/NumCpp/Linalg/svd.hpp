@@ -53,8 +53,8 @@ namespace nc
         void svd(const NdArray<dtype>& inArray, NdArray<double>& outU, NdArray<double>& outS, NdArray<double>& outVt) noexcept
         {
             SVD svdSolver(inArray.template astype<double>());
-            outU = std::move(svdSolver.u());
-            outVt = std::move(svdSolver.v().transpose());
+            outU = svdSolver.u();
+            outVt = svdSolver.v().transpose();
 
             NdArray<double> s = diagflat(svdSolver.s());
             outS = std::move(s);
