@@ -73,6 +73,9 @@
     <Filter Include="Header Files\NumCpp\Functions">
       <UniqueIdentifier>{c76a0d0d-e905-4931-a12c-8bf62f6a7619}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\NumCpp\Polynomial">
+      <UniqueIdentifier>{9243c851-d4d8-40d5-930d-9337a8ac1797}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\NumCppPy.cpp">
@@ -1170,6 +1173,21 @@
       <Filter>Header Files\NumCpp\Special</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\NumCpp\Special\bessel_jn_prime.hpp">
+      <Filter>Header Files\NumCpp\Special</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Polynomial\Poly1d.hpp">
+      <Filter>Header Files\NumCpp\Polynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Special\cyclic_hankel_1.hpp">
+      <Filter>Header Files\NumCpp\Special</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Special\cyclic_hankel_2.hpp">
+      <Filter>Header Files\NumCpp\Special</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Special\spherical_hankel_1.hpp">
+      <Filter>Header Files\NumCpp\Special</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\NumCpp\Special\spherical_hankel_2.hpp">
       <Filter>Header Files\NumCpp\Special</Filter>
     </ClInclude>
   </ItemGroup>

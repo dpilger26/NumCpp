@@ -24,28 +24,31 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Functions for working with NdArrays
+/// Special Functions
 ///
 #pragma once
 
-#include "NumCpp/Functions/applyFunction.hpp"
-#include "NumCpp/NdArray.hpp"
-#include "NumCpp/Polynomial/Poly1d.hpp"
+#include "boost/math/special_functions/hankel.hpp"
+
+#include <complex>
 
 namespace nc
 {
-    //============================================================================
-    // Method Description:
-    ///						Apply polynomial elemnt wise to the input values.
-    ///
-    /// @param				inArray
-    /// @param				inPoly
-    /// @return
-    ///				NdArray
-    ///
-    template<typename dtype>
-    void applyPoly1d(NdArray<dtype>& inArray, const polynomial::Poly1d<dtype>& inPoly) noexcept
+    namespace special
     {
-        applyFunction<dtype>(inArray, inPoly);
+        //============================================================================
+        // Method Description:
+        ///	Hankel funcion of the second kind
+        ///
+        /// @param      inV: the order of the bessel function
+        /// @param      inX: the input value
+        /// @return
+        ///				double
+        ///
+        template<typename dtype1, typename dtype2>
+        std::complex<double> cyclic_hankel_2(dtype1 inV, dtype2 inX) noexcept
+        {
+            return boost::math::cyl_hankel_2(static_cast<double>(inV), static_cast<double>(inX));
+        }
     }
 }
