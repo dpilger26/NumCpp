@@ -2858,7 +2858,231 @@ namespace Vec3Interface
 namespace SpecialInterface
 {
     template<typename dtype>
-    dtype erfScaler(dtype inValue) noexcept
+    dtype airy_ai_Scaler(dtype inValue) noexcept
+    {
+        return special::airy_ai(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray airy_ai_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::airy_ai(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype airy_ai_prime_Scaler(dtype inValue) noexcept
+    {
+        return special::airy_ai_prime(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray airy_ai_prime_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::airy_ai_prime(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype airy_bi_Scaler(dtype inValue) noexcept
+    {
+        return special::airy_bi(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray airy_bi_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::airy_bi(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype airy_bi_prime_Scaler(dtype inValue) noexcept
+    {
+        return special::airy_bi_prime(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray airy_bi_prime_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::airy_bi_prime(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_in_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_in(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_in_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_in(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_in_prime_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_in_prime(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_in_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_in_prime(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_jn_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_jn(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_jn_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_jn(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_jn_prime_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_jn_prime(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_jn_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_jn_prime(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_kn_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_kn(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_kn_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_kn(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_kn_prime_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_kn_prime(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_kn_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_kn_prime(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_yn_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_yn(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_yn_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_yn(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_yn_prime_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_yn_prime(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_yn_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_yn_prime(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype beta_Scaler(dtype a, dtype inValue) noexcept
+    {
+        return special::beta(a, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray beta_Array(dtype a, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::beta(a, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype digamma_Scaler(dtype inValue) noexcept
+    {
+        return special::digamma(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray digamma_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::digamma(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype erf_Scaler(dtype inValue) noexcept
     {
         return special::erf(inValue);
     }
@@ -2866,7 +3090,7 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray erfArray(const NdArray<dtype>& inArray)
+    np::ndarray erf_Array(const NdArray<dtype>& inArray)
     {
         return nc2Boost(special::erf(inArray));
     }
@@ -2874,7 +3098,23 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype erfcScaler(dtype inValue) noexcept
+    dtype erf_inv_Scaler(dtype inValue) noexcept
+    {
+        return special::erf_inv(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray erf_inv_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::erf_inv(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype erfc_Scaler(dtype inValue) noexcept
     {
         return special::erfc(inValue);
     }
@@ -2882,9 +3122,181 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray erfcArray(const NdArray<dtype>& inArray)
+    np::ndarray erfc_Array(const NdArray<dtype>& inArray)
     {
         return nc2Boost(special::erfc(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype erfc_inv_Scaler(dtype inValue) noexcept
+    {
+        return special::erfc_inv(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray erfc_inv_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::erfc_inv(inArray));
+    }
+
+    //================================================================================
+
+    double factorial_Scaler(uint32 inValue) noexcept
+    {
+        return special::factorial(inValue);
+    }
+
+    //================================================================================
+
+    np::ndarray factorial_Array(const NdArray<uint32>& inArray)
+    {
+        return nc2Boost(special::factorial(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype gamma_Scaler(dtype inValue) noexcept
+    {
+        return special::gamma(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray gamma_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::gamma(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype gamma1pm1_Scaler(dtype inValue) noexcept
+    {
+        return special::gamma1pm1(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray gamma1pm1_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::gamma1pm1(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype log_gamma_Scaler(dtype inValue) noexcept
+    {
+        return special::log_gamma(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray log_gamma_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::log_gamma(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype polygamma_Scaler(uint32 n, dtype inValue) noexcept
+    {
+        return special::polygamma(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray polygamma_Array(uint32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::polygamma(n, inArray));
+    }
+
+    //================================================================================
+
+    double prime_Scaler(uint32 inValue) noexcept
+    {
+        return special::prime(inValue);
+    }
+
+    //================================================================================
+
+    np::ndarray prime_Array(const NdArray<uint32>& inArray)
+    {
+        return nc2Boost(special::prime(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype riemann_zeta_Scaler(dtype inValue) noexcept
+    {
+        return special::riemann_zeta(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray riemann_zeta_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::riemann_zeta(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype spherical_bessel_jn_Scaler(uint32 inV, dtype inValue) noexcept
+    {
+        return special::spherical_bessel_jn(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray spherical_bessel_jn_Array(uint32 inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::spherical_bessel_jn(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype spherical_bessel_yn_Scaler(uint32 inV, dtype inValue) noexcept
+    {
+        return special::spherical_bessel_yn(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray spherical_bessel_yn_Array(uint32 inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::spherical_bessel_yn(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype trigamma_Scaler(dtype inValue) noexcept
+    {
+        return special::trigamma(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray trigamma_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::trigamma(inArray));
     }
 }
 
@@ -3915,8 +4327,56 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("Vec3_print", &Vec3Interface::print);
 
     // Special.hpp
-    bp::def("erfScaler", &SpecialInterface::erfScaler<double>);
-    bp::def("erfArray", &SpecialInterface::erfArray<double>);
-    bp::def("erfcScaler", &SpecialInterface::erfcScaler<double>);
-    bp::def("erfcArray", &SpecialInterface::erfcArray<double>);
+    bp::def("airy_ai_Scaler", &SpecialInterface::airy_ai_Scaler<double>);
+    bp::def("airy_ai_Array", &SpecialInterface::airy_ai_Array<double>);
+    bp::def("airy_ai_prime_Scaler", &SpecialInterface::airy_ai_prime_Scaler<double>);
+    bp::def("airy_ai_prime_Array", &SpecialInterface::airy_ai_prime_Array<double>);
+    bp::def("airy_bi_Scaler", &SpecialInterface::airy_bi_Scaler<double>);
+    bp::def("airy_bi_Array", &SpecialInterface::airy_bi_Array<double>);
+    bp::def("airy_bi_prime_Scaler", &SpecialInterface::airy_bi_prime_Scaler<double>);
+    bp::def("airy_bi_prime_Array", &SpecialInterface::airy_bi_prime_Array<double>);
+    bp::def("bessel_in_Scaler", &SpecialInterface::bessel_in_Scaler<double>);
+    bp::def("bessel_in_Array", &SpecialInterface::bessel_in_Array<double>);
+    bp::def("bessel_in_prime_Scaler", &SpecialInterface::bessel_in_prime_Scaler<double>);
+    bp::def("bessel_in_prime_Array", &SpecialInterface::bessel_in_prime_Array<double>);
+    bp::def("bessel_jn_Scaler", &SpecialInterface::bessel_jn_Scaler<double>);
+    bp::def("bessel_jn_Array", &SpecialInterface::bessel_jn_Array<double>);
+    bp::def("bessel_jn_prime_Scaler", &SpecialInterface::bessel_jn_prime_Scaler<double>);
+    bp::def("bessel_jn_prime_Array", &SpecialInterface::bessel_jn_prime_Array<double>);
+    bp::def("bessel_kn_Scaler", &SpecialInterface::bessel_kn_Scaler<double>);
+    bp::def("bessel_kn_Array", &SpecialInterface::bessel_kn_Array<double>);
+    bp::def("bessel_kn_prime_Scaler", &SpecialInterface::bessel_kn_prime_Scaler<double>);
+    bp::def("bessel_kn_prime_Array", &SpecialInterface::bessel_kn_prime_Array<double>);
+    bp::def("bessel_yn_Scaler", &SpecialInterface::bessel_yn_Scaler<double>);
+    bp::def("bessel_yn_Array", &SpecialInterface::bessel_yn_Array<double>);
+    bp::def("bessel_yn_prime_Scaler", &SpecialInterface::bessel_yn_prime_Scaler<double>);
+    bp::def("bessel_yn_prime_Array", &SpecialInterface::bessel_yn_prime_Array<double>);
+    bp::def("beta_Scaler", &SpecialInterface::beta_Scaler<double>);
+    bp::def("beta_Array", &SpecialInterface::beta_Array<double>);
+    bp::def("digamma_Scaler", &SpecialInterface::digamma_Scaler<double>);
+    bp::def("digamma_Array", &SpecialInterface::digamma_Array<double>);
+    bp::def("erf_Scaler", &SpecialInterface::erf_Scaler<double>);
+    bp::def("erf_Array", &SpecialInterface::erf_Array<double>);
+    bp::def("erfc_Scaler", &SpecialInterface::erfc_Scaler<double>);
+    bp::def("erfc_Array", &SpecialInterface::erfc_Array<double>);
+    bp::def("factorial_Scaler", &SpecialInterface::factorial_Scaler);
+    bp::def("factorial_Array", &SpecialInterface::factorial_Array);
+    bp::def("gamma_Scaler", &SpecialInterface::gamma_Scaler<double>);
+    bp::def("gamma_Array", &SpecialInterface::gamma_Array<double>);
+    bp::def("gamma1pm1_Scaler", &SpecialInterface::gamma1pm1_Scaler<double>);
+    bp::def("gamma1pm1_Array", &SpecialInterface::gamma1pm1_Array<double>);
+    bp::def("log_gamma_Scaler", &SpecialInterface::log_gamma_Scaler<double>);
+    bp::def("log_gamma_Array", &SpecialInterface::log_gamma_Array<double>);
+    bp::def("polygamma_Scaler", &SpecialInterface::polygamma_Scaler<double>);
+    bp::def("polygamma_Array", &SpecialInterface::polygamma_Array<double>);
+    bp::def("prime_Scaler", &SpecialInterface::prime_Scaler);
+    bp::def("prime_Array", &SpecialInterface::prime_Array);
+    bp::def("riemann_zeta_Scaler", &SpecialInterface::riemann_zeta_Scaler<double>);
+    bp::def("riemann_zeta_Array", &SpecialInterface::riemann_zeta_Array<double>);
+    bp::def("spherical_bessel_jn_Scaler", &SpecialInterface::spherical_bessel_jn_Scaler<double>);
+    bp::def("spherical_bessel_jn_Array", &SpecialInterface::spherical_bessel_jn_Array<double>);
+    bp::def("spherical_bessel_yn_Scaler", &SpecialInterface::spherical_bessel_yn_Scaler<double>);
+    bp::def("spherical_bessel_yn_Array", &SpecialInterface::spherical_bessel_yn_Array<double>);
+    bp::def("trigamma_Scaler", &SpecialInterface::trigamma_Scaler<double>);
+    bp::def("trigamma_Array", &SpecialInterface::trigamma_Array<double>);
 }

@@ -24,9 +24,35 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// Simple Vector classes
+/// Special Functions
 ///
 #pragma once
 
+#include "NumCpp/Special/airy_ai.hpp"
+#include "NumCpp/Special/airy_ai_prime.hpp"
+#include "NumCpp/Special/airy_bi.hpp"
+#include "NumCpp/Special/airy_bi_prime.hpp"
+#include "NumCpp/Special/bessel_in.hpp"
+#include "NumCpp/Special/bessel_in_prime.hpp"
+#include "NumCpp/Special/bessel_jn.hpp"
+#include "NumCpp/Special/bessel_jn_prime.hpp"
+#include "NumCpp/Special/bessel_kn.hpp"
+#include "NumCpp/Special/bessel_kn_prime.hpp"
+#include "NumCpp/Special/bessel_yn.hpp"
+#include "NumCpp/Special/bessel_yn_prime.hpp"
+#include "NumCpp/Special/beta.hpp"
+#include "NumCpp/Special/digamma.hpp"
 #include "NumCpp/Special/erf.hpp"
+#include "NumCpp/Special/erf_inv.hpp"
 #include "NumCpp/Special/erfc.hpp"
+#include "NumCpp/Special/erfc_inv.hpp"
+#include "NumCpp/Special/factorial.hpp"
+#include "NumCpp/Special/gamma.hpp"
+#include "NumCpp/Special/gamma1pm1.hpp"
+#include "NumCpp/Special/log_gamma.hpp"
+#include "NumCpp/Special/polygamma.hpp"
+#include "NumCpp/Special/prime.hpp"
+#include "NumCpp/Special/riemann_zeta.hpp"
+#include "NumCpp/Special/spherical_bessel_jn.hpp"
+#include "NumCpp/Special/spherical_bessel_yn.hpp"
+#include "NumCpp/Special/trigamma.hpp"
