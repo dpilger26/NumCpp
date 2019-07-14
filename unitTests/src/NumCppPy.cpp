@@ -2751,15 +2751,23 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype laguerre_Scaler(uint32 n, dtype inValue) noexcept
+    dtype laguerre_Scaler1(uint32 n, dtype inValue) noexcept
     {
-        return polynomial::hermite(n, inValue);
+        return polynomial::laguerre(n, inValue);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray laguerre_Array(uint32 n, const NdArray<dtype>& inArray)
+    dtype laguerre_Scaler2(uint32 n, uint32 m, dtype inValue) noexcept
+    {
+        return polynomial::laguerre(n, m, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray laguerre_Array1(uint32 n, const NdArray<dtype>& inArray)
     {
         return nc2Boost(polynomial::laguerre(n, inArray));
     }
@@ -2767,7 +2775,15 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype legendre_p_Scaler(int32 n, dtype inValue) noexcept
+    np::ndarray laguerre_Array2(uint32 n, uint32 m, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::laguerre(n, m, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype legendre_p_Scaler1(int32 n, dtype inValue) noexcept
     {
         return polynomial::legendre_p(n, inValue);
     }
@@ -2775,9 +2791,25 @@ namespace PolynomialInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray legendre_p_Array(int32 n, const NdArray<dtype>& inArray)
+    dtype legendre_p_Scaler2(int32 n, int32 m, dtype inValue) noexcept
+    {
+        return polynomial::legendre_p(n, m, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray legendre_p_Array1(int32 n, const NdArray<dtype>& inArray)
     {
         return nc2Boost(polynomial::legendre_p(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray legendre_p_Array2(int32 n, int32 m, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::legendre_p(n, m, inArray));
     }
 
     //================================================================================
@@ -4346,10 +4378,14 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("chebyshev_u_Array", &PolynomialInterface::chebyshev_u_Array<double>);
     bp::def("hermite_Scaler", &PolynomialInterface::hermite_Scaler<double>);
     bp::def("hermite_Array", &PolynomialInterface::hermite_Array<double>);
-    bp::def("laguerre_Scaler", &PolynomialInterface::laguerre_Scaler<double>);
-    bp::def("laguerre_Array", &PolynomialInterface::laguerre_Array<double>);
-    bp::def("legendre_p_Scaler", &PolynomialInterface::legendre_p_Scaler<double>);
-    bp::def("legendre_p_Array", &PolynomialInterface::legendre_p_Array<double>);
+    bp::def("laguerre_Scaler1", &PolynomialInterface::laguerre_Scaler1<double>);
+    bp::def("laguerre_Array1", &PolynomialInterface::laguerre_Array1<double>);
+    bp::def("laguerre_Scaler2", &PolynomialInterface::laguerre_Scaler2<double>);
+    bp::def("laguerre_Array2", &PolynomialInterface::laguerre_Array2<double>);
+    bp::def("legendre_p_Scaler1", &PolynomialInterface::legendre_p_Scaler1<double>);
+    bp::def("legendre_p_Array1", &PolynomialInterface::legendre_p_Array1<double>);
+    bp::def("legendre_p_Scaler2", &PolynomialInterface::legendre_p_Scaler2<double>);
+    bp::def("legendre_p_Array2", &PolynomialInterface::legendre_p_Array2<double>);
     bp::def("legendre_q_Scaler", &PolynomialInterface::legendre_q_Scaler<double>);
     bp::def("legendre_q_Array", &PolynomialInterface::legendre_q_Array<double>);
 

@@ -55,22 +55,6 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///	Associated Legendre Polynomial of the second kind
-        ///
-        /// @param      n: the order of the legendre polynomial
-        /// @param      m: 
-        /// @param      x: the input value
-        /// @return
-        ///				double
-        ///
-        template<typename dtype>
-        double legendre_q(int32 n, int32 m, dtype x) noexcept
-        {
-            return boost::math::legendre_q(n, m, static_cast<double>(x));
-        }
-
-        //============================================================================
-        // Method Description:
         ///	Legendre Polynomial of the second kind
         ///
         /// @param      n: the order of the legendre polynomial
@@ -86,28 +70,6 @@ namespace nc
             std::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
                 [n](dtype x) -> double
                 { return legendre_q(n, x); });
-
-            return returnArray;
-        }
-
-        //============================================================================
-        // Method Description:
-        ///	Associated Legendre Polynomial of the second kind
-        ///
-        /// @param      n: the order of the legendre polynomial
-        /// @param      m: 
-        /// @param      inArrayX: the input value
-        /// @return
-        ///				NdArray<double>
-        ///
-        template<typename dtype>
-        NdArray<double> legendre_q(int32 n, int32 m, const NdArray<dtype>& inArrayX) noexcept
-        {
-            NdArray<double> returnArray(inArrayX.shape());
-
-            std::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [n, m](dtype x) -> double
-                { return legendre_q(n, m, x); });
 
             return returnArray;
         }
