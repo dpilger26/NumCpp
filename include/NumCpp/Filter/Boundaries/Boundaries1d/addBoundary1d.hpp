@@ -95,6 +95,8 @@ namespace nc
                         THROW_INVALID_ARGUMENT_ERROR("ERROR!");
                     }
                 }
+
+                return NdArray<dtype>(); // get rid of compiler warning
             }
         }
     }
