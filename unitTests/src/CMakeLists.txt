@@ -43,6 +43,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 	Boost::numpy
 )
 
+target_compile_options(${PROJECT_NAME} PRIVATE -Werror -Wall -Wextra)
+
 #set(Python3_USE_STATIC_LIBS TRUE)
 #find_package(Python3 COMPONENTS Development)
 #target_include_directories(${PROJECT_NAME} PUBLIC ${Python3_INCLUDE_DIRS}) 
