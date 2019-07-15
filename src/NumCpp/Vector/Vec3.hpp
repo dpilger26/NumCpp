@@ -268,7 +268,7 @@ namespace nc
         ///
         double norm() const noexcept
         {
-            return std::hypot(x, y, z);
+            return std::sqrt(utils::sqr(x) + utils::sqr(y) + utils::sqr(z));
         }
 
         //============================================================================
