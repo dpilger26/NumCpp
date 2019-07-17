@@ -11,7 +11,7 @@ import NumCpp
 
 ####################################################################################
 def doTest():
-    # testPoly1D()
+    testPoly1D()
     testFunctions()
 
 
@@ -384,7 +384,6 @@ def testFunctions():
     else:
         print(colored('\tFAIL', 'red'))
         print(f'valuePy = {valuePy}, valueCpp = {valueCpp}')
-
 
 
 ####################################################################################
