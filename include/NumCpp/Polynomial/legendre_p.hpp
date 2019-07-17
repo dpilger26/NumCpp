@@ -28,6 +28,7 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include "boost/math/special_functions/legendre.hpp"
@@ -43,13 +44,18 @@ namespace nc
         ///	Legendre Polynomial of the first kind
         ///
         /// @param      n: the order of the legendre polynomial
-        /// @param      x: the input value
+        /// @param      x: the input value. Requires -1 <= x <= 1
         /// @return
         ///				double
         ///
         template<typename dtype>
         double legendre_p(int32 n, dtype x) noexcept
         {
+            if (x < -1.0 || x > 1.0 )
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input x must be of the range [-1, 1].");
+            }
+
             return boost::math::legendre_p(n, static_cast<double>(x));
         }
 
@@ -58,15 +64,20 @@ namespace nc
         ///	Associated Legendre Polynomial of the first kind
         ///
         /// @param      n: the order of the legendre polynomial
-        /// @param      m: 
-        /// @param      x: the input value
+        /// @param      m: the degree of the legendre polynomial
+        /// @param      x: the input value. Requires -1 <= x <= 1
         /// @return
         ///				double
         ///
         template<typename dtype>
         double legendre_p(int32 n, int32 m, dtype x) noexcept
         {
-            return boost::math::legendre_p(n, m, static_cast<double>(x));
+            if (x < -1.0 || x > 1.0 )
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input x must be of the range [-1, 1].");
+            }
+
+            return boost::math::legendre_p(m, n, static_cast<double>(x));
         }
 
         //============================================================================
@@ -74,7 +85,7 @@ namespace nc
         ///	Legendre Polynomial of the first kind
         ///
         /// @param      n: the order of the legendre polynomial
-        /// @param      inArrayX: the input value
+        /// @param      inArrayX: the input value. Requires -1 <= x <= 1
         /// @return
         ///				NdArray<double>
         ///
@@ -95,8 +106,8 @@ namespace nc
         ///	Associated Legendre Polynomial of the first kind
         ///
         /// @param      n: the order of the legendre polynomial
-        /// @param      m: 
-        /// @param      inArrayX: the input value
+        /// @param      m: the degree of the legendre polynomial
+        /// @param      inArrayX: the input value. Requires -1 <= x <= 1
         /// @return
         ///				NdArray<double>
         ///

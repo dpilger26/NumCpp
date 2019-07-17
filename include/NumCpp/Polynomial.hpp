@@ -35,3 +35,4 @@
 #include "NumCpp/Polynomial/legendre_p.hpp"
 #include "NumCpp/Polynomial/legendre_q.hpp"
 #include "NumCpp/Polynomial/Poly1d.hpp"
+#include "NumCpp/Polynomial/spherical_harmonic.hpp"

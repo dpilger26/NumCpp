@@ -2827,6 +2827,16 @@ namespace PolynomialInterface
     {
         return nc2Boost(polynomial::legendre_q(n, inArray));
     }
+
+    //================================================================================
+
+    template<typename dtype>
+    bp::list spherical_harmonic(uint32 n, int32 m, dtype theta, dtype phi)
+    {
+        auto value = polynomial::spherical_harmonic(n, m, theta, phi);
+        std::vector<double> valueVec = {value.real(), value.imag()};
+        return vector2list(valueVec);
+    }
 }
 
 namespace Vec2Interface
@@ -4388,6 +4398,9 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("legendre_p_Array2", &PolynomialInterface::legendre_p_Array2<double>);
     bp::def("legendre_q_Scaler", &PolynomialInterface::legendre_q_Scaler<double>);
     bp::def("legendre_q_Array", &PolynomialInterface::legendre_q_Array<double>);
+    bp::def("spherical_harmonic", &PolynomialInterface::spherical_harmonic<double>);
+    bp::def("spherical_harmonic_r", &polynomial::spherical_harmonic_r<double, double>);
+    bp::def("spherical_harmonic_i", &polynomial::spherical_harmonic_i<double, double>);
 
     // Vec2.hpp
     bp::class_<Vec2>

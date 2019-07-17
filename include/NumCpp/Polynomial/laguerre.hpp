@@ -58,7 +58,7 @@ namespace nc
         ///	Associated Laguerre Polynomial
         ///
         /// @param      n: the order of the leguerre polynomial
-        /// @param      m: 
+        /// @param      m: the degree of the legendre polynomial
         /// @param      x: the input value
         /// @return
         ///				double
@@ -66,7 +66,7 @@ namespace nc
         template<typename dtype>
         double laguerre(uint32 n, uint32 m, dtype x) noexcept
         {
-            return boost::math::laguerre(n, m, static_cast<double>(x));
+            return boost::math::laguerre(m, n, static_cast<double>(x));
         }
 
         //============================================================================
@@ -95,7 +95,7 @@ namespace nc
         ///	Associated Laguerre Polynomial
         ///
         /// @param      n: the order of the leguerre polynomial
-        /// @param      m: 
+        /// @param      m: the degree of the legendre polynomial
         /// @param      inArrayX: the input value
         /// @return
         ///				NdArray<double>

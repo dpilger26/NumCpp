@@ -43,13 +43,18 @@ namespace nc
         ///	Legendre Polynomial of the second kind
         ///
         /// @param      n: the order of the legendre polynomial
-        /// @param      x: the input value
+        /// @param      x: the input value. Requires -1 <= x <= 1
         /// @return
         ///				double
         ///
         template<typename dtype>
         double legendre_q(int32 n, dtype x) noexcept
         {
+            if (x < -1.0 || x > 1.0 )
+            {
+                THROW_INVALID_ARGUMENT_ERROR("input x must be of the range [-1, 1].");
+            }
+
             return boost::math::legendre_q(n, static_cast<double>(x));
         }
 
@@ -58,7 +63,7 @@ namespace nc
         ///	Legendre Polynomial of the second kind
         ///
         /// @param      n: the order of the legendre polynomial
-        /// @param      inArrayX: the input value
+        /// @param      inArrayX: the input value. Requires -1 <= x <= 1
         /// @return
         ///				NdArray<double>
         ///
