@@ -29,13 +29,12 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/Special/factorial.hpp"
 
-#include "boost/math/special_functions/prime.hpp"
+#include "boost/math/special_functions/factorials.hpp"
 
 #include <algorithm>
-#include <string>
 
 namespace nc
 {
@@ -43,43 +42,45 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        /// The function prime provides fast table lookup to the first 10000 prime numbers
-        /// (starting from 2 as the zeroth prime: as 1 isn't terribly useful in practice)
+        /// Returns the number of permutaions of n choose r. P(n, r)
         ///
-        /// @param
-        ///				n: the nth prime number to return
+        /// @param  n: the total number of items
+        /// @param  r: the number of items taken
         /// @return
-        ///				uint32
+        ///				double
         ///
-        inline uint32 prime(uint32 n)
+        inline double pnr(uint32 n, uint32 r)
         {
-            if (n > boost::math::max_prime)
+            if (r > n)
             {
-                THROW_INVALID_ARGUMENT_ERROR("input n must be less than or equal to " + std::to_string(boost::math::max_prime));
+                return 0.0;
+            }
+            else if (r == n)
+            {
+                return factorial(n);
             }
 
-            return boost::math::prime(n);
-        }
+            double combinations = 1.0;
 
-        //============================================================================
-        // Method Description:
-        /// The function prime provides fast table lookup to the first 10000 prime numbers
-        /// (starting from 2 as the zeroth prime: as 1 isn't terribly useful in practice)
-        ///
-        /// @param
-        ///				inArray
-        /// @return
-        ///				NdArray<uint32>
-        ///
-        inline NdArray<uint32> prime(const NdArray<uint32>& inArray) noexcept
-        {
-            NdArray<uint32> returnArray(inArray.shape());
+            if (n <= boost::math::max_factorial<double>::value)
+            {
+                double nFactorial = factorial(n);
+                double nMinusRFactoral = factorial(n - r);
 
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](uint32 inValue) -> uint32
-                { return prime(inValue); });
+                combinations = nFactorial / nMinusRFactoral;
+            }
+            else
+            {
+                uint32 lower = n - r + 1;
 
-            return returnArray;
+                combinations = static_cast<double>(lower);
+                for (uint32 i = lower + 1; i < n; ++i)
+                {
+                    combinations *= static_cast<double>(i);
+                }
+            }
+
+            return combinations;
         }
     }
 }

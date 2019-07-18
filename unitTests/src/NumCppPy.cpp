@@ -3207,6 +3207,13 @@ namespace SpecialInterface
 
     //================================================================================
 
+    double cnr_Scaler(uint32 n, uint32 r) noexcept
+    {
+        return special::cnr(n, r);
+    }
+
+    //================================================================================
+
     template<typename dtype>
     dtype digamma_Scaler(dtype inValue) noexcept
     {
@@ -3345,6 +3352,13 @@ namespace SpecialInterface
     np::ndarray log_gamma_Array(const NdArray<dtype>& inArray)
     {
         return nc2Boost(special::log_gamma(inArray));
+    }
+
+    //================================================================================
+
+    double pnr_Scaler(uint32 n, uint32 r) noexcept
+    {
+        return special::pnr(n, r);
     }
 
     //================================================================================
@@ -4515,6 +4529,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("bessel_yn_prime_Array", &SpecialInterface::bessel_yn_prime_Array<double>);
     bp::def("beta_Scaler", &SpecialInterface::beta_Scaler<double>);
     bp::def("beta_Array", &SpecialInterface::beta_Array<double>);
+    bp::def("cnr_Scaler", &SpecialInterface::cnr_Scaler);
     bp::def("cyclic_hankel_1", &special::cyclic_hankel_1<double, double>);
     bp::def("cyclic_hankel_2", &special::cyclic_hankel_2<double, double>);
     bp::def("digamma_Scaler", &SpecialInterface::digamma_Scaler<double>);
@@ -4531,6 +4546,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("gamma1pm1_Array", &SpecialInterface::gamma1pm1_Array<double>);
     bp::def("log_gamma_Scaler", &SpecialInterface::log_gamma_Scaler<double>);
     bp::def("log_gamma_Array", &SpecialInterface::log_gamma_Array<double>);
+    bp::def("pnr_Scaler", &SpecialInterface::pnr_Scaler);
     bp::def("polygamma_Scaler", &SpecialInterface::polygamma_Scaler<double>);
     bp::def("polygamma_Array", &SpecialInterface::polygamma_Array<double>);
     bp::def("prime_Scaler", &SpecialInterface::prime_Scaler);

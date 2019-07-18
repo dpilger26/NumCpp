@@ -29,13 +29,11 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
 
-#include "boost/math/special_functions/prime.hpp"
+#include "boost/math/special_functions/factorials.hpp"
 
 #include <algorithm>
-#include <string>
 
 namespace nc
 {
@@ -43,7 +41,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        /// Calculates the factorial of the input value
+        /// Returns the factorial of the input value
         ///
         /// @param
         ///				inValue
@@ -52,17 +50,27 @@ namespace nc
         ///
         inline double factorial(uint32 inValue)
         {
-            if (inValue > boost::math::max_factorial<double>::value)
+            double factorialValue = 1.0;
+
+            if (inValue <= boost::math::max_factorial<double>::value)
             {
-                THROW_INVALID_ARGUMENT_ERROR("input inValue must be less than or equal to " + std::to_string(boost::math::max_factorial<double>::value));
+                factorialValue = boost::math::factorial<double>(inValue);   
+            }
+            else
+            {
+                factorialValue = boost::math::factorial<double>(boost::math::max_factorial<double>::value); 
+                for (uint32 i = boost::math::max_factorial<double>::value + 1; i <= inValue; ++i)
+                {
+                    factorialValue *= static_cast<double>(i);
+                }
             }
 
-            return boost::math::factorial<double>(inValue);
+            return factorialValue;
         }
 
         //============================================================================
         // Method Description:
-        /// Calculates the factorial of the input value
+        /// Returns the factorial of the input value
         ///
         /// @param
         ///				inArray

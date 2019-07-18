@@ -31,8 +31,8 @@
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
-
-#include "boost/math/special_functions/prime.hpp"
+#include "NumCpp/Special/factorial.hpp"
+#include "NumCpp/Special/pnr.hpp"
 
 #include <algorithm>
 #include <string>
@@ -43,43 +43,16 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        /// The function prime provides fast table lookup to the first 10000 prime numbers
-        /// (starting from 2 as the zeroth prime: as 1 isn't terribly useful in practice)
+        /// Returns the number of combinations of n choose r. C(n, r)
         ///
-        /// @param
-        ///				n: the nth prime number to return
+        /// @param  n: the total number of items
+        /// @param  r: the number of items taken
         /// @return
-        ///				uint32
+        ///				double
         ///
-        inline uint32 prime(uint32 n)
+        inline double cnr(uint32 n, uint32 r)
         {
-            if (n > boost::math::max_prime)
-            {
-                THROW_INVALID_ARGUMENT_ERROR("input n must be less than or equal to " + std::to_string(boost::math::max_prime));
-            }
-
-            return boost::math::prime(n);
-        }
-
-        //============================================================================
-        // Method Description:
-        /// The function prime provides fast table lookup to the first 10000 prime numbers
-        /// (starting from 2 as the zeroth prime: as 1 isn't terribly useful in practice)
-        ///
-        /// @param
-        ///				inArray
-        /// @return
-        ///				NdArray<uint32>
-        ///
-        inline NdArray<uint32> prime(const NdArray<uint32>& inArray) noexcept
-        {
-            NdArray<uint32> returnArray(inArray.shape());
-
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-                [](uint32 inValue) -> uint32
-                { return prime(inValue); });
-
-            return returnArray;
+            return pnr(n, r) / factorial(r);
         }
     }
 }
