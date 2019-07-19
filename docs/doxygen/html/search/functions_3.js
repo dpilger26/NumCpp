@@ -13,6 +13,7 @@ var searchData=
   ['diagflat',['diagflat',['../namespacenc.html#a5da8af5a46c4161d78bb68a8399cbaa8',1,'nc']]],
   ['diagonal',['diagonal',['../classnc_1_1_nd_array.html#a58959d58c043612b0ecb869ea5280382',1,'nc::NdArray::diagonal()'],['../namespacenc.html#a593c1d6df885853f900cf56935529f2c',1,'nc::diagonal()']]],
   ['diff',['diff',['../namespacenc.html#aca24655977cb03ca84ef20aebae3e78f',1,'nc']]],
+  ['digamma',['digamma',['../namespacenc_1_1special.html#a0f8c75b138e38af1e3b2408050a17467',1,'nc::special::digamma(dtype inValue) noexcept'],['../namespacenc_1_1special.html#a2ec7a990addc1d7ff888bcf7a272edcd',1,'nc::special::digamma(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['discrete',['discrete',['../namespacenc_1_1random.html#ae5367b53538e888028853607e1c522a4',1,'nc::random']]],
   ['distance',['distance',['../classnc_1_1_vec2.html#a63c2b2b7a16828af770d38176b6cb3aa',1,'nc::Vec2::distance()'],['../classnc_1_1_vec3.html#a301f3edcb8cb17e7e3e5dbdd5255bdd2',1,'nc::Vec3::distance()']]],
   ['divide',['divide',['../namespacenc.html#a48c5c456736ced98b946e89b573c204e',1,'nc']]],

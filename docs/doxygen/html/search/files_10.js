@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['beta_2ehpp',['beta.hpp',['../_special_2beta_8hpp.html',1,'']]],
+  ['gamma_2ehpp',['gamma.hpp',['../_special_2gamma_8hpp.html',1,'']]],
   ['setdiff1d_2ehpp',['setdiff1d.hpp',['../setdiff1d_8hpp.html',1,'']]],
   ['shuffle_2ehpp',['shuffle.hpp',['../shuffle_8hpp.html',1,'']]],
   ['sign_2ehpp',['sign.hpp',['../sign_8hpp.html',1,'']]],
@@ -9,7 +11,14 @@ var searchData=
   ['sinh_2ehpp',['sinh.hpp',['../sinh_8hpp.html',1,'']]],
   ['size_2ehpp',['size.hpp',['../size_8hpp.html',1,'']]],
   ['slice_2ehpp',['Slice.hpp',['../_slice_8hpp.html',1,'']]],
+  ['softmax_2ehpp',['softmax.hpp',['../softmax_8hpp.html',1,'']]],
   ['sort_2ehpp',['sort.hpp',['../sort_8hpp.html',1,'']]],
+  ['special_2ehpp',['Special.hpp',['../_special_8hpp.html',1,'']]],
+  ['spherical_5fbessel_5fjn_2ehpp',['spherical_bessel_jn.hpp',['../spherical__bessel__jn_8hpp.html',1,'']]],
+  ['spherical_5fbessel_5fyn_2ehpp',['spherical_bessel_yn.hpp',['../spherical__bessel__yn_8hpp.html',1,'']]],
+  ['spherical_5fhankel_5f1_2ehpp',['spherical_hankel_1.hpp',['../spherical__hankel__1_8hpp.html',1,'']]],
+  ['spherical_5fhankel_5f2_2ehpp',['spherical_hankel_2.hpp',['../spherical__hankel__2_8hpp.html',1,'']]],
+  ['spherical_5fharmonic_2ehpp',['spherical_harmonic.hpp',['../spherical__harmonic_8hpp.html',1,'']]],
   ['sqr_2ehpp',['sqr.hpp',['../sqr_8hpp.html',1,'']]],
   ['sqrt_2ehpp',['sqrt.hpp',['../sqrt_8hpp.html',1,'']]],
   ['square_2ehpp',['square.hpp',['../square_8hpp.html',1,'']]],

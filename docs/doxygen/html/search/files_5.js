@@ -1,6 +1,8 @@
 var searchData=
 [
+  ['cube_2ehpp',['cube.hpp',['../_functions_2cube_8hpp.html',1,'']]],
   ['f_2ehpp',['f.hpp',['../f_8hpp.html',1,'']]],
+  ['factorial_2ehpp',['factorial.hpp',['../factorial_8hpp.html',1,'']]],
   ['fillcorners_2ehpp',['fillCorners.hpp',['../fill_corners_8hpp.html',1,'']]],
   ['filldiagnol_2ehpp',['fillDiagnol.hpp',['../fill_diagnol_8hpp.html',1,'']]],
   ['filter_2ehpp',['Filter.hpp',['../_filter_8hpp.html',1,'']]],
@@ -21,5 +23,10 @@ var searchData=
   ['fromiter_2ehpp',['fromiter.hpp',['../fromiter_8hpp.html',1,'']]],
   ['full_2ehpp',['full.hpp',['../full_8hpp.html',1,'']]],
   ['full_5flike_2ehpp',['full_like.hpp',['../full__like_8hpp.html',1,'']]],
-  ['laplace_2ehpp',['laplace.hpp',['../_filter_2_filters_2_filters2d_2laplace_8hpp.html',1,'']]]
+  ['functions_2ehpp',['Functions.hpp',['../_functions_8hpp.html',1,'']]],
+  ['interp_2ehpp',['interp.hpp',['../_functions_2interp_8hpp.html',1,'']]],
+  ['laplace_2ehpp',['laplace.hpp',['../_filter_2_filters_2_filters2d_2laplace_8hpp.html',1,'']]],
+  ['power_2ehpp',['power.hpp',['../_functions_2power_8hpp.html',1,'']]],
+  ['powerf_2ehpp',['powerf.hpp',['../_functions_2powerf_8hpp.html',1,'']]],
+  ['shape_2ehpp',['shape.hpp',['../_functions_2_shape_8hpp.html',1,'']]]
 ];

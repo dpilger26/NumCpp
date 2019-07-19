@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['v',['v',['../classnc_1_1linalg_1_1_s_v_d.html#a6b907070cfa7e89c3107fa628694e274',1,'nc::linalg::SVD']]],
-  ['var',['var',['../classnc_1_1_nd_array.html#a24135dd7a7713cb02ac260e70d458e23',1,'nc::NdArray::var()'],['../namespacenc.html#a60b8f8ed75145d0f528c6e8223a4a1db',1,'nc::var()']]],
-  ['var_2ehpp',['var.hpp',['../var_8hpp.html',1,'']]],
-  ['vec2',['Vec2',['../classnc_1_1_vec2.html',1,'nc::Vec2'],['../classnc_1_1_vec2.html#a10032e67a062d820241f053d5affd1b8',1,'nc::Vec2::Vec2() noexcept'],['../classnc_1_1_vec2.html#a90648eb3e7f49292d0a4174dea32be61',1,'nc::Vec2::Vec2(double inX, double inY) noexcept'],['../classnc_1_1_vec2.html#abfb713c893dbd31d7c94b4741e82530b',1,'nc::Vec2::Vec2(const std::initializer_list&lt; double &gt; &amp;inList)'],['../classnc_1_1_vec2.html#a93a9f0c675265005a60c77179625ddd2',1,'nc::Vec2::Vec2(const NdArray&lt; double &gt; &amp;ndArray)']]],
-  ['vec2_2ehpp',['Vec2.hpp',['../_vec2_8hpp.html',1,'']]],
-  ['vec3',['Vec3',['../classnc_1_1_vec3.html',1,'nc::Vec3'],['../classnc_1_1_vec3.html#a12bace66cd4d205755cee98ac6d658fa',1,'nc::Vec3::Vec3() noexcept'],['../classnc_1_1_vec3.html#a4d20d8d7b40777677e83923055af35fa',1,'nc::Vec3::Vec3(double inX, double inY, double inZ) noexcept'],['../classnc_1_1_vec3.html#a4056d1e369726710d6f1049b277486dd',1,'nc::Vec3::Vec3(const std::initializer_list&lt; double &gt; &amp;inList)'],['../classnc_1_1_vec3.html#a4668419f4c870900466d4aa198247767',1,'nc::Vec3::Vec3(const NdArray&lt; double &gt; &amp;ndArray)']]],
-  ['vec3_2ehpp',['Vec3.hpp',['../_vec3_8hpp.html',1,'']]],
-  ['vector_2ehpp',['Vector.hpp',['../_vector_8hpp.html',1,'']]],
-  ['vector2list',['vector2list',['../namespacenc_1_1boost_python_interface.html#a51a40e2866bcdb72f03c5ded0ce94f9b',1,'nc::boostPythonInterface']]],
-  ['version',['VERSION',['../namespacenc_1_1constants.html#a3d553d6bfa16d7ae8cd1dbae150891ea',1,'nc::constants']]],
-  ['vstack',['vstack',['../namespacenc.html#a8dec1ff4db1d89ab4b3a7d32ff4b5cf3',1,'nc']]],
-  ['vstack_2ehpp',['vstack.hpp',['../vstack_8hpp.html',1,'']]]
+  ['weibull',['weibull',['../namespacenc_1_1random.html#af3a48c59aaa59d37bb5177b962d02bde',1,'nc::random']]],
+  ['weibull_2ehpp',['weibull.hpp',['../weibull_8hpp.html',1,'']]],
+  ['where',['where',['../namespacenc.html#ac0af750215d0444ad9f0208620ca206b',1,'nc']]],
+  ['where_2ehpp',['where.hpp',['../where_8hpp.html',1,'']]],
+  ['width',['width',['../classnc_1_1image_processing_1_1_cluster.html#accbfd3dbb32016c0f4234614347d74ce',1,'nc::imageProcessing::Cluster']]],
+  ['windowexceedances',['windowExceedances',['../namespacenc_1_1image_processing.html#a896adf0319f58a2f44cbf3dfaf550fe2',1,'nc::imageProcessing']]],
+  ['windowexceedances_2ehpp',['windowExceedances.hpp',['../window_exceedances_8hpp.html',1,'']]],
+  ['wrap',['WRAP',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6ae1c8555fcf0ea2bb648a6fd527d658c0',1,'nc::filter']]],
+  ['wrap1d',['wrap1d',['../namespacenc_1_1filter_1_1boundary.html#aa318761ec07aeb7764e2e5f0a7ec9e86',1,'nc::filter::boundary']]],
+  ['wrap1d_2ehpp',['wrap1d.hpp',['../wrap1d_8hpp.html',1,'']]],
+  ['wrap2d',['wrap2d',['../namespacenc_1_1filter_1_1boundary.html#aeace2e548cf6ecf3aaadbbf000cbead7',1,'nc::filter::boundary']]],
+  ['wrap2d_2ehpp',['wrap2d.hpp',['../wrap2d_8hpp.html',1,'']]]
 ];

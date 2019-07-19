@@ -11,6 +11,7 @@ var searchData=
   ['trapz_2ehpp',['trapz.hpp',['../trapz_8hpp.html',1,'']]],
   ['tri_2ehpp',['tri.hpp',['../tri_8hpp.html',1,'']]],
   ['triangle_2ehpp',['triangle.hpp',['../triangle_8hpp.html',1,'']]],
+  ['trigamma_2ehpp',['trigamma.hpp',['../trigamma_8hpp.html',1,'']]],
   ['trim_5fzeros_2ehpp',['trim_zeros.hpp',['../trim__zeros_8hpp.html',1,'']]],
   ['trimboundary1d_2ehpp',['trimBoundary1d.hpp',['../trim_boundary1d_8hpp.html',1,'']]],
   ['trimboundary2d_2ehpp',['trimBoundary2d.hpp',['../trim_boundary2d_8hpp.html',1,'']]],

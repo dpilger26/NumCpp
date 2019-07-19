@@ -1,5 +1,5 @@
 var erf_8hpp =
 [
-    [ "erf", "erf_8hpp.html#a4f8946084eba652a3098d75675f464bf", null ],
-    [ "erf", "erf_8hpp.html#ad4b50ace8229517b335b001618293d22", null ]
+    [ "erf", "erf_8hpp.html#a0e700f032bbd8f0dc233f1bd0599a693", null ],
+    [ "erf", "erf_8hpp.html#a3e7e24a6a8f6c8a7b4767c01ecd086ef", null ]
 ];

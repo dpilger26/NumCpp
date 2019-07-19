@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gamma_2ehpp',['gamma.hpp',['../gamma_8hpp.html',1,'']]],
+  ['gamma1pm1_2ehpp',['gamma1pm1.hpp',['../gamma1pm1_8hpp.html',1,'']]],
   ['gaussian_2ehpp',['gaussian.hpp',['../gaussian_8hpp.html',1,'']]],
   ['gaussian1d_2ehpp',['gaussian1d.hpp',['../gaussian1d_8hpp.html',1,'']]],
   ['gaussianfilter_2ehpp',['gaussianFilter.hpp',['../gaussian_filter_8hpp.html',1,'']]],

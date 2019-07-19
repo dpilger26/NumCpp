@@ -92,6 +92,16 @@
         <childnode refid="121" relation="include">
         </childnode>
       </node>
+      <node id="152">
+        <label>NumCpp/Functions/flipud.hpp</label>
+        <link refid="flipud_8hpp"/>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="153" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+      </node>
       <node id="132">
         <label>cmath</label>
       </node>
@@ -153,16 +163,6 @@
         <childnode refid="149" relation="include">
         </childnode>
         <childnode refid="124" relation="include">
-        </childnode>
-      </node>
-      <node id="153">
-        <label>NumCpp/Methods/flip.hpp</label>
-        <link refid="flip_8hpp"/>
-        <childnode refid="122" relation="include">
-        </childnode>
-        <childnode refid="124" relation="include">
-        </childnode>
-        <childnode refid="130" relation="include">
         </childnode>
       </node>
       <node id="131">
@@ -286,14 +286,14 @@
       <node id="119">
         <label>iostream</label>
       </node>
-      <node id="152">
-        <label>NumCpp/Methods/flipud.hpp</label>
-        <link refid="flipud_8hpp"/>
+      <node id="153">
+        <label>NumCpp/Functions/flip.hpp</label>
+        <link refid="flip_8hpp"/>
         <childnode refid="122" relation="include">
         </childnode>
-        <childnode refid="153" relation="include">
-        </childnode>
         <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
         </childnode>
       </node>
       <node id="139">
@@ -510,10 +510,12 @@
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;ERROR!&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>();<sp/></highlight><highlight class="comment">//<sp/>get<sp/>rid<sp/>of<sp/>compiler<sp/>warning</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Filter/Boundaries/Boundaries2d/addBoundary2d.hpp"/>
   </compounddef>

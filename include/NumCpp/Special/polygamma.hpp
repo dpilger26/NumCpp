@@ -44,7 +44,7 @@ namespace nc
         /// n'th derivative of the digamma function
         ///
         /// @param n: the nth derivative
-        /// @param inArray
+        /// @param inValue
         /// @return
         ///				double
         ///

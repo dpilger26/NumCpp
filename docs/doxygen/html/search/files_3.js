@@ -11,6 +11,7 @@ var searchData=
   ['diagflat_2ehpp',['diagFlat.hpp',['../diag_flat_8hpp.html',1,'']]],
   ['diagnol_2ehpp',['diagnol.hpp',['../diagnol_8hpp.html',1,'']]],
   ['diff_2ehpp',['diff.hpp',['../diff_8hpp.html',1,'']]],
+  ['digamma_2ehpp',['digamma.hpp',['../digamma_8hpp.html',1,'']]],
   ['discrete_2ehpp',['discrete.hpp',['../discrete_8hpp.html',1,'']]],
   ['divide_2ehpp',['divide.hpp',['../divide_8hpp.html',1,'']]],
   ['dot_2ehpp',['dot.hpp',['../dot_8hpp.html',1,'']]],

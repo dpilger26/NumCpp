@@ -1,7 +1,15 @@
 var searchData=
 [
   ['bernoilli_2ehpp',['bernoilli.hpp',['../bernoilli_8hpp.html',1,'']]],
-  ['beta_2ehpp',['beta.hpp',['../beta_8hpp.html',1,'']]],
+  ['bernoulli_2ehpp',['bernoulli.hpp',['../bernoulli_8hpp.html',1,'']]],
+  ['bessel_5fin_2ehpp',['bessel_in.hpp',['../bessel__in_8hpp.html',1,'']]],
+  ['bessel_5fin_5fprime_2ehpp',['bessel_in_prime.hpp',['../bessel__in__prime_8hpp.html',1,'']]],
+  ['bessel_5fjn_2ehpp',['bessel_jn.hpp',['../bessel__jn_8hpp.html',1,'']]],
+  ['bessel_5fjn_5fprime_2ehpp',['bessel_jn_prime.hpp',['../bessel__jn__prime_8hpp.html',1,'']]],
+  ['bessel_5fkn_2ehpp',['bessel_kn.hpp',['../bessel__kn_8hpp.html',1,'']]],
+  ['bessel_5fkn_5fprime_2ehpp',['bessel_kn_prime.hpp',['../bessel__kn__prime_8hpp.html',1,'']]],
+  ['bessel_5fyn_2ehpp',['bessel_yn.hpp',['../bessel__yn_8hpp.html',1,'']]],
+  ['bessel_5fyn_5fprime_2ehpp',['bessel_yn_prime.hpp',['../bessel__yn__prime_8hpp.html',1,'']]],
   ['binaryrepr_2ehpp',['binaryRepr.hpp',['../binary_repr_8hpp.html',1,'']]],
   ['bincount_2ehpp',['bincount.hpp',['../bincount_8hpp.html',1,'']]],
   ['binomial_2ehpp',['binomial.hpp',['../binomial_8hpp.html',1,'']]],

@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="factorial_8hpp" kind="file" language="C++">
+    <compoundname>factorial.hpp</compoundname>
+    <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
+    <includes refid="_types_8hpp" local="yes">NumCpp/Core/Types.hpp</includes>
+    <includes local="yes">boost/math/special_functions/factorials.hpp</includes>
+    <includes local="no">algorithm</includes>
+    <includedby refid="cnr_8hpp" local="yes">cnr.hpp</includedby>
+    <includedby refid="pnr_8hpp" local="yes">pnr.hpp</includedby>
+    <includedby refid="_special_8hpp" local="yes">Special.hpp</includedby>
+    <incdepgraph>
+      <node id="5515">
+        <label>boost/predef/other/endian.h</label>
+      </node>
+      <node id="5504">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="5505" relation="include">
+        </childnode>
+      </node>
+      <node id="5518">
+        <label>functional</label>
+      </node>
+      <node id="5525">
+        <label>boost/math/special_functions/factorials.hpp</label>
+      </node>
+      <node id="5498">
+        <label>limits</label>
+      </node>
+      <node id="5497">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="5498" relation="include">
+        </childnode>
+      </node>
+      <node id="5511">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="5504" relation="include">
+        </childnode>
+      </node>
+      <node id="5495">
+        <label>factorial.hpp</label>
+        <link refid="factorial_8hpp"/>
+        <childnode refid="5496" relation="include">
+        </childnode>
+        <childnode refid="5504" relation="include">
+        </childnode>
+        <childnode refid="5525" relation="include">
+        </childnode>
+        <childnode refid="5508" relation="include">
+        </childnode>
+      </node>
+      <node id="5505">
+        <label>cstdint</label>
+      </node>
+      <node id="5510">
+        <label>cmath</label>
+      </node>
+      <node id="5501">
+        <label>stdexcept</label>
+      </node>
+      <node id="5521">
+        <label>numeric</label>
+      </node>
+      <node id="5502">
+        <label>string</label>
+      </node>
+      <node id="5512">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="5507">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="5499" relation="include">
+        </childnode>
+        <childnode refid="5504" relation="include">
+        </childnode>
+        <childnode refid="5506" relation="include">
+        </childnode>
+        <childnode refid="5508" relation="include">
+        </childnode>
+        <childnode refid="5500" relation="include">
+        </childnode>
+        <childnode refid="5502" relation="include">
+        </childnode>
+      </node>
+      <node id="5519">
+        <label>fstream</label>
+      </node>
+      <node id="5509">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="5510" relation="include">
+        </childnode>
+        <childnode refid="5498" relation="include">
+        </childnode>
+        <childnode refid="5502" relation="include">
+        </childnode>
+      </node>
+      <node id="5513">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="5503">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="5504" relation="include">
+        </childnode>
+        <childnode refid="5506" relation="include">
+        </childnode>
+        <childnode refid="5500" relation="include">
+        </childnode>
+        <childnode refid="5502" relation="include">
+        </childnode>
+      </node>
+      <node id="5524">
+        <label>vector</label>
+      </node>
+      <node id="5496">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="5497" relation="include">
+        </childnode>
+        <childnode refid="5499" relation="include">
+        </childnode>
+        <childnode refid="5503" relation="include">
+        </childnode>
+        <childnode refid="5507" relation="include">
+        </childnode>
+        <childnode refid="5504" relation="include">
+        </childnode>
+        <childnode refid="5509" relation="include">
+        </childnode>
+        <childnode refid="5506" relation="include">
+        </childnode>
+        <childnode refid="5511" relation="include">
+        </childnode>
+        <childnode refid="5512" relation="include">
+        </childnode>
+        <childnode refid="5513" relation="include">
+        </childnode>
+        <childnode refid="5514" relation="include">
+        </childnode>
+        <childnode refid="5515" relation="include">
+        </childnode>
+        <childnode refid="5516" relation="include">
+        </childnode>
+        <childnode refid="5508" relation="include">
+        </childnode>
+        <childnode refid="5510" relation="include">
+        </childnode>
+        <childnode refid="5517" relation="include">
+        </childnode>
+        <childnode refid="5518" relation="include">
+        </childnode>
+        <childnode refid="5519" relation="include">
+        </childnode>
+        <childnode refid="5520" relation="include">
+        </childnode>
+        <childnode refid="5500" relation="include">
+        </childnode>
+        <childnode refid="5521" relation="include">
+        </childnode>
+        <childnode refid="5522" relation="include">
+        </childnode>
+        <childnode refid="5502" relation="include">
+        </childnode>
+        <childnode refid="5523" relation="include">
+        </childnode>
+        <childnode refid="5524" relation="include">
+        </childnode>
+      </node>
+      <node id="5499">
+        <label>NumCpp/Core/Error.hpp</label>
+        <link refid="_error_8hpp"/>
+        <childnode refid="5500" relation="include">
+        </childnode>
+        <childnode refid="5501" relation="include">
+        </childnode>
+        <childnode refid="5502" relation="include">
+        </childnode>
+      </node>
+      <node id="5514">
+        <label>boost/filesystem.hpp</label>
+      </node>
+      <node id="5523">
+        <label>utility</label>
+      </node>
+      <node id="5506">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="5502" relation="include">
+        </childnode>
+      </node>
+      <node id="5500">
+        <label>iostream</label>
+      </node>
+      <node id="5517">
+        <label>deque</label>
+      </node>
+      <node id="5516">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
+      <node id="5522">
+        <label>set</label>
+      </node>
+      <node id="5508">
+        <label>algorithm</label>
+      </node>
+      <node id="5520">
+        <label>initializer_list</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5529">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="5526">
+        <label>factorial.hpp</label>
+        <link refid="factorial_8hpp"/>
+        <childnode refid="5527" relation="include">
+        </childnode>
+        <childnode refid="5530" relation="include">
+        </childnode>
+        <childnode refid="5528" relation="include">
+        </childnode>
+      </node>
+      <node id="5528">
+        <label>Special.hpp</label>
+        <link refid="_special_8hpp"/>
+        <childnode refid="5529" relation="include">
+        </childnode>
+      </node>
+      <node id="5527">
+        <label>cnr.hpp</label>
+        <link refid="cnr_8hpp"/>
+        <childnode refid="5528" relation="include">
+        </childnode>
+      </node>
+      <node id="5530">
+        <label>pnr.hpp</label>
+        <link refid="pnr_8hpp"/>
+        <childnode refid="5527" relation="include">
+        </childnode>
+        <childnode refid="5528" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacenc">nc</innernamespace>
+    <innernamespace refid="namespacenc_1_1special">nc::special</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.1</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
+<title>License</title>
+<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<sect1 id="zeros__like_8hpp_1Description">
+<title>Description</title>
+<para>Special Functions </para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_nd_array_8hpp" kindref="compound">NumCpp/NdArray.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_types_8hpp" kindref="compound">NumCpp/Core/Types.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;boost/math/special_functions/factorials.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">special</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="51" refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" kindref="member">factorial</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>inValue)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>factorialValue<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inValue<sp/>&lt;=<sp/>boost::math::max_factorial&lt;double&gt;::value)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>factorialValue<sp/>=<sp/>boost::math::factorial&lt;double&gt;(inValue);<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>factorialValue<sp/>=<sp/>boost::math::factorial&lt;double&gt;(boost::math::max_factorial&lt;double&gt;::value);<sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>i<sp/>=<sp/>boost::math::max_factorial&lt;double&gt;::value<sp/>+<sp/>1;<sp/>i<sp/>&lt;=<sp/>inValue;<sp/>++i)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>factorialValue<sp/>*=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>factorialValue;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="80" refid="namespacenc_1_1special_1af28b6a68a7d599ad1f973082ec275dbc" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/><ref refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" kindref="member">factorial</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;uint32&gt;</ref>&amp;<sp/>inArray)<sp/>noexcept</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(inArray.shape());</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform(inArray.cbegin(),<sp/>inArray.cend(),<sp/>returnArray.begin(),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>inValue)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" kindref="member">factorial</ref>(inValue);<sp/>});</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp"/>
+  </compounddef>
+</doxygen>

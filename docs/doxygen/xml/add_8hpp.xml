@@ -3,7 +3,7 @@
   <compounddef id="add_8hpp" kind="file" language="C++">
     <compoundname>add.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
+    <includedby refid="_functions_8hpp" local="yes">Functions.hpp</includedby>
     <incdepgraph>
       <node id="54">
         <label>boost/predef/other/endian.h</label>
@@ -19,6 +19,12 @@
       </node>
       <node id="37">
         <label>limits</label>
+      </node>
+      <node id="34">
+        <label>add.hpp</label>
+        <link refid="add_8hpp"/>
+        <childnode refid="35" relation="include">
+        </childnode>
       </node>
       <node id="36">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
@@ -69,12 +75,6 @@
       </node>
       <node id="58">
         <label>fstream</label>
-      </node>
-      <node id="34">
-        <label>add.hpp</label>
-        <link refid="add_8hpp"/>
-        <childnode refid="35" relation="include">
-        </childnode>
       </node>
       <node id="48">
         <label>NumCpp/Core/Constants.hpp</label>
@@ -211,8 +211,8 @@
         </childnode>
       </node>
       <node id="65">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
         <childnode refid="66" relation="include">
         </childnode>
       </node>
@@ -228,7 +228,7 @@
 <para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Methods for working with NdArrays </para></sect1>
+<para>Functions for working with NdArrays </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -246,6 +246,6 @@
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="51"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Methods/add.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/add.hpp"/>
   </compounddef>
 </doxygen>

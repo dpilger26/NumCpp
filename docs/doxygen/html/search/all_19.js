@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['y',['y',['../classnc_1_1_vec2.html#ad7a5bc1612f92f7e49112cf58caeaace',1,'nc::Vec2::y()'],['../classnc_1_1_vec3.html#a969dd1c195f4c78fc3a93292391e29c1',1,'nc::Vec3::y()'],['../classnc_1_1coordinates_1_1_coordinate.html#a624e354f60ca0822c5a60e9ee6432bc6',1,'nc::coordinates::Coordinate::y()']]],
-  ['yrotation',['yRotation',['../classnc_1_1rotations_1_1_d_c_m.html#a9c495cb1fc84c70042d652d84bcddea4',1,'nc::rotations::DCM::yRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#aeeaf2e45baa526aa7c31fc03f66ca109',1,'nc::rotations::Quaternion::yRotation()']]]
+  ['z',['z',['../classnc_1_1_vec3.html#a0896ee691f46ce0bd669b869fe6acb41',1,'nc::Vec3::z()'],['../classnc_1_1coordinates_1_1_coordinate.html#a21614cb1e2513d0d8cb553ccb035986e',1,'nc::coordinates::Coordinate::z()']]],
+  ['zeros',['zeros',['../classnc_1_1_nd_array.html#a0b337bf0d78b306fa0b874631f1bf24e',1,'nc::NdArray::zeros()'],['../namespacenc.html#a003b8abd8ec4640d8fcbc6d2c4872baf',1,'nc::zeros(uint32 inSquareSize) noexcept'],['../namespacenc.html#a6752f0877730a4804ccb83fe9c2074b6',1,'nc::zeros(uint32 inNumRows, uint32 inNumCols) noexcept'],['../namespacenc.html#ab922d98449cc7df43255cae28908aac8',1,'nc::zeros(const Shape &amp;inShape) noexcept']]],
+  ['zeros_2ehpp',['zeros.hpp',['../zeros_8hpp.html',1,'']]],
+  ['zeros_5flike',['zeros_like',['../namespacenc.html#a44d394dc1931ccf61b6509f406728e5f',1,'nc']]],
+  ['zeros_5flike_2ehpp',['zeros_like.hpp',['../zeros__like_8hpp.html',1,'']]],
+  ['zrotation',['zRotation',['../classnc_1_1rotations_1_1_d_c_m.html#aa0c71aecc70f9354665b0c81cdf366ce',1,'nc::rotations::DCM::zRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#a02ffc6360355ca7f4d125a70b8930315',1,'nc::rotations::Quaternion::zRotation()']]]
 ];

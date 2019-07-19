@@ -2,101 +2,101 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="_utils_2interp_8hpp" kind="file" language="C++">
     <compoundname>Utils/interp.hpp</compoundname>
-    <includedby refid="_methods_2interp_8hpp" local="yes">interp.hpp</includedby>
+    <includedby refid="_functions_2interp_8hpp" local="yes">interp.hpp</includedby>
     <includedby refid="_utils_8hpp" local="yes">Utils.hpp</includedby>
     <includedby refid="_vec2_8hpp" local="yes">Vec2.hpp</includedby>
     <includedby refid="_vec3_8hpp" local="yes">Vec3.hpp</includedby>
     <invincdepgraph>
-      <node id="6166">
+      <node id="7366">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="6175">
+      <node id="7375">
         <label>Rotations.hpp</label>
         <link refid="_rotations_8hpp"/>
-        <childnode refid="6166" relation="include">
+        <childnode refid="7366" relation="include">
         </childnode>
       </node>
-      <node id="6173">
+      <node id="7373">
         <label>Quaternion.hpp</label>
         <link refid="_quaternion_8hpp"/>
-        <childnode refid="6174" relation="include">
+        <childnode refid="7374" relation="include">
         </childnode>
-        <childnode refid="6175" relation="include">
+        <childnode refid="7375" relation="include">
         </childnode>
       </node>
-      <node id="6169">
+      <node id="7369">
         <label>Vector.hpp</label>
         <link refid="_vector_8hpp"/>
-        <childnode refid="6166" relation="include">
+        <childnode refid="7366" relation="include">
         </childnode>
       </node>
-      <node id="6172">
+      <node id="7372">
         <label>Linalg.hpp</label>
         <link refid="_linalg_8hpp"/>
-        <childnode refid="6166" relation="include">
+        <childnode refid="7366" relation="include">
         </childnode>
       </node>
-      <node id="6167">
+      <node id="7364">
+        <label>interp.hpp</label>
+        <link refid="_functions_2interp_8hpp"/>
+        <childnode refid="7365" relation="include">
+        </childnode>
+      </node>
+      <node id="7367">
         <label>Utils.hpp</label>
         <link refid="_utils_8hpp"/>
-        <childnode refid="6166" relation="include">
+        <childnode refid="7366" relation="include">
         </childnode>
       </node>
-      <node id="6174">
+      <node id="7374">
         <label>DCM.hpp</label>
         <link refid="_d_c_m_8hpp"/>
-        <childnode refid="6175" relation="include">
+        <childnode refid="7375" relation="include">
         </childnode>
       </node>
-      <node id="6165">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
-        <childnode refid="6166" relation="include">
-        </childnode>
-      </node>
-      <node id="6171">
+      <node id="7371">
         <label>hat.hpp</label>
         <link refid="hat_8hpp"/>
-        <childnode refid="6172" relation="include">
+        <childnode refid="7372" relation="include">
         </childnode>
-        <childnode refid="6173" relation="include">
+        <childnode refid="7373" relation="include">
         </childnode>
       </node>
-      <node id="6163">
+      <node id="7363">
         <label>interp.hpp</label>
         <link refid="_utils_2interp_8hpp"/>
-        <childnode refid="6164" relation="include">
+        <childnode refid="7364" relation="include">
         </childnode>
-        <childnode refid="6167" relation="include">
+        <childnode refid="7367" relation="include">
         </childnode>
-        <childnode refid="6168" relation="include">
+        <childnode refid="7368" relation="include">
         </childnode>
-        <childnode refid="6170" relation="include">
+        <childnode refid="7370" relation="include">
         </childnode>
       </node>
-      <node id="6168">
+      <node id="7368">
         <label>Vec2.hpp</label>
         <link refid="_vec2_8hpp"/>
-        <childnode refid="6169" relation="include">
+        <childnode refid="7369" relation="include">
         </childnode>
       </node>
-      <node id="6170">
+      <node id="7365">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
+        <childnode refid="7366" relation="include">
+        </childnode>
+      </node>
+      <node id="7370">
         <label>Vec3.hpp</label>
         <link refid="_vec3_8hpp"/>
-        <childnode refid="6171" relation="include">
+        <childnode refid="7371" relation="include">
         </childnode>
-        <childnode refid="6174" relation="include">
+        <childnode refid="7374" relation="include">
         </childnode>
-        <childnode refid="6173" relation="include">
+        <childnode refid="7373" relation="include">
         </childnode>
-        <childnode refid="6169" relation="include">
-        </childnode>
-      </node>
-      <node id="6164">
-        <label>interp.hpp</label>
-        <link refid="_methods_2interp_8hpp"/>
-        <childnode refid="6165" relation="include">
+        <childnode refid="7369" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

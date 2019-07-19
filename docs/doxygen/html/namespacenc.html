@@ -116,11 +116,15 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacenc_1_1linalg"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1linalg.html">linalg</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacenc_1_1polynomial"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1polynomial.html">polynomial</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacenc_1_1pybind_interface"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1pybind_interface.html">pybindInterface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacenc_1_1random"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1random.html">random</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacenc_1_1rotations"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1rotations.html">rotations</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacenc_1_1special"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1special.html">special</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacenc_1_1utils"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html">utils</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,8 +139,6 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds 1D and 2D arrays, the main work horse of the NumCpp library.  <a href="classnc_1_1_nd_array.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_poly1d.html">Poly1d</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_shape.html">Shape</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="classnc_1_1_shape.html" title="A Shape Class for NdArrays. ">Shape</a> Class for NdArrays.  <a href="classnc_1_1_shape.html#details">More...</a><br /></td></tr>
@@ -223,9 +225,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1b8d36bd5087070a720f8d4685c0721c"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a1b8d36bd5087070a720f8d4685c0721c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a1b8d36bd5087070a720f8d4685c0721c">applyFunction</a> (<a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, const std::function&lt; dtype(dtype)&gt; &amp;inFunc) noexcept</td></tr>
 <tr class="separator:a1b8d36bd5087070a720f8d4685c0721c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a031ffe7bb9bd50161d241aa8bb35b0"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a9a031ffe7bb9bd50161d241aa8bb35b0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a9a031ffe7bb9bd50161d241aa8bb35b0">applyPoly1d</a> (<a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, const <a class="el" href="classnc_1_1_poly1d.html">Poly1d</a>&lt; dtype &gt; &amp;inPoly) noexcept</td></tr>
-<tr class="separator:a9a031ffe7bb9bd50161d241aa8bb35b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23cc3f5d8ea0b178cf11970862735f0c"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a23cc3f5d8ea0b178cf11970862735f0c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a23cc3f5d8ea0b178cf11970862735f0c">applyPoly1d</a> (<a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, const <a class="el" href="classnc_1_1polynomial_1_1_poly1d.html">polynomial::Poly1d</a>&lt; dtype &gt; &amp;inPoly) noexcept</td></tr>
+<tr class="separator:a23cc3f5d8ea0b178cf11970862735f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a465e2385ac78ca4cc23928a4a0cd9f53"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a465e2385ac78ca4cc23928a4a0cd9f53"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a465e2385ac78ca4cc23928a4a0cd9f53">arange</a> (dtype inStart, dtype inStop, dtype inStep=1)</td></tr>
 <tr class="separator:a465e2385ac78ca4cc23928a4a0cd9f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -469,18 +471,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a7440518ae70823ac15ea1711d8df7bfc"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a7440518ae70823ac15ea1711d8df7bfc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a7440518ae70823ac15ea1711d8df7bfc">equal</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray1, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray2)</td></tr>
 <tr class="separator:a7440518ae70823ac15ea1711d8df7bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f8946084eba652a3098d75675f464bf"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a4f8946084eba652a3098d75675f464bf"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a4f8946084eba652a3098d75675f464bf">erf</a> (dtype inValue) noexcept</td></tr>
-<tr class="separator:a4f8946084eba652a3098d75675f464bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4b50ace8229517b335b001618293d22"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:ad4b50ace8229517b335b001618293d22"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ad4b50ace8229517b335b001618293d22">erf</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray) noexcept</td></tr>
-<tr class="separator:ad4b50ace8229517b335b001618293d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49f7755f95035f00b24cc1628637b1ec"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a49f7755f95035f00b24cc1628637b1ec"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a49f7755f95035f00b24cc1628637b1ec">erfc</a> (dtype inValue) noexcept</td></tr>
-<tr class="separator:a49f7755f95035f00b24cc1628637b1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bcdf0fcf4c26cd05d3bccdef7e7cf49"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
-<tr class="memitem:a9bcdf0fcf4c26cd05d3bccdef7e7cf49"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a9bcdf0fcf4c26cd05d3bccdef7e7cf49">erfc</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray) noexcept</td></tr>
-<tr class="separator:a9bcdf0fcf4c26cd05d3bccdef7e7cf49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab138b681799463226a8ef60f87d30ac7"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ab138b681799463226a8ef60f87d30ac7"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ab138b681799463226a8ef60f87d30ac7">exp</a> (dtype inValue) noexcept</td></tr>
 <tr class="separator:ab138b681799463226a8ef60f87d30ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1811,8 +1801,8 @@ template&lt;typename dtype &gt; </div>
 
 </div>
 </div>
-<a id="a9a031ffe7bb9bd50161d241aa8bb35b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a031ffe7bb9bd50161d241aa8bb35b0">&#9670;&nbsp;</a></span>applyPoly1d()</h2>
+<a id="a23cc3f5d8ea0b178cf11970862735f0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23cc3f5d8ea0b178cf11970862735f0c">&#9670;&nbsp;</a></span>applyPoly1d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1831,7 +1821,7 @@ template&lt;typename dtype &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classnc_1_1_poly1d.html">Poly1d</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1polynomial_1_1_poly1d.html">polynomial::Poly1d</a>&lt; dtype &gt; &amp;&#160;</td>
           <td class="paramname"><em>inPoly</em>&#160;</td>
         </tr>
         <tr>
@@ -5173,150 +5163,6 @@ template&lt;typename dtype &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_example_8cpp-example.html#a30">Example.cpp</a>.</dd>
 </dl>
-</div>
-</div>
-<a id="a4f8946084eba652a3098d75675f464bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f8946084eba652a3098d75675f464bf">&#9670;&nbsp;</a></span>erf() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename dtype &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double nc::erf </td>
-          <td>(</td>
-          <td class="paramtype">dtype&#160;</td>
-          <td class="paramname"><em>inValue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Calculate the error function of all elements in the input array. Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inValue</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
-
-</div>
-</div>
-<a id="ad4b50ace8229517b335b001618293d22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4b50ace8229517b335b001618293d22">&#9670;&nbsp;</a></span>erf() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename dtype &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;double&gt; nc::erf </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
-          <td class="paramname"><em>inArray</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Calculate the error function of all elements in the input array. Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inArray</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> </dd></dl>
-
-</div>
-</div>
-<a id="a49f7755f95035f00b24cc1628637b1ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49f7755f95035f00b24cc1628637b1ec">&#9670;&nbsp;</a></span>erfc() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename dtype &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double nc::erfc </td>
-          <td>(</td>
-          <td class="paramtype">dtype&#160;</td>
-          <td class="paramname"><em>inValue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns the complement of the error function of inValue.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inValue</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
-
-</div>
-</div>
-<a id="a9bcdf0fcf4c26cd05d3bccdef7e7cf49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bcdf0fcf4c26cd05d3bccdef7e7cf49">&#9670;&nbsp;</a></span>erfc() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename dtype &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;double&gt; nc::erfc </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
-          <td class="paramname"><em>inArray</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns the element-wise complement of the error function of inValue.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inArray</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html">NdArray&lt;double&gt;</a> </dd></dl>
-
 </div>
 </div>
 <a id="ab138b681799463226a8ef60f87d30ac7"></a>
@@ -8870,7 +8716,7 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Return the minimum of an array or maximum along an axis.</p>
+<p>Return the minimum of an array or minimum along an axis.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inArray</td><td></td></tr>

@@ -5,7 +5,7 @@
     <includes refid="_types_8hpp" local="yes">NumCpp/Core/Types.hpp</includes>
     <includes local="no">random</includes>
     <includedby refid="bernoilli_8hpp" local="yes">bernoilli.hpp</includedby>
-    <includedby refid="beta_8hpp" local="yes">beta.hpp</includedby>
+    <includedby refid="_random_2beta_8hpp" local="yes">beta.hpp</includedby>
     <includedby refid="binomial_8hpp" local="yes">binomial.hpp</includedby>
     <includedby refid="cauchy_8hpp" local="yes">cauchy.hpp</includedby>
     <includedby refid="chi_square_8hpp" local="yes">chiSquare.hpp</includedby>
@@ -13,7 +13,7 @@
     <includedby refid="exponential_8hpp" local="yes">exponential.hpp</includedby>
     <includedby refid="extreme_value_8hpp" local="yes">extremeValue.hpp</includedby>
     <includedby refid="f_8hpp" local="yes">f.hpp</includedby>
-    <includedby refid="gamma_8hpp" local="yes">gamma.hpp</includedby>
+    <includedby refid="_random_2gamma_8hpp" local="yes">gamma.hpp</includedby>
     <includedby refid="geometric_8hpp" local="yes">geometric.hpp</includedby>
     <includedby refid="_random_2laplace_8hpp" local="yes">laplace.hpp</includedby>
     <includedby refid="lognormal_8hpp" local="yes">lognormal.hpp</includedby>
@@ -32,274 +32,274 @@
     <includedby refid="weibull_8hpp" local="yes">weibull.hpp</includedby>
     <includedby refid="_random_8hpp" local="yes">Random.hpp</includedby>
     <incdepgraph>
-      <node id="5729">
+      <node id="6895">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="5730" relation="include">
+        <childnode refid="6896" relation="include">
         </childnode>
       </node>
-      <node id="5728">
+      <node id="6894">
         <label>generator.hpp</label>
         <link refid="generator_8hpp"/>
-        <childnode refid="5729" relation="include">
+        <childnode refid="6895" relation="include">
         </childnode>
-        <childnode refid="5731" relation="include">
+        <childnode refid="6897" relation="include">
         </childnode>
       </node>
-      <node id="5730">
+      <node id="6896">
         <label>cstdint</label>
       </node>
-      <node id="5731">
+      <node id="6897">
         <label>random</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="5748">
+      <node id="6914">
         <label>negativeBinomial.hpp</label>
         <link refid="negative_binomial_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5735">
+      <node id="6901">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="5738">
+      <node id="6904">
         <label>cauchy.hpp</label>
         <link refid="cauchy_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5732">
+      <node id="6898">
         <label>generator.hpp</label>
         <link refid="generator_8hpp"/>
-        <childnode refid="5733" relation="include">
+        <childnode refid="6899" relation="include">
         </childnode>
-        <childnode refid="5736" relation="include">
+        <childnode refid="6902" relation="include">
         </childnode>
-        <childnode refid="5737" relation="include">
+        <childnode refid="6903" relation="include">
         </childnode>
-        <childnode refid="5738" relation="include">
+        <childnode refid="6904" relation="include">
         </childnode>
-        <childnode refid="5739" relation="include">
+        <childnode refid="6905" relation="include">
         </childnode>
-        <childnode refid="5740" relation="include">
+        <childnode refid="6906" relation="include">
         </childnode>
-        <childnode refid="5741" relation="include">
+        <childnode refid="6907" relation="include">
         </childnode>
-        <childnode refid="5742" relation="include">
+        <childnode refid="6908" relation="include">
         </childnode>
-        <childnode refid="5743" relation="include">
+        <childnode refid="6909" relation="include">
         </childnode>
-        <childnode refid="5744" relation="include">
+        <childnode refid="6910" relation="include">
         </childnode>
-        <childnode refid="5745" relation="include">
+        <childnode refid="6911" relation="include">
         </childnode>
-        <childnode refid="5746" relation="include">
+        <childnode refid="6912" relation="include">
         </childnode>
-        <childnode refid="5747" relation="include">
+        <childnode refid="6913" relation="include">
         </childnode>
-        <childnode refid="5748" relation="include">
+        <childnode refid="6914" relation="include">
         </childnode>
-        <childnode refid="5749" relation="include">
+        <childnode refid="6915" relation="include">
         </childnode>
-        <childnode refid="5750" relation="include">
+        <childnode refid="6916" relation="include">
         </childnode>
-        <childnode refid="5752" relation="include">
+        <childnode refid="6918" relation="include">
         </childnode>
-        <childnode refid="5753" relation="include">
+        <childnode refid="6919" relation="include">
         </childnode>
-        <childnode refid="5754" relation="include">
+        <childnode refid="6920" relation="include">
         </childnode>
-        <childnode refid="5755" relation="include">
+        <childnode refid="6921" relation="include">
         </childnode>
-        <childnode refid="5757" relation="include">
+        <childnode refid="6923" relation="include">
         </childnode>
-        <childnode refid="5759" relation="include">
+        <childnode refid="6925" relation="include">
         </childnode>
-        <childnode refid="5760" relation="include">
+        <childnode refid="6926" relation="include">
         </childnode>
-        <childnode refid="5761" relation="include">
+        <childnode refid="6927" relation="include">
         </childnode>
-        <childnode refid="5762" relation="include">
+        <childnode refid="6928" relation="include">
         </childnode>
-        <childnode refid="5763" relation="include">
+        <childnode refid="6929" relation="include">
         </childnode>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5757">
+      <node id="6923">
         <label>randInt.hpp</label>
         <link refid="rand_int_8hpp"/>
-        <childnode refid="5758" relation="include">
+        <childnode refid="6924" relation="include">
         </childnode>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5751">
+      <node id="6917">
         <label>standardNormal.hpp</label>
         <link refid="standard_normal_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5742">
+      <node id="6908">
         <label>extremeValue.hpp</label>
         <link refid="extreme_value_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5736">
+      <node id="6902">
         <label>beta.hpp</label>
-        <link refid="beta_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <link refid="_random_2beta_8hpp"/>
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5763">
+      <node id="6929">
         <label>weibull.hpp</label>
         <link refid="weibull_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5753">
+      <node id="6919">
         <label>poisson.hpp</label>
         <link refid="poisson_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5752">
+      <node id="6918">
         <label>permutation.hpp</label>
         <link refid="permutation_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5734">
+      <node id="6900">
         <label>Random.hpp</label>
         <link refid="_random_8hpp"/>
-        <childnode refid="5735" relation="include">
+        <childnode refid="6901" relation="include">
         </childnode>
       </node>
-      <node id="5759">
+      <node id="6925">
         <label>randN.hpp</label>
         <link refid="rand_n_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5747">
+      <node id="6913">
         <label>lognormal.hpp</label>
         <link refid="lognormal_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5755">
+      <node id="6921">
         <label>randFloat.hpp</label>
         <link refid="rand_float_8hpp"/>
-        <childnode refid="5756" relation="include">
+        <childnode refid="6922" relation="include">
         </childnode>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5758">
+      <node id="6924">
         <label>choice.hpp</label>
         <link refid="choice_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5746">
+      <node id="6912">
         <label>laplace.hpp</label>
         <link refid="_random_2laplace_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5733">
+      <node id="6899">
         <label>bernoilli.hpp</label>
         <link refid="bernoilli_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5756">
+      <node id="6922">
         <label>uniform.hpp</label>
         <link refid="uniform_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5750">
+      <node id="6916">
         <label>normal.hpp</label>
         <link refid="normal_8hpp"/>
-        <childnode refid="5751" relation="include">
+        <childnode refid="6917" relation="include">
         </childnode>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5737">
+      <node id="6903">
         <label>binomial.hpp</label>
         <link refid="binomial_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5743">
+      <node id="6909">
         <label>f.hpp</label>
         <link refid="f_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5744">
+      <node id="6910">
         <label>gamma.hpp</label>
-        <link refid="gamma_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <link refid="_random_2gamma_8hpp"/>
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5739">
+      <node id="6905">
         <label>chiSquare.hpp</label>
         <link refid="chi_square_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5740">
+      <node id="6906">
         <label>discrete.hpp</label>
         <link refid="discrete_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5745">
+      <node id="6911">
         <label>geometric.hpp</label>
         <link refid="geometric_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5741">
+      <node id="6907">
         <label>exponential.hpp</label>
         <link refid="exponential_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5761">
+      <node id="6927">
         <label>triangle.hpp</label>
         <link refid="triangle_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5754">
+      <node id="6920">
         <label>rand.hpp</label>
         <link refid="rand_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5762">
+      <node id="6928">
         <label>uniformOnSphere.hpp</label>
         <link refid="uniform_on_sphere_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5760">
+      <node id="6926">
         <label>studentT.hpp</label>
         <link refid="student_t_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
-      <node id="5749">
+      <node id="6915">
         <label>nonCentralChiSquared.hpp</label>
         <link refid="non_central_chi_squared_8hpp"/>
-        <childnode refid="5734" relation="include">
+        <childnode refid="6900" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

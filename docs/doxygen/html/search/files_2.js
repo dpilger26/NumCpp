@@ -5,12 +5,15 @@ var searchData=
   ['ceil_2ehpp',['ceil.hpp',['../ceil_8hpp.html',1,'']]],
   ['centroid_2ehpp',['Centroid.hpp',['../_centroid_8hpp.html',1,'']]],
   ['centroidclusters_2ehpp',['centroidClusters.hpp',['../centroid_clusters_8hpp.html',1,'']]],
+  ['chebyshev_5ft_2ehpp',['chebyshev_t.hpp',['../chebyshev__t_8hpp.html',1,'']]],
+  ['chebyshev_5fu_2ehpp',['chebyshev_u.hpp',['../chebyshev__u_8hpp.html',1,'']]],
   ['chisquare_2ehpp',['chiSquare.hpp',['../chi_square_8hpp.html',1,'']]],
   ['choice_2ehpp',['choice.hpp',['../choice_8hpp.html',1,'']]],
   ['clip_2ehpp',['clip.hpp',['../clip_8hpp.html',1,'']]],
   ['cluster_2ehpp',['Cluster.hpp',['../_cluster_8hpp.html',1,'']]],
   ['clustermaker_2ehpp',['ClusterMaker.hpp',['../_cluster_maker_8hpp.html',1,'']]],
   ['clusterpixels_2ehpp',['clusterPixels.hpp',['../cluster_pixels_8hpp.html',1,'']]],
+  ['cnr_2ehpp',['cnr.hpp',['../cnr_8hpp.html',1,'']]],
   ['column_5fstack_2ehpp',['column_stack.hpp',['../column__stack_8hpp.html',1,'']]],
   ['complementarymedianfilter_2ehpp',['complementaryMedianFilter.hpp',['../complementary_median_filter_8hpp.html',1,'']]],
   ['complementarymedianfilter1d_2ehpp',['complementaryMedianFilter1d.hpp',['../complementary_median_filter1d_8hpp.html',1,'']]],
@@ -33,5 +36,7 @@ var searchData=
   ['cross_2ehpp',['cross.hpp',['../cross_8hpp.html',1,'']]],
   ['cumprod_2ehpp',['cumprod.hpp',['../cumprod_8hpp.html',1,'']]],
   ['cumsum_2ehpp',['cumsum.hpp',['../cumsum_8hpp.html',1,'']]],
+  ['cyclic_5fhankel_5f1_2ehpp',['cyclic_hankel_1.hpp',['../cyclic__hankel__1_8hpp.html',1,'']]],
+  ['cyclic_5fhankel_5f2_2ehpp',['cyclic_hankel_2.hpp',['../cyclic__hankel__2_8hpp.html',1,'']]],
   ['shape_2ehpp',['Shape.hpp',['../_core_2_shape_8hpp.html',1,'']]]
 ];

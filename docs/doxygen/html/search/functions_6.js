@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['gamma',['gamma',['../namespacenc_1_1random.html#aa706a2bd65cb664ae9af10f713661d79',1,'nc::random']]],
+  ['gamma',['gamma',['../namespacenc_1_1random.html#aa706a2bd65cb664ae9af10f713661d79',1,'nc::random::gamma()'],['../namespacenc_1_1special.html#a1922de5ad7c6fba4aedbce02d08e1b78',1,'nc::special::gamma(dtype inValue) noexcept'],['../namespacenc_1_1special.html#ac22cc8d32cc97454c0ecfb432f2a316d',1,'nc::special::gamma(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
+  ['gamma1pm1',['gamma1pm1',['../namespacenc_1_1special.html#a41fe463c9dae1da7365d6bac75ca5e84',1,'nc::special::gamma1pm1(dtype inValue) noexcept'],['../namespacenc_1_1special.html#a568563ea05c2e31278de66112c9429c1',1,'nc::special::gamma1pm1(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['gaussian',['gaussian',['../namespacenc_1_1utils.html#a5016e06ac7ca186ff6c110b314d30209',1,'nc::utils']]],
   ['gaussian1d',['gaussian1d',['../namespacenc_1_1utils.html#a263704ee2cc6ab3f77b462522c7150f8',1,'nc::utils']]],
   ['gaussianfilter',['gaussianFilter',['../namespacenc_1_1filter.html#a91c9fcd09a78eba8a42c5166ebb7709b',1,'nc::filter']]],

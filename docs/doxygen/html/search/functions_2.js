@@ -7,6 +7,8 @@ var searchData=
   ['cend',['cend',['../classnc_1_1_data_cube.html#af9484ba42f739c5a4e0a32c0d8f916ca',1,'nc::DataCube::cend()'],['../classnc_1_1_nd_array.html#a01305da9771c34f86b419379ee986f3e',1,'nc::NdArray::cend() const noexcept'],['../classnc_1_1_nd_array.html#a72e0f298458da1647e3ecedebb64cd36',1,'nc::NdArray::cend(uint32 inRow) const']]],
   ['centroid',['Centroid',['../classnc_1_1image_processing_1_1_centroid.html#a3b97e4ddc31b85eb8c3f84b398429a35',1,'nc::imageProcessing::Centroid::Centroid()=default'],['../classnc_1_1image_processing_1_1_centroid.html#a59d0af7acae8d24d29ccb372440aed22',1,'nc::imageProcessing::Centroid::Centroid(const Cluster&lt; dtype &gt; &amp;inCluster)']]],
   ['centroidclusters',['centroidClusters',['../namespacenc_1_1image_processing.html#ad2838bf346a3d199ee0141fc64be7c5e',1,'nc::imageProcessing']]],
+  ['chebyshev_5ft',['chebyshev_t',['../namespacenc_1_1polynomial.html#a3990b1eded86de9be5770c013e58042a',1,'nc::polynomial::chebyshev_t(uint32 n, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#a078793b666bab0bd2add2b139f989df5',1,'nc::polynomial::chebyshev_t(uint32 n, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],
+  ['chebyshev_5fu',['chebyshev_u',['../namespacenc_1_1polynomial.html#abc99c09581c24b9eb1f7bcaa6f0d40e4',1,'nc::polynomial::chebyshev_u(uint32 n, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#aed39a034f0126aaeccbeb0718dea3c8b',1,'nc::polynomial::chebyshev_u(uint32 n, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],
   ['chisquare',['chiSquare',['../namespacenc_1_1random.html#a329370aed893f0e10a8050520cf0bbd4',1,'nc::random']]],
   ['choice',['choice',['../namespacenc_1_1random.html#ad60ec32743642bd0540fec0076043fed',1,'nc::random::choice(const NdArray&lt; dtype &gt; &amp;inArray)'],['../namespacenc_1_1random.html#a550d14627dafe31efa2e66a10d2fce73',1,'nc::random::choice(const NdArray&lt; dtype &gt; &amp;inArray, uint32 inNum)']]],
   ['clampmagnitude',['clampMagnitude',['../classnc_1_1_vec2.html#abb0f6f8cacc680a464425d908e1e55cc',1,'nc::Vec2::clampMagnitude()'],['../classnc_1_1_vec3.html#a4f3cfcbd67a402820cc8e0576dccd2e4',1,'nc::Vec3::clampMagnitude()']]],
@@ -15,7 +17,8 @@ var searchData=
   ['clusterid',['clusterId',['../classnc_1_1image_processing_1_1_cluster.html#abcc9f76b1d903546a3604ef87795d37e',1,'nc::imageProcessing::Cluster']]],
   ['clustermaker',['ClusterMaker',['../classnc_1_1image_processing_1_1_cluster_maker.html#a17c7a9f6260f7d6d0aea002b7e5e6ae6',1,'nc::imageProcessing::ClusterMaker']]],
   ['clusterpixels',['clusterPixels',['../namespacenc_1_1image_processing.html#a9b0730e1067dc755ee1fa2ecf280c14f',1,'nc::imageProcessing']]],
-  ['coefficients',['coefficients',['../classnc_1_1_poly1d.html#a14d19ab43dc4f354ce1a583a369822b3',1,'nc::Poly1d']]],
+  ['cnr',['cnr',['../namespacenc_1_1special.html#a08395cbdd1ee39fd14c5f9d9edb8b486',1,'nc::special']]],
+  ['coefficients',['coefficients',['../classnc_1_1polynomial_1_1_poly1d.html#a58a632fa53f4ad61f9d692eadba8552b',1,'nc::polynomial::Poly1d']]],
   ['col',['col',['../classnc_1_1image_processing_1_1_centroid.html#a4ef0e9b2faa4999af5c3597a60140d6c',1,'nc::imageProcessing::Centroid']]],
   ['colmax',['colMax',['../classnc_1_1image_processing_1_1_cluster.html#a8c884e5e55d41c09165bca85446edb1f',1,'nc::imageProcessing::Cluster']]],
   ['colmin',['colMin',['../classnc_1_1image_processing_1_1_cluster.html#a27734d0fa45c7440e3018fa36c6633f9',1,'nc::imageProcessing::Cluster']]],
@@ -41,5 +44,7 @@ var searchData=
   ['cslice',['cSlice',['../classnc_1_1_nd_array.html#a377c1b5393aabc2b00496643a5c5da03',1,'nc::NdArray']]],
   ['cube',['cube',['../namespacenc.html#aff45cec624f58a7303ba39402ce10e79',1,'nc::cube(dtype inValue) noexcept'],['../namespacenc.html#af77c3c9a898c14f90f6b8b5717f8c7ac',1,'nc::cube(const NdArray&lt; dtype &gt; &amp;inArray) noexcept'],['../namespacenc_1_1utils.html#af058ceabca43da922cd50333901abf05',1,'nc::utils::cube()']]],
   ['cumprod',['cumprod',['../classnc_1_1_nd_array.html#aa3981c4c80a9df2155c9745f5dec3dcf',1,'nc::NdArray::cumprod()'],['../namespacenc.html#a28d0d637d26e013585317f59041279f4',1,'nc::cumprod()']]],
-  ['cumsum',['cumsum',['../classnc_1_1_nd_array.html#acb502b6a54cff2c2cf82bd9d4d82aa16',1,'nc::NdArray::cumsum()'],['../namespacenc.html#a9b0f11444a257df6b6f49039fcbdea71',1,'nc::cumsum()']]]
+  ['cumsum',['cumsum',['../classnc_1_1_nd_array.html#acb502b6a54cff2c2cf82bd9d4d82aa16',1,'nc::NdArray::cumsum()'],['../namespacenc.html#a9b0f11444a257df6b6f49039fcbdea71',1,'nc::cumsum()']]],
+  ['cyclic_5fhankel_5f1',['cyclic_hankel_1',['../namespacenc_1_1special.html#ad17c28693eed370fda9f7eff67df23a6',1,'nc::special']]],
+  ['cyclic_5fhankel_5f2',['cyclic_hankel_2',['../namespacenc_1_1special.html#a3935261506b6ec4528feea0bd296aaa3',1,'nc::special']]]
 ];

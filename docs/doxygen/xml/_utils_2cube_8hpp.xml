@@ -2,37 +2,37 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="_utils_2cube_8hpp" kind="file" language="C++">
     <compoundname>Utils/cube.hpp</compoundname>
-    <includedby refid="_methods_2cube_8hpp" local="yes">cube.hpp</includedby>
+    <includedby refid="_functions_2cube_8hpp" local="yes">cube.hpp</includedby>
     <includedby refid="_utils_8hpp" local="yes">Utils.hpp</includedby>
     <invincdepgraph>
-      <node id="2953">
+      <node id="3572">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="2950">
+      <node id="3569">
         <label>cube.hpp</label>
         <link refid="_utils_2cube_8hpp"/>
-        <childnode refid="2951" relation="include">
+        <childnode refid="3570" relation="include">
         </childnode>
-        <childnode refid="2954" relation="include">
-        </childnode>
-      </node>
-      <node id="2951">
-        <label>cube.hpp</label>
-        <link refid="_methods_2cube_8hpp"/>
-        <childnode refid="2952" relation="include">
+        <childnode refid="3573" relation="include">
         </childnode>
       </node>
-      <node id="2954">
+      <node id="3573">
         <label>Utils.hpp</label>
         <link refid="_utils_8hpp"/>
-        <childnode refid="2953" relation="include">
+        <childnode refid="3572" relation="include">
         </childnode>
       </node>
-      <node id="2952">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
-        <childnode refid="2953" relation="include">
+      <node id="3570">
+        <label>cube.hpp</label>
+        <link refid="_functions_2cube_8hpp"/>
+        <childnode refid="3571" relation="include">
+        </childnode>
+      </node>
+      <node id="3571">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
+        <childnode refid="3572" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_5fcrt_5fsecure_5fno_5fwarnings',['_CRT_SECURE_NO_WARNINGS',['../_num_cpp_8hpp.html#af08ec37a8c99d747fb60fa15bc28678b',1,'NumCpp.hpp']]]
+  ['throw_5finvalid_5fargument_5ferror',['THROW_INVALID_ARGUMENT_ERROR',['../_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd',1,'Error.hpp']]],
+  ['throw_5fruntime_5ferror',['THROW_RUNTIME_ERROR',['../_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a',1,'Error.hpp']]]
 ];

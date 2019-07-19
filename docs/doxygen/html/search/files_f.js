@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['beta_2ehpp',['beta.hpp',['../_random_2beta_8hpp.html',1,'']]],
+  ['gamma_2ehpp',['gamma.hpp',['../_random_2gamma_8hpp.html',1,'']]],
   ['laplace_2ehpp',['laplace.hpp',['../_random_2laplace_8hpp.html',1,'']]],
   ['ra_2ehpp',['RA.hpp',['../_r_a_8hpp.html',1,'']]],
   ['rad2deg_2ehpp',['rad2deg.hpp',['../rad2deg_8hpp.html',1,'']]],
@@ -21,6 +23,7 @@ var searchData=
   ['reshape_2ehpp',['reshape.hpp',['../reshape_8hpp.html',1,'']]],
   ['resizefast_2ehpp',['resizeFast.hpp',['../resize_fast_8hpp.html',1,'']]],
   ['resizeslow_2ehpp',['resizeSlow.hpp',['../resize_slow_8hpp.html',1,'']]],
+  ['riemann_5fzeta_2ehpp',['riemann_zeta.hpp',['../riemann__zeta_8hpp.html',1,'']]],
   ['right_5fshift_2ehpp',['right_shift.hpp',['../right__shift_8hpp.html',1,'']]],
   ['rint_2ehpp',['rint.hpp',['../rint_8hpp.html',1,'']]],
   ['rms_2ehpp',['rms.hpp',['../rms_8hpp.html',1,'']]],
