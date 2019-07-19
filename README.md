@@ -185,7 +185,7 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| print(a)                                                 | ```a.print()```                                          |
+| ```print(a)```                                           | ```a.print()```                                          |
 |                                                          | ```std::cout << a```                                     |
 | ```a.tofile(filename, sep=’\n’)```                       | ```a.tofile(filename, "\n")```                           |
 | ```np.fromfile(filename, sep=’\n’)```                    | ```nc::fromfile<dtype>(filename, "\n")```                |
