@@ -3063,6 +3063,20 @@ namespace SpecialInterface
 
     //================================================================================
 
+    double bernoulli_Scaler(uint32 n) noexcept
+    {
+        return special::bernoilli(n);
+    }
+
+    //================================================================================
+
+    np::ndarray bernoulli_Array(const NdArray<uint32>& inArray)
+    {
+        return nc2Boost(special::bernoilli(inArray));
+    }
+
+    //================================================================================
+
     template<typename dtype>
     dtype bessel_in_Scaler(dtype inV, dtype inValue) noexcept
     {
@@ -4511,6 +4525,8 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("airy_bi_Array", &SpecialInterface::airy_bi_Array<double>);
     bp::def("airy_bi_prime_Scaler", &SpecialInterface::airy_bi_prime_Scaler<double>);
     bp::def("airy_bi_prime_Array", &SpecialInterface::airy_bi_prime_Array<double>);
+    bp::def("bernoulli_Scaler", &SpecialInterface::bernoulli_Scaler);
+    bp::def("bernoulli_Array", &SpecialInterface::bernoulli_Array);
     bp::def("bessel_in_Scaler", &SpecialInterface::bessel_in_Scaler<double>);
     bp::def("bessel_in_Array", &SpecialInterface::bessel_in_Array<double>);
     bp::def("bessel_in_prime_Scaler", &SpecialInterface::bessel_in_prime_Scaler<double>);
@@ -4553,6 +4569,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("prime_Array", &SpecialInterface::prime_Array);
     bp::def("riemann_zeta_Scaler", &SpecialInterface::riemann_zeta_Scaler<double>);
     bp::def("riemann_zeta_Array", &SpecialInterface::riemann_zeta_Array<double>);
+    bp::def("softmax", &special::softmax<double>);
     bp::def("spherical_bessel_jn_Scaler", &SpecialInterface::spherical_bessel_jn_Scaler<double>);
     bp::def("spherical_bessel_jn_Array", &SpecialInterface::spherical_bessel_jn_Array<double>);
     bp::def("spherical_bessel_yn_Scaler", &SpecialInterface::spherical_bessel_yn_Scaler<double>);

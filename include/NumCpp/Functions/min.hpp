@@ -34,7 +34,7 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Return the minimum of an array or maximum along an axis.
+    ///						Return the minimum of an array or minimum along an axis.
     ///
     /// @param				inArray
     /// @param				inAxis (Optional, default NONE)

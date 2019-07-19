@@ -29,13 +29,11 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Special/factorial.hpp"
-#include "NumCpp/Special/pnr.hpp"
+
+#include "boost/math/special_functions/bernoulli.hpp"
 
 #include <algorithm>
-#include <string>
 
 namespace nc
 {
@@ -43,16 +41,45 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        /// Returns the number of combinations of n choose r. C(n, r)
+        ///						Both return the (2 * n)th Bernoulli number B2n.
         ///
-        /// @param  n: the total number of items
-        /// @param  r: the number of items taken
+        /// @param
+        ///				n
         /// @return
         ///				double
         ///
-        inline double cnr(uint32 n, uint32 r) noexcept
+        inline double bernoilli(uint32 n) noexcept
         {
-            return pnr(n, r) / factorial(r);
+            if (n == 1)
+            {
+                return 0.5;
+            }
+            else if (n % 2 != 0)
+            {
+                return 0.0;
+            }
+
+            return boost::math::bernoulli_b2n<double>(n / 2);
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Both return the (2 * n)th Bernoulli number B2n.
+        ///
+        /// @param
+        ///				inArray
+        /// @return
+        ///				NdArray<double>
+        ///
+        inline NdArray<double> bernoilli(const NdArray<uint32>& inArray) noexcept
+        {
+            NdArray<double> returnArray(inArray.shape());
+
+            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+                [](uint32 inValue) -> double
+                { return bernoilli(inValue); });
+
+            return returnArray;
         }
     }
 }

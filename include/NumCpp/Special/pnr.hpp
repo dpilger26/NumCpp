@@ -49,7 +49,7 @@ namespace nc
         /// @return
         ///				double
         ///
-        inline double pnr(uint32 n, uint32 r)
+        inline double pnr(uint32 n, uint32 r) noexcept
         {
             if (r > n)
             {

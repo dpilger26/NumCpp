@@ -1168,7 +1168,7 @@ namespace nc
                     {
                         returnArray(0, row) = static_cast<uint32>(std::max_element(cbegin(row), cend(row)) - cbegin(row));
                     }
-                    return returnArray;;
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -1179,7 +1179,7 @@ namespace nc
                         returnArray(0, row) = static_cast<uint32>(std::max_element(arrayTransposed.cbegin(row),
                             arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
                     }
-                    return returnArray;;
+                    return returnArray;
                 }
                 default:
                 {
@@ -1209,7 +1209,7 @@ namespace nc
                 case Axis::NONE:
                 {
                     NdArray<uint32> returnArray = { static_cast<uint32>(std::min_element(cbegin(), cend()) - cbegin()) };
-                    return returnArray;;
+                    return returnArray;
                 }
                 case Axis::COL:
                 {
@@ -1218,7 +1218,7 @@ namespace nc
                     {
                         returnArray(0, row) = static_cast<uint32>(std::min_element(cbegin(row), cend(row)) - cbegin(row));
                     }
-                    return returnArray;;
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
@@ -1229,7 +1229,7 @@ namespace nc
                         returnArray(0, row) = static_cast<uint32>(std::min_element(arrayTransposed.cbegin(row),
                             arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
                     }
-                    return returnArray;;
+                    return returnArray;
                 }
                 default:
                 {
@@ -1280,7 +1280,7 @@ namespace nc
                             returnArray(row, col) = idx[col];
                         }
                     }
-                    return returnArray;;
+                    return returnArray;
                 }
                 case Axis::ROW:
                 {
