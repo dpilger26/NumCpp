@@ -28,6 +28,8 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Types.hpp"
+
 #include <iostream>
 #include <stdexcept>
 #include <string>

@@ -41,7 +41,7 @@ namespace nc
     {
         //============================================================================
         // Method Description:
-        ///						Both return the (2 * n)th Bernoulli number B2n.
+        ///						Both return the nth Bernoulli number B2n.
         ///
         /// @param
         ///				n
@@ -64,7 +64,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Both return the (2 * n)th Bernoulli number B2n.
+        ///						Both return the nth Bernoulli number B2n.
         ///
         /// @param
         ///				inArray

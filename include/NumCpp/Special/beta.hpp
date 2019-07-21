@@ -57,19 +57,19 @@ namespace nc
         // Method Description:
         ///	The beta function
         ///
-        /// @param      a
+        /// @param      inArrayA
         /// @param      inArrayB
         /// @return
         ///				NdArray<double>
         ///
         template<typename dtype1, typename dtype2>
-        NdArray<double> beta(dtype1 a, const NdArray<dtype2>& inArrayB) noexcept
+        NdArray<double> beta(const NdArray<dtype1>& inArrayA, const NdArray<dtype2>& inArrayB) noexcept
         {
             NdArray<double> returnArray(inArrayB.shape());
 
-            std::transform(inArrayB.cbegin(), inArrayB.cend(), returnArray.begin(),
-                [a](dtype2 inB) -> double
-                { return beta(a, inB); });
+            std::transform(inArrayA.cbegin(), inArrayA.cend(),inArrayB.cbegin(), returnArray.begin(),
+                [](dtype1 a, dtype2 b) -> double
+                { return beta(a, b); });
 
             return returnArray;
         }

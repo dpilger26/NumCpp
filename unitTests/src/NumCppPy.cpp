@@ -3206,17 +3206,17 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
-    dtype beta_Scaler(dtype a, dtype inValue) noexcept
+    dtype beta_Scaler(dtype a, dtype b) noexcept
     {
-        return special::beta(a, inValue);
+        return special::beta(a, b);
     }
 
     //================================================================================
 
     template<typename dtype>
-    np::ndarray beta_Array(dtype a, const NdArray<dtype>& inArray)
+    np::ndarray beta_Array(const NdArray<dtype>& a, const NdArray<dtype>& b)
     {
-        return nc2Boost(special::beta(a, inArray));
+        return nc2Boost(special::beta(a, b));
     }
 
     //================================================================================
