@@ -304,14 +304,51 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing cnr', 'cyan'))
+    n = np.random.randint(0, 50)
+    r = np.random.randint(0, n + 1)
+    if round(NumCpp.cnr(n, r)) == round(sp.comb(n, r)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing cyclic_hankel_1', 'cyan'))
+    order = np.random.randint(0, 6)
+    value = np.random.rand(1).item() * 10
+    if (roundComplex(complex(NumCpp.cyclic_hankel_1(order, value)), NUM_DECIMALS_ROUND) ==
+            roundComplex(sp.hankel1(order, value), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing cyclic_hankel_2', 'cyan'))
+    order = np.random.randint(0, 6)
+    value = np.random.rand(1).item() * 10
+    if (roundComplex(complex(NumCpp.cyclic_hankel_2(order, value)), NUM_DECIMALS_ROUND) ==
+            roundComplex(sp.hankel2(order, value), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing digamma scaler', 'cyan'))
+    value = np.random.rand(1).item() * 10
+    if (roundScaler(NumCpp.digamma_Scaler(value), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.digamma(value), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
-
-
-
-
+    print(colored('Testing digamma array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols) * 10
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.digamma_Array(cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.digamma(data), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
 
     print(colored('Testing erf scaler', 'cyan'))
     value = np.random.rand(1).item()
@@ -353,6 +390,14 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing pnr', 'cyan'))
+    n = np.random.randint(0, 10)
+    r = np.random.randint(0, n + 1)
+    if round(NumCpp.pnr(n, r)) == round(sp.perm(n, r)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
 
 ####################################################################################
 def roundScaler(value: float, numDecimals: int) -> float:
@@ -363,6 +408,12 @@ def roundScaler(value: float, numDecimals: int) -> float:
 def roundArray(values: np.ndarray, numDecimals: int) -> np.ndarray:
     func = np.vectorize(roundScaler)
     return func(values, numDecimals)
+
+
+####################################################################################
+def roundComplex(value: complex, numDecimals: int) -> complex:
+    return complex(roundScaler(value.real, numDecimals),
+                   roundScaler(value.imag, numDecimals))
 
 
 ####################################################################################
