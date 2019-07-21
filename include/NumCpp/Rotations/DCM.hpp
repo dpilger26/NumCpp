@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Linalg/det.hpp"
+#include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/round.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Rotations/Quaternion.hpp"

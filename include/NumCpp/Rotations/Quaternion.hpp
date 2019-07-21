@@ -33,6 +33,7 @@
 #include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/Functions/argmax.hpp"
 #include "NumCpp/Functions/clip.hpp"
+#include "NumCpp/Functions/dot.hpp"
 #include "NumCpp/Functions/square.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Utils/essentiallyEqual.hpp"

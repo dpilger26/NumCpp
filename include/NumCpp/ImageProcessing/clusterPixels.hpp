@@ -30,6 +30,8 @@
 #pragma once
 
 #include "NumCpp/Core/Types.hpp"
+#include "NumCpp/ImageProcessing/Cluster.hpp"
+#include "NumCpp/ImageProcessing/ClusterMaker.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include <vector>
