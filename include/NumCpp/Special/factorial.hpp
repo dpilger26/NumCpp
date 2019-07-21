@@ -34,6 +34,7 @@
 #include "boost/math/special_functions/factorials.hpp"
 
 #include <algorithm>
+#include <limits>
 
 namespace nc
 {
@@ -50,22 +51,14 @@ namespace nc
         ///
         inline double factorial(uint32 inValue)
         {
-            double factorialValue = 1.0;
-
             if (inValue <= boost::math::max_factorial<double>::value)
             {
-                factorialValue = boost::math::factorial<double>(inValue);   
+                return boost::math::factorial<double>(inValue);   
             }
             else
             {
-                factorialValue = boost::math::factorial<double>(boost::math::max_factorial<double>::value); 
-                for (uint32 i = boost::math::max_factorial<double>::value + 1; i <= inValue; ++i)
-                {
-                    factorialValue *= static_cast<double>(i);
-                }
+                return std::numeric_limits<double>::infinity();
             }
-
-            return factorialValue;
         }
 
         //============================================================================

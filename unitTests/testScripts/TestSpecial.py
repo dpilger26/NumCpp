@@ -9,7 +9,7 @@ else:
 import NumCpp
 
 
-NUM_DECIMALS_ROUND = 8
+NUM_DECIMALS_ROUND = 7
 
 
 ####################################################################################
@@ -370,6 +370,26 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing erf_inv scaler', 'cyan'))
+    value = np.random.rand(1).item()
+    if (roundScaler(NumCpp.erf_inv_Scaler(value), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.erfinv(value), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing erf_inv array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.erf_inv_Array(cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.erfinv(data), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing erfc scaler', 'cyan'))
     value = np.random.rand(1).item()
     if (roundScaler(NumCpp.erfc_Scaler(value), NUM_DECIMALS_ROUND) ==
@@ -390,10 +410,251 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing erfc_inv scaler', 'cyan'))
+    value = np.random.rand(1).item()
+    if (roundScaler(NumCpp.erfc_inv_Scaler(value), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.erfcinv(value), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing erfc_inv array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.erfc_inv_Array(cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.erfcinv(data), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing factorial scaler', 'cyan'))
+    n = np.random.randint(0, 170)
+    if (roundScaler(NumCpp.factorial_Scaler(n), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.factorial(n).item(), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing factorial array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayUInt32(shape)
+    data = np.random.randint(0, 170, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.factorial_Array(cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.factorial(data), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing gamma scaler', 'cyan'))
+    value = np.random.rand(1).item()
+    if (roundScaler(NumCpp.gamma_Scaler(value), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.gamma(value), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing gamma array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.gamma_Array(cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.gamma(data), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    # There is no scipy equivalent to this function
+    print(colored('Testing gamma1pm1 scaler', 'cyan'))
+    value = np.random.rand(1).item()
+    answer = NumCpp.gamma1pm1_Scaler(value)
+    print(colored('\tPASS', 'green'))
+
+    print(colored('Testing gamma1pm1 array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    answer = NumCpp.gamma1pm1_Array(cArray)
+    print(colored('\tPASS', 'green'))
+
+    print(colored('Testing log_gamma scaler', 'cyan'))
+    value = np.random.rand(1).item()
+    if (roundScaler(NumCpp.log_gamma_Scaler(value), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.loggamma(value), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing log_gamma array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.log_gamma_Array(cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.loggamma(data), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing pnr', 'cyan'))
     n = np.random.randint(0, 10)
     r = np.random.randint(0, n + 1)
     if round(NumCpp.pnr(n, r)) == round(sp.perm(n, r)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing polygamma scaler', 'cyan'))
+    order = np.random.randint(1, 5)
+    value = np.random.rand(1).item()
+    if (roundScaler(NumCpp.polygamma_Scaler(order, value), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.polygamma(order, value).item(), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing polygamma array', 'cyan'))
+    order = np.random.randint(1, 5)
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.polygamma_Array(order, cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.polygamma(order, data), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    # There is no scipy equivalent to this function
+    print(colored('Testing prime scaler', 'cyan'))
+    value = np.random.randint(10000)
+    answer = NumCpp.prime_Scaler(value)
+    print(colored('\tPASS', 'green'))
+
+    print(colored('Testing prime array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayUInt32(shape)
+    data = np.random.randint(0, 10000, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    answer = NumCpp.prime_Array(cArray)
+    print(colored('\tPASS', 'green'))
+
+    print(colored('Testing riemann_zeta scaler', 'cyan'))
+    value = np.random.rand(1).item() * 5 + 1
+    if (roundScaler(NumCpp.riemann_zeta_Scaler(value), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.zeta(value, 1).item(), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing riemann_zeta array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols) * 5 + 1
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.riemann_zeta_Array(cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.zeta(data, 1), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing softmax Axis::None', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.softmax(cArray, NumCpp.Axis.NONE), NUM_DECIMALS_ROUND),
+                      roundArray(sp.softmax(data), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing spherical_bessel_jn scaler', 'cyan'))
+    order = np.random.randint(0, 10)
+    value = np.random.rand(1).item()
+    if (roundScaler(NumCpp.spherical_bessel_jn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.spherical_jn(order, value).item(), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing spherical_bessel_jn array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    order = np.random.randint(0, 10)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.spherical_bessel_jn_Array(order, cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.spherical_jn(order, data), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing spherical_bessel_yn scaler', 'cyan'))
+    order = np.random.randint(0, 10)
+    value = np.random.rand(1).item()
+    if (roundScaler(NumCpp.spherical_bessel_yn_Scaler(order, value), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.spherical_yn(order, value).item(), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing spherical_bessel_yn array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    order = np.random.randint(0, 10)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.spherical_bessel_yn_Array(order, cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.spherical_yn(order, data), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    # There is no equivalent scipy functions
+    print(colored('Testing spherical_hankel_1 scaler', 'cyan'))
+    order = np.random.randint(0, 10)
+    value = np.random.rand(1).item()
+    result = NumCpp.spherical_hankel_1(order, value)
+    print(colored('\tPASS', 'green'))
+
+    print(colored('Testing spherical_hankel_2 scaler', 'cyan'))
+    order = np.random.randint(0, 10)
+    value = np.random.rand(1).item()
+    result = NumCpp.spherical_hankel_2(order, value)
+    print(colored('\tPASS', 'green'))
+
+    print(colored('Testing trigamma scaler', 'cyan'))
+    value = np.random.rand(1).item()
+    if (roundScaler(NumCpp.trigamma_Scaler(value), NUM_DECIMALS_ROUND) ==
+            roundScaler(sp.polygamma(1, value).item(), NUM_DECIMALS_ROUND)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing trigamma array', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.rand(shape.rows, shape.cols)
+    cArray.setArray(data)
+    if np.array_equal(roundArray(NumCpp.trigamma_Array(cArray), NUM_DECIMALS_ROUND),
+                      roundArray(sp.polygamma(1, data), NUM_DECIMALS_ROUND)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

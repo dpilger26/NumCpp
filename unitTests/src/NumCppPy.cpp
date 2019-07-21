@@ -3410,6 +3410,14 @@ namespace SpecialInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray softmax(const NdArray<dtype>& inArray, Axis inAxis)
+    {
+        return nc2Boost(special::softmax(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     dtype spherical_bessel_jn_Scaler(uint32 inV, dtype inValue) noexcept
     {
         return special::spherical_bessel_jn(inV, inValue);
@@ -3699,6 +3707,19 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<int32>)
         .def("endianess", &NdArrayInt32::endianess)
         .def("setArray", &NdArrayInterface::setArray<int32>);
+
+    typedef NdArray<uint32> NdArrayUInt32;
+    bp::class_<NdArrayUInt32>
+        ("NdArrayUInt32", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayUInt32::item)
+        .def("shape", &NdArrayUInt32::shape)
+        .def("size", &NdArrayUInt32::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
+        .def("endianess", &NdArrayUInt32::endianess)
+        .def("setArray", &NdArrayInterface::setArray<uint32>);
 
     typedef NdArray<uint64> NdArrayInt64;
     bp::class_<NdArrayInt64>
@@ -4538,8 +4559,12 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("digamma_Array", &SpecialInterface::digamma_Array<double>);
     bp::def("erf_Scaler", &SpecialInterface::erf_Scaler<double>);
     bp::def("erf_Array", &SpecialInterface::erf_Array<double>);
+    bp::def("erf_inv_Scaler", &SpecialInterface::erf_inv_Scaler<double>);
+    bp::def("erf_inv_Array", &SpecialInterface::erf_inv_Array<double>);
     bp::def("erfc_Scaler", &SpecialInterface::erfc_Scaler<double>);
     bp::def("erfc_Array", &SpecialInterface::erfc_Array<double>);
+    bp::def("erfc_inv_Scaler", &SpecialInterface::erfc_inv_Scaler<double>);
+    bp::def("erfc_inv_Array", &SpecialInterface::erfc_inv_Array<double>);
     bp::def("factorial_Scaler", &SpecialInterface::factorial_Scaler);
     bp::def("factorial_Array", &SpecialInterface::factorial_Array);
     bp::def("gamma_Scaler", &SpecialInterface::gamma_Scaler<double>);
@@ -4555,7 +4580,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("prime_Array", &SpecialInterface::prime_Array);
     bp::def("riemann_zeta_Scaler", &SpecialInterface::riemann_zeta_Scaler<double>);
     bp::def("riemann_zeta_Array", &SpecialInterface::riemann_zeta_Array<double>);
-    bp::def("softmax", &special::softmax<double>);
+    bp::def("softmax", &SpecialInterface::softmax<double>);
     bp::def("spherical_bessel_jn_Scaler", &SpecialInterface::spherical_bessel_jn_Scaler<double>);
     bp::def("spherical_bessel_jn_Array", &SpecialInterface::spherical_bessel_jn_Array<double>);
     bp::def("spherical_bessel_yn_Scaler", &SpecialInterface::spherical_bessel_yn_Scaler<double>);
