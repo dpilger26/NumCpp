@@ -4,7 +4,7 @@ project(Example)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(NUMCPP_INCLUDES ../src)
+set(NUMCPP_INCLUDES ../include)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)

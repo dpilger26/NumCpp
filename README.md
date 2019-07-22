@@ -2,7 +2,7 @@
 
 ## Author: David Pilger dpilger26@gmail.com
 
-## Version: 1.0
+## Version: 1.1
 
 ## License
 
@@ -84,14 +84,14 @@ The random module provides simple ways to create random arrays.
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| ```np.random.seed(666)```	                               | ```nc::Random<>::seed(666)```                            |
-| ```np.random.randn(3, 4)```                              | ```nc::Random<double>::randn(nc::Shape(3,4))```          |
-|                                                          | ```nc::Random<double>::randn({3, 4})```                  |
-| ```np.random.randint(0, 10, [3, 4])```                   | ```nc::Random<int>::randInt(nc::Shape(3,4),0,10)```      |
-|                                                          | ```nc::Random<int>::randInt({3, 4},0,10)```              |
-| ```np.random.rand(3, 4)```                               | ```nc::Random<double>::rand(nc::Shape(3,4))```           |
-|                                                          | ```nc::Random<double>::rand({3, 4})```                   |
-| ```np.random.choice(a, 3)```                             | ```nc::Random<dtype>::choice(a, 3)```                    |
+| ```np.random.seed(666)```                                | ```nc::random::seed(666)```                              |
+| ```np.random.randn(3, 4)```                              | ```nc::random::randn<double>(nc::Shape(3,4))```          |
+|                                                          | ```nc::random::randn<double>({3, 4})```                  |
+| ```np.random.randint(0, 10, [3, 4])```                   | ```nc::random::randInt<int>(nc::Shape(3,4),0,10)```      |
+|                                                          | ```nc::random::randInt<int>({3, 4},0,10)```              |
+| ```np.random.rand(3, 4)```                               | ```nc::random::rand<double>(nc::Shape(3,4))```           |
+|                                                          | ```nc::random::rand<double>({3, 4})```                   |
+| ```np.random.choice(a, 3)```                             | ```nc::random::choice(a, 3)```                           |
 
 ### CONCATENATION
 
@@ -185,7 +185,7 @@ Print and file output methods.  All **NumpCpp** classes support a `print()` meth
 
 | **NumPy**                                                | **NumCpp**                                               |
 |:--------------------------------------------------------:|:--------------------------------------------------------:|
-| print(a)                                                 | ```a.print()```                                          |
+| ```print(a)```                                           | ```a.print()```                                          |
 |                                                          | ```std::cout << a```                                     |
 | ```a.tofile(filename, sep=’\n’)```                       | ```a.tofile(filename, "\n")```                           |
 | ```np.fromfile(filename, sep=’\n’)```                    | ```nc::fromfile<dtype>(filename, "\n")```                |

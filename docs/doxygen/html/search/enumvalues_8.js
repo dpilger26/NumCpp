@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['take_5fownership',['TAKE_OWNERSHIP',['../namespacenc.html#a8923c4426e2acad9cb531ab917750b49a9419303c1fae01a65adc8d1835aa2c6d',1,'nc']]]
+  ['take_5fownership',['TAKE_OWNERSHIP',['../namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19a9419303c1fae01a65adc8d1835aa2c6d',1,'nc::pybindInterface']]]
 ];

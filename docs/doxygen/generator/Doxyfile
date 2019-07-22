@@ -792,19 +792,24 @@ WARN_LOGFILE           =
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = ../../../README.md \
-                         ../../../src \
-                         ../../../src/NumCpp \
-                         ../../../src/NumCpp/Coordinates \
-                         ../../../src/NumCpp/Core \
-                         ../../../src/NumCpp/Filter \
-                         ../../../src/NumCpp/ImageProcessing \
-                         ../../../src/NumCpp/Linalg \
-                         ../../../src/NumCpp/Methods \
-                         ../../../src/NumCpp/PythonInterface \
-                         ../../../src/NumCpp/Random \
-                         ../../../src/NumCpp/Rotations \
-                         ../../../src/NumCpp/Utils \
-                         ../../../src/NumCpp/Vector \
+                         ../../../include \
+#                         ../../../include/NumCpp \
+#                         ../../../include/NumCpp/Coordinates \
+#                         ../../../include/NumCpp/Core \
+#                         ../../../include/NumCpp/Filter/Filters/Filters1d \
+#                         ../../../include/NumCpp/Filter/Filters/Filters2d \
+#                         ../../../include/NumCpp/Filter/Boundaries/ \
+#                         ../../../include/NumCpp/Filter/Boundaries/Boundaries1d \
+#                         ../../../include/NumCpp/Filter/Boundaries/Boundaries2d \
+#                         ../../../include/NumCpp/ImageProcessing \
+#                         ../../../include/NumCpp/Linalg \
+#                         ../../../include/NumCpp/Linalg/svd \
+#                         ../../../include/NumCpp/Methods \
+#                         ../../../include/NumCpp/PythonInterface \
+#                         ../../../include/NumCpp/Random \
+#                         ../../../include/NumCpp/Rotations \
+#                         ../../../include/NumCpp/Utils \
+#                         ../../../include/NumCpp/Vector \
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -878,7 +883,7 @@ FILE_PATTERNS          = *.c \
 # be searched for input files as well.
 # The default value is: NO.
 
-RECURSIVE              = NO
+RECURSIVE              = YES
 
 # The EXCLUDE tag can be used to specify files and/or directories that should be
 # excluded from the INPUT source files. This way you can easily exclude a

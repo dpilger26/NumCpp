@@ -1,9 +1,10 @@
-#include"NumCpp.hpp"
+#include "NumCpp.hpp"
 
-#include<functional>
-#include<iostream>
-#include<string>
-#include<utility>
+#include <complex>
+#include <functional>
+#include <iostream>
+#include <string>
+#include <utility>
 
 #ifndef BOOST_PYTHON_STATIC_LIB
 #define BOOST_PYTHON_STATIC_LIB
@@ -24,6 +25,7 @@ namespace bp = boost::python;
 namespace np = boost::python::numpy;
 
 using namespace nc;
+using namespace nc::boostPythonInterface;
 
 //================================================================================
 
@@ -634,6 +636,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray operatorNegative(const NdArray<dtype>& self)
+    {
+        return nc2Boost(-self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray operatorMinusScaler(const NdArray<dtype>& self, dtype inScaler)
     {
         return nc2Boost(self - inScaler);
@@ -1143,7 +1153,7 @@ namespace MethodsInterface
     template<typename dtype>
     np::ndarray asarrayList(dtype inValue1, dtype inValue2)
     {
-        return nc2Boost(asarray<dtype>({ inValue1, inValue2 }));
+        return nc2Boost<dtype>({ {inValue1, inValue2}, {inValue1, inValue2} });
     }
 
     //================================================================================
@@ -1519,38 +1529,6 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    dtype erfScaler(dtype inValue) noexcept
-    {
-        return erf(inValue);
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    np::ndarray erfArray(const NdArray<dtype>& inArray)
-    {
-        return nc2Boost(erf(inArray));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    dtype erfcScaler(dtype inValue) noexcept
-    {
-        return erfc(inValue);
-    }
-
-    //================================================================================
-
-    template<typename dtype>
-    np::ndarray erfcArray(const NdArray<dtype>& inArray)
-    {
-        return nc2Boost(erfc(inArray));
-    }
-
-    //================================================================================
-
-    template<typename dtype>
     dtype expScaler(dtype inValue) noexcept
     {
         return exp(inValue);
@@ -1792,6 +1770,14 @@ namespace MethodsInterface
     dtype hypotScaler(dtype inValue1, dtype inValue2) noexcept
     {
         return hypot(inValue1, inValue2);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype hypotScalerTriple(dtype inValue1, dtype inValue2, dtype inValue3) noexcept
+    {
+        return hypot(inValue1, inValue2, inValue3);
     }
 
     //================================================================================
@@ -2541,9 +2527,21 @@ namespace MethodsInterface
 namespace RandomInterface
 {
     template<typename dtype>
+    dtype choiceSingle(const NdArray<dtype>& inArray)
+    {
+        return random::choice(inArray);
+    }
+
+    template<typename dtype>
+    np::ndarray choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
+    {
+        return nc2Boost(random::choice(inArray, inNum));
+    }
+
+    template<typename dtype>
     np::ndarray permutationScaler(dtype inValue)
     {
-        return nc2Boost(Random<dtype>::permutation(inValue));
+        return nc2Boost(random::permutation(inValue));
     }
 
     //================================================================================
@@ -2551,7 +2549,7 @@ namespace RandomInterface
     template<typename dtype>
     np::ndarray permutationArray(const NdArray<dtype>& inArray)
     {
-        return nc2Boost(Random<dtype>::permutation(inArray));
+        return nc2Boost(random::permutation(inArray));
     }
 }
 
@@ -2700,18 +2698,144 @@ namespace DataCubeInterface
     }
 }
 
-namespace RandomInterface
+//================================================================================
+
+namespace PolynomialInterface
 {
     template<typename dtype>
-    dtype choiceSingle(const NdArray<dtype>& inArray)
+    dtype chebyshev_t_Scaler(uint32 n, dtype inValue) noexcept
     {
-        return nc::Random<dtype>::choice(inArray);
+        return polynomial::chebyshev_t(n, inValue);
     }
 
+    //================================================================================
+
     template<typename dtype>
-    np::ndarray choiceMultiple(const NdArray<dtype>& inArray, uint32 inNum)
+    np::ndarray chebyshev_t_Array(uint32 n, const NdArray<dtype>& inArray)
     {
-        return nc2Boost(nc::Random<dtype>::choice(inArray, inNum));
+        return nc2Boost(polynomial::chebyshev_t(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype chebyshev_u_Scaler(uint32 n, dtype inValue) noexcept
+    {
+        return polynomial::chebyshev_u(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray chebyshev_u_Array(uint32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::chebyshev_u(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype hermite_Scaler(uint32 n, dtype inValue) noexcept
+    {
+        return polynomial::hermite(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray hermite_Array(uint32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::hermite(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype laguerre_Scaler1(uint32 n, dtype inValue) noexcept
+    {
+        return polynomial::laguerre(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype laguerre_Scaler2(uint32 n, uint32 m, dtype inValue) noexcept
+    {
+        return polynomial::laguerre(n, m, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray laguerre_Array1(uint32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::laguerre(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray laguerre_Array2(uint32 n, uint32 m, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::laguerre(n, m, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype legendre_p_Scaler1(int32 n, dtype inValue) noexcept
+    {
+        return polynomial::legendre_p(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype legendre_p_Scaler2(int32 n, int32 m, dtype inValue) noexcept
+    {
+        return polynomial::legendre_p(n, m, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray legendre_p_Array1(int32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::legendre_p(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray legendre_p_Array2(int32 n, int32 m, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::legendre_p(n, m, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype legendre_q_Scaler(int32 n, dtype inValue) noexcept
+    {
+        return polynomial::legendre_q(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray legendre_q_Array(int32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(polynomial::legendre_q(n, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    bp::list spherical_harmonic(uint32 n, int32 m, dtype theta, dtype phi)
+    {
+        auto value = polynomial::spherical_harmonic(n, m, theta, phi);
+        std::vector<double> valueVec = {value.real(), value.imag()};
+        return vector2list(valueVec);
     }
 }
 
@@ -2868,6 +2992,475 @@ namespace Vec3Interface
     void print(const Vec3& vec)
     {
         std::cout << vec;
+    }
+}
+
+//================================================================================
+
+namespace SpecialInterface
+{
+    template<typename dtype>
+    dtype airy_ai_Scaler(dtype inValue) noexcept
+    {
+        return special::airy_ai(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray airy_ai_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::airy_ai(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype airy_ai_prime_Scaler(dtype inValue) noexcept
+    {
+        return special::airy_ai_prime(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray airy_ai_prime_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::airy_ai_prime(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype airy_bi_Scaler(dtype inValue) noexcept
+    {
+        return special::airy_bi(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray airy_bi_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::airy_bi(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype airy_bi_prime_Scaler(dtype inValue) noexcept
+    {
+        return special::airy_bi_prime(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray airy_bi_prime_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::airy_bi_prime(inArray));
+    }
+
+    //================================================================================
+
+    double bernoulli_Scaler(uint32 n) noexcept
+    {
+        return special::bernoilli(n);
+    }
+
+    //================================================================================
+
+    np::ndarray bernoulli_Array(const NdArray<uint32>& inArray)
+    {
+        return nc2Boost(special::bernoilli(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_in_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_in(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_in_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_in(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_in_prime_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_in_prime(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_in_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_in_prime(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_jn_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_jn(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_jn_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_jn(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_jn_prime_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_jn_prime(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_jn_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_jn_prime(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_kn_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_kn(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_kn_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_kn(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_kn_prime_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_kn_prime(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_kn_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_kn_prime(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_yn_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_yn(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_yn_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_yn(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype bessel_yn_prime_Scaler(dtype inV, dtype inValue) noexcept
+    {
+        return special::bessel_yn_prime(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray bessel_yn_prime_Array(dtype inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::bessel_yn_prime(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype beta_Scaler(dtype a, dtype b) noexcept
+    {
+        return special::beta(a, b);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray beta_Array(const NdArray<dtype>& a, const NdArray<dtype>& b)
+    {
+        return nc2Boost(special::beta(a, b));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype digamma_Scaler(dtype inValue) noexcept
+    {
+        return special::digamma(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray digamma_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::digamma(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype erf_Scaler(dtype inValue) noexcept
+    {
+        return special::erf(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray erf_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::erf(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype erf_inv_Scaler(dtype inValue) noexcept
+    {
+        return special::erf_inv(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray erf_inv_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::erf_inv(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype erfc_Scaler(dtype inValue) noexcept
+    {
+        return special::erfc(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray erfc_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::erfc(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype erfc_inv_Scaler(dtype inValue) noexcept
+    {
+        return special::erfc_inv(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray erfc_inv_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::erfc_inv(inArray));
+    }
+
+    //================================================================================
+
+    double factorial_Scaler(uint32 inValue) noexcept
+    {
+        return special::factorial(inValue);
+    }
+
+    //================================================================================
+
+    np::ndarray factorial_Array(const NdArray<uint32>& inArray)
+    {
+        return nc2Boost(special::factorial(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype gamma_Scaler(dtype inValue) noexcept
+    {
+        return special::gamma(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray gamma_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::gamma(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype gamma1pm1_Scaler(dtype inValue) noexcept
+    {
+        return special::gamma1pm1(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray gamma1pm1_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::gamma1pm1(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype log_gamma_Scaler(dtype inValue) noexcept
+    {
+        return special::log_gamma(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray log_gamma_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::log_gamma(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype polygamma_Scaler(uint32 n, dtype inValue) noexcept
+    {
+        return special::polygamma(n, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray polygamma_Array(uint32 n, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::polygamma(n, inArray));
+    }
+
+    //================================================================================
+
+    double prime_Scaler(uint32 inValue) noexcept
+    {
+        return special::prime(inValue);
+    }
+
+    //================================================================================
+
+    np::ndarray prime_Array(const NdArray<uint32>& inArray)
+    {
+        return nc2Boost(special::prime(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype riemann_zeta_Scaler(dtype inValue) noexcept
+    {
+        return special::riemann_zeta(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray riemann_zeta_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::riemann_zeta(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray softmax(const NdArray<dtype>& inArray, Axis inAxis)
+    {
+        return nc2Boost(special::softmax(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype spherical_bessel_jn_Scaler(uint32 inV, dtype inValue) noexcept
+    {
+        return special::spherical_bessel_jn(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray spherical_bessel_jn_Array(uint32 inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::spherical_bessel_jn(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype spherical_bessel_yn_Scaler(uint32 inV, dtype inValue) noexcept
+    {
+        return special::spherical_bessel_yn(inV, inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray spherical_bessel_yn_Array(uint32 inV, const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::spherical_bessel_yn(inV, inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    dtype trigamma_Scaler(dtype inValue) noexcept
+    {
+        return special::trigamma(inValue);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray trigamma_Array(const NdArray<dtype>& inArray)
+    {
+        return nc2Boost(special::trigamma(inArray));
     }
 }
 
@@ -3051,6 +3644,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("zeros", &NdArrayDouble::zeros)
         .def("operatorPlusScaler", &NdArrayInterface::operatorPlusScaler<double>)
         .def("operatorPlusArray", &NdArrayInterface::operatorPlusArray<double>)
+        .def("operatorNegative", &NdArrayInterface::operatorNegative<double>)
         .def("operatorMinusScaler", &NdArrayInterface::operatorMinusScaler<double>)
         .def("operatorMinusArray", &NdArrayInterface::operatorMinusArray<double>)
         .def("operatorMultiplyScaler", &NdArrayInterface::operatorMultiplyScaler<double>)
@@ -3113,6 +3707,19 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<int32>)
         .def("endianess", &NdArrayInt32::endianess)
         .def("setArray", &NdArrayInterface::setArray<int32>);
+
+    typedef NdArray<uint32> NdArrayUInt32;
+    bp::class_<NdArrayUInt32>
+        ("NdArrayUInt32", bp::init<>())
+        .def(bp::init<uint32>())
+        .def(bp::init<uint32, uint32>())
+        .def(bp::init<Shape>())
+        .def("item", &NdArrayUInt32::item)
+        .def("shape", &NdArrayUInt32::shape)
+        .def("size", &NdArrayUInt32::size)
+        .def("getNumpyArray", &NdArrayInterface::getNumpyArray<uint32>)
+        .def("endianess", &NdArrayUInt32::endianess)
+        .def("setArray", &NdArrayInterface::setArray<uint32>);
 
     typedef NdArray<uint64> NdArrayInt64;
     bp::class_<NdArrayInt64>
@@ -3263,10 +3870,6 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("empty_like", &empty_like<double>);
     bp::def("endianess", &endianess<double>);
     bp::def("equal", &MethodsInterface::equal<double>);
-    bp::def("erfScaler", &MethodsInterface::erfScaler<double>);
-    bp::def("erfArray", &MethodsInterface::erfArray<double>);
-    bp::def("erfcScaler", &MethodsInterface::erfcScaler<double>);
-    bp::def("erfcArray", &MethodsInterface::erfcArray<double>);
     bp::def("expScaler", &MethodsInterface::expScaler<double>);
     bp::def("expArray", &MethodsInterface::expArray<double>);
     bp::def("exp2Scaler", &MethodsInterface::exp2Scaler<double>);
@@ -3310,6 +3913,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("histogram", &MethodsInterface::histogram<double>);
     bp::def("hstack", &MethodsInterface::hstack<double>);
     bp::def("hypotScaler", &MethodsInterface::hypotScaler<double>);
+    bp::def("hypotScalerTriple", &MethodsInterface::hypotScalerTriple<double>);
     bp::def("hypotArray", &MethodsInterface::hypotArray<double>);
     bp::def("identity", &identity<double>);
     bp::def("interp", &MethodsInterface::interp<double>);
@@ -3475,100 +4079,96 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("sqr", &utils::sqr<double>);
     bp::def("cube", &utils::cube<double>);
     bp::def("power", &utils::power<double>);
-    bp::def("powerf", &utils::powerf<double>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<float>);
     bp::def("sqr", &utils::sqr<float>);
     bp::def("cube", &utils::cube<float>);
     bp::def("power", &utils::power<float>);
-    bp::def("power", &utils::powerf<float>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<int8>);
     bp::def("sqr", &utils::sqr<int8>);
     bp::def("cube", &utils::cube<int8>);
     bp::def("power", &utils::power<int8>);
-    bp::def("powerf", &utils::powerf<int8>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<int16>);
     bp::def("sqr", &utils::sqr<int16>);
     bp::def("cube", &utils::cube<int16>);
     bp::def("power", &utils::power<int16>);
-    bp::def("powerf", &utils::powerf<int16>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<int32>);
     bp::def("sqr", &utils::sqr<int32>);
     bp::def("cube", &utils::cube<int32>);
     bp::def("power", &utils::power<int32>);
-    bp::def("powerf", &utils::power<int32>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<int64>);
     bp::def("sqr", &utils::sqr<int64>);
     bp::def("cube", &utils::cube<int64>);
     bp::def("power", &utils::power<int64>);
-    bp::def("powerf", &utils::powerf<int64>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<uint8>);
     bp::def("sqr", &utils::sqr<uint8>);
     bp::def("cube", &utils::cube<uint8>);
     bp::def("power", &utils::power<uint8>);
-    bp::def("powerf", &utils::powerf<uint8>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<uint16>);
     bp::def("sqr", &utils::sqr<uint16>);
     bp::def("cube", &utils::cube<uint16>);
     bp::def("power", &utils::power<uint16>);
-    bp::def("powerf", &utils::powerf<uint16>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<uint32>);
     bp::def("sqr", &utils::sqr<uint32>);
     bp::def("cube", &utils::cube<uint32>);
     bp::def("power", &utils::power<uint32>);
-    bp::def("powerf", &utils::powerf<uint32>);
+    bp::def("powerf", &utils::powerf);
 
     bp::def("num2str", &utils::num2str<uint64>);
     bp::def("sqr", &utils::sqr<uint64>);
     bp::def("cube", &utils::cube<uint64>);
     bp::def("power", &utils::power<uint64>);
-    bp::def("powerf", &utils::powerf<uint64>);
+    bp::def("powerf", &utils::powerf);
 
     // Random.hpp
-    typedef nc::Random<double> RandomDouble;
-    typedef nc::Random<int32> RandomInt32;
-    bp::class_<RandomDouble>
-        ("Random", bp::init<>())
-        .def("bernoulli", &RandomDouble::bernoulli).staticmethod("bernoulli")
-        .def("beta", &RandomDouble::beta).staticmethod("beta")
-        .def("binomial", &RandomInt32::binomial).staticmethod("binomial")
-        .def("chiSquare", &RandomDouble::chiSquare).staticmethod("chiSquare")
-        .def("choiceSingle", &RandomInterface::choiceSingle<double>).staticmethod("choiceSingle")
-        .def("choiceMultiple", &RandomInterface::choiceMultiple<double>).staticmethod("choiceMultiple")
-        .def("cauchy", &RandomDouble::cauchy).staticmethod("cauchy")
-        .def("discrete", &RandomInt32::discrete).staticmethod("discrete")
-        .def("exponential", &RandomDouble::exponential).staticmethod("exponential")
-        .def("extremeValue", &RandomDouble::extremeValue).staticmethod("extremeValue")
-        .def("f", &RandomDouble::f).staticmethod("f")
-        .def("gamma", &RandomDouble::gamma).staticmethod("gamma")
-        .def("geometric", &RandomInt32::geometric).staticmethod("geometric")
-        .def("laplace", &RandomDouble::laplace).staticmethod("laplace")
-        .def("lognormal", &RandomDouble::lognormal).staticmethod("lognormal")
-        .def("negativeBinomial", &RandomInt32::negativeBinomial).staticmethod("negativeBinomial")
-        .def("nonCentralChiSquared", &RandomDouble::nonCentralChiSquared).staticmethod("nonCentralChiSquared")
-        .def("normal", &RandomDouble::normal).staticmethod("normal")
-        .def("permutationScaler", &RandomInterface::permutationScaler<double>).staticmethod("permutationScaler")
-        .def("permutationArray", &RandomInterface::permutationArray<double>).staticmethod("permutationArray")
-        .def("poisson", &RandomInt32::poisson).staticmethod("poisson")
-        .def("rand", &RandomDouble::rand).staticmethod("rand")
-        .def("randN", &RandomDouble::randN).staticmethod("randN")
-        .def("randFloat", &RandomDouble::randFloat).staticmethod("randFloat")
-        .def("randInt", &RandomInt32::randInt).staticmethod("randInt")
-        .def("seed", &RandomDouble::seed).staticmethod("seed")
-        .def("shuffle", &RandomDouble::shuffle).staticmethod("shuffle")
-        .def("studentT", &RandomDouble::studentT).staticmethod("studentT")
-        .def("standardNormal", &RandomDouble::standardNormal).staticmethod("standardNormal")
-        .def("triangle", &RandomDouble::triangle).staticmethod("triangle")
-        .def("uniform", &RandomDouble::uniform).staticmethod("uniform")
-        .def("uniformOnSphere", &RandomDouble::uniformOnSphere).staticmethod("uniformOnSphere")
-        .def("weibull", &RandomDouble::weibull).staticmethod("weibull");
+    bp::def("bernoulli", &random::bernoulli<double>);
+    bp::def("beta", &random::beta<double>);
+    bp::def("binomial", &random::binomial<int32>);
+    bp::def("chiSquare", &random::chiSquare<double>);
+    bp::def("choiceSingle", &RandomInterface::choiceSingle<double>);
+    bp::def("choiceMultiple", &RandomInterface::choiceMultiple<double>);
+    bp::def("cauchy", &random::cauchy<double>);
+    bp::def("discrete", &random::discrete<int32>);
+    bp::def("exponential", &random::exponential<double>);
+    bp::def("extremeValue", &random::extremeValue<double>);
+    bp::def("f", &random::f<double>);
+    bp::def("gamma", &random::gamma<double>);
+    bp::def("geometric", &random::geometric<int32>);
+    bp::def("laplace", &random::laplace<double>);
+    bp::def("lognormal", &random::lognormal<double>);
+    bp::def("negativeBinomial", &random::negativeBinomial<int32>);
+    bp::def("nonCentralChiSquared", &random::nonCentralChiSquared<double>);
+    bp::def("normal", &random::normal<double>);
+    bp::def("permutationScaler", &RandomInterface::permutationScaler<double>);
+    bp::def("permutationArray", &RandomInterface::permutationArray<double>);
+    bp::def("poisson", &random::poisson<int32>);
+    bp::def("rand", &random::rand<double>);
+    bp::def("randN", &random::randN<double>);
+    bp::def("randFloat", &random::randFloat<double>);
+    bp::def("randInt", &random::randInt<int32>);
+    bp::def("seed", &random::seed);
+    bp::def("shuffle", &random::shuffle<double>);
+    bp::def("studentT", &random::studentT<double>);
+    bp::def("standardNormal", &random::standardNormal<double>);
+    bp::def("triangle", &random::triangle<double>);
+    bp::def("uniform", &random::uniform<double>);
+    bp::def("uniformOnSphere", &random::uniformOnSphere<double>);
+    bp::def("weibull", &random::weibull<double>);
 
     // Linalg.hpp
     bp::def("det", &linalg::det<double>);
@@ -3661,11 +4261,10 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__eq__", &PixelDouble::operator==)
         .def("__ne__", &PixelDouble::operator!=)
         .def("__lt__", &PixelDouble::operator<)
-        .def("clusterId", &PixelDouble::clusterId)
-        .def("setClusterId", &PixelDouble::setClusterId)
-        .def("row", &PixelDouble::row)
-        .def("col", &PixelDouble::col)
-        .def("intensity", &PixelDouble::intensity)
+        .def_readonly("clusterId", &PixelDouble::clusterId)
+        .def_readonly("row", &PixelDouble::row)
+        .def_readonly("col", &PixelDouble::col)
+        .def_readonly("intensity", &PixelDouble::intensity)
         .def("__str__", &PixelDouble::str)
         .def("print", &PixelDouble::print);
 
@@ -3799,7 +4398,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("push_front", &DataCubeDouble::push_front);
 
     // Polynomial.hpp
-    typedef Poly1d<double> Poly1d;
+    typedef polynomial::Poly1d<double> Poly1d;
     bp::class_<Poly1d>
         ("Poly1d", bp::init<>())
         .def(bp::init<NdArray<double>, bool>())
@@ -3817,6 +4416,26 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__imul__", &Poly1d::operator*=, bp::return_internal_reference<>())
         .def("__pow__", &Poly1d::operator^)
         .def("__ipow__", &Poly1d::operator^=, bp::return_internal_reference<>());
+
+    bp::def("chebyshev_t_Scaler", &PolynomialInterface::chebyshev_t_Scaler<double>);
+    bp::def("chebyshev_t_Array", &PolynomialInterface::chebyshev_t_Array<double>);
+    bp::def("chebyshev_u_Scaler", &PolynomialInterface::chebyshev_u_Scaler<double>);
+    bp::def("chebyshev_u_Array", &PolynomialInterface::chebyshev_u_Array<double>);
+    bp::def("hermite_Scaler", &PolynomialInterface::hermite_Scaler<double>);
+    bp::def("hermite_Array", &PolynomialInterface::hermite_Array<double>);
+    bp::def("laguerre_Scaler1", &PolynomialInterface::laguerre_Scaler1<double>);
+    bp::def("laguerre_Array1", &PolynomialInterface::laguerre_Array1<double>);
+    bp::def("laguerre_Scaler2", &PolynomialInterface::laguerre_Scaler2<double>);
+    bp::def("laguerre_Array2", &PolynomialInterface::laguerre_Array2<double>);
+    bp::def("legendre_p_Scaler1", &PolynomialInterface::legendre_p_Scaler1<double>);
+    bp::def("legendre_p_Array1", &PolynomialInterface::legendre_p_Array1<double>);
+    bp::def("legendre_p_Scaler2", &PolynomialInterface::legendre_p_Scaler2<double>);
+    bp::def("legendre_p_Array2", &PolynomialInterface::legendre_p_Array2<double>);
+    bp::def("legendre_q_Scaler", &PolynomialInterface::legendre_q_Scaler<double>);
+    bp::def("legendre_q_Array", &PolynomialInterface::legendre_q_Array<double>);
+    bp::def("spherical_harmonic", &PolynomialInterface::spherical_harmonic<double>);
+    bp::def("spherical_harmonic_r", &polynomial::spherical_harmonic_r<double, double>);
+    bp::def("spherical_harmonic_i", &polynomial::spherical_harmonic_i<double, double>);
 
     // Vec2.hpp
     bp::class_<Vec2>
@@ -3903,4 +4522,71 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("Vec3_multScalerVec3", &Vec3Interface::multScalerVec3);
     bp::def("Vec3_divVec3Scaler", &Vec3Interface::divVec3Scaler);
     bp::def("Vec3_print", &Vec3Interface::print);
+
+    // Special.hpp
+    bp::def("airy_ai_Scaler", &SpecialInterface::airy_ai_Scaler<double>);
+    bp::def("airy_ai_Array", &SpecialInterface::airy_ai_Array<double>);
+    bp::def("airy_ai_prime_Scaler", &SpecialInterface::airy_ai_prime_Scaler<double>);
+    bp::def("airy_ai_prime_Array", &SpecialInterface::airy_ai_prime_Array<double>);
+    bp::def("airy_bi_Scaler", &SpecialInterface::airy_bi_Scaler<double>);
+    bp::def("airy_bi_Array", &SpecialInterface::airy_bi_Array<double>);
+    bp::def("airy_bi_prime_Scaler", &SpecialInterface::airy_bi_prime_Scaler<double>);
+    bp::def("airy_bi_prime_Array", &SpecialInterface::airy_bi_prime_Array<double>);
+    bp::def("bernoulli_Scaler", &SpecialInterface::bernoulli_Scaler);
+    bp::def("bernoulli_Array", &SpecialInterface::bernoulli_Array);
+    bp::def("bessel_in_Scaler", &SpecialInterface::bessel_in_Scaler<double>);
+    bp::def("bessel_in_Array", &SpecialInterface::bessel_in_Array<double>);
+    bp::def("bessel_in_prime_Scaler", &SpecialInterface::bessel_in_prime_Scaler<double>);
+    bp::def("bessel_in_prime_Array", &SpecialInterface::bessel_in_prime_Array<double>);
+    bp::def("bessel_jn_Scaler", &SpecialInterface::bessel_jn_Scaler<double>);
+    bp::def("bessel_jn_Array", &SpecialInterface::bessel_jn_Array<double>);
+    bp::def("bessel_jn_prime_Scaler", &SpecialInterface::bessel_jn_prime_Scaler<double>);
+    bp::def("bessel_jn_prime_Array", &SpecialInterface::bessel_jn_prime_Array<double>);
+    bp::def("bessel_kn_Scaler", &SpecialInterface::bessel_kn_Scaler<double>);
+    bp::def("bessel_kn_Array", &SpecialInterface::bessel_kn_Array<double>);
+    bp::def("bessel_kn_prime_Scaler", &SpecialInterface::bessel_kn_prime_Scaler<double>);
+    bp::def("bessel_kn_prime_Array", &SpecialInterface::bessel_kn_prime_Array<double>);
+    bp::def("bessel_yn_Scaler", &SpecialInterface::bessel_yn_Scaler<double>);
+    bp::def("bessel_yn_Array", &SpecialInterface::bessel_yn_Array<double>);
+    bp::def("bessel_yn_prime_Scaler", &SpecialInterface::bessel_yn_prime_Scaler<double>);
+    bp::def("bessel_yn_prime_Array", &SpecialInterface::bessel_yn_prime_Array<double>);
+    bp::def("beta_Scaler", &SpecialInterface::beta_Scaler<double>);
+    bp::def("beta_Array", &SpecialInterface::beta_Array<double>);
+    bp::def("cnr", &special::cnr);
+    bp::def("cyclic_hankel_1", &special::cyclic_hankel_1<double, double>);
+    bp::def("cyclic_hankel_2", &special::cyclic_hankel_2<double, double>);
+    bp::def("digamma_Scaler", &SpecialInterface::digamma_Scaler<double>);
+    bp::def("digamma_Array", &SpecialInterface::digamma_Array<double>);
+    bp::def("erf_Scaler", &SpecialInterface::erf_Scaler<double>);
+    bp::def("erf_Array", &SpecialInterface::erf_Array<double>);
+    bp::def("erf_inv_Scaler", &SpecialInterface::erf_inv_Scaler<double>);
+    bp::def("erf_inv_Array", &SpecialInterface::erf_inv_Array<double>);
+    bp::def("erfc_Scaler", &SpecialInterface::erfc_Scaler<double>);
+    bp::def("erfc_Array", &SpecialInterface::erfc_Array<double>);
+    bp::def("erfc_inv_Scaler", &SpecialInterface::erfc_inv_Scaler<double>);
+    bp::def("erfc_inv_Array", &SpecialInterface::erfc_inv_Array<double>);
+    bp::def("factorial_Scaler", &SpecialInterface::factorial_Scaler);
+    bp::def("factorial_Array", &SpecialInterface::factorial_Array);
+    bp::def("gamma_Scaler", &SpecialInterface::gamma_Scaler<double>);
+    bp::def("gamma_Array", &SpecialInterface::gamma_Array<double>);
+    bp::def("gamma1pm1_Scaler", &SpecialInterface::gamma1pm1_Scaler<double>);
+    bp::def("gamma1pm1_Array", &SpecialInterface::gamma1pm1_Array<double>);
+    bp::def("log_gamma_Scaler", &SpecialInterface::log_gamma_Scaler<double>);
+    bp::def("log_gamma_Array", &SpecialInterface::log_gamma_Array<double>);
+    bp::def("pnr", &special::pnr);
+    bp::def("polygamma_Scaler", &SpecialInterface::polygamma_Scaler<double>);
+    bp::def("polygamma_Array", &SpecialInterface::polygamma_Array<double>);
+    bp::def("prime_Scaler", &SpecialInterface::prime_Scaler);
+    bp::def("prime_Array", &SpecialInterface::prime_Array);
+    bp::def("riemann_zeta_Scaler", &SpecialInterface::riemann_zeta_Scaler<double>);
+    bp::def("riemann_zeta_Array", &SpecialInterface::riemann_zeta_Array<double>);
+    bp::def("softmax", &SpecialInterface::softmax<double>);
+    bp::def("spherical_bessel_jn_Scaler", &SpecialInterface::spherical_bessel_jn_Scaler<double>);
+    bp::def("spherical_bessel_jn_Array", &SpecialInterface::spherical_bessel_jn_Array<double>);
+    bp::def("spherical_bessel_yn_Scaler", &SpecialInterface::spherical_bessel_yn_Scaler<double>);
+    bp::def("spherical_bessel_yn_Array", &SpecialInterface::spherical_bessel_yn_Array<double>);
+    bp::def("spherical_hankel_1", &special::spherical_hankel_1<double, double>);
+    bp::def("spherical_hankel_2", &special::spherical_hankel_2<double, double>);
+    bp::def("trigamma_Scaler", &SpecialInterface::trigamma_Scaler<double>);
+    bp::def("trigamma_Array", &SpecialInterface::trigamma_Array<double>);
 }

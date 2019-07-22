@@ -314,6 +314,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abe57d4fe2ffc190ca4bafe9f46cc8532"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04e488dc23b79c7c6af5246305918807"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a04e488dc23b79c7c6af5246305918807">operator+=</a> (dtype inScalar) noexcept</td></tr>
 <tr class="separator:a04e488dc23b79c7c6af5246305918807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b8bd6756f2daa640408cfac5bc480ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a7b8bd6756f2daa640408cfac5bc480ee">operator-</a> () const noexcept</td></tr>
+<tr class="separator:a7b8bd6756f2daa640408cfac5bc480ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66d44478475f9fd63b0ccb2d2c6b2d7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a66d44478475f9fd63b0ccb2d2c6b2d7f">operator-</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inOtherArray) const</td></tr>
 <tr class="separator:a66d44478475f9fd63b0ccb2d2c6b2d7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a130bf931e0f0c1b2651cc82b05fbb38a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a130bf931e0f0c1b2651cc82b05fbb38a">operator-</a> (dtype inScalar) const noexcept</td></tr>
@@ -4199,8 +4201,37 @@ template&lt;typename dtype&gt; </div>
 
 </div>
 </div>
+<a id="a7b8bd6756f2daa640408cfac5bc480ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b8bd6756f2daa640408cfac5bc480ee">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;dtype&gt; <a class="el" href="classnc_1_1_nd_array.html">nc::NdArray</a>&lt; dtype &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Negative Operator</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
 <a id="a66d44478475f9fd63b0ccb2d2c6b2d7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66d44478475f9fd63b0ccb2d2c6b2d7f">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a66d44478475f9fd63b0ccb2d2c6b2d7f">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4236,7 +4267,7 @@ template&lt;typename dtype&gt; </div>
 </div>
 </div>
 <a id="a130bf931e0f0c1b2651cc82b05fbb38a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a130bf931e0f0c1b2651cc82b05fbb38a">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a130bf931e0f0c1b2651cc82b05fbb38a">&#9670;&nbsp;</a></span>operator-() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4546,44 +4577,8 @@ template&lt;typename dtype&gt; </div>
 
 </div>
 </div>
-<a id="ad964b305a18868ac79eddf5a14dc6eda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad964b305a18868ac79eddf5a14dc6eda">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename dtype&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;bool&gt; <a class="el" href="classnc_1_1_nd_array.html">nc::NdArray</a>&lt; dtype &gt;::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">dtype&#160;</td>
-          <td class="paramname"><em>inValue</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns an array of booleans of element wise comparison the array and a scalar</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inValue</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
-
-</div>
-</div>
 <a id="a7f16311f0f40732c3d752e21d458f650"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f16311f0f40732c3d752e21d458f650">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f16311f0f40732c3d752e21d458f650">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4611,6 +4606,42 @@ template&lt;typename dtype&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inOtherArray</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="ad964b305a18868ac79eddf5a14dc6eda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad964b305a18868ac79eddf5a14dc6eda">&#9670;&nbsp;</a></span>operator&lt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;bool&gt; <a class="el" href="classnc_1_1_nd_array.html">nc::NdArray</a>&lt; dtype &gt;::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">dtype&#160;</td>
+          <td class="paramname"><em>inValue</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns an array of booleans of element wise comparison the array and a scalar</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inValue</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -7216,7 +7247,7 @@ template&lt;typename dtype&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Write array to a file as text or binary (default).. The data produced by this method can be recovered using the function <a class="el" href="namespacenc.html#af884ea4beb54b9a18bc116fe40ec4b7b">fromfile()</a>.</p>
+<p>Write array to a file as text or binary (default).. The data produced by this method can be recovered using the function <a class="el" href="namespacenc.html#ae299ba41f67aeade5634e93fd8b417c9">fromfile()</a>.</p>
 <p>Numpy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html">https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.tofile.html</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

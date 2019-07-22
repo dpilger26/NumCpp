@@ -2,192 +2,3062 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="_constants_8hpp" kind="file" language="C++">
     <compoundname>Constants.hpp</compoundname>
-    <includes refid="_types_8hpp" local="yes">NumCpp/Types.hpp</includes>
     <includes local="no">cmath</includes>
     <includes local="no">limits</includes>
     <includes local="no">string</includes>
-    <includedby refid="_num_cpp_8hpp" local="yes">NumCpp.hpp</includedby>
-    <includedby refid="_methods_8hpp" local="yes">Methods.hpp</includedby>
+    <includedby refid="_core_8hpp" local="yes">Core.hpp</includedby>
+    <includedby refid="deg2rad_8hpp" local="yes">deg2rad.hpp</includedby>
+    <includedby refid="nans_8hpp" local="yes">nans.hpp</includedby>
+    <includedby refid="rad2deg_8hpp" local="yes">rad2deg.hpp</includedby>
     <includedby refid="_nd_array_8hpp" local="yes">NdArray.hpp</includedby>
     <incdepgraph>
-      <node id="19">
-        <label>NumCpp/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="20" relation="include">
-        </childnode>
-      </node>
-      <node id="22">
+      <node id="2716">
         <label>limits</label>
       </node>
-      <node id="20">
-        <label>cstdint</label>
-      </node>
-      <node id="21">
+      <node id="2715">
         <label>cmath</label>
       </node>
-      <node id="23">
+      <node id="2717">
         <label>string</label>
       </node>
-      <node id="18">
+      <node id="2714">
         <label>Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="19" relation="include">
+        <childnode refid="2715" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="2716" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="2717" relation="include">
         </childnode>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="26">
-        <label>Methods.hpp</label>
-        <link refid="_methods_8hpp"/>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
+      <node id="2900">
+        <label>log1p.hpp</label>
+        <link refid="log1p_8hpp"/>
+        <childnode refid="2729" relation="include">
         </childnode>
       </node>
-      <node id="31">
-        <label>Rotations.hpp</label>
-        <link refid="_rotations_8hpp"/>
-        <childnode refid="25" relation="include">
+      <node id="3024">
+        <label>negativeBinomial.hpp</label>
+        <link refid="negative_binomial_8hpp"/>
+        <childnode refid="3010" relation="include">
         </childnode>
       </node>
-      <node id="28">
-        <label>Filter.hpp</label>
-        <link refid="_filter_8hpp"/>
-        <childnode refid="25" relation="include">
+      <node id="3052">
+        <label>bessel_yn_prime.hpp</label>
+        <link refid="bessel__yn__prime_8hpp"/>
+        <childnode refid="2850" relation="include">
         </childnode>
       </node>
-      <node id="29">
-        <label>ImageProcessing.hpp</label>
-        <link refid="_image_processing_8hpp"/>
-        <childnode refid="25" relation="include">
+      <node id="2988">
+        <label>centroidClusters.hpp</label>
+        <link refid="centroid_clusters_8hpp"/>
+        <childnode refid="2985" relation="include">
+        </childnode>
+        <childnode refid="2986" relation="include">
         </childnode>
       </node>
-      <node id="36">
-        <label>Polynomial.hpp</label>
-        <link refid="_polynomial_8hpp"/>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
+      <node id="2919">
+        <label>mod.hpp</label>
+        <link refid="mod_8hpp"/>
+        <childnode refid="2729" relation="include">
         </childnode>
       </node>
-      <node id="37">
-        <label>PythonInterface.hpp</label>
-        <link refid="_python_interface_8hpp"/>
-        <childnode refid="25" relation="include">
+      <node id="2776">
+        <label>amin.hpp</label>
+        <link refid="amin_8hpp"/>
+        <childnode refid="2729" relation="include">
         </childnode>
       </node>
-      <node id="24">
-        <label>Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
+      <node id="2858">
+        <label>flatten.hpp</label>
+        <link refid="flatten_8hpp"/>
+        <childnode refid="2729" relation="include">
         </childnode>
       </node>
-      <node id="30">
-        <label>Linalg.hpp</label>
-        <link refid="_linalg_8hpp"/>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-      </node>
-      <node id="34">
-        <label>DataCube.hpp</label>
-        <link refid="_data_cube_8hpp"/>
-        <childnode refid="25" relation="include">
-        </childnode>
-      </node>
-      <node id="33">
-        <label>NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
-        </childnode>
-        <childnode refid="40" relation="include">
-        </childnode>
-      </node>
-      <node id="35">
-        <label>FFT.hpp</label>
-        <link refid="_f_f_t_8hpp"/>
-        <childnode refid="25" relation="include">
-        </childnode>
-      </node>
-      <node id="27">
-        <label>Coordinates.hpp</label>
-        <link refid="_coordinates_8hpp"/>
-        <childnode refid="25" relation="include">
-        </childnode>
-      </node>
-      <node id="40">
-        <label>Vec3.hpp</label>
-        <link refid="_vec3_8hpp"/>
-        <childnode refid="31" relation="include">
-        </childnode>
-        <childnode refid="39" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
+      <node id="2720">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="39">
+      <node id="2794">
+        <label>Rotations.hpp</label>
+        <link refid="_rotations_8hpp"/>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="2999">
+        <label>chebyshev_u.hpp</label>
+        <link refid="chebyshev__u_8hpp"/>
+        <childnode refid="2998" relation="include">
+        </childnode>
+      </node>
+      <node id="3045">
+        <label>bessel_in.hpp</label>
+        <link refid="bessel__in_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2880">
+        <label>greater_equal.hpp</label>
+        <link refid="greater__equal_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2774">
+        <label>all.hpp</label>
+        <link refid="all_8hpp"/>
+        <childnode refid="2771" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2797">
+        <label>nanpercentile.hpp</label>
+        <link refid="nanpercentile_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2970">
+        <label>tofile.hpp</label>
+        <link refid="tofile_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2989">
+        <label>ClusterMaker.hpp</label>
+        <link refid="_cluster_maker_8hpp"/>
+        <childnode refid="2990" relation="include">
+        </childnode>
+        <childnode refid="2986" relation="include">
+        </childnode>
+      </node>
+      <node id="2792">
+        <label>Quaternion.hpp</label>
+        <link refid="_quaternion_8hpp"/>
+        <childnode refid="2793" relation="include">
+        </childnode>
+        <childnode refid="2794" relation="include">
+        </childnode>
+      </node>
+      <node id="2998">
+        <label>Polynomial.hpp</label>
+        <link refid="_polynomial_8hpp"/>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="3013">
+        <label>cauchy.hpp</label>
+        <link refid="cauchy_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2846">
+        <label>endianess.hpp</label>
+        <link refid="endianess_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2780">
+        <label>applyPoly1d.hpp</label>
+        <link refid="apply_poly1d_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2959">
+        <label>sinh.hpp</label>
+        <link refid="sinh_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3070">
+        <label>trigamma.hpp</label>
+        <link refid="trigamma_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2788">
+        <label>arctan2.hpp</label>
+        <link refid="arctan2_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2748">
+        <label>nearest1d.hpp</label>
+        <link refid="nearest1d_8hpp"/>
+        <childnode refid="2735" relation="include">
+        </childnode>
+      </node>
+      <node id="2772">
+        <label>add.hpp</label>
+        <link refid="add_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2997">
+        <label>chebyshev_t.hpp</label>
+        <link refid="chebyshev__t_8hpp"/>
+        <childnode refid="2998" relation="include">
+        </childnode>
+      </node>
+      <node id="2791">
+        <label>nanargmax.hpp</label>
+        <link refid="nanargmax_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2977">
+        <label>trunc.hpp</label>
+        <link refid="trunc_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2885">
+        <label>identity.hpp</label>
+        <link refid="identity_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+        <childnode refid="2841" relation="include">
+        </childnode>
+      </node>
+      <node id="2949">
+        <label>roll.hpp</label>
+        <link refid="roll_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2781">
+        <label>arange.hpp</label>
+        <link refid="arange_8hpp"/>
+        <childnode refid="2782" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3060">
+        <label>factorial.hpp</label>
+        <link refid="factorial_8hpp"/>
+        <childnode refid="3054" relation="include">
+        </childnode>
+        <childnode refid="3061" relation="include">
+        </childnode>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="3053">
+        <label>beta.hpp</label>
+        <link refid="_special_2beta_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="3068">
+        <label>spherical_bessel_jn.hpp</label>
+        <link refid="spherical__bessel__jn_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2967">
+        <label>tan.hpp</label>
+        <link refid="tan_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2864">
+        <label>floor_divide.hpp</label>
+        <link refid="floor__divide_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3042">
+        <label>airy_bi.hpp</label>
+        <link refid="airy__bi_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2950">
+        <label>round.hpp</label>
+        <link refid="round_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+        <childnode refid="2793" relation="include">
+        </childnode>
+      </node>
+      <node id="2972">
+        <label>trace.hpp</label>
+        <link refid="trace_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2829">
+        <label>cumprod.hpp</label>
+        <link refid="cumprod_8hpp"/>
+        <childnode refid="2830" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2906">
+        <label>matmul.hpp</label>
+        <link refid="matmul_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2898">
+        <label>log.hpp</label>
+        <link refid="log_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2884">
         <label>Vector.hpp</label>
         <link refid="_vector_8hpp"/>
-        <childnode refid="25" relation="include">
+        <childnode refid="2720" relation="include">
         </childnode>
       </node>
-      <node id="38">
-        <label>Vec2.hpp</label>
-        <link refid="_vec2_8hpp"/>
-        <childnode refid="39" relation="include">
+      <node id="2726">
+        <label>Dec.hpp</label>
+        <link refid="_dec_8hpp"/>
+        <childnode refid="2722" relation="include">
+        </childnode>
+        <childnode refid="2724" relation="include">
         </childnode>
       </node>
-      <node id="32">
+      <node id="2768">
+        <label>reflect2d.hpp</label>
+        <link refid="reflect2d_8hpp"/>
+        <childnode refid="2752" relation="include">
+        </childnode>
+      </node>
+      <node id="3047">
+        <label>bessel_jn.hpp</label>
+        <link refid="bessel__jn_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2929">
+        <label>not_equal.hpp</label>
+        <link refid="not__equal_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2752">
+        <label>addBoundary2d.hpp</label>
+        <link refid="add_boundary2d_8hpp"/>
+        <childnode refid="2753" relation="include">
+        </childnode>
+        <childnode refid="2756" relation="include">
+        </childnode>
+        <childnode refid="2757" relation="include">
+        </childnode>
+        <childnode refid="2759" relation="include">
+        </childnode>
+        <childnode refid="2760" relation="include">
+        </childnode>
+        <childnode refid="2761" relation="include">
+        </childnode>
+        <childnode refid="2762" relation="include">
+        </childnode>
+      </node>
+      <node id="2862">
+        <label>flipud.hpp</label>
+        <link refid="flipud_8hpp"/>
+        <childnode refid="2767" relation="include">
+        </childnode>
+        <childnode refid="2768" relation="include">
+        </childnode>
+        <childnode refid="2861" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2861">
+        <label>rot90.hpp</label>
+        <link refid="rot90_8hpp"/>
+        <childnode refid="2753" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2804">
+        <label>asarray.hpp</label>
+        <link refid="asarray_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2980">
+        <label>unwrap.hpp</label>
+        <link refid="unwrap_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2903">
+        <label>logical_not.hpp</label>
+        <link refid="logical__not_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2995">
+        <label>lstsq.hpp</label>
+        <link refid="lstsq_8hpp"/>
+        <childnode refid="2836" relation="include">
+        </childnode>
+      </node>
+      <node id="3067">
+        <label>riemann_zeta.hpp</label>
+        <link refid="riemann__zeta_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2853">
+        <label>eye.hpp</label>
+        <link refid="eye_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3059">
+        <label>erfc_inv.hpp</label>
+        <link refid="erfc__inv_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2942">
+        <label>repeat.hpp</label>
+        <link refid="repeat_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2905">
+        <label>logical_xor.hpp</label>
+        <link refid="logical__xor_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2943">
+        <label>reshape.hpp</label>
+        <link refid="reshape_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2836">
+        <label>Linalg.hpp</label>
+        <link refid="_linalg_8hpp"/>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="2907">
+        <label>max.hpp</label>
+        <link refid="max_8hpp"/>
+        <childnode refid="2908" relation="include">
+        </childnode>
+        <childnode refid="2909" relation="include">
+        </childnode>
+        <childnode refid="2912" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3033">
+        <label>randInt.hpp</label>
+        <link refid="rand_int_8hpp"/>
+        <childnode refid="3015" relation="include">
+        </childnode>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2987">
+        <label>Centroid.hpp</label>
+        <link refid="_centroid_8hpp"/>
+        <childnode refid="2988" relation="include">
+        </childnode>
+        <childnode refid="2986" relation="include">
+        </childnode>
+      </node>
+      <node id="2896">
+        <label>less_equal.hpp</label>
+        <link refid="less__equal_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2976">
+        <label>trim_zeros.hpp</label>
+        <link refid="trim__zeros_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2924">
+        <label>nbytes.hpp</label>
+        <link refid="nbytes_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2852">
+        <label>expm1.hpp</label>
+        <link refid="expm1_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2777">
+        <label>any.hpp</label>
+        <link refid="any_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3004">
+        <label>Poly1d.hpp</label>
+        <link refid="_poly1d_8hpp"/>
+        <childnode refid="2780" relation="include">
+        </childnode>
+        <childnode refid="2998" relation="include">
+        </childnode>
+      </node>
+      <node id="2759">
+        <label>minimumFilter.hpp</label>
+        <link refid="minimum_filter_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2869">
+        <label>fromFile.hpp</label>
+        <link refid="from_file_8hpp"/>
+        <childnode refid="2870" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3040">
+        <label>airy_ai.hpp</label>
+        <link refid="airy__ai_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2978">
+        <label>union1d.hpp</label>
+        <link refid="union1d_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2947">
+        <label>rint.hpp</label>
+        <link refid="rint_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3007">
+        <label>PythonInterface.hpp</label>
+        <link refid="_python_interface_8hpp"/>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="2895">
+        <label>less.hpp</label>
+        <link refid="less_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2888">
+        <label>invert.hpp</label>
+        <link refid="invert_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2901">
+        <label>log2.hpp</label>
+        <link refid="log2_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2911">
+        <label>nanvar.hpp</label>
+        <link refid="nanvar_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2789">
+        <label>arctanh.hpp</label>
+        <link refid="arctanh_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2830">
+        <label>nancumprod.hpp</label>
+        <link refid="nancumprod_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2894">
+        <label>left_shift.hpp</label>
+        <link refid="left__shift_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2802">
+        <label>array_equal.hpp</label>
+        <link refid="array__equal_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2741">
+        <label>complementaryMedianFilter1d.hpp</label>
+        <link refid="complementary_median_filter1d_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2844">
+        <label>empty.hpp</label>
+        <link refid="empty_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2737">
+        <label>gaussianFilter1d.hpp</label>
+        <link refid="gaussian_filter1d_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2931">
+        <label>pad.hpp</label>
+        <link refid="pad_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3027">
+        <label>standardNormal.hpp</label>
+        <link refid="standard_normal_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2974">
+        <label>trapz.hpp</label>
+        <link refid="trapz_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2873">
+        <label>full_like.hpp</label>
+        <link refid="full__like_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2871">
+        <label>fromiter.hpp</label>
+        <link refid="fromiter_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2834">
+        <label>diagFlat.hpp</label>
+        <link refid="diag_flat_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+        <childnode refid="2835" relation="include">
+        </childnode>
+      </node>
+      <node id="2719">
+        <label>Core.hpp</label>
+        <link refid="_core_8hpp"/>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="2734">
+        <label>DataCube.hpp</label>
+        <link refid="_data_cube_8hpp"/>
+        <childnode refid="2719" relation="include">
+        </childnode>
+      </node>
+      <node id="2850">
+        <label>Special.hpp</label>
+        <link refid="_special_8hpp"/>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="2760">
+        <label>percentileFilter.hpp</label>
+        <link refid="percentile_filter_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2939">
+        <label>putmask.hpp</label>
+        <link refid="putmask_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2868">
+        <label>fromBuffer.hpp</label>
+        <link refid="from_buffer_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2855">
+        <label>find.hpp</label>
+        <link refid="find_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2913">
+        <label>maximum.hpp</label>
+        <link refid="maximum_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2805">
+        <label>astype.hpp</label>
+        <link refid="astype_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2915">
+        <label>median.hpp</label>
+        <link refid="median_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2872">
+        <label>full.hpp</label>
+        <link refid="full_8hpp"/>
+        <childnode refid="2873" relation="include">
+        </childnode>
+        <childnode refid="2730" relation="include">
+        </childnode>
+        <childnode refid="2874" relation="include">
+        </childnode>
+        <childnode refid="2875" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3046">
+        <label>bessel_in_prime.hpp</label>
+        <link refid="bessel__in__prime_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2810">
+        <label>bitwise_or.hpp</label>
+        <link refid="bitwise__or_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2993">
+        <label>det.hpp</label>
+        <link refid="det_8hpp"/>
+        <childnode refid="2836" relation="include">
+        </childnode>
+        <childnode refid="2793" relation="include">
+        </childnode>
+      </node>
+      <node id="2820">
+        <label>contains.hpp</label>
+        <link refid="contains_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2721">
+        <label>deg2rad.hpp</label>
+        <link refid="deg2rad_8hpp"/>
+        <childnode refid="2722" relation="include">
+        </childnode>
+        <childnode refid="2726" relation="include">
+        </childnode>
+        <childnode refid="2727" relation="include">
+        </childnode>
+        <childnode refid="2728" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2822">
+        <label>copySign.hpp</label>
+        <link refid="copy_sign_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2833">
+        <label>deleteIndices.hpp</label>
+        <link refid="delete_indices_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2782">
+        <label>meshgrid.hpp</label>
+        <link refid="meshgrid_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3051">
+        <label>bessel_yn.hpp</label>
+        <link refid="bessel__yn_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2958">
+        <label>sinc.hpp</label>
+        <link refid="sinc_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2799">
+        <label>argsort.hpp</label>
+        <link refid="argsort_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2893">
+        <label>ldexp.hpp</label>
+        <link refid="ldexp_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2730">
+        <label>nans.hpp</label>
+        <link refid="nans_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2902">
+        <label>logical_and.hpp</label>
+        <link refid="logical__and_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2814">
+        <label>ceil.hpp</label>
+        <link refid="ceil_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2886">
+        <label>interp.hpp</label>
+        <link refid="_functions_2interp_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2916">
+        <label>min.hpp</label>
+        <link refid="min_8hpp"/>
+        <childnode refid="2917" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2755">
+        <label>laplace.hpp</label>
+        <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2767">
+        <label>mirror2d.hpp</label>
+        <link refid="mirror2d_8hpp"/>
+        <childnode refid="2752" relation="include">
+        </childnode>
+      </node>
+      <node id="2940">
+        <label>reciprocal.hpp</label>
+        <link refid="reciprocal_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2879">
+        <label>greater.hpp</label>
+        <link refid="greater_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2962">
+        <label>sqrt.hpp</label>
+        <link refid="sqrt_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2835">
+        <label>svd.hpp</label>
+        <link refid="svd_8hpp"/>
+        <childnode refid="2836" relation="include">
+        </childnode>
+      </node>
+      <node id="2891">
+        <label>isnan.hpp</label>
+        <link refid="isnan_8hpp"/>
+        <childnode refid="2797" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3018">
+        <label>extremeValue.hpp</label>
+        <link refid="extreme_value_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2878">
+        <label>gradient.hpp</label>
+        <link refid="gradient_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3041">
+        <label>airy_ai_prime.hpp</label>
+        <link refid="airy__ai__prime_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2727">
+        <label>RA.hpp</label>
+        <link refid="_r_a_8hpp"/>
+        <childnode refid="2722" relation="include">
+        </childnode>
+        <childnode refid="2724" relation="include">
+        </childnode>
+      </node>
+      <node id="2922">
+        <label>nans_like.hpp</label>
+        <link refid="nans__like_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3057">
+        <label>erf_inv.hpp</label>
+        <link refid="erf__inv_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2817">
+        <label>concatenate.hpp</label>
+        <link refid="concatenate_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3049">
+        <label>bessel_kn.hpp</label>
+        <link refid="bessel__kn_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="3011">
+        <label>beta.hpp</label>
+        <link refid="_random_2beta_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2889">
+        <label>isclose.hpp</label>
+        <link refid="isclose_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3044">
+        <label>bernoulli.hpp</label>
+        <link refid="bernoulli_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2914">
+        <label>mean.hpp</label>
+        <link refid="mean_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2910">
+        <label>nanstdev.hpp</label>
+        <link refid="nanstdev_8hpp"/>
+        <childnode refid="2911" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2790">
+        <label>argmax.hpp</label>
+        <link refid="argmax_8hpp"/>
+        <childnode refid="2791" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+        <childnode refid="2792" relation="include">
+        </childnode>
+      </node>
+      <node id="2983">
+        <label>zeros_like.hpp</label>
+        <link refid="zeros__like_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2763">
+        <label>constant2d.hpp</label>
+        <link refid="constant2d_8hpp"/>
+        <childnode refid="2752" relation="include">
+        </childnode>
+      </node>
+      <node id="3050">
+        <label>bessel_kn_prime.hpp</label>
+        <link refid="bessel__kn__prime_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2926">
+        <label>newbyteorder.hpp</label>
+        <link refid="newbyteorder_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2921">
+        <label>nanprod.hpp</label>
+        <link refid="nanprod_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3005">
+        <label>spherical_harmonic.hpp</label>
+        <link refid="spherical__harmonic_8hpp"/>
+        <childnode refid="2998" relation="include">
+        </childnode>
+      </node>
+      <node id="2923">
+        <label>nansum.hpp</label>
+        <link refid="nansum_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2953">
+        <label>setdiff1d.hpp</label>
+        <link refid="setdiff1d_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2908">
+        <label>nanmax.hpp</label>
+        <link refid="nanmax_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2807">
+        <label>bincount.hpp</label>
+        <link refid="bincount_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2945">
+        <label>resizeSlow.hpp</label>
+        <link refid="resize_slow_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2738">
+        <label>Filter.hpp</label>
+        <link refid="_filter_8hpp"/>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="3056">
+        <label>erf.hpp</label>
+        <link refid="erf_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2793">
+        <label>DCM.hpp</label>
+        <link refid="_d_c_m_8hpp"/>
+        <childnode refid="2794" relation="include">
+        </childnode>
+      </node>
+      <node id="2758">
+        <label>complementaryMedianFilter.hpp</label>
+        <link refid="complementary_median_filter_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2795">
+        <label>argmin.hpp</label>
+        <link refid="argmin_8hpp"/>
+        <childnode refid="2796" relation="include">
+        </childnode>
+        <childnode refid="2797" relation="include">
+        </childnode>
+        <childnode refid="2798" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2770">
+        <label>abs.hpp</label>
+        <link refid="abs_8hpp"/>
+        <childnode refid="2771" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3039">
+        <label>weibull.hpp</label>
+        <link refid="weibull_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2870">
+        <label>load.hpp</label>
+        <link refid="load_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2787">
+        <label>arctan.hpp</label>
+        <link refid="arctan_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2857">
+        <label>flatnonzero.hpp</label>
+        <link refid="flatnonzero_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2936">
+        <label>prod.hpp</label>
+        <link refid="prod_8hpp"/>
+        <childnode refid="2921" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2856">
+        <label>fix.hpp</label>
+        <link refid="fix_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2917">
+        <label>nanmin.hpp</label>
+        <link refid="nanmin_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2961">
+        <label>sort.hpp</label>
+        <link refid="sort_8hpp"/>
+        <childnode refid="2744" relation="include">
+        </childnode>
+        <childnode refid="2761" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3029">
+        <label>poisson.hpp</label>
+        <link refid="poisson_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2718">
+        <label>Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="2719" relation="include">
+        </childnode>
+        <childnode refid="2721" relation="include">
+        </childnode>
+        <childnode refid="2730" relation="include">
+        </childnode>
+        <childnode refid="2731" relation="include">
+        </childnode>
+        <childnode refid="2733" relation="include">
+        </childnode>
+      </node>
+      <node id="2883">
+        <label>hat.hpp</label>
+        <link refid="hat_8hpp"/>
+        <childnode refid="2836" relation="include">
+        </childnode>
+        <childnode refid="2792" relation="include">
+        </childnode>
+      </node>
+      <node id="2771">
+        <label>allclose.hpp</label>
+        <link refid="allclose_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2860">
+        <label>fliplr.hpp</label>
+        <link refid="fliplr_8hpp"/>
+        <childnode refid="2747" relation="include">
+        </childnode>
+        <childnode refid="2749" relation="include">
+        </childnode>
+        <childnode refid="2736" relation="include">
+        </childnode>
+        <childnode refid="2861" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2994">
+        <label>inv.hpp</label>
+        <link refid="inv_8hpp"/>
+        <childnode refid="2836" relation="include">
+        </childnode>
+      </node>
+      <node id="2992">
+        <label>windowExceedances.hpp</label>
+        <link refid="window_exceedances_8hpp"/>
+        <childnode refid="2985" relation="include">
+        </childnode>
+        <childnode refid="2986" relation="include">
+        </childnode>
+      </node>
+      <node id="2930">
+        <label>ones_like.hpp</label>
+        <link refid="ones__like_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2874">
+        <label>ones.hpp</label>
+        <link refid="ones_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2773">
+        <label>alen.hpp</label>
+        <link refid="alen_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2806">
+        <label>average.hpp</label>
+        <link refid="average_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2735">
+        <label>addBoundary1d.hpp</label>
+        <link refid="add_boundary1d_8hpp"/>
+        <childnode refid="2736" relation="include">
+        </childnode>
+        <childnode refid="2739" relation="include">
+        </childnode>
+        <childnode refid="2740" relation="include">
+        </childnode>
+        <childnode refid="2742" relation="include">
+        </childnode>
+        <childnode refid="2743" relation="include">
+        </childnode>
+        <childnode refid="2744" relation="include">
+        </childnode>
+        <childnode refid="2745" relation="include">
+        </childnode>
+      </node>
+      <node id="3055">
+        <label>digamma.hpp</label>
+        <link refid="digamma_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2985">
+        <label>generateCentroids.hpp</label>
+        <link refid="generate_centroids_8hpp"/>
+        <childnode refid="2986" relation="include">
+        </childnode>
+      </node>
+      <node id="2757">
+        <label>medianFilter.hpp</label>
+        <link refid="median_filter_8hpp"/>
+        <childnode refid="2758" relation="include">
+        </childnode>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2837">
+        <label>diagnol.hpp</label>
+        <link refid="diagnol_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3028">
+        <label>permutation.hpp</label>
+        <link refid="permutation_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2982">
+        <label>where.hpp</label>
+        <link refid="where_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2784">
+        <label>arccosh.hpp</label>
+        <link refid="arccosh_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2971">
+        <label>toStlVector.hpp</label>
+        <link refid="to_stl_vector_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2739">
+        <label>maximumFilter1d.hpp</label>
+        <link refid="maximum_filter1d_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2996">
+        <label>SVDClass.hpp</label>
+        <link refid="_s_v_d_class_8hpp"/>
+        <childnode refid="2995" relation="include">
+        </childnode>
+        <childnode refid="2835" relation="include">
+        </childnode>
+      </node>
+      <node id="2809">
+        <label>bitwise_not.hpp</label>
+        <link refid="bitwise__not_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2808">
+        <label>bitwise_and.hpp</label>
+        <link refid="bitwise__and_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2876">
+        <label>histogram.hpp</label>
+        <link refid="histogram_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2948">
+        <label>rms.hpp</label>
+        <link refid="rms_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2831">
+        <label>cumsum.hpp</label>
+        <link refid="cumsum_8hpp"/>
+        <childnode refid="2832" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2821">
+        <label>copy.hpp</label>
+        <link refid="copy_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2783">
+        <label>arccos.hpp</label>
+        <link refid="arccos_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2801">
+        <label>around.hpp</label>
+        <link refid="around_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2778">
+        <label>append.hpp</label>
+        <link refid="append_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3010">
         <label>Random.hpp</label>
         <link refid="_random_8hpp"/>
-        <childnode refid="25" relation="include">
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="2813">
+        <label>cbrt.hpp</label>
+        <link refid="cbrt_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2745">
+        <label>uniformFilter1d.hpp</label>
+        <link refid="uniform_filter1d_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2743">
+        <label>percentileFilter1d.hpp</label>
+        <link refid="percentile_filter1d_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2897">
+        <label>linspace.hpp</label>
+        <link refid="linspace_8hpp"/>
+        <childnode refid="2876" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2824">
+        <label>cos.hpp</label>
+        <link refid="cos_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2841">
+        <label>matrix_power.hpp</label>
+        <link refid="matrix__power_8hpp"/>
+        <childnode refid="2836" relation="include">
+        </childnode>
+      </node>
+      <node id="2854">
+        <label>fillDiagnol.hpp</label>
+        <link refid="fill_diagnol_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3058">
+        <label>erfc.hpp</label>
+        <link refid="erfc_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2912">
+        <label>nanmedian.hpp</label>
+        <link refid="nanmedian_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2740">
+        <label>medianFilter1d.hpp</label>
+        <link refid="median_filter1d_8hpp"/>
+        <childnode refid="2741" relation="include">
+        </childnode>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="3034">
+        <label>randN.hpp</label>
+        <link refid="rand_n_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2979">
+        <label>unique.hpp</label>
+        <link refid="unique_8hpp"/>
+        <childnode refid="2833" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2938">
+        <label>put.hpp</label>
+        <link refid="put_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3006">
+        <label>BoostInterface.hpp</label>
+        <link refid="_boost_interface_8hpp"/>
+        <childnode refid="3007" relation="include">
+        </childnode>
+      </node>
+      <node id="2828">
+        <label>cube.hpp</label>
+        <link refid="_functions_2cube_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2725">
+        <label>radianSeperation.hpp</label>
+        <link refid="radian_seperation_8hpp"/>
+        <childnode refid="2724" relation="include">
+        </childnode>
+      </node>
+      <node id="2863">
+        <label>floor.hpp</label>
+        <link refid="floor_8hpp"/>
+        <childnode refid="2864" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3023">
+        <label>lognormal.hpp</label>
+        <link refid="lognormal_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2749">
+        <label>reflect1d.hpp</label>
+        <link refid="reflect1d_8hpp"/>
+        <childnode refid="2735" relation="include">
+        </childnode>
+      </node>
+      <node id="2779">
+        <label>applyFunction.hpp</label>
+        <link refid="apply_function_8hpp"/>
+        <childnode refid="2780" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2731">
+        <label>rad2deg.hpp</label>
+        <link refid="rad2deg_8hpp"/>
+        <childnode refid="2722" relation="include">
+        </childnode>
+        <childnode refid="2732" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3031">
+        <label>randFloat.hpp</label>
+        <link refid="rand_float_8hpp"/>
+        <childnode refid="3032" relation="include">
+        </childnode>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2800">
+        <label>argwhere.hpp</label>
+        <link refid="argwhere_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2732">
+        <label>degrees.hpp</label>
+        <link refid="degrees_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2733">
+        <label>NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="2722" relation="include">
+        </childnode>
+        <childnode refid="2723" relation="include">
+        </childnode>
+        <childnode refid="2725" relation="include">
+        </childnode>
+        <childnode refid="2734" relation="include">
+        </childnode>
+        <childnode refid="2735" relation="include">
+        </childnode>
+        <childnode refid="2746" relation="include">
+        </childnode>
+        <childnode refid="2747" relation="include">
+        </childnode>
+        <childnode refid="2748" relation="include">
+        </childnode>
+        <childnode refid="2749" relation="include">
+        </childnode>
+        <childnode refid="2750" relation="include">
+        </childnode>
+        <childnode refid="2751" relation="include">
+        </childnode>
+        <childnode refid="2752" relation="include">
+        </childnode>
+        <childnode refid="2763" relation="include">
+        </childnode>
+        <childnode refid="2764" relation="include">
+        </childnode>
+        <childnode refid="2767" relation="include">
+        </childnode>
+        <childnode refid="2765" relation="include">
+        </childnode>
+        <childnode refid="2768" relation="include">
+        </childnode>
+        <childnode refid="2769" relation="include">
+        </childnode>
+        <childnode refid="2766" relation="include">
+        </childnode>
+        <childnode refid="2741" relation="include">
+        </childnode>
+        <childnode refid="2736" relation="include">
+        </childnode>
+        <childnode refid="2737" relation="include">
+        </childnode>
+        <childnode refid="2739" relation="include">
+        </childnode>
+        <childnode refid="2740" relation="include">
+        </childnode>
+        <childnode refid="2742" relation="include">
+        </childnode>
+        <childnode refid="2743" relation="include">
+        </childnode>
+        <childnode refid="2744" relation="include">
+        </childnode>
+        <childnode refid="2745" relation="include">
+        </childnode>
+        <childnode refid="2758" relation="include">
+        </childnode>
+        <childnode refid="2753" relation="include">
+        </childnode>
+        <childnode refid="2754" relation="include">
+        </childnode>
+        <childnode refid="2755" relation="include">
+        </childnode>
+        <childnode refid="2756" relation="include">
+        </childnode>
+        <childnode refid="2757" relation="include">
+        </childnode>
+        <childnode refid="2759" relation="include">
+        </childnode>
+        <childnode refid="2760" relation="include">
+        </childnode>
+        <childnode refid="2761" relation="include">
+        </childnode>
+        <childnode refid="2762" relation="include">
+        </childnode>
+        <childnode refid="2770" relation="include">
+        </childnode>
+        <childnode refid="2772" relation="include">
+        </childnode>
+        <childnode refid="2773" relation="include">
+        </childnode>
+        <childnode refid="2774" relation="include">
+        </childnode>
+        <childnode refid="2771" relation="include">
+        </childnode>
+        <childnode refid="2775" relation="include">
+        </childnode>
+        <childnode refid="2776" relation="include">
+        </childnode>
+        <childnode refid="2777" relation="include">
+        </childnode>
+        <childnode refid="2778" relation="include">
+        </childnode>
+        <childnode refid="2779" relation="include">
+        </childnode>
+        <childnode refid="2780" relation="include">
+        </childnode>
+        <childnode refid="2781" relation="include">
+        </childnode>
+        <childnode refid="2783" relation="include">
+        </childnode>
+        <childnode refid="2784" relation="include">
+        </childnode>
+        <childnode refid="2785" relation="include">
+        </childnode>
+        <childnode refid="2786" relation="include">
+        </childnode>
+        <childnode refid="2787" relation="include">
+        </childnode>
+        <childnode refid="2788" relation="include">
+        </childnode>
+        <childnode refid="2789" relation="include">
+        </childnode>
+        <childnode refid="2790" relation="include">
+        </childnode>
+        <childnode refid="2795" relation="include">
+        </childnode>
+        <childnode refid="2799" relation="include">
+        </childnode>
+        <childnode refid="2800" relation="include">
+        </childnode>
+        <childnode refid="2801" relation="include">
+        </childnode>
+        <childnode refid="2802" relation="include">
+        </childnode>
+        <childnode refid="2803" relation="include">
+        </childnode>
+        <childnode refid="2804" relation="include">
+        </childnode>
+        <childnode refid="2805" relation="include">
+        </childnode>
+        <childnode refid="2806" relation="include">
+        </childnode>
+        <childnode refid="2807" relation="include">
+        </childnode>
+        <childnode refid="2808" relation="include">
+        </childnode>
+        <childnode refid="2809" relation="include">
+        </childnode>
+        <childnode refid="2810" relation="include">
+        </childnode>
+        <childnode refid="2811" relation="include">
+        </childnode>
+        <childnode refid="2812" relation="include">
+        </childnode>
+        <childnode refid="2813" relation="include">
+        </childnode>
+        <childnode refid="2814" relation="include">
+        </childnode>
+        <childnode refid="2815" relation="include">
+        </childnode>
+        <childnode refid="2816" relation="include">
+        </childnode>
+        <childnode refid="2820" relation="include">
+        </childnode>
+        <childnode refid="2821" relation="include">
+        </childnode>
+        <childnode refid="2822" relation="include">
+        </childnode>
+        <childnode refid="2823" relation="include">
+        </childnode>
+        <childnode refid="2824" relation="include">
+        </childnode>
+        <childnode refid="2825" relation="include">
+        </childnode>
+        <childnode refid="2826" relation="include">
+        </childnode>
+        <childnode refid="2827" relation="include">
+        </childnode>
+        <childnode refid="2828" relation="include">
+        </childnode>
+        <childnode refid="2829" relation="include">
+        </childnode>
+        <childnode refid="2831" relation="include">
+        </childnode>
+        <childnode refid="2721" relation="include">
+        </childnode>
+        <childnode refid="2732" relation="include">
+        </childnode>
+        <childnode refid="2833" relation="include">
+        </childnode>
+        <childnode refid="2834" relation="include">
+        </childnode>
+        <childnode refid="2837" relation="include">
+        </childnode>
+        <childnode refid="2838" relation="include">
+        </childnode>
+        <childnode refid="2839" relation="include">
+        </childnode>
+        <childnode refid="2840" relation="include">
+        </childnode>
+        <childnode refid="2843" relation="include">
+        </childnode>
+        <childnode refid="2844" relation="include">
+        </childnode>
+        <childnode refid="2845" relation="include">
+        </childnode>
+        <childnode refid="2846" relation="include">
+        </childnode>
+        <childnode refid="2847" relation="include">
+        </childnode>
+        <childnode refid="2848" relation="include">
+        </childnode>
+        <childnode refid="2851" relation="include">
+        </childnode>
+        <childnode refid="2852" relation="include">
+        </childnode>
+        <childnode refid="2853" relation="include">
+        </childnode>
+        <childnode refid="2854" relation="include">
+        </childnode>
+        <childnode refid="2855" relation="include">
+        </childnode>
+        <childnode refid="2856" relation="include">
+        </childnode>
+        <childnode refid="2857" relation="include">
+        </childnode>
+        <childnode refid="2858" relation="include">
+        </childnode>
+        <childnode refid="2859" relation="include">
+        </childnode>
+        <childnode refid="2860" relation="include">
+        </childnode>
+        <childnode refid="2862" relation="include">
+        </childnode>
+        <childnode refid="2863" relation="include">
+        </childnode>
+        <childnode refid="2864" relation="include">
+        </childnode>
+        <childnode refid="2865" relation="include">
+        </childnode>
+        <childnode refid="2866" relation="include">
+        </childnode>
+        <childnode refid="2867" relation="include">
+        </childnode>
+        <childnode refid="2868" relation="include">
+        </childnode>
+        <childnode refid="2869" relation="include">
+        </childnode>
+        <childnode refid="2871" relation="include">
+        </childnode>
+        <childnode refid="2872" relation="include">
+        </childnode>
+        <childnode refid="2873" relation="include">
+        </childnode>
+        <childnode refid="2877" relation="include">
+        </childnode>
+        <childnode refid="2878" relation="include">
+        </childnode>
+        <childnode refid="2879" relation="include">
+        </childnode>
+        <childnode refid="2880" relation="include">
+        </childnode>
+        <childnode refid="2876" relation="include">
+        </childnode>
+        <childnode refid="2818" relation="include">
+        </childnode>
+        <childnode refid="2881" relation="include">
+        </childnode>
+        <childnode refid="2885" relation="include">
+        </childnode>
+        <childnode refid="2886" relation="include">
+        </childnode>
+        <childnode refid="2887" relation="include">
+        </childnode>
+        <childnode refid="2888" relation="include">
+        </childnode>
+        <childnode refid="2889" relation="include">
+        </childnode>
+        <childnode refid="2890" relation="include">
+        </childnode>
+        <childnode refid="2891" relation="include">
+        </childnode>
+        <childnode refid="2892" relation="include">
+        </childnode>
+        <childnode refid="2893" relation="include">
+        </childnode>
+        <childnode refid="2894" relation="include">
+        </childnode>
+        <childnode refid="2895" relation="include">
+        </childnode>
+        <childnode refid="2896" relation="include">
+        </childnode>
+        <childnode refid="2897" relation="include">
+        </childnode>
+        <childnode refid="2870" relation="include">
+        </childnode>
+        <childnode refid="2898" relation="include">
+        </childnode>
+        <childnode refid="2899" relation="include">
+        </childnode>
+        <childnode refid="2900" relation="include">
+        </childnode>
+        <childnode refid="2901" relation="include">
+        </childnode>
+        <childnode refid="2902" relation="include">
+        </childnode>
+        <childnode refid="2903" relation="include">
+        </childnode>
+        <childnode refid="2904" relation="include">
+        </childnode>
+        <childnode refid="2905" relation="include">
+        </childnode>
+        <childnode refid="2906" relation="include">
+        </childnode>
+        <childnode refid="2907" relation="include">
+        </childnode>
+        <childnode refid="2913" relation="include">
+        </childnode>
+        <childnode refid="2914" relation="include">
+        </childnode>
+        <childnode refid="2915" relation="include">
+        </childnode>
+        <childnode refid="2782" relation="include">
+        </childnode>
+        <childnode refid="2916" relation="include">
+        </childnode>
+        <childnode refid="2918" relation="include">
+        </childnode>
+        <childnode refid="2919" relation="include">
+        </childnode>
+        <childnode refid="2920" relation="include">
+        </childnode>
+        <childnode refid="2791" relation="include">
+        </childnode>
+        <childnode refid="2796" relation="include">
+        </childnode>
+        <childnode refid="2830" relation="include">
+        </childnode>
+        <childnode refid="2832" relation="include">
+        </childnode>
+        <childnode refid="2908" relation="include">
+        </childnode>
+        <childnode refid="2909" relation="include">
+        </childnode>
+        <childnode refid="2912" relation="include">
+        </childnode>
+        <childnode refid="2917" relation="include">
+        </childnode>
+        <childnode refid="2797" relation="include">
+        </childnode>
+        <childnode refid="2921" relation="include">
+        </childnode>
+        <childnode refid="2730" relation="include">
+        </childnode>
+        <childnode refid="2922" relation="include">
+        </childnode>
+        <childnode refid="2910" relation="include">
+        </childnode>
+        <childnode refid="2923" relation="include">
+        </childnode>
+        <childnode refid="2911" relation="include">
+        </childnode>
+        <childnode refid="2924" relation="include">
+        </childnode>
+        <childnode refid="2925" relation="include">
+        </childnode>
+        <childnode refid="2926" relation="include">
+        </childnode>
+        <childnode refid="2927" relation="include">
+        </childnode>
+        <childnode refid="2928" relation="include">
+        </childnode>
+        <childnode refid="2929" relation="include">
+        </childnode>
+        <childnode refid="2874" relation="include">
+        </childnode>
+        <childnode refid="2930" relation="include">
+        </childnode>
+        <childnode refid="2931" relation="include">
+        </childnode>
+        <childnode refid="2932" relation="include">
+        </childnode>
+        <childnode refid="2798" relation="include">
+        </childnode>
+        <childnode refid="2933" relation="include">
+        </childnode>
+        <childnode refid="2934" relation="include">
+        </childnode>
+        <childnode refid="2935" relation="include">
+        </childnode>
+        <childnode refid="2936" relation="include">
+        </childnode>
+        <childnode refid="2937" relation="include">
+        </childnode>
+        <childnode refid="2938" relation="include">
+        </childnode>
+        <childnode refid="2939" relation="include">
+        </childnode>
+        <childnode refid="2731" relation="include">
+        </childnode>
+        <childnode refid="2728" relation="include">
+        </childnode>
+        <childnode refid="2940" relation="include">
+        </childnode>
+        <childnode refid="2941" relation="include">
+        </childnode>
+        <childnode refid="2942" relation="include">
+        </childnode>
+        <childnode refid="2943" relation="include">
+        </childnode>
+        <childnode refid="2944" relation="include">
+        </childnode>
+        <childnode refid="2945" relation="include">
+        </childnode>
+        <childnode refid="2946" relation="include">
+        </childnode>
+        <childnode refid="2947" relation="include">
+        </childnode>
+        <childnode refid="2948" relation="include">
+        </childnode>
+        <childnode refid="2949" relation="include">
+        </childnode>
+        <childnode refid="2861" relation="include">
+        </childnode>
+        <childnode refid="2950" relation="include">
+        </childnode>
+        <childnode refid="2951" relation="include">
+        </childnode>
+        <childnode refid="2953" relation="include">
+        </childnode>
+        <childnode refid="2954" relation="include">
+        </childnode>
+        <childnode refid="2955" relation="include">
+        </childnode>
+        <childnode refid="2956" relation="include">
+        </childnode>
+        <childnode refid="2957" relation="include">
+        </childnode>
+        <childnode refid="2958" relation="include">
+        </childnode>
+        <childnode refid="2959" relation="include">
+        </childnode>
+        <childnode refid="2960" relation="include">
+        </childnode>
+        <childnode refid="2961" relation="include">
+        </childnode>
+        <childnode refid="2962" relation="include">
+        </childnode>
+        <childnode refid="2963" relation="include">
+        </childnode>
+        <childnode refid="2819" relation="include">
+        </childnode>
+        <childnode refid="2964" relation="include">
+        </childnode>
+        <childnode refid="2965" relation="include">
+        </childnode>
+        <childnode refid="2966" relation="include">
+        </childnode>
+        <childnode refid="2967" relation="include">
+        </childnode>
+        <childnode refid="2968" relation="include">
+        </childnode>
+        <childnode refid="2969" relation="include">
+        </childnode>
+        <childnode refid="2970" relation="include">
+        </childnode>
+        <childnode refid="2971" relation="include">
+        </childnode>
+        <childnode refid="2972" relation="include">
+        </childnode>
+        <childnode refid="2973" relation="include">
+        </childnode>
+        <childnode refid="2974" relation="include">
+        </childnode>
+        <childnode refid="2975" relation="include">
+        </childnode>
+        <childnode refid="2976" relation="include">
+        </childnode>
+        <childnode refid="2977" relation="include">
+        </childnode>
+        <childnode refid="2978" relation="include">
+        </childnode>
+        <childnode refid="2979" relation="include">
+        </childnode>
+        <childnode refid="2980" relation="include">
+        </childnode>
+        <childnode refid="2981" relation="include">
+        </childnode>
+        <childnode refid="2952" relation="include">
+        </childnode>
+        <childnode refid="2982" relation="include">
+        </childnode>
+        <childnode refid="2875" relation="include">
+        </childnode>
+        <childnode refid="2983" relation="include">
+        </childnode>
+        <childnode refid="2984" relation="include">
+        </childnode>
+        <childnode refid="2987" relation="include">
+        </childnode>
+        <childnode refid="2989" relation="include">
+        </childnode>
+        <childnode refid="2990" relation="include">
+        </childnode>
+        <childnode refid="2985" relation="include">
+        </childnode>
+        <childnode refid="2991" relation="include">
+        </childnode>
+        <childnode refid="2992" relation="include">
+        </childnode>
+        <childnode refid="2993" relation="include">
+        </childnode>
+        <childnode refid="2883" relation="include">
+        </childnode>
+        <childnode refid="2994" relation="include">
+        </childnode>
+        <childnode refid="2995" relation="include">
+        </childnode>
+        <childnode refid="2841" relation="include">
+        </childnode>
+        <childnode refid="2842" relation="include">
+        </childnode>
+        <childnode refid="2996" relation="include">
+        </childnode>
+        <childnode refid="2835" relation="include">
+        </childnode>
+        <childnode refid="2997" relation="include">
+        </childnode>
+        <childnode refid="2999" relation="include">
+        </childnode>
+        <childnode refid="3000" relation="include">
+        </childnode>
+        <childnode refid="3001" relation="include">
+        </childnode>
+        <childnode refid="3002" relation="include">
+        </childnode>
+        <childnode refid="3003" relation="include">
+        </childnode>
+        <childnode refid="3004" relation="include">
+        </childnode>
+        <childnode refid="3005" relation="include">
+        </childnode>
+        <childnode refid="3006" relation="include">
+        </childnode>
+        <childnode refid="3008" relation="include">
+        </childnode>
+        <childnode refid="3009" relation="include">
+        </childnode>
+        <childnode refid="3011" relation="include">
+        </childnode>
+        <childnode refid="3012" relation="include">
+        </childnode>
+        <childnode refid="3013" relation="include">
+        </childnode>
+        <childnode refid="3014" relation="include">
+        </childnode>
+        <childnode refid="3015" relation="include">
+        </childnode>
+        <childnode refid="3016" relation="include">
+        </childnode>
+        <childnode refid="3017" relation="include">
+        </childnode>
+        <childnode refid="3018" relation="include">
+        </childnode>
+        <childnode refid="3019" relation="include">
+        </childnode>
+        <childnode refid="3020" relation="include">
+        </childnode>
+        <childnode refid="3021" relation="include">
+        </childnode>
+        <childnode refid="3022" relation="include">
+        </childnode>
+        <childnode refid="3023" relation="include">
+        </childnode>
+        <childnode refid="3024" relation="include">
+        </childnode>
+        <childnode refid="3025" relation="include">
+        </childnode>
+        <childnode refid="3026" relation="include">
+        </childnode>
+        <childnode refid="3028" relation="include">
+        </childnode>
+        <childnode refid="3029" relation="include">
+        </childnode>
+        <childnode refid="3030" relation="include">
+        </childnode>
+        <childnode refid="3031" relation="include">
+        </childnode>
+        <childnode refid="3033" relation="include">
+        </childnode>
+        <childnode refid="3034" relation="include">
+        </childnode>
+        <childnode refid="3035" relation="include">
+        </childnode>
+        <childnode refid="3027" relation="include">
+        </childnode>
+        <childnode refid="3036" relation="include">
+        </childnode>
+        <childnode refid="3037" relation="include">
+        </childnode>
+        <childnode refid="3038" relation="include">
+        </childnode>
+        <childnode refid="3039" relation="include">
+        </childnode>
+        <childnode refid="2793" relation="include">
+        </childnode>
+        <childnode refid="2792" relation="include">
+        </childnode>
+        <childnode refid="3040" relation="include">
+        </childnode>
+        <childnode refid="3041" relation="include">
+        </childnode>
+        <childnode refid="3042" relation="include">
+        </childnode>
+        <childnode refid="3043" relation="include">
+        </childnode>
+        <childnode refid="3044" relation="include">
+        </childnode>
+        <childnode refid="3045" relation="include">
+        </childnode>
+        <childnode refid="3046" relation="include">
+        </childnode>
+        <childnode refid="3047" relation="include">
+        </childnode>
+        <childnode refid="3048" relation="include">
+        </childnode>
+        <childnode refid="3049" relation="include">
+        </childnode>
+        <childnode refid="3050" relation="include">
+        </childnode>
+        <childnode refid="3051" relation="include">
+        </childnode>
+        <childnode refid="3052" relation="include">
+        </childnode>
+        <childnode refid="3053" relation="include">
+        </childnode>
+        <childnode refid="3054" relation="include">
+        </childnode>
+        <childnode refid="3055" relation="include">
+        </childnode>
+        <childnode refid="3056" relation="include">
+        </childnode>
+        <childnode refid="3057" relation="include">
+        </childnode>
+        <childnode refid="3058" relation="include">
+        </childnode>
+        <childnode refid="3059" relation="include">
+        </childnode>
+        <childnode refid="3060" relation="include">
+        </childnode>
+        <childnode refid="3062" relation="include">
+        </childnode>
+        <childnode refid="3063" relation="include">
+        </childnode>
+        <childnode refid="3064" relation="include">
+        </childnode>
+        <childnode refid="3061" relation="include">
+        </childnode>
+        <childnode refid="3065" relation="include">
+        </childnode>
+        <childnode refid="3066" relation="include">
+        </childnode>
+        <childnode refid="3067" relation="include">
+        </childnode>
+        <childnode refid="2849" relation="include">
+        </childnode>
+        <childnode refid="3068" relation="include">
+        </childnode>
+        <childnode refid="3069" relation="include">
+        </childnode>
+        <childnode refid="3070" relation="include">
+        </childnode>
+        <childnode refid="3071" relation="include">
+        </childnode>
+        <childnode refid="2882" relation="include">
+        </childnode>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="2984">
+        <label>applyThreshold.hpp</label>
+        <link refid="apply_threshold_8hpp"/>
+        <childnode refid="2985" relation="include">
+        </childnode>
+        <childnode refid="2986" relation="include">
+        </childnode>
+      </node>
+      <node id="2937">
+        <label>ptp.hpp</label>
+        <link refid="ptp_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2991">
+        <label>generateThreshold.hpp</label>
+        <link refid="generate_threshold_8hpp"/>
+        <childnode refid="2985" relation="include">
+        </childnode>
+        <childnode refid="2986" relation="include">
+        </childnode>
+      </node>
+      <node id="2968">
+        <label>tanh.hpp</label>
+        <link refid="tanh_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3015">
+        <label>choice.hpp</label>
+        <link refid="choice_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="3022">
+        <label>laplace.hpp</label>
+        <link refid="_random_2laplace_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2812">
+        <label>byteswap.hpp</label>
+        <link refid="byteswap_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2823">
+        <label>copyto.hpp</label>
+        <link refid="copyto_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2819">
+        <label>stack.hpp</label>
+        <link refid="stack_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2769">
+        <label>trimBoundary2d.hpp</label>
+        <link refid="trim_boundary2d_8hpp"/>
+      </node>
+      <node id="2723">
+        <label>degreeSeperation.hpp</label>
+        <link refid="degree_seperation_8hpp"/>
+        <childnode refid="2724" relation="include">
+        </childnode>
+      </node>
+      <node id="2756">
+        <label>maximumFilter.hpp</label>
+        <link refid="maximum_filter_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2925">
+        <label>negative.hpp</label>
+        <link refid="negative_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2766">
+        <label>wrap2d.hpp</label>
+        <link refid="wrap2d_8hpp"/>
+        <childnode refid="2752" relation="include">
+        </childnode>
+      </node>
+      <node id="2890">
+        <label>isinf.hpp</label>
+        <link refid="isinf_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3064">
+        <label>log_gamma.hpp</label>
+        <link refid="log__gamma_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2975">
+        <label>tri.hpp</label>
+        <link refid="tri_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2899">
+        <label>log10.hpp</label>
+        <link refid="log10_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3071">
+        <label>Vec2.hpp</label>
+        <link refid="_vec2_8hpp"/>
+        <childnode refid="2884" relation="include">
+        </childnode>
+      </node>
+      <node id="2729">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="2762">
+        <label>uniformFilter.hpp</label>
+        <link refid="uniform_filter_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="3009">
+        <label>bernoilli.hpp</label>
+        <link refid="bernoilli_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2724">
+        <label>Coordinates.hpp</label>
+        <link refid="_coordinates_8hpp"/>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="2754">
+        <label>gaussianFilter.hpp</label>
+        <link refid="gaussian_filter_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2798">
+        <label>percentile.hpp</label>
+        <link refid="percentile_8hpp"/>
+        <childnode refid="2743" relation="include">
+        </childnode>
+        <childnode refid="2760" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2832">
+        <label>nancumsum.hpp</label>
+        <link refid="nancumsum_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2728">
+        <label>radians.hpp</label>
+        <link refid="radians_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2904">
+        <label>logical_or.hpp</label>
+        <link refid="logical__or_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2815">
+        <label>clip.hpp</label>
+        <link refid="clip_8hpp"/>
+        <childnode refid="2797" relation="include">
+        </childnode>
+        <childnode refid="2798" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+        <childnode refid="2792" relation="include">
+        </childnode>
+      </node>
+      <node id="3066">
+        <label>prime.hpp</label>
+        <link refid="prime_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2986">
+        <label>ImageProcessing.hpp</label>
+        <link refid="_image_processing_8hpp"/>
+        <childnode refid="2720" relation="include">
+        </childnode>
+      </node>
+      <node id="2845">
+        <label>empty_like.hpp</label>
+        <link refid="empty__like_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3032">
+        <label>uniform.hpp</label>
+        <link refid="uniform_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2928">
+        <label>norm.hpp</label>
+        <link refid="norm_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2887">
+        <label>intersect1d.hpp</label>
+        <link refid="intersect1d_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2951">
+        <label>row_stack.hpp</label>
+        <link refid="row__stack_8hpp"/>
+        <childnode refid="2817" relation="include">
+        </childnode>
+        <childnode refid="2819" relation="include">
+        </childnode>
+        <childnode refid="2952" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2747">
+        <label>mirror1d.hpp</label>
+        <link refid="mirror1d_8hpp"/>
+        <childnode refid="2735" relation="include">
+        </childnode>
+      </node>
+      <node id="3026">
+        <label>normal.hpp</label>
+        <link refid="normal_8hpp"/>
+        <childnode refid="3027" relation="include">
+        </childnode>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2882">
+        <label>Vec3.hpp</label>
+        <link refid="_vec3_8hpp"/>
+        <childnode refid="2883" relation="include">
+        </childnode>
+        <childnode refid="2793" relation="include">
+        </childnode>
+        <childnode refid="2792" relation="include">
+        </childnode>
+        <childnode refid="2884" relation="include">
+        </childnode>
+      </node>
+      <node id="3012">
+        <label>binomial.hpp</label>
+        <link refid="binomial_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2909">
+        <label>nanmean.hpp</label>
+        <link refid="nanmean_8hpp"/>
+        <childnode refid="2910" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2761">
+        <label>rankFilter.hpp</label>
+        <link refid="rank_filter_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2981">
+        <label>var.hpp</label>
+        <link refid="var_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3019">
+        <label>f.hpp</label>
+        <link refid="f_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2963">
+        <label>square.hpp</label>
+        <link refid="square_8hpp"/>
+        <childnode refid="2911" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+        <childnode refid="2792" relation="include">
+        </childnode>
+      </node>
+      <node id="2851">
+        <label>exp2.hpp</label>
+        <link refid="exp2_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2843">
+        <label>dump.hpp</label>
+        <link refid="dump_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3020">
+        <label>gamma.hpp</label>
+        <link refid="_random_2gamma_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2859">
+        <label>flip.hpp</label>
+        <link refid="flip_8hpp"/>
+        <childnode refid="2860" relation="include">
+        </childnode>
+        <childnode refid="2862" relation="include">
+        </childnode>
+        <childnode refid="2861" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3014">
+        <label>chiSquare.hpp</label>
+        <link refid="chi_square_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2786">
+        <label>arcsinh.hpp</label>
+        <link refid="arcsinh_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2722">
+        <label>Coordinate.hpp</label>
+        <link refid="_coordinate_8hpp"/>
+        <childnode refid="2723" relation="include">
+        </childnode>
+        <childnode refid="2725" relation="include">
+        </childnode>
+        <childnode refid="2724" relation="include">
+        </childnode>
+      </node>
+      <node id="3016">
+        <label>discrete.hpp</label>
+        <link refid="discrete_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2965">
+        <label>sum.hpp</label>
+        <link refid="sum_8hpp"/>
+        <childnode refid="2923" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3002">
+        <label>legendre_p.hpp</label>
+        <link refid="legendre__p_8hpp"/>
+        <childnode refid="2998" relation="include">
+        </childnode>
+      </node>
+      <node id="2818">
+        <label>hstack.hpp</label>
+        <link refid="hstack_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3065">
+        <label>polygamma.hpp</label>
+        <link refid="polygamma_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2865">
+        <label>fmax.hpp</label>
+        <link refid="fmax_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2826">
+        <label>count_nonzero.hpp</label>
+        <link refid="count__nonzero_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3001">
+        <label>laguerre.hpp</label>
+        <link refid="laguerre_8hpp"/>
+        <childnode refid="2998" relation="include">
+        </childnode>
+      </node>
+      <node id="3000">
+        <label>hermite.hpp</label>
+        <link refid="hermite_8hpp"/>
+        <childnode refid="2998" relation="include">
+        </childnode>
+      </node>
+      <node id="2969">
+        <label>tile.hpp</label>
+        <link refid="tile_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2892">
+        <label>lcm.hpp</label>
+        <link refid="lcm_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2927">
+        <label>nonzero.hpp</label>
+        <link refid="nonzero_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2955">
+        <label>sign.hpp</label>
+        <link refid="sign_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2920">
+        <label>multiply.hpp</label>
+        <link refid="multiply_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2825">
+        <label>cosh.hpp</label>
+        <link refid="cosh_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2934">
+        <label>powerf.hpp</label>
+        <link refid="_functions_2powerf_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2744">
+        <label>rankFilter1d.hpp</label>
+        <link refid="rank_filter1d_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="3003">
+        <label>legendre_q.hpp</label>
+        <link refid="legendre__q_8hpp"/>
+        <childnode refid="2998" relation="include">
+        </childnode>
+      </node>
+      <node id="3043">
+        <label>airy_bi_prime.hpp</label>
+        <link refid="airy__bi__prime_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2973">
+        <label>transpose.hpp</label>
+        <link refid="transpose_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3021">
+        <label>geometric.hpp</label>
+        <link refid="geometric_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2990">
+        <label>clusterPixels.hpp</label>
+        <link refid="cluster_pixels_8hpp"/>
+        <childnode refid="2985" relation="include">
+        </childnode>
+        <childnode refid="2986" relation="include">
+        </childnode>
+      </node>
+      <node id="2847">
+        <label>equal.hpp</label>
+        <link refid="equal_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3054">
+        <label>cnr.hpp</label>
+        <link refid="cnr_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2964">
+        <label>stdev.hpp</label>
+        <link refid="stdev_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3035">
+        <label>shuffle.hpp</label>
+        <link refid="shuffle_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2840">
+        <label>dot.hpp</label>
+        <link refid="dot_8hpp"/>
+        <childnode refid="2722" relation="include">
+        </childnode>
+        <childnode refid="2736" relation="include">
+        </childnode>
+        <childnode refid="2753" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+        <childnode refid="2841" relation="include">
+        </childnode>
+        <childnode refid="2842" relation="include">
+        </childnode>
+        <childnode refid="2793" relation="include">
+        </childnode>
+        <childnode refid="2792" relation="include">
+        </childnode>
+      </node>
+      <node id="3048">
+        <label>bessel_jn_prime.hpp</label>
+        <link refid="bessel__jn__prime_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2952">
+        <label>vstack.hpp</label>
+        <link refid="vstack_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3017">
+        <label>exponential.hpp</label>
+        <link refid="exponential_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2866">
+        <label>fmin.hpp</label>
+        <link refid="fmin_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2839">
+        <label>divide.hpp</label>
+        <link refid="divide_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2935">
+        <label>print.hpp</label>
+        <link refid="print_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2867">
+        <label>fmod.hpp</label>
+        <link refid="fmod_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3008">
+        <label>PybindInterface.hpp</label>
+        <link refid="_pybind_interface_8hpp"/>
+        <childnode refid="3007" relation="include">
+        </childnode>
+      </node>
+      <node id="2736">
+        <label>convolve1d.hpp</label>
+        <link refid="convolve1d_8hpp"/>
+        <childnode refid="2737" relation="include">
+        </childnode>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="3063">
+        <label>gamma1pm1.hpp</label>
+        <link refid="gamma1pm1_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="3037">
+        <label>triangle.hpp</label>
+        <link refid="triangle_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2753">
+        <label>convolve.hpp</label>
+        <link refid="convolve_8hpp"/>
+        <childnode refid="2754" relation="include">
+        </childnode>
+        <childnode refid="2755" relation="include">
+        </childnode>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2803">
+        <label>array_equiv.hpp</label>
+        <link refid="array__equiv_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2877">
+        <label>gcd.hpp</label>
+        <link refid="gcd_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2941">
+        <label>remainder.hpp</label>
+        <link refid="remainder_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2764">
+        <label>fillCorners.hpp</label>
+        <link refid="fill_corners_8hpp"/>
+        <childnode refid="2763" relation="include">
+        </childnode>
+        <childnode refid="2765" relation="include">
+        </childnode>
+        <childnode refid="2766" relation="include">
+        </childnode>
+      </node>
+      <node id="2957">
+        <label>sin.hpp</label>
+        <link refid="sin_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2946">
+        <label>right_shift.hpp</label>
+        <link refid="right__shift_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2944">
+        <label>resizeFast.hpp</label>
+        <link refid="resize_fast_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3030">
+        <label>rand.hpp</label>
+        <link refid="rand_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2796">
+        <label>nanargmin.hpp</label>
+        <link refid="nanargmin_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2746">
+        <label>constant1d.hpp</label>
+        <link refid="constant1d_8hpp"/>
+        <childnode refid="2735" relation="include">
+        </childnode>
+      </node>
+      <node id="2765">
+        <label>nearest2d.hpp</label>
+        <link refid="nearest2d_8hpp"/>
+        <childnode refid="2752" relation="include">
+        </childnode>
+      </node>
+      <node id="2875">
+        <label>zeros.hpp</label>
+        <link refid="zeros_8hpp"/>
+        <childnode refid="2876" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3038">
+        <label>uniformOnSphere.hpp</label>
+        <link refid="uniform_on_sphere_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="3069">
+        <label>spherical_bessel_yn.hpp</label>
+        <link refid="spherical__bessel__yn_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2848">
+        <label>exp.hpp</label>
+        <link refid="exp_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+        <childnode refid="2849" relation="include">
+        </childnode>
+      </node>
+      <node id="3062">
+        <label>gamma.hpp</label>
+        <link refid="_special_2gamma_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="3036">
+        <label>studentT.hpp</label>
+        <link refid="student_t_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2849">
+        <label>softmax.hpp</label>
+        <link refid="softmax_8hpp"/>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2785">
+        <label>arcsin.hpp</label>
+        <link refid="arcsin_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2827">
+        <label>cross.hpp</label>
+        <link refid="cross_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2881">
+        <label>hypot.hpp</label>
+        <link refid="hypot_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+        <childnode refid="2882" relation="include">
+        </childnode>
+      </node>
+      <node id="2918">
+        <label>minimum.hpp</label>
+        <link refid="minimum_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2750">
+        <label>trimBoundary1d.hpp</label>
+        <link refid="trim_boundary1d_8hpp"/>
+      </node>
+      <node id="2932">
+        <label>partition.hpp</label>
+        <link refid="partition_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="3061">
+        <label>pnr.hpp</label>
+        <link refid="pnr_8hpp"/>
+        <childnode refid="3054" relation="include">
+        </childnode>
+        <childnode refid="2850" relation="include">
+        </childnode>
+      </node>
+      <node id="2775">
+        <label>amax.hpp</label>
+        <link refid="amax_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2811">
+        <label>bitwise_xor.hpp</label>
+        <link refid="bitwise__xor_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2838">
+        <label>diff.hpp</label>
+        <link refid="diff_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2933">
+        <label>power.hpp</label>
+        <link refid="_functions_2power_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2842">
+        <label>multi_dot.hpp</label>
+        <link refid="multi__dot_8hpp"/>
+        <childnode refid="2836" relation="include">
+        </childnode>
+      </node>
+      <node id="3025">
+        <label>nonCentralChiSquared.hpp</label>
+        <link refid="non_central_chi_squared_8hpp"/>
+        <childnode refid="3010" relation="include">
+        </childnode>
+      </node>
+      <node id="2966">
+        <label>swapaxes.hpp</label>
+        <link refid="swapaxes_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2751">
+        <label>wrap1d.hpp</label>
+        <link refid="wrap1d_8hpp"/>
+        <childnode refid="2735" relation="include">
+        </childnode>
+      </node>
+      <node id="2960">
+        <label>size.hpp</label>
+        <link refid="size_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2956">
+        <label>signbit.hpp</label>
+        <link refid="signbit_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2954">
+        <label>shape.hpp</label>
+        <link refid="_functions_2_shape_8hpp"/>
+        <childnode refid="2729" relation="include">
+        </childnode>
+      </node>
+      <node id="2742">
+        <label>minimumFilter1d.hpp</label>
+        <link refid="minimum_filter1d_8hpp"/>
+        <childnode refid="2738" relation="include">
+        </childnode>
+      </node>
+      <node id="2816">
+        <label>column_stack.hpp</label>
+        <link refid="column__stack_8hpp"/>
+        <childnode refid="2817" relation="include">
+        </childnode>
+        <childnode refid="2818" relation="include">
+        </childnode>
+        <childnode refid="2819" relation="include">
+        </childnode>
+        <childnode refid="2729" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -197,49 +3067,47 @@
     </briefdescription>
     <detaileddescription>
 <para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.0</para></simplesect>
-</para><sect1 id="_vector_8hpp_1License">
+<simplesect kind="version"><para>1.1</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
 <para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
-<sect1 id="_vector_8hpp_1Description">
+<sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
 <para>Holds usefull constants </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include&quot;<ref refid="_types_8hpp" kindref="compound">NumCpp/Types.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
-<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//================================Constants====================================</highlight></codeline>
-<codeline lineno="41" refid="namespacenc_1_1constants" refkind="compound"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">constants</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="43" refid="namespacenc_1_1constants_1ac3fc62713ed109e451648c67faab7581" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1ac3fc62713ed109e451648c67faab7581" kindref="member">c</ref><sp/>=<sp/>3.0e8;<sp/></highlight></codeline>
-<codeline lineno="44" refid="namespacenc_1_1constants_1aebabe96d6c2be3df3d71922b399e24c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1aebabe96d6c2be3df3d71922b399e24c7" kindref="member">e</ref><sp/>=<sp/>2.718281828459045;<sp/><sp/></highlight></codeline>
-<codeline lineno="45" refid="namespacenc_1_1constants_1a4649bfc00f6360ccda3b3f9316e2dc0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a4649bfc00f6360ccda3b3f9316e2dc0e" kindref="member">inf</ref><sp/>=<sp/>std::numeric_limits&lt;double&gt;::infinity();</highlight></codeline>
-<codeline lineno="46" refid="namespacenc_1_1constants_1a2f1219a120c9cc1434486d9de75a8221" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a2f1219a120c9cc1434486d9de75a8221" kindref="member">pi</ref><sp/>=<sp/>3.14159265358979323846;<sp/></highlight></codeline>
-<codeline lineno="47" refid="namespacenc_1_1constants_1af94758715a9a5157d7ca95ab89d390ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1af94758715a9a5157d7ca95ab89d390ac" kindref="member">nan</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1af94758715a9a5157d7ca95ab89d390ac" kindref="member">std::nan</ref>(</highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">);<sp/></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49" refid="namespacenc_1_1constants_1a2c11c386e1a07a17f95122fc4630cbe9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a2c11c386e1a07a17f95122fc4630cbe9" kindref="member">DAYS_PER_WEEK</ref><sp/>=<sp/>7;<sp/></highlight></codeline>
-<codeline lineno="50" refid="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" kindref="member">MINUTES_PER_HOUR</ref><sp/>=<sp/>60;<sp/></highlight></codeline>
-<codeline lineno="51" refid="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" kindref="member">SECONDS_PER_MINUTE</ref><sp/>=<sp/>60;<sp/></highlight></codeline>
-<codeline lineno="52" refid="namespacenc_1_1constants_1a4373df6d6df75334290f4240f174aeb0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a4373df6d6df75334290f4240f174aeb0" kindref="member">MILLISECONDS_PER_SECOND</ref><sp/>=<sp/>1000;<sp/></highlight></codeline>
-<codeline lineno="53" refid="namespacenc_1_1constants_1ad635a54557e853e1ee098d0ead5f1902" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1ad635a54557e853e1ee098d0ead5f1902" kindref="member">SECONDS_PER_HOUR</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" kindref="member">MINUTES_PER_HOUR</ref><sp/>*<sp/><ref refid="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" kindref="member">SECONDS_PER_MINUTE</ref>;<sp/></highlight></codeline>
-<codeline lineno="54" refid="namespacenc_1_1constants_1aef903b1f40001bc712b61f5dec7de716" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1aef903b1f40001bc712b61f5dec7de716" kindref="member">HOURS_PER_DAY</ref><sp/>=<sp/>24;<sp/></highlight></codeline>
-<codeline lineno="55" refid="namespacenc_1_1constants_1aa018ab3bca299694899f51683d5b3c0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1aa018ab3bca299694899f51683d5b3c0f" kindref="member">MINUTES_PER_DAY</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1aef903b1f40001bc712b61f5dec7de716" kindref="member">HOURS_PER_DAY</ref><sp/>*<sp/><ref refid="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" kindref="member">MINUTES_PER_HOUR</ref>;<sp/></highlight></codeline>
-<codeline lineno="56" refid="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" kindref="member">SECONDS_PER_DAY</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1aa018ab3bca299694899f51683d5b3c0f" kindref="member">MINUTES_PER_DAY</ref><sp/>*<sp/><ref refid="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" kindref="member">SECONDS_PER_MINUTE</ref>;<sp/></highlight></codeline>
-<codeline lineno="57" refid="namespacenc_1_1constants_1a2838aa56f95be8020a326aa6b9ba5c68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a2838aa56f95be8020a326aa6b9ba5c68" kindref="member">MILLISECONDS_PER_DAY</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" kindref="member">SECONDS_PER_DAY</ref><sp/>*<sp/><ref refid="namespacenc_1_1constants_1a4373df6d6df75334290f4240f174aeb0" kindref="member">MILLISECONDS_PER_SECOND</ref>;<sp/></highlight></codeline>
-<codeline lineno="58" refid="namespacenc_1_1constants_1ac36cac5f19ce5f81b2acc562f247f0be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1ac36cac5f19ce5f81b2acc562f247f0be" kindref="member">SECONDS_PER_WEEK</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" kindref="member">SECONDS_PER_DAY</ref><sp/>*<sp/><ref refid="namespacenc_1_1constants_1a2c11c386e1a07a17f95122fc4630cbe9" kindref="member">DAYS_PER_WEEK</ref>;<sp/></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60" refid="namespacenc_1_1constants_1a3d553d6bfa16d7ae8cd1dbae150891ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a3d553d6bfa16d7ae8cd1dbae150891ea" kindref="member">VERSION</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;1.0&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//================================Constants====================================</highlight></codeline>
+<codeline lineno="39" refid="namespacenc_1_1constants" refkind="compound"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">constants</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="41" refid="namespacenc_1_1constants_1ac3fc62713ed109e451648c67faab7581" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1ac3fc62713ed109e451648c67faab7581" kindref="member">c</ref><sp/>=<sp/>3.0e8;<sp/></highlight></codeline>
+<codeline lineno="42" refid="namespacenc_1_1constants_1aebabe96d6c2be3df3d71922b399e24c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1aebabe96d6c2be3df3d71922b399e24c7" kindref="member">e</ref><sp/>=<sp/>2.718281828459045;<sp/><sp/></highlight></codeline>
+<codeline lineno="43" refid="namespacenc_1_1constants_1a4649bfc00f6360ccda3b3f9316e2dc0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a4649bfc00f6360ccda3b3f9316e2dc0e" kindref="member">inf</ref><sp/>=<sp/>std::numeric_limits&lt;double&gt;::infinity();</highlight></codeline>
+<codeline lineno="44" refid="namespacenc_1_1constants_1a2f1219a120c9cc1434486d9de75a8221" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a2f1219a120c9cc1434486d9de75a8221" kindref="member">pi</ref><sp/>=<sp/>3.14159265358979323846;<sp/></highlight></codeline>
+<codeline lineno="45" refid="namespacenc_1_1constants_1af94758715a9a5157d7ca95ab89d390ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1af94758715a9a5157d7ca95ab89d390ac" kindref="member">nan</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1af94758715a9a5157d7ca95ab89d390ac" kindref="member">std::nan</ref>(</highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">);<sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="namespacenc_1_1constants_1a2c11c386e1a07a17f95122fc4630cbe9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a2c11c386e1a07a17f95122fc4630cbe9" kindref="member">DAYS_PER_WEEK</ref><sp/>=<sp/>7;<sp/></highlight></codeline>
+<codeline lineno="48" refid="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" kindref="member">MINUTES_PER_HOUR</ref><sp/>=<sp/>60;<sp/></highlight></codeline>
+<codeline lineno="49" refid="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" kindref="member">SECONDS_PER_MINUTE</ref><sp/>=<sp/>60;<sp/></highlight></codeline>
+<codeline lineno="50" refid="namespacenc_1_1constants_1a4373df6d6df75334290f4240f174aeb0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a4373df6d6df75334290f4240f174aeb0" kindref="member">MILLISECONDS_PER_SECOND</ref><sp/>=<sp/>1000;<sp/></highlight></codeline>
+<codeline lineno="51" refid="namespacenc_1_1constants_1ad635a54557e853e1ee098d0ead5f1902" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1ad635a54557e853e1ee098d0ead5f1902" kindref="member">SECONDS_PER_HOUR</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" kindref="member">MINUTES_PER_HOUR</ref><sp/>*<sp/><ref refid="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" kindref="member">SECONDS_PER_MINUTE</ref>;<sp/></highlight></codeline>
+<codeline lineno="52" refid="namespacenc_1_1constants_1aef903b1f40001bc712b61f5dec7de716" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1aef903b1f40001bc712b61f5dec7de716" kindref="member">HOURS_PER_DAY</ref><sp/>=<sp/>24;<sp/></highlight></codeline>
+<codeline lineno="53" refid="namespacenc_1_1constants_1aa018ab3bca299694899f51683d5b3c0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1aa018ab3bca299694899f51683d5b3c0f" kindref="member">MINUTES_PER_DAY</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1aef903b1f40001bc712b61f5dec7de716" kindref="member">HOURS_PER_DAY</ref><sp/>*<sp/><ref refid="namespacenc_1_1constants_1a84dfb71171d2a19b89afea89be57bc52" kindref="member">MINUTES_PER_HOUR</ref>;<sp/></highlight></codeline>
+<codeline lineno="54" refid="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" kindref="member">SECONDS_PER_DAY</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1aa018ab3bca299694899f51683d5b3c0f" kindref="member">MINUTES_PER_DAY</ref><sp/>*<sp/><ref refid="namespacenc_1_1constants_1ad89620cbdf9102f40ec7c0fd52c16a5e" kindref="member">SECONDS_PER_MINUTE</ref>;<sp/></highlight></codeline>
+<codeline lineno="55" refid="namespacenc_1_1constants_1a2838aa56f95be8020a326aa6b9ba5c68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a2838aa56f95be8020a326aa6b9ba5c68" kindref="member">MILLISECONDS_PER_DAY</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" kindref="member">SECONDS_PER_DAY</ref><sp/>*<sp/><ref refid="namespacenc_1_1constants_1a4373df6d6df75334290f4240f174aeb0" kindref="member">MILLISECONDS_PER_SECOND</ref>;<sp/></highlight></codeline>
+<codeline lineno="56" refid="namespacenc_1_1constants_1ac36cac5f19ce5f81b2acc562f247f0be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1ac36cac5f19ce5f81b2acc562f247f0be" kindref="member">SECONDS_PER_WEEK</ref><sp/>=<sp/><ref refid="namespacenc_1_1constants_1a766ec3bf1f6fb57f586f943cea1946c3" kindref="member">SECONDS_PER_DAY</ref><sp/>*<sp/><ref refid="namespacenc_1_1constants_1a2c11c386e1a07a17f95122fc4630cbe9" kindref="member">DAYS_PER_WEEK</ref>;<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="namespacenc_1_1constants_1a3d553d6bfa16d7ae8cd1dbae150891ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1constants_1a3d553d6bfa16d7ae8cd1dbae150891ea" kindref="member">VERSION</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;1.0&quot;</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/Constants.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Constants.hpp"/>
   </compounddef>
 </doxygen>

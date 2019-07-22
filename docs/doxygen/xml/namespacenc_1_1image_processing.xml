@@ -7,14 +7,14 @@
     <innerclass refid="classnc_1_1image_processing_1_1_cluster_maker" prot="public">nc::imageProcessing::ClusterMaker</innerclass>
     <innerclass refid="classnc_1_1image_processing_1_1_pixel" prot="public">nc::imageProcessing::Pixel</innerclass>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespacenc_1_1image_processing_1a7a12116f72c16ad1c65560da87d708f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1a41a6bb5ba85a0908a874cf9a53ac31c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
-        <definition>NdArray&lt; bool &gt; nc::imageProcessing::applyThreshold</definition>
+        <definition>NdArray&lt;bool&gt; nc::imageProcessing::applyThreshold</definition>
         <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, dtype inThreshold) noexcept</argsstring>
         <name>applyThreshold</name>
         <param>
@@ -47,16 +47,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1163" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1189" bodyend="1192"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/applyThreshold.hpp" line="47" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/applyThreshold.hpp" bodystart="47" bodyend="50"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1image_processing_1adc4af12032e170cd22a36a802cca789e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1ad2838bf346a3d199ee0141fc64be7c5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
         <type>std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_centroid" kindref="compound">Centroid</ref>&lt; dtype &gt; &gt;</type>
-        <definition>std::vector&lt; Centroid&lt; dtype &gt; &gt; nc::imageProcessing::centroidClusters</definition>
+        <definition>std::vector&lt;Centroid&lt;dtype&gt; &gt; nc::imageProcessing::centroidClusters</definition>
         <argsstring>(const std::vector&lt; Cluster&lt; dtype &gt; &gt; &amp;inClusters) noexcept</argsstring>
         <name>centroidClusters</name>
         <param>
@@ -78,16 +78,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1166" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1203" bodyend="1213"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/centroidClusters.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/centroidClusters.hpp" bodystart="51" bodyend="61"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1image_processing_1aef086af8befb6a2129a0572eb11605f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1a9b0730e1067dc755ee1fa2ecf280c14f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
         <type>std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_cluster" kindref="compound">Cluster</ref>&lt; dtype &gt; &gt;</type>
-        <definition>std::vector&lt; Cluster&lt; dtype &gt; &gt; nc::imageProcessing::clusterPixels</definition>
+        <definition>std::vector&lt;Cluster&lt;dtype&gt; &gt; nc::imageProcessing::clusterPixels</definition>
         <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, const NdArray&lt; bool &gt; &amp;inExceedances, uint8 inBorderWidth=0)</argsstring>
         <name>clusterPixels</name>
         <param>
@@ -132,16 +132,16 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1169" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1226" bodyend="1230"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/clusterPixels.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/clusterPixels.hpp" bodystart="54" bodyend="58"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1image_processing_1ae77f0e4be503e5773e7f4a9915c2972e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1a8d9008c72eceb98b40ada379f9d4587e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
         <type>std::vector&lt; <ref refid="classnc_1_1image_processing_1_1_centroid" kindref="compound">Centroid</ref>&lt; dtype &gt; &gt;</type>
-        <definition>std::vector&lt; Centroid&lt; dtype &gt; &gt; nc::imageProcessing::generateCentroids</definition>
+        <definition>std::vector&lt;Centroid&lt;dtype&gt; &gt; nc::imageProcessing::generateCentroids</definition>
         <argsstring>(const NdArray&lt; dtype &gt; &amp;inImageArray, double inRate, const std::string inWindowType, uint8 inBorderWidth=0)</argsstring>
         <name>generateCentroids</name>
         <param>
@@ -197,7 +197,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1172" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1245" bodyend="1281"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/generateCentroids.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/generateCentroids.hpp" bodystart="61" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1image_processing_1a356989d12dda6e1b0748d22d50d4ecaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -239,11 +239,11 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1175" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1295" bodyend="1384"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/generateThreshold.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/generateThreshold.hpp" bodystart="57" bodyend="144"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1image_processing_1a6613333b700d2e8c41f1a60505bc9715" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1image_processing_1a896adf0319f58a2f44cbf3dfaf550fe2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; bool &gt;</type>
-        <definition>NdArray&lt; bool &gt; nc::imageProcessing::windowExceedances</definition>
+        <definition>NdArray&lt;bool&gt; nc::imageProcessing::windowExceedances</definition>
         <argsstring>(const NdArray&lt; bool &gt; &amp;inExceedances, uint8 inBorderWidth) noexcept</argsstring>
         <name>windowExceedances</name>
         <param>
@@ -276,13 +276,13 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="1177" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" bodystart="1395" bodyend="1424"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/windowExceedances.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/windowExceedances.hpp" bodystart="51" bodyend="80"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Class for basic image processing. </para>    </briefdescription>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/src/NumCpp/ImageProcessing.hpp" line="51" column="1"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/applyThreshold.hpp" line="36" column="1"/>
   </compounddef>
 </doxygen>

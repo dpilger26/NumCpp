@@ -1,17 +1,15 @@
 var searchData=
 [
-  ['u',['u',['../classnc_1_1linalg_1_1_s_v_d.html#a0f7dddedc38be47b051aa16e5dc9d6b2',1,'nc::linalg::SVD']]],
-  ['uint16',['uint16',['../namespacenc.html#a58dcfca0b29c16ffb4ca118b2a1cb399',1,'nc']]],
-  ['uint32',['uint32',['../namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8',1,'nc']]],
-  ['uint64',['uint64',['../namespacenc.html#a25da52a834e7af0e341d1503ebb62dcd',1,'nc']]],
-  ['uint8',['uint8',['../namespacenc.html#a60efb2c7acad2ac3a9a9fcf1e93d0f49',1,'nc']]],
-  ['uniform',['uniform',['../classnc_1_1_random.html#aaaa6a78b45066cdf9e8bd11f55ec37af',1,'nc::Random']]],
-  ['uniformfilter',['uniformFilter',['../namespacenc_1_1filter.html#a6bebba3c4767e33ec5710cb24b1a9952',1,'nc::filter']]],
-  ['uniformfilter1d',['uniformFilter1d',['../namespacenc_1_1filter.html#afcf603e5055c7bc01aed09067357e004',1,'nc::filter']]],
-  ['uniformonsphere',['uniformOnSphere',['../classnc_1_1_random.html#a87d6d188ab390ea5fed2da488bdb0cfa',1,'nc::Random']]],
-  ['union1d',['union1d',['../namespacenc.html#a9dc5a706d1cbeb822ace82eac5ace756',1,'nc']]],
-  ['unique',['unique',['../namespacenc.html#a4ff98c91846a1eda6681ea2ef476d06e',1,'nc']]],
-  ['unwrap',['unwrap',['../namespacenc.html#aac5e942220c693fb9e65fcc3ff4fc50f',1,'nc::unwrap(dtype inValue) noexcept'],['../namespacenc.html#a33324987d9f105f585ac96295635e599',1,'nc::unwrap(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
-  ['up',['up',['../classnc_1_1_vec2.html#a9be39bc9a56e94afb8d9b27d660e2d17',1,'nc::Vec2::up()'],['../classnc_1_1_vec3.html#aa60cf66defb2fcf04fc989c0e1f07f7e',1,'nc::Vec3::up()']]],
-  ['utils_2ehpp',['Utils.hpp',['../_utils_8hpp.html',1,'']]]
+  ['v',['v',['../classnc_1_1linalg_1_1_s_v_d.html#a6b907070cfa7e89c3107fa628694e274',1,'nc::linalg::SVD']]],
+  ['var',['var',['../classnc_1_1_nd_array.html#a24135dd7a7713cb02ac260e70d458e23',1,'nc::NdArray::var()'],['../namespacenc.html#a60b8f8ed75145d0f528c6e8223a4a1db',1,'nc::var()']]],
+  ['var_2ehpp',['var.hpp',['../var_8hpp.html',1,'']]],
+  ['vec2',['Vec2',['../classnc_1_1_vec2.html',1,'nc::Vec2'],['../classnc_1_1_vec2.html#a10032e67a062d820241f053d5affd1b8',1,'nc::Vec2::Vec2() noexcept'],['../classnc_1_1_vec2.html#a90648eb3e7f49292d0a4174dea32be61',1,'nc::Vec2::Vec2(double inX, double inY) noexcept'],['../classnc_1_1_vec2.html#abfb713c893dbd31d7c94b4741e82530b',1,'nc::Vec2::Vec2(const std::initializer_list&lt; double &gt; &amp;inList)'],['../classnc_1_1_vec2.html#a93a9f0c675265005a60c77179625ddd2',1,'nc::Vec2::Vec2(const NdArray&lt; double &gt; &amp;ndArray)']]],
+  ['vec2_2ehpp',['Vec2.hpp',['../_vec2_8hpp.html',1,'']]],
+  ['vec3',['Vec3',['../classnc_1_1_vec3.html',1,'nc::Vec3'],['../classnc_1_1_vec3.html#a12bace66cd4d205755cee98ac6d658fa',1,'nc::Vec3::Vec3() noexcept'],['../classnc_1_1_vec3.html#a4d20d8d7b40777677e83923055af35fa',1,'nc::Vec3::Vec3(double inX, double inY, double inZ) noexcept'],['../classnc_1_1_vec3.html#a4056d1e369726710d6f1049b277486dd',1,'nc::Vec3::Vec3(const std::initializer_list&lt; double &gt; &amp;inList)'],['../classnc_1_1_vec3.html#a4668419f4c870900466d4aa198247767',1,'nc::Vec3::Vec3(const NdArray&lt; double &gt; &amp;ndArray)']]],
+  ['vec3_2ehpp',['Vec3.hpp',['../_vec3_8hpp.html',1,'']]],
+  ['vector_2ehpp',['Vector.hpp',['../_vector_8hpp.html',1,'']]],
+  ['vector2list',['vector2list',['../namespacenc_1_1boost_python_interface.html#a51a40e2866bcdb72f03c5ded0ce94f9b',1,'nc::boostPythonInterface']]],
+  ['version',['VERSION',['../namespacenc_1_1constants.html#a3d553d6bfa16d7ae8cd1dbae150891ea',1,'nc::constants']]],
+  ['vstack',['vstack',['../namespacenc.html#a8dec1ff4db1d89ab4b3a7d32ff4b5cf3',1,'nc']]],
+  ['vstack_2ehpp',['vstack.hpp',['../vstack_8hpp.html',1,'']]]
 ];

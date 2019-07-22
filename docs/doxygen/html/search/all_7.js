@@ -1,19 +1,16 @@
 var searchData=
 [
-  ['gamma',['gamma',['../classnc_1_1_random.html#a93a1804dff12c99cbfea67d63b6c1705',1,'nc::Random']]],
-  ['gaussian',['gaussian',['../namespacenc_1_1filter.html#acb4710192adc0a359fc8e24410988fa3',1,'nc::filter']]],
-  ['gaussianfilter',['gaussianFilter',['../namespacenc_1_1filter.html#ad167f1f3b185f666c70d2e2dc9d21024',1,'nc::filter']]],
-  ['gaussianfilter1d',['gaussianFilter1d',['../namespacenc_1_1filter.html#a03cc5a48e29d6f25636789b65366f243',1,'nc::filter']]],
-  ['gcd',['gcd',['../namespacenc.html#a45b5db91eb9f524459fa3878e23ca0ec',1,'nc::gcd(dtype inValue1, dtype inValue2) noexcept'],['../namespacenc.html#abb00c960bb157ef6a8b15fb01a20955e',1,'nc::gcd(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
-  ['generatecentroids',['generateCentroids',['../namespacenc_1_1image_processing.html#ae77f0e4be503e5773e7f4a9915c2972e',1,'nc::imageProcessing']]],
-  ['generatethreshold',['generateThreshold',['../namespacenc_1_1image_processing.html#a356989d12dda6e1b0748d22d50d4ecaa',1,'nc::imageProcessing']]],
-  ['generator_5f',['generator_',['../namespacenc.html#ac1a8cfb8f9378e1c4da7bc09e93cb77a',1,'nc']]],
-  ['geometric',['geometric',['../classnc_1_1_random.html#a1887cf86a1baebbd04a5478d6ba6d0e8',1,'nc::Random']]],
-  ['getarray',['getArray',['../classnc_1_1_boost_ndarray_helper.html#ad4fc3eab4bd169937224e18a39318094',1,'nc::BoostNdarrayHelper']]],
-  ['getarrayasmatrix',['getArrayAsMatrix',['../classnc_1_1_boost_ndarray_helper.html#ab4703fcb4c9e0ff85895d06274ca9598',1,'nc::BoostNdarrayHelper']]],
-  ['getbyindices',['getByIndices',['../classnc_1_1_nd_array.html#a0d2475dc8c8f5edb2e4c2887078b890a',1,'nc::NdArray']]],
-  ['getbymask',['getByMask',['../classnc_1_1_nd_array.html#a2dfd7ac740d1830363949f27511b7ecc',1,'nc::NdArray']]],
-  ['gradient',['gradient',['../namespacenc.html#acd531e597e05821b01747a0ae3b096b7',1,'nc']]],
-  ['greater',['greater',['../namespacenc.html#a5a3294d00ff310b4d95b0292adafc94f',1,'nc']]],
-  ['greater_5fequal',['greater_equal',['../namespacenc.html#a6ecdbcd9d151ddda0b7b4f51f29bf08c',1,'nc']]]
+  ['hat',['hat',['../namespacenc_1_1linalg.html#a52417fc43f9622ef2a527ec84da50ca2',1,'nc::linalg::hat(dtype inX, dtype inY, dtype inZ) noexcept'],['../namespacenc_1_1linalg.html#ae7ced3680f1ae95af4bc2e6b98a5a517',1,'nc::linalg::hat(const NdArray&lt; dtype &gt; &amp;inVec)'],['../namespacenc_1_1linalg.html#ae9cdb091717a1c74dc659519d77e0048',1,'nc::linalg::hat(const Vec3 &amp;inVec)']]],
+  ['hat_2ehpp',['hat.hpp',['../hat_8hpp.html',1,'']]],
+  ['height',['height',['../classnc_1_1image_processing_1_1_cluster.html#a71ccd5ee3fea70b4b1b27ba25f4b3fb8',1,'nc::imageProcessing::Cluster']]],
+  ['hermite',['hermite',['../namespacenc_1_1polynomial.html#aeaa35e3294d44739bd292234542fb032',1,'nc::polynomial::hermite(uint32 n, dtype x) noexcept'],['../namespacenc_1_1polynomial.html#ab1427f4d365eb6cfde7d1633e4c4233b',1,'nc::polynomial::hermite(uint32 n, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],
+  ['hermite_2ehpp',['hermite.hpp',['../hermite_8hpp.html',1,'']]],
+  ['histogram',['histogram',['../namespacenc.html#a9f8af3a8f7adefd20992fe0686837cf6',1,'nc']]],
+  ['histogram_2ehpp',['histogram.hpp',['../histogram_8hpp.html',1,'']]],
+  ['hours',['hours',['../classnc_1_1coordinates_1_1_r_a.html#a52af78880f6c5a5ec8750a7ad20c2e2d',1,'nc::coordinates::RA']]],
+  ['hours_5fper_5fday',['HOURS_PER_DAY',['../namespacenc_1_1constants.html#aef903b1f40001bc712b61f5dec7de716',1,'nc::constants']]],
+  ['hstack',['hstack',['../namespacenc.html#a80a6677582b65c19750b0d82ac182081',1,'nc']]],
+  ['hstack_2ehpp',['hstack.hpp',['../hstack_8hpp.html',1,'']]],
+  ['hypot',['hypot',['../namespacenc.html#a4648674053cd83851d9549bbcc7a8481',1,'nc::hypot(dtype inValue1, dtype inValue2) noexcept'],['../namespacenc.html#ad2d90c3dcbe0a1e652b0505b637d973a',1,'nc::hypot(dtype inValue1, dtype inValue2, dtype inValue3) noexcept'],['../namespacenc.html#a66b0aabfaacc7ec12206b4edf6026b12',1,'nc::hypot(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]],
+  ['hypot_2ehpp',['hypot.hpp',['../hypot_8hpp.html',1,'']]]
 ];
