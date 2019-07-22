@@ -7,96 +7,96 @@
     <includedby refid="_vec2_8hpp" local="yes">Vec2.hpp</includedby>
     <includedby refid="_vec3_8hpp" local="yes">Vec3.hpp</includedby>
     <invincdepgraph>
-      <node id="7366">
+      <node id="7386">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="7375">
+      <node id="7395">
         <label>Rotations.hpp</label>
         <link refid="_rotations_8hpp"/>
-        <childnode refid="7366" relation="include">
+        <childnode refid="7386" relation="include">
         </childnode>
       </node>
-      <node id="7373">
+      <node id="7393">
         <label>Quaternion.hpp</label>
         <link refid="_quaternion_8hpp"/>
-        <childnode refid="7374" relation="include">
+        <childnode refid="7394" relation="include">
         </childnode>
-        <childnode refid="7375" relation="include">
+        <childnode refid="7395" relation="include">
         </childnode>
       </node>
-      <node id="7369">
+      <node id="7389">
         <label>Vector.hpp</label>
         <link refid="_vector_8hpp"/>
-        <childnode refid="7366" relation="include">
+        <childnode refid="7386" relation="include">
         </childnode>
       </node>
-      <node id="7372">
+      <node id="7392">
         <label>Linalg.hpp</label>
         <link refid="_linalg_8hpp"/>
-        <childnode refid="7366" relation="include">
+        <childnode refid="7386" relation="include">
         </childnode>
       </node>
-      <node id="7364">
+      <node id="7384">
         <label>interp.hpp</label>
         <link refid="_functions_2interp_8hpp"/>
-        <childnode refid="7365" relation="include">
+        <childnode refid="7385" relation="include">
         </childnode>
       </node>
-      <node id="7367">
+      <node id="7387">
         <label>Utils.hpp</label>
         <link refid="_utils_8hpp"/>
-        <childnode refid="7366" relation="include">
+        <childnode refid="7386" relation="include">
         </childnode>
       </node>
-      <node id="7374">
+      <node id="7394">
         <label>DCM.hpp</label>
         <link refid="_d_c_m_8hpp"/>
-        <childnode refid="7375" relation="include">
+        <childnode refid="7395" relation="include">
         </childnode>
       </node>
-      <node id="7371">
+      <node id="7391">
         <label>hat.hpp</label>
         <link refid="hat_8hpp"/>
-        <childnode refid="7372" relation="include">
+        <childnode refid="7392" relation="include">
         </childnode>
-        <childnode refid="7373" relation="include">
+        <childnode refid="7393" relation="include">
         </childnode>
       </node>
-      <node id="7363">
+      <node id="7383">
         <label>interp.hpp</label>
         <link refid="_utils_2interp_8hpp"/>
-        <childnode refid="7364" relation="include">
+        <childnode refid="7384" relation="include">
         </childnode>
-        <childnode refid="7367" relation="include">
+        <childnode refid="7387" relation="include">
         </childnode>
-        <childnode refid="7368" relation="include">
+        <childnode refid="7388" relation="include">
         </childnode>
-        <childnode refid="7370" relation="include">
+        <childnode refid="7390" relation="include">
         </childnode>
       </node>
-      <node id="7368">
+      <node id="7388">
         <label>Vec2.hpp</label>
         <link refid="_vec2_8hpp"/>
-        <childnode refid="7369" relation="include">
+        <childnode refid="7389" relation="include">
         </childnode>
       </node>
-      <node id="7365">
+      <node id="7385">
         <label>Functions.hpp</label>
         <link refid="_functions_8hpp"/>
-        <childnode refid="7366" relation="include">
+        <childnode refid="7386" relation="include">
         </childnode>
       </node>
-      <node id="7370">
+      <node id="7390">
         <label>Vec3.hpp</label>
         <link refid="_vec3_8hpp"/>
-        <childnode refid="7371" relation="include">
+        <childnode refid="7391" relation="include">
         </childnode>
-        <childnode refid="7374" relation="include">
+        <childnode refid="7394" relation="include">
         </childnode>
-        <childnode refid="7373" relation="include">
+        <childnode refid="7393" relation="include">
         </childnode>
-        <childnode refid="7369" relation="include">
+        <childnode refid="7389" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

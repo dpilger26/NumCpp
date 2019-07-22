@@ -176,9 +176,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aa2996162bcbabf343a3fa81617fd9b14"><td class="memTemplParams" colspan="2">template&lt;typename dtype1 , typename dtype2 &gt; </td></tr>
 <tr class="memitem:aa2996162bcbabf343a3fa81617fd9b14"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1special.html#aa2996162bcbabf343a3fa81617fd9b14">beta</a> (dtype1 a, dtype2 b) noexcept</td></tr>
 <tr class="separator:aa2996162bcbabf343a3fa81617fd9b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32b17f7a73b64cd31c233c39e335f068"><td class="memTemplParams" colspan="2">template&lt;typename dtype1 , typename dtype2 &gt; </td></tr>
-<tr class="memitem:a32b17f7a73b64cd31c233c39e335f068"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1special.html#a32b17f7a73b64cd31c233c39e335f068">beta</a> (dtype1 a, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype2 &gt; &amp;inArrayB) noexcept</td></tr>
-<tr class="separator:a32b17f7a73b64cd31c233c39e335f068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46747e640813870da56bb581ea2917b6"><td class="memTemplParams" colspan="2">template&lt;typename dtype1 , typename dtype2 &gt; </td></tr>
+<tr class="memitem:a46747e640813870da56bb581ea2917b6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; double &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc_1_1special.html#a46747e640813870da56bb581ea2917b6">beta</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype1 &gt; &amp;inArrayA, const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype2 &gt; &amp;inArrayB) noexcept</td></tr>
+<tr class="separator:a46747e640813870da56bb581ea2917b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08395cbdd1ee39fd14c5f9d9edb8b486"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1special.html#a08395cbdd1ee39fd14c5f9d9edb8b486">cnr</a> (<a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> n, <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> r) noexcept</td></tr>
 <tr class="separator:a08395cbdd1ee39fd14c5f9d9edb8b486"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad17c28693eed370fda9f7eff67df23a6"><td class="memTemplParams" colspan="2">template&lt;typename dtype1 , typename dtype2 &gt; </td></tr>
@@ -597,7 +597,7 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Both return the (2 * n)th Bernoulli number B2n.</p>
+<p>Both return the nth Bernoulli number B2n.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td></td></tr>
@@ -631,7 +631,7 @@ template&lt;typename dtype &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Both return the (2 * n)th Bernoulli number B2n.</p>
+<p>Both return the nth Bernoulli number B2n.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inArray</td><td></td></tr>
@@ -1441,8 +1441,8 @@ template&lt;typename dtype1 , typename dtype2 &gt; </div>
 
 </div>
 </div>
-<a id="a32b17f7a73b64cd31c233c39e335f068"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32b17f7a73b64cd31c233c39e335f068">&#9670;&nbsp;</a></span>beta() <span class="overload">[2/2]</span></h2>
+<a id="a46747e640813870da56bb581ea2917b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46747e640813870da56bb581ea2917b6">&#9670;&nbsp;</a></span>beta() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1455,8 +1455,8 @@ template&lt;typename dtype1 , typename dtype2 &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;double&gt; nc::special::beta </td>
           <td>(</td>
-          <td class="paramtype">dtype1&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype1 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inArrayA</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1479,7 +1479,7 @@ template&lt;typename dtype1 , typename dtype2 &gt; </div>
 <p>The beta function</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td></td></tr>
+    <tr><td class="paramname">inArrayA</td><td></td></tr>
     <tr><td class="paramname">inArrayB</td><td></td></tr>
   </table>
   </dd>

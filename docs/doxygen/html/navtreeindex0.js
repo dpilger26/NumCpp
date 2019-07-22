@@ -141,7 +141,7 @@ var NAVTREEINDEX0 =
 "_slice_8hpp.html":[3,0,323],
 "_slice_8hpp_source.html":[3,0,323],
 "_special_2beta_8hpp.html":[3,0,47],
-"_special_2beta_8hpp.html#a32b17f7a73b64cd31c233c39e335f068":[3,0,47,1],
+"_special_2beta_8hpp.html#a46747e640813870da56bb581ea2917b6":[3,0,47,1],
 "_special_2beta_8hpp.html#aa2996162bcbabf343a3fa81617fd9b14":[3,0,47,0],
 "_special_2beta_8hpp_source.html":[3,0,47],
 "_special_2gamma_8hpp.html":[3,0,156],

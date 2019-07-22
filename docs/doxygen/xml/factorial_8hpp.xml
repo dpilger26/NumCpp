@@ -6,246 +6,251 @@
     <includes refid="_types_8hpp" local="yes">NumCpp/Core/Types.hpp</includes>
     <includes local="yes">boost/math/special_functions/factorials.hpp</includes>
     <includes local="no">algorithm</includes>
+    <includes local="no">limits</includes>
     <includedby refid="cnr_8hpp" local="yes">cnr.hpp</includedby>
     <includedby refid="pnr_8hpp" local="yes">pnr.hpp</includedby>
     <includedby refid="_special_8hpp" local="yes">Special.hpp</includedby>
     <incdepgraph>
-      <node id="5515">
+      <node id="5533">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="5504">
+      <node id="5518">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="5505" relation="include">
+        <childnode refid="5519" relation="include">
         </childnode>
       </node>
-      <node id="5518">
+      <node id="5536">
         <label>functional</label>
       </node>
-      <node id="5525">
+      <node id="5543">
         <label>boost/math/special_functions/factorials.hpp</label>
       </node>
-      <node id="5498">
+      <node id="5516">
         <label>limits</label>
       </node>
-      <node id="5497">
+      <node id="5515">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="5498" relation="include">
+        <childnode refid="5516" relation="include">
         </childnode>
       </node>
-      <node id="5511">
+      <node id="5529">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="5504" relation="include">
-        </childnode>
-      </node>
-      <node id="5495">
-        <label>factorial.hpp</label>
-        <link refid="factorial_8hpp"/>
-        <childnode refid="5496" relation="include">
-        </childnode>
-        <childnode refid="5504" relation="include">
-        </childnode>
-        <childnode refid="5525" relation="include">
-        </childnode>
-        <childnode refid="5508" relation="include">
-        </childnode>
-      </node>
-      <node id="5505">
-        <label>cstdint</label>
-      </node>
-      <node id="5510">
-        <label>cmath</label>
-      </node>
-      <node id="5501">
-        <label>stdexcept</label>
-      </node>
-      <node id="5521">
-        <label>numeric</label>
-      </node>
-      <node id="5502">
-        <label>string</label>
-      </node>
-      <node id="5512">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-      </node>
-      <node id="5507">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="5499" relation="include">
-        </childnode>
-        <childnode refid="5504" relation="include">
-        </childnode>
-        <childnode refid="5506" relation="include">
-        </childnode>
-        <childnode refid="5508" relation="include">
-        </childnode>
-        <childnode refid="5500" relation="include">
-        </childnode>
-        <childnode refid="5502" relation="include">
-        </childnode>
-      </node>
-      <node id="5519">
-        <label>fstream</label>
-      </node>
-      <node id="5509">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="5510" relation="include">
-        </childnode>
-        <childnode refid="5498" relation="include">
-        </childnode>
-        <childnode refid="5502" relation="include">
+        <childnode refid="5518" relation="include">
         </childnode>
       </node>
       <node id="5513">
-        <label>boost/algorithm/clamp.hpp</label>
-      </node>
-      <node id="5503">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="5504" relation="include">
-        </childnode>
-        <childnode refid="5506" relation="include">
-        </childnode>
-        <childnode refid="5500" relation="include">
-        </childnode>
-        <childnode refid="5502" relation="include">
-        </childnode>
-      </node>
-      <node id="5524">
-        <label>vector</label>
-      </node>
-      <node id="5496">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="5497" relation="include">
-        </childnode>
-        <childnode refid="5499" relation="include">
-        </childnode>
-        <childnode refid="5503" relation="include">
-        </childnode>
-        <childnode refid="5507" relation="include">
-        </childnode>
-        <childnode refid="5504" relation="include">
-        </childnode>
-        <childnode refid="5509" relation="include">
-        </childnode>
-        <childnode refid="5506" relation="include">
-        </childnode>
-        <childnode refid="5511" relation="include">
-        </childnode>
-        <childnode refid="5512" relation="include">
-        </childnode>
-        <childnode refid="5513" relation="include">
-        </childnode>
+        <label>factorial.hpp</label>
+        <link refid="factorial_8hpp"/>
         <childnode refid="5514" relation="include">
         </childnode>
-        <childnode refid="5515" relation="include">
+        <childnode refid="5518" relation="include">
+        </childnode>
+        <childnode refid="5543" relation="include">
+        </childnode>
+        <childnode refid="5526" relation="include">
         </childnode>
         <childnode refid="5516" relation="include">
         </childnode>
-        <childnode refid="5508" relation="include">
-        </childnode>
-        <childnode refid="5510" relation="include">
-        </childnode>
+      </node>
+      <node id="5519">
+        <label>cstdint</label>
+      </node>
+      <node id="5528">
+        <label>cmath</label>
+      </node>
+      <node id="5521">
+        <label>stdexcept</label>
+      </node>
+      <node id="5539">
+        <label>numeric</label>
+      </node>
+      <node id="5522">
+        <label>string</label>
+      </node>
+      <node id="5530">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="5525">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
         <childnode refid="5517" relation="include">
         </childnode>
         <childnode refid="5518" relation="include">
         </childnode>
-        <childnode refid="5519" relation="include">
+        <childnode refid="5524" relation="include">
+        </childnode>
+        <childnode refid="5526" relation="include">
         </childnode>
         <childnode refid="5520" relation="include">
         </childnode>
-        <childnode refid="5500" relation="include">
+        <childnode refid="5522" relation="include">
+        </childnode>
+      </node>
+      <node id="5537">
+        <label>fstream</label>
+      </node>
+      <node id="5527">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="5528" relation="include">
+        </childnode>
+        <childnode refid="5516" relation="include">
+        </childnode>
+        <childnode refid="5522" relation="include">
+        </childnode>
+      </node>
+      <node id="5531">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="5523">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="5518" relation="include">
+        </childnode>
+        <childnode refid="5524" relation="include">
+        </childnode>
+        <childnode refid="5520" relation="include">
+        </childnode>
+        <childnode refid="5522" relation="include">
+        </childnode>
+      </node>
+      <node id="5542">
+        <label>vector</label>
+      </node>
+      <node id="5514">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="5515" relation="include">
+        </childnode>
+        <childnode refid="5517" relation="include">
+        </childnode>
+        <childnode refid="5523" relation="include">
+        </childnode>
+        <childnode refid="5525" relation="include">
+        </childnode>
+        <childnode refid="5518" relation="include">
+        </childnode>
+        <childnode refid="5527" relation="include">
+        </childnode>
+        <childnode refid="5524" relation="include">
+        </childnode>
+        <childnode refid="5529" relation="include">
+        </childnode>
+        <childnode refid="5530" relation="include">
+        </childnode>
+        <childnode refid="5531" relation="include">
+        </childnode>
+        <childnode refid="5532" relation="include">
+        </childnode>
+        <childnode refid="5533" relation="include">
+        </childnode>
+        <childnode refid="5534" relation="include">
+        </childnode>
+        <childnode refid="5526" relation="include">
+        </childnode>
+        <childnode refid="5528" relation="include">
+        </childnode>
+        <childnode refid="5535" relation="include">
+        </childnode>
+        <childnode refid="5536" relation="include">
+        </childnode>
+        <childnode refid="5537" relation="include">
+        </childnode>
+        <childnode refid="5538" relation="include">
+        </childnode>
+        <childnode refid="5520" relation="include">
+        </childnode>
+        <childnode refid="5539" relation="include">
+        </childnode>
+        <childnode refid="5540" relation="include">
+        </childnode>
+        <childnode refid="5522" relation="include">
+        </childnode>
+        <childnode refid="5541" relation="include">
+        </childnode>
+        <childnode refid="5542" relation="include">
+        </childnode>
+      </node>
+      <node id="5517">
+        <label>NumCpp/Core/Error.hpp</label>
+        <link refid="_error_8hpp"/>
+        <childnode refid="5518" relation="include">
+        </childnode>
+        <childnode refid="5520" relation="include">
         </childnode>
         <childnode refid="5521" relation="include">
         </childnode>
         <childnode refid="5522" relation="include">
         </childnode>
-        <childnode refid="5502" relation="include">
-        </childnode>
-        <childnode refid="5523" relation="include">
-        </childnode>
-        <childnode refid="5524" relation="include">
-        </childnode>
       </node>
-      <node id="5499">
-        <label>NumCpp/Core/Error.hpp</label>
-        <link refid="_error_8hpp"/>
-        <childnode refid="5500" relation="include">
-        </childnode>
-        <childnode refid="5501" relation="include">
-        </childnode>
-        <childnode refid="5502" relation="include">
-        </childnode>
-      </node>
-      <node id="5514">
+      <node id="5532">
         <label>boost/filesystem.hpp</label>
       </node>
-      <node id="5523">
+      <node id="5541">
         <label>utility</label>
       </node>
-      <node id="5506">
+      <node id="5524">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="5502" relation="include">
+        <childnode refid="5522" relation="include">
         </childnode>
       </node>
-      <node id="5500">
+      <node id="5520">
         <label>iostream</label>
       </node>
-      <node id="5517">
+      <node id="5535">
         <label>deque</label>
       </node>
-      <node id="5516">
+      <node id="5534">
         <label>boost/endian/conversion.hpp</label>
       </node>
-      <node id="5522">
+      <node id="5540">
         <label>set</label>
       </node>
-      <node id="5508">
+      <node id="5526">
         <label>algorithm</label>
       </node>
-      <node id="5520">
+      <node id="5538">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="5529">
+      <node id="5547">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="5526">
+      <node id="5544">
         <label>factorial.hpp</label>
         <link refid="factorial_8hpp"/>
-        <childnode refid="5527" relation="include">
+        <childnode refid="5545" relation="include">
         </childnode>
-        <childnode refid="5530" relation="include">
+        <childnode refid="5548" relation="include">
         </childnode>
-        <childnode refid="5528" relation="include">
+        <childnode refid="5546" relation="include">
         </childnode>
       </node>
-      <node id="5528">
+      <node id="5546">
         <label>Special.hpp</label>
         <link refid="_special_8hpp"/>
-        <childnode refid="5529" relation="include">
+        <childnode refid="5547" relation="include">
         </childnode>
       </node>
-      <node id="5527">
+      <node id="5545">
         <label>cnr.hpp</label>
         <link refid="cnr_8hpp"/>
-        <childnode refid="5528" relation="include">
+        <childnode refid="5546" relation="include">
         </childnode>
       </node>
-      <node id="5530">
+      <node id="5548">
         <label>pnr.hpp</label>
         <link refid="pnr_8hpp"/>
-        <childnode refid="5527" relation="include">
+        <childnode refid="5545" relation="include">
         </childnode>
-        <childnode refid="5528" relation="include">
+        <childnode refid="5546" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -272,47 +277,40 @@
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;boost/math/special_functions/factorials.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
-<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">special</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="51" refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" kindref="member">factorial</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>inValue)</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>factorialValue<sp/>=<sp/>1.0;</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inValue<sp/>&lt;=<sp/>boost::math::max_factorial&lt;double&gt;::value)</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>factorialValue<sp/>=<sp/>boost::math::factorial&lt;double&gt;(inValue);<sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>factorialValue<sp/>=<sp/>boost::math::factorial&lt;double&gt;(boost::math::max_factorial&lt;double&gt;::value);<sp/></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>i<sp/>=<sp/>boost::math::max_factorial&lt;double&gt;::value<sp/>+<sp/>1;<sp/>i<sp/>&lt;=<sp/>inValue;<sp/>++i)</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>factorialValue<sp/>*=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>factorialValue;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="80" refid="namespacenc_1_1special_1af28b6a68a7d599ad1f973082ec275dbc" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/><ref refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" kindref="member">factorial</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;uint32&gt;</ref>&amp;<sp/>inArray)<sp/>noexcept</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(inArray.shape());</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform(inArray.cbegin(),<sp/>inArray.cend(),<sp/>returnArray.begin(),</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>inValue)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" kindref="member">factorial</ref>(inValue);<sp/>});</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">special</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="52" refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" kindref="member">factorial</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>inValue)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inValue<sp/>&lt;=<sp/>boost::math::max_factorial&lt;double&gt;::value)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>boost::math::factorial&lt;double&gt;(inValue);<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::numeric_limits&lt;double&gt;::infinity();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="73" refid="namespacenc_1_1special_1af28b6a68a7d599ad1f973082ec275dbc" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/><ref refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" kindref="member">factorial</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;uint32&gt;</ref>&amp;<sp/>inArray)<sp/>noexcept</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(inArray.shape());</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform(inArray.cbegin(),<sp/>inArray.cend(),<sp/>returnArray.begin(),</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>inValue)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" kindref="member">factorial</ref>(inValue);<sp/>});</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp"/>
   </compounddef>

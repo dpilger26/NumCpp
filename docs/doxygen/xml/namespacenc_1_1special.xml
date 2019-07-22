@@ -263,7 +263,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Both return the (2 * n)th Bernoulli number B2n.</para><para><parameterlist kind="param"><parameteritem>
+<para>Both return the nth Bernoulli number B2n.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
@@ -289,7 +289,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Both return the (2 * n)th Bernoulli number B2n.</para><para><parameterlist kind="param"><parameteritem>
+<para>Both return the nth Bernoulli number B2n.</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
@@ -1068,7 +1068,7 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/beta.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/beta.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1special_1a32b17f7a73b64cd31c233c39e335f068" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1special_1a46747e640813870da56bb581ea2917b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype1</type>
@@ -1079,11 +1079,11 @@
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
         <definition>NdArray&lt;double&gt; nc::special::beta</definition>
-        <argsstring>(dtype1 a, const NdArray&lt; dtype2 &gt; &amp;inArrayB) noexcept</argsstring>
+        <argsstring>(const NdArray&lt; dtype1 &gt; &amp;inArrayA, const NdArray&lt; dtype2 &gt; &amp;inArrayB) noexcept</argsstring>
         <name>beta</name>
         <param>
-          <type>dtype1</type>
-          <declname>a</declname>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype1 &gt; &amp;</type>
+          <declname>inArrayA</declname>
         </param>
         <param>
           <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype2 &gt; &amp;</type>
@@ -1094,7 +1094,7 @@
         <detaileddescription>
 <para>The beta function</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>a</parametername>
+<parametername>inArrayA</parametername>
 </parameternamelist>
 <parameterdescription>
 <para></para></parameterdescription>
@@ -1574,7 +1574,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" bodystart="51" bodyend="69"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" bodystart="52" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1af28b6a68a7d599ad1f973082ec275dbc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -1600,7 +1600,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" line="80" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" bodystart="80" bodyend="89"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" line="73" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" bodystart="73" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a1922de5ad7c6fba4aedbce02d08e1b78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

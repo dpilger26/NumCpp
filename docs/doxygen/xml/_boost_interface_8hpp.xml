@@ -15,10 +15,10 @@
       <node id="1888">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="1874">
+      <node id="1870">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="1875" relation="include">
+        <childnode refid="1871" relation="include">
         </childnode>
       </node>
       <node id="1891">
@@ -39,22 +39,22 @@
       <node id="1884">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="1874" relation="include">
+        <childnode refid="1870" relation="include">
         </childnode>
       </node>
-      <node id="1875">
+      <node id="1871">
         <label>cstdint</label>
       </node>
       <node id="1883">
         <label>cmath</label>
       </node>
-      <node id="1871">
+      <node id="1873">
         <label>stdexcept</label>
       </node>
       <node id="1894">
         <label>numeric</label>
       </node>
-      <node id="1872">
+      <node id="1874">
         <label>string</label>
       </node>
       <node id="1901">
@@ -69,15 +69,15 @@
         <link refid="_slice_8hpp"/>
         <childnode refid="1869" relation="include">
         </childnode>
-        <childnode refid="1874" relation="include">
+        <childnode refid="1870" relation="include">
         </childnode>
         <childnode refid="1876" relation="include">
         </childnode>
         <childnode refid="1881" relation="include">
         </childnode>
-        <childnode refid="1870" relation="include">
-        </childnode>
         <childnode refid="1872" relation="include">
+        </childnode>
+        <childnode refid="1874" relation="include">
         </childnode>
       </node>
       <node id="1892">
@@ -90,22 +90,22 @@
         </childnode>
         <childnode refid="1879" relation="include">
         </childnode>
-        <childnode refid="1872" relation="include">
+        <childnode refid="1874" relation="include">
         </childnode>
       </node>
       <node id="1886">
         <label>boost/algorithm/clamp.hpp</label>
       </node>
-      <node id="1873">
+      <node id="1875">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="1874" relation="include">
+        <childnode refid="1870" relation="include">
         </childnode>
         <childnode refid="1876" relation="include">
         </childnode>
-        <childnode refid="1870" relation="include">
-        </childnode>
         <childnode refid="1872" relation="include">
+        </childnode>
+        <childnode refid="1874" relation="include">
         </childnode>
       </node>
       <node id="1899">
@@ -116,7 +116,7 @@
         <link refid="_boost_interface_8hpp"/>
         <childnode refid="1869" relation="include">
         </childnode>
-        <childnode refid="1873" relation="include">
+        <childnode refid="1875" relation="include">
         </childnode>
         <childnode refid="1877" relation="include">
         </childnode>
@@ -128,7 +128,7 @@
         </childnode>
         <childnode refid="1901" relation="include">
         </childnode>
-        <childnode refid="1872" relation="include">
+        <childnode refid="1874" relation="include">
         </childnode>
       </node>
       <node id="1897">
@@ -141,11 +141,11 @@
         </childnode>
         <childnode refid="1869" relation="include">
         </childnode>
-        <childnode refid="1873" relation="include">
+        <childnode refid="1875" relation="include">
         </childnode>
         <childnode refid="1880" relation="include">
         </childnode>
-        <childnode refid="1874" relation="include">
+        <childnode refid="1870" relation="include">
         </childnode>
         <childnode refid="1882" relation="include">
         </childnode>
@@ -175,13 +175,13 @@
         </childnode>
         <childnode refid="1893" relation="include">
         </childnode>
-        <childnode refid="1870" relation="include">
+        <childnode refid="1872" relation="include">
         </childnode>
         <childnode refid="1894" relation="include">
         </childnode>
         <childnode refid="1895" relation="include">
         </childnode>
-        <childnode refid="1872" relation="include">
+        <childnode refid="1874" relation="include">
         </childnode>
         <childnode refid="1896" relation="include">
         </childnode>
@@ -193,9 +193,11 @@
         <link refid="_error_8hpp"/>
         <childnode refid="1870" relation="include">
         </childnode>
-        <childnode refid="1871" relation="include">
-        </childnode>
         <childnode refid="1872" relation="include">
+        </childnode>
+        <childnode refid="1873" relation="include">
+        </childnode>
+        <childnode refid="1874" relation="include">
         </childnode>
       </node>
       <node id="1887">
@@ -204,7 +206,7 @@
       <node id="1898">
         <label>NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp</label>
         <link refid="_boost_numpy_ndarray_helper_8hpp"/>
-        <childnode refid="1874" relation="include">
+        <childnode refid="1870" relation="include">
         </childnode>
         <childnode refid="1876" relation="include">
         </childnode>
@@ -212,9 +214,11 @@
         </childnode>
         <childnode refid="1883" relation="include">
         </childnode>
+        <childnode refid="1872" relation="include">
+        </childnode>
         <childnode refid="1897" relation="include">
         </childnode>
-        <childnode refid="1872" relation="include">
+        <childnode refid="1874" relation="include">
         </childnode>
         <childnode refid="1896" relation="include">
         </childnode>
@@ -229,10 +233,10 @@
       <node id="1876">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="1872" relation="include">
+        <childnode refid="1874" relation="include">
         </childnode>
       </node>
-      <node id="1870">
+      <node id="1872">
         <label>iostream</label>
       </node>
       <node id="1890">

@@ -22,7 +22,7 @@ var searchData=
   ['bessel_5fyn_2ehpp',['bessel_yn.hpp',['../bessel__yn_8hpp.html',1,'']]],
   ['bessel_5fyn_5fprime',['bessel_yn_prime',['../namespacenc_1_1special.html#afb461ee80c8847edf730fd18203e13cf',1,'nc::special::bessel_yn_prime(dtype1 inV, dtype2 inX) noexcept'],['../namespacenc_1_1special.html#ab3a726aa41f2aeb789ab87269d8ad900',1,'nc::special::bessel_yn_prime(dtype1 inV, const NdArray&lt; dtype2 &gt; &amp;inArrayX) noexcept']]],
   ['bessel_5fyn_5fprime_2ehpp',['bessel_yn_prime.hpp',['../bessel__yn__prime_8hpp.html',1,'']]],
-  ['beta',['beta',['../namespacenc_1_1random.html#ab7de94b949521786b7bde650b1e813fa',1,'nc::random::beta()'],['../namespacenc_1_1special.html#aa2996162bcbabf343a3fa81617fd9b14',1,'nc::special::beta(dtype1 a, dtype2 b) noexcept'],['../namespacenc_1_1special.html#a32b17f7a73b64cd31c233c39e335f068',1,'nc::special::beta(dtype1 a, const NdArray&lt; dtype2 &gt; &amp;inArrayB) noexcept']]],
+  ['beta',['beta',['../namespacenc_1_1random.html#ab7de94b949521786b7bde650b1e813fa',1,'nc::random::beta()'],['../namespacenc_1_1special.html#aa2996162bcbabf343a3fa81617fd9b14',1,'nc::special::beta(dtype1 a, dtype2 b) noexcept'],['../namespacenc_1_1special.html#a46747e640813870da56bb581ea2917b6',1,'nc::special::beta(const NdArray&lt; dtype1 &gt; &amp;inArrayA, const NdArray&lt; dtype2 &gt; &amp;inArrayB) noexcept']]],
   ['big',['BIG',['../namespacenc.html#a8dcbcb343147d09e74689ad8a2586152aa60c6c694491d75b439073b8cb05b139',1,'nc']]],
   ['binaryrepr',['binaryRepr',['../namespacenc.html#a3b3788718518fe32e78e0400ce816b54',1,'nc']]],
   ['binaryrepr_2ehpp',['binaryRepr.hpp',['../binary_repr_8hpp.html',1,'']]],
