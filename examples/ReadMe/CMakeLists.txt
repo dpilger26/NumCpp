@@ -4,7 +4,7 @@ project(Example)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(NUMCPP_INCLUDES ../include)
+set(NUMCPP_INCLUDES ../../include)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -22,8 +22,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${NUMCPP_INCLUDES})
 
 set(Boost_USE_STATIC_LIBS TRUE) 
 find_package( Boost REQUIRED COMPONENTS 
-	system
-	filesystem
+    system
+    filesystem
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS}) 
