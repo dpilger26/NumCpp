@@ -4,13 +4,13 @@ project(Example)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(NUMCPP_INCLUDES ../include)
+set(NUMCPP_INCLUDES ../../include)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-add_executable(${PROJECT_NAME} Example.cpp)
+add_executable(${PROJECT_NAME} InterfaceWithEigen.cpp)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

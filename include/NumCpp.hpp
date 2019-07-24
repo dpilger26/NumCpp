@@ -46,5 +46,12 @@
 #include "NumCpp/Utils.hpp"
 #include "NumCpp/Vector.hpp"
 
-/// \example Example.cpp
+/// \example ReadMe.cpp
 /// Examples from the Quick Start Guide in README.md at [GitHub Repository](https://github.com/dpilger26/NumCpp)
+///
+/// \example InterfaceWithEigen.cpp
+/// Example for interfaceing with Eigen Matrix
+
+///
+/// \example InterfaceWithOpenCV.cpp
+/// Example for interfaceing with OpenCV Mat
