@@ -10,7 +10,7 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-add_executable(${PROJECT_NAME} Example.cpp)
+add_executable(${PROJECT_NAME} ReadMe.cpp)
 
 set_target_properties(${PROJECT_NAME}
     PROPERTIES

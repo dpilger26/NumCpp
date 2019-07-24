@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"namespacemembers_b.html":[1,1,0,1],
+"namespacemembers_c.html":[1,1,0,2],
 "namespacemembers_d.html":[1,1,0,3],
 "namespacemembers_e.html":[1,1,0,4],
 "namespacemembers_enum.html":[1,1,4],
@@ -62,8 +64,8 @@ var NAVTREEINDEX6 =
 "namespacenc_1_1polynomial.html":[1,0,0,7],
 "namespacenc_1_1pybind_interface.html":[1,0,0,8],
 "namespacenc_1_1random.html":[1,0,0,9],
-"namespacenc_1_1rotations.html":[1,0,0,10],
 "namespacenc_1_1rotations.html":[2,0,0,6],
+"namespacenc_1_1rotations.html":[1,0,0,10],
 "namespacenc_1_1special.html":[1,0,0,11],
 "namespacenc_1_1utils.html":[1,0,0,12],
 "namespaces.html":[1,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "reflect1d_8hpp_source.html":[3,0,297],
 "reflect2d_8hpp.html":[3,0,298],
 "reflect2d_8hpp.html#add9a7d70820161e370ecd37212b1f397":[3,0,298,0],
-"reflect2d_8hpp_source.html":[3,0,298],
-"remainder_8hpp.html":[3,0,299],
-"remainder_8hpp.html#a12bfc5b4d937aa0366b70fb15270bd41":[3,0,299,0]
+"reflect2d_8hpp_source.html":[3,0,298]
 };

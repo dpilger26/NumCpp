@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_interface_with_eigen_8cpp-example" kind="example">
+    <compoundname>InterfaceWithEigen.cpp</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Example for interfaceing with Eigen Matrix <programlisting filename="InterfaceWithEigen.cpp"><codeline><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_num_cpp_8hpp" kindref="compound">NumCpp.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Eigen/Dense&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Eigen::Matrix&lt;int,<sp/>Eigen::Dynamic,<sp/>Eigen::Dynamic,<sp/>Eigen::RowMajor&gt;<sp/>EigenIntMatrix;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Eigen::Map&lt;EigenIntMatrix&gt;<sp/>EigenIntMatrixMap;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>construct<sp/>some<sp/>NumCpp<sp/>arrays</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ncA<sp/>=<sp/>nc::random::randInt&lt;int&gt;({<sp/>5,<sp/>5<sp/>},<sp/>0,<sp/>10);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ncB<sp/>=<sp/>nc::random::randInt&lt;int&gt;({<sp/>5,<sp/>5<sp/>},<sp/>0,<sp/>10);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ncA:\n&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ncA<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ncB:\n&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ncB<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>map<sp/>the<sp/>arrays<sp/>to<sp/>Eigen<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>eigenA<sp/>=<sp/>EigenIntMatrixMap(ncA.data(),<sp/>ncA.numRows(),<sp/>ncA.numCols());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>eigenB<sp/>=<sp/>EigenIntMatrixMap(ncB.data(),<sp/>ncB.numRows(),<sp/>ncB.numCols());</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>the<sp/>two<sp/>Eigen<sp/>matrices</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>eigenC<sp/>=<sp/>eigenA<sp/>+<sp/>eigenB;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>the<sp/>two<sp/>NumCpp<sp/>arrays<sp/>for<sp/>a<sp/>sanity<sp/>check</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ncC<sp/>=<sp/>ncA<sp/>+<sp/>ncB;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>convert<sp/>the<sp/>Eigen<sp/>result<sp/>back<sp/>to<sp/>NumCpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>dataPtr<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[eigenC.rows()<sp/>*<sp/>eigenC.cols()];</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>EigenIntMatrixMap(dataPtr,<sp/>eigenC.rows(),<sp/>eigenC.cols())<sp/>=<sp/>eigenC;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>takeOwnership<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ncCeigen<sp/>=<sp/><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray&lt;int&gt;</ref>(dataPtr,<sp/>eigenC.rows(),<sp/>eigenC.cols(),<sp/>takeOwnership);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>compare<sp/>the<sp/>two<sp/>outputs</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1a0e8c1396cc01ccd9ec8ba549b6347e21" kindref="member">nc::array_equal</ref>(ncC,<sp/>ncCeigen))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Arrays<sp/>are<sp/>equal.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>ncC<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Arrays<sp/>are<sp/>not<sp/>equal.&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ncCeigen:\n&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ncCeigen<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ncC:\n&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>ncC<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>    </detaileddescription>
+  </compounddef>
+</doxygen>
