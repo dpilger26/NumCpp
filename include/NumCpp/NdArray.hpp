@@ -2342,6 +2342,32 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Returns the number of columns in the array
+        ///
+        ///
+        /// @return
+        ///				uint32
+        ///
+        uint32 numCols() noexcept
+        {
+            return shape_.cols;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the number of rows in the array
+        ///
+        ///
+        /// @return
+        ///				uint32
+        ///
+        uint32 numRows() noexcept
+        {
+            return shape_.rows;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Fills the array with ones
         ///
         ///

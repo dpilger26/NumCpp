@@ -32,6 +32,8 @@ var searchData=
   ['normalize',['normalize',['../classnc_1_1_vec2.html#a8d8a3ec28ef8336ab02dcd964a3e836c',1,'nc::Vec2::normalize()'],['../classnc_1_1_vec3.html#a6356b462b11a156b923a7c79b9747c25',1,'nc::Vec3::normalize()']]],
   ['not_5fequal',['not_equal',['../namespacenc.html#ac6c0da616068bc667891c0a460431de3',1,'nc']]],
   ['num2str',['num2str',['../namespacenc_1_1utils.html#a2e3a14fbbce38b0f8710ea0d92ee2ffc',1,'nc::utils']]],
+  ['numcols',['numCols',['../classnc_1_1_nd_array.html#a13ddcb6c2ace15a7a4ada6982bc9c982',1,'nc::NdArray']]],
   ['numdimensions',['numDimensions',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#aa16c4299e90c836df0f2397dc1c78b1a',1,'nc::boostPythonInterface::BoostNdarrayHelper']]],
-  ['numelements',['numElements',['../classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731',1,'nc::Slice']]]
+  ['numelements',['numElements',['../classnc_1_1_slice.html#aab35be40c38521a4bd9b3c99b3d33731',1,'nc::Slice']]],
+  ['numrows',['numRows',['../classnc_1_1_nd_array.html#ab0e399408388daf11ac4877c6e9d4e69',1,'nc::NdArray']]]
 ];
