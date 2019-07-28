@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['throw_5finvalid_5fargument_5ferror',['THROW_INVALID_ARGUMENT_ERROR',['../_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd',1,'Error.hpp']]],
-  ['throw_5fruntime_5ferror',['THROW_RUNTIME_ERROR',['../_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a',1,'Error.hpp']]]
+  ['static_5fassert_5farithmetic',['STATIC_ASSERT_ARITHMETIC',['../_error_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92',1,'Error.hpp']]],
+  ['static_5fassert_5ffloat',['STATIC_ASSERT_FLOAT',['../_error_8hpp.html#a0cd8e186da549fbdd918111d0302d973',1,'Error.hpp']]],
+  ['static_5fassert_5finteger',['STATIC_ASSERT_INTEGER',['../_error_8hpp.html#a187660686583e9047c0cf4424259ad10',1,'Error.hpp']]]
 ];

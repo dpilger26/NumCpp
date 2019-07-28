@@ -9,143 +9,131 @@
     <includedby refid="nanpercentile_8hpp" local="yes">nanpercentile.hpp</includedby>
     <includedby refid="_functions_8hpp" local="yes">Functions.hpp</includedby>
     <incdepgraph>
-      <node id="7581">
+      <node id="7585">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="7566">
+      <node id="7570">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
+        <childnode refid="7571" relation="include">
+        </childnode>
+      </node>
+      <node id="7588">
+        <label>functional</label>
+      </node>
+      <node id="7567">
+        <label>limits</label>
+      </node>
+      <node id="7566">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
         <childnode refid="7567" relation="include">
         </childnode>
       </node>
-      <node id="7584">
-        <label>functional</label>
-      </node>
-      <node id="7563">
-        <label>limits</label>
-      </node>
-      <node id="7562">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="7563" relation="include">
-        </childnode>
-      </node>
-      <node id="7577">
+      <node id="7581">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="7566" relation="include">
+        <childnode refid="7570" relation="include">
         </childnode>
       </node>
-      <node id="7567">
+      <node id="7571">
         <label>cstdint</label>
       </node>
-      <node id="7576">
+      <node id="7580">
         <label>cmath</label>
       </node>
-      <node id="7569">
+      <node id="7573">
         <label>stdexcept</label>
       </node>
-      <node id="7587">
+      <node id="7591">
         <label>numeric</label>
       </node>
-      <node id="7570">
+      <node id="7574">
         <label>string</label>
       </node>
-      <node id="7578">
+      <node id="7582">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="7573">
+      <node id="7577">
         <label>NumCpp/Core/Slice.hpp</label>
         <link refid="_slice_8hpp"/>
-        <childnode refid="7565" relation="include">
-        </childnode>
-        <childnode refid="7566" relation="include">
-        </childnode>
-        <childnode refid="7572" relation="include">
-        </childnode>
-        <childnode refid="7574" relation="include">
-        </childnode>
-        <childnode refid="7568" relation="include">
+        <childnode refid="7569" relation="include">
         </childnode>
         <childnode refid="7570" relation="include">
-        </childnode>
-      </node>
-      <node id="7561">
-        <label>isnan.hpp</label>
-        <link refid="isnan_8hpp"/>
-        <childnode refid="7562" relation="include">
-        </childnode>
-        <childnode refid="7564" relation="include">
-        </childnode>
-        <childnode refid="7574" relation="include">
         </childnode>
         <childnode refid="7576" relation="include">
-        </childnode>
-      </node>
-      <node id="7585">
-        <label>fstream</label>
-      </node>
-      <node id="7575">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="7576" relation="include">
-        </childnode>
-        <childnode refid="7563" relation="include">
-        </childnode>
-        <childnode refid="7570" relation="include">
-        </childnode>
-      </node>
-      <node id="7579">
-        <label>boost/algorithm/clamp.hpp</label>
-      </node>
-      <node id="7571">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="7566" relation="include">
-        </childnode>
-        <childnode refid="7572" relation="include">
-        </childnode>
-        <childnode refid="7568" relation="include">
-        </childnode>
-        <childnode refid="7570" relation="include">
-        </childnode>
-      </node>
-      <node id="7590">
-        <label>vector</label>
-      </node>
-      <node id="7564">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="7562" relation="include">
-        </childnode>
-        <childnode refid="7565" relation="include">
-        </childnode>
-        <childnode refid="7571" relation="include">
-        </childnode>
-        <childnode refid="7573" relation="include">
-        </childnode>
-        <childnode refid="7566" relation="include">
-        </childnode>
-        <childnode refid="7575" relation="include">
-        </childnode>
-        <childnode refid="7572" relation="include">
-        </childnode>
-        <childnode refid="7577" relation="include">
         </childnode>
         <childnode refid="7578" relation="include">
         </childnode>
-        <childnode refid="7579" relation="include">
+        <childnode refid="7572" relation="include">
+        </childnode>
+        <childnode refid="7574" relation="include">
+        </childnode>
+      </node>
+      <node id="7565">
+        <label>isnan.hpp</label>
+        <link refid="isnan_8hpp"/>
+        <childnode refid="7566" relation="include">
+        </childnode>
+        <childnode refid="7568" relation="include">
+        </childnode>
+        <childnode refid="7578" relation="include">
         </childnode>
         <childnode refid="7580" relation="include">
+        </childnode>
+      </node>
+      <node id="7589">
+        <label>fstream</label>
+      </node>
+      <node id="7579">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="7580" relation="include">
+        </childnode>
+        <childnode refid="7567" relation="include">
+        </childnode>
+        <childnode refid="7574" relation="include">
+        </childnode>
+      </node>
+      <node id="7583">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="7575">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="7570" relation="include">
+        </childnode>
+        <childnode refid="7576" relation="include">
+        </childnode>
+        <childnode refid="7572" relation="include">
+        </childnode>
+        <childnode refid="7574" relation="include">
+        </childnode>
+      </node>
+      <node id="7594">
+        <label>vector</label>
+      </node>
+      <node id="7568">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="7566" relation="include">
+        </childnode>
+        <childnode refid="7569" relation="include">
+        </childnode>
+        <childnode refid="7575" relation="include">
+        </childnode>
+        <childnode refid="7577" relation="include">
+        </childnode>
+        <childnode refid="7570" relation="include">
+        </childnode>
+        <childnode refid="7579" relation="include">
+        </childnode>
+        <childnode refid="7576" relation="include">
         </childnode>
         <childnode refid="7581" relation="include">
         </childnode>
         <childnode refid="7582" relation="include">
-        </childnode>
-        <childnode refid="7574" relation="include">
-        </childnode>
-        <childnode refid="7576" relation="include">
         </childnode>
         <childnode refid="7583" relation="include">
         </childnode>
@@ -155,85 +143,99 @@
         </childnode>
         <childnode refid="7586" relation="include">
         </childnode>
-        <childnode refid="7568" relation="include">
+        <childnode refid="7578" relation="include">
+        </childnode>
+        <childnode refid="7580" relation="include">
         </childnode>
         <childnode refid="7587" relation="include">
         </childnode>
         <childnode refid="7588" relation="include">
         </childnode>
-        <childnode refid="7570" relation="include">
-        </childnode>
         <childnode refid="7589" relation="include">
         </childnode>
         <childnode refid="7590" relation="include">
         </childnode>
+        <childnode refid="7572" relation="include">
+        </childnode>
+        <childnode refid="7591" relation="include">
+        </childnode>
+        <childnode refid="7592" relation="include">
+        </childnode>
+        <childnode refid="7574" relation="include">
+        </childnode>
+        <childnode refid="7593" relation="include">
+        </childnode>
+        <childnode refid="7594" relation="include">
+        </childnode>
       </node>
-      <node id="7565">
+      <node id="7569">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="7566" relation="include">
-        </childnode>
-        <childnode refid="7568" relation="include">
-        </childnode>
-        <childnode refid="7569" relation="include">
-        </childnode>
         <childnode refid="7570" relation="include">
         </childnode>
+        <childnode refid="7572" relation="include">
+        </childnode>
+        <childnode refid="7567" relation="include">
+        </childnode>
+        <childnode refid="7573" relation="include">
+        </childnode>
+        <childnode refid="7574" relation="include">
+        </childnode>
       </node>
-      <node id="7580">
+      <node id="7584">
         <label>boost/filesystem.hpp</label>
       </node>
-      <node id="7589">
+      <node id="7593">
         <label>utility</label>
       </node>
-      <node id="7572">
+      <node id="7576">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="7570" relation="include">
+        <childnode refid="7574" relation="include">
         </childnode>
       </node>
-      <node id="7568">
+      <node id="7572">
         <label>iostream</label>
       </node>
-      <node id="7583">
+      <node id="7587">
         <label>deque</label>
       </node>
-      <node id="7582">
+      <node id="7586">
         <label>boost/endian/conversion.hpp</label>
       </node>
-      <node id="7588">
+      <node id="7592">
         <label>set</label>
       </node>
-      <node id="7574">
+      <node id="7578">
         <label>algorithm</label>
       </node>
-      <node id="7586">
+      <node id="7590">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="7594">
+      <node id="7598">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="7592">
+      <node id="7596">
         <label>nanpercentile.hpp</label>
         <link refid="nanpercentile_8hpp"/>
-        <childnode refid="7593" relation="include">
+        <childnode refid="7597" relation="include">
         </childnode>
       </node>
-      <node id="7591">
+      <node id="7595">
         <label>isnan.hpp</label>
         <link refid="isnan_8hpp"/>
-        <childnode refid="7592" relation="include">
+        <childnode refid="7596" relation="include">
         </childnode>
-        <childnode refid="7593" relation="include">
+        <childnode refid="7597" relation="include">
         </childnode>
       </node>
-      <node id="7593">
+      <node id="7597">
         <label>Functions.hpp</label>
         <link refid="_functions_8hpp"/>
-        <childnode refid="7594" relation="include">
+        <childnode refid="7598" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -266,25 +268,29 @@
 <codeline lineno="51"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
 <codeline lineno="52" refid="namespacenc_1ac28569da874c0b37a4c50c86b31a98ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ac28569da874c0b37a4c50c86b31a98ab" kindref="member">isnan</ref>(dtype<sp/>inValue)<sp/>noexcept</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_assert(!<ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo&lt;dtype&gt;::isInteger</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>isnan:<sp/>can<sp/>only<sp/>be<sp/>used<sp/>with<sp/>floating<sp/>point<sp/>types.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a5f04fbed6aa9fd7491646d0c1cae051e" kindref="member">std::isnan</ref>(inValue);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="70"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="71" refid="namespacenc_1a5f04fbed6aa9fd7491646d0c1cae051e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;bool&gt;</ref><sp/><ref refid="namespacenc_1ac28569da874c0b37a4c50c86b31a98ab" kindref="member">isnan</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray)<sp/>noexcept</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_assert(!<ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo&lt;dtype&gt;::isInteger</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>isnan:<sp/>can<sp/>only<sp/>be<sp/>used<sp/>with<sp/>floating<sp/>point<sp/>types.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;bool&gt;</ref><sp/>returnArray(inArray.shape());</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform(inArray.cbegin(),<sp/>inArray.cend(),<sp/>returnArray.begin(),</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](dtype<sp/>inValue)<sp/>noexcept<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ac28569da874c0b37a4c50c86b31a98ab" kindref="member">isnan</ref>(inValue);<sp/>});</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo&lt;dtype&gt;::isInteger</ref>())</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a5f04fbed6aa9fd7491646d0c1cae051e" kindref="member">std::isnan</ref>(static_cast&lt;double&gt;(inValue));<sp/></highlight><highlight class="comment">//<sp/>static_cast<sp/>is<sp/>needed<sp/>for<sp/>compiler<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="77" refid="namespacenc_1a5f04fbed6aa9fd7491646d0c1cae051e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;bool&gt;</ref><sp/><ref refid="namespacenc_1ac28569da874c0b37a4c50c86b31a98ab" kindref="member">isnan</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray)<sp/>noexcept</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;bool&gt;</ref><sp/>returnArray(inArray.shape());</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform(inArray.cbegin(),<sp/>inArray.cend(),<sp/>returnArray.begin(),</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](dtype<sp/>inValue)<sp/>noexcept<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ac28569da874c0b37a4c50c86b31a98ab" kindref="member">isnan</ref>(inValue);<sp/>});</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/isnan.hpp"/>
   </compounddef>

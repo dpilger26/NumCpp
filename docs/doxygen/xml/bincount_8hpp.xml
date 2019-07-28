@@ -2,7 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="bincount_8hpp" kind="file" language="C++">
     <compoundname>bincount.hpp</compoundname>
-    <includes refid="_dtype_info_8hpp" local="yes">NumCpp/Core/DtypeInfo.hpp</includes>
     <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
     <includes refid="_types_8hpp" local="yes">NumCpp/Core/Types.hpp</includes>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
@@ -13,43 +12,43 @@
       <node id="1687">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="1671">
+      <node id="1669">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="1672" relation="include">
+        <childnode refid="1670" relation="include">
         </childnode>
       </node>
       <node id="1690">
         <label>functional</label>
       </node>
-      <node id="1669">
+      <node id="1672">
         <label>limits</label>
       </node>
-      <node id="1668">
+      <node id="1676">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="1669" relation="include">
+        <childnode refid="1672" relation="include">
         </childnode>
       </node>
       <node id="1683">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="1671" relation="include">
+        <childnode refid="1669" relation="include">
         </childnode>
       </node>
-      <node id="1672">
+      <node id="1670">
         <label>cstdint</label>
       </node>
       <node id="1682">
         <label>cmath</label>
       </node>
-      <node id="1674">
+      <node id="1673">
         <label>stdexcept</label>
       </node>
       <node id="1693">
         <label>numeric</label>
       </node>
-      <node id="1675">
+      <node id="1674">
         <label>string</label>
       </node>
       <node id="1684">
@@ -59,17 +58,17 @@
       <node id="1679">
         <label>NumCpp/Core/Slice.hpp</label>
         <link refid="_slice_8hpp"/>
-        <childnode refid="1670" relation="include">
+        <childnode refid="1668" relation="include">
         </childnode>
-        <childnode refid="1671" relation="include">
+        <childnode refid="1669" relation="include">
         </childnode>
         <childnode refid="1678" relation="include">
         </childnode>
         <childnode refid="1680" relation="include">
         </childnode>
-        <childnode refid="1673" relation="include">
+        <childnode refid="1671" relation="include">
         </childnode>
-        <childnode refid="1675" relation="include">
+        <childnode refid="1674" relation="include">
         </childnode>
       </node>
       <node id="1691">
@@ -80,15 +79,13 @@
         <link refid="bincount_8hpp"/>
         <childnode refid="1668" relation="include">
         </childnode>
-        <childnode refid="1670" relation="include">
+        <childnode refid="1669" relation="include">
         </childnode>
-        <childnode refid="1671" relation="include">
-        </childnode>
-        <childnode refid="1676" relation="include">
+        <childnode refid="1675" relation="include">
         </childnode>
         <childnode refid="1680" relation="include">
         </childnode>
-        <childnode refid="1675" relation="include">
+        <childnode refid="1674" relation="include">
         </childnode>
       </node>
       <node id="1681">
@@ -96,9 +93,9 @@
         <link refid="_constants_8hpp"/>
         <childnode refid="1682" relation="include">
         </childnode>
-        <childnode refid="1669" relation="include">
+        <childnode refid="1672" relation="include">
         </childnode>
-        <childnode refid="1675" relation="include">
+        <childnode refid="1674" relation="include">
         </childnode>
       </node>
       <node id="1685">
@@ -107,30 +104,30 @@
       <node id="1677">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="1671" relation="include">
+        <childnode refid="1669" relation="include">
         </childnode>
         <childnode refid="1678" relation="include">
         </childnode>
-        <childnode refid="1673" relation="include">
+        <childnode refid="1671" relation="include">
         </childnode>
-        <childnode refid="1675" relation="include">
+        <childnode refid="1674" relation="include">
         </childnode>
       </node>
       <node id="1696">
         <label>vector</label>
       </node>
-      <node id="1676">
+      <node id="1675">
         <label>NumCpp/NdArray.hpp</label>
         <link refid="_nd_array_8hpp"/>
-        <childnode refid="1668" relation="include">
+        <childnode refid="1676" relation="include">
         </childnode>
-        <childnode refid="1670" relation="include">
+        <childnode refid="1668" relation="include">
         </childnode>
         <childnode refid="1677" relation="include">
         </childnode>
         <childnode refid="1679" relation="include">
         </childnode>
-        <childnode refid="1671" relation="include">
+        <childnode refid="1669" relation="include">
         </childnode>
         <childnode refid="1681" relation="include">
         </childnode>
@@ -160,29 +157,31 @@
         </childnode>
         <childnode refid="1692" relation="include">
         </childnode>
-        <childnode refid="1673" relation="include">
+        <childnode refid="1671" relation="include">
         </childnode>
         <childnode refid="1693" relation="include">
         </childnode>
         <childnode refid="1694" relation="include">
         </childnode>
-        <childnode refid="1675" relation="include">
+        <childnode refid="1674" relation="include">
         </childnode>
         <childnode refid="1695" relation="include">
         </childnode>
         <childnode refid="1696" relation="include">
         </childnode>
       </node>
-      <node id="1670">
+      <node id="1668">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
+        <childnode refid="1669" relation="include">
+        </childnode>
         <childnode refid="1671" relation="include">
+        </childnode>
+        <childnode refid="1672" relation="include">
         </childnode>
         <childnode refid="1673" relation="include">
         </childnode>
         <childnode refid="1674" relation="include">
-        </childnode>
-        <childnode refid="1675" relation="include">
         </childnode>
       </node>
       <node id="1686">
@@ -194,10 +193,10 @@
       <node id="1678">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="1675" relation="include">
+        <childnode refid="1674" relation="include">
         </childnode>
       </node>
-      <node id="1673">
+      <node id="1671">
         <label>iostream</label>
       </node>
       <node id="1689">
@@ -250,86 +249,83 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_dtype_info_8hpp" kindref="compound">NumCpp/Core/DtypeInfo.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_error_8hpp" kindref="compound">NumCpp/Core/Error.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_types_8hpp" kindref="compound">NumCpp/Core/Types.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_nd_array_8hpp" kindref="compound">NumCpp/NdArray.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
-<codeline lineno="40"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="59"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="60" refid="namespacenc_1a60bb0f9e8bed0fd6f5c0973cf3b918ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/><ref refid="namespacenc_1a60bb0f9e8bed0fd6f5c0973cf3b918ca" kindref="member">bincount</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray,<sp/><ref refid="namespacenc_1a58dcfca0b29c16ffb4ca118b2a1cb399" kindref="member">uint16</ref><sp/>inMinLength<sp/>=<sp/>1)</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>only<sp/>works<sp/>with<sp/>integer<sp/>input<sp/>types</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_assert(<ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo&lt;dtype&gt;::isInteger</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>bincount:<sp/>can<sp/>only<sp/>use<sp/>with<sp/>integer<sp/>types.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dtype<sp/>maxValue<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" kindref="member">max</ref>().item();</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxValue<sp/>&lt;<sp/>0)</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>no<sp/>positive<sp/>values<sp/>so<sp/>just<sp/>return<sp/>an<sp/>empty<sp/>array</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(0);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxValue<sp/>+<sp/>1<sp/>&gt;<sp/><ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo&lt;dtype&gt;::max</ref>())</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;array<sp/>values<sp/>too<sp/>large,<sp/>will<sp/>result<sp/>in<sp/>gigantic<sp/>array<sp/>that<sp/>will<sp/>take<sp/>up<sp/>alot<sp/>of<sp/>memory...&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a58dcfca0b29c16ffb4ca118b2a1cb399" kindref="member">uint16</ref><sp/>outArraySize<sp/>=<sp/><ref refid="namespacenc_1a5273d0dac1896f082d185c7f0b90d99f" kindref="member">std::max</ref>(static_cast&lt;uint16&gt;(maxValue<sp/>+<sp/>1),<sp/>inMinLength);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>clippedArray<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1abf06a319d8415dd4c61495aa67cfc0f1" kindref="member">clip</ref>(0,<sp/>maxValue);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>outArray(1,<sp/>outArraySize);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outArray.<ref refid="classnc_1_1_nd_array_1a0b337bf0d78b306fa0b874631f1bf24e" kindref="member">zeros</ref>();</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::for_each(clippedArray.<ref refid="classnc_1_1_nd_array_1afab8bb1ff84015deae6dc7ed74a68227" kindref="member">cbegin</ref>(),<sp/>clippedArray.<ref refid="classnc_1_1_nd_array_1a01305da9771c34f86b419379ee986f3e" kindref="member">cend</ref>(),</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[&amp;outArray](dtype<sp/>value)<sp/>noexcept<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>++outArray[value];<sp/>});</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>outArray;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="110"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="111" refid="namespacenc_1aa31a10ae8201c637ab3d203844b81904" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/><ref refid="namespacenc_1a60bb0f9e8bed0fd6f5c0973cf3b918ca" kindref="member">bincount</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inWeights,<sp/><ref refid="namespacenc_1a58dcfca0b29c16ffb4ca118b2a1cb399" kindref="member">uint16</ref><sp/>inMinLength<sp/>=<sp/>1)</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>only<sp/>works<sp/>with<sp/>integer<sp/>input<sp/>types</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_assert(<ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo&lt;dtype&gt;::isInteger</ref>(),<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>bincount:<sp/>can<sp/>only<sp/>use<sp/>with<sp/>integer<sp/>types.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inArray.<ref refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" kindref="member">shape</ref>()<sp/>!=<sp/>inWeights.<ref refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" kindref="member">shape</ref>())</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;weights<sp/>array<sp/>must<sp/>be<sp/>the<sp/>same<sp/>shape<sp/>as<sp/>the<sp/>input<sp/>array.&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dtype<sp/>maxValue<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" kindref="member">max</ref>().item();</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxValue<sp/>&lt;<sp/>0)</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>no<sp/>positive<sp/>values<sp/>so<sp/>just<sp/>return<sp/>an<sp/>empty<sp/>array</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(0);</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxValue<sp/>+<sp/>1<sp/>&gt;<sp/><ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo&lt;dtype&gt;::max</ref>())</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;array<sp/>values<sp/>too<sp/>large,<sp/>will<sp/>result<sp/>in<sp/>gigantic<sp/>array<sp/>that<sp/>will<sp/>take<sp/>up<sp/>alot<sp/>of<sp/>memory...&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_error_8hpp" kindref="compound">NumCpp/Core/Error.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_types_8hpp" kindref="compound">NumCpp/Core/Types.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_nd_array_8hpp" kindref="compound">NumCpp/NdArray.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="59" refid="namespacenc_1a60bb0f9e8bed0fd6f5c0973cf3b918ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/><ref refid="namespacenc_1a60bb0f9e8bed0fd6f5c0973cf3b918ca" kindref="member">bincount</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray,<sp/><ref refid="namespacenc_1a58dcfca0b29c16ffb4ca118b2a1cb399" kindref="member">uint16</ref><sp/>inMinLength<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1a187660686583e9047c0cf4424259ad10" kindref="member">STATIC_ASSERT_INTEGER</ref>(dtype);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dtype<sp/>maxValue<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" kindref="member">max</ref>().item();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxValue<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>no<sp/>positive<sp/>values<sp/>so<sp/>just<sp/>return<sp/>an<sp/>empty<sp/>array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(0);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxValue<sp/>+<sp/>1<sp/>&gt;<sp/><ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo&lt;dtype&gt;::max</ref>())</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;array<sp/>values<sp/>too<sp/>large,<sp/>will<sp/>result<sp/>in<sp/>gigantic<sp/>array<sp/>that<sp/>will<sp/>take<sp/>up<sp/>alot<sp/>of<sp/>memory...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a58dcfca0b29c16ffb4ca118b2a1cb399" kindref="member">uint16</ref><sp/>outArraySize<sp/>=<sp/><ref refid="namespacenc_1a5273d0dac1896f082d185c7f0b90d99f" kindref="member">std::max</ref>(static_cast&lt;uint16&gt;(maxValue<sp/>+<sp/>1),<sp/>inMinLength);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>clippedArray<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1abf06a319d8415dd4c61495aa67cfc0f1" kindref="member">clip</ref>(0,<sp/>maxValue);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>outArray(1,<sp/>outArraySize);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outArray.<ref refid="classnc_1_1_nd_array_1a0b337bf0d78b306fa0b874631f1bf24e" kindref="member">zeros</ref>();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::for_each(clippedArray.<ref refid="classnc_1_1_nd_array_1afab8bb1ff84015deae6dc7ed74a68227" kindref="member">cbegin</ref>(),<sp/>clippedArray.<ref refid="classnc_1_1_nd_array_1a01305da9771c34f86b419379ee986f3e" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[&amp;outArray](dtype<sp/>value)<sp/>noexcept<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>++outArray[value];<sp/>});</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>outArray;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="109" refid="namespacenc_1aa31a10ae8201c637ab3d203844b81904" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/><ref refid="namespacenc_1a60bb0f9e8bed0fd6f5c0973cf3b918ca" kindref="member">bincount</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inWeights,<sp/><ref refid="namespacenc_1a58dcfca0b29c16ffb4ca118b2a1cb399" kindref="member">uint16</ref><sp/>inMinLength<sp/>=<sp/>1)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1a187660686583e9047c0cf4424259ad10" kindref="member">STATIC_ASSERT_INTEGER</ref>(dtype);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(inArray.<ref refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" kindref="member">shape</ref>()<sp/>!=<sp/>inWeights.<ref refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" kindref="member">shape</ref>())</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;weights<sp/>array<sp/>must<sp/>be<sp/>the<sp/>same<sp/>shape<sp/>as<sp/>the<sp/>input<sp/>array.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dtype<sp/>maxValue<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1a1da78e30bcb54c80c887b454a2342d42" kindref="member">max</ref>().item();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxValue<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>no<sp/>positive<sp/>values<sp/>so<sp/>just<sp/>return<sp/>an<sp/>empty<sp/>array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>(0);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(maxValue<sp/>+<sp/>1<sp/>&gt;<sp/><ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo&lt;dtype&gt;::max</ref>())</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;array<sp/>values<sp/>too<sp/>large,<sp/>will<sp/>result<sp/>in<sp/>gigantic<sp/>array<sp/>that<sp/>will<sp/>take<sp/>up<sp/>alot<sp/>of<sp/>memory...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a58dcfca0b29c16ffb4ca118b2a1cb399" kindref="member">uint16</ref><sp/>outArraySize<sp/>=<sp/><ref refid="namespacenc_1a5273d0dac1896f082d185c7f0b90d99f" kindref="member">std::max</ref>(static_cast&lt;uint16&gt;(maxValue<sp/>+<sp/>1),<sp/>inMinLength);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>clippedArray<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1abf06a319d8415dd4c61495aa67cfc0f1" kindref="member">clip</ref>(0,<sp/>maxValue);</highlight></codeline>
 <codeline lineno="132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a58dcfca0b29c16ffb4ca118b2a1cb399" kindref="member">uint16</ref><sp/>outArraySize<sp/>=<sp/><ref refid="namespacenc_1a5273d0dac1896f082d185c7f0b90d99f" kindref="member">std::max</ref>(static_cast&lt;uint16&gt;(maxValue<sp/>+<sp/>1),<sp/>inMinLength);</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>clippedArray<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1abf06a319d8415dd4c61495aa67cfc0f1" kindref="member">clip</ref>(0,<sp/>maxValue);</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>outArray(1,<sp/>outArraySize);</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outArray.<ref refid="classnc_1_1_nd_array_1a0b337bf0d78b306fa0b874631f1bf24e" kindref="member">zeros</ref>();</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>counter<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::for_each(clippedArray.<ref refid="classnc_1_1_nd_array_1afab8bb1ff84015deae6dc7ed74a68227" kindref="member">cbegin</ref>(),<sp/>clippedArray.<ref refid="classnc_1_1_nd_array_1a01305da9771c34f86b419379ee986f3e" kindref="member">cend</ref>(),</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[&amp;outArray,<sp/>&amp;inWeights,<sp/>&amp;counter](dtype<sp/>value)<sp/>noexcept<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>outArray[value]<sp/>+=<sp/>inWeights[counter++];<sp/>});</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>outArray;</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>outArray(1,<sp/>outArraySize);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outArray.<ref refid="classnc_1_1_nd_array_1a0b337bf0d78b306fa0b874631f1bf24e" kindref="member">zeros</ref>();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>counter<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::for_each(clippedArray.<ref refid="classnc_1_1_nd_array_1afab8bb1ff84015deae6dc7ed74a68227" kindref="member">cbegin</ref>(),<sp/>clippedArray.<ref refid="classnc_1_1_nd_array_1a01305da9771c34f86b419379ee986f3e" kindref="member">cend</ref>(),</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[&amp;outArray,<sp/>&amp;inWeights,<sp/>&amp;counter](dtype<sp/>value)<sp/>noexcept<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>outArray[value]<sp/>+=<sp/>inWeights[counter++];<sp/>});</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>outArray;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/bincount.hpp"/>
   </compounddef>

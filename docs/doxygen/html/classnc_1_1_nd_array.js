@@ -2,7 +2,7 @@ var classnc_1_1_nd_array =
 [
     [ "const_iterator", "classnc_1_1_nd_array.html#a314e112215cfe6abdba35adf0998899b", null ],
     [ "iterator", "classnc_1_1_nd_array.html#af5fd346e89b4a6117ed4a2296fe68959", null ],
-    [ "NdArray", "classnc_1_1_nd_array.html#af8dcd9ba696d8f162f17d007a70b678b", null ],
+    [ "NdArray", "classnc_1_1_nd_array.html#aa095c262c5a896ab349c1913f55c3cc5", null ],
     [ "NdArray", "classnc_1_1_nd_array.html#ad332591aab4b5ae4b761b414b7ef32bc", null ],
     [ "NdArray", "classnc_1_1_nd_array.html#a7d77d17c6fa5795e3c54f743ab65bfc3", null ],
     [ "NdArray", "classnc_1_1_nd_array.html#a029fa6529449ac3c01eefa6520910f8b", null ],

@@ -165,7 +165,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/binomial.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/binomial.hpp" bodystart="60" bodyend="84"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/binomial.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/binomial.hpp" bodystart="59" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a61dc9fcfaee6e2a74e3f2e1f0e9c039b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -377,7 +377,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/discrete.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/discrete.hpp" bodystart="58" bodyend="72"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/discrete.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/discrete.hpp" bodystart="58" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1acd77c2e563be5d613cb54cc3a10c5520" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -625,7 +625,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/geometric.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/geometric.hpp" bodystart="59" bodyend="78"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/geometric.hpp" line="58" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/geometric.hpp" bodystart="58" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1a2966d8201e87fe94ce575e6338f1e222" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -789,7 +789,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/negativeBinomial.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/negativeBinomial.hpp" bodystart="60" bodyend="84"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/negativeBinomial.hpp" line="59" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/negativeBinomial.hpp" bodystart="59" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1af01395c7355ee4c0f36441c40039e82d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1037,7 +1037,7 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/rand.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/rand.hpp" bodystart="57" bodyend="68"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1random_1a90e5d8da2012ada1194420f31547b6e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1random_1a531b5487f2f3e54fab878340277f7283" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -1045,7 +1045,7 @@
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
         <definition>NdArray&lt;dtype&gt; nc::random::randFloat</definition>
-        <argsstring>(const Shape &amp;inShape, dtype inLow, dtype inHigh)</argsstring>
+        <argsstring>(const Shape &amp;inShape, dtype inLow, dtype inHigh=0.0)</argsstring>
         <name>randFloat</name>
         <param>
           <type>const <ref refid="classnc_1_1_shape" kindref="compound">Shape</ref> &amp;</type>
@@ -1058,11 +1058,12 @@
         <param>
           <type>dtype</type>
           <declname>inHigh</declname>
+          <defval>0.0</defval>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Return random floats from low (inclusive) to high (exclusive), with the given shape</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Return random floats from low (inclusive) to high (exclusive), with the given shape. If no high value is input then the range will go from [0, low).</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf</ulink></para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inShape</parametername>
 </parameternamelist>
@@ -1081,16 +1082,16 @@
 <parametername>inHigh</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para>default 0. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randFloat.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randFloat.hpp" bodystart="60" bodyend="80"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randFloat.hpp" line="62" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randFloat.hpp" bodystart="62" bodyend="84"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1random_1a54d5323d33f653d56031b8af52ec956b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1random_1a2842db744ad52ca905a48cd281934fd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -1098,7 +1099,7 @@
         </templateparamlist>
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
         <definition>NdArray&lt;dtype&gt; nc::random::randInt</definition>
-        <argsstring>(const Shape &amp;inShape, dtype inLow, dtype inHigh)</argsstring>
+        <argsstring>(const Shape &amp;inShape, dtype inLow, dtype inHigh=0)</argsstring>
         <name>randInt</name>
         <param>
           <type>const <ref refid="classnc_1_1_shape" kindref="compound">Shape</ref> &amp;</type>
@@ -1111,11 +1112,12 @@
         <param>
           <type>dtype</type>
           <declname>inHigh</declname>
+          <defval>0</defval>
         </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Return random integers from low (inclusive) to high (exclusive), with the given shape</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Return random integers from low (inclusive) to high (exclusive), with the given shape. If no high value is input then the range will go from [0, low).</para><para>NumPy Reference: <ulink url="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint">https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint</ulink></para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inShape</parametername>
 </parameternamelist>
@@ -1134,14 +1136,14 @@
 <parametername>inHigh</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para>default 0. </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 <simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randInt.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randInt.hpp" bodystart="61" bodyend="84"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randInt.hpp" line="61" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/randInt.hpp" bodystart="61" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1random_1aed1531eafe5ef2f67c226437003d5999" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

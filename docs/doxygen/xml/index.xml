@@ -252,7 +252,7 @@
     <member refid="classnc_1_1_nd_array_1a85db9a1c421a05191048a31ef03b4c5f" kind="variable"><name>size_</name></member>
     <member refid="classnc_1_1_nd_array_1a6142678be814c9c60843dd0dca623f88" kind="function"><name>deleteArray</name></member>
     <member refid="classnc_1_1_nd_array_1a5b697c0900a93b8e418b87f3e491bb61" kind="function"><name>newArray</name></member>
-    <member refid="classnc_1_1_nd_array_1af8dcd9ba696d8f162f17d007a70b678b" kind="function"><name>NdArray</name></member>
+    <member refid="classnc_1_1_nd_array_1aa095c262c5a896ab349c1913f55c3cc5" kind="function"><name>NdArray</name></member>
     <member refid="classnc_1_1_nd_array_1ad332591aab4b5ae4b761b414b7ef32bc" kind="function"><name>NdArray</name></member>
     <member refid="classnc_1_1_nd_array_1a7d77d17c6fa5795e3c54f743ab65bfc3" kind="function"><name>NdArray</name></member>
     <member refid="classnc_1_1_nd_array_1a029fa6529449ac3c01eefa6520910f8b" kind="function"><name>NdArray</name></member>
@@ -1122,8 +1122,8 @@
     <member refid="namespacenc_1_1random_1ad1cc1c17d8fb1d521b0a9ef9b932562b" kind="function"><name>permutation</name></member>
     <member refid="namespacenc_1_1random_1ae103ffefefe45e4b64067d52a1763f24" kind="function"><name>poisson</name></member>
     <member refid="namespacenc_1_1random_1a66c8c21d1fe1147027316fff90d68f22" kind="function"><name>rand</name></member>
-    <member refid="namespacenc_1_1random_1a90e5d8da2012ada1194420f31547b6e1" kind="function"><name>randFloat</name></member>
-    <member refid="namespacenc_1_1random_1a54d5323d33f653d56031b8af52ec956b" kind="function"><name>randInt</name></member>
+    <member refid="namespacenc_1_1random_1a531b5487f2f3e54fab878340277f7283" kind="function"><name>randFloat</name></member>
+    <member refid="namespacenc_1_1random_1a2842db744ad52ca905a48cd281934fd3" kind="function"><name>randInt</name></member>
     <member refid="namespacenc_1_1random_1aed1531eafe5ef2f67c226437003d5999" kind="function"><name>randN</name></member>
     <member refid="namespacenc_1_1random_1ae71a0895ba1f3bff56f78300e3d8538a" kind="function"><name>seed</name></member>
     <member refid="namespacenc_1_1random_1a2de486e39f23c66f769b64326d7f3103" kind="function"><name>shuffle</name></member>
@@ -1465,6 +1465,9 @@
   <compound refid="erfc__inv_8hpp" kind="file"><name>erfc_inv.hpp</name>
   </compound>
   <compound refid="_error_8hpp" kind="file"><name>Error.hpp</name>
+    <member refid="_error_8hpp_1a36abb32368b91aed0d3133a4cfd5ae92" kind="define"><name>STATIC_ASSERT_ARITHMETIC</name></member>
+    <member refid="_error_8hpp_1a0cd8e186da549fbdd918111d0302d973" kind="define"><name>STATIC_ASSERT_FLOAT</name></member>
+    <member refid="_error_8hpp_1a187660686583e9047c0cf4424259ad10" kind="define"><name>STATIC_ASSERT_INTEGER</name></member>
     <member refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kind="define"><name>THROW_INVALID_ARGUMENT_ERROR</name></member>
     <member refid="_error_8hpp_1a0f0ce4acf1fd6032112a06ebc50bb05a" kind="define"><name>THROW_RUNTIME_ERROR</name></member>
   </compound>
