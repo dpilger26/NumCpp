@@ -51,8 +51,7 @@ namespace nc
     template<typename dtype>
     dtype fmod(dtype inValue1, dtype inValue2) noexcept
     {
-        // can only be called on integer types
-        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: fmod can only be compiled with integer types.");
+        STATIC_ASSERT_INTEGER(dtype);
 
         return inValue1 % inValue2;
     }
@@ -72,9 +71,6 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> fmod(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        // can only be called on integer types
-        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: fmod can only be compiled with integer types.");
-
         if (inArray1.shape() != inArray2.shape())
         {
             THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");

@@ -29,7 +29,6 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -47,21 +46,21 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Return random integers from low (inclusive) to high (exclusive),
-        ///						with the given shape
+        ///						with the given shape. If no high value is input then the range will 
+        ///                     go from [0, low).
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randint.html#numpy.random.randint
         ///
         /// @param				inShape
         /// @param				inLow
-        /// @param				inHigh
+        /// @param				inHigh. default 0.
         /// @return
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh)
+        NdArray<dtype> randInt(const Shape& inShape, dtype inLow, dtype inHigh = 0)
         {
-            // only works with integer input types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: randInt: can only use with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             if (inLow == inHigh)
             {

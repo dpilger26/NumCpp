@@ -33,6 +33,7 @@
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 
 #include "boost/random/uniform_real_distribution.hpp"
 
@@ -46,24 +47,27 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Return random floats from low (inclusive) to high (exclusive),
-        ///						with the given shape
+        ///						with the given shape. If no high value is input then the range will 
+        ///                     go from [0, low).
         ///
         ///                     NumPy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.ranf.html#numpy.random.ranf
         ///
         /// @param				inShape
         /// @param  			inLow
-        /// @param				inHigh
+        /// @param				inHigh. default 0.
         /// @return
         ///				NdArray
         ///
         template<typename dtype>
-        NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh)
+        NdArray<dtype> randFloat(const Shape& inShape, dtype inLow, dtype inHigh = 0.0)
         {
-            if (inLow == inHigh)
+            STATIC_ASSERT_FLOAT(dtype);
+
+            if (utils::essentiallyEqual(inLow, inHigh))
             {
                 THROW_INVALID_ARGUMENT_ERROR("input low value must be less than the input high value.");
             }
-            else if (inLow > inHigh - DtypeInfo<dtype>::epsilon())
+            else if (inLow > inHigh)
             {
                 std::swap(inLow, inHigh);
             }

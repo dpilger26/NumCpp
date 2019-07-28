@@ -117,7 +117,10 @@ namespace nc
         // Method Description:
         ///						Defualt Constructor, not very usefull...
         ///
-        NdArray() = default;
+        NdArray() noexcept
+        {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+        }
 
         //============================================================================
         // Method Description:
@@ -131,7 +134,9 @@ namespace nc
             size_(inSquareSize * inSquareSize),
             array_(new dtype[size_]),
             ownsPtr_(true)
-        {};
+        {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+        }
 
         //============================================================================
         // Method Description:
@@ -145,7 +150,9 @@ namespace nc
             size_(inNumRows * inNumCols),
             array_(new dtype[size_]),
             ownsPtr_(true)
-        {};
+        {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+        }
 
         //============================================================================
         // Method Description:
@@ -159,7 +166,9 @@ namespace nc
             size_(shape_.size()),
             array_(new dtype[size_]),
             ownsPtr_(true)
-        {};
+        {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+        }
 
         //============================================================================
         // Method Description:
@@ -174,6 +183,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
             std::copy(inList.begin(), inList.end(), array_);
         }
 
@@ -187,6 +197,8 @@ namespace nc
         NdArray(const std::initializer_list<std::initializer_list<dtype> >& inList) :
             shape_(static_cast<uint32>(inList.size()), 0)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+
             for (auto& list : inList)
             {
                 size_ += static_cast<uint32>(list.size());
@@ -225,6 +237,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
             std::copy(inVector.begin(), inVector.end(), array_);
         }
 
@@ -241,6 +254,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
             std::copy(inDeque.begin(), inDeque.end(), array_);
         }
 
@@ -257,6 +271,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
             std::copy(inSet.begin(), inSet.end(), array_);
         }
 
@@ -273,6 +288,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
             std::copy(inFirst, inLast, array_);
         }
 
@@ -292,7 +308,9 @@ namespace nc
             size_(numRows * numCols),
             array_(inPtr),
             ownsPtr_(takeOwnership)
-        {}
+        {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+        }
 
         //============================================================================
         // Method Description:
@@ -308,6 +326,7 @@ namespace nc
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
+            STATIC_ASSERT_ARITHMETIC(dtype);
             std::copy(inPtr, inPtr + size_, begin());
         }
 
@@ -2138,8 +2157,7 @@ namespace nc
         ///
         NdArray<dtype> newbyteorder(Endian inEndianess) const noexcept
         {
-            // only works with integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "Type Error in newbyteorder: Can only compile newbyteorder method of NdArray<T> with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             switch (endianess_)
             {
@@ -3883,8 +3901,7 @@ namespace nc
         ///
         NdArray<dtype>& operator%=(const NdArray<dtype>& inOtherArray)
         {
-            // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::% operator can only be compiled with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             if (shape_ != inOtherArray.shape_)
             {
@@ -3907,8 +3924,7 @@ namespace nc
         ///
         NdArray<dtype>& operator%=(dtype inScalar)
         {
-            // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::% operator can only be compiled with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             if (inScalar == 0)
             {
@@ -3960,8 +3976,7 @@ namespace nc
         ///
         NdArray<dtype>& operator|=(const NdArray<dtype>& inOtherArray)
         {
-            // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::| operator can only be compiled with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             if (shape_ != inOtherArray.shape_)
             {
@@ -3984,8 +3999,7 @@ namespace nc
         ///
         NdArray<dtype>& operator|=(dtype inScalar) noexcept
         {
-            // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::| operator can only be compiled with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             std::for_each(begin(), end(),
                 [=](dtype& value) noexcept -> dtype { return value |= inScalar; });
@@ -4032,8 +4046,7 @@ namespace nc
         ///
         NdArray<dtype>& operator&=(const NdArray<dtype>& inOtherArray)
         {
-            // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::& operator can only be compiled with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             if (shape_ != inOtherArray.shape_)
             {
@@ -4056,8 +4069,7 @@ namespace nc
         ///
         NdArray<dtype>& operator&=(dtype inScalar) noexcept
         {
-            // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::& operator can only be compiled with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             std::for_each(begin(), end(),
                 [=](dtype& value) noexcept -> dtype { return value &= inScalar; });
@@ -4104,8 +4116,7 @@ namespace nc
         ///
         NdArray<dtype>& operator^=(const NdArray<dtype>& inOtherArray)
         {
-            // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::^ operator can only be compiled with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             if (shape_ != inOtherArray.shape_)
             {
@@ -4128,8 +4139,7 @@ namespace nc
         ///
         NdArray<dtype>& operator^=(dtype inScalar) noexcept
         {
-            // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::^ operator can only be compiled with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             std::for_each(begin(), end(),
                 [=](dtype& value) noexcept -> dtype { return value ^= inScalar; });
@@ -4228,8 +4238,7 @@ namespace nc
         ///
         NdArray<dtype> operator~() const noexcept
         {
-            // can only be called on integer types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: NdArray::~ operator can only be compiled with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             NdArray<dtype> returnArray(shape_);
             std::transform(cbegin(), cend(), returnArray.begin(),

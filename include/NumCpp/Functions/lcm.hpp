@@ -28,7 +28,7 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include "boost/integer/common_factor_rt.hpp"
@@ -49,7 +49,7 @@ namespace nc
     template<typename dtype>
     dtype lcm(dtype inValue1, dtype inValue2) noexcept
     {
-        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
+        STATIC_ASSERT_INTEGER(dtype);
         return boost::integer::lcm(inValue1, inValue2);
     }
 
@@ -66,7 +66,7 @@ namespace nc
     template<typename dtype>
     dtype lcm(const NdArray<dtype>& inArray) noexcept
     {
-        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: lcm: Can only be called with integer types.");
+        STATIC_ASSERT_INTEGER(dtype);
         return boost::integer::lcm_range(inArray.cbegin(), inArray.cend()).first;
     }
 }

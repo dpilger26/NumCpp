@@ -28,7 +28,7 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include "boost/integer/common_factor_rt.hpp"
@@ -49,7 +49,7 @@ namespace nc
     template<typename dtype>
     dtype gcd(dtype inValue1, dtype inValue2) noexcept
     {
-        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
+        STATIC_ASSERT_INTEGER(dtype);
         return boost::integer::gcd(inValue1, inValue2);
     }
 
@@ -67,7 +67,7 @@ namespace nc
     template<typename dtype>
     dtype gcd(const NdArray<dtype>& inArray) noexcept
     {
-        static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: gcd can only be called with integer types.");
+        STATIC_ASSERT_INTEGER(dtype);
         return boost::integer::gcd_range(inArray.cbegin(), inArray.cend()).first;
     }
 }
