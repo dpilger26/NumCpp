@@ -28,7 +28,6 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
@@ -58,8 +57,7 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> geometric(const Shape& inShape, double inP = 0.5)
         {
-            // only works with integer input types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: geometric: can only use with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             if (inP < 0 || inP > 1)
             {

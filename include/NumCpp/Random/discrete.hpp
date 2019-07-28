@@ -28,7 +28,7 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
@@ -57,8 +57,7 @@ namespace nc
         template<typename dtype>
         NdArray<dtype> discrete(const Shape& inShape, const NdArray<double>& inWeights)
         {
-            // only works with integer input types
-            static_assert(DtypeInfo<dtype>::isInteger(), "ERROR: discrete: can only use with integer types.");
+            STATIC_ASSERT_INTEGER(dtype);
 
             NdArray<dtype> returnArray(inShape);
 

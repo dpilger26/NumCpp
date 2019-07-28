@@ -51,8 +51,14 @@ namespace nc
     template<typename dtype>
     bool isnan(dtype inValue) noexcept
     {
-        static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: isnan: can only be used with floating point types.");
-        return std::isnan(inValue);
+        if (DtypeInfo<dtype>::isInteger())
+        {
+            return false;
+        }
+        else
+        {
+            return std::isnan(static_cast<double>(inValue)); // static_cast is needed for compiler error
+        }
     }
 
     //============================================================================
@@ -70,8 +76,6 @@ namespace nc
     template<typename dtype>
     NdArray<bool> isnan(const NdArray<dtype>& inArray) noexcept
     {
-        static_assert(!DtypeInfo<dtype>::isInteger(), "ERROR: isnan: can only be used with floating point types.");
-
         NdArray<bool> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> bool
