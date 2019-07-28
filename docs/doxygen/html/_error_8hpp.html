@@ -98,6 +98,7 @@ $(document).ready(function(){initNavTree('_error_8hpp.html','');});
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_types_8hpp_source.html">NumCpp/Core/Types.hpp</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 </div>
@@ -112,6 +113,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a36abb32368b91aed0d3133a4cfd5ae92"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_error_8hpp.html#a36abb32368b91aed0d3133a4cfd5ae92">STATIC_ASSERT_ARITHMETIC</a>(dtype)&#160;&#160;&#160;static_assert(std::numeric_limits&lt;dtype&gt;::is_specialized, &quot;Can only be used with arithmetic types&quot;)</td></tr>
+<tr class="separator:a36abb32368b91aed0d3133a4cfd5ae92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cd8e186da549fbdd918111d0302d973"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_error_8hpp.html#a0cd8e186da549fbdd918111d0302d973">STATIC_ASSERT_FLOAT</a>(dtype)&#160;&#160;&#160;static_assert(!std::numeric_limits&lt;dtype&gt;::is_integer, &quot;Can only be used with integer types&quot;)</td></tr>
+<tr class="separator:a0cd8e186da549fbdd918111d0302d973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a187660686583e9047c0cf4424259ad10"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_error_8hpp.html#a187660686583e9047c0cf4424259ad10">STATIC_ASSERT_INTEGER</a>(dtype)&#160;&#160;&#160;static_assert(std::numeric_limits&lt;dtype&gt;::is_integer, &quot;Can only be used with integer types&quot;)</td></tr>
+<tr class="separator:a187660686583e9047c0cf4424259ad10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2aff1172060367b9c5398fa097fa8fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_error_8hpp.html#af2aff1172060367b9c5398fa097fa8fd">THROW_INVALID_ARGUMENT_ERROR</a>(msg)&#160;&#160;&#160;<a class="el" href="namespacenc_1_1error.html#ae23be92f797ad9d90604456bdf27092f">nc::error::throwError</a>&lt;std::invalid_argument&gt;(__FILE__, __func__, __LINE__, msg)</td></tr>
 <tr class="separator:af2aff1172060367b9c5398fa097fa8fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f0ce4acf1fd6032112a06ebc50bb05a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_error_8hpp.html#a0f0ce4acf1fd6032112a06ebc50bb05a">THROW_RUNTIME_ERROR</a>(msg)&#160;&#160;&#160;<a class="el" href="namespacenc_1_1error.html#ae23be92f797ad9d90604456bdf27092f">nc::error::throwError</a>&lt;std::runtime_error&gt;(__FILE__, __func__, __LINE__, msg)</td></tr>
@@ -136,6 +143,60 @@ License</h1>
 Description</h1>
 <p>Standard NumCpp errors </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a36abb32368b91aed0d3133a4cfd5ae92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36abb32368b91aed0d3133a4cfd5ae92">&#9670;&nbsp;</a></span>STATIC_ASSERT_ARITHMETIC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STATIC_ASSERT_ARITHMETIC</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dtype</td><td>)</td>
+          <td>&#160;&#160;&#160;static_assert(std::numeric_limits&lt;dtype&gt;::is_specialized, &quot;Can only be used with arithmetic types&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cd8e186da549fbdd918111d0302d973"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cd8e186da549fbdd918111d0302d973">&#9670;&nbsp;</a></span>STATIC_ASSERT_FLOAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STATIC_ASSERT_FLOAT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dtype</td><td>)</td>
+          <td>&#160;&#160;&#160;static_assert(!std::numeric_limits&lt;dtype&gt;::is_integer, &quot;Can only be used with integer types&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a187660686583e9047c0cf4424259ad10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a187660686583e9047c0cf4424259ad10">&#9670;&nbsp;</a></span>STATIC_ASSERT_INTEGER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STATIC_ASSERT_INTEGER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dtype</td><td>)</td>
+          <td>&#160;&#160;&#160;static_assert(std::numeric_limits&lt;dtype&gt;::is_integer, &quot;Can only be used with integer types&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af2aff1172060367b9c5398fa097fa8fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2aff1172060367b9c5398fa097fa8fd">&#9670;&nbsp;</a></span>THROW_INVALID_ARGUMENT_ERROR</h2>
 

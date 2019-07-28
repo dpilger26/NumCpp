@@ -54,7 +54,7 @@ namespace nc
         ///
         /// @param				inShape
         /// @param  			inLow
-        /// @param				inHigh. default 0.
+        /// @param				inHigh default 0.
         /// @return
         ///				NdArray
         ///

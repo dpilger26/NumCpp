@@ -1,5 +1,8 @@
 var NAVTREEINDEX4 =
 {
+"convolve1d_8hpp_source.html":[3,0,82],
+"convolve_8hpp.html":[3,0,81],
+"convolve_8hpp.html#abc4c77c759de3cd79f3fc02b7461d971":[3,0,81,0],
 "convolve_8hpp_source.html":[3,0,81],
 "copy_8hpp.html":[3,0,85],
 "copy_8hpp.html#afb6c2bde9854f0ad0b2353ebdc47796d":[3,0,85,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "functions_func_v.html":[2,2,1,21],
 "functions_func_w.html":[2,2,1,22],
 "functions_func_x.html":[2,2,1,23],
-"functions_func_y.html":[2,2,1,24],
-"functions_func_z.html":[2,2,1,25],
-"functions_g.html":[2,2,0,6],
-"functions_h.html":[2,2,0,7]
+"functions_func_y.html":[2,2,1,24]
 };
