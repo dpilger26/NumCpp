@@ -30,7 +30,7 @@ var searchData=
   ['nanpercentile_2ehpp',['nanpercentile.hpp',['../nanpercentile_8hpp.html',1,'']]],
   ['nanprod',['nanprod',['../namespacenc.html#ae267cf53b8571f5d257c6cacbfd649a7',1,'nc']]],
   ['nanprod_2ehpp',['nanprod.hpp',['../nanprod_8hpp.html',1,'']]],
-  ['nans',['nans',['../classnc_1_1_nd_array.html#aa086dc380cbe6461dbfeeb75edbc6961',1,'nc::NdArray::nans()'],['../namespacenc.html#a2dcf31f9750195b5419ea2b62a1ccc86',1,'nc::nans(uint32 inSquareSize) noexcept'],['../namespacenc.html#a304ce321a6b33e0d450ba0d855aeb444',1,'nc::nans(uint32 inNumRows, uint32 inNumCols) noexcept'],['../namespacenc.html#a01f601fc8a25827103ad5c049bb3aac1',1,'nc::nans(const Shape &amp;inShape) noexcept']]],
+  ['nans',['nans',['../classnc_1_1_nd_array.html#acdec037f14a431cb6a29f3782f087bcd',1,'nc::NdArray::nans()'],['../namespacenc.html#a2dcf31f9750195b5419ea2b62a1ccc86',1,'nc::nans(uint32 inSquareSize) noexcept'],['../namespacenc.html#a304ce321a6b33e0d450ba0d855aeb444',1,'nc::nans(uint32 inNumRows, uint32 inNumCols) noexcept'],['../namespacenc.html#a01f601fc8a25827103ad5c049bb3aac1',1,'nc::nans(const Shape &amp;inShape) noexcept']]],
   ['nans_2ehpp',['nans.hpp',['../nans_8hpp.html',1,'']]],
   ['nans_5flike',['nans_like',['../namespacenc.html#a131cb85eeece0cca9a8d7f972d50ecfa',1,'nc']]],
   ['nans_5flike_2ehpp',['nans_like.hpp',['../nans__like_8hpp.html',1,'']]],

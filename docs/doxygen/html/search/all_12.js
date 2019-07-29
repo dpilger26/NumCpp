@@ -34,7 +34,7 @@ var searchData=
   ['softmax',['softmax',['../namespacenc_1_1special.html#a9aea83127eb18d7c06d5096959c86719',1,'nc::special']]],
   ['softmax_2ehpp',['softmax.hpp',['../softmax_8hpp.html',1,'']]],
   ['solve',['solve',['../classnc_1_1linalg_1_1_s_v_d.html#aa170c7ec6894fb30e115840d61bd58a1',1,'nc::linalg::SVD']]],
-  ['sort',['sort',['../classnc_1_1_nd_array.html#a0022f6849d04ff050f9c795477e98333',1,'nc::NdArray::sort()'],['../namespacenc.html#a31771e9950ef3c2aba7582700de304dd',1,'nc::sort()']]],
+  ['sort',['sort',['../classnc_1_1_nd_array.html#ae7ac46be842b15402624db409f871771',1,'nc::NdArray::sort()'],['../namespacenc.html#a31771e9950ef3c2aba7582700de304dd',1,'nc::sort()']]],
   ['sort_2ehpp',['sort.hpp',['../sort_8hpp.html',1,'']]],
   ['special_2ehpp',['Special.hpp',['../_special_8hpp.html',1,'']]],
   ['spherical_5fbessel_5fjn',['spherical_bessel_jn',['../namespacenc_1_1special.html#acbfc84fedcf02e4c88a726e2c8ed549b',1,'nc::special::spherical_bessel_jn(uint32 inV, dtype inX) noexcept'],['../namespacenc_1_1special.html#a80b89ecc28e6725d9ac95d9ff004b6db',1,'nc::special::spherical_bessel_jn(uint32 inV, const NdArray&lt; dtype &gt; &amp;inArrayX) noexcept']]],

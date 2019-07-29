@@ -23,5 +23,5 @@ var searchData=
   ['bitwise_5fxor',['bitwise_xor',['../namespacenc.html#a07c69919a1dc382fd2ae3ebf1b358319',1,'nc']]],
   ['boost2nc',['boost2Nc',['../namespacenc_1_1boost_python_interface.html#a7195ee32d5fb06600aba55dc53b193ca',1,'nc::boostPythonInterface']]],
   ['boostndarrayhelper',['BoostNdarrayHelper',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a30364907e676e70f584cb7ccaa5ac547',1,'nc::boostPythonInterface::BoostNdarrayHelper::BoostNdarrayHelper(const boost::python::numpy::ndarray &amp;inArray)'],['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#a961bbdf1557d85a48f1ae40d23ac37fa',1,'nc::boostPythonInterface::BoostNdarrayHelper::BoostNdarrayHelper(boost::python::tuple inShape)']]],
-  ['byteswap',['byteswap',['../classnc_1_1_nd_array.html#acfd8c01c4c79bda25e1796a51aea2a30',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a2484b7b4108b61435ebfec80b2c92080',1,'nc::byteswap()']]]
+  ['byteswap',['byteswap',['../classnc_1_1_nd_array.html#af4ad4608720c271a6045b09fbe10083d',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a2484b7b4108b61435ebfec80b2c92080',1,'nc::byteswap()']]]
 ];

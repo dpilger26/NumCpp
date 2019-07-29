@@ -45,6 +45,6 @@ var searchData=
   ['boostnumpyndarrayhelper_2ehpp',['BoostNumpyNdarrayHelper.hpp',['../_boost_numpy_ndarray_helper_8hpp.html',1,'']]],
   ['boundary',['Boundary',['../namespacenc_1_1filter.html#ada517a46ea965fa51ed51101135c6ac6',1,'nc::filter']]],
   ['boundary_2ehpp',['Boundary.hpp',['../_boundary_8hpp.html',1,'']]],
-  ['byteswap',['byteswap',['../classnc_1_1_nd_array.html#acfd8c01c4c79bda25e1796a51aea2a30',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a2484b7b4108b61435ebfec80b2c92080',1,'nc::byteswap()']]],
+  ['byteswap',['byteswap',['../classnc_1_1_nd_array.html#af4ad4608720c271a6045b09fbe10083d',1,'nc::NdArray::byteswap()'],['../namespacenc.html#a2484b7b4108b61435ebfec80b2c92080',1,'nc::byteswap()']]],
   ['byteswap_2ehpp',['byteswap.hpp',['../byteswap_8hpp.html',1,'']]]
 ];
