@@ -10,7 +10,7 @@ var searchData=
   ['nanmin',['nanmin',['../namespacenc.html#a3d9802109612ac130f5f0c35e17d52bd',1,'nc']]],
   ['nanpercentile',['nanpercentile',['../namespacenc.html#a007882f79ea4b5bb0d146f7f40e317aa',1,'nc']]],
   ['nanprod',['nanprod',['../namespacenc.html#ae267cf53b8571f5d257c6cacbfd649a7',1,'nc']]],
-  ['nans',['nans',['../classnc_1_1_nd_array.html#aa086dc380cbe6461dbfeeb75edbc6961',1,'nc::NdArray::nans()'],['../namespacenc.html#a2dcf31f9750195b5419ea2b62a1ccc86',1,'nc::nans(uint32 inSquareSize) noexcept'],['../namespacenc.html#a304ce321a6b33e0d450ba0d855aeb444',1,'nc::nans(uint32 inNumRows, uint32 inNumCols) noexcept'],['../namespacenc.html#a01f601fc8a25827103ad5c049bb3aac1',1,'nc::nans(const Shape &amp;inShape) noexcept']]],
+  ['nans',['nans',['../classnc_1_1_nd_array.html#acdec037f14a431cb6a29f3782f087bcd',1,'nc::NdArray::nans()'],['../namespacenc.html#a2dcf31f9750195b5419ea2b62a1ccc86',1,'nc::nans(uint32 inSquareSize) noexcept'],['../namespacenc.html#a304ce321a6b33e0d450ba0d855aeb444',1,'nc::nans(uint32 inNumRows, uint32 inNumCols) noexcept'],['../namespacenc.html#a01f601fc8a25827103ad5c049bb3aac1',1,'nc::nans(const Shape &amp;inShape) noexcept']]],
   ['nans_5flike',['nans_like',['../namespacenc.html#a131cb85eeece0cca9a8d7f972d50ecfa',1,'nc']]],
   ['nanstdev',['nanstdev',['../namespacenc.html#a6726e8614e089ff57ce7edc3afe1b468',1,'nc']]],
   ['nansum',['nansum',['../namespacenc.html#aa6500e850019a5cbd11a4976d6cf6106',1,'nc']]],

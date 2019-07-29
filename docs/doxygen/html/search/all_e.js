@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ones',['ones',['../classnc_1_1_nd_array.html#a3ad9db206f43e27769e72752261c695c',1,'nc::NdArray::ones()'],['../namespacenc.html#a60a5797687e15e70c20c947d90f40fec',1,'nc::ones(uint32 inSquareSize) noexcept'],['../namespacenc.html#add1b1c44934c7fc8f6e6eb55cdc6de1f',1,'nc::ones(uint32 inNumRows, uint32 inNumCols) noexcept'],['../namespacenc.html#a7177538cccb954e75b6b2d9f59aeb43e',1,'nc::ones(const Shape &amp;inShape) noexcept']]],
+  ['ones',['ones',['../classnc_1_1_nd_array.html#a8444c4313d68aaf1e8539db95e7ffbac',1,'nc::NdArray::ones()'],['../namespacenc.html#a60a5797687e15e70c20c947d90f40fec',1,'nc::ones(uint32 inSquareSize) noexcept'],['../namespacenc.html#add1b1c44934c7fc8f6e6eb55cdc6de1f',1,'nc::ones(uint32 inNumRows, uint32 inNumCols) noexcept'],['../namespacenc.html#a7177538cccb954e75b6b2d9f59aeb43e',1,'nc::ones(const Shape &amp;inShape) noexcept']]],
   ['ones_2ehpp',['ones.hpp',['../ones_8hpp.html',1,'']]],
   ['ones_5flike',['ones_like',['../namespacenc.html#a19b8942c347b6887f5d9e8bf66c4fc93',1,'nc']]],
   ['ones_5flike_2ehpp',['ones_like.hpp',['../ones__like_8hpp.html',1,'']]],
