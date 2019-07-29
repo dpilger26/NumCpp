@@ -103,6 +103,7 @@ namespace nc
             std::ifstream file(inFilename.c_str());
             if (file.is_open())
             {
+                uint32 lineNumber = 0;
                 while (!file.eof())
                 {
                     std::string line;
@@ -111,13 +112,22 @@ namespace nc
                     std::istringstream iss(line);
                     try
                     {
-                        values.push_back(static_cast<dtype>(std::stod(iss.str())));
+                        dtype value;
+                        while (iss >> value)
+                        {
+                            values.push_back(value);
+                        }
                     }
                     catch (const std::invalid_argument& ia)
                     {
-                        std::cout << "Warning: fromfile: " << ia.what() << std::endl;
-                        ///throw;
+                        std::cout << "Warning: fromfile: line " << lineNumber << "\n" << ia.what() << std::endl;
                     }
+                    catch (...)
+                    {
+                        std::cout << "Warning: fromfile: line " << lineNumber << std::endl;
+                    }
+
+                    ++lineNumber;
                 }
                 file.close();
             }

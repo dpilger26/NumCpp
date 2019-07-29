@@ -28,12 +28,12 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
-#include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 #include "NumCpp/Utils/power.hpp"
 #include "NumCpp/Utils/sqr.hpp"
@@ -1369,19 +1369,19 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        void byteswap() noexcept
+        NdArray<dtype>& byteswap() noexcept
         {
             switch (endianess_)
             {
                 case Endian::BIG:
                 {
                     *this = newbyteorder(Endian::LITTLE);
-                    return;
+                    break;
                 }
                 case Endian::LITTLE:
                 {
                     *this = newbyteorder(Endian::BIG);
-                    return;
+                    break;
                 }
                 case Endian::NATIVE:
                 {
@@ -1390,9 +1390,11 @@ namespace nc
 #elif BOOST_ENDIAN_LITTLE_BYTE
                     *this = newbyteorder(Endian::BIG);
 #endif
-                    return;
+                    break;
                 }
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -1817,9 +1819,11 @@ namespace nc
         /// @return
         ///				None
         ///
-        void fill(dtype inFillValue) noexcept
+        NdArray<dtype>& fill(dtype inFillValue) noexcept
         {
             std::fill(begin(), end(), inFillValue);
+
+            return *this;
         }
 
         //============================================================================
@@ -2122,9 +2126,11 @@ namespace nc
         ///                     Only really works for dtype = float/double
         ///
         ///
-        void nans() noexcept
+        NdArray<dtype>& nans() noexcept
         {
             fill(constants::nan);
+
+            return *this;
         }
 
         //============================================================================
@@ -2389,9 +2395,11 @@ namespace nc
         ///						Fills the array with ones
         ///
         ///
-        void ones() noexcept
+        NdArray<dtype>& ones() noexcept
         {
             fill(1);
+
+            return *this;
         }
 
         //============================================================================
@@ -2421,7 +2429,7 @@ namespace nc
         /// @return
         ///				None
         ///
-        void partition(uint32 inKth, Axis inAxis = Axis::NONE)
+        NdArray<dtype>& partition(uint32 inKth, Axis inAxis = Axis::NONE)
         {
             switch (inAxis)
             {
@@ -2469,6 +2477,8 @@ namespace nc
                     break;
                 }
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -2971,7 +2981,7 @@ namespace nc
         /// @param      inNumRows
         /// @param      inNumCols
         ///
-        void reshape(uint32 inNumRows, uint32 inNumCols)
+        NdArray<dtype>& reshape(uint32 inNumRows, uint32 inNumCols)
         {
             if (inNumRows * inNumCols != size_)
             {
@@ -2982,6 +2992,8 @@ namespace nc
 
             shape_.rows = inNumRows;
             shape_.cols = inNumCols;
+
+            return *this;
         }
 
         //============================================================================
@@ -2993,9 +3005,9 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        void reshape(const Shape& inShape)
+        NdArray<dtype>& reshape(const Shape& inShape)
         {
-            reshape(inShape.rows, inShape.cols);
+            return reshape(inShape.rows, inShape.cols);
         }
 
         //============================================================================
@@ -3008,10 +3020,12 @@ namespace nc
         /// @param      inNumRows
         /// @param      inNumCols
         ///
-        void resizeFast(uint32 inNumRows, uint32 inNumCols) noexcept
+        NdArray<dtype>& resizeFast(uint32 inNumRows, uint32 inNumCols) noexcept
         {
             newArray(Shape(inNumRows, inNumCols));
             zeros();
+
+            return *this;
         }
 
         //============================================================================
@@ -3024,9 +3038,9 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        void resizeFast(const Shape& inShape) noexcept
+        NdArray<dtype>& resizeFast(const Shape& inShape) noexcept
         {
-            resizeFast(inShape.rows, inShape.cols);
+            return resizeFast(inShape.rows, inShape.cols);
         }
 
         //============================================================================
@@ -3041,7 +3055,7 @@ namespace nc
         /// @param				inNumRows
         /// @param				inNumCols
         ///
-        void resizeSlow(uint32 inNumRows, uint32 inNumCols) noexcept
+        NdArray<dtype>& resizeSlow(uint32 inNumRows, uint32 inNumCols) noexcept
         {
             std::vector<dtype> oldData(size_);
             std::copy(begin(), end(), oldData.begin());
@@ -3065,6 +3079,8 @@ namespace nc
                     }
                 }
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -3079,9 +3095,9 @@ namespace nc
         /// @param
         ///				inShape
         ///
-        void resizeSlow(const Shape& inShape) noexcept
+        NdArray<dtype>& resizeSlow(const Shape& inShape) noexcept
         {
-            resizeSlow(inShape.rows, inShape.cols);
+            return resizeSlow(inShape.rows, inShape.cols);
         }
 
         //============================================================================
@@ -3226,7 +3242,7 @@ namespace nc
         /// @return
         ///				size
         ///
-        void sort(Axis inAxis = Axis::NONE) noexcept
+        NdArray<dtype>& sort(Axis inAxis = Axis::NONE) noexcept
         {
             switch (inAxis)
             {
@@ -3254,6 +3270,8 @@ namespace nc
                     break;
                 }
             }
+
+            return *this;
         }
 
         //============================================================================
@@ -3581,9 +3599,11 @@ namespace nc
         ///						Fills the array with zeros
         ///
         ///
-        void zeros()
+        NdArray<dtype>& zeros()
         {
             fill(0);
+
+            return *this;
         }
 
         //============================================================================
