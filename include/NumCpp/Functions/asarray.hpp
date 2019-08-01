@@ -30,6 +30,7 @@
 
 #include "NumCpp/NdArray.hpp"
 
+#include <array>
 #include <initializer_list>
 #include <deque>
 #include <set>
@@ -37,6 +38,23 @@
 
 namespace nc
 {
+    //============================================================================
+    // Method Description:
+    ///						Convert the std::array to an array.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
+    ///
+    /// @param
+    ///				inArray
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype, size_t ArraySize>
+    NdArray<dtype> asarray(const std::array<dtype, ArraySize>& inArray) noexcept
+    {
+        return NdArray(inArray);
+    }
+
     //============================================================================
     // Method Description:
     ///						Convert the vector to an array.
@@ -51,7 +69,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> asarray(const std::vector<dtype>& inVector) noexcept
     {
-        return NdArray<dtype>(inVector);
+        return NdArray(inVector);
     }
 
     //============================================================================
@@ -68,7 +86,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> asarray(const std::deque<dtype>& inDeque) noexcept
     {
-        return NdArray<dtype>(inDeque);
+        return NdArray(inDeque);
     }
 
     //============================================================================
@@ -85,7 +103,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> asarray(const std::set<dtype>& inSet) noexcept
     {
-        return NdArray<dtype>(inSet);
+        return NdArray(inSet);
     }
 
     //============================================================================
@@ -103,7 +121,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> asarray(std::initializer_list<dtype>& inList) noexcept
     {
-        return NdArray<dtype>(inList);
+        return NdArray(inList);
     }
 
     //============================================================================
@@ -121,6 +139,6 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> asarray(std::initializer_list<std::initializer_list<dtype> >& inList) noexcept
     {
-        return NdArray<dtype>(inList);
+        return NdArray(inList);
     }
 }

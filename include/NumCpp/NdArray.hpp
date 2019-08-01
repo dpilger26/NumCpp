@@ -44,6 +44,7 @@
 #include <boost/endian/conversion.hpp>
 
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <deque>
 #include <functional>
@@ -222,6 +223,24 @@ namespace nc
             }
 
             ownsPtr_ = true;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Constructor
+        ///
+        /// @param
+        ///				inArray
+        ///
+        template<size_t ArraySize>
+        explicit NdArray(const std::array<dtype, ArraySize>& inArray) noexcept :
+            shape_(1, static_cast<uint32>(inArray.size())),
+            size_(shape_.size()),
+            array_(new dtype[size_]),
+            ownsPtr_(true)
+        {
+            STATIC_ASSERT_ARITHMETIC(dtype);
+            std::copy(inArray.begin(), inArray.end(), array_);
         }
 
         //============================================================================

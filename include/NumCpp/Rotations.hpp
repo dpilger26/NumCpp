@@ -30,3 +30,4 @@
 
 #include "NumCpp/Rotations/DCM.hpp"
 #include "NumCpp/Rotations/Quaternion.hpp"
+#include "NumCpp/Rotations/rodriguesRotation.hpp"

@@ -41,6 +41,8 @@
 #include "NumCpp/Utils/sqr.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 
+#include <algorithm>
+#include <array>
 #include <cmath>
 #include <iostream>
 #include <string>
@@ -56,7 +58,7 @@ namespace nc
         {
         private:
             //====================================Attributes==============================
-            double		data_[4] = { 0.0, 0.0, 0.0, 1.0 };
+            std::array<double, 4> components_ = { 0.0, 0.0, 0.0, 1.0 };
 
             //============================================================================
             // Method Description:
@@ -64,17 +66,25 @@ namespace nc
             ///
             void normalize() noexcept
             {
-                const double norm = std::sqrt(utils::sqr(data_[0]) + utils::sqr(data_[1]) + utils::sqr(data_[2]) + utils::sqr(data_[3]));
-                data_[0] /= norm;
-                data_[1] /= norm;
-                data_[2] /= norm;
-                data_[3] /= norm;
+                double sumOfSquares = 0.0;
+                std::for_each(components_.begin(), components_.end(),
+                    [&sumOfSquares](double component) -> void 
+                    { 
+                        sumOfSquares += utils::sqr(component); 
+                    });
+
+                const double norm = std::sqrt(sumOfSquares);
+                std::for_each(components_.begin(), components_.end(),
+                    [&norm](double& component) -> void
+                    { 
+                        component /= norm;
+                    });
             }
 
         public:
             //============================================================================
             // Method Description:
-            ///						Default Constructor, not super usefull on its own
+            ///						Default Constructor
             ///
             Quaternion() noexcept = default;
 
@@ -87,13 +97,10 @@ namespace nc
             /// @param				inK
             /// @param				inS
             ///
-            Quaternion(double inI, double inJ, double inK, double inS) noexcept
+            Quaternion(double inI, double inJ, double inK, double inS) noexcept:
+                components_{inI, inJ, inK, inS}
             {
-                const double norm = std::sqrt(utils::sqr(inI) + utils::sqr(inJ) + utils::sqr(inK) + utils::sqr(inS));
-                data_[0] = inI / norm;
-                data_[1] = inJ / norm;
-                data_[2] = inK / norm;
-                data_[3] = inS / norm;
+                normalize();
             }
 
             //============================================================================
@@ -110,11 +117,8 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input array must be of size = 4.");
                 }
 
-                double norm = std::sqrt(square(inArray).sum().item());
-                data_[0] = inArray[0] / norm;
-                data_[1] = inArray[1] / norm;
-                data_[2] = inArray[2] / norm;
-                data_[3] = inArray[3] / norm;
+                std::copy(inArray.cbegin(), inArray.cend(), components_.begin());
+                normalize();
             }
 
             //============================================================================
@@ -136,10 +140,13 @@ namespace nc
                 // normalize the input vector
                 NdArray<double> normAxis = inAxis / inAxis.norm().item();
 
-                const double i = normAxis[0] * std::sin(inAngle / 2.0);
-                const double j = normAxis[1] * std::sin(inAngle / 2.0);
-                const double k = normAxis[2] * std::sin(inAngle / 2.0);
-                const double s = std::cos(inAngle / 2.0);
+                const double halfAngle = inAngle / 2.0;
+                const double sinHalfAngle = std::sin(halfAngle);
+
+                const double i = normAxis[0] * sinHalfAngle;
+                const double j = normAxis[1] * sinHalfAngle;
+                const double k = normAxis[2] * sinHalfAngle;
+                const double s = std::cos(halfAngle);
 
                 return Quaternion(i, j, k, s);
             }
@@ -230,7 +237,7 @@ namespace nc
             ///
             double i() const noexcept
             {
-                return data_[0];
+                return components_[0];
             }
 
             //============================================================================
@@ -242,7 +249,7 @@ namespace nc
             ///
             static Quaternion identity() noexcept
             {
-                return Quaternion(0.0, 0.0, 0.0, 1.0);
+                return Quaternion();
             }
 
             //============================================================================
@@ -267,7 +274,7 @@ namespace nc
             ///
             double j() const noexcept
             {
-                return data_[1];
+                return components_[1];
             }
 
             //============================================================================
@@ -279,7 +286,7 @@ namespace nc
             ///
             double k() const noexcept
             {
-                return data_[2];
+                return components_[2];
             }
 
             //============================================================================
@@ -305,7 +312,7 @@ namespace nc
                 checks[2] = inDcm(0, 0) - inDcm(1, 1) - inDcm(2, 2);
                 checks[3] = inDcm(0, 0) + inDcm(1, 1) - inDcm(2, 2);
 
-                uint32 maxIdx = argmax(checks).item();
+                const uint32 maxIdx = argmax(checks).item();
 
                 double q0 = 0;
                 double q1 = 0;
@@ -382,10 +389,10 @@ namespace nc
                 }
 
                 const double oneMinus = 1.0 - inPercent;
-                const double i = oneMinus * inQuat1.data_[0] + inPercent * inQuat2.data_[0];
-                const double j = oneMinus * inQuat1.data_[1] + inPercent * inQuat2.data_[1];
-                const double k = oneMinus * inQuat1.data_[2] + inPercent * inQuat2.data_[2];
-                const double s = oneMinus * inQuat1.data_[3] + inPercent * inQuat2.data_[3];
+                const double i = oneMinus * inQuat1.components_[0] + inPercent * inQuat2.components_[0];
+                const double j = oneMinus * inQuat1.components_[1] + inPercent * inQuat2.components_[1];
+                const double k = oneMinus * inQuat1.components_[2] + inPercent * inQuat2.components_[2];
+                const double s = oneMinus * inQuat1.components_[3] + inPercent * inQuat2.components_[3];
 
                 return Quaternion(i, j, k, s);
             }
@@ -455,7 +462,7 @@ namespace nc
             ///
             double s() const noexcept
             {
-                return data_[3];
+                return components_[3];
             }
 
             //============================================================================
@@ -554,20 +561,35 @@ namespace nc
             {
                 NdArray<double> dcm(3);
 
-                double q0 = i();
-                double q1 = j();
-                double q2 = k();
-                double q3 = s();
+                const double q0 = i();
+                const double q1 = j();
+                const double q2 = k();
+                const double q3 = s();
 
-                dcm(0, 0) = utils::sqr(q3) + utils::sqr(q0) - utils::sqr(q1) - utils::sqr(q2);
-                dcm(0, 1) = 2 * (q0 * q1 + q3 * q2);
-                dcm(0, 2) = 2 * (q0 * q2 - q3 * q1);
-                dcm(1, 0) = 2 * (q0 * q1 - q3 * q2);
-                dcm(1, 1) = utils::sqr(q3) - utils::sqr(q0) + utils::sqr(q1) - utils::sqr(q2);;
-                dcm(1, 2) = 2 * (q1 * q2 + q3 * q0);
-                dcm(2, 0) = 2 * (q0 * q2 + q3 * q1);
-                dcm(2, 1) = 2 * (q1 * q2 - q3 * q0);
-                dcm(2, 2) = utils::sqr(q3) - utils::sqr(q0) - utils::sqr(q1) + utils::sqr(q2);;
+                const double q0sqr = utils::sqr(q0);
+                const double q1sqr = utils::sqr(q1);
+                const double q2sqr = utils::sqr(q2);
+                const double q3sqr = utils::sqr(q3);
+
+                //dcm(0, 0) = q3sqr + q0sqr - q1sqr - q2sqr;
+                //dcm(0, 1) = 2 * (q0 * q1 + q3 * q2);
+                //dcm(0, 2) = 2 * (q0 * q2 - q3 * q1);
+                //dcm(1, 0) = 2 * (q0 * q1 - q3 * q2);
+                //dcm(1, 1) = q3sqr - q0sqr + q1sqr - q2sqr;
+                //dcm(1, 2) = 2 * (q1 * q2 + q3 * q0);
+                //dcm(2, 0) = 2 * (q0 * q2 + q3 * q1);
+                //dcm(2, 1) = 2 * (q1 * q2 - q3 * q0);
+                //dcm(2, 2) = q3sqr - q0sqr - q1sqr + q2sqr;
+
+                dcm(0, 0) = q3sqr + q0sqr - q1sqr - q2sqr;
+                dcm(0, 1) = 2 * (q0 * q1 - q3 * q2);
+                dcm(0, 2) = 2 * (q0 * q2 + q3 * q1);
+                dcm(1, 0) = 2 * (q0 * q1 + q3 * q2);
+                dcm(1, 1) = q3sqr + q1sqr - q0sqr - q2sqr;
+                dcm(1, 2) = 2 * (q1 * q2 - q3 * q0);
+                dcm(2, 0) = 2 * (q0 * q2 - q3 * q1);
+                dcm(2, 1) = 2 * (q1 * q2 + q3 * q0);
+                dcm(2, 2) = q3sqr + q2sqr - q0sqr - q1sqr;
 
                 return dcm;
             }
@@ -581,8 +603,7 @@ namespace nc
             ///
             NdArray<double> toNdArray() const
             {
-                NdArray<double> returnArray = { data_[0], data_[1], data_[2], data_[3] };
-                return returnArray;
+                return NdArray(components_);
             }
 
             //============================================================================
@@ -638,10 +659,9 @@ namespace nc
             ///
             bool operator==(const Quaternion& inRhs) const noexcept
             {
-                return utils::essentiallyEqual(data_[0], inRhs.data_[0]) &&
-                    utils::essentiallyEqual(data_[1], inRhs.data_[1]) &&
-                    utils::essentiallyEqual(data_[2], inRhs.data_[2]) &&
-                    utils::essentiallyEqual(data_[3], inRhs.data_[3]);
+                return std::equal(components_.begin(), components_.end(),
+                    inRhs.components_.begin(), inRhs.components_.end(), 
+                    static_cast<bool (*)(double, double)>(&utils::essentiallyEqual<double>));
             }
 
             //============================================================================
@@ -683,13 +703,24 @@ namespace nc
             ///
             Quaternion& operator+=(const Quaternion& inRhs) noexcept
             {
-                data_[0] += inRhs.data_[0];
-                data_[1] += inRhs.data_[1];
-                data_[2] += inRhs.data_[2];
-                data_[3] += inRhs.data_[3];
+                std::transform(components_.begin(), components_.end(), 
+                    inRhs.components_.begin(), components_.begin(), std::plus<double>());
+
                 normalize();
 
                 return *this;
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						negative operator
+            ///
+            /// @return
+            ///				Quaternion
+            ///
+            Quaternion operator-() const noexcept
+            {
+                return Quaternion(*this) *= -1.0;
             }
 
             //============================================================================
@@ -717,10 +748,9 @@ namespace nc
             ///
             Quaternion& operator-=(const Quaternion& inRhs) noexcept
             {
-                data_[0] -= inRhs.data_[0];
-                data_[1] -= inRhs.data_[1];
-                data_[2] -= inRhs.data_[2];
-                data_[3] -= inRhs.data_[3];
+                std::transform(components_.begin(), components_.end(), 
+                    inRhs.components_.begin(), components_.begin(), std::minus<double>());
+
                 normalize();
 
                 return *this;
@@ -771,7 +801,11 @@ namespace nc
                     THROW_INVALID_ARGUMENT_ERROR("input vector must be a cartesion vector of length = 3.");
                 }
 
-                return toDCM().dot(inVec);
+                auto p = Quaternion(inVec[0], inVec[1], inVec[2], 0.0);
+                auto pPrime = *this * p * this->inverse();
+                
+                NdArray<double> rotatedVec = {pPrime.i(), pPrime.j(), pPrime.k()};
+                return rotatedVec;
             }
 
             //============================================================================
@@ -799,15 +833,31 @@ namespace nc
             ///
             Quaternion& operator*=(const Quaternion& inRhs) noexcept
             {
-                const double q0 = inRhs.data_[3] * data_[0] + inRhs.data_[0] * data_[3] - inRhs.data_[1] * data_[2] + inRhs.data_[2] * data_[1];
-                const double q1 = inRhs.data_[3] * data_[1] + inRhs.data_[0] * data_[2] + inRhs.data_[1] * data_[3] - inRhs.data_[2] * data_[0];
-                const double q2 = inRhs.data_[3] * data_[2] - inRhs.data_[0] * data_[1] + inRhs.data_[1] * data_[0] + inRhs.data_[2] * data_[3];
-                const double q3 = inRhs.data_[3] * data_[3] - inRhs.data_[0] * data_[0] - inRhs.data_[1] * data_[1] - inRhs.data_[2] * data_[2];
+                double q0 = inRhs.components_[3] * components_[0];
+                q0 += inRhs.components_[0] * components_[3];
+                q0 -= inRhs.components_[1] * components_[2];
+                q0 += inRhs.components_[2] * components_[1];
 
-                data_[0] = q0;
-                data_[1] = q1;
-                data_[2] = q2;
-                data_[3] = q3;
+                double q1 = inRhs.components_[3] * components_[1];
+                q1 += inRhs.components_[0] * components_[2];
+                q1 += inRhs.components_[1] * components_[3];
+                q1 -= inRhs.components_[2] * components_[0];
+
+                double q2 = inRhs.components_[3] * components_[2];
+                q2 -= inRhs.components_[0] * components_[1];
+                q2 += inRhs.components_[1] * components_[0];
+                q2 += inRhs.components_[2] * components_[3];
+
+                double q3 = inRhs.components_[3] * components_[3];
+                q3 -= inRhs.components_[0] * components_[0];
+                q3 -= inRhs.components_[1] * components_[1];
+                q3 -= inRhs.components_[2] * components_[2];
+
+                components_[0] = q0;
+                components_[1] = q1;
+                components_[2] = q2;
+                components_[3] = q3;
+
                 normalize();
 
                 return *this;
@@ -825,10 +875,9 @@ namespace nc
             ///
             Quaternion& operator*=(double inScalar) noexcept
             {
-                data_[0] *= inScalar;
-                data_[1] *= inScalar;
-                data_[2] *= inScalar;
-                data_[3] *= inScalar;
+                std::for_each(components_.begin(), components_.end(), 
+                    [&inScalar](double& component) { component *= inScalar; });
+
                 normalize();
 
                 return *this;

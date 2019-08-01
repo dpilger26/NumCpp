@@ -273,7 +273,15 @@ def doTest():
     cQuat2 = NumCpp.Quaternion(quat2[0].item(), quat2[1].item(), quat2[2].item(), quat2[3].item())
     resPy = quatSub(quat1, quat2)
     res = cQuat1 - cQuat2
-    if np.array_equal(np.round(res.toNdArray().getNumpyArray().flatten(), 10), np.round(resPy, 10)):
+    if np.array_equal(np.round(res.flatten(), 10), np.round(resPy, 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing negative', 'cyan'))
+    quat = np.random.randint(1, 5, [4, ]).astype(np.double)
+    cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
+    if np.array_equal(np.round((-cQuat).flatten(), 10), np.round(-quat/np.linalg.norm(quat), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -377,6 +385,22 @@ def doTest():
     radians = np.random.rand(1) * 2 * np.pi
     rot = NumCpp.DCM.zRotation(radians.item()).getNumpyArray()
     if np.all(np.round(rot, 10) == np.round(rotateZ(radians.item()), 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing Functions', 'magenta'))
+
+    print(colored('Testing rodriques rotation', 'cyan'))
+    k = np.random.randint(1, 5, [3, 1]).astype(np.double)
+    v = np.random.randint(1, 5, [3, 1]).astype(np.double)
+    theta = np.random.rand(1).item() * np.pi * 2
+    vec = NumCpp.rodriguesRotation(k, theta, v).flatten()
+
+    dcm = angleAxisRotation(k, theta)
+    vecPy = dcm.dot(v).flatten()
+
+    if np.array_equal(np.round(vec, 10), np.round(vecPy, 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
