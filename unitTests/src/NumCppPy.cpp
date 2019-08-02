@@ -2610,6 +2610,16 @@ namespace RotationsInterface
         return nc2Boost(inQuat.toDCM());
     }
 
+    np::ndarray subtract(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2)
+    {
+        return nc2Boost((inQuat1 - inQuat2).toNdArray());
+    }
+
+    np::ndarray negative(const rotations::Quaternion& inQuat)
+    {
+        return nc2Boost((-inQuat).toNdArray());
+    }
+
     np::ndarray multiplyScaler(const rotations::Quaternion& inQuat, double inScaler)
     {
         const rotations::Quaternion returnQuat = inQuat * inScaler;
@@ -2636,6 +2646,15 @@ namespace RotationsInterface
     np::ndarray angleAxisRotationDcmVec3(const NdArray<double>& inAxis, double inAngle)
     {
         return nc2Boost(rotations::DCM::angleAxisRotation(Vec3(inAxis), inAngle));
+    }
+
+    template<typename T>
+    np::ndarray rodriguesRotation(np::ndarray& inK, double inTheta, np::ndarray& inV)
+    {
+        auto k = boost2Nc<T>(inK);
+        auto v = boost2Nc<T>(inV);
+
+        return nc2Boost(rotations::rodriguesRotation(k, inTheta, v));
     }
 }
 
@@ -4210,7 +4229,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("__eq__", &rotations::Quaternion::operator==)
         .def("__neq__", &rotations::Quaternion::operator!=)
         .def("__add__", &rotations::Quaternion::operator+)
-        .def("__sub__", &rotations::Quaternion::operator-)
+        .def("__sub__", &RotationsInterface::subtract)
+        .def("__neg__", &RotationsInterface::negative)
         .def("__mul__", &RotationsInterface::multiplyScaler)
         .def("__mul__", &RotationsInterface::multiplyQuaternion)
         .def("__mul__", &RotationsInterface::multiplyArray)
@@ -4225,6 +4245,8 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("xRotation", &rotations::DCM::xRotation).staticmethod("xRotation")
         .def("yRotation", &rotations::DCM::yRotation).staticmethod("yRotation")
         .def("zRotation", &rotations::DCM::zRotation).staticmethod("zRotation");
+
+    bp::def("rodriguesRotation", &RotationsInterface::rodriguesRotation<double>);
 
     // Filters.hpp
     bp::enum_<filter::Boundary>("Mode")

@@ -24,49 +24,65 @@
 /// DEALINGS IN THE SOFTWARE.
 ///
 /// @section Description
-/// tests that 2 floating point values are "essentially equal"
+/// Performs Rodriques' rotation formula
+/// https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
 ///
 #pragma once
 
-#include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/NdArray.hpp"
+#include "NumCpp/Vector/Vec3.hpp"
 
 #include <cmath>
-#include <string>
 
 namespace nc
 {
-    namespace utils
+    namespace rotations
     {
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        // Method Description:
+        ///	Performs Rodriques' rotation formula
+        /// https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
         ///
-        /// @param      inValue1
-        /// @param      inValue2
-        /// @param      inEpsilon
+        /// @param  k: the axis to rotate around
+        /// @param  theta: the angle in radians to rotate
+        /// @param  v: the vector to rotate
         ///
-        /// @return     bool
+        /// @return Vec3
         ///
-        template<typename dtype>
-        bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept
+        inline Vec3 rodriguesRotation(const Vec3& k, double theta, const Vec3& v)
         {
-            STATIC_ASSERT_FLOAT(dtype);
+            const auto kUnit = k.normalize();
 
-            return std::abs(inValue1 - inValue2) <= ((std::abs(inValue1) > std::abs(inValue2) ?
-                std::abs(inValue2) : std::abs(inValue1)) * inEpsilon);
+            const auto vCosTheta = v * std::cos(theta);
+
+            auto kCrossV = kUnit.cross(v);
+            kCrossV *= std::sin(theta);
+
+            auto kDotV = kUnit.dot(v);
+            auto kkDotV = kUnit * kDotV;
+            kkDotV *= 1 - std::cos(theta);
+
+            auto vec = vCosTheta + kCrossV;
+            vec += kkDotV;
+
+            return vec;
         }
 
         //============================================================================
-        ///						tests that 2 floating point values are "essentially equal"
+        // Method Description:
+        ///	Performs Rodriques' rotation formula
+        /// https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
         ///
-        /// @param      inValue1
-        /// @param      inValue2
+        /// @param  k: the axis to rotate around
+        /// @param  theta: the angle in radians to rotate
+        /// @param  v: the vector to rotate
         ///
-        /// @return     bool
+        /// @return NdArray<double>
         ///
         template<typename dtype>
-        bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept
+        inline NdArray<double> rodriguesRotation(const NdArray<dtype>& axis, double angle, NdArray<dtype>& vec)
         {
-            return essentiallyEqual(inValue1, inValue2, DtypeInfo<dtype>::epsilon());
+            return rodriguesRotation(Vec3(axis), angle, Vec3(vec)).toNdArray();
         }
     }
 }
