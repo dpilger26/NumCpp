@@ -292,6 +292,7 @@ namespace nc
             //============================================================================
             // Method Description:
             ///						converts from a direction cosine matrix to a quaternion
+            ///                     https://arxiv.org/pdf/math/0701759.pdf
             ///
             /// @param
             ///				inDcm
@@ -307,10 +308,10 @@ namespace nc
                 }
 
                 NdArray<double> checks(1, 4);
-                checks[0] = inDcm(0, 0) + inDcm(1, 1) + inDcm(2, 2);
-                checks[1] = inDcm(0, 0) - inDcm(1, 1) + inDcm(2, 2);
-                checks[2] = inDcm(0, 0) - inDcm(1, 1) - inDcm(2, 2);
-                checks[3] = inDcm(0, 0) + inDcm(1, 1) - inDcm(2, 2);
+                checks[0] = 1 + inDcm(0, 0) + inDcm(1, 1) + inDcm(2, 2);
+                checks[1] = 1 + inDcm(0, 0) - inDcm(1, 1) - inDcm(2, 2);
+                checks[2] = 1 - inDcm(0, 0) + inDcm(1, 1) - inDcm(2, 2);
+                checks[3] = 1 - inDcm(0, 0) - inDcm(1, 1) + inDcm(2, 2);
 
                 const uint32 maxIdx = argmax(checks).item();
 
@@ -324,36 +325,36 @@ namespace nc
                     case 0:
                     {
                         q3 = 0.5 * std::sqrt(1 + inDcm(0, 0) + inDcm(1, 1) + inDcm(2, 2));
-                        q0 = (inDcm(1, 2) - inDcm(2, 1)) / (4 * q3);
-                        q1 = (inDcm(2, 0) - inDcm(0, 2)) / (4 * q3);
-                        q2 = (inDcm(0, 1) - inDcm(1, 0)) / (4 * q3);
+                        q0 = (inDcm(2, 1) - inDcm(1, 2)) / (4 * q3);
+                        q1 = (inDcm(0, 2) - inDcm(2, 0)) / (4 * q3);
+                        q2 = (inDcm(1, 0) - inDcm(0, 1)) / (4 * q3);
 
                         break;
                     }
                     case 1:
                     {
-                        q2 = 0.5 * std::sqrt(1 - inDcm(0, 0) - inDcm(1, 1) + inDcm(2, 2));
-                        q0 = (inDcm(0, 2) + inDcm(2, 0)) / (4 * q2);
-                        q1 = (inDcm(1, 2) + inDcm(2, 1)) / (4 * q2);
-                        q3 = (inDcm(0, 1) - inDcm(1, 0)) / (4 * q2);
+                        q0 = 0.5 * std::sqrt(1 + inDcm(0, 0) - inDcm(1, 1) - inDcm(2, 2));
+                        q1 = (inDcm(1, 0) + inDcm(0, 1)) / (4 * q0);
+                        q2 = (inDcm(2, 0) + inDcm(0, 2)) / (4 * q0);
+                        q3 = (inDcm(2, 1) - inDcm(1, 2)) / (4 * q0);
 
                         break;
                     }
                     case 2:
                     {
-                        q0 = 0.5 * std::sqrt(1 + inDcm(0, 0) - inDcm(1, 1) - inDcm(2, 2));
-                        q1 = (inDcm(0, 1) + inDcm(1, 0)) / (4 * q0);
-                        q2 = (inDcm(0, 2) + inDcm(2, 0)) / (4 * q0);
-                        q3 = (inDcm(1, 2) - inDcm(2, 1)) / (4 * q0);
+                        q1 = 0.5 * std::sqrt(1 - inDcm(0, 0) + inDcm(1, 1) - inDcm(2, 2));
+                        q0 = (inDcm(1, 0) + inDcm(0, 1)) / (4 * q1);
+                        q2 = (inDcm(2, 1) + inDcm(1, 2)) / (4 * q1);
+                        q3 = (inDcm(0, 2) - inDcm(2, 0)) / (4 * q1);
 
                         break;
                     }
                     case 3:
                     {
-                        q1 = 0.5 * std::sqrt(1 - inDcm(0, 0) + inDcm(1, 1) - inDcm(2, 2));
-                        q0 = (inDcm(0, 1) + inDcm(1, 0)) / (4 * q1);
-                        q2 = (inDcm(1, 2) + inDcm(2, 1)) / (4 * q1);
-                        q3 = (inDcm(2, 0) - inDcm(0, 2)) / (4 * q1);
+                        q2 = 0.5 * std::sqrt(1 - inDcm(0, 0) - inDcm(1, 1) + inDcm(2, 2));
+                        q0 = (inDcm(2, 0) + inDcm(0, 2)) / (4 * q2);
+                        q1 = (inDcm(2, 1) + inDcm(1, 2)) / (4 * q2);
+                        q3 = (inDcm(1, 0) - inDcm(0, 1)) / (4 * q2);
 
                         break;
                     }
