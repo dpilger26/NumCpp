@@ -2572,12 +2572,12 @@ namespace RotationsInterface
 {
     np::ndarray angleAxisRotationNdArray(const NdArray<double>& inAxis, double inAngle)
     {
-        return nc2Boost(rotations::Quaternion::angleAxisRotation(inAxis, inAngle).toNdArray());
+        return nc2Boost(rotations::Quaternion(inAxis, inAngle).toNdArray());
     }
 
     np::ndarray angleAxisRotationVec3(const NdArray<double>& inAxis, double inAngle)
     {
-        return nc2Boost(rotations::Quaternion::angleAxisRotation(Vec3(inAxis), inAngle).toNdArray());
+        return nc2Boost(rotations::Quaternion(Vec3(inAxis), inAngle).toNdArray());
     }
 
     np::ndarray angularVelocity(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inTime)

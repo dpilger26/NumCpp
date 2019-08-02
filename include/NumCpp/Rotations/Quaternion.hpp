@@ -108,7 +108,7 @@ namespace nc
             ///						Constructor
             ///
             /// @param
-            ///				inArray (size = 4)
+            ///				inArray (size = 4) of the i, j, k, s components
             ///
             Quaternion(const NdArray<double>& inArray)
             {
@@ -123,47 +123,35 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a quaternion to rotate about the input axis by the input angle
+            ///						Constructor
             ///
-            /// @param			inAxis (x,y,z vector components)
-            /// @param			inAngle (radians)
-            /// @return
-            ///				Quaternion
+            /// @param			inAxis: Euler axis
+            /// @param			inAngle: Euler angle in radians
             ///
-            static Quaternion angleAxisRotation(const NdArray<double>& inAxis, double inAngle)
+            Quaternion(const Vec3& inAxis, double inAngle) noexcept
             {
-                if (inAxis.size() != 3)
-                {
-                    THROW_INVALID_ARGUMENT_ERROR("input axis must be a cartesion vector of length = 3.");
-                }
-
                 // normalize the input vector
-                NdArray<double> normAxis = inAxis / inAxis.norm().item();
+                Vec3 normAxis = inAxis.normalize();
 
                 const double halfAngle = inAngle / 2.0;
                 const double sinHalfAngle = std::sin(halfAngle);
 
-                const double i = normAxis[0] * sinHalfAngle;
-                const double j = normAxis[1] * sinHalfAngle;
-                const double k = normAxis[2] * sinHalfAngle;
-                const double s = std::cos(halfAngle);
-
-                return Quaternion(i, j, k, s);
+                components_[0] = normAxis.x * sinHalfAngle;
+                components_[1] = normAxis.y * sinHalfAngle;
+                components_[2] = normAxis.z * sinHalfAngle;
+                components_[3] = std::cos(halfAngle);
             }
 
             //============================================================================
             // Method Description:
-            ///						returns a quaternion to rotate about the input axis by the input angle
+            ///						Constructor
             ///
-            /// @param			inAxis 
-            /// @param			inAngle (radians)
-            /// @return
-            ///				Quaternion
+            /// @param			inAxis: Euler axis x,y,z vector components
+            /// @param			inAngle: Euler angle in radians
             ///
-            static Quaternion angleAxisRotation(const Vec3& inAxis, double inAngle) noexcept
-            {
-                return angleAxisRotation(inAxis.toNdArray(), inAngle);
-            }
+            Quaternion(const NdArray<double>& inAxis, double inAngle) :
+                Quaternion(Vec3(inAxis), inAngle)
+            {}
 
             //============================================================================
             // Method Description:
@@ -608,7 +596,8 @@ namespace nc
             ///
             static Quaternion xRotation(double inAngle)
             {
-                return angleAxisRotation(NdArray<double>{ 1.0, 0.0, 0.0 }, inAngle);
+                Vec3 eulerAxis = { 1.0, 0.0, 0.0 };
+                return Quaternion(eulerAxis, inAngle);
             }
 
             //============================================================================
@@ -622,7 +611,8 @@ namespace nc
             ///
             static Quaternion yRotation(double inAngle)
             {
-                return angleAxisRotation(NdArray<double>{ 0.0, 1.0, 0.0 }, inAngle);
+                Vec3 eulerAxis = { 0.0, 1.0, 0.0 };
+                return Quaternion(eulerAxis, inAngle);
             }
 
             //============================================================================
@@ -636,7 +626,8 @@ namespace nc
             ///
             static Quaternion zRotation(double inAngle)
             {
-                return angleAxisRotation(NdArray<double>{ 0.0, 0.0, 1.0 }, inAngle);
+                Vec3 eulerAxis = { 0.0, 0.0, 1.0 };
+                return Quaternion(eulerAxis, inAngle);
             }
 
             //============================================================================

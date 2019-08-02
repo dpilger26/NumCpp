@@ -56,7 +56,7 @@ namespace nc
             ///
             static NdArray<double> angleAxisRotation(const NdArray<double>& inAxis, double inAngle)
             {
-                return Quaternion::angleAxisRotation(inAxis, inAngle).toDCM();
+                return Quaternion(inAxis, inAngle).toDCM();
             }
 
             //============================================================================
@@ -71,7 +71,7 @@ namespace nc
             ///
             static NdArray<double> angleAxisRotation(const Vec3& inAxis, double inAngle)
             {
-                return Quaternion::angleAxisRotation(inAxis, inAngle).toDCM();
+                return Quaternion(inAxis, inAngle).toDCM();
             }
 
             //============================================================================
