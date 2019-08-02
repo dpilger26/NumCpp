@@ -1599,6 +1599,42 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/array_equiv.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/array_equiv.hpp" bodystart="53" bodyend="61"/>
       </memberdef>
+      <memberdef kind="function" id="namespacenc_1af71a3e8a82c7a5f627e8bd0afbebd4a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+          <param>
+            <type>size_t</type>
+            <declname>ArraySize</declname>
+            <defname>ArraySize</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt;dtype&gt; nc::asarray</definition>
+        <argsstring>(const std::array&lt; dtype, ArraySize &gt; &amp;inArray) noexcept</argsstring>
+        <name>asarray</name>
+        <param>
+          <type>const std::array&lt; dtype, ArraySize &gt; &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert the std::array to an array.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html">https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="53" bodyend="56"/>
+      </memberdef>
       <memberdef kind="function" id="namespacenc_1a1a8e453007d48b637c09e17fbcad35af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -1628,7 +1664,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="70" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="70" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a906ea9a95524ed5bc4317acb35d8f9af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1659,7 +1695,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="69" bodyend="72"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="87" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="87" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1ad4305fc265be41159c3b8c5f810ff7b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1690,7 +1726,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="86" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="86" bodyend="89"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="104" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="104" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1adb79e903c668fa72bed0d6d5f9327766" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1721,7 +1757,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="104" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="104" bodyend="107"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="122" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="122" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a1eec54daf3cd64f2d821d3a8007700f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1752,7 +1788,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="122" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="122" bodyend="125"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="140" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="140" bodyend="143"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1aa67b4266cc44cb708b920746feb4eba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -4869,7 +4905,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/fromFile.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/fromFile.hpp" bodystart="57" bodyend="131"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/fromFile.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/fromFile.hpp" bodystart="57" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a0b388462989d0cb59531f753a907cce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

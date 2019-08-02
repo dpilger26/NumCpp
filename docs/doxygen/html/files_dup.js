@@ -334,6 +334,7 @@ var files_dup =
     [ "right_shift.hpp", "right__shift_8hpp.html", "right__shift_8hpp" ],
     [ "rint.hpp", "rint_8hpp.html", "rint_8hpp" ],
     [ "rms.hpp", "rms_8hpp.html", "rms_8hpp" ],
+    [ "rodriguesRotation.hpp", "rodrigues_rotation_8hpp.html", "rodrigues_rotation_8hpp" ],
     [ "roll.hpp", "roll_8hpp.html", "roll_8hpp" ],
     [ "rot90.hpp", "rot90_8hpp.html", "rot90_8hpp" ],
     [ "Rotations.hpp", "_rotations_8hpp.html", null ],

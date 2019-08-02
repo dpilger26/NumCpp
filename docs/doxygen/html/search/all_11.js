@@ -54,6 +54,8 @@ var searchData=
   ['rint_2ehpp',['rint.hpp',['../rint_8hpp.html',1,'']]],
   ['rms',['rms',['../classnc_1_1_nd_array.html#a6d2ac80b2f7b1fa818e33bd03d66a224',1,'nc::NdArray::rms()'],['../namespacenc.html#a2e7c6950a2be94b7162fe0017fd43352',1,'nc::rms()']]],
   ['rms_2ehpp',['rms.hpp',['../rms_8hpp.html',1,'']]],
+  ['rodriguesrotation',['rodriguesRotation',['../namespacenc_1_1rotations.html#a8b758ff29273093d433b54557054e56e',1,'nc::rotations::rodriguesRotation(const Vec3 &amp;k, double theta, const Vec3 &amp;v)'],['../namespacenc_1_1rotations.html#a923304344b059574fa025c5f31ee88d0',1,'nc::rotations::rodriguesRotation(const NdArray&lt; dtype &gt; &amp;k, double theta, NdArray&lt; dtype &gt; &amp;v)']]],
+  ['rodriguesrotation_2ehpp',['rodriguesRotation.hpp',['../rodrigues_rotation_8hpp.html',1,'']]],
   ['roll',['roll',['../namespacenc.html#abcdbe6ad8a7d87f8f1006f7fc36626af',1,'nc']]],
   ['roll_2ehpp',['roll.hpp',['../roll_8hpp.html',1,'']]],
   ['rot90',['rot90',['../namespacenc.html#afae8b2eed7c619175052c01abd526002',1,'nc']]],

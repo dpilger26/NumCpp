@@ -34,7 +34,7 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" line="43" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" bodystart="43" bodyend="46"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1ab8f33a7e18654f6870deaa8f9c038195" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1ab5d74e774cbc9596b129d7a507e58fe7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
@@ -42,7 +42,7 @@
         </templateparamlist>
         <type>bool</type>
         <definition>bool nc::utils::essentiallyEqual</definition>
-        <argsstring>(dtype inValue1, dtype inValue2, dtype inEpsilon=DtypeInfo&lt; dtype &gt;::epsilon()) noexcept</argsstring>
+        <argsstring>(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept</argsstring>
         <name>essentiallyEqual</name>
         <param>
           <type>dtype</type>
@@ -55,7 +55,6 @@
         <param>
           <type>dtype</type>
           <declname>inEpsilon</declname>
-          <defval><ref refid="classnc_1_1_dtype_info" kindref="compound">DtypeInfo</ref>&lt; dtype &gt;::epsilon()</defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -87,6 +86,48 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" bodystart="50" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a757827e9924ac163082367951bb6253d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool nc::utils::essentiallyEqual</definition>
+        <argsstring>(dtype inValue1, dtype inValue2) noexcept</argsstring>
+        <name>essentiallyEqual</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue1</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inValue2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>tests that 2 floating point values are &quot;essentially equal&quot;</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inValue2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" line="67" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" bodystart="67" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1utils_1a5016e06ac7ca186ff6c110b314d30209" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
