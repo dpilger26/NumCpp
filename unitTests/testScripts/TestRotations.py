@@ -1,6 +1,5 @@
 import numpy as np
 from termcolor import colored
-import pyquaternion as pyquat
 import sys
 if sys.platform == 'linux':
     sys.path.append(r'../lib')
@@ -57,7 +56,6 @@ def testQuaternion():
     angle = np.random.rand(1).item() * np.pi
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
-    quat = pyquat.Quaternion(axis=axis, ra=angle)
     if np.array_equal(np.round(NumCpp.Quaternion.angleAxisRotationNdArray(cAxis, angle).flatten(), 10),
                       np.round(quatRotateAngleAxis(axis, angle), 10)):
         print(colored('\tPASS', 'green'))
