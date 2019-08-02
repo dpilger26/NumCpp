@@ -142,6 +142,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a53c84fdd06a1f980c7c74a185d568156"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2b75597d538e55cfdd1215c35c9c6fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1rotations_1_1_quaternion.html">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1rotations_1_1_quaternion.html#af2b75597d538e55cfdd1215c35c9c6fe">operator+=</a> (const <a class="el" href="classnc_1_1rotations_1_1_quaternion.html">Quaternion</a> &amp;inRhs) noexcept</td></tr>
 <tr class="separator:af2b75597d538e55cfdd1215c35c9c6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43fe6603ffbaaadf9348910e17e99519"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1rotations_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1rotations_1_1_quaternion.html#a43fe6603ffbaaadf9348910e17e99519">operator-</a> () const noexcept</td></tr>
+<tr class="separator:a43fe6603ffbaaadf9348910e17e99519"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6eb2370d77e01a944c4b32a48966e76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1rotations_1_1_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1rotations_1_1_quaternion.html#ad6eb2370d77e01a944c4b32a48966e76">operator-</a> (const <a class="el" href="classnc_1_1rotations_1_1_quaternion.html">Quaternion</a> &amp;inRhs) const noexcept</td></tr>
 <tr class="separator:ad6eb2370d77e01a944c4b32a48966e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60f1f33144c887cde1338fd80183638f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1rotations_1_1_quaternion.html">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1rotations_1_1_quaternion.html#a60f1f33144c887cde1338fd80183638f">operator-=</a> (const <a class="el" href="classnc_1_1rotations_1_1_quaternion.html">Quaternion</a> &amp;inRhs) noexcept</td></tr>
@@ -222,7 +224,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Default Constructor, not super usefull on its own </p>
+<p>Default Constructor </p>
 
 </div>
 </div>
@@ -555,7 +557,7 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>converts from a direction cosine matrix to a quaternion</p>
+<p>converts from a direction cosine matrix to a quaternion <a href="https://arxiv.org/pdf/math/0701759.pdf">https://arxiv.org/pdf/math/0701759.pdf</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inDcm</td><td></td></tr>
@@ -1104,8 +1106,35 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a43fe6603ffbaaadf9348910e17e99519"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43fe6603ffbaaadf9348910e17e99519">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1rotations_1_1_quaternion.html">Quaternion</a> nc::rotations::Quaternion::operator- </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>negative operator</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1rotations_1_1_quaternion.html" title="Holds a unit quaternion. ">Quaternion</a> </dd></dl>
+
+</div>
+</div>
 <a id="ad6eb2370d77e01a944c4b32a48966e76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6eb2370d77e01a944c4b32a48966e76">&#9670;&nbsp;</a></span>operator-()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6eb2370d77e01a944c4b32a48966e76">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

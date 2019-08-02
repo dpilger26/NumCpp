@@ -25,6 +25,7 @@ var classnc_1_1rotations_1_1_quaternion =
     [ "operator*=", "classnc_1_1rotations_1_1_quaternion.html#a17636913a3a1e810a81a558dc986fd54", null ],
     [ "operator+", "classnc_1_1rotations_1_1_quaternion.html#a53c84fdd06a1f980c7c74a185d568156", null ],
     [ "operator+=", "classnc_1_1rotations_1_1_quaternion.html#af2b75597d538e55cfdd1215c35c9c6fe", null ],
+    [ "operator-", "classnc_1_1rotations_1_1_quaternion.html#a43fe6603ffbaaadf9348910e17e99519", null ],
     [ "operator-", "classnc_1_1rotations_1_1_quaternion.html#ad6eb2370d77e01a944c4b32a48966e76", null ],
     [ "operator-=", "classnc_1_1rotations_1_1_quaternion.html#a60f1f33144c887cde1338fd80183638f", null ],
     [ "operator/", "classnc_1_1rotations_1_1_quaternion.html#ab054e067fc333a48582e291f95120866", null ],

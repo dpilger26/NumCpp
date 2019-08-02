@@ -22,7 +22,7 @@ var searchData=
   ['erfc_5finv',['erfc_inv',['../namespacenc_1_1special.html#af44c88391a82e2bf739f86e8bf3284be',1,'nc::special::erfc_inv(dtype inValue) noexcept'],['../namespacenc_1_1special.html#ab9398d528b93a4e029729637fa90c68b',1,'nc::special::erfc_inv(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['erfc_5finv_2ehpp',['erfc_inv.hpp',['../erfc__inv_8hpp.html',1,'']]],
   ['error_2ehpp',['Error.hpp',['../_error_8hpp.html',1,'']]],
-  ['essentiallyequal',['essentiallyEqual',['../namespacenc_1_1utils.html#ab8f33a7e18654f6870deaa8f9c038195',1,'nc::utils']]],
+  ['essentiallyequal',['essentiallyEqual',['../namespacenc_1_1utils.html#ab5d74e774cbc9596b129d7a507e58fe7',1,'nc::utils::essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept'],['../namespacenc_1_1utils.html#a757827e9924ac163082367951bb6253d',1,'nc::utils::essentiallyEqual(dtype inValue1, dtype inValue2) noexcept']]],
   ['essentiallyequal_2ehpp',['essentiallyEqual.hpp',['../essentially_equal_8hpp.html',1,'']]],
   ['exp',['exp',['../namespacenc.html#ab138b681799463226a8ef60f87d30ac7',1,'nc::exp(dtype inValue) noexcept'],['../namespacenc.html#a59a6e7cd47686d44b26ba2e344b27fa8',1,'nc::exp(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['exp_2ehpp',['exp.hpp',['../exp_8hpp.html',1,'']]],
