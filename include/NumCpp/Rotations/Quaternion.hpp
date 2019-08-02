@@ -571,16 +571,6 @@ namespace nc
                 const double q2sqr = utils::sqr(q2);
                 const double q3sqr = utils::sqr(q3);
 
-                //dcm(0, 0) = q3sqr + q0sqr - q1sqr - q2sqr;
-                //dcm(0, 1) = 2 * (q0 * q1 + q3 * q2);
-                //dcm(0, 2) = 2 * (q0 * q2 - q3 * q1);
-                //dcm(1, 0) = 2 * (q0 * q1 - q3 * q2);
-                //dcm(1, 1) = q3sqr - q0sqr + q1sqr - q2sqr;
-                //dcm(1, 2) = 2 * (q1 * q2 + q3 * q0);
-                //dcm(2, 0) = 2 * (q0 * q2 + q3 * q1);
-                //dcm(2, 1) = 2 * (q1 * q2 - q3 * q0);
-                //dcm(2, 2) = q3sqr - q0sqr - q1sqr + q2sqr;
-
                 dcm(0, 0) = q3sqr + q0sqr - q1sqr - q2sqr;
                 dcm(0, 1) = 2 * (q0 * q1 - q3 * q2);
                 dcm(0, 2) = 2 * (q0 * q2 + q3 * q1);
@@ -805,6 +795,7 @@ namespace nc
                 auto pPrime = *this * p * this->inverse();
                 
                 NdArray<double> rotatedVec = {pPrime.i(), pPrime.j(), pPrime.k()};
+                rotatedVec *= inVec.norm().item();
                 return rotatedVec;
             }
 

@@ -1,5 +1,6 @@
 import numpy as np
 from termcolor import colored
+import pyquaternion as pyquat
 import sys
 if sys.platform == 'linux':
     sys.path.append(r'../lib')
@@ -48,6 +49,7 @@ def doTest():
     angle = np.random.rand(1).item() * np.pi
     cAxis = NumCpp.NdArray(1, 3)
     cAxis.setArray(axis)
+    quat = pyquat.Quaternion(axis=axis, ra=angle)
     if np.array_equal(np.round(NumCpp.Quaternion.angleAxisRotationNdArray(cAxis, angle).flatten(), 10),
                       np.round(quatRotateAngleAxis(axis, angle), 10)):
         print(colored('\tPASS', 'green'))
@@ -286,7 +288,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing muliplication: Scalar', 'cyan'))
+    print(colored('Testing multiplication: Scalar', 'cyan'))
     quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     res = cQuat * -1
@@ -295,7 +297,7 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing muliplication: Quaternion', 'cyan'))
+    print(colored('Testing multiplication: Quaternion', 'cyan'))
     quat1 = np.random.randint(1, 5, [4, ]).astype(np.double)
     quat2 = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat1 = NumCpp.Quaternion(quat1[0].item(), quat1[1].item(), quat1[2].item(), quat1[3].item())
@@ -307,14 +309,14 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
-    print(colored('Testing muliplication: Array', 'cyan'))
+    print(colored('Testing multiplication: Array', 'cyan'))
     quat = np.random.randint(1, 5, [4, ]).astype(np.double)
     cQuat = NumCpp.Quaternion(quat[0].item(), quat[1].item(), quat[2].item(), quat[3].item())
     array = np.random.randint(1, 5, [3, 1])
     cArray = NumCpp.NdArray(3, 1)
     cArray.setArray(array)
     res = cQuat * cArray
-    if np.array_equal(np.round(res, 10), np.round(np.dot(cQuat.toDCM(), array), 10)):
+    if np.array_equal(np.round(res.flatten(), 10), np.round(np.dot(cQuat.toDCM(), array).flatten(), 10)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -434,13 +436,13 @@ def quat2dcm(quat):
 
     dcm = np.zeros([3, 3])
     dcm[0, 0] = q3**2 + q0**2 - q1**2 - q2**2
-    dcm[0, 1] = 2 * (q0 * q1 + q3 * q2)
-    dcm[0, 2] = 2 * (q0 * q2 - q3 * q1)
-    dcm[1, 0] = 2 * (q0 * q1 - q3 * q2)
+    dcm[0, 1] = 2 * (q0 * q1 - q3 * q2)
+    dcm[0, 2] = 2 * (q0 * q2 + q3 * q1)
+    dcm[1, 0] = 2 * (q0 * q1 + q3 * q2)
     dcm[1, 1] = q3**2 - q0**2 + q1**2 - q2**2
-    dcm[1, 2] = 2 * (q1 * q2 + q3 * q0)
-    dcm[2, 0] = 2 * (q0 * q2 + q3 * q1)
-    dcm[2, 1] = 2 * (q1 * q2 - q3 * q0)
+    dcm[1, 2] = 2 * (q1 * q2 - q3 * q0)
+    dcm[2, 0] = 2 * (q0 * q2 - q3 * q1)
+    dcm[2, 1] = 2 * (q1 * q2 + q3 * q0)
     dcm[2, 2] = q3**2 - q0**2 - q1**2 + q2**2
 
     return dcm
@@ -517,15 +519,15 @@ def angleAxisRotation(axis, radians):
 
 ########################################################################################################################
 def rotateX(radians):
-    return np.matrix([[1, 0, 0],[0, np.cos(radians), np.sin(radians)],[0, -np.sin(radians), np.cos(radians)]])
+    return np.matrix([[1, 0, 0],[0, np.cos(radians), -np.sin(radians)],[0, np.sin(radians), np.cos(radians)]])
 
 ########################################################################################################################
 def rotateY(radians):
-    return np.matrix([[np.cos(radians), 0, -np.sin(radians)],[0, 1, 0],[np.sin(radians), 0, np.cos(radians)]])
+    return np.matrix([[np.cos(radians), 0, np.sin(radians)],[0, 1, 0],[-np.sin(radians), 0, np.cos(radians)]])
 
 ########################################################################################################################
 def rotateZ(radians):
-    return np.matrix([[np.cos(radians), np.sin(radians), 0],[-np.sin(radians), np.cos(radians), 0],[0, 0, 1]])
+    return np.matrix([[np.cos(radians), -np.sin(radians), 0],[np.sin(radians), np.cos(radians), 0],[0, 0, 1]])
 
 ########################################################################################################################
 def hat(xyz):
