@@ -51,6 +51,18 @@ def testQuaternion():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing roll/pitch/yaw Constructor', 'cyan'))
+    roll = np.random.rand(1).item() * np.pi * 2 - np.pi  # [-pi, pi]
+    pitch = np.random.rand(1).item() * np.pi - np.pi / 2  # [-pi/2, pi/2]
+    yaw = np.random.rand(1).item() * np.pi * 2 - np.pi  # [-pi, pi]
+    quat = NumCpp.Quaternion(roll, pitch, yaw)
+    if (np.round(quat.roll(), 10) == np.round(roll, 10) and
+            np.round(quat.pitch(), 10) == np.round(pitch, 10) and
+            np.round(quat.yaw(), 10) == np.round(yaw, 10)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing angleAxisRotationArray', 'cyan'))
     axis = np.random.randint(1,10, [3,])
     angle = np.random.rand(1).item() * np.pi
@@ -98,7 +110,8 @@ def testQuaternion():
     angularVelocity = np.linalg.norm(w)
     axis = w / angularVelocity
 
-    if (np.round(angularVelocity * time - theta, 1) == 0 and # round to 1 decimal place because C is an approximation on magnitude
+    # round to 1 decimal place because C is an approximation on magnitude
+    if (np.round(angularVelocity * time - theta, 1) == 0 and
         np.all(np.round(axis, 9) == np.round(crossTo, 9))):
         print(colored('\tPASS', 'green'))
     else:

@@ -89,7 +89,7 @@ namespace nc
             /// @ param pitch: the euler pitch angle in radians
             /// @ param yaw: the euler yaw angle in radians
             ///
-            void eulerToQuat(double roll, double pitch, double yaw)
+            void eulerToQuat(double roll, double pitch, double yaw) noexcept
             {
                 const double halfPhi = roll / 2.0;
                 const double halfTheta = pitch / 2.0;
@@ -421,12 +421,16 @@ namespace nc
                 }
 
                 const double oneMinus = 1.0 - inPercent;
-                const double i = oneMinus * inQuat1.components_[0] + inPercent * inQuat2.components_[0];
-                const double j = oneMinus * inQuat1.components_[1] + inPercent * inQuat2.components_[1];
-                const double k = oneMinus * inQuat1.components_[2] + inPercent * inQuat2.components_[2];
-                const double s = oneMinus * inQuat1.components_[3] + inPercent * inQuat2.components_[3];
+                std::array<double, 4> newComponents;
 
-                return Quaternion(i, j, k, s);
+                std::transform(inQuat1.components_.begin(), inQuat1.components_.end(),
+                    inQuat2.components_.begin(), newComponents.begin(),
+                    [inPercent, oneMinus](double component1, double component2)
+                    {
+                        return oneMinus * component1 + inPercent * component2;
+                    });
+
+                return Quaternion(newComponents[0], newComponents[1], newComponents[2], newComponents[3]);
             }
 
             //============================================================================
@@ -445,11 +449,34 @@ namespace nc
 
             //============================================================================
             // Method Description:
+            ///	The euler pitch angle in radians
+            ///
+            /// @return     euler pitch angle in radians
+            ///
+            double pitch() const noexcept
+            {
+                return std::asin(2 * (s() * j() - k() * i()));
+            }
+
+            //============================================================================
+            // Method Description:
             ///						prints the Quaternion to the console
             ///
             void print() const noexcept
             {
                 std::cout << *this;
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	The euler roll angle in radians
+            ///
+            /// @return     euler roll angle in radians
+            ///
+            double roll() const noexcept
+            {
+                return std::atan2(2 * (s() * i() + j() * k()), 
+                    1 - 2 * (utils::sqr(i()) + utils::sqr(j())));
             }
 
             //============================================================================
@@ -641,6 +668,18 @@ namespace nc
             {
                 Vec3 eulerAxis = { 1.0, 0.0, 0.0 };
                 return Quaternion(eulerAxis, inAngle);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	The euler yaw angle in radians
+            ///
+            /// @return     euler yaw angle in radians
+            ///
+            double yaw() const noexcept
+            {
+                return std::atan2(2 * (s() * k() + i() * j()), 
+                    1 - 2 * (utils::sqr(j()) + utils::sqr(k())));
             }
 
             //============================================================================
@@ -859,25 +898,25 @@ namespace nc
             ///
             Quaternion& operator*=(const Quaternion& inRhs) noexcept
             {
-                double q0 = inRhs.components_[3] * components_[0];
-                q0 += inRhs.components_[0] * components_[3];
-                q0 -= inRhs.components_[1] * components_[2];
-                q0 += inRhs.components_[2] * components_[1];
+                double q0 = inRhs.s() * i();
+                q0 += inRhs.i() * s();
+                q0 -= inRhs.j() * k();
+                q0 += inRhs.k() * j();
 
-                double q1 = inRhs.components_[3] * components_[1];
-                q1 += inRhs.components_[0] * components_[2];
-                q1 += inRhs.components_[1] * components_[3];
-                q1 -= inRhs.components_[2] * components_[0];
+                double q1 = inRhs.s() * j();
+                q1 += inRhs.i() * k();
+                q1 += inRhs.j() * s();
+                q1 -= inRhs.k() * i();
 
-                double q2 = inRhs.components_[3] * components_[2];
-                q2 -= inRhs.components_[0] * components_[1];
-                q2 += inRhs.components_[1] * components_[0];
-                q2 += inRhs.components_[2] * components_[3];
+                double q2 = inRhs.s() * k();
+                q2 -= inRhs.i() * j();
+                q2 += inRhs.j() * i();
+                q2 += inRhs.k() * s();
 
-                double q3 = inRhs.components_[3] * components_[3];
-                q3 -= inRhs.components_[0] * components_[0];
-                q3 -= inRhs.components_[1] * components_[1];
-                q3 -= inRhs.components_[2] * components_[2];
+                double q3 = inRhs.s() * s();
+                q3 -= inRhs.i() * i();
+                q3 -= inRhs.j() * j();
+                q3 -= inRhs.k() * k();
 
                 components_[0] = q0;
                 components_[1] = q1;

@@ -56,7 +56,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            static NdArray<double> eulerAngles(double roll, double pitch, double yaw)
+            static NdArray<double> eulerAngles(double roll, double pitch, double yaw) noexcept
             {
                 return Quaternion(roll, pitch, yaw).toDCM();
             }
@@ -100,7 +100,7 @@ namespace nc
             /// @return
             ///				NdArray
             ///
-            static NdArray<double> eulerAxisAngle(const Vec3& inAxis, double inAngle)
+            static NdArray<double> eulerAxisAngle(const Vec3& inAxis, double inAngle) noexcept
             {
                 return Quaternion(inAxis, inAngle).toDCM();
             }
@@ -129,6 +129,42 @@ namespace nc
 
             //============================================================================
             // Method Description:
+            ///	The euler roll angle in radians
+            ///
+            /// @param      dcm: a valid direction cosine matrix
+            /// @return     euler roll angle in radians
+            ///
+            static double roll(const NdArray<double>& dcm)
+            {
+                return Quaternion(dcm).roll();
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	The euler pitch angle in radians
+            ///
+            /// @param      dcm: a valid direction cosine matrix
+            /// @return     euler pitch angle in radians
+            ///
+            static double pitch(const NdArray<double>& dcm)
+            {
+                return Quaternion(dcm).pitch();
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	The euler yaw angle in radians
+            ///
+            /// @param      dcm: a valid direction cosine matrix
+            /// @return     euler yaw angle in radians
+            ///
+            static double yaw(const NdArray<double>& dcm)
+            {
+                return Quaternion(dcm).yaw();
+            }
+
+            //============================================================================
+            // Method Description:
             ///						returns a direction cosine matrix that rotates about
             ///						the x axis by the input angle
             ///
@@ -137,7 +173,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            static NdArray<double> xRotation(double inAngle)
+            static NdArray<double> xRotation(double inAngle) noexcept
             {
                 return DCM::eulerAxisAngle(Vec3{ 1.0, 0.0, 0.0 }, inAngle);
             }
@@ -152,7 +188,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            static NdArray<double> yRotation(double inAngle)
+            static NdArray<double> yRotation(double inAngle) noexcept
             {
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 1.0, 0.0 }, inAngle);
             }
@@ -167,7 +203,7 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            static NdArray<double> zRotation(double inAngle)
+            static NdArray<double> zRotation(double inAngle) noexcept
             {
                 return DCM::eulerAxisAngle(Vec3{ 0.0, 0.0, 1.0 }, inAngle);
             }
