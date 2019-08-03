@@ -2638,14 +2638,24 @@ namespace RotationsInterface
         return nc2Boost(returnQuat.toNdArray());
     }
 
+    np::ndarray eulerAnglesValues(double roll, double pitch, double yaw)
+    {
+        return nc2Boost(rotations::DCM::eulerAngles(roll, pitch, yaw));
+    }
+
+    np::ndarray eulerAnglesArray(const NdArray<double> angles)
+    {
+        return nc2Boost(rotations::DCM::eulerAngles(angles));
+    }
+
     np::ndarray angleAxisRotationDcmNdArray(const NdArray<double>& inAxis, double inAngle)
     {
-        return nc2Boost(rotations::DCM::angleAxisRotation(inAxis, inAngle));
+        return nc2Boost(rotations::DCM::eulerAxisAngle(inAxis, inAngle));
     }
 
     np::ndarray angleAxisRotationDcmVec3(const NdArray<double>& inAxis, double inAngle)
     {
-        return nc2Boost(rotations::DCM::angleAxisRotation(Vec3(inAxis), inAngle));
+        return nc2Boost(rotations::DCM::eulerAxisAngle(Vec3(inAxis), inAngle));
     }
 
     template<typename T>
@@ -4203,7 +4213,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     // Rotations.hpp
     bp::class_<rotations::Quaternion>
         ("Quaternion", bp::init<>())
+        .def(bp::init<double, double, double>())
         .def(bp::init<double, double, double, double>())
+        .def(bp::init<Vec3, double>())
+        .def(bp::init<NdArray<double>, double>())
         .def(bp::init<NdArray<double> >())
         .def("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationNdArray).staticmethod("angleAxisRotationNdArray")
         .def("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationVec3).staticmethod("angleAxisRotationVec3")
@@ -4214,7 +4227,6 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("inverse", &rotations::Quaternion::inverse)
         .def("j", &rotations::Quaternion::j)
         .def("k", &rotations::Quaternion::k)
-        .def("fromDCM", &rotations::Quaternion::fromDCM).staticmethod("fromDCM")
         .def("nlerp", &RotationsInterface::nlerp)
         .def("print", &rotations::Quaternion::print)
         .def("rotateNdArray", &RotationsInterface::rotateNdArray)
@@ -4239,6 +4251,8 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     bp::class_<rotations::DCM>
         ("DCM", bp::init<>())
+        .def("eulerAnglesValues", &RotationsInterface::eulerAnglesValues).staticmethod("eulerAnglesValues")
+        .def("eulerAnglesArray", &RotationsInterface::eulerAnglesArray).staticmethod("eulerAnglesArray")
         .def("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationDcmNdArray).staticmethod("angleAxisRotationNdArray")
         .def("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationDcmVec3).staticmethod("angleAxisRotationVec3")
         .def("isValid", &rotations::DCM::isValid).staticmethod("isValid")

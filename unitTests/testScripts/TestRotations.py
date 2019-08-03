@@ -125,7 +125,7 @@ def testQuaternion():
     dcm = cQuat.toDCM()
     cArray = NumCpp.NdArray(3)
     cArray.setArray(dcm)
-    if np.array_equal(np.round(NumCpp.Quaternion.fromDCM(cArray).toNdArray().getNumpyArray().flatten(), 10),
+    if np.array_equal(np.round(NumCpp.Quaternion(cArray).toNdArray().getNumpyArray().flatten(), 10),
                       np.round(quat / quatNorm(quat), 10)):
         print(colored('\tPASS', 'green'))
     else:
