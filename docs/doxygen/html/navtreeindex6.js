@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"mod_8hpp_source.html":[3,0,226],
+"multi__dot_8hpp.html":[3,0,227],
 "multi__dot_8hpp.html#a86ab79e41b748e7ea0ee4f2e0bc462a6":[3,0,227,0],
 "multi__dot_8hpp_source.html":[3,0,227],
 "multiply_8hpp.html":[3,0,228],
@@ -13,8 +15,8 @@ var NAVTREEINDEX6 =
 "namespacemembers_e.html":[1,1,0,4],
 "namespacemembers_enum.html":[1,1,4],
 "namespacemembers_f.html":[1,1,0,5],
-"namespacemembers_func.html":[1,1,1],
 "namespacemembers_func.html":[1,1,1,0],
+"namespacemembers_func.html":[1,1,1],
 "namespacemembers_func_b.html":[1,1,1,1],
 "namespacemembers_func_c.html":[1,1,1,2],
 "namespacemembers_func_d.html":[1,1,1,3],
@@ -54,14 +56,14 @@ var NAVTREEINDEX6 =
 "namespacemembers_z.html":[1,1,0,20],
 "namespacenc.html":[2,0,0],
 "namespacenc.html":[1,0,0],
-"namespacenc_1_1boost_python_interface.html":[2,0,0,0],
 "namespacenc_1_1boost_python_interface.html":[1,0,0,0],
+"namespacenc_1_1boost_python_interface.html":[2,0,0,0],
 "namespacenc_1_1constants.html":[1,0,0,1],
 "namespacenc_1_1coordinates.html":[1,0,0,2],
 "namespacenc_1_1coordinates.html":[2,0,0,1],
 "namespacenc_1_1error.html":[1,0,0,3],
-"namespacenc_1_1filter.html":[1,0,0,4],
 "namespacenc_1_1filter.html":[2,0,0,2],
+"namespacenc_1_1filter.html":[1,0,0,4],
 "namespacenc_1_1filter_1_1boundary.html":[1,0,0,4,0],
 "namespacenc_1_1image_processing.html":[2,0,0,3],
 "namespacenc_1_1image_processing.html":[1,0,0,5],
@@ -71,8 +73,8 @@ var NAVTREEINDEX6 =
 "namespacenc_1_1polynomial.html":[1,0,0,7],
 "namespacenc_1_1pybind_interface.html":[1,0,0,8],
 "namespacenc_1_1random.html":[1,0,0,9],
-"namespacenc_1_1rotations.html":[2,0,0,6],
 "namespacenc_1_1rotations.html":[1,0,0,10],
+"namespacenc_1_1rotations.html":[2,0,0,6],
 "namespacenc_1_1special.html":[1,0,0,11],
 "namespacenc_1_1utils.html":[1,0,0,12],
 "namespaces.html":[1,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "rank_filter1d_8hpp_source.html":[3,0,295],
 "rank_filter_8hpp.html":[3,0,294],
 "rank_filter_8hpp.html#a0c2cbe33d4d1ef4f6a1a10320db1c059":[3,0,294,0],
-"rank_filter_8hpp_source.html":[3,0,294],
-"reciprocal_8hpp.html":[3,0,296],
-"reciprocal_8hpp.html#a10c6d2e558dc7493f3349df8be408f35":[3,0,296,0]
+"rank_filter_8hpp_source.html":[3,0,294]
 };

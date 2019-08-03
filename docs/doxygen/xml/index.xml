@@ -466,8 +466,10 @@
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a80f939448c8b58ab286c57ab0212b785" kind="friend"><name>operator&lt;&lt;</name></member>
   </compound>
   <compound refid="classnc_1_1rotations_1_1_d_c_m" kind="class"><name>nc::rotations::DCM</name>
-    <member refid="classnc_1_1rotations_1_1_d_c_m_1a0743bb21193dc68627aabffd6b4c2a2d" kind="function"><name>angleAxisRotation</name></member>
-    <member refid="classnc_1_1rotations_1_1_d_c_m_1a19bba3a08c542c26a07536019847a4c8" kind="function"><name>angleAxisRotation</name></member>
+    <member refid="classnc_1_1rotations_1_1_d_c_m_1a75a392cc2db9f9fdcfd8e212d152c9ff" kind="function"><name>eulerAngles</name></member>
+    <member refid="classnc_1_1rotations_1_1_d_c_m_1a7ad5acfeac4205b7ee348332cb7aeadd" kind="function"><name>eulerAngles</name></member>
+    <member refid="classnc_1_1rotations_1_1_d_c_m_1aeb6400855cfc4163e09f03b101fe2d92" kind="function"><name>eulerAxisAngle</name></member>
+    <member refid="classnc_1_1rotations_1_1_d_c_m_1a4da503d407f8ad563ec41364ff5b3b43" kind="function"><name>eulerAxisAngle</name></member>
     <member refid="classnc_1_1rotations_1_1_d_c_m_1ab229737433b6c93522aa38f0ad94ca50" kind="function"><name>isValid</name></member>
     <member refid="classnc_1_1rotations_1_1_d_c_m_1a7679a0d5443e2abdee0c376ef5f6d1e1" kind="function"><name>xRotation</name></member>
     <member refid="classnc_1_1rotations_1_1_d_c_m_1a9c495cb1fc84c70042d652d84bcddea4" kind="function"><name>yRotation</name></member>
@@ -475,10 +477,15 @@
   </compound>
   <compound refid="classnc_1_1rotations_1_1_quaternion" kind="class"><name>nc::rotations::Quaternion</name>
     <member refid="classnc_1_1rotations_1_1_quaternion_1acfd9bd8f64afce167f4497169d0fc8d7" kind="variable"><name>components_</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a74b8f150dfe0682e43aaff9b565942d1" kind="function"><name>dcmToQuat</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a109d03ff435f45896e3ce721aa43bf9d" kind="function"><name>eulerToQuat</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ae9d47af3f78d727f62588a0f209f01f1" kind="function"><name>normalize</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ae4b67d060aa58aa6d22813d6ab851ec8" kind="function"><name>Quaternion</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a8c498c295071b8b787902044bf87d34d" kind="function"><name>Quaternion</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a3ba2fb2c68554ec78a0957dc1fd7752d" kind="function"><name>Quaternion</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1addcc7fb7b4acd4201e7f5b90ef207f4d" kind="function"><name>Quaternion</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1abbacae2cb36d4f7e93e1cf130f8ca6b4" kind="function"><name>Quaternion</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a81b7db9d5e593a61272e09ce7dcc1325" kind="function"><name>Quaternion</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a1ed072758066ed454d9ba0452dc5a2d0" kind="function"><name>angularVelocity</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ade406544e8360506bb77102d17b14e61" kind="function"><name>conjugate</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a5a661b367dff916e8bdb5e28ac608ecd" kind="function"><name>i</name></member>
@@ -509,10 +516,7 @@
     <member refid="classnc_1_1rotations_1_1_quaternion_1ad03a97f148be61e687944af11fe45c99" kind="function"><name>str</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a32d6c7cf2ff12d988e169fd936aaf397" kind="function"><name>toDCM</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a4a11c1c0daf982f9367e4541e5735e71" kind="function"><name>toNdArray</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1a85d8ffbb801f97a2e2af9080c99875b9" kind="function"><name>angleAxisRotation</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1ac54705d64f7d96981f216fe0e982597c" kind="function"><name>angleAxisRotation</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ab7905c39ef162eb7667abcd3131430ea" kind="function"><name>angularVelocity</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1a103b9122e9af4a42b69d0938ebab8f92" kind="function"><name>fromDCM</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ae093d333b66b63eeef5704be4a374af2" kind="function"><name>identity</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a314478702a3da52f2be3f422057d8732" kind="function"><name>nlerp</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a7a39f199e4d1ad773b93c69e66ae0415" kind="function"><name>slerp</name></member>

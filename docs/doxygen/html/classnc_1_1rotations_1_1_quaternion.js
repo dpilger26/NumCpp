@@ -1,14 +1,14 @@
 var classnc_1_1rotations_1_1_quaternion =
 [
     [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#ae4b67d060aa58aa6d22813d6ab851ec8", null ],
+    [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#a8c498c295071b8b787902044bf87d34d", null ],
     [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#a3ba2fb2c68554ec78a0957dc1fd7752d", null ],
     [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#addcc7fb7b4acd4201e7f5b90ef207f4d", null ],
-    [ "angleAxisRotation", "classnc_1_1rotations_1_1_quaternion.html#a85d8ffbb801f97a2e2af9080c99875b9", null ],
-    [ "angleAxisRotation", "classnc_1_1rotations_1_1_quaternion.html#ac54705d64f7d96981f216fe0e982597c", null ],
+    [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#abbacae2cb36d4f7e93e1cf130f8ca6b4", null ],
+    [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#a81b7db9d5e593a61272e09ce7dcc1325", null ],
     [ "angularVelocity", "classnc_1_1rotations_1_1_quaternion.html#ab7905c39ef162eb7667abcd3131430ea", null ],
     [ "angularVelocity", "classnc_1_1rotations_1_1_quaternion.html#a1ed072758066ed454d9ba0452dc5a2d0", null ],
     [ "conjugate", "classnc_1_1rotations_1_1_quaternion.html#ade406544e8360506bb77102d17b14e61", null ],
-    [ "fromDCM", "classnc_1_1rotations_1_1_quaternion.html#a103b9122e9af4a42b69d0938ebab8f92", null ],
     [ "i", "classnc_1_1rotations_1_1_quaternion.html#a5a661b367dff916e8bdb5e28ac608ecd", null ],
     [ "identity", "classnc_1_1rotations_1_1_quaternion.html#ae093d333b66b63eeef5704be4a374af2", null ],
     [ "inverse", "classnc_1_1rotations_1_1_quaternion.html#a9b0634474b2ff27f9443ba256ea00ab1", null ],
