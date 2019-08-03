@@ -1,5 +1,11 @@
 var NAVTREEINDEX6 =
 {
+"mirror1d_8hpp_source.html":[3,0,224],
+"mirror2d_8hpp.html":[3,0,225],
+"mirror2d_8hpp.html#a2aaf003bb59428d53d1849dd188e10b8":[3,0,225,0],
+"mirror2d_8hpp_source.html":[3,0,225],
+"mod_8hpp.html":[3,0,226],
+"mod_8hpp.html#ad8b53ff84658514a7007efba44802c5c":[3,0,226,0],
 "mod_8hpp_source.html":[3,0,226],
 "multi__dot_8hpp.html":[3,0,227],
 "multi__dot_8hpp.html#a86ab79e41b748e7ea0ee4f2e0bc462a6":[3,0,227,0],
@@ -54,8 +60,8 @@ var NAVTREEINDEX6 =
 "namespacemembers_vars.html":[1,1,2],
 "namespacemembers_w.html":[1,1,0,19],
 "namespacemembers_z.html":[1,1,0,20],
-"namespacenc.html":[2,0,0],
 "namespacenc.html":[1,0,0],
+"namespacenc.html":[2,0,0],
 "namespacenc_1_1boost_python_interface.html":[1,0,0,0],
 "namespacenc_1_1boost_python_interface.html":[2,0,0,0],
 "namespacenc_1_1constants.html":[1,0,0,1],
@@ -73,8 +79,8 @@ var NAVTREEINDEX6 =
 "namespacenc_1_1polynomial.html":[1,0,0,7],
 "namespacenc_1_1pybind_interface.html":[1,0,0,8],
 "namespacenc_1_1random.html":[1,0,0,9],
-"namespacenc_1_1rotations.html":[1,0,0,10],
 "namespacenc_1_1rotations.html":[2,0,0,6],
+"namespacenc_1_1rotations.html":[1,0,0,10],
 "namespacenc_1_1special.html":[1,0,0,11],
 "namespacenc_1_1utils.html":[1,0,0,12],
 "namespaces.html":[1,0],
@@ -243,11 +249,5 @@ var NAVTREEINDEX6 =
 "rand_int_8hpp_source.html":[3,0,291],
 "rand_n_8hpp.html":[3,0,292],
 "rand_n_8hpp.html#aed1531eafe5ef2f67c226437003d5999":[3,0,292,0],
-"rand_n_8hpp_source.html":[3,0,292],
-"rank_filter1d_8hpp.html":[3,0,295],
-"rank_filter1d_8hpp.html#ac46eab01f172d2fb3818e0d1cfaf1274":[3,0,295,0],
-"rank_filter1d_8hpp_source.html":[3,0,295],
-"rank_filter_8hpp.html":[3,0,294],
-"rank_filter_8hpp.html#a0c2cbe33d4d1ef4f6a1a10320db1c059":[3,0,294,0],
-"rank_filter_8hpp_source.html":[3,0,294]
+"rand_n_8hpp_source.html":[3,0,292]
 };

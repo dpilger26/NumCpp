@@ -31,7 +31,9 @@ var classnc_1_1rotations_1_1_quaternion =
     [ "operator/", "classnc_1_1rotations_1_1_quaternion.html#ab054e067fc333a48582e291f95120866", null ],
     [ "operator/=", "classnc_1_1rotations_1_1_quaternion.html#a859df40774ccff755560604b930c934d", null ],
     [ "operator==", "classnc_1_1rotations_1_1_quaternion.html#a82f40acb2292256faffab2b88aa38208", null ],
+    [ "pitch", "classnc_1_1rotations_1_1_quaternion.html#a601b444c8c8f820700844d7ab5f743ba", null ],
     [ "print", "classnc_1_1rotations_1_1_quaternion.html#a44994f000aba8de9f11a169a62782ebd", null ],
+    [ "roll", "classnc_1_1rotations_1_1_quaternion.html#a26f2a9303f0521ee36d92467ab45e3ab", null ],
     [ "rotate", "classnc_1_1rotations_1_1_quaternion.html#a2e19c4d0b48d7f73e0aa273d85435370", null ],
     [ "rotate", "classnc_1_1rotations_1_1_quaternion.html#a3e0593a2ad77fad88afdfb8a34b9c036", null ],
     [ "s", "classnc_1_1rotations_1_1_quaternion.html#a075b6f1befef247f5d638c91e1a451fd", null ],
@@ -41,6 +43,7 @@ var classnc_1_1rotations_1_1_quaternion =
     [ "toDCM", "classnc_1_1rotations_1_1_quaternion.html#a32d6c7cf2ff12d988e169fd936aaf397", null ],
     [ "toNdArray", "classnc_1_1rotations_1_1_quaternion.html#a4a11c1c0daf982f9367e4541e5735e71", null ],
     [ "xRotation", "classnc_1_1rotations_1_1_quaternion.html#a11697b4e29f40fd56b791fa2bc956eb5", null ],
+    [ "yaw", "classnc_1_1rotations_1_1_quaternion.html#a5b5cef534a39badf5d3079ee642e675c", null ],
     [ "yRotation", "classnc_1_1rotations_1_1_quaternion.html#aeeaf2e45baa526aa7c31fc03f66ca109", null ],
     [ "zRotation", "classnc_1_1rotations_1_1_quaternion.html#a02ffc6360355ca7f4d125a70b8930315", null ],
     [ "operator<<", "classnc_1_1rotations_1_1_quaternion.html#a6b7cbc0cd1087f742488b555aef19c10", null ]

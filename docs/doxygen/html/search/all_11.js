@@ -56,7 +56,7 @@ var searchData=
   ['rms_2ehpp',['rms.hpp',['../rms_8hpp.html',1,'']]],
   ['rodriguesrotation',['rodriguesRotation',['../namespacenc_1_1rotations.html#a8b758ff29273093d433b54557054e56e',1,'nc::rotations::rodriguesRotation(const Vec3 &amp;k, double theta, const Vec3 &amp;v)'],['../namespacenc_1_1rotations.html#a923304344b059574fa025c5f31ee88d0',1,'nc::rotations::rodriguesRotation(const NdArray&lt; dtype &gt; &amp;k, double theta, NdArray&lt; dtype &gt; &amp;v)']]],
   ['rodriguesrotation_2ehpp',['rodriguesRotation.hpp',['../rodrigues_rotation_8hpp.html',1,'']]],
-  ['roll',['roll',['../namespacenc.html#abcdbe6ad8a7d87f8f1006f7fc36626af',1,'nc']]],
+  ['roll',['roll',['../classnc_1_1rotations_1_1_d_c_m.html#ac562518ebdec1ce36cf8897a16f16fca',1,'nc::rotations::DCM::roll()'],['../classnc_1_1rotations_1_1_quaternion.html#a26f2a9303f0521ee36d92467ab45e3ab',1,'nc::rotations::Quaternion::roll()'],['../namespacenc.html#abcdbe6ad8a7d87f8f1006f7fc36626af',1,'nc::roll()']]],
   ['roll_2ehpp',['roll.hpp',['../roll_8hpp.html',1,'']]],
   ['rot90',['rot90',['../namespacenc.html#afae8b2eed7c619175052c01abd526002',1,'nc']]],
   ['rot90_2ehpp',['rot90.hpp',['../rot90_8hpp.html',1,'']]],
