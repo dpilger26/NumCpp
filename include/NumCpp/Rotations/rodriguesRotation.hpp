@@ -80,7 +80,7 @@ namespace nc
         /// @return NdArray<double>
         ///
         template<typename dtype>
-        inline NdArray<double> rodriguesRotation(const NdArray<dtype>& k, double theta, NdArray<dtype>& v)
+        NdArray<double> rodriguesRotation(const NdArray<dtype>& k, double theta, NdArray<dtype>& v)
         {
             return rodriguesRotation(Vec3(k), theta, Vec3(v)).toNdArray();
         }

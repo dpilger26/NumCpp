@@ -7,6 +7,7 @@ var searchData=
   ['percentilefilter',['percentileFilter',['../namespacenc_1_1filter.html#a357d5be7b2dc0b511d398acc4c8af1fd',1,'nc::filter']]],
   ['percentilefilter1d',['percentileFilter1d',['../namespacenc_1_1filter.html#aee202739b753a067c7cb2aa32a9b1519',1,'nc::filter']]],
   ['permutation',['permutation',['../namespacenc_1_1random.html#ae0b8066f06a5f5b5a0baee76c5030892',1,'nc::random::permutation(dtype inValue) noexcept'],['../namespacenc_1_1random.html#ad1cc1c17d8fb1d521b0a9ef9b932562b',1,'nc::random::permutation(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
+  ['pitch',['pitch',['../classnc_1_1rotations_1_1_d_c_m.html#a726e1d9c5e2a88dbd7e70b8fc9d55fbf',1,'nc::rotations::DCM::pitch()'],['../classnc_1_1rotations_1_1_quaternion.html#a601b444c8c8f820700844d7ab5f743ba',1,'nc::rotations::Quaternion::pitch()']]],
   ['pixel',['Pixel',['../classnc_1_1image_processing_1_1_pixel.html#a4a7e03f5f6fb7f5c9831618f6b8d299c',1,'nc::imageProcessing::Pixel::Pixel()=default'],['../classnc_1_1image_processing_1_1_pixel.html#a426469a990f63f7173234ecddb298b04',1,'nc::imageProcessing::Pixel::Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept']]],
   ['pnr',['pnr',['../namespacenc_1_1special.html#ad24badd4fad228e42db56cad017747bc',1,'nc::special']]],
   ['poisson',['poisson',['../namespacenc_1_1random.html#ae103ffefefe45e4b64067d52a1763f24',1,'nc::random']]],

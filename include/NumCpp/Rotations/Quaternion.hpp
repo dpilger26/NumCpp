@@ -68,17 +68,107 @@ namespace nc
             {
                 double sumOfSquares = 0.0;
                 std::for_each(components_.begin(), components_.end(),
-                    [&sumOfSquares](double component) -> void 
-                    { 
-                        sumOfSquares += utils::sqr(component); 
+                    [&sumOfSquares](double component) -> void
+                    {
+                        sumOfSquares += utils::sqr(component);
                     });
 
                 const double norm = std::sqrt(sumOfSquares);
                 std::for_each(components_.begin(), components_.end(),
                     [&norm](double& component) -> void
-                    { 
+                    {
                         component /= norm;
                     });
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	Converts the euler roll, pitch, yaw angles to quaternion components
+            ///
+            /// @ param roll: the euler roll angle in radians
+            /// @ param pitch: the euler pitch angle in radians
+            /// @ param yaw: the euler yaw angle in radians
+            ///
+            void eulerToQuat(double roll, double pitch, double yaw) noexcept
+            {
+                const double halfPhi = roll / 2.0;
+                const double halfTheta = pitch / 2.0;
+                const double halfPsi = yaw / 2.0;
+
+                components_[0] = std::sin(halfPhi) * std::cos(halfTheta) * std::cos(halfPsi);
+                components_[0] -= std::cos(halfPhi) * std::sin(halfTheta) * std::sin(halfPsi);
+
+                components_[1] = std::cos(halfPhi) * std::sin(halfTheta) * std::cos(halfPsi);
+                components_[1] += std::sin(halfPhi) * std::cos(halfTheta) * std::sin(halfPsi);
+
+                components_[2] = std::cos(halfPhi) * std::cos(halfTheta) * std::sin(halfPsi);
+                components_[2] -= std::sin(halfPhi) * std::sin(halfTheta) * std::cos(halfPsi);
+
+                components_[3] = std::cos(halfPhi) * std::cos(halfTheta) * std::cos(halfPsi);
+                components_[3] += std::sin(halfPhi) * std::sin(halfTheta) * std::sin(halfPsi);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	Converts the direction cosine matrix to quaternion components
+            ///
+            /// @ param dcm: the direction cosine matrix
+            ///
+            void dcmToQuat(const NdArray<double>& dcm)
+            {
+                const Shape inShape = dcm.shape();
+                if (!(inShape.rows == 3 && inShape.cols == 3))
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("input direction cosine matrix must have shape = (3,3).");
+                }
+
+                NdArray<double> checks(1, 4);
+                checks[0] = 1 + dcm(0, 0) + dcm(1, 1) + dcm(2, 2);
+                checks[1] = 1 + dcm(0, 0) - dcm(1, 1) - dcm(2, 2);
+                checks[2] = 1 - dcm(0, 0) + dcm(1, 1) - dcm(2, 2);
+                checks[3] = 1 - dcm(0, 0) - dcm(1, 1) + dcm(2, 2);
+
+                const uint32 maxIdx = argmax(checks).item();
+
+                switch (maxIdx)
+                {
+                    case 0:
+                    {
+                        components_[3] = 0.5 * std::sqrt(1 + dcm(0, 0) + dcm(1, 1) + dcm(2, 2));
+                        components_[0] = (dcm(2, 1) - dcm(1, 2)) / (4 * components_[3]);
+                        components_[1] = (dcm(0, 2) - dcm(2, 0)) / (4 * components_[3]);
+                        components_[2] = (dcm(1, 0) - dcm(0, 1)) / (4 * components_[3]);
+
+                        break;
+                    }
+                    case 1:
+                    {
+                        components_[0] = 0.5 * std::sqrt(1 + dcm(0, 0) - dcm(1, 1) - dcm(2, 2));
+                        components_[1] = (dcm(1, 0) + dcm(0, 1)) / (4 * components_[0]);
+                        components_[2] = (dcm(2, 0) + dcm(0, 2)) / (4 * components_[0]);
+                        components_[3] = (dcm(2, 1) - dcm(1, 2)) / (4 * components_[0]);
+
+                        break;
+                    }
+                    case 2:
+                    {
+                        components_[1] = 0.5 * std::sqrt(1 - dcm(0, 0) + dcm(1, 1) - dcm(2, 2));
+                        components_[0] = (dcm(1, 0) + dcm(0, 1)) / (4 * components_[1]);
+                        components_[2] = (dcm(2, 1) + dcm(1, 2)) / (4 * components_[1]);
+                        components_[3] = (dcm(0, 2) - dcm(2, 0)) / (4 * components_[1]);
+
+                        break;
+                    }
+                    case 3:
+                    {
+                        components_[2] = 0.5 * std::sqrt(1 - dcm(0, 0) - dcm(1, 1) + dcm(2, 2));
+                        components_[0] = (dcm(2, 0) + dcm(0, 2)) / (4 * components_[2]);
+                        components_[1] = (dcm(2, 1) + dcm(1, 2)) / (4 * components_[2]);
+                        components_[3] = (dcm(1, 0) - dcm(0, 1)) / (4 * components_[2]);
+
+                        break;
+                    }
+                }
             }
 
         public:
@@ -92,13 +182,26 @@ namespace nc
             // Method Description:
             ///						Constructor
             ///
+            /// @param				roll: euler roll angle in radians
+            /// @param				pitch: euler pitch angle in radians
+            /// @param				yaw: euler yaw angle in radians
+            ///
+            Quaternion(double roll, double pitch, double yaw) noexcept
+            {
+                eulerToQuat(roll, pitch, yaw);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						Constructor
+            ///
             /// @param				inI
             /// @param				inJ
             /// @param				inK
             /// @param				inS
             ///
-            Quaternion(double inI, double inJ, double inK, double inS) noexcept:
-                components_{inI, inJ, inK, inS}
+            Quaternion(double inI, double inJ, double inK, double inS) noexcept :
+                components_{ inI, inJ, inK, inS }
             {
                 normalize();
             }
@@ -107,63 +210,65 @@ namespace nc
             // Method Description:
             ///						Constructor
             ///
-            /// @param
-            ///				inArray (size = 4)
+            /// @param  inArray: if size = 3 the roll, pitch, yaw euler angles
+            ///                  if size = 4 the i, j, k, s components
+            ///                  if shape = [3, 3] then direction cosine matrix
             ///
             Quaternion(const NdArray<double>& inArray)
             {
-                if (inArray.size() != 4)
+                if (inArray.size() == 3)
                 {
-                    THROW_INVALID_ARGUMENT_ERROR("input array must be of size = 4.");
+                    // euler angles
+                    eulerToQuat(inArray[0], inArray[0], inArray[1]);
                 }
-
-                std::copy(inArray.cbegin(), inArray.cend(), components_.begin());
-                normalize();
+                else if (inArray.size() == 4)
+                {
+                    // quaternion i, j, k, s components
+                    std::copy(inArray.cbegin(), inArray.cend(), components_.begin());
+                    normalize();
+                }
+                else if (inArray.size() == 9)
+                {
+                    // direction cosine matrix
+                    dcmToQuat(inArray);
+                }
+                else
+                {
+                    THROW_INVALID_ARGUMENT_ERROR("input array is not a valid size.");
+                }
             }
 
             //============================================================================
             // Method Description:
-            ///						returns a quaternion to rotate about the input axis by the input angle
+            ///						Constructor
             ///
-            /// @param			inAxis (x,y,z vector components)
-            /// @param			inAngle (radians)
-            /// @return
-            ///				Quaternion
+            /// @param			inAxis: Euler axis
+            /// @param			inAngle: Euler angle in radians
             ///
-            static Quaternion angleAxisRotation(const NdArray<double>& inAxis, double inAngle)
+            Quaternion(const Vec3& inAxis, double inAngle) noexcept
             {
-                if (inAxis.size() != 3)
-                {
-                    THROW_INVALID_ARGUMENT_ERROR("input axis must be a cartesion vector of length = 3.");
-                }
-
                 // normalize the input vector
-                NdArray<double> normAxis = inAxis / inAxis.norm().item();
+                Vec3 normAxis = inAxis.normalize();
 
                 const double halfAngle = inAngle / 2.0;
                 const double sinHalfAngle = std::sin(halfAngle);
 
-                const double i = normAxis[0] * sinHalfAngle;
-                const double j = normAxis[1] * sinHalfAngle;
-                const double k = normAxis[2] * sinHalfAngle;
-                const double s = std::cos(halfAngle);
-
-                return Quaternion(i, j, k, s);
+                components_[0] = normAxis.x * sinHalfAngle;
+                components_[1] = normAxis.y * sinHalfAngle;
+                components_[2] = normAxis.z * sinHalfAngle;
+                components_[3] = std::cos(halfAngle);
             }
 
             //============================================================================
             // Method Description:
-            ///						returns a quaternion to rotate about the input axis by the input angle
+            ///						Constructor
             ///
-            /// @param			inAxis 
-            /// @param			inAngle (radians)
-            /// @return
-            ///				Quaternion
+            /// @param			inAxis: Euler axis x,y,z vector components
+            /// @param			inAngle: Euler angle in radians
             ///
-            static Quaternion angleAxisRotation(const Vec3& inAxis, double inAngle) noexcept
-            {
-                return angleAxisRotation(inAxis.toNdArray(), inAngle);
-            }
+            Quaternion(const NdArray<double>& inAxis, double inAngle) :
+                Quaternion(Vec3(inAxis), inAngle)
+            {}
 
             //============================================================================
             // Method Description:
@@ -291,80 +396,6 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						converts from a direction cosine matrix to a quaternion
-            ///                     https://arxiv.org/pdf/math/0701759.pdf
-            ///
-            /// @param
-            ///				inDcm
-            /// @return
-            ///				Quaternion
-            ///
-            static Quaternion fromDCM(const NdArray<double>& inDcm)
-            {
-                const Shape inShape = inDcm.shape();
-                if (!(inShape.rows == 3 && inShape.cols == 3))
-                {
-                    THROW_INVALID_ARGUMENT_ERROR("input direction cosine matrix must have shape = (3,3).");
-                }
-
-                NdArray<double> checks(1, 4);
-                checks[0] = 1 + inDcm(0, 0) + inDcm(1, 1) + inDcm(2, 2);
-                checks[1] = 1 + inDcm(0, 0) - inDcm(1, 1) - inDcm(2, 2);
-                checks[2] = 1 - inDcm(0, 0) + inDcm(1, 1) - inDcm(2, 2);
-                checks[3] = 1 - inDcm(0, 0) - inDcm(1, 1) + inDcm(2, 2);
-
-                const uint32 maxIdx = argmax(checks).item();
-
-                double q0 = 0;
-                double q1 = 0;
-                double q2 = 0;
-                double q3 = 0;
-
-                switch (maxIdx)
-                {
-                    case 0:
-                    {
-                        q3 = 0.5 * std::sqrt(1 + inDcm(0, 0) + inDcm(1, 1) + inDcm(2, 2));
-                        q0 = (inDcm(2, 1) - inDcm(1, 2)) / (4 * q3);
-                        q1 = (inDcm(0, 2) - inDcm(2, 0)) / (4 * q3);
-                        q2 = (inDcm(1, 0) - inDcm(0, 1)) / (4 * q3);
-
-                        break;
-                    }
-                    case 1:
-                    {
-                        q0 = 0.5 * std::sqrt(1 + inDcm(0, 0) - inDcm(1, 1) - inDcm(2, 2));
-                        q1 = (inDcm(1, 0) + inDcm(0, 1)) / (4 * q0);
-                        q2 = (inDcm(2, 0) + inDcm(0, 2)) / (4 * q0);
-                        q3 = (inDcm(2, 1) - inDcm(1, 2)) / (4 * q0);
-
-                        break;
-                    }
-                    case 2:
-                    {
-                        q1 = 0.5 * std::sqrt(1 - inDcm(0, 0) + inDcm(1, 1) - inDcm(2, 2));
-                        q0 = (inDcm(1, 0) + inDcm(0, 1)) / (4 * q1);
-                        q2 = (inDcm(2, 1) + inDcm(1, 2)) / (4 * q1);
-                        q3 = (inDcm(0, 2) - inDcm(2, 0)) / (4 * q1);
-
-                        break;
-                    }
-                    case 3:
-                    {
-                        q2 = 0.5 * std::sqrt(1 - inDcm(0, 0) - inDcm(1, 1) + inDcm(2, 2));
-                        q0 = (inDcm(2, 0) + inDcm(0, 2)) / (4 * q2);
-                        q1 = (inDcm(2, 1) + inDcm(1, 2)) / (4 * q2);
-                        q3 = (inDcm(1, 0) - inDcm(0, 1)) / (4 * q2);
-
-                        break;
-                    }
-                }
-
-                return Quaternion(q0, q1, q2, q3);
-            }
-
-            //============================================================================
-            // Method Description:
             ///						linearly interpolates between the two quaternions
             ///
             /// @param				inQuat1
@@ -390,12 +421,16 @@ namespace nc
                 }
 
                 const double oneMinus = 1.0 - inPercent;
-                const double i = oneMinus * inQuat1.components_[0] + inPercent * inQuat2.components_[0];
-                const double j = oneMinus * inQuat1.components_[1] + inPercent * inQuat2.components_[1];
-                const double k = oneMinus * inQuat1.components_[2] + inPercent * inQuat2.components_[2];
-                const double s = oneMinus * inQuat1.components_[3] + inPercent * inQuat2.components_[3];
+                std::array<double, 4> newComponents;
 
-                return Quaternion(i, j, k, s);
+                std::transform(inQuat1.components_.begin(), inQuat1.components_.end(),
+                    inQuat2.components_.begin(), newComponents.begin(),
+                    [inPercent, oneMinus](double component1, double component2)
+                    {
+                        return oneMinus * component1 + inPercent * component2;
+                    });
+
+                return Quaternion(newComponents[0], newComponents[1], newComponents[2], newComponents[3]);
             }
 
             //============================================================================
@@ -414,11 +449,34 @@ namespace nc
 
             //============================================================================
             // Method Description:
+            ///	The euler pitch angle in radians
+            ///
+            /// @return     euler pitch angle in radians
+            ///
+            double pitch() const noexcept
+            {
+                return std::asin(2 * (s() * j() - k() * i()));
+            }
+
+            //============================================================================
+            // Method Description:
             ///						prints the Quaternion to the console
             ///
             void print() const noexcept
             {
                 std::cout << *this;
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	The euler roll angle in radians
+            ///
+            /// @return     euler roll angle in radians
+            ///
+            double roll() const noexcept
+            {
+                return std::atan2(2 * (s() * i() + j() * k()), 
+                    1 - 2 * (utils::sqr(i()) + utils::sqr(j())));
             }
 
             //============================================================================
@@ -608,7 +666,20 @@ namespace nc
             ///
             static Quaternion xRotation(double inAngle)
             {
-                return angleAxisRotation(NdArray<double>{ 1.0, 0.0, 0.0 }, inAngle);
+                Vec3 eulerAxis = { 1.0, 0.0, 0.0 };
+                return Quaternion(eulerAxis, inAngle);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	The euler yaw angle in radians
+            ///
+            /// @return     euler yaw angle in radians
+            ///
+            double yaw() const noexcept
+            {
+                return std::atan2(2 * (s() * k() + i() * j()), 
+                    1 - 2 * (utils::sqr(j()) + utils::sqr(k())));
             }
 
             //============================================================================
@@ -622,7 +693,8 @@ namespace nc
             ///
             static Quaternion yRotation(double inAngle)
             {
-                return angleAxisRotation(NdArray<double>{ 0.0, 1.0, 0.0 }, inAngle);
+                Vec3 eulerAxis = { 0.0, 1.0, 0.0 };
+                return Quaternion(eulerAxis, inAngle);
             }
 
             //============================================================================
@@ -636,7 +708,8 @@ namespace nc
             ///
             static Quaternion zRotation(double inAngle)
             {
-                return angleAxisRotation(NdArray<double>{ 0.0, 0.0, 1.0 }, inAngle);
+                Vec3 eulerAxis = { 0.0, 0.0, 1.0 };
+                return Quaternion(eulerAxis, inAngle);
             }
 
             //============================================================================
@@ -651,7 +724,7 @@ namespace nc
             bool operator==(const Quaternion& inRhs) const noexcept
             {
                 return std::equal(components_.begin(), components_.end(),
-                    inRhs.components_.begin(), inRhs.components_.end(), 
+                    inRhs.components_.begin(), inRhs.components_.end(),
                     static_cast<bool (*)(double, double)>(&utils::essentiallyEqual<double>));
             }
 
@@ -694,7 +767,7 @@ namespace nc
             ///
             Quaternion& operator+=(const Quaternion& inRhs) noexcept
             {
-                std::transform(components_.begin(), components_.end(), 
+                std::transform(components_.begin(), components_.end(),
                     inRhs.components_.begin(), components_.begin(), std::plus<double>());
 
                 normalize();
@@ -739,7 +812,7 @@ namespace nc
             ///
             Quaternion& operator-=(const Quaternion& inRhs) noexcept
             {
-                std::transform(components_.begin(), components_.end(), 
+                std::transform(components_.begin(), components_.end(),
                     inRhs.components_.begin(), components_.begin(), std::minus<double>());
 
                 normalize();
@@ -794,8 +867,8 @@ namespace nc
 
                 auto p = Quaternion(inVec[0], inVec[1], inVec[2], 0.0);
                 auto pPrime = *this * p * this->inverse();
-                
-                NdArray<double> rotatedVec = {pPrime.i(), pPrime.j(), pPrime.k()};
+
+                NdArray<double> rotatedVec = { pPrime.i(), pPrime.j(), pPrime.k() };
                 rotatedVec *= inVec.norm().item();
                 return rotatedVec;
             }
@@ -825,25 +898,25 @@ namespace nc
             ///
             Quaternion& operator*=(const Quaternion& inRhs) noexcept
             {
-                double q0 = inRhs.components_[3] * components_[0];
-                q0 += inRhs.components_[0] * components_[3];
-                q0 -= inRhs.components_[1] * components_[2];
-                q0 += inRhs.components_[2] * components_[1];
+                double q0 = inRhs.s() * i();
+                q0 += inRhs.i() * s();
+                q0 -= inRhs.j() * k();
+                q0 += inRhs.k() * j();
 
-                double q1 = inRhs.components_[3] * components_[1];
-                q1 += inRhs.components_[0] * components_[2];
-                q1 += inRhs.components_[1] * components_[3];
-                q1 -= inRhs.components_[2] * components_[0];
+                double q1 = inRhs.s() * j();
+                q1 += inRhs.i() * k();
+                q1 += inRhs.j() * s();
+                q1 -= inRhs.k() * i();
 
-                double q2 = inRhs.components_[3] * components_[2];
-                q2 -= inRhs.components_[0] * components_[1];
-                q2 += inRhs.components_[1] * components_[0];
-                q2 += inRhs.components_[2] * components_[3];
+                double q2 = inRhs.s() * k();
+                q2 -= inRhs.i() * j();
+                q2 += inRhs.j() * i();
+                q2 += inRhs.k() * s();
 
-                double q3 = inRhs.components_[3] * components_[3];
-                q3 -= inRhs.components_[0] * components_[0];
-                q3 -= inRhs.components_[1] * components_[1];
-                q3 -= inRhs.components_[2] * components_[2];
+                double q3 = inRhs.s() * s();
+                q3 -= inRhs.i() * i();
+                q3 -= inRhs.j() * j();
+                q3 -= inRhs.k() * k();
 
                 components_[0] = q0;
                 components_[1] = q1;
@@ -867,7 +940,7 @@ namespace nc
             ///
             Quaternion& operator*=(double inScalar) noexcept
             {
-                std::for_each(components_.begin(), components_.end(), 
+                std::for_each(components_.begin(), components_.end(),
                     [&inScalar](double& component) { component *= inScalar; });
 
                 normalize();

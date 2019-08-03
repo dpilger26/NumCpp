@@ -33,6 +33,7 @@
 #include "NumCpp/Functions/round.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Rotations/Quaternion.hpp"
+#include "NumCpp/Utils/essentiallyEqual.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 
 namespace nc
@@ -46,17 +47,32 @@ namespace nc
         public:
             //============================================================================
             // Method Description:
-            ///						returns a direction cosine matrix that rotates about
-            ///						the input axis by the input angle
+            ///						returns a direction cosine matrix that rotates according
+            ///                     to the input euler angles
             ///
-            /// @param				inAxis (cartesian vector with x,y,z)
-            /// @param				inAngle (in radians)
+            /// @param				roll: euler roll angle in radians
+            /// @param				pitch: euler pitch angle in radians
+            /// @param				yaw: euler yaw angle in radians
             /// @return
             ///				NdArray
             ///
-            static NdArray<double> angleAxisRotation(const NdArray<double>& inAxis, double inAngle)
+            static NdArray<double> eulerAngles(double roll, double pitch, double yaw) noexcept
             {
-                return Quaternion::angleAxisRotation(inAxis, inAngle).toDCM();
+                return Quaternion(roll, pitch, yaw).toDCM();
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						returns a direction cosine matrix that rotates according
+            ///                     to the input euler angles
+            ///
+            /// @param				angles: euler roll, pitch, angles
+            /// @return
+            ///				NdArray
+            ///
+            static NdArray<double> eulerAngles(const NdArray<double>& angles)
+            {
+                return Quaternion(angles).toDCM();
             }
 
             //============================================================================
@@ -64,14 +80,29 @@ namespace nc
             ///						returns a direction cosine matrix that rotates about
             ///						the input axis by the input angle
             ///
-            /// @param				inAxis
-            /// @param				inAngle (in radians)
+            /// @param				inAxis: euler axis cartesian vector with x,y,z components
+            /// @param				inAngle: euler angle in radians
             /// @return
             ///				NdArray
             ///
-            static NdArray<double> angleAxisRotation(const Vec3& inAxis, double inAngle)
+            static NdArray<double> eulerAxisAngle(const NdArray<double>& inAxis, double inAngle)
             {
-                return Quaternion::angleAxisRotation(inAxis, inAngle).toDCM();
+                return Quaternion(inAxis, inAngle).toDCM();
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						returns a direction cosine matrix that rotates about
+            ///						the input axis by the input angle
+            ///
+            /// @param				inAxis: euler axis cartesian vector with x,y,z components
+            /// @param				inAngle: euler angle in radians
+            /// @return
+            ///				NdArray
+            ///
+            static NdArray<double> eulerAxisAngle(const Vec3& inAxis, double inAngle) noexcept
+            {
+                return Quaternion(inAxis, inAngle).toDCM();
             }
 
             //============================================================================
@@ -88,8 +119,8 @@ namespace nc
             {
                 const Shape inShape = inArray.shape();
                 if (!(inShape.rows == inShape.cols &&
-                    round(linalg::det<double>(inArray), 2) == 1 &&
-                    round(linalg::det<double>(inArray.transpose()), 2) == 1))
+                    utils::essentiallyEqual(round(linalg::det<double>(inArray), 2),  1.0) &&
+                    utils::essentiallyEqual(round(linalg::det<double>(inArray.transpose()), 2), 1.0)))
                 {
                     return false;
                 }
@@ -98,17 +129,38 @@ namespace nc
 
             //============================================================================
             // Method Description:
-            ///						returns a direction cosine matrix that rotates about
-            ///						the x axis by the input angle
+            ///	The euler roll angle in radians
             ///
-            /// @param
-            ///				inAngle (in radians)
-            /// @return
-            ///				NdArray<double>
+            /// @param      dcm: a valid direction cosine matrix
+            /// @return     euler roll angle in radians
             ///
-            static NdArray<double> xRotation(double inAngle)
+            static double roll(const NdArray<double>& dcm)
             {
-                return DCM::angleAxisRotation(NdArray<double>{ 1.0, 0.0, 0.0 }, inAngle);
+                return Quaternion(dcm).roll();
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	The euler pitch angle in radians
+            ///
+            /// @param      dcm: a valid direction cosine matrix
+            /// @return     euler pitch angle in radians
+            ///
+            static double pitch(const NdArray<double>& dcm)
+            {
+                return Quaternion(dcm).pitch();
+            }
+
+            //============================================================================
+            // Method Description:
+            ///	The euler yaw angle in radians
+            ///
+            /// @param      dcm: a valid direction cosine matrix
+            /// @return     euler yaw angle in radians
+            ///
+            static double yaw(const NdArray<double>& dcm)
+            {
+                return Quaternion(dcm).yaw();
             }
 
             //============================================================================
@@ -121,9 +173,9 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            static NdArray<double> yRotation(double inAngle)
+            static NdArray<double> xRotation(double inAngle) noexcept
             {
-                return DCM::angleAxisRotation(NdArray<double>{ 0.0, 1.0, 0.0 }, inAngle);
+                return DCM::eulerAxisAngle(Vec3{ 1.0, 0.0, 0.0 }, inAngle);
             }
 
             //============================================================================
@@ -136,9 +188,24 @@ namespace nc
             /// @return
             ///				NdArray<double>
             ///
-            static NdArray<double> zRotation(double inAngle)
+            static NdArray<double> yRotation(double inAngle) noexcept
             {
-                return DCM::angleAxisRotation(NdArray<double>{ 0.0, 0.0, 1.0 }, inAngle);
+                return DCM::eulerAxisAngle(Vec3{ 0.0, 1.0, 0.0 }, inAngle);
+            }
+
+            //============================================================================
+            // Method Description:
+            ///						returns a direction cosine matrix that rotates about
+            ///						the x axis by the input angle
+            ///
+            /// @param
+            ///				inAngle (in radians)
+            /// @return
+            ///				NdArray<double>
+            ///
+            static NdArray<double> zRotation(double inAngle) noexcept
+            {
+                return DCM::eulerAxisAngle(Vec3{ 0.0, 0.0, 1.0 }, inAngle);
             }
         };
     }

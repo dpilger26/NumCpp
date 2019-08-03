@@ -5,5 +5,5 @@ var searchData=
   ['zeros_2ehpp',['zeros.hpp',['../zeros_8hpp.html',1,'']]],
   ['zeros_5flike',['zeros_like',['../namespacenc.html#a44d394dc1931ccf61b6509f406728e5f',1,'nc']]],
   ['zeros_5flike_2ehpp',['zeros_like.hpp',['../zeros__like_8hpp.html',1,'']]],
-  ['zrotation',['zRotation',['../classnc_1_1rotations_1_1_d_c_m.html#aa0c71aecc70f9354665b0c81cdf366ce',1,'nc::rotations::DCM::zRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#a02ffc6360355ca7f4d125a70b8930315',1,'nc::rotations::Quaternion::zRotation()']]]
+  ['zrotation',['zRotation',['../classnc_1_1rotations_1_1_d_c_m.html#aa925e932fefc1c9471314dc7cc99b01b',1,'nc::rotations::DCM::zRotation()'],['../classnc_1_1rotations_1_1_quaternion.html#a02ffc6360355ca7f4d125a70b8930315',1,'nc::rotations::Quaternion::zRotation()']]]
 ];

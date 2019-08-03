@@ -11,6 +11,7 @@
     <includedby refid="percentile_8hpp" local="yes">percentile.hpp</includedby>
     <includedby refid="generate_threshold_8hpp" local="yes">generateThreshold.hpp</includedby>
     <includedby refid="rand_float_8hpp" local="yes">randFloat.hpp</includedby>
+    <includedby refid="_d_c_m_8hpp" local="yes">DCM.hpp</includedby>
     <includedby refid="_quaternion_8hpp" local="yes">Quaternion.hpp</includedby>
     <includedby refid="_utils_8hpp" local="yes">Utils.hpp</includedby>
     <includedby refid="_vec2_8hpp" local="yes">Vec2.hpp</includedby>
@@ -47,7 +48,7 @@
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="5386">
+      <node id="5385">
         <label>Rotations.hpp</label>
         <link refid="_rotations_8hpp"/>
         <childnode refid="5369" relation="include">
@@ -62,15 +63,15 @@
       <node id="5393">
         <label>rodriguesRotation.hpp</label>
         <link refid="rodrigues_rotation_8hpp"/>
-        <childnode refid="5386" relation="include">
-        </childnode>
-      </node>
-      <node id="5384">
-        <label>Quaternion.hpp</label>
-        <link refid="_quaternion_8hpp"/>
         <childnode refid="5385" relation="include">
         </childnode>
-        <childnode refid="5386" relation="include">
+      </node>
+      <node id="5386">
+        <label>Quaternion.hpp</label>
+        <link refid="_quaternion_8hpp"/>
+        <childnode refid="5384" relation="include">
+        </childnode>
+        <childnode refid="5385" relation="include">
         </childnode>
       </node>
       <node id="5389">
@@ -119,10 +120,10 @@
         <childnode refid="5369" relation="include">
         </childnode>
       </node>
-      <node id="5385">
+      <node id="5384">
         <label>DCM.hpp</label>
         <link refid="_d_c_m_8hpp"/>
-        <childnode refid="5386" relation="include">
+        <childnode refid="5385" relation="include">
         </childnode>
       </node>
       <node id="5391">
@@ -130,7 +131,7 @@
         <link refid="hat_8hpp"/>
         <childnode refid="5392" relation="include">
         </childnode>
-        <childnode refid="5384" relation="include">
+        <childnode refid="5386" relation="include">
         </childnode>
       </node>
       <node id="5379">
@@ -167,6 +168,8 @@
         <childnode refid="5381" relation="include">
         </childnode>
         <childnode refid="5384" relation="include">
+        </childnode>
+        <childnode refid="5386" relation="include">
         </childnode>
         <childnode refid="5387" relation="include">
         </childnode>
@@ -248,9 +251,9 @@
         <link refid="_vec3_8hpp"/>
         <childnode refid="5391" relation="include">
         </childnode>
-        <childnode refid="5385" relation="include">
-        </childnode>
         <childnode refid="5384" relation="include">
+        </childnode>
+        <childnode refid="5386" relation="include">
         </childnode>
         <childnode refid="5393" relation="include">
         </childnode>

@@ -2572,12 +2572,12 @@ namespace RotationsInterface
 {
     np::ndarray angleAxisRotationNdArray(const NdArray<double>& inAxis, double inAngle)
     {
-        return nc2Boost(rotations::Quaternion::angleAxisRotation(inAxis, inAngle).toNdArray());
+        return nc2Boost(rotations::Quaternion(inAxis, inAngle).toNdArray());
     }
 
     np::ndarray angleAxisRotationVec3(const NdArray<double>& inAxis, double inAngle)
     {
-        return nc2Boost(rotations::Quaternion::angleAxisRotation(Vec3(inAxis), inAngle).toNdArray());
+        return nc2Boost(rotations::Quaternion(Vec3(inAxis), inAngle).toNdArray());
     }
 
     np::ndarray angularVelocity(const rotations::Quaternion& inQuat1, const rotations::Quaternion& inQuat2, double inTime)
@@ -2638,14 +2638,24 @@ namespace RotationsInterface
         return nc2Boost(returnQuat.toNdArray());
     }
 
+    np::ndarray eulerAnglesValues(double roll, double pitch, double yaw)
+    {
+        return nc2Boost(rotations::DCM::eulerAngles(roll, pitch, yaw));
+    }
+
+    np::ndarray eulerAnglesArray(const NdArray<double> angles)
+    {
+        return nc2Boost(rotations::DCM::eulerAngles(angles));
+    }
+
     np::ndarray angleAxisRotationDcmNdArray(const NdArray<double>& inAxis, double inAngle)
     {
-        return nc2Boost(rotations::DCM::angleAxisRotation(inAxis, inAngle));
+        return nc2Boost(rotations::DCM::eulerAxisAngle(inAxis, inAngle));
     }
 
     np::ndarray angleAxisRotationDcmVec3(const NdArray<double>& inAxis, double inAngle)
     {
-        return nc2Boost(rotations::DCM::angleAxisRotation(Vec3(inAxis), inAngle));
+        return nc2Boost(rotations::DCM::eulerAxisAngle(Vec3(inAxis), inAngle));
     }
 
     template<typename T>
@@ -4203,7 +4213,10 @@ BOOST_PYTHON_MODULE(NumCpp)
     // Rotations.hpp
     bp::class_<rotations::Quaternion>
         ("Quaternion", bp::init<>())
+        .def(bp::init<double, double, double>())
         .def(bp::init<double, double, double, double>())
+        .def(bp::init<Vec3, double>())
+        .def(bp::init<NdArray<double>, double>())
         .def(bp::init<NdArray<double> >())
         .def("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationNdArray).staticmethod("angleAxisRotationNdArray")
         .def("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationVec3).staticmethod("angleAxisRotationVec3")
@@ -4214,9 +4227,10 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("inverse", &rotations::Quaternion::inverse)
         .def("j", &rotations::Quaternion::j)
         .def("k", &rotations::Quaternion::k)
-        .def("fromDCM", &rotations::Quaternion::fromDCM).staticmethod("fromDCM")
         .def("nlerp", &RotationsInterface::nlerp)
+        .def("pitch", &rotations::Quaternion::pitch)
         .def("print", &rotations::Quaternion::print)
+        .def("roll", &rotations::Quaternion::roll)
         .def("rotateNdArray", &RotationsInterface::rotateNdArray)
         .def("rotateVec3", &RotationsInterface::rotateVec3)
         .def("s", &rotations::Quaternion::s)
@@ -4224,6 +4238,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("toDCM", &RotationsInterface::toDCM)
         .def("toNdArray", &rotations::Quaternion::toNdArray)
         .def("xRotation", &rotations::Quaternion::xRotation).staticmethod("xRotation")
+        .def("yaw", &rotations::Quaternion::yaw)
         .def("yRotation", &rotations::Quaternion::yRotation).staticmethod("yRotation")
         .def("zRotation", &rotations::Quaternion::zRotation).staticmethod("zRotation")
         .def("__eq__", &rotations::Quaternion::operator==)
@@ -4239,9 +4254,14 @@ BOOST_PYTHON_MODULE(NumCpp)
 
     bp::class_<rotations::DCM>
         ("DCM", bp::init<>())
+        .def("eulerAnglesValues", &RotationsInterface::eulerAnglesValues).staticmethod("eulerAnglesValues")
+        .def("eulerAnglesArray", &RotationsInterface::eulerAnglesArray).staticmethod("eulerAnglesArray")
         .def("angleAxisRotationNdArray", &RotationsInterface::angleAxisRotationDcmNdArray).staticmethod("angleAxisRotationNdArray")
         .def("angleAxisRotationVec3", &RotationsInterface::angleAxisRotationDcmVec3).staticmethod("angleAxisRotationVec3")
         .def("isValid", &rotations::DCM::isValid).staticmethod("isValid")
+        .def("roll", &rotations::DCM::roll).staticmethod("roll")
+        .def("pitch", &rotations::DCM::pitch).staticmethod("pitch")
+        .def("yaw", &rotations::DCM::yaw).staticmethod("yaw")
         .def("xRotation", &rotations::DCM::xRotation).staticmethod("xRotation")
         .def("yRotation", &rotations::DCM::yRotation).staticmethod("yRotation")
         .def("zRotation", &rotations::DCM::zRotation).staticmethod("zRotation");

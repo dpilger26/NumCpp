@@ -14,6 +14,7 @@ var searchData=
   ['permutation',['permutation',['../namespacenc_1_1random.html#ae0b8066f06a5f5b5a0baee76c5030892',1,'nc::random::permutation(dtype inValue) noexcept'],['../namespacenc_1_1random.html#ad1cc1c17d8fb1d521b0a9ef9b932562b',1,'nc::random::permutation(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['permutation_2ehpp',['permutation.hpp',['../permutation_8hpp.html',1,'']]],
   ['pi',['pi',['../namespacenc_1_1constants.html#a2f1219a120c9cc1434486d9de75a8221',1,'nc::constants']]],
+  ['pitch',['pitch',['../classnc_1_1rotations_1_1_d_c_m.html#a726e1d9c5e2a88dbd7e70b8fc9d55fbf',1,'nc::rotations::DCM::pitch()'],['../classnc_1_1rotations_1_1_quaternion.html#a601b444c8c8f820700844d7ab5f743ba',1,'nc::rotations::Quaternion::pitch()']]],
   ['pixel',['Pixel',['../classnc_1_1image_processing_1_1_pixel.html',1,'nc::imageProcessing::Pixel&lt; dtype &gt;'],['../classnc_1_1image_processing_1_1_pixel.html#a4a7e03f5f6fb7f5c9831618f6b8d299c',1,'nc::imageProcessing::Pixel::Pixel()=default'],['../classnc_1_1image_processing_1_1_pixel.html#a426469a990f63f7173234ecddb298b04',1,'nc::imageProcessing::Pixel::Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept']]],
   ['pixel_2ehpp',['Pixel.hpp',['../_pixel_8hpp.html',1,'']]],
   ['pnr',['pnr',['../namespacenc_1_1special.html#ad24badd4fad228e42db56cad017747bc',1,'nc::special']]],

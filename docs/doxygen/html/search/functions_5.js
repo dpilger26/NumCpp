@@ -19,7 +19,6 @@ var searchData=
   ['fmod',['fmod',['../namespacenc.html#a4208e3d02b9bc915767eab689c64b30f',1,'nc::fmod(dtype inValue1, dtype inValue2) noexcept'],['../namespacenc.html#a87bf4f8636ec0237d958c2ec1d9f1a89',1,'nc::fmod(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]],
   ['forward',['forward',['../classnc_1_1_vec3.html#ad7345116f8a9dff10bc270aead177281',1,'nc::Vec3']]],
   ['frombuffer',['frombuffer',['../namespacenc.html#ab63051224c3748c6ae82b5540eeafa95',1,'nc']]],
-  ['fromdcm',['fromDCM',['../classnc_1_1rotations_1_1_quaternion.html#a103b9122e9af4a42b69d0938ebab8f92',1,'nc::rotations::Quaternion']]],
   ['fromfile',['fromfile',['../namespacenc.html#ae299ba41f67aeade5634e93fd8b417c9',1,'nc']]],
   ['fromiter',['fromiter',['../namespacenc.html#a0b388462989d0cb59531f753a907cce3',1,'nc']]],
   ['front',['front',['../classnc_1_1_data_cube.html#a007b4c69b145e15faa40d8c3be4d36ba',1,'nc::DataCube::front()'],['../classnc_1_1_nd_array.html#a5173e2d0a9fe983213193d8a4dfde21c',1,'nc::NdArray::front()']]],

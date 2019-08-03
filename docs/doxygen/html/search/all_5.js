@@ -38,7 +38,6 @@ var searchData=
   ['forward',['forward',['../classnc_1_1_vec3.html#ad7345116f8a9dff10bc270aead177281',1,'nc::Vec3']]],
   ['frombuffer',['frombuffer',['../namespacenc.html#ab63051224c3748c6ae82b5540eeafa95',1,'nc']]],
   ['frombuffer_2ehpp',['fromBuffer.hpp',['../from_buffer_8hpp.html',1,'']]],
-  ['fromdcm',['fromDCM',['../classnc_1_1rotations_1_1_quaternion.html#a103b9122e9af4a42b69d0938ebab8f92',1,'nc::rotations::Quaternion']]],
   ['fromfile',['fromfile',['../namespacenc.html#ae299ba41f67aeade5634e93fd8b417c9',1,'nc']]],
   ['fromfile_2ehpp',['fromFile.hpp',['../from_file_8hpp.html',1,'']]],
   ['fromiter',['fromiter',['../namespacenc.html#a0b388462989d0cb59531f753a907cce3',1,'nc']]],
