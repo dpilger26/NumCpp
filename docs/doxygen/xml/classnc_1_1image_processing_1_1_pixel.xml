@@ -69,9 +69,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a4a7e03f5f6fb7f5c9831618f6b8d299c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>nc::imageProcessing::Pixel&lt; dtype &gt;::Pixel</definition>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a0d7095db72d4478f37d6e371e77509be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr nc::imageProcessing::Pixel&lt; dtype &gt;::Pixel</definition>
         <argsstring>()=default</argsstring>
         <name>Pixel</name>
         <briefdescription>
@@ -82,9 +82,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="59" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a426469a990f63f7173234ecddb298b04" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type></type>
-        <definition>nc::imageProcessing::Pixel&lt; dtype &gt;::Pixel</definition>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a4d1db82b1617d892266270d2bec28f61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr nc::imageProcessing::Pixel&lt; dtype &gt;::Pixel</definition>
         <argsstring>(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept</argsstring>
         <name>Pixel</name>
         <param>
@@ -129,9 +129,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="69" bodyend="73"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a8301175b4093d3a1e5b9f43bc0673c8e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool nc::imageProcessing::Pixel&lt; dtype &gt;::operator!=</definition>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a4b80694a366506909633ff28c74b4042" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool nc::imageProcessing::Pixel&lt; dtype &gt;::operator!=</definition>
         <argsstring>(const Pixel&lt; dtype &gt; &amp;rhs) const noexcept</argsstring>
         <name>operator!=</name>
         <param>
@@ -155,9 +155,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="100" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="100" bodyend="103"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a592926833195d4f2587efef12e4b1148" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool nc::imageProcessing::Pixel&lt; dtype &gt;::operator&lt;</definition>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a0224753373e9eacf2e596cd7758359c9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool nc::imageProcessing::Pixel&lt; dtype &gt;::operator&lt;</definition>
         <argsstring>(const Pixel&lt; dtype &gt; &amp;rhs) const noexcept</argsstring>
         <name>operator&lt;</name>
         <param>
@@ -181,9 +181,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="118" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="118" bodyend="139"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1ad0aa7b54731c514b4599e723ab2e0afa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool nc::imageProcessing::Pixel&lt; dtype &gt;::operator==</definition>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a008757a06c498b1a31e26d53a54e51dc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool nc::imageProcessing::Pixel&lt; dtype &gt;::operator==</definition>
         <argsstring>(const Pixel&lt; dtype &gt; &amp;rhs) const noexcept</argsstring>
         <name>operator==</name>
         <param>
@@ -295,12 +295,12 @@
       <member refid="classnc_1_1image_processing_1_1_pixel_1ac22936e8b5b80a1c557faaf9722b3183" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>clusterId</name></member>
       <member refid="classnc_1_1image_processing_1_1_pixel_1a6749c7a5513e2b7ee5c027aef104b269" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>col</name></member>
       <member refid="classnc_1_1image_processing_1_1_pixel_1a2ffea8fff18945da4971ab4c847a49bd" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>intensity</name></member>
-      <member refid="classnc_1_1image_processing_1_1_pixel_1a8301175b4093d3a1e5b9f43bc0673c8e" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator!=</name></member>
-      <member refid="classnc_1_1image_processing_1_1_pixel_1a592926833195d4f2587efef12e4b1148" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator&lt;</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a4b80694a366506909633ff28c74b4042" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator!=</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a0224753373e9eacf2e596cd7758359c9" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator&lt;</name></member>
       <member refid="classnc_1_1image_processing_1_1_pixel_1a157a2e98ace3e2185af571a68e5a5b9c" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator&lt;&lt;</name></member>
-      <member refid="classnc_1_1image_processing_1_1_pixel_1ad0aa7b54731c514b4599e723ab2e0afa" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator==</name></member>
-      <member refid="classnc_1_1image_processing_1_1_pixel_1a4a7e03f5f6fb7f5c9831618f6b8d299c" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>Pixel</name></member>
-      <member refid="classnc_1_1image_processing_1_1_pixel_1a426469a990f63f7173234ecddb298b04" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>Pixel</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a008757a06c498b1a31e26d53a54e51dc" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator==</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a0d7095db72d4478f37d6e371e77509be" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>Pixel</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a4d1db82b1617d892266270d2bec28f61" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>Pixel</name></member>
       <member refid="classnc_1_1image_processing_1_1_pixel_1a3a8fb91578395ef70a5f6038c4c48062" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>print</name></member>
       <member refid="classnc_1_1image_processing_1_1_pixel_1a6e712ef3b6547f5cafb6e8db1349658e" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>row</name></member>
       <member refid="classnc_1_1image_processing_1_1_pixel_1ae47f279d2f0ba0921027e787e3773ee8" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>str</name></member>

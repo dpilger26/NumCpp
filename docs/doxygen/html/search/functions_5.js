@@ -17,7 +17,7 @@ var searchData=
   ['fmax',['fmax',['../namespacenc.html#aebbd1fbc64f00fdeaae6c8cfdf6a7f59',1,'nc::fmax(dtype inValue1, dtype inValue2) noexcept'],['../namespacenc.html#a99c7f7c680632be6a42ebd6b923df328',1,'nc::fmax(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]],
   ['fmin',['fmin',['../namespacenc.html#a7cd8e4c771d0676279f506f9d7e949e0',1,'nc::fmin(dtype inValue1, dtype inValue2) noexcept'],['../namespacenc.html#add4b4f64b2991ac90b24c93ce10a2b80',1,'nc::fmin(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]],
   ['fmod',['fmod',['../namespacenc.html#a4208e3d02b9bc915767eab689c64b30f',1,'nc::fmod(dtype inValue1, dtype inValue2) noexcept'],['../namespacenc.html#a87bf4f8636ec0237d958c2ec1d9f1a89',1,'nc::fmod(const NdArray&lt; dtype &gt; &amp;inArray1, const NdArray&lt; dtype &gt; &amp;inArray2)']]],
-  ['forward',['forward',['../classnc_1_1_vec3.html#ad7345116f8a9dff10bc270aead177281',1,'nc::Vec3']]],
+  ['forward',['forward',['../classnc_1_1_vec3.html#ac5a33c96c05a8c856b774c24f4a1965d',1,'nc::Vec3']]],
   ['frombuffer',['frombuffer',['../namespacenc.html#ab63051224c3748c6ae82b5540eeafa95',1,'nc']]],
   ['fromfile',['fromfile',['../namespacenc.html#ae299ba41f67aeade5634e93fd8b417c9',1,'nc']]],
   ['fromiter',['fromiter',['../namespacenc.html#a0b388462989d0cb59531f753a907cce3',1,'nc']]],

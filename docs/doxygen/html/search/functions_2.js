@@ -42,7 +42,7 @@ var searchData=
   ['count_5fnonzero',['count_nonzero',['../namespacenc.html#a5411a4d115e6a44f6d6dcedc2635d085',1,'nc']]],
   ['cross',['cross',['../classnc_1_1_vec3.html#af8173f6e61e9a63beae3092fd8dc4378',1,'nc::Vec3::cross()'],['../namespacenc.html#a4d1ed581965ed53090824290def38565',1,'nc::cross()']]],
   ['cslice',['cSlice',['../classnc_1_1_nd_array.html#a377c1b5393aabc2b00496643a5c5da03',1,'nc::NdArray']]],
-  ['cube',['cube',['../namespacenc.html#aff45cec624f58a7303ba39402ce10e79',1,'nc::cube(dtype inValue) noexcept'],['../namespacenc.html#af77c3c9a898c14f90f6b8b5717f8c7ac',1,'nc::cube(const NdArray&lt; dtype &gt; &amp;inArray) noexcept'],['../namespacenc_1_1utils.html#af058ceabca43da922cd50333901abf05',1,'nc::utils::cube()']]],
+  ['cube',['cube',['../namespacenc.html#a5899ccef8410243438debea3d8296df6',1,'nc::cube(dtype inValue) noexcept'],['../namespacenc.html#af77c3c9a898c14f90f6b8b5717f8c7ac',1,'nc::cube(const NdArray&lt; dtype &gt; &amp;inArray) noexcept'],['../namespacenc_1_1utils.html#a46e88717d4d32003bb449fd5cefd401c',1,'nc::utils::cube()']]],
   ['cumprod',['cumprod',['../classnc_1_1_nd_array.html#aa3981c4c80a9df2155c9745f5dec3dcf',1,'nc::NdArray::cumprod()'],['../namespacenc.html#a28d0d637d26e013585317f59041279f4',1,'nc::cumprod()']]],
   ['cumsum',['cumsum',['../classnc_1_1_nd_array.html#acb502b6a54cff2c2cf82bd9d4d82aa16',1,'nc::NdArray::cumsum()'],['../namespacenc.html#a9b0f11444a257df6b6f49039fcbdea71',1,'nc::cumsum()']]],
   ['cyclic_5fhankel_5f1',['cyclic_hankel_1',['../namespacenc_1_1special.html#ad17c28693eed370fda9f7eff67df23a6',1,'nc::special']]],

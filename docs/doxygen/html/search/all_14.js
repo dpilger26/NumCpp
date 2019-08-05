@@ -23,6 +23,6 @@ var searchData=
   ['unique_2ehpp',['unique.hpp',['../unique_8hpp.html',1,'']]],
   ['unwrap',['unwrap',['../namespacenc.html#aac5e942220c693fb9e65fcc3ff4fc50f',1,'nc::unwrap(dtype inValue) noexcept'],['../namespacenc.html#a4a992832492da5b1fccea6eac13af796',1,'nc::unwrap(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['unwrap_2ehpp',['unwrap.hpp',['../unwrap_8hpp.html',1,'']]],
-  ['up',['up',['../classnc_1_1_vec2.html#a9be39bc9a56e94afb8d9b27d660e2d17',1,'nc::Vec2::up()'],['../classnc_1_1_vec3.html#aa60cf66defb2fcf04fc989c0e1f07f7e',1,'nc::Vec3::up()']]],
+  ['up',['up',['../classnc_1_1_vec2.html#a82fc65cffdae5c0ebd50fece54b56d4c',1,'nc::Vec2::up()'],['../classnc_1_1_vec3.html#aafc14ccae575994733d664eb3f4a6e66',1,'nc::Vec3::up()']]],
   ['utils_2ehpp',['Utils.hpp',['../_utils_8hpp.html',1,'']]]
 ];

@@ -3,14 +3,14 @@
   <compounddef id="namespacenc_1_1utils" kind="namespace" language="C++">
     <compoundname>nc::utils</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespacenc_1_1utils_1af058ceabca43da922cd50333901abf05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1a46e88717d4d32003bb449fd5cefd401c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>dtype</type>
-        <definition>dtype nc::utils::cube</definition>
+        <type>constexpr dtype</type>
+        <definition>constexpr dtype nc::utils::cube</definition>
         <argsstring>(dtype inValue) noexcept</argsstring>
         <name>cube</name>
         <param>
@@ -34,14 +34,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" line="43" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" bodystart="43" bodyend="46"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1ab5d74e774cbc9596b129d7a507e58fe7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1aa55788420fda79bd8a06debbaa29d24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>bool</type>
-        <definition>bool nc::utils::essentiallyEqual</definition>
+        <type>constexpr bool</type>
+        <definition>constexpr bool nc::utils::essentiallyEqual</definition>
         <argsstring>(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept</argsstring>
         <name>essentiallyEqual</name>
         <param>
@@ -87,14 +87,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" bodystart="50" bodyend="56"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1a757827e9924ac163082367951bb6253d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1ac3dc6d7cb8c29cb15b89ec4d276aa458" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>bool</type>
-        <definition>bool nc::utils::essentiallyEqual</definition>
+        <type>constexpr bool</type>
+        <definition>constexpr bool nc::utils::essentiallyEqual</definition>
         <argsstring>(dtype inValue1, dtype inValue2) noexcept</argsstring>
         <name>essentiallyEqual</name>
         <param>
@@ -225,9 +225,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/gaussian1d.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/gaussian1d.hpp" bodystart="49" bodyend="55"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1a154128ff5de9061d0ab4b1bdcd35efd1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>double</type>
-        <definition>double nc::utils::interp</definition>
+      <memberdef kind="function" id="namespacenc_1_1utils_1a691a52cfcc401340af355bd53869600e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr double</type>
+        <definition>constexpr double nc::utils::interp</definition>
         <argsstring>(double inValue1, double inValue2, double inPercent) noexcept</argsstring>
         <name>interp</name>
         <param>
@@ -304,14 +304,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/num2str.hpp" line="45" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/num2str.hpp" bodystart="45" bodyend="48"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1a716a63ef8627c73f6cc4146481fcabdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1a1e1609df9bd2e118c360dca72b562ee2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>dtype</type>
-        <definition>dtype nc::utils::power</definition>
+        <type>constexpr dtype</type>
+        <definition>constexpr dtype nc::utils::power</definition>
         <argsstring>(dtype inValue, uint8 inPower) noexcept</argsstring>
         <name>power</name>
         <param>
@@ -383,14 +383,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/powerf.hpp" line="45" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/powerf.hpp" bodystart="45" bodyend="48"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1_1utils_1aa83b87460956ee562b1ecaad9e0bb0f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1_1utils_1ae792e10a24b7e5b8291a6c31a28a4512" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>dtype</type>
-        <definition>dtype nc::utils::sqr</definition>
+        <type>constexpr dtype</type>
+        <definition>constexpr dtype nc::utils::sqr</definition>
         <argsstring>(dtype inValue) noexcept</argsstring>
         <name>sqr</name>
         <param>

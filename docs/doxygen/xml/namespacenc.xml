@@ -2924,14 +2924,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/cross.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/cross.hpp" bodystart="53" bodyend="166"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1aff45cec624f58a7303ba39402ce10e79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1a5899ccef8410243438debea3d8296df6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>dtype</type>
-        <definition>dtype nc::cube</definition>
+        <type>constexpr dtype</type>
+        <definition>constexpr dtype nc::cube</definition>
         <argsstring>(dtype inValue) noexcept</argsstring>
         <name>cube</name>
         <param>
@@ -3072,14 +3072,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/cumsum.hpp" line="48" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/cumsum.hpp" bodystart="48" bodyend="51"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1a6adef279f0857eb53d76c6f8f9cd791d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1ab6b65609e3966a58727579080712e5d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>double</type>
-        <definition>double nc::deg2rad</definition>
+        <type>constexpr double</type>
+        <definition>constexpr double nc::deg2rad</definition>
         <argsstring>(dtype inValue) noexcept</argsstring>
         <name>deg2rad</name>
         <param>
@@ -3134,14 +3134,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/deg2rad.hpp" line="67" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/deg2rad.hpp" bodystart="67" bodyend="75"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1ad643a144992a26ebab228cbcc0833039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1aec21ac85c071b59d9abf50602bef3144" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>double</type>
-        <definition>double nc::degrees</definition>
+        <type>constexpr double</type>
+        <definition>constexpr double nc::degrees</definition>
         <argsstring>(dtype inValue) noexcept</argsstring>
         <name>degrees</name>
         <param>
@@ -5573,14 +5573,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/identity.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/identity.hpp" bodystart="50" bodyend="60"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1a1ed1aa8a0b9dbedc1438dc575d2236a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1a5b9584eeac344f9d37beb6be475300ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>double</type>
-        <definition>double nc::interp</definition>
+        <type>constexpr double</type>
+        <definition>constexpr double nc::interp</definition>
         <argsstring>(dtype inValue1, dtype inValue2, double inPercent) noexcept</argsstring>
         <name>interp</name>
         <param>
@@ -9315,14 +9315,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/percentile.hpp" line="64" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/percentile.hpp" bodystart="64" bodyend="198"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1a8fcacbc0f7af820742c7596462a20924" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1a1f059635ecfc805979db6973dfa29008" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>dtype</type>
-        <definition>dtype nc::power</definition>
+        <type>constexpr dtype</type>
+        <definition>constexpr dtype nc::power</definition>
         <argsstring>(dtype inValue, uint8 inExponent) noexcept</argsstring>
         <name>power</name>
         <param>
@@ -9843,14 +9843,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/putmask.hpp" line="75" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/putmask.hpp" bodystart="75" bodyend="79"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1a08f4ef3bf79eaa0944f869a4013940e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1ac6c5d356ef3313716f44707f2f4c0f8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>double</type>
-        <definition>double nc::rad2deg</definition>
+        <type>constexpr double</type>
+        <definition>constexpr double nc::rad2deg</definition>
         <argsstring>(dtype inValue) noexcept</argsstring>
         <name>rad2deg</name>
         <param>
@@ -9905,14 +9905,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/rad2deg.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/rad2deg.hpp" bodystart="69" bodyend="77"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1a362034446d04a8dc9468b5a90f6998c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1ac25bf9dbbc1efc02e31e8737c85bbdd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>double</type>
-        <definition>double nc::radians</definition>
+        <type>constexpr double</type>
+        <definition>constexpr double nc::radians</definition>
         <argsstring>(dtype inValue) noexcept</argsstring>
         <name>radians</name>
         <param>
@@ -11342,14 +11342,14 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/sqrt.hpp" line="67" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/sqrt.hpp" bodystart="67" bodyend="75"/>
       </memberdef>
-      <memberdef kind="function" id="namespacenc_1a3d58d998049ad0356de1a6b8ad81c72d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespacenc_1a282e72a93afe2e6554e0f17f21dd7b9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename dtype</type>
           </param>
         </templateparamlist>
-        <type>dtype</type>
-        <definition>dtype nc::square</definition>
+        <type>constexpr dtype</type>
+        <definition>constexpr dtype nc::square</definition>
         <argsstring>(dtype inValue) noexcept</argsstring>
         <name>square</name>
         <param>
