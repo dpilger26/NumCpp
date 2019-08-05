@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="_boundary_8hpp" kind="file" language="C++">
     <compoundname>Boundary.hpp</compoundname>
     <includedby refid="add_boundary1d_8hpp" local="yes">addBoundary1d.hpp</includedby>
@@ -17,9 +17,47 @@
     <includedby refid="convolve_8hpp" local="yes">convolve.hpp</includedby>
     <includedby refid="_filter_8hpp" local="yes">Filter.hpp</includedby>
     <invincdepgraph>
-      <node id="1982">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
+      <node id="1989">
+        <label>uniformFilter1d.hpp</label>
+        <link refid="uniform_filter1d_8hpp"/>
+        <childnode refid="1981" relation="include">
+        </childnode>
+      </node>
+      <node id="1993">
+        <label>laplace.hpp</label>
+        <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
+        <childnode refid="1981" relation="include">
+        </childnode>
+      </node>
+      <node id="2000">
+        <label>uniformFilter.hpp</label>
+        <link refid="uniform_filter_8hpp"/>
+        <childnode refid="1981" relation="include">
+        </childnode>
+      </node>
+      <node id="1980">
+        <label>gaussianFilter1d.hpp</label>
+        <link refid="gaussian_filter1d_8hpp"/>
+        <childnode refid="1981" relation="include">
+        </childnode>
+      </node>
+      <node id="1979">
+        <label>convolve1d.hpp</label>
+        <link refid="convolve1d_8hpp"/>
+        <childnode refid="1980" relation="include">
+        </childnode>
+        <childnode refid="1981" relation="include">
+        </childnode>
+      </node>
+      <node id="1991">
+        <label>convolve.hpp</label>
+        <link refid="convolve_8hpp"/>
+        <childnode refid="1992" relation="include">
+        </childnode>
+        <childnode refid="1993" relation="include">
+        </childnode>
+        <childnode refid="1981" relation="include">
+        </childnode>
       </node>
       <node id="1977">
         <label>Boundary.hpp</label>
@@ -71,45 +109,15 @@
         <childnode refid="2000" relation="include">
         </childnode>
       </node>
-      <node id="1997">
-        <label>minimumFilter.hpp</label>
-        <link refid="minimum_filter_8hpp"/>
+      <node id="1983">
+        <label>maximumFilter1d.hpp</label>
+        <link refid="maximum_filter1d_8hpp"/>
         <childnode refid="1981" relation="include">
         </childnode>
       </node>
-      <node id="1985">
-        <label>complementaryMedianFilter1d.hpp</label>
-        <link refid="complementary_median_filter1d_8hpp"/>
-        <childnode refid="1981" relation="include">
-        </childnode>
-      </node>
-      <node id="1980">
-        <label>gaussianFilter1d.hpp</label>
-        <link refid="gaussian_filter1d_8hpp"/>
-        <childnode refid="1981" relation="include">
-        </childnode>
-      </node>
-      <node id="1998">
-        <label>percentileFilter.hpp</label>
-        <link refid="percentile_filter_8hpp"/>
-        <childnode refid="1981" relation="include">
-        </childnode>
-      </node>
-      <node id="1993">
-        <label>laplace.hpp</label>
-        <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
-        <childnode refid="1981" relation="include">
-        </childnode>
-      </node>
-      <node id="1981">
-        <label>Filter.hpp</label>
-        <link refid="_filter_8hpp"/>
-        <childnode refid="1982" relation="include">
-        </childnode>
-      </node>
-      <node id="1996">
-        <label>complementaryMedianFilter.hpp</label>
-        <link refid="complementary_median_filter_8hpp"/>
+      <node id="1994">
+        <label>maximumFilter.hpp</label>
+        <link refid="maximum_filter_8hpp"/>
         <childnode refid="1981" relation="include">
         </childnode>
       </node>
@@ -131,29 +139,21 @@
         <childnode refid="1989" relation="include">
         </childnode>
       </node>
-      <node id="1995">
-        <label>medianFilter.hpp</label>
-        <link refid="median_filter_8hpp"/>
-        <childnode refid="1996" relation="include">
-        </childnode>
+      <node id="1996">
+        <label>complementaryMedianFilter.hpp</label>
+        <link refid="complementary_median_filter_8hpp"/>
         <childnode refid="1981" relation="include">
         </childnode>
       </node>
-      <node id="1983">
-        <label>maximumFilter1d.hpp</label>
-        <link refid="maximum_filter1d_8hpp"/>
-        <childnode refid="1981" relation="include">
+      <node id="1981">
+        <label>Filter.hpp</label>
+        <link refid="_filter_8hpp"/>
+        <childnode refid="1982" relation="include">
         </childnode>
       </node>
-      <node id="1989">
-        <label>uniformFilter1d.hpp</label>
-        <link refid="uniform_filter1d_8hpp"/>
-        <childnode refid="1981" relation="include">
-        </childnode>
-      </node>
-      <node id="1987">
-        <label>percentileFilter1d.hpp</label>
-        <link refid="percentile_filter1d_8hpp"/>
+      <node id="1985">
+        <label>complementaryMedianFilter1d.hpp</label>
+        <link refid="complementary_median_filter1d_8hpp"/>
         <childnode refid="1981" relation="include">
         </childnode>
       </node>
@@ -165,27 +165,29 @@
         <childnode refid="1981" relation="include">
         </childnode>
       </node>
-      <node id="1994">
-        <label>maximumFilter.hpp</label>
-        <link refid="maximum_filter_8hpp"/>
-        <childnode refid="1981" relation="include">
-        </childnode>
-      </node>
-      <node id="2000">
-        <label>uniformFilter.hpp</label>
-        <link refid="uniform_filter_8hpp"/>
-        <childnode refid="1981" relation="include">
-        </childnode>
-      </node>
       <node id="1992">
         <label>gaussianFilter.hpp</label>
         <link refid="gaussian_filter_8hpp"/>
         <childnode refid="1981" relation="include">
         </childnode>
       </node>
-      <node id="1999">
-        <label>rankFilter.hpp</label>
-        <link refid="rank_filter_8hpp"/>
+      <node id="1987">
+        <label>percentileFilter1d.hpp</label>
+        <link refid="percentile_filter1d_8hpp"/>
+        <childnode refid="1981" relation="include">
+        </childnode>
+      </node>
+      <node id="1995">
+        <label>medianFilter.hpp</label>
+        <link refid="median_filter_8hpp"/>
+        <childnode refid="1996" relation="include">
+        </childnode>
+        <childnode refid="1981" relation="include">
+        </childnode>
+      </node>
+      <node id="1997">
+        <label>minimumFilter.hpp</label>
+        <link refid="minimum_filter_8hpp"/>
         <childnode refid="1981" relation="include">
         </childnode>
       </node>
@@ -195,21 +197,19 @@
         <childnode refid="1981" relation="include">
         </childnode>
       </node>
-      <node id="1979">
-        <label>convolve1d.hpp</label>
-        <link refid="convolve1d_8hpp"/>
-        <childnode refid="1980" relation="include">
-        </childnode>
+      <node id="1998">
+        <label>percentileFilter.hpp</label>
+        <link refid="percentile_filter_8hpp"/>
         <childnode refid="1981" relation="include">
         </childnode>
       </node>
-      <node id="1991">
-        <label>convolve.hpp</label>
-        <link refid="convolve_8hpp"/>
-        <childnode refid="1992" relation="include">
-        </childnode>
-        <childnode refid="1993" relation="include">
-        </childnode>
+      <node id="1982">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="1999">
+        <label>rankFilter.hpp</label>
+        <link refid="rank_filter_8hpp"/>
         <childnode refid="1981" relation="include">
         </childnode>
       </node>
@@ -225,14 +225,22 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.1</para></simplesect>
-</para><sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
+</simplesect>
+<simplesect kind="version"><para>1.1</para>
+</simplesect>
+</para>
+<sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<para>Copyright 2019 David Pilger</para>
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
+</sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Boundary condition to apply to the image filter </para></sect1>
+<para>Boundary condition to apply to the image filter </para>
+</sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -247,6 +255,6 @@
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="40"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Filter/Boundaries/Boundary.hpp"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Filter/Boundaries/Boundary.hpp"/>
   </compounddef>
 </doxygen>

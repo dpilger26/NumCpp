@@ -2316,6 +2316,14 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray subtractArrays(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
+    {
+        return nc2Boost(subtract(inArray1, inArray2));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     double tanScaler(dtype inValue) noexcept
     {
         return tan(inValue);
@@ -4068,6 +4076,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("squareArray", &MethodsInterface::squareArray<double>);
     bp::def("stack", &MethodsInterface::stack<double>);
     bp::def("stdev", &nc::stdev<double>);
+    bp::def("subtract", &MethodsInterface::subtractArrays<double>);
     bp::def("sum", &sum<double>);
     bp::def("swapaxes", &swapaxes<double>);
     bp::def("tanScaler", &MethodsInterface::tanScaler<double>);

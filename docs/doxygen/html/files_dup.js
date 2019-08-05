@@ -370,6 +370,7 @@ var files_dup =
     [ "standardNormal.hpp", "standard_normal_8hpp.html", "standard_normal_8hpp" ],
     [ "stdev.hpp", "stdev_8hpp.html", "stdev_8hpp" ],
     [ "studentT.hpp", "student_t_8hpp.html", "student_t_8hpp" ],
+    [ "subtract.hpp", "subtract_8hpp.html", "subtract_8hpp" ],
     [ "sum.hpp", "sum_8hpp.html", "sum_8hpp" ],
     [ "svd.hpp", "svd_8hpp.html", "svd_8hpp" ],
     [ "SVDClass.hpp", "_s_v_d_class_8hpp.html", [

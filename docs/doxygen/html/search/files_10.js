@@ -26,6 +26,7 @@ var searchData=
   ['standardnormal_2ehpp',['standardNormal.hpp',['../standard_normal_8hpp.html',1,'']]],
   ['stdev_2ehpp',['stdev.hpp',['../stdev_8hpp.html',1,'']]],
   ['studentt_2ehpp',['studentT.hpp',['../student_t_8hpp.html',1,'']]],
+  ['subtract_2ehpp',['subtract.hpp',['../subtract_8hpp.html',1,'']]],
   ['sum_2ehpp',['sum.hpp',['../sum_8hpp.html',1,'']]],
   ['svd_2ehpp',['svd.hpp',['../svd_8hpp.html',1,'']]],
   ['svdclass_2ehpp',['SVDClass.hpp',['../_s_v_d_class_8hpp.html',1,'']]],
