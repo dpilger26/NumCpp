@@ -232,6 +232,7 @@
 #include "NumCpp/Functions/square.hpp"
 #include "NumCpp/Functions/stack.hpp"
 #include "NumCpp/Functions/stdev.hpp"
+#include "NumCpp/Functions/subtract.hpp"
 #include "NumCpp/Functions/sum.hpp"
 #include "NumCpp/Functions/swapaxes.hpp"
 

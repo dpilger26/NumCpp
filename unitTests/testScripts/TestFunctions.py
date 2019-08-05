@@ -4512,6 +4512,20 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing subtract', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray1 = NumCpp.NdArray(shape)
+    cArray2 = NumCpp.NdArray(shape)
+    data1 = np.random.randint(-100, 100, [shape.rows, shape.cols])
+    data2 = np.random.randint(-100, 100, [shape.rows, shape.cols])
+    cArray1.setArray(data1)
+    cArray2.setArray(data2)
+    if np.array_equal(NumCpp.subtract(cArray1, cArray2), data1 - data2):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing sum: Axis = None', 'cyan'))
     shapeInput = np.random.randint(20, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
