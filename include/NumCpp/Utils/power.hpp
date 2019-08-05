@@ -43,7 +43,7 @@ namespace nc
         /// @return     inValue raised to inPower
         ///
         template<typename dtype>
-        dtype power(dtype inValue, uint8 inPower) noexcept
+        constexpr dtype power(dtype inValue, uint8 inPower) noexcept
         {
             if (inPower == 0)
             {

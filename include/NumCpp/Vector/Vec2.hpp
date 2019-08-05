@@ -57,7 +57,7 @@ namespace nc
         // Method Description:
         ///						Default Constructor
         ///
-        Vec2() noexcept :
+        constexpr Vec2() noexcept :
             x(0),
             y(0)
         {}
@@ -69,7 +69,7 @@ namespace nc
         /// @param  inX: the x component
         /// @param  inY: the y component
         ///
-        Vec2(double inX, double inY) noexcept :
+        constexpr Vec2(double inX, double inY) noexcept :
             x(inX),
             y(inY)
         {}
@@ -180,7 +180,7 @@ namespace nc
         ///
         /// @return Vec2
         ///
-        static Vec2 down() noexcept
+        static constexpr Vec2 down() noexcept
         {
             return Vec2(0.0, -1.0);
         }
@@ -191,7 +191,7 @@ namespace nc
         ///
         /// @return Vec2
         ///
-        static Vec2 left() noexcept
+        static constexpr Vec2 left() noexcept
         {
             return Vec2(-1.0, 0.0);
         }
@@ -257,7 +257,7 @@ namespace nc
         ///
         /// @return Vec2
         ///
-        static Vec2 right() noexcept
+        static constexpr Vec2 right() noexcept
         {
             return Vec2(1.0, 0.0);
         }
@@ -293,7 +293,7 @@ namespace nc
         ///
         /// @return Vec2
         ///
-        static Vec2 up() noexcept
+        static constexpr Vec2 up() noexcept
         {
             return Vec2(0.0, 1.0);
         }

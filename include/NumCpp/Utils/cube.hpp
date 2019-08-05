@@ -40,7 +40,7 @@ namespace nc
         /// @return     cubed value
         ///
         template<typename dtype>
-        dtype cube(dtype inValue) noexcept
+        constexpr dtype cube(dtype inValue) noexcept
         {
             return inValue * inValue * inValue;
         }

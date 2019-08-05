@@ -45,7 +45,7 @@ namespace nc
     ///				cubed value
     ///
     template<typename dtype>
-    dtype cube(dtype inValue) noexcept
+    constexpr dtype cube(dtype inValue) noexcept
     {
         return utils::cube(inValue);
     }

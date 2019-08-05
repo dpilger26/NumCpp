@@ -60,7 +60,7 @@ namespace nc
             ///						Default Constructor (not very usefull, but needed for other
             ///                     containers.
             ///
-            Poly1d() noexcept = default;
+            constexpr Poly1d() noexcept = default;
 
             //============================================================================
             // Method Description:
@@ -157,7 +157,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            dtype operator()(dtype inValue) const noexcept
+            constexpr dtype operator()(dtype inValue) const noexcept
             {
                 dtype polyValue = 0;
                 uint8 power = 0;
@@ -178,7 +178,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype> operator+(const Poly1d<dtype>& inOtherPoly) const noexcept
+            constexpr Poly1d<dtype> operator+(const Poly1d<dtype>& inOtherPoly) const noexcept
             {
                 return Poly1d<dtype>(*this) += inOtherPoly;
             }
@@ -225,7 +225,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype> operator-(const Poly1d<dtype>& inOtherPoly) const noexcept
+            constexpr Poly1d<dtype> operator-(const Poly1d<dtype>& inOtherPoly) const noexcept
             {
                 return Poly1d<dtype>(*this) -= inOtherPoly;
             }
@@ -272,7 +272,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype> operator*(const Poly1d<dtype>& inOtherPoly) const noexcept
+            constexpr Poly1d<dtype> operator*(const Poly1d<dtype>& inOtherPoly) const noexcept
             {
                 return Poly1d<dtype>(*this) *= inOtherPoly;
             }
@@ -317,7 +317,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            Poly1d<dtype> operator^(uint32 inPower) const noexcept
+            constexpr Poly1d<dtype> operator^(uint32 inPower) const noexcept
             {
                 return Poly1d(*this) ^= inPower;
             }

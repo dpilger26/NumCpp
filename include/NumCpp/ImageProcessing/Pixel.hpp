@@ -56,7 +56,7 @@ namespace nc
             // Description:
             ///              defualt constructor needed by containers
             ///
-            Pixel() = default;
+            constexpr Pixel() = default;
 
             //=============================================================================
             // Description:
@@ -66,7 +66,7 @@ namespace nc
             /// @param              inCol: pixel column
             /// @param              inIntensity: pixel intensity
             ///
-            Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept :
+            constexpr Pixel(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept :
                 row(inRow),
                 col(inCol),
                 intensity(inIntensity)
@@ -82,7 +82,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator==(const Pixel<dtype>& rhs) const noexcept
+            constexpr bool operator==(const Pixel<dtype>& rhs) const noexcept
             {
                 return row == rhs.row && col == rhs.col && intensity == rhs.intensity;
             }
@@ -97,7 +97,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator!=(const Pixel<dtype>& rhs) const noexcept
+            constexpr bool operator!=(const Pixel<dtype>& rhs) const noexcept
             {
                 return !(*this == rhs);
             }
@@ -115,7 +115,7 @@ namespace nc
             /// @return
             ///              bool
             ///
-            bool operator<(const Pixel<dtype>& rhs) const noexcept
+            constexpr bool operator<(const Pixel<dtype>& rhs) const noexcept
             {
                 if (row < rhs.row)
                 {

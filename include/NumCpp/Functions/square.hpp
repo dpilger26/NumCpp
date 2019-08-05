@@ -47,7 +47,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    dtype square(dtype inValue) noexcept
+    constexpr dtype square(dtype inValue) noexcept
     {
         return utils::sqr(inValue);
     }

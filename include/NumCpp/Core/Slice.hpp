@@ -52,14 +52,14 @@ namespace nc
         //============================================================================
         ///						Constructor
         ///
-        Slice() noexcept = default;
+        constexpr Slice() noexcept = default;
 
         //============================================================================
         ///						Constructor
         ///
         /// @param      inStop (index not included)
         ///
-        explicit Slice(int32 inStop) noexcept :
+        constexpr explicit Slice(int32 inStop) noexcept :
             stop(inStop)
         {};
 
@@ -69,7 +69,7 @@ namespace nc
         /// @param          inStart
         /// @param			inStop (index not included)
         ///
-        Slice(int32 inStart, int32 inStop) noexcept :
+        constexpr Slice(int32 inStart, int32 inStop) noexcept :
             start(inStart),
             stop(inStop)
         {};
@@ -81,7 +81,7 @@ namespace nc
         /// @param      inStop (not included)
         /// @param      inStep
         ///
-        Slice(int32 inStart, int32 inStop, int32 inStep) noexcept :
+        constexpr Slice(int32 inStart, int32 inStop, int32 inStep) noexcept :
             start(inStart),
             stop(inStop),
             step(inStep)
@@ -171,17 +171,16 @@ namespace nc
 
         //============================================================================
         ///						Returns the number of elements that the slice contains.
-        ///						be aware that this method will also make the slice all
-        ///						positive!
         ///
         /// @param      inArraySize
         ///
-        uint32 numElements(uint32 inArraySize)
+        uint32 numElements(uint32 inArraySize) const
         {
-            makePositiveAndValidate(inArraySize);
+            Slice sliceCopy(*this);
+            sliceCopy.makePositiveAndValidate(inArraySize);
 
             uint32 num = 0;
-            for (int32 i = start; i < stop; i += step)
+            for (int32 i = sliceCopy.start; i < sliceCopy.stop; i += sliceCopy.step)
             {
                 ++num;
             }

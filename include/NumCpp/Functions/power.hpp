@@ -51,7 +51,7 @@ namespace nc
     ///				value raised to the power
     ///
     template<typename dtype>
-    dtype power(dtype inValue, uint8 inExponent) noexcept
+    constexpr dtype power(dtype inValue, uint8 inExponent) noexcept
     {
         return utils::power(inValue, inExponent);
     }

@@ -47,7 +47,7 @@ namespace nc
         /// @return     bool
         ///
         template<typename dtype>
-        bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept
+        constexpr bool essentiallyEqual(dtype inValue1, dtype inValue2, dtype inEpsilon) noexcept
         {
             STATIC_ASSERT_FLOAT(dtype);
 
@@ -64,7 +64,7 @@ namespace nc
         /// @return     bool
         ///
         template<typename dtype>
-        bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept
+        constexpr bool essentiallyEqual(dtype inValue1, dtype inValue2) noexcept
         {
             return essentiallyEqual(inValue1, inValue2, DtypeInfo<dtype>::epsilon());
         }
