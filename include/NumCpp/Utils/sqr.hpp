@@ -40,7 +40,7 @@ namespace nc
         /// @return     squared value
         ///
         template<typename dtype>
-        dtype sqr(dtype inValue) noexcept
+        constexpr dtype sqr(dtype inValue) noexcept
         {
             return inValue * inValue;
         }

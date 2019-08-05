@@ -59,7 +59,7 @@ namespace nc
         // Method Description:
         ///						Default Constructor
         ///
-        Vec3() noexcept :
+        constexpr Vec3() noexcept :
             x(0),
             y(0),
             z(0)
@@ -73,7 +73,7 @@ namespace nc
         /// @param  inY: the y component
         /// @param  inZ: the y component
         ///
-        Vec3(double inX, double inY, double inZ) noexcept :
+        constexpr Vec3(double inX, double inY, double inZ) noexcept :
             x(inX),
             y(inY),
             z(inZ)
@@ -140,7 +140,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static Vec3 back() noexcept
+        static constexpr Vec3 back() noexcept
         {
             return Vec3(0.0, 0.0, -1.0);
         }
@@ -214,7 +214,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static Vec3 down() noexcept
+        static constexpr Vec3 down() noexcept
         {
             return Vec3(0.0, -1.0, 0.0);
         }
@@ -225,7 +225,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static Vec3 forward() noexcept
+        static constexpr Vec3 forward() noexcept
         {
             return Vec3(0.0, 0.0, 1.0);
         }
@@ -236,7 +236,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static Vec3 left() noexcept
+        static constexpr Vec3 left() noexcept
         {
             return Vec3(-1.0, 0.0, 0.0);
         }
@@ -303,7 +303,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static Vec3 right() noexcept
+        static constexpr Vec3 right() noexcept
         {
             return Vec3(1.0, 0.0, 0.0);
         }
@@ -339,7 +339,7 @@ namespace nc
         ///
         /// @return Vec3
         ///
-        static Vec3 up() noexcept
+        static constexpr Vec3 up() noexcept
         {
             return Vec3(0.0, 1.0, 0.0);
         }

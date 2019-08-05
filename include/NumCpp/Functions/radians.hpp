@@ -47,7 +47,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double radians(dtype inValue) noexcept
+    constexpr double radians(dtype inValue) noexcept
     {
         return deg2rad(inValue);
     }

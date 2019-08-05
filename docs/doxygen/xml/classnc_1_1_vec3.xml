@@ -45,9 +45,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1_vec3_1a12bace66cd4d205755cee98ac6d658fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type></type>
-        <definition>nc::Vec3::Vec3</definition>
+      <memberdef kind="function" id="classnc_1_1_vec3_1a55ae45fdc9f41360ab5b7c72395e0d27" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr nc::Vec3::Vec3</definition>
         <argsstring>() noexcept</argsstring>
         <name>Vec3</name>
         <briefdescription>
@@ -58,9 +58,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="62" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="62" bodyend="66"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_vec3_1a4d20d8d7b40777677e83923055af35fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type></type>
-        <definition>nc::Vec3::Vec3</definition>
+      <memberdef kind="function" id="classnc_1_1_vec3_1a6b0bc18cc9594a7d81361c518d543130" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr nc::Vec3::Vec3</definition>
         <argsstring>(double inX, double inY, double inZ) noexcept</argsstring>
         <name>Vec3</name>
         <param>
@@ -614,9 +614,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="classnc_1_1_vec3_1adc234f42c117f403d74118b241643f47" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
-        <definition>static Vec3 nc::Vec3::back</definition>
+      <memberdef kind="function" id="classnc_1_1_vec3_1a44e50b4b49011ec94548558600c0b17c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
+        <definition>static constexpr Vec3 nc::Vec3::back</definition>
         <argsstring>() noexcept</argsstring>
         <name>back</name>
         <briefdescription>
@@ -628,9 +628,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="143" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="143" bodyend="146"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_vec3_1a378aab1464927647b27f71d5934fa02b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
-        <definition>static Vec3 nc::Vec3::down</definition>
+      <memberdef kind="function" id="classnc_1_1_vec3_1a4ea0c82948117391c6c42a99e3093f91" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
+        <definition>static constexpr Vec3 nc::Vec3::down</definition>
         <argsstring>() noexcept</argsstring>
         <name>down</name>
         <briefdescription>
@@ -642,9 +642,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="217" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="217" bodyend="220"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_vec3_1ad7345116f8a9dff10bc270aead177281" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
-        <definition>static Vec3 nc::Vec3::forward</definition>
+      <memberdef kind="function" id="classnc_1_1_vec3_1ac5a33c96c05a8c856b774c24f4a1965d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
+        <definition>static constexpr Vec3 nc::Vec3::forward</definition>
         <argsstring>() noexcept</argsstring>
         <name>forward</name>
         <briefdescription>
@@ -656,9 +656,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="228" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="228" bodyend="231"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_vec3_1a420ddd65124a23faf9a872ca05eebc6f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
-        <definition>static Vec3 nc::Vec3::left</definition>
+      <memberdef kind="function" id="classnc_1_1_vec3_1a7e6730d945972ecda1815c1d41f5074c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
+        <definition>static constexpr Vec3 nc::Vec3::left</definition>
         <argsstring>() noexcept</argsstring>
         <name>left</name>
         <briefdescription>
@@ -670,9 +670,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="239" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="239" bodyend="242"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_vec3_1a97f256a22ee3c5db29c484f2a3c6458e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
-        <definition>static Vec3 nc::Vec3::right</definition>
+      <memberdef kind="function" id="classnc_1_1_vec3_1af8862aed471260a45c7691c7c5c6b016" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
+        <definition>static constexpr Vec3 nc::Vec3::right</definition>
         <argsstring>() noexcept</argsstring>
         <name>right</name>
         <briefdescription>
@@ -684,9 +684,9 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="306" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="306" bodyend="309"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_vec3_1aa60cf66defb2fcf04fc989c0e1f07f7e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
-        <definition>static Vec3 nc::Vec3::up</definition>
+      <memberdef kind="function" id="classnc_1_1_vec3_1aafc14ccae575994733d664eb3f4a6e66" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
+        <definition>static constexpr Vec3 nc::Vec3::up</definition>
         <argsstring>() noexcept</argsstring>
         <name>up</name>
         <briefdescription>
@@ -712,14 +712,14 @@
     <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="50" bodyend="462"/>
     <listofallmembers>
       <member refid="classnc_1_1_vec3_1a523ca42cbdd088851cc5a299da988cee" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>angle</name></member>
-      <member refid="classnc_1_1_vec3_1adc234f42c117f403d74118b241643f47" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>back</name></member>
+      <member refid="classnc_1_1_vec3_1a44e50b4b49011ec94548558600c0b17c" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>back</name></member>
       <member refid="classnc_1_1_vec3_1a4f3cfcbd67a402820cc8e0576dccd2e4" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>clampMagnitude</name></member>
       <member refid="classnc_1_1_vec3_1af8173f6e61e9a63beae3092fd8dc4378" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>cross</name></member>
       <member refid="classnc_1_1_vec3_1a301f3edcb8cb17e7e3e5dbdd5255bdd2" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>distance</name></member>
       <member refid="classnc_1_1_vec3_1ac9f2bf549a4b800f140de060a0281a7e" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>dot</name></member>
-      <member refid="classnc_1_1_vec3_1a378aab1464927647b27f71d5934fa02b" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>down</name></member>
-      <member refid="classnc_1_1_vec3_1ad7345116f8a9dff10bc270aead177281" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>forward</name></member>
-      <member refid="classnc_1_1_vec3_1a420ddd65124a23faf9a872ca05eebc6f" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>left</name></member>
+      <member refid="classnc_1_1_vec3_1a4ea0c82948117391c6c42a99e3093f91" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>down</name></member>
+      <member refid="classnc_1_1_vec3_1ac5a33c96c05a8c856b774c24f4a1965d" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>forward</name></member>
+      <member refid="classnc_1_1_vec3_1a7e6730d945972ecda1815c1d41f5074c" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>left</name></member>
       <member refid="classnc_1_1_vec3_1ab4878c8a4ebcd94fd0baf93059b50ac6" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>lerp</name></member>
       <member refid="classnc_1_1_vec3_1a6c177e1f5c00584279a0527d3053dee8" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>norm</name></member>
       <member refid="classnc_1_1_vec3_1a6356b462b11a156b923a7c79b9747c25" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>normalize</name></member>
@@ -732,12 +732,12 @@
       <member refid="classnc_1_1_vec3_1a431b2ac6af51bf59d804adbe5c8a7700" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>operator/=</name></member>
       <member refid="classnc_1_1_vec3_1a2cc63855706091881f765b63dcf52c44" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>operator==</name></member>
       <member refid="classnc_1_1_vec3_1aaba2a76701fbf17582641cefeb513f1c" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>project</name></member>
-      <member refid="classnc_1_1_vec3_1a97f256a22ee3c5db29c484f2a3c6458e" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>right</name></member>
+      <member refid="classnc_1_1_vec3_1af8862aed471260a45c7691c7c5c6b016" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>right</name></member>
       <member refid="classnc_1_1_vec3_1a6b598b3ea3e950081df48026b5132459" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>toNdArray</name></member>
       <member refid="classnc_1_1_vec3_1a3af99e8df35bad1893f2d2a1a6082e21" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>toString</name></member>
-      <member refid="classnc_1_1_vec3_1aa60cf66defb2fcf04fc989c0e1f07f7e" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>up</name></member>
-      <member refid="classnc_1_1_vec3_1a12bace66cd4d205755cee98ac6d658fa" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>Vec3</name></member>
-      <member refid="classnc_1_1_vec3_1a4d20d8d7b40777677e83923055af35fa" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>Vec3</name></member>
+      <member refid="classnc_1_1_vec3_1aafc14ccae575994733d664eb3f4a6e66" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>up</name></member>
+      <member refid="classnc_1_1_vec3_1a55ae45fdc9f41360ab5b7c72395e0d27" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>Vec3</name></member>
+      <member refid="classnc_1_1_vec3_1a6b0bc18cc9594a7d81361c518d543130" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>Vec3</name></member>
       <member refid="classnc_1_1_vec3_1a4056d1e369726710d6f1049b277486dd" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>Vec3</name></member>
       <member refid="classnc_1_1_vec3_1a4668419f4c870900466d4aa198247767" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>Vec3</name></member>
       <member refid="classnc_1_1_vec3_1a7f71dd08d58a1327739de6041e3362bb" prot="public" virt="non-virtual"><scope>nc::Vec3</scope><name>x</name></member>

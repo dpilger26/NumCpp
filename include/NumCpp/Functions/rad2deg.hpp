@@ -48,7 +48,7 @@ namespace nc
     ///				value
     ///
     template<typename dtype>
-    double rad2deg(dtype inValue) noexcept
+    constexpr double rad2deg(dtype inValue) noexcept
     {
         return inValue * 180.0 / constants::pi;
     }
