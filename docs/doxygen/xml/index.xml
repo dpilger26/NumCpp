@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.15">
   <compound refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper" kind="class"><name>nc::boostPythonInterface::BoostNdarrayHelper</name>
     <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311" kind="enum"><name>Order</name></member>
     <member refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a6f7c27e9f931e541dc034cd7fe9c3311a800618943025315f869e4e1f09471012" kind="enumvalue"><name>F</name></member>
@@ -328,12 +328,14 @@
     <member refid="classnc_1_1_nd_array_1a13ddcb6c2ace15a7a4ada6982bc9c982" kind="function"><name>numCols</name></member>
     <member refid="classnc_1_1_nd_array_1ab0e399408388daf11ac4877c6e9d4e69" kind="function"><name>numRows</name></member>
     <member refid="classnc_1_1_nd_array_1a8444c4313d68aaf1e8539db95e7ffbac" kind="function"><name>ones</name></member>
-    <member refid="classnc_1_1_nd_array_1ad6126ddd6bd25c0821a6002feb2ed007" kind="function"><name>operator &amp;</name></member>
-    <member refid="classnc_1_1_nd_array_1a13e0e9ac60605abb1cc3dc4f9c2eab1c" kind="function"><name>operator &amp;</name></member>
-    <member refid="classnc_1_1_nd_array_1a8e8cae9fde408b0f2a2b0ca8bedd1bf1" kind="function"><name>operator &amp;&amp;</name></member>
-    <member refid="classnc_1_1_nd_array_1a8e4ef0dd2abccf8e738c6462bd134639" kind="function"><name>operator &amp;&amp;</name></member>
-    <member refid="classnc_1_1_nd_array_1a657b10894e5c11c8b949722c9b8c2f29" kind="function"><name>operator &amp;=</name></member>
-    <member refid="classnc_1_1_nd_array_1a2bb99626e8dbddc421ca8022bca49a89" kind="function"><name>operator &amp;=</name></member>
+    <member refid="classnc_1_1_nd_array_1a8cfe61e893ebac45d331a3acbaba8d62" kind="function"><name>operator &amp;</name></member>
+    <member refid="classnc_1_1_nd_array_1aad791e146a34d9125a878dd1e966b03d" kind="function"><name>operator &amp;</name></member>
+    <member refid="classnc_1_1_nd_array_1adcd79a0a49314df9d49e99f41f8ff144" kind="function"><name>operator &amp;&amp;</name></member>
+    <member refid="classnc_1_1_nd_array_1af635eda16b68c2f78673f4a6e14c3b8c" kind="function"><name>operator &amp;&amp;</name></member>
+    <member refid="classnc_1_1_nd_array_1a636cff2cc594655d1ff348eec931189d" kind="function"><name>operator *</name></member>
+    <member refid="classnc_1_1_nd_array_1a3fc4c82d36c118500d3de54c68155622" kind="function"><name>operator *</name></member>
+    <member refid="classnc_1_1_nd_array_1ae3d5d0fcf33542aa2d58782968acfc97" kind="function"><name>operator *=</name></member>
+    <member refid="classnc_1_1_nd_array_1a9b29fba8715952e31cb3ef501ab4cb8b" kind="function"><name>operator *=</name></member>
     <member refid="classnc_1_1_nd_array_1ac576e580370f003d80f545027c422cb0" kind="function"><name>operator!</name></member>
     <member refid="classnc_1_1_nd_array_1a6cee50dbf89bea309f8af19d7847bbf2" kind="function"><name>operator!=</name></member>
     <member refid="classnc_1_1_nd_array_1a45b178ca03b18e4dd1175d7b222d9ae2" kind="function"><name>operator!=</name></member>
@@ -341,15 +343,13 @@
     <member refid="classnc_1_1_nd_array_1ae94fb3ebe25ace690404c4de742b5448" kind="function"><name>operator%</name></member>
     <member refid="classnc_1_1_nd_array_1a88cfa37a618c6f437b77a727b5cc2e91" kind="function"><name>operator%=</name></member>
     <member refid="classnc_1_1_nd_array_1aecc0fc99888ccdb921fe6691d69ed26c" kind="function"><name>operator%=</name></member>
+    <member refid="classnc_1_1_nd_array_1a37643056e835037fd8f90bcd7507889e" kind="function"><name>operator&amp;=</name></member>
+    <member refid="classnc_1_1_nd_array_1a966d8eebdf7cde4d7682c7e3d2ab1c3c" kind="function"><name>operator&amp;=</name></member>
     <member refid="classnc_1_1_nd_array_1aa1c1a56d402b0f43745c075ff42f5bcb" kind="function"><name>operator()</name></member>
     <member refid="classnc_1_1_nd_array_1aba9d02408b06e5dea7b9d41ff1a1f5a0" kind="function"><name>operator()</name></member>
     <member refid="classnc_1_1_nd_array_1a75cee1d3c0ab6d48dad3eb95a704a588" kind="function"><name>operator()</name></member>
     <member refid="classnc_1_1_nd_array_1a30841d8244125731bde781c92b34f306" kind="function"><name>operator()</name></member>
     <member refid="classnc_1_1_nd_array_1a9168972c601d3b3a72eafae43eb69d51" kind="function"><name>operator()</name></member>
-    <member refid="classnc_1_1_nd_array_1a76ff2ee85dc1d422d6355844ed87caaf" kind="function"><name>operator*</name></member>
-    <member refid="classnc_1_1_nd_array_1af7c6b2021ff4ebd8c056071539e8fffb" kind="function"><name>operator*</name></member>
-    <member refid="classnc_1_1_nd_array_1a95e0153d10e40f4b4d9f8460e90bd71e" kind="function"><name>operator*=</name></member>
-    <member refid="classnc_1_1_nd_array_1a5f13117e7b55ccb967b516254e43fc5f" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1_nd_array_1aacc70bcd544fd3b6d1d0a8231a72842f" kind="function"><name>operator+</name></member>
     <member refid="classnc_1_1_nd_array_1aa1fdebb4c0e3b05ab7fc281240e17f53" kind="function"><name>operator+</name></member>
     <member refid="classnc_1_1_nd_array_1a13bd5eb6445df85e5ded6867efb3731a" kind="function"><name>operator++</name></member>
@@ -451,9 +451,9 @@
     <member refid="classnc_1_1polynomial_1_1_poly1d_1afdcb578abdcd522e83b2e6efafb10edb" kind="function"><name>Poly1d</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a33c01905d846d32e7d49dc4e7e884551" kind="function"><name>Poly1d</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a58a632fa53f4ad61f9d692eadba8552b" kind="function"><name>coefficients</name></member>
+    <member refid="classnc_1_1polynomial_1_1_poly1d_1a2c59773f2e0cb928e5e12e50ab764597" kind="function"><name>operator *</name></member>
+    <member refid="classnc_1_1polynomial_1_1_poly1d_1abdd077db9b18c978f79be025af31a8c2" kind="function"><name>operator *=</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a647a42016da7320a9cc30ee1c5ec9193" kind="function"><name>operator()</name></member>
-    <member refid="classnc_1_1polynomial_1_1_poly1d_1a5fa7a033ff26d89214d0c45ca64d4697" kind="function"><name>operator*</name></member>
-    <member refid="classnc_1_1polynomial_1_1_poly1d_1a98672b993e5100d6a39f36f37edc0098" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1aa6e3e89a0e1c1966970270817240982a" kind="function"><name>operator+</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a13372c13e633ffc87418d9369adcfea0" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1polynomial_1_1_poly1d_1a78f9bf92eeeeddf6e1a7d2542ed684d8" kind="function"><name>operator-</name></member>
@@ -496,13 +496,13 @@
     <member refid="classnc_1_1rotations_1_1_quaternion_1acb62c703a1f96333bf76ad0735cb8b97" kind="function"><name>j</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1aa2eee61d3a428a558f28d1bb6cc6a048" kind="function"><name>k</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1ab055510c1338490b957de867cecaf790" kind="function"><name>nlerp</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a745c5e68b3499426c31fa8d37135069c" kind="function"><name>operator *</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a57fdefc65f75a4c00de544e3598a1b61" kind="function"><name>operator *</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1aad5e008072744c3c70796a08c50b3bba" kind="function"><name>operator *</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a1f3221d077eb21c6014cbc7582072313" kind="function"><name>operator *</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1af4e9945aae1e75af6c316a47277d75ea" kind="function"><name>operator *=</name></member>
+    <member refid="classnc_1_1rotations_1_1_quaternion_1a379d1ee00f69ad4bbbe55c277d29367d" kind="function"><name>operator *=</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1adcf57fd29d62e19f5c764750262ff7c3" kind="function"><name>operator!=</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1adad6ca92266f6090930addc585900805" kind="function"><name>operator*</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1ad63920fa01f5bd4949c0fbb3ff7c7137" kind="function"><name>operator*</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1a10fd2d44927d59f19e37c45586072d14" kind="function"><name>operator*</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1a7a76d280d13d7c7542c6f815ed5dbd22" kind="function"><name>operator*</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1aaaa8a1bd7130e7ce6a819284584a84c5" kind="function"><name>operator*=</name></member>
-    <member refid="classnc_1_1rotations_1_1_quaternion_1a17636913a3a1e810a81a558dc986fd54" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a53c84fdd06a1f980c7c74a185d568156" kind="function"><name>operator+</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1af2b75597d538e55cfdd1215c35c9c6fe" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1rotations_1_1_quaternion_1a43fe6603ffbaaadf9348910e17e99519" kind="function"><name>operator-</name></member>
@@ -586,8 +586,8 @@
     <member refid="classnc_1_1_vec2_1a91e6417e5b9903ed6bee3ad90c0c38f4" kind="function"><name>lerp</name></member>
     <member refid="classnc_1_1_vec2_1ab6922f6c089b20e9d019301fddc6dc0a" kind="function"><name>norm</name></member>
     <member refid="classnc_1_1_vec2_1a8d8a3ec28ef8336ab02dcd964a3e836c" kind="function"><name>normalize</name></member>
+    <member refid="classnc_1_1_vec2_1ac51bfef719e054df169c718d5b2864c3" kind="function"><name>operator *=</name></member>
     <member refid="classnc_1_1_vec2_1ac83768c682c162ec9dffe1bfb9637338" kind="function"><name>operator!=</name></member>
-    <member refid="classnc_1_1_vec2_1a72ac39ba88f909cb5552f6b379509f81" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1_vec2_1a21b1c9c0aa0b7e8886f1b4a7c255bb9e" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1_vec2_1af441d4bbee40c07f9b86fbd056ff637e" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1_vec2_1abfb0b00888fa37d52a895d06f2b39133" kind="function"><name>operator-=</name></member>
@@ -618,8 +618,8 @@
     <member refid="classnc_1_1_vec3_1ab4878c8a4ebcd94fd0baf93059b50ac6" kind="function"><name>lerp</name></member>
     <member refid="classnc_1_1_vec3_1a6c177e1f5c00584279a0527d3053dee8" kind="function"><name>norm</name></member>
     <member refid="classnc_1_1_vec3_1a6356b462b11a156b923a7c79b9747c25" kind="function"><name>normalize</name></member>
+    <member refid="classnc_1_1_vec3_1a30993b6c6e73ded2763fffb27ccd9f7e" kind="function"><name>operator *=</name></member>
     <member refid="classnc_1_1_vec3_1aad142760da8d2b3493462b4542e42673" kind="function"><name>operator!=</name></member>
-    <member refid="classnc_1_1_vec3_1a02ec360e4ebb7b4a6b629eedf8d24a2f" kind="function"><name>operator*=</name></member>
     <member refid="classnc_1_1_vec3_1afef859d21f4332089843c5d337c1ce01" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1_vec3_1a2b1c4e63a7233fb56e2f037807dffb68" kind="function"><name>operator+=</name></member>
     <member refid="classnc_1_1_vec3_1a70251860269c7cb5becbe988a0b2c48e" kind="function"><name>operator-=</name></member>
@@ -862,12 +862,12 @@
     <member refid="namespacenc_1add1b1c44934c7fc8f6e6eb55cdc6de1f" kind="function"><name>ones</name></member>
     <member refid="namespacenc_1a7177538cccb954e75b6b2d9f59aeb43e" kind="function"><name>ones</name></member>
     <member refid="namespacenc_1a19b8942c347b6887f5d9e8bf66c4fc93" kind="function"><name>ones_like</name></member>
-    <member refid="namespacenc_1a8248dae03ae96d459320f42d60fdf424" kind="function"><name>operator*</name></member>
-    <member refid="namespacenc_1a1769d68f44f9c98d94dd412bc32a9bb5" kind="function"><name>operator*</name></member>
-    <member refid="namespacenc_1ace6d6bf5d703e886d8f137cf73be5021" kind="function"><name>operator*</name></member>
-    <member refid="namespacenc_1af51c9efd8dbadbdc664972bd96583a72" kind="function"><name>operator*</name></member>
-    <member refid="namespacenc_1af4ecba4e059c6dcf672644a3c1bff75d" kind="function"><name>operator*</name></member>
-    <member refid="namespacenc_1a39b128708b2225a00de527c8ec83d72a" kind="function"><name>operator*</name></member>
+    <member refid="namespacenc_1a3464868481c1997dff4117d88456b492" kind="function"><name>operator *</name></member>
+    <member refid="namespacenc_1a49bf659cc8480de8a7c7dd53db04ef92" kind="function"><name>operator *</name></member>
+    <member refid="namespacenc_1a3a2bb570a80b12ade33148dec83f1506" kind="function"><name>operator *</name></member>
+    <member refid="namespacenc_1a841cda66319074229c01d2fd73301b14" kind="function"><name>operator *</name></member>
+    <member refid="namespacenc_1a70c62e340b06684425f5a90862ac7ddf" kind="function"><name>operator *</name></member>
+    <member refid="namespacenc_1a4aa7b2b975670087aa3163d0c6506785" kind="function"><name>operator *</name></member>
     <member refid="namespacenc_1a9f50afa50b63aea110be8b9b477d1cb4" kind="function"><name>operator+</name></member>
     <member refid="namespacenc_1a43fad0472de9a72d2680623200138907" kind="function"><name>operator+</name></member>
     <member refid="namespacenc_1ab769651a09123be0a13a54a82aaa088a" kind="function"><name>operator+</name></member>
@@ -945,6 +945,7 @@
     <member refid="namespacenc_1a44c81be022de4700f7fe591873abebc1" kind="function"><name>square</name></member>
     <member refid="namespacenc_1a656bb4b9fecf40f1f4194964be57c78b" kind="function"><name>stack</name></member>
     <member refid="namespacenc_1a1eda5d378815c50db0fe3d309d758fe4" kind="function"><name>stdev</name></member>
+    <member refid="namespacenc_1ae4be1086253a0b121695d9cabfcb86ce" kind="function"><name>subtract</name></member>
     <member refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kind="function"><name>sum</name></member>
     <member refid="namespacenc_1a81e14e3820dbc4709253de34600cd473" kind="function"><name>swapaxes</name></member>
     <member refid="namespacenc_1a12bb2c0891c334e603cd1510facba22a" kind="function"><name>tan</name></member>
@@ -1918,6 +1919,8 @@
   <compound refid="stdev_8hpp" kind="file"><name>stdev.hpp</name>
   </compound>
   <compound refid="student_t_8hpp" kind="file"><name>studentT.hpp</name>
+  </compound>
+  <compound refid="subtract_8hpp" kind="file"><name>subtract.hpp</name>
   </compound>
   <compound refid="sum_8hpp" kind="file"><name>sum.hpp</name>
   </compound>
