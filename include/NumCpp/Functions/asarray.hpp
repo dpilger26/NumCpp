@@ -125,17 +125,17 @@ namespace nc
     }
 
     //============================================================================
-// Method Description:
-///						Convert the list initializer to an array.
-///						eg: NdArray<int> myArray = NC::asarray<int>({{1,2,3}, {4, 5, 6}});
-///
-///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
-///
-/// @param
-///				inList
-/// @return
-///				NdArray
-///
+    // Method Description:
+    ///						Convert the list initializer to an array.
+    ///						eg: NdArray<int> myArray = NC::asarray<int>({{1,2,3}, {4, 5, 6}});
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
+    ///
+    /// @param
+    ///				inList
+    /// @return
+    ///				NdArray
+    ///
     template<typename dtype>
     NdArray<dtype> asarray(std::initializer_list<std::initializer_list<dtype> >& inList) noexcept
     {
