@@ -4574,7 +4574,6 @@ namespace nc
         // Method Description:
         ///						Bitshifts left the elements of the array
         ///
-        /// @param      lhs
         /// @param      inNumBits
         /// @return
         ///				NdArray
@@ -4590,7 +4589,8 @@ namespace nc
         //============================================================================
         // Method Description:
         ///						Bitshifts right the elements of the array
-        ///
+        ///       
+        /// @param      lhs
         /// @param      inNumBits
         /// @return
         ///				NdArray

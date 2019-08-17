@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "NumCpp: A Templatized Header Only C++ Implementation of the <a href=\"http://www.numpy.org\">Python NumPy Library</a>", "index.html", null ],
+    [ "NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)", "index.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -65,7 +65,7 @@ var NAVTREEINDEX =
 "classnc_1_1_nd_array.html#a217adf4a530aa2bba221d89c3c5a96be",
 "classnc_1_1_vec3.html#a6b598b3ea3e950081df48026b5132459",
 "constant1d_8hpp.html",
-"functions_func_p.html",
+"functions_func_n.html",
 "mirror1d_8hpp_source.html",
 "rank_filter1d_8hpp.html",
 "wrap1d_8hpp_source.html"

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="namespacenc_1_1coordinates" kind="namespace" language="C++">
     <compoundname>nc::coordinates</compoundname>
     <innerclass refid="classnc_1_1coordinates_1_1_coordinate" prot="public">nc::coordinates::Coordinate</innerclass>
@@ -25,13 +25,12 @@
           </detaileddescription>
         </enumvalue>
         <briefdescription>
-<para>Struct Enum for positive or negative <ref refid="classnc_1_1coordinates_1_1_dec" kindref="compound">Dec</ref> angle. </para>
-        </briefdescription>
+<para>Struct Enum for positive or negative <ref refid="classnc_1_1coordinates_1_1_dec" kindref="compound">Dec</ref> angle. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Coordinates/Dec.hpp" line="47" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Coordinates/Dec.hpp" bodystart="47" bodyend="47"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/Dec.hpp" line="47" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/Dec.hpp" bodystart="47" bodyend="47"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -51,31 +50,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the degree seperation between the two Coordinates</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Returns the degree seperation between the two Coordinates</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inCoordinate1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inCoordinate2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>degrees </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>degrees </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Coordinates/degreeSeperation.hpp" line="46" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Coordinates/degreeSeperation.hpp" bodystart="46" bodyend="49"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/degreeSeperation.hpp" line="46" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/degreeSeperation.hpp" bodystart="46" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1coordinates_1a86698ce3b556e7e38d0b8c8034719244" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -93,31 +87,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the degree seperation between the <ref refid="classnc_1_1coordinates_1_1_coordinate" kindref="compound">Coordinate</ref> and the input vector</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Returns the degree seperation between the <ref refid="classnc_1_1coordinates_1_1_coordinate" kindref="compound">Coordinate</ref> and the input vector</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inVector1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inVector2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>degrees </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>degrees </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Coordinates/degreeSeperation.hpp" line="60" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Coordinates/degreeSeperation.hpp" bodystart="60" bodyend="64"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/degreeSeperation.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/degreeSeperation.hpp" bodystart="60" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1coordinates_1ac26247590cae76bd0e551a3300680f55" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -135,31 +124,26 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the radian seperation between the two Coordinates</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Returns the radian seperation between the two Coordinates</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inCoordinate1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inCoordinate2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>radians </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>radians </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Coordinates/radianSeperation.hpp" line="46" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Coordinates/radianSeperation.hpp" bodystart="46" bodyend="49"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/radianSeperation.hpp" line="46" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/radianSeperation.hpp" bodystart="46" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1coordinates_1a0fd3df39e04b072bf988390bce990f7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -177,37 +161,32 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the radian seperation between the <ref refid="classnc_1_1coordinates_1_1_coordinate" kindref="compound">Coordinate</ref> and the input vector</para>
-<para><parameterlist kind="param"><parameteritem>
+<para>Returns the radian seperation between the <ref refid="classnc_1_1coordinates_1_1_coordinate" kindref="compound">Coordinate</ref> and the input vector</para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inVector1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inVector2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para>
-</parameterdescription>
+<para></para></parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>radians </para>
-</simplesect>
-</para>
-        </detaileddescription>
+<simplesect kind="return"><para>radians </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/GitHub/NumCpp/include/NumCpp/Coordinates/radianSeperation.hpp" line="60" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Coordinates/radianSeperation.hpp" bodystart="60" bodyend="64"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/radianSeperation.hpp" line="60" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/radianSeperation.hpp" bodystart="60" bodyend="64"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Coordinates/Coordinate.hpp" line="48" column="1"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Coordinates/Coordinate.hpp" line="48" column="1"/>
   </compounddef>
 </doxygen>
