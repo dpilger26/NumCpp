@@ -58,7 +58,7 @@ namespace nc
         {
         private:
             //====================================Attributes==============================
-            std::array<double, 4> components_ = { 0.0, 0.0, 0.0, 1.0 };
+            std::array<double, 4> components_;
 
             //============================================================================
             // Method Description:
@@ -176,7 +176,9 @@ namespace nc
             // Method Description:
             ///						Default Constructor
             ///
-            Quaternion() noexcept = default;
+            Quaternion() noexcept :
+                components_{ { 0.0, 0.0, 0.0, 1.0 } }
+            {}
 
             //============================================================================
             // Method Description:
@@ -652,7 +654,7 @@ namespace nc
             ///
             NdArray<double> toNdArray() const
             {
-                return NdArray(components_);
+                return NdArray<double>(components_);
             }
 
             //============================================================================
@@ -724,7 +726,7 @@ namespace nc
             bool operator==(const Quaternion& inRhs) const noexcept
             {
                 return std::equal(components_.begin(), components_.end(),
-                    inRhs.components_.begin(), inRhs.components_.end(),
+                    inRhs.components_.begin(),
                     static_cast<bool (*)(double, double)>(&utils::essentiallyEqual<double>));
             }
 

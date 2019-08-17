@@ -157,7 +157,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            constexpr dtype operator()(dtype inValue) const noexcept
+            dtype operator()(dtype inValue) const noexcept
             {
                 dtype polyValue = 0;
                 uint8 power = 0;
@@ -178,7 +178,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            constexpr Poly1d<dtype> operator+(const Poly1d<dtype>& inOtherPoly) const noexcept
+            Poly1d<dtype> operator+(const Poly1d<dtype>& inOtherPoly) const noexcept
             {
                 return Poly1d<dtype>(*this) += inOtherPoly;
             }
@@ -225,7 +225,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            constexpr Poly1d<dtype> operator-(const Poly1d<dtype>& inOtherPoly) const noexcept
+            Poly1d<dtype> operator-(const Poly1d<dtype>& inOtherPoly) const noexcept
             {
                 return Poly1d<dtype>(*this) -= inOtherPoly;
             }
@@ -272,7 +272,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            constexpr Poly1d<dtype> operator*(const Poly1d<dtype>& inOtherPoly) const noexcept
+            Poly1d<dtype> operator*(const Poly1d<dtype>& inOtherPoly) const noexcept
             {
                 return Poly1d<dtype>(*this) *= inOtherPoly;
             }
@@ -317,7 +317,7 @@ namespace nc
             /// @return
             ///				Poly1d
             ///
-            constexpr Poly1d<dtype> operator^(uint32 inPower) const noexcept
+            Poly1d<dtype> operator^(uint32 inPower) const noexcept
             {
                 return Poly1d(*this) ^= inPower;
             }

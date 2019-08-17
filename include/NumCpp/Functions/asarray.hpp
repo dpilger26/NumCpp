@@ -52,7 +52,7 @@ namespace nc
     template<typename dtype, size_t ArraySize>
     NdArray<dtype> asarray(const std::array<dtype, ArraySize>& inArray) noexcept
     {
-        return NdArray(inArray);
+        return NdArray<dtype>(inArray);
     }
 
     //============================================================================
@@ -69,7 +69,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> asarray(const std::vector<dtype>& inVector) noexcept
     {
-        return NdArray(inVector);
+        return NdArray<dtype>(inVector);
     }
 
     //============================================================================
@@ -86,7 +86,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> asarray(const std::deque<dtype>& inDeque) noexcept
     {
-        return NdArray(inDeque);
+        return NdArray<dtype>(inDeque);
     }
 
     //============================================================================
@@ -103,7 +103,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> asarray(const std::set<dtype>& inSet) noexcept
     {
-        return NdArray(inSet);
+        return NdArray<dtype>(inSet);
     }
 
     //============================================================================
@@ -121,24 +121,24 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> asarray(std::initializer_list<dtype>& inList) noexcept
     {
-        return NdArray(inList);
+        return NdArray<dtype>(inList);
     }
 
     //============================================================================
-// Method Description:
-///						Convert the list initializer to an array.
-///						eg: NdArray<int> myArray = NC::asarray<int>({{1,2,3}, {4, 5, 6}});
-///
-///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
-///
-/// @param
-///				inList
-/// @return
-///				NdArray
-///
+    // Method Description:
+    ///						Convert the list initializer to an array.
+    ///						eg: NdArray<int> myArray = NC::asarray<int>({{1,2,3}, {4, 5, 6}});
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
+    ///
+    /// @param
+    ///				inList
+    /// @return
+    ///				NdArray
+    ///
     template<typename dtype>
     NdArray<dtype> asarray(std::initializer_list<std::initializer_list<dtype> >& inList) noexcept
     {
-        return NdArray(inList);
+        return NdArray<dtype>(inList);
     }
 }
