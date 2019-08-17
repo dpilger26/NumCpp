@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="_utils_2interp_8hpp" kind="file" language="C++">
     <compoundname>Utils/interp.hpp</compoundname>
     <includedby refid="_functions_2interp_8hpp" local="yes">interp.hpp</includedby>
@@ -7,10 +7,28 @@
     <includedby refid="_vec2_8hpp" local="yes">Vec2.hpp</includedby>
     <includedby refid="_vec3_8hpp" local="yes">Vec3.hpp</includedby>
     <invincdepgraph>
-      <node id="7562">
-        <label>Functions.hpp</label>
-        <link refid="_functions_8hpp"/>
+      <node id="7563">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="7572">
+        <label>Rotations.hpp</label>
+        <link refid="_rotations_8hpp"/>
         <childnode refid="7563" relation="include">
+        </childnode>
+      </node>
+      <node id="7573">
+        <label>rodriguesRotation.hpp</label>
+        <link refid="rodrigues_rotation_8hpp"/>
+        <childnode refid="7572" relation="include">
+        </childnode>
+      </node>
+      <node id="7570">
+        <label>Quaternion.hpp</label>
+        <link refid="_quaternion_8hpp"/>
+        <childnode refid="7571" relation="include">
+        </childnode>
+        <childnode refid="7572" relation="include">
         </childnode>
       </node>
       <node id="7566">
@@ -19,15 +37,21 @@
         <childnode refid="7563" relation="include">
         </childnode>
       </node>
-      <node id="7565">
-        <label>Vec2.hpp</label>
-        <link refid="_vec2_8hpp"/>
-        <childnode refid="7566" relation="include">
-        </childnode>
-      </node>
       <node id="7569">
         <label>Linalg.hpp</label>
         <link refid="_linalg_8hpp"/>
+        <childnode refid="7563" relation="include">
+        </childnode>
+      </node>
+      <node id="7561">
+        <label>interp.hpp</label>
+        <link refid="_functions_2interp_8hpp"/>
+        <childnode refid="7562" relation="include">
+        </childnode>
+      </node>
+      <node id="7564">
+        <label>Utils.hpp</label>
+        <link refid="_utils_8hpp"/>
         <childnode refid="7563" relation="include">
         </childnode>
       </node>
@@ -37,10 +61,36 @@
         <childnode refid="7572" relation="include">
         </childnode>
       </node>
-      <node id="7561">
+      <node id="7568">
+        <label>hat.hpp</label>
+        <link refid="hat_8hpp"/>
+        <childnode refid="7569" relation="include">
+        </childnode>
+        <childnode refid="7570" relation="include">
+        </childnode>
+      </node>
+      <node id="7560">
         <label>interp.hpp</label>
-        <link refid="_functions_2interp_8hpp"/>
-        <childnode refid="7562" relation="include">
+        <link refid="_utils_2interp_8hpp"/>
+        <childnode refid="7561" relation="include">
+        </childnode>
+        <childnode refid="7564" relation="include">
+        </childnode>
+        <childnode refid="7565" relation="include">
+        </childnode>
+        <childnode refid="7567" relation="include">
+        </childnode>
+      </node>
+      <node id="7565">
+        <label>Vec2.hpp</label>
+        <link refid="_vec2_8hpp"/>
+        <childnode refid="7566" relation="include">
+        </childnode>
+      </node>
+      <node id="7562">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
+        <childnode refid="7563" relation="include">
         </childnode>
       </node>
       <node id="7567">
@@ -57,78 +107,20 @@
         <childnode refid="7566" relation="include">
         </childnode>
       </node>
-      <node id="7572">
-        <label>Rotations.hpp</label>
-        <link refid="_rotations_8hpp"/>
-        <childnode refid="7563" relation="include">
-        </childnode>
-      </node>
-      <node id="7564">
-        <label>Utils.hpp</label>
-        <link refid="_utils_8hpp"/>
-        <childnode refid="7563" relation="include">
-        </childnode>
-      </node>
-      <node id="7560">
-        <label>interp.hpp</label>
-        <link refid="_utils_2interp_8hpp"/>
-        <childnode refid="7561" relation="include">
-        </childnode>
-        <childnode refid="7564" relation="include">
-        </childnode>
-        <childnode refid="7565" relation="include">
-        </childnode>
-        <childnode refid="7567" relation="include">
-        </childnode>
-      </node>
-      <node id="7568">
-        <label>hat.hpp</label>
-        <link refid="hat_8hpp"/>
-        <childnode refid="7569" relation="include">
-        </childnode>
-        <childnode refid="7570" relation="include">
-        </childnode>
-      </node>
-      <node id="7570">
-        <label>Quaternion.hpp</label>
-        <link refid="_quaternion_8hpp"/>
-        <childnode refid="7571" relation="include">
-        </childnode>
-        <childnode refid="7572" relation="include">
-        </childnode>
-      </node>
-      <node id="7573">
-        <label>rodriguesRotation.hpp</label>
-        <link refid="rodrigues_rotation_8hpp"/>
-        <childnode refid="7572" relation="include">
-        </childnode>
-      </node>
-      <node id="7563">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
-      </node>
     </invincdepgraph>
     <innernamespace refid="namespacenc">nc</innernamespace>
     <innernamespace refid="namespacenc_1_1utils">nc::utils</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.1</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.1</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Returns the linear interpolation between two points </para>
-</sect1>
+<para>Returns the linear interpolation between two points </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -145,6 +137,6 @@
 <codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="49"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/interp.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/interp.hpp"/>
   </compounddef>
 </doxygen>
