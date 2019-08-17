@@ -61,7 +61,7 @@ namespace nc
         ///
         constexpr explicit Slice(int32 inStop) noexcept :
             stop(inStop)
-        {};
+        {}
 
         //============================================================================
         ///						Constructor
@@ -72,7 +72,7 @@ namespace nc
         constexpr Slice(int32 inStart, int32 inStop) noexcept :
             start(inStart),
             stop(inStop)
-        {};
+        {}
 
         //============================================================================
         ///						Constructor
@@ -85,7 +85,7 @@ namespace nc
             start(inStart),
             stop(inStop),
             step(inStep)
-        {};
+        {}
 
         //============================================================================
         ///						Prints the shape to the console
@@ -104,20 +104,6 @@ namespace nc
         void print() const noexcept
         {
             std::cout << *this;
-        }
-
-        //============================================================================
-        ///						IO operator for the Slice class
-        ///
-        /// @param      inOStream
-        /// @param      inSlice
-        ///
-        /// @return     std::ostream
-        ///
-        friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice) noexcept
-        {
-            inOStream << inSlice.str();
-            return inOStream;
         }
 
         //============================================================================
@@ -171,20 +157,35 @@ namespace nc
 
         //============================================================================
         ///						Returns the number of elements that the slice contains.
+        ///						be aware that this method will also make the slice all 
+        ///						positive! 
         ///
         /// @param      inArraySize
         ///
-        uint32 numElements(uint32 inArraySize) const
-        {
-            Slice sliceCopy(*this);
-            sliceCopy.makePositiveAndValidate(inArraySize);
+        uint32 numElements(uint32 inArraySize) 
+        { 
+            makePositiveAndValidate(inArraySize); 
 
-            uint32 num = 0;
-            for (int32 i = sliceCopy.start; i < sliceCopy.stop; i += sliceCopy.step)
-            {
-                ++num;
-            }
-            return num;
+            uint32 num = 0; 
+            for (int32 i = start; i < stop; i += step) 
+            { 
+                ++num; 
+            } 
+            return num; 
+        } 
+
+        //============================================================================
+        ///						IO operator for the Slice class
+        ///
+        /// @param      inOStream
+        /// @param      inSlice
+        ///
+        /// @return     std::ostream
+        ///
+        friend std::ostream& operator<<(std::ostream& inOStream, const Slice& inSlice) noexcept
+        {
+            inOStream << inSlice.str();
+            return inOStream;
         }
     };
 }
