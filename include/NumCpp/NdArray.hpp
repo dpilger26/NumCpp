@@ -4579,19 +4579,18 @@ namespace nc
         /// @return
         ///				NdArray
         ///
-        friend NdArray<dtype>& operator<<=(NdArray<dtype>& lhs, uint8 inNumBits) noexcept
+        NdArray<dtype>& operator<<=(uint8 inNumBits) noexcept
         {
-            std::for_each(lhs.begin(), lhs.end(),
+            std::for_each(begin(), end(),
                 [inNumBits](dtype& value) noexcept -> void { value <<= inNumBits;  });
 
-            return lhs;
+            return *this;
         }
 
         //============================================================================
         // Method Description:
         ///						Bitshifts right the elements of the array
         ///
-        /// @param      lhs
         /// @param      inNumBits
         /// @return
         ///				NdArray
@@ -4607,17 +4606,16 @@ namespace nc
         // Method Description:
         ///						Bitshifts right the elements of the array
         ///
-        /// @param      lhs
         /// @param      inNumBits
         /// @return
         ///				NdArray
         ///
-        friend NdArray<dtype>& operator>>=(NdArray<dtype>& lhs, uint8 inNumBits) noexcept
+        NdArray<dtype>& operator>>=(uint8 inNumBits) noexcept
         {
-            std::for_each(lhs.begin(), lhs.end(),
+            std::for_each(begin(), end(),
                 [inNumBits](dtype& value) noexcept -> void { value >>= inNumBits;  });
 
-            return lhs;
+            return *this;
         }
 
         //============================================================================
