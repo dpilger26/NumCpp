@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="fill_corners_8hpp" kind="file" language="C++">
     <compoundname>fillCorners.hpp</compoundname>
     <includes refid="_core_2_shape_8hpp" local="yes">NumCpp/Core/Shape.hpp</includes>
@@ -13,81 +13,6 @@
       <node id="5703">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="5685">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="5686" relation="include">
-        </childnode>
-      </node>
-      <node id="5707">
-        <label>functional</label>
-      </node>
-      <node id="5692">
-        <label>limits</label>
-      </node>
-      <node id="5698">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="5692" relation="include">
-        </childnode>
-      </node>
-      <node id="5699">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="5685" relation="include">
-        </childnode>
-      </node>
-      <node id="5686">
-        <label>cstdint</label>
-      </node>
-      <node id="5697">
-        <label>cmath</label>
-      </node>
-      <node id="5693">
-        <label>stdexcept</label>
-      </node>
-      <node id="5710">
-        <label>numeric</label>
-      </node>
-      <node id="5688">
-        <label>string</label>
-      </node>
-      <node id="5700">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-      </node>
-      <node id="5690">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="5691" relation="include">
-        </childnode>
-        <childnode refid="5685" relation="include">
-        </childnode>
-        <childnode refid="5687" relation="include">
-        </childnode>
-        <childnode refid="5694" relation="include">
-        </childnode>
-        <childnode refid="5689" relation="include">
-        </childnode>
-        <childnode refid="5688" relation="include">
-        </childnode>
-      </node>
-      <node id="5708">
-        <label>fstream</label>
-      </node>
-      <node id="5696">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="5697" relation="include">
-        </childnode>
-        <childnode refid="5692" relation="include">
-        </childnode>
-        <childnode refid="5688" relation="include">
-        </childnode>
-      </node>
-      <node id="5701">
-        <label>boost/algorithm/clamp.hpp</label>
-      </node>
       <node id="5684">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
@@ -100,8 +25,14 @@
         <childnode refid="5688" relation="include">
         </childnode>
       </node>
-      <node id="5713">
-        <label>vector</label>
+      <node id="5707">
+        <label>functional</label>
+      </node>
+      <node id="5692">
+        <label>limits</label>
+      </node>
+      <node id="5686">
+        <label>cstdint</label>
       </node>
       <node id="5695">
         <label>NumCpp/NdArray.hpp</label>
@@ -159,6 +90,111 @@
         <childnode refid="5713" relation="include">
         </childnode>
       </node>
+      <node id="5690">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="5691" relation="include">
+        </childnode>
+        <childnode refid="5685" relation="include">
+        </childnode>
+        <childnode refid="5687" relation="include">
+        </childnode>
+        <childnode refid="5694" relation="include">
+        </childnode>
+        <childnode refid="5689" relation="include">
+        </childnode>
+        <childnode refid="5688" relation="include">
+        </childnode>
+      </node>
+      <node id="5697">
+        <label>cmath</label>
+      </node>
+      <node id="5687">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="5688" relation="include">
+        </childnode>
+      </node>
+      <node id="5693">
+        <label>stdexcept</label>
+      </node>
+      <node id="5710">
+        <label>numeric</label>
+      </node>
+      <node id="5688">
+        <label>string</label>
+      </node>
+      <node id="5708">
+        <label>fstream</label>
+      </node>
+      <node id="5683">
+        <label>fillCorners.hpp</label>
+        <link refid="fill_corners_8hpp"/>
+        <childnode refid="5684" relation="include">
+        </childnode>
+        <childnode refid="5690" relation="include">
+        </childnode>
+        <childnode refid="5685" relation="include">
+        </childnode>
+        <childnode refid="5695" relation="include">
+        </childnode>
+      </node>
+      <node id="5699">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="5685" relation="include">
+        </childnode>
+      </node>
+      <node id="5696">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="5697" relation="include">
+        </childnode>
+        <childnode refid="5692" relation="include">
+        </childnode>
+        <childnode refid="5688" relation="include">
+        </childnode>
+      </node>
+      <node id="5698">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="5692" relation="include">
+        </childnode>
+      </node>
+      <node id="5701">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="5713">
+        <label>vector</label>
+      </node>
+      <node id="5702">
+        <label>boost/filesystem.hpp</label>
+      </node>
+      <node id="5712">
+        <label>utility</label>
+      </node>
+      <node id="5705">
+        <label>array</label>
+      </node>
+      <node id="5700">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="5685">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="5686" relation="include">
+        </childnode>
+      </node>
+      <node id="5689">
+        <label>iostream</label>
+      </node>
+      <node id="5706">
+        <label>deque</label>
+      </node>
+      <node id="5704">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
       <node id="5691">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
@@ -173,44 +209,8 @@
         <childnode refid="5688" relation="include">
         </childnode>
       </node>
-      <node id="5702">
-        <label>boost/filesystem.hpp</label>
-      </node>
-      <node id="5712">
-        <label>utility</label>
-      </node>
-      <node id="5705">
-        <label>array</label>
-      </node>
-      <node id="5687">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="5688" relation="include">
-        </childnode>
-      </node>
-      <node id="5689">
-        <label>iostream</label>
-      </node>
-      <node id="5706">
-        <label>deque</label>
-      </node>
-      <node id="5704">
-        <label>boost/endian/conversion.hpp</label>
-      </node>
       <node id="5711">
         <label>set</label>
-      </node>
-      <node id="5683">
-        <label>fillCorners.hpp</label>
-        <link refid="fill_corners_8hpp"/>
-        <childnode refid="5684" relation="include">
-        </childnode>
-        <childnode refid="5690" relation="include">
-        </childnode>
-        <childnode refid="5685" relation="include">
-        </childnode>
-        <childnode refid="5695" relation="include">
-        </childnode>
       </node>
       <node id="5694">
         <label>algorithm</label>
@@ -220,9 +220,33 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="5720">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
+      <node id="5721">
+        <label>laplace.hpp</label>
+        <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
+        <childnode refid="5719" relation="include">
+        </childnode>
+      </node>
+      <node id="5728">
+        <label>uniformFilter.hpp</label>
+        <link refid="uniform_filter_8hpp"/>
+        <childnode refid="5719" relation="include">
+        </childnode>
+      </node>
+      <node id="5717">
+        <label>convolve.hpp</label>
+        <link refid="convolve_8hpp"/>
+        <childnode refid="5718" relation="include">
+        </childnode>
+        <childnode refid="5721" relation="include">
+        </childnode>
+        <childnode refid="5719" relation="include">
+        </childnode>
+      </node>
+      <node id="5715">
+        <label>constant2d.hpp</label>
+        <link refid="constant2d_8hpp"/>
+        <childnode refid="5716" relation="include">
+        </childnode>
       </node>
       <node id="5716">
         <label>addBoundary2d.hpp</label>
@@ -242,87 +266,9 @@
         <childnode refid="5728" relation="include">
         </childnode>
       </node>
-      <node id="5725">
-        <label>minimumFilter.hpp</label>
-        <link refid="minimum_filter_8hpp"/>
-        <childnode refid="5719" relation="include">
-        </childnode>
-      </node>
-      <node id="5726">
-        <label>percentileFilter.hpp</label>
-        <link refid="percentile_filter_8hpp"/>
-        <childnode refid="5719" relation="include">
-        </childnode>
-      </node>
-      <node id="5721">
-        <label>laplace.hpp</label>
-        <link refid="_filter_2_filters_2_filters2d_2laplace_8hpp"/>
-        <childnode refid="5719" relation="include">
-        </childnode>
-      </node>
-      <node id="5715">
-        <label>constant2d.hpp</label>
-        <link refid="constant2d_8hpp"/>
-        <childnode refid="5716" relation="include">
-        </childnode>
-      </node>
-      <node id="5719">
-        <label>Filter.hpp</label>
-        <link refid="_filter_8hpp"/>
-        <childnode refid="5720" relation="include">
-        </childnode>
-      </node>
-      <node id="5724">
-        <label>complementaryMedianFilter.hpp</label>
-        <link refid="complementary_median_filter_8hpp"/>
-        <childnode refid="5719" relation="include">
-        </childnode>
-      </node>
-      <node id="5723">
-        <label>medianFilter.hpp</label>
-        <link refid="median_filter_8hpp"/>
-        <childnode refid="5724" relation="include">
-        </childnode>
-        <childnode refid="5719" relation="include">
-        </childnode>
-      </node>
       <node id="5722">
         <label>maximumFilter.hpp</label>
         <link refid="maximum_filter_8hpp"/>
-        <childnode refid="5719" relation="include">
-        </childnode>
-      </node>
-      <node id="5730">
-        <label>wrap2d.hpp</label>
-        <link refid="wrap2d_8hpp"/>
-        <childnode refid="5716" relation="include">
-        </childnode>
-      </node>
-      <node id="5728">
-        <label>uniformFilter.hpp</label>
-        <link refid="uniform_filter_8hpp"/>
-        <childnode refid="5719" relation="include">
-        </childnode>
-      </node>
-      <node id="5718">
-        <label>gaussianFilter.hpp</label>
-        <link refid="gaussian_filter_8hpp"/>
-        <childnode refid="5719" relation="include">
-        </childnode>
-      </node>
-      <node id="5727">
-        <label>rankFilter.hpp</label>
-        <link refid="rank_filter_8hpp"/>
-        <childnode refid="5719" relation="include">
-        </childnode>
-      </node>
-      <node id="5717">
-        <label>convolve.hpp</label>
-        <link refid="convolve_8hpp"/>
-        <childnode refid="5718" relation="include">
-        </childnode>
-        <childnode refid="5721" relation="include">
-        </childnode>
         <childnode refid="5719" relation="include">
         </childnode>
       </node>
@@ -336,10 +282,64 @@
         <childnode refid="5730" relation="include">
         </childnode>
       </node>
+      <node id="5724">
+        <label>complementaryMedianFilter.hpp</label>
+        <link refid="complementary_median_filter_8hpp"/>
+        <childnode refid="5719" relation="include">
+        </childnode>
+      </node>
+      <node id="5719">
+        <label>Filter.hpp</label>
+        <link refid="_filter_8hpp"/>
+        <childnode refid="5720" relation="include">
+        </childnode>
+      </node>
+      <node id="5730">
+        <label>wrap2d.hpp</label>
+        <link refid="wrap2d_8hpp"/>
+        <childnode refid="5716" relation="include">
+        </childnode>
+      </node>
+      <node id="5718">
+        <label>gaussianFilter.hpp</label>
+        <link refid="gaussian_filter_8hpp"/>
+        <childnode refid="5719" relation="include">
+        </childnode>
+      </node>
+      <node id="5723">
+        <label>medianFilter.hpp</label>
+        <link refid="median_filter_8hpp"/>
+        <childnode refid="5724" relation="include">
+        </childnode>
+        <childnode refid="5719" relation="include">
+        </childnode>
+      </node>
+      <node id="5725">
+        <label>minimumFilter.hpp</label>
+        <link refid="minimum_filter_8hpp"/>
+        <childnode refid="5719" relation="include">
+        </childnode>
+      </node>
+      <node id="5726">
+        <label>percentileFilter.hpp</label>
+        <link refid="percentile_filter_8hpp"/>
+        <childnode refid="5719" relation="include">
+        </childnode>
+      </node>
       <node id="5729">
         <label>nearest2d.hpp</label>
         <link refid="nearest2d_8hpp"/>
         <childnode refid="5716" relation="include">
+        </childnode>
+      </node>
+      <node id="5720">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="5727">
+        <label>rankFilter.hpp</label>
+        <link refid="rank_filter_8hpp"/>
+        <childnode refid="5719" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -349,14 +349,22 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.1</para></simplesect>
-</para><sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
+</simplesect>
+<simplesect kind="version"><para>1.1</para>
+</simplesect>
+</para>
+<sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<para>Copyright 2019 David Pilger</para>
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
+</sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>extends the corner values </para></sect1>
+<para>extends the corner values </para>
+</sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -378,8 +386,8 @@
 <codeline lineno="50" refid="namespacenc_1_1filter_1_1boundary_1ac78b1c70b5d7e26d6013674cdb84690a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1filter_1_1boundary_1ac78b1c70b5d7e26d6013674cdb84690a" kindref="member">fillCorners</ref>(<ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray,<sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>inBorderWidth)</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_shape" kindref="compound">Shape</ref><sp/>inShape<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" kindref="member">shape</ref>();</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref><sp/>numRows<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref><sp/>numCols<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref>);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref><sp/>numRows<sp/>=<sp/>static_cast&lt;int32&gt;(inShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref><sp/>numCols<sp/>=<sp/>static_cast&lt;int32&gt;(inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref>);</highlight></codeline>
 <codeline lineno="55"><highlight class="normal"></highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>top<sp/>left</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inArray.<ref refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" kindref="member">put</ref>(<ref refid="classnc_1_1_slice" kindref="compound">Slice</ref>(0,<sp/>inBorderWidth),<sp/><ref refid="classnc_1_1_slice" kindref="compound">Slice</ref>(0,<sp/>inBorderWidth),</highlight></codeline>
@@ -404,8 +412,8 @@
 <codeline lineno="82" refid="namespacenc_1_1filter_1_1boundary_1ac2c4c5858898760f48e5aba06ad0eb3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1filter_1_1boundary_1ac78b1c70b5d7e26d6013674cdb84690a" kindref="member">fillCorners</ref>(<ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray,<sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>inBorderWidth,<sp/>dtype<sp/>inFillValue)</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_shape" kindref="compound">Shape</ref><sp/>inShape<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" kindref="member">shape</ref>();</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref><sp/>numRows<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>);</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref><sp/>numCols<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref><sp/>numRows<sp/>=<sp/>static_cast&lt;int32&gt;(inShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref><sp/>numCols<sp/>=<sp/>static_cast&lt;int32&gt;(inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref>);</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"></highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>top<sp/>left</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inArray.<ref refid="classnc_1_1_nd_array_1afe758ef8867d56964efc5a67bf17e726" kindref="member">put</ref>(<ref refid="classnc_1_1_slice" kindref="compound">Slice</ref>(0,<sp/>inBorderWidth),<sp/><ref refid="classnc_1_1_slice" kindref="compound">Slice</ref>(0,<sp/>inBorderWidth),<sp/>inFillValue);</highlight></codeline>
@@ -423,6 +431,6 @@
 <codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="102"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Filter/Boundaries/Boundaries2d/fillCorners.hpp"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Filter/Boundaries/Boundaries2d/fillCorners.hpp"/>
   </compounddef>
 </doxygen>

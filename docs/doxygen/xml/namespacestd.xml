@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="namespacestd" kind="namespace" language="Unknown">
     <compoundname>std</compoundname>
     <innerclass refid="classstd_1_1allocator" prot="public">std::allocator</innerclass>
@@ -52,6 +52,7 @@
     <innerclass refid="classstd_1_1range__error" prot="public">std::range_error</innerclass>
     <innerclass refid="classstd_1_1runtime__error" prot="public">std::runtime_error</innerclass>
     <innerclass refid="classstd_1_1set" prot="public">std::set</innerclass>
+    <innerclass refid="classstd_1_1shared__ptr" prot="public">std::shared_ptr</innerclass>
     <innerclass refid="classstd_1_1smart__ptr" prot="public">std::smart_ptr</innerclass>
     <innerclass refid="classstd_1_1stack" prot="public">std::stack</innerclass>
     <innerclass refid="classstd_1_1string" prot="public">std::string</innerclass>
@@ -78,7 +79,8 @@
     <innerclass refid="classstd_1_1wstring" prot="public">std::wstring</innerclass>
     <innerclass refid="classstd_1_1wstringstream" prot="public">std::wstringstream</innerclass>
     <briefdescription>
-<para>STL namespace. </para>    </briefdescription>
+<para>STL namespace. </para>
+    </briefdescription>
     <detaileddescription>
     </detaileddescription>
     <location file="[STL]" line="1" column="1"/>
