@@ -2993,33 +2993,93 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Resizes the array to a new shape.
+        ///	The new shape should be compatible with the original shape. If an single integer,
+        /// then the result will be a 1-D array of that length. One shape dimension 
+        /// can be -1. In this case, the value is inferred from the length of the 
+        /// array and remaining dimensions. 
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
-        /// @param      inNumRows
-        /// @param      inNumCols
+        /// @param      inSize
         ///
-        NdArray<dtype>& reshape(uint32 inNumRows, uint32 inNumCols)
+        NdArray<dtype>& reshape(uint32 inSize)
         {
-            if (inNumRows * inNumCols != size_)
+            if (inSize != size_)
             {
                 std::string errStr = "Cannot reshape array of size " + utils::num2str(size_) + " into shape ";
-                errStr += "[" + utils::num2str(inNumRows) + ", " + utils::num2str(inNumCols) + "]";
+                errStr += "[" + utils::num2str(1) + ", " + utils::num2str(inSize) + "]";
                 THROW_RUNTIME_ERROR(errStr);
             }
 
-            shape_.rows = inNumRows;
-            shape_.cols = inNumCols;
+            shape_.rows = 1;
+            shape_.cols = inSize;
 
             return *this;
         }
 
         //============================================================================
         // Method Description:
-        ///						Resizes the array to a new shape.
+        ///	The new shape should be compatible with the original shape. If an single integer,
+        /// then the result will be a 1-D array of that length. One shape dimension 
+        /// can be -1. In this case, the value is inferred from the length of the 
+        /// array and remaining dimensions. 
         ///
-        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
+        ///
+        /// @param      inNumRows
+        /// @param      inNumCols
+        ///
+        NdArray<dtype>& reshape(int32 inNumRows, int32 inNumCols)
+        {
+            if (inNumRows < 0)
+            {
+                if (size_ % inNumCols == 0)
+                {
+                    return reshape(size_ / inNumCols, inNumCols);
+                }
+                else
+                {
+                    std::string errStr = "Cannot reshape array of size " + utils::num2str(size_) + " into a shape ";
+                    errStr += "with " + utils::num2str(inNumCols) + " columns";
+                    THROW_INVALID_ARGUMENT_ERROR(errStr);
+                }
+            }
+
+            if (inNumCols < 0)
+            {
+                if (size_ % inNumRows == 0)
+                {
+                    return reshape(inNumRows, size_ / inNumRows);
+                }
+                else
+                {
+                    std::string errStr = "Cannot reshape array of size " + utils::num2str(size_) + " into a shape ";
+                    errStr += "with " + utils::num2str(inNumRows) + " rows";
+                    THROW_INVALID_ARGUMENT_ERROR(errStr);
+                }
+            }
+
+            if (static_cast<uint32>(inNumRows * inNumCols) != size_)
+            {
+                std::string errStr = "Cannot reshape array of size " + utils::num2str(size_) + " into shape ";
+                errStr += "[" + utils::num2str(inNumRows) + ", " + utils::num2str(inNumCols) + "]";
+                THROW_INVALID_ARGUMENT_ERROR(errStr);
+            }
+
+            shape_.rows = static_cast<uint32>(inNumRows);
+            shape_.cols = static_cast<uint32>(inNumCols);
+
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
+        ///	The new shape should be compatible with the original shape. If an single integer,
+        /// then the result will be a 1-D array of that length. One shape dimension 
+        /// can be -1. In this case, the value is inferred from the length of the 
+        /// array and remaining dimensions. 
+        ///
+        /// Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.reshape.html
         ///
         /// @param
         ///				inShape

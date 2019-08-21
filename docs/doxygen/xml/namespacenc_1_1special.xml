@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="namespacenc_1_1special" kind="namespace" language="C++">
     <compoundname>nc::special</compoundname>
       <sectiondef kind="func">
@@ -20,19 +20,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The first linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The first linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_ai.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_ai.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/airy_ai.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/airy_ai.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a0d31b7555e0dbab1059929562a6fd1bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -51,19 +55,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The first linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The first linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_ai.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_ai.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/airy_ai.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/airy_ai.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a8def29528763b2e5f7488cd74548c7ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -82,19 +90,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The derivative of the first linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The derivative of the first linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_ai_prime.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_ai_prime.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/airy_ai_prime.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/airy_ai_prime.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ac1b8e09c59acbf7a4f4eba2275c5491b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -113,19 +125,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The derivative of the first linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The derivative of the first linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_ai_prime.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_ai_prime.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/airy_ai_prime.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/airy_ai_prime.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a9908d86e7b2e937066350cf17b25fcf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -144,19 +160,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The second linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The second linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_bi.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_bi.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/airy_bi.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/airy_bi.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a18a6a97e4088fa8d2df33090d0db630f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -175,19 +195,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The second linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The second linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_bi.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_bi.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/airy_bi.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/airy_bi.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a8815f90fe82d47839a008ab7dc3331ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -206,19 +230,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The derivative of the second linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The derivative of the second linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_bi_prime.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_bi_prime.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/airy_bi_prime.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/airy_bi_prime.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1abd1f29ffc5f536b3906983ced236e7cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -237,19 +265,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The derivative of the second linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The derivative of the second linearly independent solution to the differential equation y&apos;&apos; - yz = 0. <ulink url="http://mathworld.wolfram.com/AiryFunctions.html">http://mathworld.wolfram.com/AiryFunctions.html</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_bi_prime.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_bi_prime.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/airy_bi_prime.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/airy_bi_prime.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a05b0668c9a1114cef9b626ad9f220438" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -263,19 +295,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Both return the nth Bernoulli number B2n.</para><para><parameterlist kind="param"><parameteritem>
+<para>Both return the nth Bernoulli number B2n.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bernoulli.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bernoulli.hpp" bodystart="51" bodyend="63"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bernoulli.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bernoulli.hpp" bodystart="51" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1aa82360ea97c720647249d315bf7a51b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -289,19 +325,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Both return the nth Bernoulli number B2n.</para><para><parameterlist kind="param"><parameteritem>
+<para>Both return the nth Bernoulli number B2n.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bernoulli.hpp" line="74" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bernoulli.hpp" bodystart="74" bodyend="83"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bernoulli.hpp" line="74" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bernoulli.hpp" bodystart="74" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a038f2d43115705053a4ee13f434ef5fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -327,26 +367,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Modified Cylindrical Bessel function of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Modified Cylindrical Bessel function of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_in.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_in.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_in.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_in.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a472da67e2c68a157863327c66194d0da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -372,26 +417,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Modified Cylindrical Bessel function of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Modified Cylindrical Bessel function of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input values </para></parameterdescription>
+<para>the input values </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_in.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_in.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_in.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_in.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a6b98b3a2b74ce56c0fd7cbace101cf1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -417,26 +467,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Derivcative of the Modified Cylindrical Bessel function of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Derivcative of the Modified Cylindrical Bessel function of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_in_prime.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_in_prime.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_in_prime.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_in_prime.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a9e412451c0696998d3b7fcb0fbf2e654" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -462,26 +517,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Derivcative of the Modified Cylindrical Bessel function of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Derivcative of the Modified Cylindrical Bessel function of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input values </para></parameterdescription>
+<para>the input values </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_in_prime.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_in_prime.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_in_prime.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_in_prime.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a74e43c6100065c59ed2e9ba848c43a48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -507,26 +567,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Cylindrical Bessel function of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Cylindrical Bessel function of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_jn.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_jn.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_jn.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_jn.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a1e3b088bf26f1fbd1a8546c09d77d113" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -552,26 +617,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Cylindrical Bessel function of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Cylindrical Bessel function of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input values </para></parameterdescription>
+<para>the input values </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_jn.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_jn.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_jn.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_jn.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1af34db22a9b5c902115c5e0c1fd71cd79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -597,26 +667,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Derivcative of the Cylindrical Bessel function of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Derivcative of the Cylindrical Bessel function of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_jn_prime.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_jn_prime.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_jn_prime.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_jn_prime.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1aa81356f8c6e0a83e43b29214dc93a136" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -642,26 +717,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Derivcative of the Cylindrical Bessel function of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Derivcative of the Cylindrical Bessel function of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input values </para></parameterdescription>
+<para>the input values </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_jn_prime.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_jn_prime.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_jn_prime.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_jn_prime.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a0c37ad66b8671d06518d9efe1a934bba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -687,26 +767,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Modified Cylindrical Bessel function of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Modified Cylindrical Bessel function of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_kn.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_kn.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_kn.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_kn.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a941f011614a3d449c2d00413309a14ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -732,26 +817,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Modified Cylindrical Bessel function of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Modified Cylindrical Bessel function of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input values </para></parameterdescription>
+<para>the input values </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_kn.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_kn.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_kn.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_kn.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a3d84ccebf5e492f4d7ee896891138401" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -777,26 +867,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Derivcative of the Modified Cylindrical Bessel function of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Derivcative of the Modified Cylindrical Bessel function of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_kn_prime.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_kn_prime.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_kn_prime.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_kn_prime.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ae51ef19ded851f5be7173d84c5867246" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -822,26 +917,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Derivcative of the Modified Cylindrical Bessel function of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Derivcative of the Modified Cylindrical Bessel function of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input values </para></parameterdescription>
+<para>the input values </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_kn_prime.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_kn_prime.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_kn_prime.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_kn_prime.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1acb3c8830843c0a13f44c3cbf80e8e06f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -867,26 +967,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Cylindrical Bessel function of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Cylindrical Bessel function of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_yn.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_yn.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_yn.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_yn.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1abc3786b5a4857ad55d7d696099d35224" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -912,26 +1017,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Cylindrical Bessel function of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Cylindrical Bessel function of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input values </para></parameterdescription>
+<para>the input values </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_yn.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_yn.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_yn.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_yn.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1afb461ee80c8847edf730fd18203e13cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -957,26 +1067,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Derivcative of the Cylindrical Bessel function of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Derivcative of the Cylindrical Bessel function of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_yn_prime.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_yn_prime.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_yn_prime.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_yn_prime.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ab3a726aa41f2aeb789ab87269d8ad900" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1002,26 +1117,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Derivcative of the Cylindrical Bessel function of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Derivcative of the Cylindrical Bessel function of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input values </para></parameterdescription>
+<para>the input values </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_yn_prime.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/bessel_yn_prime.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_yn_prime.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/bessel_yn_prime.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1aa2996162bcbabf343a3fa81617fd9b14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1047,26 +1167,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The beta function</para><para><parameterlist kind="param"><parameteritem>
+<para>The beta function</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>a</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>b</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/beta.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/beta.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/beta.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/beta.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a46747e640813870da56bb581ea2917b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1092,26 +1217,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The beta function</para><para><parameterlist kind="param"><parameteritem>
+<para>The beta function</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArrayA</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayB</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/beta.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/beta.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/beta.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/beta.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a08395cbdd1ee39fd14c5f9d9edb8b486" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -1129,26 +1259,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the number of combinations of n choose r. C(n, r)</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the number of combinations of n choose r. C(n, r)</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the total number of items </para></parameterdescription>
+<para>the total number of items </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>r</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of items taken </para></parameterdescription>
+<para>the number of items taken </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/cnr.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/cnr.hpp" bodystart="53" bodyend="56"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/cnr.hpp" line="53" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/cnr.hpp" bodystart="53" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ad17c28693eed370fda9f7eff67df23a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1174,26 +1309,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Hankel funcion of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Hankel funcion of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/cyclic_hankel_1.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/cyclic_hankel_1.hpp" bodystart="49" bodyend="52"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/cyclic_hankel_1.hpp" line="49" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/cyclic_hankel_1.hpp" bodystart="49" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a3935261506b6ec4528feea0bd296aaa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1219,26 +1359,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Hankel funcion of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Hankel funcion of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/cyclic_hankel_2.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/cyclic_hankel_2.hpp" bodystart="49" bodyend="52"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/cyclic_hankel_2.hpp" line="49" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/cyclic_hankel_2.hpp" bodystart="49" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a0f8c75b138e38af1e3b2408050a17467" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1257,19 +1402,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the digamma or psi function of inValue. Digamma is defined as the logarithmic derivative of the gamma function:</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the digamma or psi function of inValue. Digamma is defined as the logarithmic derivative of the gamma function:</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/digamma.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/digamma.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/digamma.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/digamma.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a2ec7a990addc1d7ff888bcf7a272edcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1288,19 +1437,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the digamma or psi function of values in inArray. Digamma is defined as the logarithmic derivative of the gamma function:</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the digamma or psi function of values in inArray. Digamma is defined as the logarithmic derivative of the gamma function:</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/digamma.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/digamma.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/digamma.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/digamma.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a0e700f032bbd8f0dc233f1bd0599a693" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1319,19 +1472,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the error function of all elements in the input array. Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.</para><para><parameterlist kind="param"><parameteritem>
+<para>Calculate the error function of all elements in the input array. Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erf.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erf.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/erf.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/erf.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a3e7e24a6a8f6c8a7b4767c01ecd086ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1350,19 +1507,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Calculate the error function of all elements in the input array. Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.</para><para><parameterlist kind="param"><parameteritem>
+<para>Calculate the error function of all elements in the input array. Integral (from [-x, x]) of np.exp(np.power(-t, 2)) dt, multiplied by 1/np.pi.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erf.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erf.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/erf.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/erf.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a76b1e372bb5b035e705f52ba4afd279f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1381,19 +1542,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the inverse error function of z, that is a value x such that: z = erf(x)</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the inverse error function of z, that is a value x such that: z = erf(x)</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erf_inv.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erf_inv.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/erf_inv.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/erf_inv.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a9031ce5ffebbb7972eb7cdafd44ca851" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1412,19 +1577,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the inverse error function of z, that is a value x such that: z = erf(x)</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the inverse error function of z, that is a value x such that: z = erf(x)</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erf_inv.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erf_inv.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/erf_inv.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/erf_inv.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a7dc8f8671decfd25da323a7cf33cd82f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1443,19 +1612,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the complement of the error function of inValue.</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the complement of the error function of inValue.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erfc.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erfc.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/erfc.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/erfc.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a6b496476334197db947833170786a78e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1474,19 +1647,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the element-wise complement of the error function of inValue.</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the element-wise complement of the error function of inValue.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erfc.hpp" line="67" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erfc.hpp" bodystart="67" bodyend="76"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/erfc.hpp" line="67" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/erfc.hpp" bodystart="67" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1af44c88391a82e2bf739f86e8bf3284be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1505,19 +1682,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the inverse complentary error function of z, that is a value x such that: z = erfc(x)</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the inverse complentary error function of z, that is a value x such that: z = erfc(x)</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erfc_inv.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erfc_inv.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/erfc_inv.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/erfc_inv.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ab9398d528b93a4e029729637fa90c68b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1536,19 +1717,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the inverse complementary error function of z, that is a value x such that: z = erfc(x)</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the inverse complementary error function of z, that is a value x such that: z = erfc(x)</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erfc_inv.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/erfc_inv.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/erfc_inv.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/erfc_inv.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a429b2caa6cf7fcbdba8ce3184c0367e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -1562,19 +1747,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the factorial of the input value</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the factorial of the input value</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" bodystart="52" bodyend="62"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" bodystart="52" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1af28b6a68a7d599ad1f973082ec275dbc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
@@ -1588,19 +1777,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the factorial of the input value</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the factorial of the input value</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" line="73" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" bodystart="73" bodyend="82"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" line="73" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/factorial.hpp" bodystart="73" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a1922de5ad7c6fba4aedbce02d08e1b78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1619,19 +1812,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the &quot;true gamma&quot; of value z</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the &quot;true gamma&quot; of value z</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/gamma.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/gamma.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/gamma.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/gamma.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ac22cc8d32cc97454c0ecfb432f2a316d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1650,19 +1847,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the &quot;true gamma&quot; of values in array</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the &quot;true gamma&quot; of values in array</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/gamma.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/gamma.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/gamma.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/gamma.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a41fe463c9dae1da7365d6bac75ca5e84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1681,19 +1882,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the true gamma(dz + 1) - 1 of value z</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the true gamma(dz + 1) - 1 of value z</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/gamma1pm1.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/gamma1pm1.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/gamma1pm1.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/gamma1pm1.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a568563ea05c2e31278de66112c9429c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1712,19 +1917,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the true gamma(dz + 1) - 1 of values in array</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the true gamma(dz + 1) - 1 of values in array</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/gamma1pm1.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/gamma1pm1.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/gamma1pm1.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/gamma1pm1.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a0cb1312c9f5ba140d36b2c6565556c20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1743,19 +1952,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns natural log of the true gamma of value z</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns natural log of the true gamma of value z</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/log_gamma.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/log_gamma.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/log_gamma.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/log_gamma.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1aada2f70d0f67c79921b1c03020f0cec5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1774,19 +1987,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns natural log of the true gamma of values in array</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns natural log of the true gamma of values in array</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/log_gamma.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/log_gamma.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/log_gamma.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/log_gamma.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ad24badd4fad228e42db56cad017747bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -1804,26 +2021,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the number of permutaions of n choose r. P(n, r)</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the number of permutaions of n choose r. P(n, r)</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the total number of items </para></parameterdescription>
+<para>the total number of items </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>r</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the number of items taken </para></parameterdescription>
+<para>the number of items taken </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/pnr.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/pnr.hpp" bodystart="52" bodyend="84"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/pnr.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/pnr.hpp" bodystart="52" bodyend="84"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a6004700cebef1c51c8d4f0a0c66efe5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1846,26 +2068,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the polygamma function of inValue. Polygamma is defined as the n&apos;th derivative of the digamma function</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the polygamma function of inValue. Polygamma is defined as the n&apos;th derivative of the digamma function</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the nth derivative </para></parameterdescription>
+<para>the nth derivative </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/polygamma.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/polygamma.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/polygamma.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/polygamma.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ab404a49a8e57faef0e9aee9869df5c1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1888,26 +2115,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the polygamma function of the values in inArray. Polygamma is defined as the n&apos;th derivative of the digamma function</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the polygamma function of the values in inArray. Polygamma is defined as the n&apos;th derivative of the digamma function</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the nth derivative </para></parameterdescription>
+<para>the nth derivative </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/polygamma.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/polygamma.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/polygamma.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/polygamma.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a2e0b9f447fd033ac62a0dfe3eadb46cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
@@ -1921,19 +2153,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The function prime provides fast table lookup to the first 10000 prime numbers (starting from 2 as the zeroth prime: as 1 isn&apos;t terribly useful in practice)</para><para><parameterlist kind="param"><parameteritem>
+<para>The function prime provides fast table lookup to the first 10000 prime numbers (starting from 2 as the zeroth prime: as 1 isn&apos;t terribly useful in practice)</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>n</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the nth prime number to return </para></parameterdescription>
+<para>the nth prime number to return </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>uint32 </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>uint32 </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/prime.hpp" line="54" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/prime.hpp" bodystart="54" bodyend="62"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/prime.hpp" line="54" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/prime.hpp" bodystart="54" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a21b6aff295a57c30b4f3a5e4e20e026c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; <ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref> &gt;</type>
@@ -1947,19 +2183,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The function prime provides fast table lookup to the first 10000 prime numbers (starting from 2 as the zeroth prime: as 1 isn&apos;t terribly useful in practice)</para><para><parameterlist kind="param"><parameteritem>
+<para>The function prime provides fast table lookup to the first 10000 prime numbers (starting from 2 as the zeroth prime: as 1 isn&apos;t terribly useful in practice)</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>NdArray&lt;uint32&gt; </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>NdArray&lt;uint32&gt; </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/prime.hpp" line="74" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/prime.hpp" bodystart="74" bodyend="83"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/prime.hpp" line="74" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/prime.hpp" bodystart="74" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ad8ce69360402aff230c2d0ca72e13042" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1978,19 +2218,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The Riemann Zeta function <ulink url="https://en.wikipedia.org/wiki/Riemann_zeta_function">https://en.wikipedia.org/wiki/Riemann_zeta_function</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The Riemann Zeta function <ulink url="https://en.wikipedia.org/wiki/Riemann_zeta_function">https://en.wikipedia.org/wiki/Riemann_zeta_function</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/riemann_zeta.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/riemann_zeta.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/riemann_zeta.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/riemann_zeta.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a2839c02bab5022331ebecdae4bddc2a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2009,19 +2253,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The Riemann Zeta function <ulink url="https://en.wikipedia.org/wiki/Riemann_zeta_function">https://en.wikipedia.org/wiki/Riemann_zeta_function</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>The Riemann Zeta function <ulink url="https://en.wikipedia.org/wiki/Riemann_zeta_function">https://en.wikipedia.org/wiki/Riemann_zeta_function</ulink></para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/riemann_zeta.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/riemann_zeta.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/riemann_zeta.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/riemann_zeta.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a9aea83127eb18d7c06d5096959c86719" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2045,26 +2293,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>The softmax function transforms each element of a collection by computing the exponential of each element divided by the sum of the exponentials of all the elements. That is, if x is a one-dimensional numpy array: softmax(x) = np.exp(x)/sum(np.exp(x))</para><para><parameterlist kind="param"><parameteritem>
+<para>The softmax function transforms each element of a collection by computing the exponential of each element divided by the sum of the exponentials of all the elements. That is, if x is a one-dimensional numpy array: softmax(x) = np.exp(x)/sum(np.exp(x))</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inAxis</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>(Optional, default NONE) </para></parameterdescription>
+<para>(Optional, default NONE) </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/softmax.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/softmax.hpp" bodystart="53" bodyend="98"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/softmax.hpp" line="53" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/softmax.hpp" bodystart="53" bodyend="98"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1acbfc84fedcf02e4c88a726e2c8ed549b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2087,26 +2340,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Spherical Bessel function of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Spherical Bessel function of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_jn.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_jn.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_jn.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_jn.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a80b89ecc28e6725d9ac95d9ff004b6db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2129,26 +2387,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Spherical Bessel function of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Spherical Bessel function of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input values </para></parameterdescription>
+<para>the input values </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_jn.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_jn.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_jn.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_jn.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ae61813078995dd0c5fa2983241c064d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2171,26 +2434,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Spherical Bessel function of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Spherical Bessel function of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_yn.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_yn.hpp" bodystart="51" bodyend="54"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_yn.hpp" line="51" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_yn.hpp" bodystart="51" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ae1eff983360b960ccd25b83040ef0190" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2213,26 +2481,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Spherical Bessel function of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Spherical Bessel function of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inArrayX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input values </para></parameterdescription>
+<para>the input values </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_yn.hpp" line="66" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_yn.hpp" bodystart="66" bodyend="75"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_yn.hpp" line="66" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_bessel_yn.hpp" bodystart="66" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a944a47815c60e3ff8867d27056654c0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2258,26 +2531,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Spherical Hankel funcion of the first kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Spherical Hankel funcion of the first kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_hankel_1.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_hankel_1.hpp" bodystart="49" bodyend="52"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_hankel_1.hpp" line="49" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_hankel_1.hpp" bodystart="49" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1a0aa8bb9125689a9b522ebabe98170c2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2303,26 +2581,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Spherical Hankel funcion of the second kind</para><para><parameterlist kind="param"><parameteritem>
+<para>Spherical Hankel funcion of the second kind</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inV</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the order of the bessel function </para></parameterdescription>
+<para>the order of the bessel function </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input value </para></parameterdescription>
+<para>the input value </para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_hankel_2.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/spherical_hankel_2.hpp" bodystart="49" bodyend="52"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_hankel_2.hpp" line="49" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/spherical_hankel_2.hpp" bodystart="49" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1aab92fe0af9e9cec601ff68ebb6eeee04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2341,19 +2624,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the trigamma function of x. Trigamma is defined as the derivative of the digamma function</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the trigamma function of x. Trigamma is defined as the derivative of the digamma function</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>double </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>double </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/trigamma.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/trigamma.hpp" bodystart="52" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/trigamma.hpp" line="52" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/trigamma.hpp" bodystart="52" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1special_1ac6f6ac0fade4babd204d8c39836402ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -2372,25 +2659,29 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the trigamma function of x. Trigamma is defined as the derivative of the digamma function</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the trigamma function of x. Trigamma is defined as the derivative of the digamma function</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/trigamma.hpp" line="68" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/trigamma.hpp" bodystart="68" bodyend="77"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Special/trigamma.hpp" line="68" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Special/trigamma.hpp" bodystart="68" bodyend="77"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/airy_ai.hpp" line="40" column="1"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Special/airy_ai.hpp" line="40" column="1"/>
   </compounddef>
 </doxygen>

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="namespacenc_1_1pybind_interface" kind="namespace" language="C++">
     <compoundname>nc::pybindInterface</compoundname>
       <sectiondef kind="enum">
@@ -28,12 +28,13 @@
           </detaileddescription>
         </enumvalue>
         <briefdescription>
-<para>Enum for the pybind array return policy. </para>        </briefdescription>
+<para>Enum for the pybind array return policy. </para>
+        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="48" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="48" bodyend="48"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="48" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="48" bodyend="48"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -51,7 +52,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="50" bodyend="-1"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="50" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="50" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -77,26 +78,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>converts a numcpp <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to numpy array using pybind bindings</para><para><parameterlist kind="param"><parameteritem>
+<para>converts a numcpp <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> to numpy array using pybind bindings</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the input array </para></parameterdescription>
+<para>the input array </para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>returnPolicy</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>the return policy</para></parameterdescription>
+<para>the return policy</para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>pybind11::array_t </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>pybind11::array_t </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="99" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="99" bodyend="134"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="99" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="99" bodyend="134"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1pybind_interface_1a4f1f494ed8dc86610403627954600812" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -115,25 +121,29 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>converts a numpy array to a numcpp <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> using pybind bindings Python will still own the underlying data.</para><para><parameterlist kind="param"><parameteritem>
+<para>converts a numpy array to a numcpp <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> using pybind bindings Python will still own the underlying data.</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>numpyArray</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>NdArray&lt;dtype&gt; </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>NdArray&lt;dtype&gt; </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="63" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="63" bodyend="88"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="63" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" bodystart="63" bodyend="88"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="46" column="1"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/PybindInterface.hpp" line="46" column="1"/>
   </compounddef>
 </doxygen>

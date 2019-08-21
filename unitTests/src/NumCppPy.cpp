@@ -501,7 +501,25 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray reshape(NdArray<dtype>& self, const Shape& inShape)
+    np::ndarray reshapeInt(NdArray<dtype>& self, uint32 size)
+    {
+        self.reshape(size);
+        return nc2Boost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray reshapeValues(NdArray<dtype>& self, int32 inNumRows, int32 inNumCols)
+    {
+        self.reshape(inNumRows, inNumCols);
+        return nc2Boost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray reshapeShape(NdArray<dtype>& self, const Shape& inShape)
     {
         self.reshape(inShape);
         return nc2Boost(self);
@@ -2115,7 +2133,23 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
-    NdArray<dtype>& reshape(NdArray<dtype>& inArray, const Shape& inNewShape)
+    NdArray<dtype>& reshapeInt(NdArray<dtype>& inArray, uint32 inSize)
+    {
+        return nc::reshape(inArray, inSize);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    NdArray<dtype>& reshapeValues(NdArray<dtype>& inArray, int32 inNumRows, int32 inNumCols)
+    {
+        return nc::reshape(inArray, inNumRows, inNumCols);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    NdArray<dtype>& reshapeShape(NdArray<dtype>& inArray, const Shape& inNewShape)
     {
         return nc::reshape(inArray, inNewShape);
     }
@@ -3660,7 +3694,9 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("putMask", &NdArrayInterface::putMaskSingle<double>)
         .def("putMask", &NdArrayInterface::putMaskMultiple<double>)
         .def("repeat", &NdArrayInterface::repeat<double>)
-        .def("reshape", &NdArrayInterface::reshape<double>)
+        .def("reshape", &NdArrayInterface::reshapeInt<double>)
+        .def("reshape", &NdArrayInterface::reshapeValues<double>)
+        .def("reshape", &NdArrayInterface::reshapeShape<double>)
         .def("reshapeList", &NdArrayInterface::reshapeList<double>)
         .def("resizeFast", &NdArrayInterface::resizeFast<double>)
         .def("resizeFastList", &NdArrayInterface::resizeFastList<double>)
@@ -4042,7 +4078,9 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("reciprocal", &reciprocal<double>);
     bp::def("remainderScaler", &MethodsInterface::remainderScaler<double>);
     bp::def("remainderArray", &MethodsInterface::remainderArray<double>);
-    bp::def("reshape", &MethodsInterface::reshape<double>, bp::return_internal_reference<>());
+    bp::def("reshape", &MethodsInterface::reshapeInt<double>, bp::return_internal_reference<>());
+    bp::def("reshape", &MethodsInterface::reshapeShape<double>, bp::return_internal_reference<>());
+    bp::def("reshape", &MethodsInterface::reshapeValues<double>, bp::return_internal_reference<>());
     bp::def("reshapeList", &MethodsInterface::reshapeList<double>, bp::return_internal_reference<>());
     bp::def("resizeFast", &MethodsInterface::resizeFast<double>, bp::return_internal_reference<>());
     bp::def("resizeFastList", &MethodsInterface::resizeFastList<double>, bp::return_internal_reference<>());

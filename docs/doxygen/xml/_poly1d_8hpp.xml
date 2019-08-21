@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="_poly1d_8hpp" kind="file" language="C++">
     <compoundname>Poly1d.hpp</compoundname>
     <includes refid="_dtype_info_8hpp" local="yes">NumCpp/Core/DtypeInfo.hpp</includes>
@@ -18,105 +18,6 @@
       <node id="11974">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="11958">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="11959" relation="include">
-        </childnode>
-      </node>
-      <node id="11978">
-        <label>functional</label>
-      </node>
-      <node id="11956">
-        <label>limits</label>
-      </node>
-      <node id="11955">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="11956" relation="include">
-        </childnode>
-      </node>
-      <node id="11970">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="11958" relation="include">
-        </childnode>
-      </node>
-      <node id="11959">
-        <label>cstdint</label>
-      </node>
-      <node id="11965">
-        <label>cmath</label>
-      </node>
-      <node id="11954">
-        <label>Poly1d.hpp</label>
-        <link refid="_poly1d_8hpp"/>
-        <childnode refid="11955" relation="include">
-        </childnode>
-        <childnode refid="11957" relation="include">
-        </childnode>
-        <childnode refid="11958" relation="include">
-        </childnode>
-        <childnode refid="11963" relation="include">
-        </childnode>
-        <childnode refid="11967" relation="include">
-        </childnode>
-        <childnode refid="11970" relation="include">
-        </childnode>
-        <childnode refid="11969" relation="include">
-        </childnode>
-        <childnode refid="11960" relation="include">
-        </childnode>
-        <childnode refid="11962" relation="include">
-        </childnode>
-        <childnode refid="11984" relation="include">
-        </childnode>
-      </node>
-      <node id="11961">
-        <label>stdexcept</label>
-      </node>
-      <node id="11981">
-        <label>numeric</label>
-      </node>
-      <node id="11962">
-        <label>string</label>
-      </node>
-      <node id="11971">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-      </node>
-      <node id="11968">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="11957" relation="include">
-        </childnode>
-        <childnode refid="11958" relation="include">
-        </childnode>
-        <childnode refid="11967" relation="include">
-        </childnode>
-        <childnode refid="11969" relation="include">
-        </childnode>
-        <childnode refid="11960" relation="include">
-        </childnode>
-        <childnode refid="11962" relation="include">
-        </childnode>
-      </node>
-      <node id="11979">
-        <label>fstream</label>
-      </node>
-      <node id="11964">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="11965" relation="include">
-        </childnode>
-        <childnode refid="11956" relation="include">
-        </childnode>
-        <childnode refid="11962" relation="include">
-        </childnode>
-      </node>
-      <node id="11972">
-        <label>boost/algorithm/clamp.hpp</label>
-      </node>
       <node id="11966">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
@@ -129,8 +30,14 @@
         <childnode refid="11962" relation="include">
         </childnode>
       </node>
-      <node id="11984">
-        <label>vector</label>
+      <node id="11978">
+        <label>functional</label>
+      </node>
+      <node id="11956">
+        <label>limits</label>
+      </node>
+      <node id="11959">
+        <label>cstdint</label>
       </node>
       <node id="11963">
         <label>NumCpp/NdArray.hpp</label>
@@ -188,6 +95,123 @@
         <childnode refid="11984" relation="include">
         </childnode>
       </node>
+      <node id="11968">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="11957" relation="include">
+        </childnode>
+        <childnode refid="11958" relation="include">
+        </childnode>
+        <childnode refid="11967" relation="include">
+        </childnode>
+        <childnode refid="11969" relation="include">
+        </childnode>
+        <childnode refid="11960" relation="include">
+        </childnode>
+        <childnode refid="11962" relation="include">
+        </childnode>
+      </node>
+      <node id="11965">
+        <label>cmath</label>
+      </node>
+      <node id="11967">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="11962" relation="include">
+        </childnode>
+      </node>
+      <node id="11961">
+        <label>stdexcept</label>
+      </node>
+      <node id="11981">
+        <label>numeric</label>
+      </node>
+      <node id="11962">
+        <label>string</label>
+      </node>
+      <node id="11979">
+        <label>fstream</label>
+      </node>
+      <node id="11970">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="11958" relation="include">
+        </childnode>
+      </node>
+      <node id="11964">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="11965" relation="include">
+        </childnode>
+        <childnode refid="11956" relation="include">
+        </childnode>
+        <childnode refid="11962" relation="include">
+        </childnode>
+      </node>
+      <node id="11954">
+        <label>Poly1d.hpp</label>
+        <link refid="_poly1d_8hpp"/>
+        <childnode refid="11955" relation="include">
+        </childnode>
+        <childnode refid="11957" relation="include">
+        </childnode>
+        <childnode refid="11958" relation="include">
+        </childnode>
+        <childnode refid="11963" relation="include">
+        </childnode>
+        <childnode refid="11967" relation="include">
+        </childnode>
+        <childnode refid="11970" relation="include">
+        </childnode>
+        <childnode refid="11969" relation="include">
+        </childnode>
+        <childnode refid="11960" relation="include">
+        </childnode>
+        <childnode refid="11962" relation="include">
+        </childnode>
+        <childnode refid="11984" relation="include">
+        </childnode>
+      </node>
+      <node id="11955">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="11956" relation="include">
+        </childnode>
+      </node>
+      <node id="11972">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="11984">
+        <label>vector</label>
+      </node>
+      <node id="11973">
+        <label>boost/filesystem.hpp</label>
+      </node>
+      <node id="11983">
+        <label>utility</label>
+      </node>
+      <node id="11976">
+        <label>array</label>
+      </node>
+      <node id="11971">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="11958">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="11959" relation="include">
+        </childnode>
+      </node>
+      <node id="11960">
+        <label>iostream</label>
+      </node>
+      <node id="11977">
+        <label>deque</label>
+      </node>
+      <node id="11975">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
       <node id="11957">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
@@ -202,30 +226,6 @@
         <childnode refid="11962" relation="include">
         </childnode>
       </node>
-      <node id="11973">
-        <label>boost/filesystem.hpp</label>
-      </node>
-      <node id="11983">
-        <label>utility</label>
-      </node>
-      <node id="11976">
-        <label>array</label>
-      </node>
-      <node id="11967">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="11962" relation="include">
-        </childnode>
-      </node>
-      <node id="11960">
-        <label>iostream</label>
-      </node>
-      <node id="11977">
-        <label>deque</label>
-      </node>
-      <node id="11975">
-        <label>boost/endian/conversion.hpp</label>
-      </node>
       <node id="11982">
         <label>set</label>
       </node>
@@ -237,13 +237,9 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="11988">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
-      </node>
-      <node id="11989">
-        <label>Polynomial.hpp</label>
-        <link refid="_polynomial_8hpp"/>
+      <node id="11987">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
         <childnode refid="11988" relation="include">
         </childnode>
       </node>
@@ -261,11 +257,15 @@
         <childnode refid="11989" relation="include">
         </childnode>
       </node>
-      <node id="11987">
-        <label>Functions.hpp</label>
-        <link refid="_functions_8hpp"/>
+      <node id="11989">
+        <label>Polynomial.hpp</label>
+        <link refid="_polynomial_8hpp"/>
         <childnode refid="11988" relation="include">
         </childnode>
+      </node>
+      <node id="11988">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classnc_1_1polynomial_1_1_poly1d" prot="public">nc::polynomial::Poly1d</innerclass>
@@ -274,14 +274,22 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.1</para></simplesect>
-</para><sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
+</simplesect>
+<simplesect kind="version"><para>1.1</para>
+</simplesect>
+</para>
+<sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<para>Copyright 2019 David Pilger</para>
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
+</sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Class for dealing with 1D polynomials </para></sect1>
+<para>Class for dealing with 1D polynomials </para>
+</sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -352,7 +360,7 @@
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="117" refid="classnc_1_1polynomial_1_1_poly1d_1ab978ca2f65c7cd640309c1be86aa9141" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d_1ab978ca2f65c7cd640309c1be86aa9141" kindref="member">order</ref>()<sp/>const<sp/>noexcept</highlight></codeline>
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coefficients_.size()<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>static_cast&lt;uint32&gt;(coefficients_.size()<sp/>-<sp/>1);</highlight></codeline>
 <codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="121"><highlight class="normal"></highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
@@ -394,7 +402,7 @@
 <codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="181" refid="classnc_1_1polynomial_1_1_poly1d_1a2187ce69997f60f4a73eb9e66a4d6199" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d_1a2187ce69997f60f4a73eb9e66a4d6199" kindref="member">operator+</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>&amp;<sp/>inOtherPoly)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>noexcept</highlight></codeline>
 <codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>(*this)<sp/>+=<sp/>inOtherPoly;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>(*</highlight><highlight class="keyword">this</highlight><highlight class="normal">)<sp/>+=<sp/>inOtherPoly;</highlight></codeline>
 <codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="185"><highlight class="normal"></highlight></codeline>
 <codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
@@ -427,7 +435,7 @@
 <codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
 <codeline lineno="228" refid="classnc_1_1polynomial_1_1_poly1d_1a3dedbdd1923bc2f2b41c585d50ef4f4f" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d_1a3dedbdd1923bc2f2b41c585d50ef4f4f" kindref="member">operator-</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>&amp;<sp/>inOtherPoly)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>noexcept</highlight></codeline>
 <codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>(*this)<sp/>-=<sp/>inOtherPoly;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>(*</highlight><highlight class="keyword">this</highlight><highlight class="normal">)<sp/>-=<sp/>inOtherPoly;</highlight></codeline>
 <codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="232"><highlight class="normal"></highlight></codeline>
 <codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
@@ -458,14 +466,14 @@
 <codeline lineno="265"><highlight class="normal"></highlight></codeline>
 <codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="275" refid="classnc_1_1polynomial_1_1_poly1d_1a28aa3ab446b53a1d901cac5c0105ef59" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d_1a28aa3ab446b53a1d901cac5c0105ef59" kindref="member">operator*</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>&amp;<sp/>inOtherPoly)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>noexcept</highlight></codeline>
+<codeline lineno="275" refid="classnc_1_1polynomial_1_1_poly1d_1a51d81c77d81aa59c5be6e89a0c8ae33e" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d_1a51d81c77d81aa59c5be6e89a0c8ae33e" kindref="member">operator*</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>&amp;<sp/>inOtherPoly)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>noexcept</highlight></codeline>
 <codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>(*this)<sp/>*=<sp/>inOtherPoly;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>(*</highlight><highlight class="keyword">this</highlight><highlight class="normal">)<sp/>*=<sp/>inOtherPoly;</highlight></codeline>
 <codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="279"><highlight class="normal"></highlight></codeline>
 <codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="289" refid="classnc_1_1polynomial_1_1_poly1d_1a98672b993e5100d6a39f36f37edc0098" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>&amp;<sp/><ref refid="classnc_1_1polynomial_1_1_poly1d_1a98672b993e5100d6a39f36f37edc0098" kindref="member">operator*=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>&amp;<sp/>inOtherPoly)<sp/>noexcept</highlight></codeline>
+<codeline lineno="289" refid="classnc_1_1polynomial_1_1_poly1d_1abdd077db9b18c978f79be025af31a8c2" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>&amp;<sp/><ref refid="classnc_1_1polynomial_1_1_poly1d_1abdd077db9b18c978f79be025af31a8c2" kindref="member">operator*=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>&amp;<sp/>inOtherPoly)<sp/>noexcept</highlight></codeline>
 <codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>finalCoefficientsSize<sp/>=<sp/><ref refid="classnc_1_1polynomial_1_1_poly1d_1ab978ca2f65c7cd640309c1be86aa9141" kindref="member">order</ref>()<sp/>+<sp/>inOtherPoly.order()<sp/>+<sp/>1;</highlight></codeline>
 <codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;dtype&gt;<sp/>coeffsA(finalCoefficientsSize,<sp/>0);</highlight></codeline>
@@ -520,7 +528,7 @@
 <codeline lineno="355"><highlight class="normal"></highlight></codeline>
 <codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="365" refid="classnc_1_1polynomial_1_1_poly1d_1a80f939448c8b58ab286c57ab0212b785" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/>std::ostream&amp;<sp/>operator&lt;&lt;(std::ostream&amp;<sp/>inOStream,<sp/>const<sp/>Poly1d&lt;dtype&gt;&amp;<sp/>inPoly)<sp/>noexcept</highlight></codeline>
+<codeline lineno="365" refid="classnc_1_1polynomial_1_1_poly1d_1a80f939448c8b58ab286c57ab0212b785" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/>std::ostream&amp;<sp/><ref refid="classnc_1_1polynomial_1_1_poly1d_1a80f939448c8b58ab286c57ab0212b785" kindref="member">operator&lt;&lt;</ref>(std::ostream&amp;<sp/>inOStream,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1polynomial_1_1_poly1d" kindref="compound">Poly1d&lt;dtype&gt;</ref>&amp;<sp/>inPoly)<sp/>noexcept</highlight></codeline>
 <codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inOStream<sp/>&lt;&lt;<sp/>inPoly.str()<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>inOStream;</highlight></codeline>
@@ -529,6 +537,6 @@
 <codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="372"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/Poly1d.hpp"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Polynomial/Poly1d.hpp"/>
   </compounddef>
 </doxygen>

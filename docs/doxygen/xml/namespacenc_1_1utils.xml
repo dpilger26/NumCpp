@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="namespacenc_1_1utils" kind="namespace" language="C++">
     <compoundname>nc::utils</compoundname>
       <sectiondef kind="func">
@@ -20,19 +20,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Cubes in input value</para><para><parameterlist kind="param"><parameteritem>
+<para>Cubes in input value</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>cubed value </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>cubed value </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" line="43" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" bodystart="43" bodyend="46"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" line="43" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" bodystart="43" bodyend="46"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1utils_1aa55788420fda79bd8a06debbaa29d24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -59,33 +63,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>tests that 2 floating point values are &quot;essentially equal&quot;</para><para><parameterlist kind="param"><parameteritem>
+<para>tests that 2 floating point values are &quot;essentially equal&quot;</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inValue2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inEpsilon</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" bodystart="50" bodyend="56"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" line="50" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" bodystart="50" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1utils_1ac3dc6d7cb8c29cb15b89ec4d276aa458" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -108,26 +118,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>tests that 2 floating point values are &quot;essentially equal&quot;</para><para><parameterlist kind="param"><parameteritem>
+<para>tests that 2 floating point values are &quot;essentially equal&quot;</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inValue2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>bool </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>bool </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" line="67" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" bodystart="67" bodyend="70"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" line="67" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Utils/essentiallyEqual.hpp" bodystart="67" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1utils_1a5016e06ac7ca186ff6c110b314d30209" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -149,33 +164,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>samples a 2D gaussian of mean zero and input STD sigma</para><para><parameterlist kind="param"><parameteritem>
+<para>samples a 2D gaussian of mean zero and input STD sigma</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inY</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inSigma</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>dtype </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>dtype </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/gaussian.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/gaussian.hpp" bodystart="49" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/gaussian.hpp" line="49" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Utils/gaussian.hpp" bodystart="49" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1utils_1a263704ee2cc6ab3f77b462522c7150f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -197,33 +218,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>samples a 1D gaussian of input mean and sigma</para><para><parameterlist kind="param"><parameteritem>
+<para>samples a 1D gaussian of input mean and sigma</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inX</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inMu</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inSigma</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>dtype </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>dtype </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/gaussian1d.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/gaussian1d.hpp" bodystart="49" bodyend="55"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/gaussian1d.hpp" line="49" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Utils/gaussian1d.hpp" bodystart="49" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1utils_1a691a52cfcc401340af355bd53869600e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr double</type>
@@ -245,33 +272,39 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Returns the linear interpolation between two points</para><para><parameterlist kind="param"><parameteritem>
+<para>Returns the linear interpolation between two points</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue1</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inValue2</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inPercent</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>linear interpolated point </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>linear interpolated point </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/interp.hpp" line="44" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/interp.hpp" bodystart="44" bodyend="47"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/interp.hpp" line="44" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Utils/interp.hpp" bodystart="44" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1utils_1a2e3a14fbbce38b0f8710ea0d92ee2ffc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -290,19 +323,23 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Converts the number into a string</para><para><parameterlist kind="param"><parameteritem>
+<para>Converts the number into a string</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inNumber</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>std::string </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>std::string </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/num2str.hpp" line="45" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/num2str.hpp" bodystart="45" bodyend="48"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/num2str.hpp" line="45" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Utils/num2str.hpp" bodystart="45" bodyend="48"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1utils_1a716a63ef8627c73f6cc4146481fcabdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -325,26 +362,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Raises the input value to an integer power</para><para><parameterlist kind="param"><parameteritem>
+<para>Raises the input value to an integer power</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inPower</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>inValue raised to inPower </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>inValue raised to inPower </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/power.hpp" line="46" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/power.hpp" bodystart="46" bodyend="59"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/power.hpp" line="46" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Utils/power.hpp" bodystart="46" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1utils_1aa132d7462c0595871476eb96396a897a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -362,26 +404,31 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Raises the input value to a floating point power</para><para><parameterlist kind="param"><parameteritem>
+<para>Raises the input value to a floating point power</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
 <parametername>inPower</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>inValue raised to inPower </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>inValue raised to inPower </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/powerf.hpp" line="45" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/powerf.hpp" bodystart="45" bodyend="48"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/powerf.hpp" line="45" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Utils/powerf.hpp" bodystart="45" bodyend="48"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1_1utils_1ae792e10a24b7e5b8291a6c31a28a4512" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -400,25 +447,29 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Squares in input value</para><para><parameterlist kind="param"><parameteritem>
+<para>Squares in input value</para>
+<para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inValue</parametername>
 </parameternamelist>
 <parameterdescription>
-<para></para></parameterdescription>
+<para></para>
+</parameterdescription>
 </parameteritem>
 </parameterlist>
-<simplesect kind="return"><para>squared value </para></simplesect>
-</para>        </detaileddescription>
+<simplesect kind="return"><para>squared value </para>
+</simplesect>
+</para>
+        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/sqr.hpp" line="43" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/sqr.hpp" bodystart="43" bodyend="46"/>
+        <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/sqr.hpp" line="43" column="1" bodyfile="C:/GitHub/NumCpp/include/NumCpp/Utils/sqr.hpp" bodystart="43" bodyend="46"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" line="34" column="1"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Utils/cube.hpp" line="34" column="1"/>
   </compounddef>
 </doxygen>

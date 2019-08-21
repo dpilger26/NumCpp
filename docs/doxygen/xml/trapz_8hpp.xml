@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
   <compounddef id="trapz_8hpp" kind="file" language="C++">
     <compoundname>trapz.hpp</compoundname>
     <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
@@ -11,95 +11,6 @@
     <incdepgraph>
       <node id="16322">
         <label>boost/predef/other/endian.h</label>
-      </node>
-      <node id="16304">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="16305" relation="include">
-        </childnode>
-      </node>
-      <node id="16326">
-        <label>functional</label>
-      </node>
-      <node id="16307">
-        <label>limits</label>
-      </node>
-      <node id="16315">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="16307" relation="include">
-        </childnode>
-      </node>
-      <node id="16318">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="16304" relation="include">
-        </childnode>
-      </node>
-      <node id="16305">
-        <label>cstdint</label>
-      </node>
-      <node id="16314">
-        <label>cmath</label>
-      </node>
-      <node id="16308">
-        <label>stdexcept</label>
-      </node>
-      <node id="16329">
-        <label>numeric</label>
-      </node>
-      <node id="16309">
-        <label>string</label>
-      </node>
-      <node id="16302">
-        <label>trapz.hpp</label>
-        <link refid="trapz_8hpp"/>
-        <childnode refid="16303" relation="include">
-        </childnode>
-        <childnode refid="16310" relation="include">
-        </childnode>
-        <childnode refid="16304" relation="include">
-        </childnode>
-        <childnode refid="16312" relation="include">
-        </childnode>
-        <childnode refid="16309" relation="include">
-        </childnode>
-      </node>
-      <node id="16319">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-      </node>
-      <node id="16316">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="16303" relation="include">
-        </childnode>
-        <childnode refid="16304" relation="include">
-        </childnode>
-        <childnode refid="16311" relation="include">
-        </childnode>
-        <childnode refid="16317" relation="include">
-        </childnode>
-        <childnode refid="16306" relation="include">
-        </childnode>
-        <childnode refid="16309" relation="include">
-        </childnode>
-      </node>
-      <node id="16327">
-        <label>fstream</label>
-      </node>
-      <node id="16313">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="16314" relation="include">
-        </childnode>
-        <childnode refid="16307" relation="include">
-        </childnode>
-        <childnode refid="16309" relation="include">
-        </childnode>
-      </node>
-      <node id="16320">
-        <label>boost/algorithm/clamp.hpp</label>
       </node>
       <node id="16310">
         <label>NumCpp/Core/Shape.hpp</label>
@@ -113,8 +24,14 @@
         <childnode refid="16309" relation="include">
         </childnode>
       </node>
-      <node id="16332">
-        <label>vector</label>
+      <node id="16326">
+        <label>functional</label>
+      </node>
+      <node id="16307">
+        <label>limits</label>
+      </node>
+      <node id="16305">
+        <label>cstdint</label>
       </node>
       <node id="16312">
         <label>NumCpp/NdArray.hpp</label>
@@ -172,6 +89,113 @@
         <childnode refid="16332" relation="include">
         </childnode>
       </node>
+      <node id="16316">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="16303" relation="include">
+        </childnode>
+        <childnode refid="16304" relation="include">
+        </childnode>
+        <childnode refid="16311" relation="include">
+        </childnode>
+        <childnode refid="16317" relation="include">
+        </childnode>
+        <childnode refid="16306" relation="include">
+        </childnode>
+        <childnode refid="16309" relation="include">
+        </childnode>
+      </node>
+      <node id="16314">
+        <label>cmath</label>
+      </node>
+      <node id="16311">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="16309" relation="include">
+        </childnode>
+      </node>
+      <node id="16308">
+        <label>stdexcept</label>
+      </node>
+      <node id="16329">
+        <label>numeric</label>
+      </node>
+      <node id="16309">
+        <label>string</label>
+      </node>
+      <node id="16327">
+        <label>fstream</label>
+      </node>
+      <node id="16302">
+        <label>trapz.hpp</label>
+        <link refid="trapz_8hpp"/>
+        <childnode refid="16303" relation="include">
+        </childnode>
+        <childnode refid="16310" relation="include">
+        </childnode>
+        <childnode refid="16304" relation="include">
+        </childnode>
+        <childnode refid="16312" relation="include">
+        </childnode>
+        <childnode refid="16309" relation="include">
+        </childnode>
+      </node>
+      <node id="16318">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="16304" relation="include">
+        </childnode>
+      </node>
+      <node id="16313">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="16314" relation="include">
+        </childnode>
+        <childnode refid="16307" relation="include">
+        </childnode>
+        <childnode refid="16309" relation="include">
+        </childnode>
+      </node>
+      <node id="16315">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="16307" relation="include">
+        </childnode>
+      </node>
+      <node id="16320">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="16332">
+        <label>vector</label>
+      </node>
+      <node id="16321">
+        <label>boost/filesystem.hpp</label>
+      </node>
+      <node id="16331">
+        <label>utility</label>
+      </node>
+      <node id="16324">
+        <label>array</label>
+      </node>
+      <node id="16319">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="16304">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="16305" relation="include">
+        </childnode>
+      </node>
+      <node id="16306">
+        <label>iostream</label>
+      </node>
+      <node id="16325">
+        <label>deque</label>
+      </node>
+      <node id="16323">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
       <node id="16303">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
@@ -186,30 +210,6 @@
         <childnode refid="16309" relation="include">
         </childnode>
       </node>
-      <node id="16321">
-        <label>boost/filesystem.hpp</label>
-      </node>
-      <node id="16331">
-        <label>utility</label>
-      </node>
-      <node id="16324">
-        <label>array</label>
-      </node>
-      <node id="16311">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="16309" relation="include">
-        </childnode>
-      </node>
-      <node id="16306">
-        <label>iostream</label>
-      </node>
-      <node id="16325">
-        <label>deque</label>
-      </node>
-      <node id="16323">
-        <label>boost/endian/conversion.hpp</label>
-      </node>
       <node id="16330">
         <label>set</label>
       </node>
@@ -221,9 +221,11 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="16335">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
+      <node id="16334">
+        <label>Functions.hpp</label>
+        <link refid="_functions_8hpp"/>
+        <childnode refid="16335" relation="include">
+        </childnode>
       </node>
       <node id="16333">
         <label>trapz.hpp</label>
@@ -231,25 +233,31 @@
         <childnode refid="16334" relation="include">
         </childnode>
       </node>
-      <node id="16334">
-        <label>Functions.hpp</label>
-        <link refid="_functions_8hpp"/>
-        <childnode refid="16335" relation="include">
-        </childnode>
+      <node id="16335">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
       </node>
     </invincdepgraph>
     <innernamespace refid="namespacenc">nc</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
-<simplesect kind="version"><para>1.1</para></simplesect>
-</para><sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
+</simplesect>
+<simplesect kind="version"><para>1.1</para>
+</simplesect>
+</para>
+<sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
+<para>Copyright 2019 David Pilger</para>
+<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
+<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
+<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
+</sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Functions for working with NdArrays </para></sect1>
+<para>Functions for working with NdArrays </para>
+</sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -279,7 +287,7 @@
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>-<sp/>1;<sp/>++col)</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArray(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArray(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>static_cast&lt;double&gt;(inArray(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArray(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
 <codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_cast&lt;double&gt;(inArray(row,<sp/>col));</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="70"><highlight class="normal"></highlight></codeline>
@@ -298,7 +306,7 @@
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>transShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>-<sp/>1;<sp/>++col)</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(arrayTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayTranspose(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>static_cast&lt;double&gt;(arrayTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayTranspose(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_cast&lt;double&gt;(arrayTranspose(row,<sp/>col));</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"></highlight></codeline>
@@ -312,7 +320,7 @@
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0.0;</highlight></codeline>
 <codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>inArray.size()<sp/>-<sp/>1;<sp/>++i)</highlight></codeline>
 <codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArray[i<sp/>+<sp/>1]<sp/>-<sp/>inArray[i])<sp/>/<sp/>2.0<sp/>+<sp/>static_cast&lt;double&gt;(inArray[i]);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>static_cast&lt;double&gt;(inArray[i<sp/>+<sp/>1]<sp/>-<sp/>inArray[i])<sp/>/<sp/>2.0<sp/>+<sp/>static_cast&lt;double&gt;(inArray[i]);</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="102"><highlight class="normal"></highlight></codeline>
 <codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray<sp/>=<sp/>{<sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>*<sp/>dx<sp/>};</highlight></codeline>
@@ -350,8 +358,8 @@
 <codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>inShapeY.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>-<sp/>1;<sp/>++col)</highlight></codeline>
 <codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArrayX(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArrayX(row,<sp/>col));</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArrayY(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArrayY(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/>static_cast&lt;double&gt;(inArrayX(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArrayX(row,<sp/>col));</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(static_cast&lt;double&gt;(inArrayY(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>inArrayY(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
 <codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_cast&lt;double&gt;(inArrayY(row,<sp/>col)));</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="153"><highlight class="normal"></highlight></codeline>
@@ -371,8 +379,8 @@
 <codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>transShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>-<sp/>1;<sp/>++col)</highlight></codeline>
 <codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(arrayXTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayXTranspose(row,<sp/>col));</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(arrayYTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayYTranspose(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/>static_cast&lt;double&gt;(arrayXTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayXTranspose(row,<sp/>col));</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(static_cast&lt;double&gt;(arrayYTranspose(row,<sp/>col<sp/>+<sp/>1)<sp/>-<sp/>arrayYTranspose(row,<sp/>col))<sp/>/<sp/>2.0<sp/>+</highlight></codeline>
 <codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static_cast&lt;double&gt;(arrayYTranspose(row,<sp/>col)));</highlight></codeline>
 <codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="174"><highlight class="normal"></highlight></codeline>
@@ -386,8 +394,8 @@
 <codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>0.0;</highlight></codeline>
 <codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>inArrayY.<ref refid="classnc_1_1_nd_array_1a6871de7968fa26f32d9c43167cd66131" kindref="member">size</ref>()<sp/>-<sp/>1;<sp/>++i)</highlight></codeline>
 <codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArrayX[i<sp/>+<sp/>1]<sp/>-<sp/>inArrayX[i]);</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArrayY[i<sp/>+<sp/>1]<sp/>-<sp/>inArrayY[i])<sp/>/<sp/>2.0<sp/>+<sp/>static_cast&lt;double&gt;(inArrayY[i]));</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/>static_cast&lt;double&gt;(inArrayX[i<sp/>+<sp/>1]<sp/>-<sp/>inArrayX[i]);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>+=<sp/>dx<sp/>*<sp/>(static_cast&lt;double&gt;(inArrayY[i<sp/>+<sp/>1]<sp/>-<sp/>inArrayY[i])<sp/>/<sp/>2.0<sp/>+<sp/>static_cast&lt;double&gt;(inArrayY[i]));</highlight></codeline>
 <codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="188"><highlight class="normal"></highlight></codeline>
 <codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray<sp/>=<sp/>{<sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>};</highlight></codeline>
@@ -403,6 +411,6 @@
 <codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="200"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/trapz.hpp"/>
+    <location file="C:/GitHub/NumCpp/include/NumCpp/Functions/trapz.hpp"/>
   </compounddef>
 </doxygen>
