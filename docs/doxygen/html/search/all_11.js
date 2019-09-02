@@ -24,6 +24,8 @@ var searchData=
   ['rankfilter_2ehpp',['rankFilter.hpp',['../rank_filter_8hpp.html',1,'']]],
   ['rankfilter1d',['rankFilter1d',['../namespacenc_1_1filter.html#ac46eab01f172d2fb3818e0d1cfaf1274',1,'nc::filter']]],
   ['rankfilter1d_2ehpp',['rankFilter1d.hpp',['../rank_filter1d_8hpp.html',1,'']]],
+  ['ravel',['ravel',['../classnc_1_1_nd_array.html#aa813af00184616e608feecf30b7aa016',1,'nc::NdArray::ravel()'],['../namespacenc.html#aa8b1d40fcf507ed3d94590844a61f915',1,'nc::ravel()']]],
+  ['ravel_2ehpp',['ravel.hpp',['../ravel_8hpp.html',1,'']]],
   ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
   ['reciprocal',['reciprocal',['../namespacenc.html#a10c6d2e558dc7493f3349df8be408f35',1,'nc']]],
   ['reciprocal_2ehpp',['reciprocal.hpp',['../reciprocal_8hpp.html',1,'']]],

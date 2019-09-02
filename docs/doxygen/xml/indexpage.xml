@@ -1,614 +1,306 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="indexpage" kind="page">
     <compoundname>index</compoundname>
-    <title>NumCpp: A Templatized Header Only C++ Implementation of the &lt;a href=&quot;http://www.numpy.org&quot;&gt;Python NumPy Library&lt;/a&gt;</title>
+    <title>NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)</title>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para><heading level="2">Author: David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink></heading>
-</para>
-<para><heading level="2">Version: 1.1</heading>
-</para>
-<para><heading level="2">License</heading>
-</para>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-<para><heading level="2">Testing</heading>
-</para>
-<para><bold>C++ Standards:</bold> C++11, C++14, and C++17</para>
-<para><bold>Compilers:</bold> VS 2017/2019, GCC 7.4.0, and Clang 6.0</para>
-<para><bold>Boost Versions:</bold> 1.68 and 1.70</para>
-<para><heading level="2"><ulink url="https://dpilger26.github.io/NumCpp">Documentation</ulink></heading>
-</para>
-<para><heading level="2"><ulink url="https://github.com/dpilger26/NumCpp">GitHub</ulink></heading>
-</para>
-<para><heading level="2">From NumPy To NumCpp – A Quick Start Guide</heading>
-</para>
-<para>This quick start guide is meant as a very brief overview of some of the things that can be done with <bold>NumCpp</bold>. For a full breakdown of everything available in the <bold>NumCpp</bold> library please visit the <ulink url="https://dpilger26.github.io/NumCpp">Full Documentation</ulink>.</para>
-<para><heading level="3">CONTAINERS</heading>
-</para>
-<para>The main data structure in <bold>NumpCpp</bold> is the <computeroutput>NdArray</computeroutput>. It is inherently a 2D array class, with 1D arrays being implemented as 1xN arrays. There is also a <computeroutput>DataCube</computeroutput> class that is provided as a convenience container for storing an array of 2D <computeroutput>NdArray</computeroutput>s, but it has limited usefulness past a simple container.</para>
-<para><table rows="4" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="2">Version: 1.1</heading>
+</para><para><heading level="2">License</heading>
+</para><para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para><para><heading level="2">Testing</heading>
+</para><para><bold>C++ Standards:</bold> C++11, C++14, and C++17 <linebreak/>
+**Compilers:** VS 2017/2019, GCC 7.4.0, and Clang 6.0 <linebreak/>
+**Boost Versions:** 1.68 and 1.70 <linebreak/>
+ <heading level="2"><ulink url="https://dpilger26.github.io/NumCpp">Documentation</ulink></heading>
+</para><para><heading level="2"><ulink url="https://github.com/dpilger26/NumCpp">GitHub</ulink></heading>
+</para><para><heading level="2">From NumPy To NumCpp – A Quick Start Guide</heading>
+</para><para>This quick start guide is meant as a very brief overview of some of the things that can be done with <bold>NumCpp</bold>. For a full breakdown of everything available in the <bold>NumCpp</bold> library please visit the <ulink url="https://dpilger26.github.io/NumCpp">Full Documentation</ulink>.</para><para><heading level="3">CONTAINERS</heading>
+</para><para>The main data structure in <bold>NumpCpp</bold> is the <computeroutput>NdArray</computeroutput>. It is inherently a 2D array class, with 1D arrays being implemented as 1xN arrays. There is also a <computeroutput>DataCube</computeroutput> class that is provided as a convenience container for storing an array of 2D <computeroutput>NdArray</computeroutput>s, but it has limited usefulness past a simple container.</para><para><table rows="4" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>a = np.array([[1, 2], [3, 4], [5, 6]])</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray</ref>&lt;int&gt; a = { {1, 2}, {3, 4}, {5, 6} }</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>a = np.array([[1, 2], [3, 4], [5, 6]])</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray</ref>&lt;int&gt; a = { {1, 2}, {3, 4}, {5, 6} }</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>a.reshape([2, 3])</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>a.reshape(2, 3)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>a.reshape([2, 3])</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>a.reshape(2, 3)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>a.astype(np.double)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>a.astype&lt;double&gt;()</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>a.astype(np.double)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>a.astype&lt;double&gt;()</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">INITIALIZERS</heading>
-</para>
-<para>Many initializer functions are provided that return <computeroutput>NdArray</computeroutput>s for common needs.</para>
-<para><table rows="12" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">INITIALIZERS</heading>
+</para><para>Many initializer functions are provided that return <computeroutput>NdArray</computeroutput>s for common needs.</para><para><table rows="12" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.linspace(1, 10, 5)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a672fbcbd2271d5fc58bd1b94750bbdcc" kindref="member">nc::linspace</ref>&lt;dtype&gt;(1, 10, 5)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.linspace(1, 10, 5)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a672fbcbd2271d5fc58bd1b94750bbdcc" kindref="member">nc::linspace</ref>&lt;dtype&gt;(1, 10, 5)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.arange(3, 7)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a465e2385ac78ca4cc23928a4a0cd9f53" kindref="member">nc::arange</ref>&lt;dtype&gt;(3, 7)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.arange(3, 7)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a465e2385ac78ca4cc23928a4a0cd9f53" kindref="member">nc::arange</ref>&lt;dtype&gt;(3, 7)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.eye(4)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a14b8af9690ed6002ac7b6601f2919fa7" kindref="member">nc::eye</ref>&lt;dtype&gt;(4)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.eye(4)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a14b8af9690ed6002ac7b6601f2919fa7" kindref="member">nc::eye</ref>&lt;dtype&gt;(4)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.zeros([3, 4])</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a003b8abd8ec4640d8fcbc6d2c4872baf" kindref="member">nc::zeros</ref>&lt;dtype&gt;(3, 4)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.zeros([3, 4])</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a003b8abd8ec4640d8fcbc6d2c4872baf" kindref="member">nc::zeros</ref>&lt;dtype&gt;(3, 4)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray</ref>&lt;dtype&gt;(3, 4) a = 0</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray</ref>&lt;dtype&gt;(3, 4) a = 0</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.ones([3, 4])</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a60a5797687e15e70c20c947d90f40fec" kindref="member">nc::ones</ref>&lt;dtype&gt;(3, 4)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.ones([3, 4])</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a60a5797687e15e70c20c947d90f40fec" kindref="member">nc::ones</ref>&lt;dtype&gt;(3, 4)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray</ref>&lt;dtype&gt;(3, 4) a = 1</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray</ref>&lt;dtype&gt;(3, 4) a = 1</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.nans([3, 4])</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::nans(3, 4)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.nans([3, 4])</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::nans(3, 4)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray</ref>&lt;double&gt;(3, 4) a = <ref refid="namespacenc_1_1constants_1af94758715a9a5157d7ca95ab89d390ac" kindref="member">nc::constants::nan</ref></computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray</ref>&lt;double&gt;(3, 4) a = <ref refid="namespacenc_1_1constants_1af94758715a9a5157d7ca95ab89d390ac" kindref="member">nc::constants::nan</ref></computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.empty([3, 4])</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a30fffe546dfa683048a1cb0d759b54a8" kindref="member">nc::empty</ref>&lt;dtype&gt;(3, 4)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.empty([3, 4])</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a30fffe546dfa683048a1cb0d759b54a8" kindref="member">nc::empty</ref>&lt;dtype&gt;(3, 4)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray</ref>&lt;dtype&gt;(3, 4) a</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput><ref refid="classnc_1_1_nd_array" kindref="compound">nc::NdArray</ref>&lt;dtype&gt;(3, 4) a</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">SLICING/BROADCASTING</heading>
-</para>
-<para><bold>NumpCpp</bold> offers <bold>NumPy</bold> style slicing and broadcasting.</para>
-<para><table rows="7" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">SLICING/BROADCASTING</heading>
+</para><para><bold>NumpCpp</bold> offers <bold>NumPy</bold> style slicing and broadcasting.</para><para><table rows="7" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>a[2, 3]</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>a(2, 3)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>a[2, 3]</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>a(2, 3)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>a[2:5, 5:8]</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>a(<ref refid="classnc_1_1_slice" kindref="compound">nc::Slice(2, 5)</ref>, <ref refid="classnc_1_1_slice" kindref="compound">nc::Slice(5, 8)</ref>)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>a[2:5, 5:8]</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>a(<ref refid="classnc_1_1_slice" kindref="compound">nc::Slice(2, 5)</ref>, <ref refid="classnc_1_1_slice" kindref="compound">nc::Slice(5, 8)</ref>)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput>a({2, 5}, {5, 8})</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput>a({2, 5}, {5, 8})</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>a[:, 7]</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>a(a.rSlice(), 7)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>a[:, 7]</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>a(a.rSlice(), 7)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>a[a &gt; 5]</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>a[a &gt; 50]</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>a[a &gt; 5]</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>a[a &gt; 50]</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>a[a &gt; 5] = 0</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>a.putMask(a &gt; 50, 666)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>a[a &gt; 5] = 0</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>a.putMask(a &gt; 50, 666)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">RANDOM</heading>
-</para>
-<para>The random module provides simple ways to create random arrays.</para>
-<para><table rows="9" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">RANDOM</heading>
+</para><para>The random module provides simple ways to create random arrays.</para><para><table rows="9" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.random.seed(666)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::random::seed(666)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.random.seed(666)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::random::seed(666)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.random.randn(3, 4)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::random::randn&lt;double&gt;(<ref refid="classnc_1_1_shape" kindref="compound">nc::Shape(3,4)</ref>)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.random.randn(3, 4)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::random::randn&lt;double&gt;(<ref refid="classnc_1_1_shape" kindref="compound">nc::Shape(3,4)</ref>)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput>nc::random::randn&lt;double&gt;({3, 4})</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput>nc::random::randn&lt;double&gt;({3, 4})</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.random.randint(0, 10, [3, 4])</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1_1random_1a2842db744ad52ca905a48cd281934fd3" kindref="member">nc::random::randInt</ref>&lt;int&gt;(<ref refid="classnc_1_1_shape" kindref="compound">nc::Shape(3,4)</ref>,0,10)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.random.randint(0, 10, [3, 4])</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1_1random_1a2842db744ad52ca905a48cd281934fd3" kindref="member">nc::random::randInt</ref>&lt;int&gt;(<ref refid="classnc_1_1_shape" kindref="compound">nc::Shape(3,4)</ref>,0,10)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1_1random_1a2842db744ad52ca905a48cd281934fd3" kindref="member">nc::random::randInt</ref>&lt;int&gt;({3, 4},0,10)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1_1random_1a2842db744ad52ca905a48cd281934fd3" kindref="member">nc::random::randInt</ref>&lt;int&gt;({3, 4},0,10)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.random.rand(3, 4)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1_1random_1a66c8c21d1fe1147027316fff90d68f22" kindref="member">nc::random::rand</ref>&lt;double&gt;(<ref refid="classnc_1_1_shape" kindref="compound">nc::Shape(3,4)</ref>)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.random.rand(3, 4)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1_1random_1a66c8c21d1fe1147027316fff90d68f22" kindref="member">nc::random::rand</ref>&lt;double&gt;(<ref refid="classnc_1_1_shape" kindref="compound">nc::Shape(3,4)</ref>)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1_1random_1a66c8c21d1fe1147027316fff90d68f22" kindref="member">nc::random::rand</ref>&lt;double&gt;({3, 4})</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1_1random_1a66c8c21d1fe1147027316fff90d68f22" kindref="member">nc::random::rand</ref>&lt;double&gt;({3, 4})</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.random.choice(a, 3)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::random::choice(a, 3)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.random.choice(a, 3)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::random::choice(a, 3)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">CONCATENATION</heading>
-</para>
-<para>Many ways to concatenate <computeroutput>NdArray</computeroutput> are available.</para>
-<para><table rows="5" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">CONCATENATION</heading>
+</para><para>Many ways to concatenate <computeroutput>NdArray</computeroutput> are available.</para><para><table rows="5" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.stack([a, b, c], axis=0)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a656bb4b9fecf40f1f4194964be57c78b" kindref="member">nc::stack</ref>({a, b, c}, <ref refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7" kindref="member">nc::Axis::ROW</ref>)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.stack([a, b, c], axis=0)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a656bb4b9fecf40f1f4194964be57c78b" kindref="member">nc::stack</ref>({a, b, c}, <ref refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84a54c1ed33c810f895d48c008d89f880b7" kindref="member">nc::Axis::ROW</ref>)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.vstack([a, b, c])</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a8dec1ff4db1d89ab4b3a7d32ff4b5cf3" kindref="member">nc::vstack</ref>({a, b, c})</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.vstack([a, b, c])</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a8dec1ff4db1d89ab4b3a7d32ff4b5cf3" kindref="member">nc::vstack</ref>({a, b, c})</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.hstack([a, b, c])</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a80a6677582b65c19750b0d82ac182081" kindref="member">nc::hstack</ref>({a, b, c})</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.hstack([a, b, c])</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1a80a6677582b65c19750b0d82ac182081" kindref="member">nc::hstack</ref>({a, b, c})</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.append(a, b, axis=1)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::append(a, b, nc::Axis::COL)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.append(a, b, axis=1)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::append(a, b, nc::Axis::COL)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">DIAGONAL, TRIANGULAR, AND FLIP</heading>
-</para>
-<para>The following return new <computeroutput>NdArray</computeroutput>s.</para>
-<para><table rows="7" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">DIAGONAL, TRIANGULAR, AND FLIP</heading>
+</para><para>The following return new <computeroutput>NdArray</computeroutput>s.</para><para><table rows="7" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.diagonal(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::diagonal(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.diagonal(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::diagonal(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.triu(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::triu(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.triu(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::triu(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.tril(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::tril(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.tril(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::tril(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.flip(a, axis=0)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::flip(a, nc::Axis::ROW)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.flip(a, axis=0)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::flip(a, nc::Axis::ROW)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.flipud(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::flipud(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.flipud(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::flipud(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.fliplr(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::fliplr(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.fliplr(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::fliplr(a)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">ITERATION</heading>
-</para>
-<para><bold>NumpCpp</bold> follows the idioms of the C++ STL providing iterator pairs to iterate on arrays in different fashions.</para>
-<para><table rows="3" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">ITERATION</heading>
+</para><para><bold>NumpCpp</bold> follows the idioms of the C++ STL providing iterator pairs to iterate on arrays in different fashions.</para><para><table rows="3" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>for value in a</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>for(auto it = a.begin(); it &lt; a.end(); ++it)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>for value in a</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>for(auto it = a.begin(); it &lt; a.end(); ++it)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput>for(auto&amp; value : a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput>for(auto&amp; value : a)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">LOGICAL</heading>
-</para>
-<para>Logical FUNCTIONS in <bold>NumpCpp</bold> behave the same as <bold>NumPy</bold>.</para>
-<para><table rows="8" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">LOGICAL</heading>
+</para><para>Logical FUNCTIONS in <bold>NumpCpp</bold> behave the same as <bold>NumPy</bold>.</para><para><table rows="8" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.where(a &gt; 5, a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1ac0af750215d0444ad9f0208620ca206b" kindref="member">nc::where</ref>(a &gt; 5, a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.where(a &gt; 5, a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1ac0af750215d0444ad9f0208620ca206b" kindref="member">nc::where</ref>(a &gt; 5, a, b)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.any(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::any(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.any(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::any(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.all(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::all(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.all(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::all(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.logical_and(a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::logical_and(a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.logical_and(a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::logical_and(a, b)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.logical_or(a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::logical_or(a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.logical_or(a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::logical_or(a, b)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.isclose(a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::isclose(a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.isclose(a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::isclose(a, b)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.allclose(a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::allclose(a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.allclose(a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::allclose(a, b)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">COMPARISONS</heading>
-</para>
-<para><table rows="6" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">COMPARISONS</heading>
+</para><para><table rows="6" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.equal(a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::equal(a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.equal(a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::equal(a, b)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput>a == b</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput>a == b</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.not_equal(a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::not_equal(a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.not_equal(a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::not_equal(a, b)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput>a != b</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput>a != b</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.nonzero(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::nonzero(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.nonzero(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::nonzero(a)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">MINIMUM, MAXIMUM, SORTING</heading>
-</para>
-<para><table rows="10" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">MINIMUM, MAXIMUM, SORTING</heading>
+</para><para><table rows="10" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.min(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::min(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.min(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::min(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.max(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::max(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.max(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::max(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.argmin(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::argmin(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.argmin(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::argmin(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.argmax(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::argmax(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.argmax(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::argmax(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.sort(a, axis=0)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::sort(a, nc::Axis::ROW)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.sort(a, axis=0)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::sort(a, nc::Axis::ROW)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.argsort(a, axis=1)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::argsort(a, nc::Axis::COL)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.argsort(a, axis=1)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::argsort(a, nc::Axis::COL)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.unique(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::unique(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.unique(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::unique(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.setdiff1d(a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::setdiff1d(a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.setdiff1d(a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::setdiff1d(a, b)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.diff(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::diff(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.diff(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::diff(a)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">REDUCERS</heading>
-</para>
-<para>Reducers accumulate values of <computeroutput>NdArray</computeroutput>s along specified axes. When no axis is specified, values are accumulated along all axes.</para>
-<para><table rows="9" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">REDUCERS</heading>
+</para><para>Reducers accumulate values of <computeroutput>NdArray</computeroutput>s along specified axes. When no axis is specified, values are accumulated along all axes.</para><para><table rows="9" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.sum(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::sum(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.sum(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::sum(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.sum(a, axis=0)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::sum(a, nc::Axis::ROW)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.sum(a, axis=0)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::sum(a, nc::Axis::ROW)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.prod(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::prod(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.prod(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::prod(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.prod(a, axis=0)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::prod(a, nc::Axis::ROW)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.prod(a, axis=0)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::prod(a, nc::Axis::ROW)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.mean(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::mean(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.mean(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::mean(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.mean(a, axis=0)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::mean(a, nc::Axis::ROW)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.mean(a, axis=0)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::mean(a, nc::Axis::ROW)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.count_nonzero(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::count_nonzero(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.count_nonzero(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::count_nonzero(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.count_nonzero(a, axis=0)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::count_nonzero(a, nc::Axis::ROW)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.count_nonzero(a, axis=0)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::count_nonzero(a, nc::Axis::ROW)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">I/O</heading>
-</para>
-<para>Print and file output methods. All <bold>NumpCpp</bold> classes support a <computeroutput><ref refid="namespacenc_1aafebf0f02106dfcc3ac3edbb4aa8b59d" kindref="member">print()</ref></computeroutput> method and <computeroutput>&lt;&lt;</computeroutput> stream operators.</para>
-<para><table rows="7" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">I/O</heading>
+</para><para>Print and file output methods. All <bold>NumpCpp</bold> classes support a <computeroutput><ref refid="namespacenc_1aafebf0f02106dfcc3ac3edbb4aa8b59d" kindref="member">print()</ref></computeroutput> method and <computeroutput>&lt;&lt;</computeroutput> stream operators.</para><para><table rows="7" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>print(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1aafebf0f02106dfcc3ac3edbb4aa8b59d" kindref="member">a.print()</ref></computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>print(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1aafebf0f02106dfcc3ac3edbb4aa8b59d" kindref="member">a.print()</ref></computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para></para>
-</entry><entry thead="no"><para><computeroutput>std::cout &lt;&lt; a</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para></para></entry><entry thead="no"><para><computeroutput>std::cout &lt;&lt; a</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>a.tofile(filename, sep=’\n’)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>a.tofile(filename, &quot;\n&quot;)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>a.tofile(filename, sep=’\n’)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>a.tofile(filename, &quot;\n&quot;)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.fromfile(filename, sep=’\n’)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1ae299ba41f67aeade5634e93fd8b417c9" kindref="member">nc::fromfile</ref>&lt;dtype&gt;(filename, &quot;\n&quot;)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.fromfile(filename, sep=’\n’)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1ae299ba41f67aeade5634e93fd8b417c9" kindref="member">nc::fromfile</ref>&lt;dtype&gt;(filename, &quot;\n&quot;)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.dump(a, filename)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::dump(a, filename)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.dump(a, filename)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::dump(a, filename)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.load(filename)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1abec5f2e4d2a1598de762e32b839a3067" kindref="member">nc::load</ref>&lt;dtype&gt;(filename)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.load(filename)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1abec5f2e4d2a1598de762e32b839a3067" kindref="member">nc::load</ref>&lt;dtype&gt;(filename)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="3">MATHEMATICAL FUNCTIONS</heading>
-</para>
-<para><bold>NumpCpp</bold> universal functions are provided for a large set number of mathematical functions.</para>
-<para><heading level="4">BASIC FUNCTIONS</heading>
-</para>
-<para><table rows="6" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="3">MATHEMATICAL FUNCTIONS</heading>
+</para><para><bold>NumpCpp</bold> universal functions are provided for a large set number of mathematical functions.</para><para><heading level="4">BASIC FUNCTIONS</heading>
+</para><para><table rows="6" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.abs(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::abs(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.abs(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::abs(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.sign(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::sign(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.sign(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::sign(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.remainder(a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::remainder(a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.remainder(a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::remainder(a, b)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.clip(a, 3, 8)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::clip(a, 3, 8)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.clip(a, 3, 8)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::clip(a, 3, 8)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.interp(x, xp, fp)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::interp(x, xp, fp)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.interp(x, xp, fp)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::interp(x, xp, fp)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="4">EXPONENTIAL FUNCTIONS</heading>
-</para>
-<para><table rows="5" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="4">EXPONENTIAL FUNCTIONS</heading>
+</para><para><table rows="5" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.exp(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::exp(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.exp(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::exp(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.expm1(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::expm1(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.expm1(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::expm1(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.log(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::log(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.log(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::log(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.log1p(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::log1p(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.log1p(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::log1p(a)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="4">POWER FUNCTIONS</heading>
-</para>
-<para><table rows="5" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="4">POWER FUNCTIONS</heading>
+</para><para><table rows="5" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.power(a, 4)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::power(a, 4)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.power(a, 4)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::power(a, 4)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.sqrt(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::sqrt(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.sqrt(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::sqrt(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.square(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::square(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.square(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::square(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.cbrt(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::cbrt(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.cbrt(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::cbrt(a)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="4">TRIGONOMETRIC FUNCTIONS</heading>
-</para>
-<para><table rows="4" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="4">TRIGONOMETRIC FUNCTIONS</heading>
+</para><para><table rows="4" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.sin(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::sin(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.sin(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::sin(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.cos(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::cos(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.cos(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::cos(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.tan(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::tan(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.tan(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::tan(a)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="4">HYPERBOLIC FUNCTIONS</heading>
-</para>
-<para><table rows="4" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="4">HYPERBOLIC FUNCTIONS</heading>
+</para><para><table rows="4" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.sinh(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::sinh(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.sinh(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::sinh(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.cosh(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::cosh(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.cosh(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::cosh(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.tanh(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::tanh(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.tanh(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::tanh(a)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="4">CLASSIFICATION FUNCTIONS</heading>
-</para>
-<para><table rows="3" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="4">CLASSIFICATION FUNCTIONS</heading>
+</para><para><table rows="3" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.isnan(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::isnan(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.isnan(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::isnan(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.isinf(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::isinf(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.isinf(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::isinf(a)</computeroutput>   </para></entry></row>
 </table>
-</para>
-<para><heading level="4">LINEAR ALGEBRA</heading>
-</para>
-<para><table rows="9" cols="2"><row>
-<entry thead="yes"><para><bold>NumPy</bold>  </para>
-</entry><entry thead="yes"><para><bold>NumCpp</bold>   </para>
-</entry></row>
+</para><para><heading level="4">LINEAR ALGEBRA</heading>
+</para><para><table rows="9" cols="2"><row>
+<entry thead="yes"><para><bold>NumPy</bold>  </para></entry><entry thead="yes"><para><bold>NumCpp</bold>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.linalg.norm(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::norm(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.linalg.norm(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::norm(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.dot(a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::dot(a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.dot(a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::dot(a, b)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.linalg.det(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::linalg::det(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.linalg.det(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::linalg::det(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.linalg.inv(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::linalg::inv(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.linalg.inv(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::linalg::inv(a)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.linalg.lstsq(a, b)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::linalg::lstsq(a, b)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.linalg.lstsq(a, b)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::linalg::lstsq(a, b)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.linalg.matrix_power(a, 3)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::linalg::matrix_power(a, 3)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.linalg.matrix_power(a, 3)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::linalg::matrix_power(a, 3)</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>Np.linalg.multi_dot(a, b, c)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1_1linalg_1a86ab79e41b748e7ea0ee4f2e0bc462a6" kindref="member">nc::linalg::multi_dot</ref>({a, b, c})</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>Np.linalg.multi_dot(a, b, c)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput><ref refid="namespacenc_1_1linalg_1a86ab79e41b748e7ea0ee4f2e0bc462a6" kindref="member">nc::linalg::multi_dot</ref>({a, b, c})</computeroutput>   </para></entry></row>
 <row>
-<entry thead="no"><para><computeroutput>np.linalg.svd(a)</computeroutput>  </para>
-</entry><entry thead="no"><para><computeroutput>nc::linalg::svd(a)</computeroutput>   </para>
-</entry></row>
+<entry thead="no"><para><computeroutput>np.linalg.svd(a)</computeroutput>  </para></entry><entry thead="no"><para><computeroutput>nc::linalg::svd(a)</computeroutput>   </para></entry></row>
 </table>
-</para>
-    </detaileddescription>
+</para>    </detaileddescription>
   </compounddef>
 </doxygen>

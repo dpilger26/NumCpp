@@ -10,6 +10,7 @@ var searchData=
   ['randn',['randN',['../namespacenc_1_1random.html#aed1531eafe5ef2f67c226437003d5999',1,'nc::random']]],
   ['rankfilter',['rankFilter',['../namespacenc_1_1filter.html#a0c2cbe33d4d1ef4f6a1a10320db1c059',1,'nc::filter']]],
   ['rankfilter1d',['rankFilter1d',['../namespacenc_1_1filter.html#ac46eab01f172d2fb3818e0d1cfaf1274',1,'nc::filter']]],
+  ['ravel',['ravel',['../classnc_1_1_nd_array.html#aa813af00184616e608feecf30b7aa016',1,'nc::NdArray::ravel()'],['../namespacenc.html#aa8b1d40fcf507ed3d94590844a61f915',1,'nc::ravel()']]],
   ['reciprocal',['reciprocal',['../namespacenc.html#a10c6d2e558dc7493f3349df8be408f35',1,'nc']]],
   ['reflect1d',['reflect1d',['../namespacenc_1_1filter_1_1boundary.html#ac423cb3e19b12651c02c2c16d0723b3f',1,'nc::filter::boundary']]],
   ['reflect2d',['reflect2d',['../namespacenc_1_1filter_1_1boundary.html#add9a7d70820161e370ecd37212b1f397',1,'nc::filter::boundary']]],

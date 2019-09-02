@@ -14,6 +14,7 @@ var searchData=
   ['random_2ehpp',['Random.hpp',['../_random_8hpp.html',1,'']]],
   ['rankfilter_2ehpp',['rankFilter.hpp',['../rank_filter_8hpp.html',1,'']]],
   ['rankfilter1d_2ehpp',['rankFilter1d.hpp',['../rank_filter1d_8hpp.html',1,'']]],
+  ['ravel_2ehpp',['ravel.hpp',['../ravel_8hpp.html',1,'']]],
   ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
   ['reciprocal_2ehpp',['reciprocal.hpp',['../reciprocal_8hpp.html',1,'']]],
   ['reflect1d_2ehpp',['reflect1d.hpp',['../reflect1d_8hpp.html',1,'']]],

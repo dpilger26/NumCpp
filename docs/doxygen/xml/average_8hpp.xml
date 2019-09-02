@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="average_8hpp" kind="file" language="C++">
     <compoundname>average.hpp</compoundname>
     <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
@@ -13,16 +13,10 @@
       <node id="1269">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="1257">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="1251" relation="include">
-        </childnode>
-        <childnode refid="1258" relation="include">
-        </childnode>
-        <childnode refid="1253" relation="include">
-        </childnode>
-        <childnode refid="1256" relation="include">
+      <node id="1251">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="1252" relation="include">
         </childnode>
       </node>
       <node id="1273">
@@ -30,6 +24,66 @@
       </node>
       <node id="1254">
         <label>limits</label>
+      </node>
+      <node id="1262">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="1254" relation="include">
+        </childnode>
+      </node>
+      <node id="1265">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="1251" relation="include">
+        </childnode>
+      </node>
+      <node id="1252">
+        <label>cstdint</label>
+      </node>
+      <node id="1261">
+        <label>cmath</label>
+      </node>
+      <node id="1255">
+        <label>stdexcept</label>
+      </node>
+      <node id="1276">
+        <label>numeric</label>
+      </node>
+      <node id="1256">
+        <label>string</label>
+      </node>
+      <node id="1266">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
+      </node>
+      <node id="1263">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="1250" relation="include">
+        </childnode>
+        <childnode refid="1251" relation="include">
+        </childnode>
+        <childnode refid="1258" relation="include">
+        </childnode>
+        <childnode refid="1264" relation="include">
+        </childnode>
+        <childnode refid="1253" relation="include">
+        </childnode>
+        <childnode refid="1256" relation="include">
+        </childnode>
+      </node>
+      <node id="1274">
+        <label>fstream</label>
+      </node>
+      <node id="1260">
+        <label>NumCpp/Core/Constants.hpp</label>
+        <link refid="_constants_8hpp"/>
+        <childnode refid="1261" relation="include">
+        </childnode>
+        <childnode refid="1254" relation="include">
+        </childnode>
+        <childnode refid="1256" relation="include">
+        </childnode>
       </node>
       <node id="1249">
         <label>average.hpp</label>
@@ -47,8 +101,23 @@
         <childnode refid="1256" relation="include">
         </childnode>
       </node>
-      <node id="1252">
-        <label>cstdint</label>
+      <node id="1267">
+        <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="1257">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="1251" relation="include">
+        </childnode>
+        <childnode refid="1258" relation="include">
+        </childnode>
+        <childnode refid="1253" relation="include">
+        </childnode>
+        <childnode refid="1256" relation="include">
+        </childnode>
+      </node>
+      <node id="1279">
+        <label>vector</label>
       </node>
       <node id="1259">
         <label>NumCpp/NdArray.hpp</label>
@@ -106,99 +175,6 @@
         <childnode refid="1279" relation="include">
         </childnode>
       </node>
-      <node id="1263">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="1250" relation="include">
-        </childnode>
-        <childnode refid="1251" relation="include">
-        </childnode>
-        <childnode refid="1258" relation="include">
-        </childnode>
-        <childnode refid="1264" relation="include">
-        </childnode>
-        <childnode refid="1253" relation="include">
-        </childnode>
-        <childnode refid="1256" relation="include">
-        </childnode>
-      </node>
-      <node id="1261">
-        <label>cmath</label>
-      </node>
-      <node id="1258">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="1256" relation="include">
-        </childnode>
-      </node>
-      <node id="1255">
-        <label>stdexcept</label>
-      </node>
-      <node id="1276">
-        <label>numeric</label>
-      </node>
-      <node id="1256">
-        <label>string</label>
-      </node>
-      <node id="1274">
-        <label>fstream</label>
-      </node>
-      <node id="1265">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="1251" relation="include">
-        </childnode>
-      </node>
-      <node id="1260">
-        <label>NumCpp/Core/Constants.hpp</label>
-        <link refid="_constants_8hpp"/>
-        <childnode refid="1261" relation="include">
-        </childnode>
-        <childnode refid="1254" relation="include">
-        </childnode>
-        <childnode refid="1256" relation="include">
-        </childnode>
-      </node>
-      <node id="1262">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="1254" relation="include">
-        </childnode>
-      </node>
-      <node id="1267">
-        <label>boost/algorithm/clamp.hpp</label>
-      </node>
-      <node id="1279">
-        <label>vector</label>
-      </node>
-      <node id="1268">
-        <label>boost/filesystem.hpp</label>
-      </node>
-      <node id="1278">
-        <label>utility</label>
-      </node>
-      <node id="1271">
-        <label>array</label>
-      </node>
-      <node id="1266">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
-      </node>
-      <node id="1251">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="1252" relation="include">
-        </childnode>
-      </node>
-      <node id="1253">
-        <label>iostream</label>
-      </node>
-      <node id="1272">
-        <label>deque</label>
-      </node>
-      <node id="1270">
-        <label>boost/endian/conversion.hpp</label>
-      </node>
       <node id="1250">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
@@ -213,6 +189,30 @@
         <childnode refid="1256" relation="include">
         </childnode>
       </node>
+      <node id="1268">
+        <label>boost/filesystem.hpp</label>
+      </node>
+      <node id="1278">
+        <label>utility</label>
+      </node>
+      <node id="1271">
+        <label>array</label>
+      </node>
+      <node id="1258">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="1256" relation="include">
+        </childnode>
+      </node>
+      <node id="1253">
+        <label>iostream</label>
+      </node>
+      <node id="1272">
+        <label>deque</label>
+      </node>
+      <node id="1270">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
       <node id="1277">
         <label>set</label>
       </node>
@@ -224,6 +224,10 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="1282">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
       <node id="1280">
         <label>average.hpp</label>
         <link refid="average_8hpp"/>
@@ -236,31 +240,19 @@
         <childnode refid="1282" relation="include">
         </childnode>
       </node>
-      <node id="1282">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
-      </node>
     </invincdepgraph>
     <innernamespace refid="namespacenc">nc</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.1</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.1</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Functions for working with NdArrays </para>
-</sect1>
+<para>Functions for working with NdArrays </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -302,7 +294,7 @@
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weightedArray.begin(),<sp/>std::multiplies&lt;double&gt;());</highlight></codeline>
 <codeline lineno="85"><highlight class="normal"></highlight></codeline>
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>=<sp/>std::accumulate(weightedArray.begin(),<sp/>weightedArray.end(),<sp/>0.0);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray<sp/>=<sp/>{<sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>/=<sp/>inWeights.template<sp/>astype&lt;double&gt;().<ref refid="classnc_1_1_nd_array_1ab1dfe260680abf6a8cc4fdf56c1b15c2" kindref="member">sum</ref>().item()<sp/>};</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray<sp/>=<sp/>{<sp/><ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref><sp/>/=<sp/>inWeights.template<sp/>astype&lt;double&gt;().<ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref>().item()<sp/>};</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"></highlight></codeline>
 <codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
@@ -314,7 +306,7 @@
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_error_8hpp_1af2aff1172060367b9c5398fa097fa8fd" kindref="member">THROW_INVALID_ARGUMENT_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;input<sp/>array<sp/>and<sp/>weights<sp/>value<sp/>are<sp/>not<sp/>consistant.&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="98"><highlight class="normal"></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weightSum<sp/>=<sp/>inWeights.template<sp/>astype&lt;double&gt;().<ref refid="classnc_1_1_nd_array_1ab1dfe260680abf6a8cc4fdf56c1b15c2" kindref="member">sum</ref>().item();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weightSum<sp/>=<sp/>inWeights.template<sp/>astype&lt;double&gt;().<ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref>().item();</highlight></codeline>
 <codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(1,<sp/>arrayShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>);</highlight></codeline>
 <codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>row<sp/>=<sp/>0;<sp/>row<sp/>&lt;<sp/>arrayShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>;<sp/>++row)</highlight></codeline>
 <codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -338,7 +330,7 @@
 <codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>transposedArray<sp/>=<sp/>inArray.<ref refid="classnc_1_1_nd_array_1aae29c9fbae3e92ce432703ffd7722d8b" kindref="member">transpose</ref>();</highlight></codeline>
 <codeline lineno="121"><highlight class="normal"></highlight></codeline>
 <codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_shape" kindref="compound">Shape</ref><sp/>transShape<sp/>=<sp/>transposedArray.<ref refid="classnc_1_1_nd_array_1a232a5e8c426b629dcda9f9d52e8ce905" kindref="member">shape</ref>();</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weightSum<sp/>=<sp/>inWeights.template<sp/>astype&lt;double&gt;().<ref refid="classnc_1_1_nd_array_1ab1dfe260680abf6a8cc4fdf56c1b15c2" kindref="member">sum</ref>().item();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weightSum<sp/>=<sp/>inWeights.template<sp/>astype&lt;double&gt;().<ref refid="namespacenc_1a23d451164e54a93142bf3dc456f7cac3" kindref="member">sum</ref>().item();</highlight></codeline>
 <codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(1,<sp/>transShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>);</highlight></codeline>
 <codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>row<sp/>=<sp/>0;<sp/>row<sp/>&lt;<sp/>transShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref>;<sp/>++row)</highlight></codeline>
 <codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
@@ -362,6 +354,6 @@
 <codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="145"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Functions/average.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/average.hpp"/>
   </compounddef>
 </doxygen>
