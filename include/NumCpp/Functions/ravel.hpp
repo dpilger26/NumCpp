@@ -36,7 +36,7 @@ namespace nc
     // Method Description:
     ///	Flattens the array but does not make a copy.
     ///
-    /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html
+    /// Numpy Reference: https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html
     ///
     /// @param	inArray
     ///
