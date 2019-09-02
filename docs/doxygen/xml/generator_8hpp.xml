@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="generator_8hpp" kind="file" language="C++">
     <compoundname>generator.hpp</compoundname>
     <includes refid="_types_8hpp" local="yes">NumCpp/Core/Types.hpp</includes>
@@ -33,179 +33,9 @@
     <includedby refid="weibull_8hpp" local="yes">weibull.hpp</includedby>
     <includedby refid="_random_8hpp" local="yes">Random.hpp</includedby>
     <incdepgraph>
-      <node id="7079">
-        <label>cstdint</label>
-      </node>
-      <node id="7080">
-        <label>random</label>
-      </node>
-      <node id="7078">
+      <node id="7082">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="7079" relation="include">
-        </childnode>
-      </node>
-      <node id="7077">
-        <label>generator.hpp</label>
-        <link refid="generator_8hpp"/>
-        <childnode refid="7078" relation="include">
-        </childnode>
-        <childnode refid="7080" relation="include">
-        </childnode>
-      </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="7102">
-        <label>poisson.hpp</label>
-        <link refid="poisson_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7100">
-        <label>standardNormal.hpp</label>
-        <link refid="standard_normal_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7083">
-        <label>Random.hpp</label>
-        <link refid="_random_8hpp"/>
-        <childnode refid="7084" relation="include">
-        </childnode>
-      </node>
-      <node id="7089">
-        <label>discrete.hpp</label>
-        <link refid="discrete_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7105">
-        <label>uniform.hpp</label>
-        <link refid="uniform_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7096">
-        <label>lognormal.hpp</label>
-        <link refid="lognormal_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7092">
-        <label>f.hpp</label>
-        <link refid="f_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7086">
-        <label>binomial.hpp</label>
-        <link refid="binomial_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7087">
-        <label>cauchy.hpp</label>
-        <link refid="cauchy_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7094">
-        <label>geometric.hpp</label>
-        <link refid="geometric_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7095">
-        <label>laplace.hpp</label>
-        <link refid="_random_2laplace_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7104">
-        <label>randFloat.hpp</label>
-        <link refid="rand_float_8hpp"/>
-        <childnode refid="7105" relation="include">
-        </childnode>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7112">
-        <label>uniformOnSphere.hpp</label>
-        <link refid="uniform_on_sphere_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7113">
-        <label>weibull.hpp</label>
-        <link refid="weibull_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7098">
-        <label>nonCentralChiSquared.hpp</label>
-        <link refid="non_central_chi_squared_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7097">
-        <label>negativeBinomial.hpp</label>
-        <link refid="negative_binomial_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7088">
-        <label>chiSquare.hpp</label>
-        <link refid="chi_square_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7091">
-        <label>extremeValue.hpp</label>
-        <link refid="extreme_value_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7110">
-        <label>studentT.hpp</label>
-        <link refid="student_t_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7108">
-        <label>randN.hpp</label>
-        <link refid="rand_n_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7107">
-        <label>choice.hpp</label>
-        <link refid="choice_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7099">
-        <label>normal.hpp</label>
-        <link refid="normal_8hpp"/>
-        <childnode refid="7100" relation="include">
-        </childnode>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7101">
-        <label>permutation.hpp</label>
-        <link refid="permutation_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7090">
-        <label>exponential.hpp</label>
-        <link refid="exponential_8hpp"/>
-        <childnode refid="7083" relation="include">
-        </childnode>
-      </node>
-      <node id="7109">
-        <label>shuffle.hpp</label>
-        <link refid="shuffle_8hpp"/>
         <childnode refid="7083" relation="include">
         </childnode>
       </node>
@@ -214,13 +44,37 @@
         <link refid="generator_8hpp"/>
         <childnode refid="7082" relation="include">
         </childnode>
-        <childnode refid="7085" relation="include">
+        <childnode refid="7084" relation="include">
         </childnode>
-        <childnode refid="7086" relation="include">
-        </childnode>
+      </node>
+      <node id="7083">
+        <label>cstdint</label>
+      </node>
+      <node id="7084">
+        <label>random</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7101">
+        <label>negativeBinomial.hpp</label>
+        <link refid="negative_binomial_8hpp"/>
         <childnode refid="7087" relation="include">
         </childnode>
-        <childnode refid="7088" relation="include">
+      </node>
+      <node id="7088">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
+      <node id="7091">
+        <label>cauchy.hpp</label>
+        <link refid="cauchy_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7085">
+        <label>generator.hpp</label>
+        <link refid="generator_8hpp"/>
+        <childnode refid="7086" relation="include">
         </childnode>
         <childnode refid="7089" relation="include">
         </childnode>
@@ -244,71 +98,217 @@
         </childnode>
         <childnode refid="7099" relation="include">
         </childnode>
+        <childnode refid="7100" relation="include">
+        </childnode>
         <childnode refid="7101" relation="include">
         </childnode>
         <childnode refid="7102" relation="include">
         </childnode>
         <childnode refid="7103" relation="include">
         </childnode>
-        <childnode refid="7104" relation="include">
+        <childnode refid="7105" relation="include">
         </childnode>
         <childnode refid="7106" relation="include">
         </childnode>
+        <childnode refid="7107" relation="include">
+        </childnode>
         <childnode refid="7108" relation="include">
         </childnode>
-        <childnode refid="7109" relation="include">
-        </childnode>
         <childnode refid="7110" relation="include">
-        </childnode>
-        <childnode refid="7111" relation="include">
         </childnode>
         <childnode refid="7112" relation="include">
         </childnode>
         <childnode refid="7113" relation="include">
         </childnode>
-        <childnode refid="7083" relation="include">
+        <childnode refid="7114" relation="include">
+        </childnode>
+        <childnode refid="7115" relation="include">
+        </childnode>
+        <childnode refid="7116" relation="include">
+        </childnode>
+        <childnode refid="7117" relation="include">
+        </childnode>
+        <childnode refid="7087" relation="include">
         </childnode>
       </node>
-      <node id="7111">
-        <label>triangle.hpp</label>
-        <link refid="triangle_8hpp"/>
-        <childnode refid="7083" relation="include">
+      <node id="7110">
+        <label>randInt.hpp</label>
+        <link refid="rand_int_8hpp"/>
+        <childnode refid="7111" relation="include">
+        </childnode>
+        <childnode refid="7087" relation="include">
         </childnode>
       </node>
-      <node id="7085">
+      <node id="7104">
+        <label>standardNormal.hpp</label>
+        <link refid="standard_normal_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7095">
+        <label>extremeValue.hpp</label>
+        <link refid="extreme_value_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7089">
         <label>beta.hpp</label>
         <link refid="_random_2beta_8hpp"/>
-        <childnode refid="7083" relation="include">
+        <childnode refid="7087" relation="include">
         </childnode>
       </node>
-      <node id="7103">
-        <label>rand.hpp</label>
-        <link refid="rand_8hpp"/>
-        <childnode refid="7083" relation="include">
+      <node id="7117">
+        <label>weibull.hpp</label>
+        <link refid="weibull_8hpp"/>
+        <childnode refid="7087" relation="include">
         </childnode>
       </node>
       <node id="7106">
-        <label>randInt.hpp</label>
-        <link refid="rand_int_8hpp"/>
-        <childnode refid="7107" relation="include">
-        </childnode>
-        <childnode refid="7083" relation="include">
+        <label>poisson.hpp</label>
+        <link refid="poisson_8hpp"/>
+        <childnode refid="7087" relation="include">
         </childnode>
       </node>
-      <node id="7084">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
+      <node id="7105">
+        <label>permutation.hpp</label>
+        <link refid="permutation_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
       </node>
-      <node id="7082">
+      <node id="7087">
+        <label>Random.hpp</label>
+        <link refid="_random_8hpp"/>
+        <childnode refid="7088" relation="include">
+        </childnode>
+      </node>
+      <node id="7112">
+        <label>randN.hpp</label>
+        <link refid="rand_n_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7100">
+        <label>lognormal.hpp</label>
+        <link refid="lognormal_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7108">
+        <label>randFloat.hpp</label>
+        <link refid="rand_float_8hpp"/>
+        <childnode refid="7109" relation="include">
+        </childnode>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7111">
+        <label>choice.hpp</label>
+        <link refid="choice_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7099">
+        <label>laplace.hpp</label>
+        <link refid="_random_2laplace_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7086">
         <label>bernoilli.hpp</label>
         <link refid="bernoilli_8hpp"/>
-        <childnode refid="7083" relation="include">
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7109">
+        <label>uniform.hpp</label>
+        <link refid="uniform_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7103">
+        <label>normal.hpp</label>
+        <link refid="normal_8hpp"/>
+        <childnode refid="7104" relation="include">
+        </childnode>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7090">
+        <label>binomial.hpp</label>
+        <link refid="binomial_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7096">
+        <label>f.hpp</label>
+        <link refid="f_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7097">
+        <label>gamma.hpp</label>
+        <link refid="_random_2gamma_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7092">
+        <label>chiSquare.hpp</label>
+        <link refid="chi_square_8hpp"/>
+        <childnode refid="7087" relation="include">
         </childnode>
       </node>
       <node id="7093">
-        <label>gamma.hpp</label>
-        <link refid="_random_2gamma_8hpp"/>
-        <childnode refid="7083" relation="include">
+        <label>discrete.hpp</label>
+        <link refid="discrete_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7098">
+        <label>geometric.hpp</label>
+        <link refid="geometric_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7113">
+        <label>shuffle.hpp</label>
+        <link refid="shuffle_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7094">
+        <label>exponential.hpp</label>
+        <link refid="exponential_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7115">
+        <label>triangle.hpp</label>
+        <link refid="triangle_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7107">
+        <label>rand.hpp</label>
+        <link refid="rand_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7116">
+        <label>uniformOnSphere.hpp</label>
+        <link refid="uniform_on_sphere_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7114">
+        <label>studentT.hpp</label>
+        <link refid="student_t_8hpp"/>
+        <childnode refid="7087" relation="include">
+        </childnode>
+      </node>
+      <node id="7102">
+        <label>nonCentralChiSquared.hpp</label>
+        <link refid="non_central_chi_squared_8hpp"/>
+        <childnode refid="7087" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -317,22 +317,14 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.1</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.1</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>Seeds the random number generator </para>
-</sect1>
+<para>Seeds the random number generator </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -356,6 +348,6 @@
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="56"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/Random/generator.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Random/generator.hpp"/>
   </compounddef>
 </doxygen>

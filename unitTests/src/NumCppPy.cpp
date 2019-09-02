@@ -490,6 +490,13 @@ namespace NdArrayInterface
         return nc2Boost(self);
     }
 
+    template<typename dtype>
+    np::ndarray ravel(NdArray<dtype>& self)
+    {
+        self.ravel();
+        return nc2Boost(self);
+    }
+
     //================================================================================
 
     template<typename dtype>
@@ -2117,6 +2124,14 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    NdArray<dtype>& ravel(NdArray<dtype>& inArray)
+    {
+        return nc::ravel(inArray);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     dtype remainderScaler(dtype inValue1, dtype inValue2) noexcept
     {
         return remainder(inValue1, inValue2);
@@ -3693,6 +3708,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("put", &NdArrayInterface::putSlice2DValuesCol<double>)
         .def("putMask", &NdArrayInterface::putMaskSingle<double>)
         .def("putMask", &NdArrayInterface::putMaskMultiple<double>)
+        .def("ravel", &NdArrayInterface::ravel<double>)
         .def("repeat", &NdArrayInterface::repeat<double>)
         .def("reshape", &NdArrayInterface::reshapeInt<double>)
         .def("reshape", &NdArrayInterface::reshapeValues<double>)
@@ -4075,6 +4091,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("rad2degArray", &MethodsInterface::rad2degArray<double>);
     bp::def("radiansScaler", &MethodsInterface::radiansScaler<double>);
     bp::def("radiansArray", &MethodsInterface::radiansArray<double>);
+    bp::def("ravel", &MethodsInterface::ravel<double>, bp::return_internal_reference<>());
     bp::def("reciprocal", &reciprocal<double>);
     bp::def("remainderScaler", &MethodsInterface::remainderScaler<double>);
     bp::def("remainderArray", &MethodsInterface::remainderArray<double>);

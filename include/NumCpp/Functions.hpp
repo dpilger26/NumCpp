@@ -205,6 +205,7 @@
 
 #include "NumCpp/Functions/rad2deg.hpp"
 #include "NumCpp/Functions/radians.hpp"
+#include "NumCpp/Functions/ravel.hpp"
 #include "NumCpp/Functions/reciprocal.hpp"
 #include "NumCpp/Functions/remainder.hpp"
 #include "NumCpp/Functions/repeat.hpp"

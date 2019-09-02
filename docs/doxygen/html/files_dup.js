@@ -322,6 +322,7 @@ var files_dup =
     [ "Random.hpp", "_random_8hpp.html", null ],
     [ "rankFilter.hpp", "rank_filter_8hpp.html", "rank_filter_8hpp" ],
     [ "rankFilter1d.hpp", "rank_filter1d_8hpp.html", "rank_filter1d_8hpp" ],
+    [ "ravel.hpp", "ravel_8hpp.html", "ravel_8hpp" ],
     [ "reciprocal.hpp", "reciprocal_8hpp.html", "reciprocal_8hpp" ],
     [ "reflect1d.hpp", "reflect1d_8hpp.html", "reflect1d_8hpp" ],
     [ "reflect2d.hpp", "reflect2d_8hpp.html", "reflect2d_8hpp" ],
