@@ -2934,6 +2934,20 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///	Flattens the array but does not make a copy.
+        ///
+        /// https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html
+        ///
+        /// @return NdArray
+        ///
+        NdArray<dtype>& ravel()
+        {
+            reshape(size_);
+            return *this;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Repeat elements of an array.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.repeat.html
