@@ -41,9 +41,8 @@ namespace nc
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
     ///
-    /// @param				inValue
-    /// @return
-    ///				value
+    /// @param  inValue
+    /// @return value
     ///
     template<typename dtype>
     dtype ceil(dtype inValue) noexcept
@@ -57,9 +56,8 @@ namespace nc
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ceil.html
     ///
-    /// @param				inArray
-    /// @return
-    ///				NdArray
+    /// @param  inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> ceil(const NdArray<dtype>& inArray) noexcept

@@ -41,10 +41,8 @@ namespace nc
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
     ///
-    /// @param
-    ///				inValue
-    /// @return
-    ///				value
+    /// @param  inValue
+    /// @return value
     ///
     template<typename dtype>
     dtype floor(dtype inValue) noexcept
@@ -58,18 +56,15 @@ namespace nc
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.floor.html
     ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray
+    /// @param  inArray
+    /// @return NdArray
     ///
     template<typename dtype>
     NdArray<dtype> floor(const NdArray<dtype>& inArray) noexcept
     {
-        NdArray<double> returnArray(inArray.shape());
-
+        NdArray<dtype> returnArray(inArray.shape());
         std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
-            [](dtype inValue) noexcept -> double
+            [](dtype inValue) noexcept -> dtype
             { return floor(inValue); });
 
         return returnArray;
