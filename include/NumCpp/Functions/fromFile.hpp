@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Filesystem.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include "boost/filesystem.hpp"
 
 #include <fstream>
 #include <string>
@@ -56,8 +55,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> fromfile(const std::string& inFilename, const std::string& inSep = "")
     {
-        boost::filesystem::path p(inFilename);
-        if (!boost::filesystem::exists(inFilename))
+        if (!filesystem::File(inFilename).exists())
         {
             THROW_INVALID_ARGUMENT_ERROR("input filename does not exist.\n\t" + inFilename);
         }

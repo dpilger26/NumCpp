@@ -1785,19 +1785,20 @@ namespace nc
         ///
         void dump(const std::string& inFilename) const
         {
-            boost::filesystem::path p(inFilename);
-            if (!boost::filesystem::exists(p.parent_path()))
-            {
-                THROW_RUNTIME_ERROR("Input path does not exist:\n\t" + p.parent_path().string());
-            }
+            filesystem::Path p(inFilename);
 
             std::string ext = "";
-            if (!p.has_extension())
+            if (!.p.hasExt())
             {
                 ext += ".bin";
             }
 
             std::ofstream ofile((inFilename + ext).c_str(), std::ios::binary);
+            if (!ofile.good())
+            {
+                THROW_RUNTIME_ERROR("Unable to open the input file:\n\t" + inFilename);
+            }
+
             ofile.write(reinterpret_cast<const char*>(array_), size_ * sizeof(dtype));
             ofile.close();
         }
