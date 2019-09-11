@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['hasext',['hasExt',['../classnc_1_1filesystem_1_1_file.html#a74f7e012422534a9558b630f2b6edd06',1,'nc::filesystem::File']]],
   ['hat',['hat',['../namespacenc_1_1linalg.html#a52417fc43f9622ef2a527ec84da50ca2',1,'nc::linalg::hat(dtype inX, dtype inY, dtype inZ) noexcept'],['../namespacenc_1_1linalg.html#ae7ced3680f1ae95af4bc2e6b98a5a517',1,'nc::linalg::hat(const NdArray&lt; dtype &gt; &amp;inVec)'],['../namespacenc_1_1linalg.html#ae9cdb091717a1c74dc659519d77e0048',1,'nc::linalg::hat(const Vec3 &amp;inVec)']]],
   ['hat_2ehpp',['hat.hpp',['../hat_8hpp.html',1,'']]],
   ['height',['height',['../classnc_1_1image_processing_1_1_cluster.html#a71ccd5ee3fea70b4b1b27ba25f4b3fb8',1,'nc::imageProcessing::Cluster']]],

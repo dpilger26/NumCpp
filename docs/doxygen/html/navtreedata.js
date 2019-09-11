@@ -24,7 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "NumCpp: A Templatized Header Only C++ Implementation of the <a href=\"http://www.numpy.org\">Python NumPy Library</a>", "index.html", null ],
+    [ "NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)", "index.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -61,14 +61,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_boost_interface_8hpp.html",
-"alen_8hpp_source.html",
-"classnc_1_1_nd_array.html#a223415dda1b4b8d70b140d947784362c",
-"classnc_1_1_vec3.html#a6356b462b11a156b923a7c79b9747c25",
-"concatenate_8hpp.html#a027070169f1750a74315d07c5bbdfb03",
-"functions_func_n.html",
-"mirror1d_8hpp.html",
-"rand_n_8hpp.html#aed1531eafe5ef2f67c226437003d5999",
-"where_8hpp_source.html"
+"alen_8hpp.html",
+"classnc_1_1_nd_array.html#a1f338fba16d572c164bec5f3b612cbb1",
+"classnc_1_1_vec3.html#a523ca42cbdd088851cc5a299da988cee",
+"column__stack_8hpp.html",
+"functions_func_b.html",
+"min_8hpp_source.html",
+"radians_8hpp.html#ac25bf9dbbc1efc02e31e8737c85bbdd6",
+"unwrap_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

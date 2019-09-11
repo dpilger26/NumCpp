@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['pixel',['Pixel',['../classnc_1_1image_processing_1_1_pixel.html',1,'nc::imageProcessing']]],
-  ['poly1d',['Poly1d',['../classnc_1_1polynomial_1_1_poly1d.html',1,'nc::polynomial']]]
+  ['ndarray',['NdArray',['../classnc_1_1_nd_array.html',1,'nc']]],
+  ['ndarray_3c_20bool_20_3e',['NdArray&lt; bool &gt;',['../classnc_1_1_nd_array.html',1,'nc']]],
+  ['ndarray_3c_20double_20_3e',['NdArray&lt; double &gt;',['../classnc_1_1_nd_array.html',1,'nc']]]
 ];

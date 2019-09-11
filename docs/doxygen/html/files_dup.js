@@ -150,6 +150,9 @@ var files_dup =
     [ "eye.hpp", "eye_8hpp.html", "eye_8hpp" ],
     [ "f.hpp", "f_8hpp.html", "f_8hpp" ],
     [ "factorial.hpp", "factorial_8hpp.html", "factorial_8hpp" ],
+    [ "Filesystem.hpp", "_filesystem_8hpp.html", [
+      [ "File", "classnc_1_1filesystem_1_1_file.html", "classnc_1_1filesystem_1_1_file" ]
+    ] ],
     [ "fillCorners.hpp", "fill_corners_8hpp.html", "fill_corners_8hpp" ],
     [ "fillDiagnol.hpp", "fill_diagnol_8hpp.html", "fill_diagnol_8hpp" ],
     [ "Filter.hpp", "_filter_8hpp.html", null ],
