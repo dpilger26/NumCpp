@@ -2,6 +2,7 @@ var namespacenc =
 [
     [ "boostPythonInterface", "namespacenc_1_1boost_python_interface.html", "namespacenc_1_1boost_python_interface" ],
     [ "coordinates", "namespacenc_1_1coordinates.html", "namespacenc_1_1coordinates" ],
+    [ "filesystem", "namespacenc_1_1filesystem.html", "namespacenc_1_1filesystem" ],
     [ "filter", "namespacenc_1_1filter.html", null ],
     [ "imageProcessing", "namespacenc_1_1image_processing.html", "namespacenc_1_1image_processing" ],
     [ "linalg", "namespacenc_1_1linalg.html", "namespacenc_1_1linalg" ],

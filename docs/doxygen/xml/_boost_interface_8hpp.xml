@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
   <compounddef id="_boost_interface_8hpp" kind="file" language="C++">
     <compoundname>BoostInterface.hpp</compoundname>
     <includes refid="_error_8hpp" local="yes">NumCpp/Core/Error.hpp</includes>
@@ -12,22 +12,16 @@
     <includes local="no">string</includes>
     <includedby refid="_python_interface_8hpp" local="yes">PythonInterface.hpp</includedby>
     <incdepgraph>
-      <node id="1942">
+      <node id="1943">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="1930">
-        <label>NumCpp/Core/Shape.hpp</label>
-        <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="1924" relation="include">
-        </childnode>
-        <childnode refid="1931" relation="include">
-        </childnode>
-        <childnode refid="1926" relation="include">
-        </childnode>
-        <childnode refid="1929" relation="include">
+      <node id="1924">
+        <label>NumCpp/Core/Types.hpp</label>
+        <link refid="_types_8hpp"/>
+        <childnode refid="1925" relation="include">
         </childnode>
       </node>
-      <node id="1946">
+      <node id="1947">
         <label>functional</label>
       </node>
       <node id="1927">
@@ -36,89 +30,23 @@
       <node id="1955">
         <label>boost/python/numpy.hpp</label>
       </node>
+      <node id="1935">
+        <label>NumCpp/Core/DtypeInfo.hpp</label>
+        <link refid="_dtype_info_8hpp"/>
+        <childnode refid="1927" relation="include">
+        </childnode>
+      </node>
+      <node id="1940">
+        <label>NumCpp/Utils/power.hpp</label>
+        <link refid="_utils_2power_8hpp"/>
+        <childnode refid="1924" relation="include">
+        </childnode>
+      </node>
       <node id="1925">
         <label>cstdint</label>
       </node>
-      <node id="1932">
-        <label>NumCpp/NdArray.hpp</label>
-        <link refid="_nd_array_8hpp"/>
-        <childnode refid="1933" relation="include">
-        </childnode>
-        <childnode refid="1935" relation="include">
-        </childnode>
-        <childnode refid="1923" relation="include">
-        </childnode>
-        <childnode refid="1930" relation="include">
-        </childnode>
-        <childnode refid="1936" relation="include">
-        </childnode>
-        <childnode refid="1924" relation="include">
-        </childnode>
-        <childnode refid="1931" relation="include">
-        </childnode>
-        <childnode refid="1938" relation="include">
-        </childnode>
-        <childnode refid="1939" relation="include">
-        </childnode>
-        <childnode refid="1940" relation="include">
-        </childnode>
-        <childnode refid="1941" relation="include">
-        </childnode>
-        <childnode refid="1942" relation="include">
-        </childnode>
-        <childnode refid="1943" relation="include">
-        </childnode>
-        <childnode refid="1937" relation="include">
-        </childnode>
-        <childnode refid="1944" relation="include">
-        </childnode>
-        <childnode refid="1934" relation="include">
-        </childnode>
-        <childnode refid="1945" relation="include">
-        </childnode>
-        <childnode refid="1946" relation="include">
-        </childnode>
-        <childnode refid="1947" relation="include">
-        </childnode>
-        <childnode refid="1948" relation="include">
-        </childnode>
-        <childnode refid="1926" relation="include">
-        </childnode>
-        <childnode refid="1949" relation="include">
-        </childnode>
-        <childnode refid="1950" relation="include">
-        </childnode>
-        <childnode refid="1929" relation="include">
-        </childnode>
-        <childnode refid="1951" relation="include">
-        </childnode>
-        <childnode refid="1952" relation="include">
-        </childnode>
-      </node>
-      <node id="1936">
-        <label>NumCpp/Core/Slice.hpp</label>
-        <link refid="_slice_8hpp"/>
-        <childnode refid="1923" relation="include">
-        </childnode>
-        <childnode refid="1924" relation="include">
-        </childnode>
-        <childnode refid="1931" relation="include">
-        </childnode>
-        <childnode refid="1937" relation="include">
-        </childnode>
-        <childnode refid="1926" relation="include">
-        </childnode>
-        <childnode refid="1929" relation="include">
-        </childnode>
-      </node>
       <node id="1934">
         <label>cmath</label>
-      </node>
-      <node id="1931">
-        <label>NumCpp/Utils/num2str.hpp</label>
-        <link refid="num2str_8hpp"/>
-        <childnode refid="1929" relation="include">
-        </childnode>
       </node>
       <node id="1928">
         <label>stdexcept</label>
@@ -132,37 +60,35 @@
       <node id="1956">
         <label>map</label>
       </node>
-      <node id="1947">
-        <label>fstream</label>
+      <node id="1941">
+        <label>NumCpp/Utils/sqr.hpp</label>
+        <link refid="sqr_8hpp"/>
       </node>
-      <node id="1953">
-        <label>NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp</label>
-        <link refid="_boost_numpy_ndarray_helper_8hpp"/>
+      <node id="1938">
+        <label>NumCpp/Core/Slice.hpp</label>
+        <link refid="_slice_8hpp"/>
+        <childnode refid="1923" relation="include">
+        </childnode>
         <childnode refid="1924" relation="include">
         </childnode>
         <childnode refid="1931" relation="include">
         </childnode>
-        <childnode refid="1937" relation="include">
-        </childnode>
-        <childnode refid="1934" relation="include">
+        <childnode refid="1939" relation="include">
         </childnode>
         <childnode refid="1926" relation="include">
         </childnode>
-        <childnode refid="1952" relation="include">
-        </childnode>
         <childnode refid="1929" relation="include">
         </childnode>
-        <childnode refid="1951" relation="include">
-        </childnode>
-        <childnode refid="1954" relation="include">
-        </childnode>
-        <childnode refid="1955" relation="include">
-        </childnode>
       </node>
-      <node id="1938">
-        <label>NumCpp/Utils/power.hpp</label>
-        <link refid="_utils_2power_8hpp"/>
-        <childnode refid="1924" relation="include">
+      <node id="1937">
+        <label>fstream</label>
+      </node>
+      <node id="1936">
+        <label>NumCpp/Core/Filesystem.hpp</label>
+        <link refid="_filesystem_8hpp"/>
+        <childnode refid="1937" relation="include">
+        </childnode>
+        <childnode refid="1929" relation="include">
         </childnode>
       </node>
       <node id="1933">
@@ -175,33 +101,23 @@
         <childnode refid="1929" relation="include">
         </childnode>
       </node>
-      <node id="1935">
-        <label>NumCpp/Core/DtypeInfo.hpp</label>
-        <link refid="_dtype_info_8hpp"/>
-        <childnode refid="1927" relation="include">
-        </childnode>
-      </node>
-      <node id="1940">
+      <node id="1942">
         <label>boost/algorithm/clamp.hpp</label>
+      </node>
+      <node id="1930">
+        <label>NumCpp/Core/Shape.hpp</label>
+        <link refid="_core_2_shape_8hpp"/>
+        <childnode refid="1924" relation="include">
+        </childnode>
+        <childnode refid="1931" relation="include">
+        </childnode>
+        <childnode refid="1926" relation="include">
+        </childnode>
+        <childnode refid="1929" relation="include">
+        </childnode>
       </node>
       <node id="1954">
         <label>boost/python.hpp</label>
-      </node>
-      <node id="1952">
-        <label>vector</label>
-      </node>
-      <node id="1941">
-        <label>boost/filesystem.hpp</label>
-      </node>
-      <node id="1951">
-        <label>utility</label>
-      </node>
-      <node id="1944">
-        <label>array</label>
-      </node>
-      <node id="1939">
-        <label>NumCpp/Utils/sqr.hpp</label>
-        <link refid="sqr_8hpp"/>
       </node>
       <node id="1922">
         <label>BoostInterface.hpp</label>
@@ -223,20 +139,64 @@
         <childnode refid="1929" relation="include">
         </childnode>
       </node>
-      <node id="1924">
-        <label>NumCpp/Core/Types.hpp</label>
-        <link refid="_types_8hpp"/>
-        <childnode refid="1925" relation="include">
+      <node id="1952">
+        <label>vector</label>
+      </node>
+      <node id="1932">
+        <label>NumCpp/NdArray.hpp</label>
+        <link refid="_nd_array_8hpp"/>
+        <childnode refid="1933" relation="include">
         </childnode>
-      </node>
-      <node id="1926">
-        <label>iostream</label>
-      </node>
-      <node id="1945">
-        <label>deque</label>
-      </node>
-      <node id="1943">
-        <label>boost/endian/conversion.hpp</label>
+        <childnode refid="1935" relation="include">
+        </childnode>
+        <childnode refid="1923" relation="include">
+        </childnode>
+        <childnode refid="1936" relation="include">
+        </childnode>
+        <childnode refid="1930" relation="include">
+        </childnode>
+        <childnode refid="1938" relation="include">
+        </childnode>
+        <childnode refid="1924" relation="include">
+        </childnode>
+        <childnode refid="1931" relation="include">
+        </childnode>
+        <childnode refid="1940" relation="include">
+        </childnode>
+        <childnode refid="1941" relation="include">
+        </childnode>
+        <childnode refid="1942" relation="include">
+        </childnode>
+        <childnode refid="1943" relation="include">
+        </childnode>
+        <childnode refid="1944" relation="include">
+        </childnode>
+        <childnode refid="1939" relation="include">
+        </childnode>
+        <childnode refid="1945" relation="include">
+        </childnode>
+        <childnode refid="1934" relation="include">
+        </childnode>
+        <childnode refid="1946" relation="include">
+        </childnode>
+        <childnode refid="1947" relation="include">
+        </childnode>
+        <childnode refid="1937" relation="include">
+        </childnode>
+        <childnode refid="1948" relation="include">
+        </childnode>
+        <childnode refid="1926" relation="include">
+        </childnode>
+        <childnode refid="1949" relation="include">
+        </childnode>
+        <childnode refid="1950" relation="include">
+        </childnode>
+        <childnode refid="1929" relation="include">
+        </childnode>
+        <childnode refid="1951" relation="include">
+        </childnode>
+        <childnode refid="1952" relation="include">
+        </childnode>
       </node>
       <node id="1923">
         <label>NumCpp/Core/Error.hpp</label>
@@ -252,10 +212,55 @@
         <childnode refid="1929" relation="include">
         </childnode>
       </node>
+      <node id="1953">
+        <label>NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp</label>
+        <link refid="_boost_numpy_ndarray_helper_8hpp"/>
+        <childnode refid="1924" relation="include">
+        </childnode>
+        <childnode refid="1931" relation="include">
+        </childnode>
+        <childnode refid="1939" relation="include">
+        </childnode>
+        <childnode refid="1934" relation="include">
+        </childnode>
+        <childnode refid="1926" relation="include">
+        </childnode>
+        <childnode refid="1952" relation="include">
+        </childnode>
+        <childnode refid="1929" relation="include">
+        </childnode>
+        <childnode refid="1951" relation="include">
+        </childnode>
+        <childnode refid="1954" relation="include">
+        </childnode>
+        <childnode refid="1955" relation="include">
+        </childnode>
+      </node>
+      <node id="1951">
+        <label>utility</label>
+      </node>
+      <node id="1945">
+        <label>array</label>
+      </node>
+      <node id="1931">
+        <label>NumCpp/Utils/num2str.hpp</label>
+        <link refid="num2str_8hpp"/>
+        <childnode refid="1929" relation="include">
+        </childnode>
+      </node>
+      <node id="1926">
+        <label>iostream</label>
+      </node>
+      <node id="1946">
+        <label>deque</label>
+      </node>
+      <node id="1944">
+        <label>boost/endian/conversion.hpp</label>
+      </node>
       <node id="1950">
         <label>set</label>
       </node>
-      <node id="1937">
+      <node id="1939">
         <label>algorithm</label>
       </node>
       <node id="1948">
@@ -263,6 +268,10 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="1959">
+        <label>NumCpp.hpp</label>
+        <link refid="_num_cpp_8hpp"/>
+      </node>
       <node id="1958">
         <label>PythonInterface.hpp</label>
         <link refid="_python_interface_8hpp"/>
@@ -275,32 +284,20 @@
         <childnode refid="1958" relation="include">
         </childnode>
       </node>
-      <node id="1959">
-        <label>NumCpp.hpp</label>
-        <link refid="_num_cpp_8hpp"/>
-      </node>
     </invincdepgraph>
     <innernamespace refid="namespacenc">nc</innernamespace>
     <innernamespace refid="namespacenc_1_1boost_python_interface">nc::boostPythonInterface</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para>
-</simplesect>
-<simplesect kind="version"><para>1.1</para>
-</simplesect>
-</para>
-<sect1 id="zeros__like_8hpp_1License">
+<para><simplesect kind="author"><para>David Pilger <ulink url="mailto:dpilger26@gmail.com">dpilger26@gmail.com</ulink> <ulink url="https://github.com/dpilger26/NumCpp">GitHub Repository</ulink> </para></simplesect>
+<simplesect kind="version"><para>1.1</para></simplesect>
+</para><sect1 id="zeros__like_8hpp_1License">
 <title>License</title>
-<para>Copyright 2019 David Pilger</para>
-<para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para>
-<para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para>
-<para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para>
-</sect1>
+<para>Copyright 2019 David Pilger</para><para>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :</para><para>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</para><para>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</para></sect1>
 <sect1 id="zeros__like_8hpp_1Description">
 <title>Description</title>
-<para>A module for interacting with python with boost interface </para>
-</sect1>
+<para>A module for interacting with python with boost interface </para></sect1>
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
@@ -336,20 +333,20 @@
 <codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(helper.<ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1aa16c4299e90c836df0f2397dc1c78b1a" kindref="member">numDimensions</ref>()<sp/>==<sp/>1)</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>arrayShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref><sp/>=<sp/>1;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>arrayShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>=<sp/>static_cast&lt;uint32&gt;(helper.<ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a85eb7408eca779923d5f72bba5c15d94" kindref="member">shape</ref>().front());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>arrayShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(helper.<ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a85eb7408eca779923d5f72bba5c15d94" kindref="member">shape</ref>().front());</highlight></codeline>
 <codeline lineno="69"><highlight class="normal"></highlight></codeline>
 <codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(arrayShape);</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>arrayShape.<ref refid="classnc_1_1_shape_1a9c41935da2cc0d7225f76849bee97794" kindref="member">size</ref>();<sp/>++i)</highlight></codeline>
 <codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray[i]<sp/>=<sp/>static_cast&lt;dtype&gt;(helper(i));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray[i]<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">dtype</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(helper(i));</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="75"><highlight class="normal"></highlight></codeline>
 <codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
 <codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>arrayShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref><sp/>=<sp/>static_cast&lt;uint32&gt;(helper.<ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a85eb7408eca779923d5f72bba5c15d94" kindref="member">shape</ref>().front());</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>arrayShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>=<sp/>static_cast&lt;uint32&gt;(helper.<ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a85eb7408eca779923d5f72bba5c15d94" kindref="member">shape</ref>()[1]);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>arrayShape.<ref refid="classnc_1_1_shape_1a6f89f699dea6eb89eef19e00c92b223a" kindref="member">rows</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(helper.<ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a85eb7408eca779923d5f72bba5c15d94" kindref="member">shape</ref>().front());</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>arrayShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(helper.<ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1a85eb7408eca779923d5f72bba5c15d94" kindref="member">shape</ref>()[1]);</highlight></codeline>
 <codeline lineno="82"><highlight class="normal"></highlight></codeline>
 <codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref><sp/>returnArray(arrayShape);</highlight></codeline>
 <codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>i<sp/>=<sp/>0;</highlight></codeline>
@@ -357,7 +354,7 @@
 <codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>arrayShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref>;<sp/>++col)</highlight></codeline>
 <codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray[i++]<sp/>=<sp/>static_cast&lt;dtype&gt;(helper(row,<sp/>col));</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>returnArray[i++]<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">dtype</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(helper(row,<sp/>col));</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"></highlight></codeline>
@@ -377,7 +374,7 @@
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>col<sp/>=<sp/>0;<sp/>col<sp/>&lt;<sp/>inShape.<ref refid="classnc_1_1_shape_1aae1a3c997648aacaefb60d0e6d0bf10d" kindref="member">cols</ref>;<sp/>++col)</highlight></codeline>
 <codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newNdArrayHelper(row,<sp/>col)<sp/>=<sp/>static_cast&lt;double&gt;(inArray(row,<sp/>col));</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newNdArrayHelper(row,<sp/>col)<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(inArray(row,<sp/>col));</highlight></codeline>
 <codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newNdArrayHelper.<ref refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper_1ad4ff3ef56ab470aca4ea2acc90824810" kindref="member">getArray</ref>();</highlight></codeline>
@@ -418,6 +415,6 @@
 <codeline lineno="171"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="172"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="C:/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp"/>
   </compounddef>
 </doxygen>

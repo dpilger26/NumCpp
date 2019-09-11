@@ -2,6 +2,7 @@ var searchData=
 [
   ['f',['f',['../namespacenc_1_1random.html#aabf17da1f94e6da4ec99085feca10799',1,'nc::random']]],
   ['factorial',['factorial',['../namespacenc_1_1special.html#a429b2caa6cf7fcbdba8ce3184c0367e3',1,'nc::special::factorial(uint32 inValue)'],['../namespacenc_1_1special.html#af28b6a68a7d599ad1f973082ec275dbc',1,'nc::special::factorial(const NdArray&lt; uint32 &gt; &amp;inArray) noexcept']]],
+  ['file',['File',['../classnc_1_1filesystem_1_1_file.html#a876e31f3daf014be6913d75bbce3b712',1,'nc::filesystem::File']]],
   ['fill',['fill',['../classnc_1_1_nd_array.html#aa63fbc6b80a19e4bd1a9f2da76d6ab7f',1,'nc::NdArray']]],
   ['fillcorners',['fillCorners',['../namespacenc_1_1filter_1_1boundary.html#ac78b1c70b5d7e26d6013674cdb84690a',1,'nc::filter::boundary::fillCorners(NdArray&lt; dtype &gt; &amp;inArray, uint32 inBorderWidth)'],['../namespacenc_1_1filter_1_1boundary.html#ac2c4c5858898760f48e5aba06ad0eb3c',1,'nc::filter::boundary::fillCorners(NdArray&lt; dtype &gt; &amp;inArray, uint32 inBorderWidth, dtype inFillValue)']]],
   ['filldiagonal',['fillDiagonal',['../namespacenc.html#a7c40717fa80c513ecbb943859d9d1ac2',1,'nc']]],
@@ -23,5 +24,6 @@ var searchData=
   ['fromiter',['fromiter',['../namespacenc.html#a0b388462989d0cb59531f753a907cce3',1,'nc']]],
   ['front',['front',['../classnc_1_1_data_cube.html#a007b4c69b145e15faa40d8c3be4d36ba',1,'nc::DataCube::front()'],['../classnc_1_1_nd_array.html#a5173e2d0a9fe983213193d8a4dfde21c',1,'nc::NdArray::front()']]],
   ['full',['full',['../namespacenc.html#abf138126612998a96698ac184fc81167',1,'nc::full(uint32 inSquareSize, dtype inFillValue) noexcept'],['../namespacenc.html#a5a5bd5f0d237fc1f682a770eb5f1168d',1,'nc::full(uint32 inNumRows, uint32 inNumCols, dtype inFillValue) noexcept'],['../namespacenc.html#a40202920d9c2557bf6b1dcc4ac971135',1,'nc::full(const Shape &amp;inShape, dtype inFillValue) noexcept']]],
-  ['full_5flike',['full_like',['../namespacenc.html#af041923ee46ead0c33afaca70dff0d0c',1,'nc']]]
+  ['full_5flike',['full_like',['../namespacenc.html#af041923ee46ead0c33afaca70dff0d0c',1,'nc']]],
+  ['fullname',['fullName',['../classnc_1_1filesystem_1_1_file.html#a5a98b4fb748790c8ddbed52d294a4fa2',1,'nc::filesystem::File']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['name',['name',['../classnc_1_1filesystem_1_1_file.html#a29fd40eb720c1caad3dcef59e2f215a4',1,'nc::filesystem::File']]],
   ['nanargmax',['nanargmax',['../namespacenc.html#a2597b85e4c0d310eea0989012f4bb9c2',1,'nc']]],
   ['nanargmin',['nanargmin',['../namespacenc.html#af41df38993d239a8a007f3550a127388',1,'nc']]],
   ['nancumprod',['nancumprod',['../namespacenc.html#a188b73e160906b305321c9d99627b634',1,'nc']]],

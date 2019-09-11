@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classnc_1_1filesystem_1_1_file" kind="class" language="C++" prot="public">
+    <compoundname>nc::filesystem::File</compoundname>
+    <includes refid="_filesystem_8hpp" local="no">Filesystem.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classnc_1_1filesystem_1_1_file_1a8d459f8a6e3e44b3bfd88b5cbb4caba8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool nc::filesystem::File::exists_</definition>
+        <argsstring></argsstring>
+        <name>exists_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="141" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1filesystem_1_1_file_1a9077d1feb84f8b82cb7d1bd31cd70b2d" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string nc::filesystem::File::extension_</definition>
+        <argsstring></argsstring>
+        <name>extension_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="140" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1filesystem_1_1_file_1a98d5b030a68c0e720634b05bbbb75ebf" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string nc::filesystem::File::filename_</definition>
+        <argsstring></argsstring>
+        <name>filename_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="139" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1filesystem_1_1_file_1a537a49e618f082e00a26ed48c704be18" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string nc::filesystem::File::fullFilename_</definition>
+        <argsstring></argsstring>
+        <name>fullFilename_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="138" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a876e31f3daf014be6913d75bbce3b712" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::filesystem::File::File</definition>
+        <argsstring>(const std::string &amp;filename) noexcept</argsstring>
+        <name>File</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the full filename </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="49" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a9a9b7d3f9505b025038e16a469553515" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::filesystem::File::exists</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>exists</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Tests whether or not the file exists</para><para><simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="74" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1ac51df5a278a9b6045d6f241766c10483" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; nc::filesystem::File::ext</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>ext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the file extension without the dot</para><para><simplesect kind="return"><para>std::string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="85" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a5a98b4fb748790c8ddbed52d294a4fa2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string</type>
+        <definition>const std::string nc::filesystem::File::fullName</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>fullName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the input full filename</para><para><simplesect kind="return"><para>std::string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="96" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a74f7e012422534a9558b630f2b6edd06" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::filesystem::File::hasExt</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>hasExt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns true if the file has an extension</para><para><simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="107" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a29fd40eb720c1caad3dcef59e2f215a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; nc::filesystem::File::name</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the filename</para><para><simplesect kind="return"><para>std::string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="118" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="118" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1ac5d517ade2f86c1934ceaaa17601e5d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string</type>
+        <definition>const std::string nc::filesystem::File::withExt</definition>
+        <argsstring>(const std::string &amp;ext) noexcept</argsstring>
+        <name>withExt</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>ext</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the extension to teh input extension. Do not input the dot. E.g. input &quot;txt&quot;, not &quot;.txt&quot;</para><para><simplesect kind="return"><para>std::string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="130" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="130" bodyend="134"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides simple filesystem functions. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="13">
+        <label>nc::filesystem::File</label>
+        <link refid="classnc_1_1filesystem_1_1_file"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="41" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="40" bodyend="142"/>
+    <listofallmembers>
+      <member refid="classnc_1_1filesystem_1_1_file_1a9a9b7d3f9505b025038e16a469553515" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>exists</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1a8d459f8a6e3e44b3bfd88b5cbb4caba8" prot="private" virt="non-virtual"><scope>nc::filesystem::File</scope><name>exists_</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1ac51df5a278a9b6045d6f241766c10483" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>ext</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1a9077d1feb84f8b82cb7d1bd31cd70b2d" prot="private" virt="non-virtual"><scope>nc::filesystem::File</scope><name>extension_</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1a876e31f3daf014be6913d75bbce3b712" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>File</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1a98d5b030a68c0e720634b05bbbb75ebf" prot="private" virt="non-virtual"><scope>nc::filesystem::File</scope><name>filename_</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1a537a49e618f082e00a26ed48c704be18" prot="private" virt="non-virtual"><scope>nc::filesystem::File</scope><name>fullFilename_</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1a5a98b4fb748790c8ddbed52d294a4fa2" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>fullName</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1a74f7e012422534a9558b630f2b6edd06" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>hasExt</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1a29fd40eb720c1caad3dcef59e2f215a4" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>name</name></member>
+      <member refid="classnc_1_1filesystem_1_1_file_1ac5d517ade2f86c1934ceaaa17601e5d0" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>withExt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
