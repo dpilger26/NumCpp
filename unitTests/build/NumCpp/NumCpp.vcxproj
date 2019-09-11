@@ -512,7 +512,7 @@
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalIncludeDirectories>../../../include;$(BOOST_INCLUDES);$(PYBIND_INCLUDES);$(PYTHON_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>INCLUDE_PYTHON_INTERFACE;INCLUDE_BOOST_PYTHON_INTERFACE;INCLUDE_PYBIND_PYTHON_INTERFACE;BOOST_PYTHON_STATIC_LIB;BOOST_NUMPY_STATIC_LIB;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>INCLUDE_PYTHON_INTERFACE;INCLUDE_PYBIND_PYTHON_INTERFACE;INCLUDE_BOOST_PYTHON_INTERFACE;BOOST_PYTHON_STATIC_LIB;BOOST_NUMPY_STATIC_LIB;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnablePREfast>false</EnablePREfast>
@@ -521,7 +521,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(PYTHON_LIBS);$(BOOST_LIBS);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BOOST_LIBS);$(PYTHON_LIBS);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>

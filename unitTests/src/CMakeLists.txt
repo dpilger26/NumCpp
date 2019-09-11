@@ -31,14 +31,10 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${NUMCPP_INCLUDES})
 
 set(Boost_USE_STATIC_LIBS TRUE) 
 find_package( Boost ${BOOST_MIN_VERSION} REQUIRED COMPONENTS
-	system 
-	filesystem 
 	python
 	numpy)
 target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS}) 
 target_link_libraries(${PROJECT_NAME} PUBLIC 
-	Boost::system 
-	Boost::filesystem 
 	Boost::python
 	Boost::numpy
 )

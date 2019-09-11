@@ -56,9 +56,9 @@ namespace nc
 
                 filename_ = filename.substr(0, dot);
 
-                if (dot != filename.size())
+                if (dot != std::string::npos)
                 {
-                    extension_ = filename.substr(dot + 1, filename.size());
+                    extension_ = filename.substr(dot + 1, std::string::npos);
                 }
 
                 std::ifstream f(filename.c_str());
@@ -93,7 +93,7 @@ namespace nc
             ///
             /// @return     std::string
             ///
-            const std::string& fullName() const noexcept
+            const std::string fullName() const noexcept
             {
                 return filename_ + "." + extension_;
             }
@@ -127,7 +127,7 @@ namespace nc
             ///
             /// @return     std::string
             ///
-            const std::string& withExt(const std::string& ext) noexcept
+            const std::string withExt(const std::string& ext) noexcept
             {
                 extension_ = ext;
                 return fullName();

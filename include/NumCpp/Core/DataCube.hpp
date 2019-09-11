@@ -29,9 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Filesystem.hpp"
 #include "NumCpp/Core/Types.hpp"
-
-#include "boost/filesystem.hpp"
 
 #include <deque>
 #include <limits>
@@ -130,19 +129,18 @@ namespace nc
         ///
         void dump(const std::string& inFilename) const
         {
-            boost::filesystem::path p(inFilename);
-            if (!boost::filesystem::exists(p.parent_path()))
+            filesystem::File f(inFilename);
+            if (!f.hasExt())
             {
-                THROW_RUNTIME_ERROR("Input path does not exist:\n\t" + p.parent_path().string());
+                f.withExt("bin");
             }
 
-            std::string ext = "";
-            if (!p.has_extension())
+            std::ofstream ofile(f.fullName().c_str(), std::ios::binary);
+            if (!ofile.good())
             {
-                ext += ".bin";
+                THROW_RUNTIME_ERROR("Could not open the input file:\n\t" + inFilename);
             }
 
-            std::ofstream ofile((inFilename + ext).c_str(), std::ios::binary);
             for (auto& ndarray : cube_)
             {
                 ofile.write(reinterpret_cast<const char*>(ndarray.cbegin()), ndarray.size() * sizeof(dtype));

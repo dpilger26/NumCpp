@@ -66,7 +66,7 @@ namespace nc
             std::ifstream file(inFilename.c_str(), std::ios::in | std::ios::binary);
             if (!file.is_open())
             {
-                THROW_INVALID_ARGUMENT_ERROR("unable to open file.");
+                THROW_INVALID_ARGUMENT_ERROR("unable to open file\n\t" + inFilename);
             }
 
             file.seekg(0, file.end);
@@ -131,7 +131,7 @@ namespace nc
             }
             else
             {
-                THROW_INVALID_ARGUMENT_ERROR("unable to open file.");
+                THROW_INVALID_ARGUMENT_ERROR("unable to open file\n\t" + inFilename);
             }
 
             return NdArray<dtype>(values);
