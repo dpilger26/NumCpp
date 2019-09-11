@@ -21,10 +21,6 @@ set_target_properties(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} PUBLIC ${NUMCPP_INCLUDES})
 
 set(Boost_USE_STATIC_LIBS TRUE) 
-find_package( Boost REQUIRED COMPONENTS 
-	system
-	filesystem
-)
+find_package( Boost )
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${Boost_INCLUDE_DIRS}) 
-target_link_libraries(${PROJECT_NAME} PUBLIC Boost::system Boost::filesystem)

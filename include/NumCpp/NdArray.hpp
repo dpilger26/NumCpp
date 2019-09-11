@@ -31,6 +31,7 @@
 #include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/Filesystem.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -39,7 +40,6 @@
 #include "NumCpp/Utils/sqr.hpp"
 
 #include <boost/algorithm/clamp.hpp>
-#include <boost/filesystem.hpp>
 #include <boost/predef/other/endian.h>
 #include <boost/endian/conversion.hpp>
 
@@ -1785,19 +1785,18 @@ namespace nc
         ///
         void dump(const std::string& inFilename) const
         {
-            boost::filesystem::path p(inFilename);
-            if (!boost::filesystem::exists(p.parent_path()))
+            filesystem::File f(inFilename);
+            if (!f.hasExt())
             {
-                THROW_RUNTIME_ERROR("Input path does not exist:\n\t" + p.parent_path().string());
+                f.withExt(".bin");
             }
 
-            std::string ext = "";
-            if (!p.has_extension())
+            std::ofstream ofile(f.fullName().c_str(), std::ios::binary);
+            if (!ofile.good())
             {
-                ext += ".bin";
+                THROW_RUNTIME_ERROR("Unable to open the input file:\n\t" + inFilename);
             }
 
-            std::ofstream ofile((inFilename + ext).c_str(), std::ios::binary);
             ofile.write(reinterpret_cast<const char*>(array_), size_ * sizeof(dtype));
             ofile.close();
         }
@@ -3553,19 +3552,18 @@ namespace nc
             }
             else
             {
-                boost::filesystem::path p(inFilename);
-                if (!boost::filesystem::exists(p.parent_path()))
+                filesystem::File f(inFilename);
+                if (!f.hasExt())
                 {
-                    THROW_RUNTIME_ERROR("Input path does not exist:\n\t" + p.parent_path().string());
+                    f.withExt("txt");
                 }
 
-                std::string ext = "";
-                if (!p.has_extension())
+                std::ofstream ofile(f.fullName().c_str());
+                if (!ofile.good())
                 {
-                    ext += ".txt";
+                    THROW_RUNTIME_ERROR("Input file could not be opened:\n\t" + inFilename);
                 }
 
-                std::ofstream ofile((inFilename + ext).c_str());
                 uint32 counter = 0;
                 for (auto value : *this)
                 {
