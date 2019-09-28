@@ -31,7 +31,7 @@ INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PA
 
 ## [GitHub](https://github.com/dpilger26/NumCpp)
 
-## [Installation](https://dpilger26.github.io/NumCpp)
+## [Installation](https://dpilger26.github.io/NumCpp/doxygen/html/md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html)
 
 ## From NumPy To NumCpp – A Quick Start Guide
 
