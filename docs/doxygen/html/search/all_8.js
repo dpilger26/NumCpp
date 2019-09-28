@@ -30,5 +30,7 @@ var searchData=
   ['issigned',['isSigned',['../classnc_1_1_dtype_info.html#a039ecfb9a5bd9fe0cb751a59f28055d1',1,'nc::DtypeInfo']]],
   ['isvalid',['isValid',['../classnc_1_1rotations_1_1_d_c_m.html#ab229737433b6c93522aa38f0ad94ca50',1,'nc::rotations::DCM']]],
   ['item',['item',['../classnc_1_1_nd_array.html#a4f5da296a91f836fa7627fad29828117',1,'nc::NdArray']]],
-  ['iterator',['iterator',['../classnc_1_1_data_cube.html#adfed19a7fda0e5d4742ae4818c338a99',1,'nc::DataCube::iterator()'],['../classnc_1_1_nd_array.html#af5fd346e89b4a6117ed4a2296fe68959',1,'nc::NdArray::iterator()']]]
+  ['iterator',['iterator',['../classnc_1_1_data_cube.html#adfed19a7fda0e5d4742ae4818c338a99',1,'nc::DataCube::iterator()'],['../classnc_1_1_nd_array.html#af5fd346e89b4a6117ed4a2296fe68959',1,'nc::NdArray::iterator()']]],
+  ['installation',['Installation',['../md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html',1,'']]],
+  ['readme_2emd',['README.md',['../install_2_r_e_a_d_m_e_8md.html',1,'']]]
 ];
