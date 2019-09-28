@@ -7,5 +7,6 @@ var searchData=
   ['invert_2ehpp',['invert.hpp',['../invert_8hpp.html',1,'']]],
   ['isclose_2ehpp',['isclose.hpp',['../isclose_8hpp.html',1,'']]],
   ['isinf_2ehpp',['isinf.hpp',['../isinf_8hpp.html',1,'']]],
-  ['isnan_2ehpp',['isnan.hpp',['../isnan_8hpp.html',1,'']]]
+  ['isnan_2ehpp',['isnan.hpp',['../isnan_8hpp.html',1,'']]],
+  ['readme_2emd',['README.md',['../install_2_r_e_a_d_m_e_8md.html',1,'']]]
 ];

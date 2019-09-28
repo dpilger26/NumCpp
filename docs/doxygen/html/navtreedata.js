@@ -25,6 +25,7 @@ var NAVTREE =
 [
   [ "NumCpp", "index.html", [
     [ "NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)", "index.html", null ],
+    [ "Installation", "md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -66,9 +67,9 @@ var NAVTREEINDEX =
 "classnc_1_1_vec3.html#a523ca42cbdd088851cc5a299da988cee",
 "column__stack_8hpp.html",
 "functions_func_b.html",
-"min_8hpp_source.html",
-"radians_8hpp.html#ac25bf9dbbc1efc02e31e8737c85bbdd6",
-"unwrap_8hpp_source.html"
+"min_8hpp.html#a1dcd97ed6259f6a019ff8b59f2ae1adc",
+"radians_8hpp.html#a02193cb36ec03b2d6c86517c55f45207",
+"unwrap_8hpp.html#aac5e942220c693fb9e65fcc3ff4fc50f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
