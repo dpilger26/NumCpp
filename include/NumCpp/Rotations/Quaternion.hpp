@@ -216,12 +216,13 @@ namespace nc
             ///                  if size = 4 the i, j, k, s components
             ///                  if shape = [3, 3] then direction cosine matrix
             ///
-            Quaternion(const NdArray<double>& inArray)
+            Quaternion(const NdArray<double>& inArray) :
+                components_{ 0.0, 0.0, 0.0, 0.0 }
             {
                 if (inArray.size() == 3)
                 {
                     // euler angles
-                    eulerToQuat(inArray[0], inArray[0], inArray[1]);
+                    eulerToQuat(inArray[0], inArray[1], inArray[2]);
                 }
                 else if (inArray.size() == 4)
                 {
