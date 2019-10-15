@@ -51,19 +51,15 @@ namespace nc
     {
     public:
         //====================================Attributes==============================
-        double x;
-        double y;
-        double z;
+        double x{ 0.0 };
+        double y{ 0.0 };
+        double z{ 0.0 };
 
         //============================================================================
         // Method Description:
         ///						Default Constructor
         ///
-        constexpr Vec3() noexcept :
-            x(0),
-            y(0),
-            z(0)
-        {}
+        constexpr Vec3() noexcept = default;
 
         //============================================================================
         // Method Description:

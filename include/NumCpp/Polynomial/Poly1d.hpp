@@ -52,7 +52,7 @@ namespace nc
         class Poly1d
         {
         private:
-            std::vector<dtype>      coefficients_;
+            std::vector<dtype>      coefficients_{};
 
         public:
             //============================================================================
@@ -60,7 +60,7 @@ namespace nc
             ///						Default Constructor (not very usefull, but needed for other
             ///                     containers.
             ///
-            Poly1d() noexcept {};
+            Poly1d() noexcept = default;
 
             //============================================================================
             // Method Description:

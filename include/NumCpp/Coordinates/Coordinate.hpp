@@ -52,8 +52,8 @@ namespace nc
         {
         private:
             //====================================Attributes==============================
-            RA      ra_;
-            Dec     dec_;
+            RA      ra_{};
+            Dec     dec_{};
             double  x_{ 1.0 };
             double  y_{ 0.0 };
             double  z_{ 0.0 };

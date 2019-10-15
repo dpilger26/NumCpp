@@ -70,9 +70,9 @@ namespace nc
                 n_(inMatrix.shape().cols),
                 u_(inMatrix),
                 v_(n_, n_),
-                s_(1, n_)
+                s_(1, n_),
+                eps_(std::numeric_limits<double>::epsilon())
             {
-                eps_ = std::numeric_limits<double>::epsilon();
                 decompose();
                 reorder();
                 tsh_ = 0.5 * std::sqrt(m_ + n_ + 1.) * s_.front() * eps_;

@@ -50,17 +50,14 @@ namespace nc
     {
     public:
         //====================================Attributes==============================
-        double x;
-        double y;
+        double x{ 0.0 };
+        double y{ 0.0 };
 
         //============================================================================
         // Method Description:
         ///						Default Constructor
         ///
-        constexpr Vec2() noexcept :
-            x(0),
-            y(0)
-        {}
+        constexpr Vec2() noexcept = default;
 
         //============================================================================
         // Method Description:
