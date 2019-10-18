@@ -57,7 +57,7 @@ namespace nc
 
         private:
             //================================Attributes===============================
-            uint32                      clusterId_{ -1 };
+            int32                       clusterId_{ -1 };
             std::vector<Pixel<dtype> >  pixels_{};
 
             uint32                      rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number

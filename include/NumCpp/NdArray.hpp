@@ -337,11 +337,11 @@ namespace nc
         ///                     the array.
         ///
         /// @param				inPtr: dtype* to beginning of buffer
-        /// @param				inNumBytes: number of bytes
+        /// @param				inSize: number of elements in buffer
         ///
-        NdArray(dtype* inPtr, uint32 inNumBytes) noexcept :
-            shape_(1, inNumBytes / sizeof(dtype)),
-            size_(shape_.size()),
+        NdArray(const dtype* const inPtr, uint32 inSize) noexcept :
+            shape_(1, inSize),
+            size_(inSize),
             array_(new dtype[size_]),
             ownsPtr_(true)
         {
