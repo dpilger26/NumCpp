@@ -1,7 +1,7 @@
 var classnc_1_1image_processing_1_1_centroid =
 [
-    [ "Centroid", "classnc_1_1image_processing_1_1_centroid.html#a3b97e4ddc31b85eb8c3f84b398429a35", null ],
-    [ "Centroid", "classnc_1_1image_processing_1_1_centroid.html#a59d0af7acae8d24d29ccb372440aed22", null ],
+    [ "Centroid", "classnc_1_1image_processing_1_1_centroid.html#a8f8f09104f3581a418c7759290989a5a", null ],
+    [ "Centroid", "classnc_1_1image_processing_1_1_centroid.html#a07de04ddd4361f4e8c5e827f8b63f76a", null ],
     [ "col", "classnc_1_1image_processing_1_1_centroid.html#a4ef0e9b2faa4999af5c3597a60140d6c", null ],
     [ "eod", "classnc_1_1image_processing_1_1_centroid.html#a098ee235ea6fcf22df2a7a0d80d53e44", null ],
     [ "intensity", "classnc_1_1image_processing_1_1_centroid.html#aa203a8f8138fe9679f307f38ad65a5aa", null ],

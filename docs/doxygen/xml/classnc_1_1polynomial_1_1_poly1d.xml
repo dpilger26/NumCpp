@@ -16,6 +16,7 @@
         <definition>std::vector&lt;dtype&gt; nc::polynomial::Poly1d&lt; dtype &gt;::coefficients_</definition>
         <argsstring></argsstring>
         <name>coefficients_</name>
+        <initializer>{}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -26,10 +27,10 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1polynomial_1_1_poly1d_1a63ba012e9178fba33b85ba94f375a86d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1polynomial_1_1_poly1d_1a26a871724b90be8b662b5df41178b711" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>nc::polynomial::Poly1d&lt; dtype &gt;::Poly1d</definition>
-        <argsstring>() noexcept</argsstring>
+        <argsstring>() noexcept=default</argsstring>
         <name>Poly1d</name>
         <briefdescription>
         </briefdescription>
@@ -37,7 +38,7 @@
 <para>Default Constructor (not very usefull, but needed for other containers. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/Poly1d.hpp" line="63" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/Poly1d.hpp" bodystart="63" bodyend="63"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/Poly1d.hpp" line="63" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1polynomial_1_1_poly1d_1a33c01905d846d32e7d49dc4e7e884551" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -430,7 +431,7 @@
       <member refid="classnc_1_1polynomial_1_1_poly1d_1acfcba8169d451d503a336fa01a8af5ec" prot="public" virt="non-virtual"><scope>nc::polynomial::Poly1d</scope><name>operator^</name></member>
       <member refid="classnc_1_1polynomial_1_1_poly1d_1a74f2aca0939b51e2c4048abc792ee0b5" prot="public" virt="non-virtual"><scope>nc::polynomial::Poly1d</scope><name>operator^=</name></member>
       <member refid="classnc_1_1polynomial_1_1_poly1d_1ab978ca2f65c7cd640309c1be86aa9141" prot="public" virt="non-virtual"><scope>nc::polynomial::Poly1d</scope><name>order</name></member>
-      <member refid="classnc_1_1polynomial_1_1_poly1d_1a63ba012e9178fba33b85ba94f375a86d" prot="public" virt="non-virtual"><scope>nc::polynomial::Poly1d</scope><name>Poly1d</name></member>
+      <member refid="classnc_1_1polynomial_1_1_poly1d_1a26a871724b90be8b662b5df41178b711" prot="public" virt="non-virtual"><scope>nc::polynomial::Poly1d</scope><name>Poly1d</name></member>
       <member refid="classnc_1_1polynomial_1_1_poly1d_1a33c01905d846d32e7d49dc4e7e884551" prot="public" virt="non-virtual"><scope>nc::polynomial::Poly1d</scope><name>Poly1d</name></member>
       <member refid="classnc_1_1polynomial_1_1_poly1d_1abd3335aec42b7856a0d83a96f7e72e89" prot="public" virt="non-virtual"><scope>nc::polynomial::Poly1d</scope><name>print</name></member>
       <member refid="classnc_1_1polynomial_1_1_poly1d_1a5e943edcdfbacb4d7a94a11f55532efe" prot="public" virt="non-virtual"><scope>nc::polynomial::Poly1d</scope><name>str</name></member>

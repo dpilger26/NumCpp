@@ -1,6 +1,6 @@
 var classnc_1_1polynomial_1_1_poly1d =
 [
-    [ "Poly1d", "classnc_1_1polynomial_1_1_poly1d.html#a63ba012e9178fba33b85ba94f375a86d", null ],
+    [ "Poly1d", "classnc_1_1polynomial_1_1_poly1d.html#a26a871724b90be8b662b5df41178b711", null ],
     [ "Poly1d", "classnc_1_1polynomial_1_1_poly1d.html#a33c01905d846d32e7d49dc4e7e884551", null ],
     [ "coefficients", "classnc_1_1polynomial_1_1_poly1d.html#a58a632fa53f4ad61f9d692eadba8552b", null ],
     [ "operator()", "classnc_1_1polynomial_1_1_poly1d.html#ac82910d648a2a3cfd2301e12907414dd", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"cnr_8hpp_source.html":[4,0,72],
 "column__stack_8hpp.html":[4,0,73],
 "column__stack_8hpp.html#a940bbaf9f760ce2d85119beb4a5c23f2":[4,0,73,0],
 "column__stack_8hpp_source.html":[4,0,73],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "functions_enum.html":[3,2,4],
 "functions_f.html":[3,2,0,5],
 "functions_func.html":[3,2,1],
-"functions_func.html":[3,2,1,0],
-"functions_func_0x7e.html":[3,2,1,26]
+"functions_func.html":[3,2,1,0]
 };

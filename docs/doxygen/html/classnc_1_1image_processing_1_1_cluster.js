@@ -1,8 +1,8 @@
 var classnc_1_1image_processing_1_1_cluster =
 [
     [ "const_iterator", "classnc_1_1image_processing_1_1_cluster.html#a62b3af242c6a62dd79c05ad204a7f7f8", null ],
-    [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html#a4bb7b9b5d7edd34a5e7468a5b4979c30", null ],
-    [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html#a129d4f5d1b316dd8193fcaf27a311447", null ],
+    [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html#a60cbfa098e3890605457c318ccf65dff", null ],
+    [ "Cluster", "classnc_1_1image_processing_1_1_cluster.html#a73ce20625b5ca5d9e0d872cc8ad885dc", null ],
     [ "addPixel", "classnc_1_1image_processing_1_1_cluster.html#a9cab13be79b63d9151e60a798ca39cb5", null ],
     [ "at", "classnc_1_1image_processing_1_1_cluster.html#a5a8d82d40cea566786e8f80ad72a6d10", null ],
     [ "begin", "classnc_1_1image_processing_1_1_cluster.html#a6e761b470453d5506015b9332b12e4a4", null ],

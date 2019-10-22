@@ -104,8 +104,8 @@ $(document).ready(function(){initNavTree('classnc_1_1_vec2.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9fd9d429c68ca7fbed3995c4205b4987"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_vec2.html#a9fd9d429c68ca7fbed3995c4205b4987">Vec2</a> () noexcept</td></tr>
-<tr class="separator:a9fd9d429c68ca7fbed3995c4205b4987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8dbcf96e120e5316ecda8dd6e5deea7"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_vec2.html#ae8dbcf96e120e5316ecda8dd6e5deea7">Vec2</a> () noexcept=default</td></tr>
+<tr class="separator:ae8dbcf96e120e5316ecda8dd6e5deea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb48b0300990a5b77919589488ddfe30"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_vec2.html#aeb48b0300990a5b77919589488ddfe30">Vec2</a> (double inX, double inY) noexcept</td></tr>
 <tr class="separator:aeb48b0300990a5b77919589488ddfe30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfb713c893dbd31d7c94b4741e82530b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_vec2.html#abfb713c893dbd31d7c94b4741e82530b">Vec2</a> (const std::initializer_list&lt; double &gt; &amp;inList)</td></tr>
@@ -162,16 +162,16 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a36a67b9395b397e1b8e9364a39a5c458"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_vec2.html#a36a67b9395b397e1b8e9364a39a5c458">x</a></td></tr>
+<tr class="memitem:a36a67b9395b397e1b8e9364a39a5c458"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_vec2.html#a36a67b9395b397e1b8e9364a39a5c458">x</a> { 0.0 }</td></tr>
 <tr class="separator:a36a67b9395b397e1b8e9364a39a5c458"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7a5bc1612f92f7e49112cf58caeaace"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_vec2.html#ad7a5bc1612f92f7e49112cf58caeaace">y</a></td></tr>
+<tr class="memitem:ad7a5bc1612f92f7e49112cf58caeaace"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_vec2.html#ad7a5bc1612f92f7e49112cf58caeaace">y</a> { 0.0 }</td></tr>
 <tr class="separator:ad7a5bc1612f92f7e49112cf58caeaace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Holds a 2D vector. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9fd9d429c68ca7fbed3995c4205b4987"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fd9d429c68ca7fbed3995c4205b4987">&#9670;&nbsp;</a></span>Vec2() <span class="overload">[1/4]</span></h2>
+<a id="ae8dbcf96e120e5316ecda8dd6e5deea7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8dbcf96e120e5316ecda8dd6e5deea7">&#9670;&nbsp;</a></span>Vec2() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -188,7 +188,7 @@ Data Fields</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1018,7 +1018,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double nc::Vec2::x</td>
+          <td class="memname">double nc::Vec2::x { 0.0 }</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1032,7 +1032,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double nc::Vec2::y</td>
+          <td class="memname">double nc::Vec2::y { 0.0 }</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -8,52 +8,52 @@
     <includes local="no">string</includes>
     <includedby refid="_core_8hpp" local="yes">Core.hpp</includedby>
     <incdepgraph>
-      <node id="16565">
+      <node id="16569">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="16566" relation="include">
+        <childnode refid="16570" relation="include">
         </childnode>
       </node>
-      <node id="16566">
+      <node id="16570">
         <label>cstdint</label>
       </node>
-      <node id="16569">
+      <node id="16573">
         <label>string</label>
       </node>
-      <node id="16564">
+      <node id="16568">
         <label>Timer.hpp</label>
         <link refid="_timer_8hpp"/>
-        <childnode refid="16565" relation="include">
-        </childnode>
-        <childnode refid="16567" relation="include">
-        </childnode>
-        <childnode refid="16568" relation="include">
-        </childnode>
         <childnode refid="16569" relation="include">
         </childnode>
+        <childnode refid="16571" relation="include">
+        </childnode>
+        <childnode refid="16572" relation="include">
+        </childnode>
+        <childnode refid="16573" relation="include">
+        </childnode>
       </node>
-      <node id="16568">
+      <node id="16572">
         <label>iostream</label>
       </node>
-      <node id="16567">
+      <node id="16571">
         <label>chrono</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="16572">
+      <node id="16576">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="16571">
+      <node id="16575">
         <label>Core.hpp</label>
         <link refid="_core_8hpp"/>
-        <childnode refid="16572" relation="include">
+        <childnode refid="16576" relation="include">
         </childnode>
       </node>
-      <node id="16570">
+      <node id="16574">
         <label>Timer.hpp</label>
         <link refid="_timer_8hpp"/>
-        <childnode refid="16571" relation="include">
+        <childnode refid="16575" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -95,7 +95,7 @@
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//==============================Attributes====================================</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><sp/><sp/><sp/><sp/>name_{<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><sp/><sp/><sp/><sp/>unit_{<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_timer_1a4ab76fe63a2c714307e7278d2032fe17" kindref="member">TimePoint</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>start_;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_timer_1a4ab76fe63a2c714307e7278d2032fe17" kindref="member">TimePoint</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>start_{};</highlight></codeline>
 <codeline lineno="54"><highlight class="normal"></highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setUnits()</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>

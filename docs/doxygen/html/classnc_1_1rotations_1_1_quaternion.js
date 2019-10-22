@@ -1,6 +1,6 @@
 var classnc_1_1rotations_1_1_quaternion =
 [
-    [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#a75f0db43fd479fa5ca1f21a55fe1ce9e", null ],
+    [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#ae4b67d060aa58aa6d22813d6ab851ec8", null ],
     [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#a8c498c295071b8b787902044bf87d34d", null ],
     [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#a3ba2fb2c68554ec78a0957dc1fd7752d", null ],
     [ "Quaternion", "classnc_1_1rotations_1_1_quaternion.html#addcc7fb7b4acd4201e7f5b90ef207f4d", null ],

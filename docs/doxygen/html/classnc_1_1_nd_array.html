@@ -136,8 +136,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2ea48602d358f67c7af016de78dc8d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0bf7318787d59d060531bfaca75bf72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#ac0bf7318787d59d060531bfaca75bf72">NdArray</a> (dtype *inPtr, <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> <a class="el" href="classnc_1_1_nd_array.html#ab0e399408388daf11ac4877c6e9d4e69">numRows</a>, <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> <a class="el" href="classnc_1_1_nd_array.html#a13ddcb6c2ace15a7a4ada6982bc9c982">numCols</a>, bool takeOwnership=false) noexcept</td></tr>
 <tr class="separator:ac0bf7318787d59d060531bfaca75bf72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a703abfd03c5de2f54aa55094f0b036ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a703abfd03c5de2f54aa55094f0b036ee">NdArray</a> (dtype *inPtr, <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> inNumBytes) noexcept</td></tr>
-<tr class="separator:a703abfd03c5de2f54aa55094f0b036ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89d124c04f7cef289e9edf5e2d75f537"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a89d124c04f7cef289e9edf5e2d75f537">NdArray</a> (const dtype *const inPtr, <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> inSize) noexcept</td></tr>
+<tr class="separator:a89d124c04f7cef289e9edf5e2d75f537"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd9007fe02f21bcc010c2f6b44e6cd68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#abd9007fe02f21bcc010c2f6b44e6cd68">NdArray</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inOtherArray) noexcept</td></tr>
 <tr class="separator:abd9007fe02f21bcc010c2f6b44e6cd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59f268663dba2d3a5a0c2ad3460f33b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnc_1_1_nd_array.html#a59f268663dba2d3a5a0c2ad3460f33b6">NdArray</a> (<a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&amp;inOtherArray) noexcept</td></tr>
@@ -1009,8 +1009,8 @@ template&lt;typename dtype = double&gt; </div>
 
 </div>
 </div>
-<a id="a703abfd03c5de2f54aa55094f0b036ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a703abfd03c5de2f54aa55094f0b036ee">&#9670;&nbsp;</a></span>NdArray() <span class="overload">[13/15]</span></h2>
+<a id="a89d124c04f7cef289e9edf5e2d75f537"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89d124c04f7cef289e9edf5e2d75f537">&#9670;&nbsp;</a></span>NdArray() <span class="overload">[13/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1023,14 +1023,14 @@ template&lt;typename dtype = double&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">nc::NdArray</a>&lt; dtype &gt;::<a class="el" href="classnc_1_1_nd_array.html">NdArray</a> </td>
           <td>(</td>
-          <td class="paramtype">dtype *&#160;</td>
+          <td class="paramtype">const dtype *const&#160;</td>
           <td class="paramname"><em>inPtr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a>&#160;</td>
-          <td class="paramname"><em>inNumBytes</em>&#160;</td>
+          <td class="paramname"><em>inSize</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1048,7 +1048,7 @@ template&lt;typename dtype = double&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inPtr</td><td>dtype* to beginning of buffer </td></tr>
-    <tr><td class="paramname">inNumBytes</td><td>number of bytes </td></tr>
+    <tr><td class="paramname">inSize</td><td>number of elements in buffer </td></tr>
   </table>
   </dd>
 </dl>

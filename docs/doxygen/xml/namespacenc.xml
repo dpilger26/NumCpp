@@ -1600,6 +1600,48 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/array_equiv.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/array_equiv.hpp" bodystart="53" bodyend="61"/>
       </memberdef>
+      <memberdef kind="function" id="namespacenc_1af13d4b7e93e049364af63d080a51a11a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt;dtype&gt; nc::asarray</definition>
+        <argsstring>(const dtype *const ptr, uint32 size) noexcept</argsstring>
+        <name>asarray</name>
+        <param>
+          <type>const dtype *const</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert the c-style array to an array. Makes a copy of the data.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html">https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>to array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of elements in the array </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="53" bodyend="56"/>
+      </memberdef>
       <memberdef kind="function" id="namespacenc_1af71a3e8a82c7a5f627e8bd0afbebd4a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -1622,7 +1664,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Convert the std::array to an array.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html">https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Convert the std::array to an array. Makes a copy of the data.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html">https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html</ulink></para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inArray</parametername>
 </parameternamelist>
@@ -1634,7 +1676,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="53" bodyend="56"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="70" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="70" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a1a8e453007d48b637c09e17fbcad35af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1653,7 +1695,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Convert the vector to an array.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html">https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Convert the vector to an array. Makes a copy of the data.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html">https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html</ulink></para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inVector</parametername>
 </parameternamelist>
@@ -1665,7 +1707,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="70" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="70" bodyend="73"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="87" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="87" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a906ea9a95524ed5bc4317acb35d8f9af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1684,7 +1726,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Convert the deque to an array.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html">https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Convert the deque to an array. Makes a copy of the data.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html">https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html</ulink></para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inDeque</parametername>
 </parameternamelist>
@@ -1696,7 +1738,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="87" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="87" bodyend="90"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="104" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="104" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1ad4305fc265be41159c3b8c5f810ff7b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1715,7 +1757,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Convert the set to an array.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html">https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html</ulink></para><para><parameterlist kind="param"><parameteritem>
+<para>Convert the set to an array. Makes a copy of the data.</para><para>NumPy Reference: <ulink url="https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html">https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html</ulink></para><para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>inSet</parametername>
 </parameternamelist>
@@ -1727,7 +1769,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="104" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="104" bodyend="107"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="121" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="121" bodyend="124"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1adb79e903c668fa72bed0d6d5f9327766" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1758,7 +1800,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="122" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="122" bodyend="125"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="139" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="139" bodyend="142"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a1eec54daf3cd64f2d821d3a8007700f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -1789,7 +1831,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="140" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="140" bodyend="143"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" line="157" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/asarray.hpp" bodystart="157" bodyend="160"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1aa67b4266cc44cb708b920746feb4eba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -4906,7 +4948,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/fromFile.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/fromFile.hpp" bodystart="56" bodyend="139"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/fromFile.hpp" line="57" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/fromFile.hpp" bodystart="57" bodyend="139"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a0b388462989d0cb59531f753a907cce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -8328,7 +8370,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="507" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="507" bodyend="510"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="504" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="504" bodyend="507"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a1769d68f44f9c98d94dd412bc32a9bb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
@@ -8365,7 +8407,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="520" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="520" bodyend="523"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="517" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="517" bodyend="520"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1ace6d6bf5d703e886d8f137cf73be5021" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -8402,7 +8444,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="534" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="534" bodyend="537"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="531" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="531" bodyend="534"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1af51c9efd8dbadbdc664972bd96583a72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -8439,7 +8481,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="561" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="561" bodyend="564"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="557" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="557" bodyend="560"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1af4ecba4e059c6dcf672644a3c1bff75d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -8476,7 +8518,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="574" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="574" bodyend="577"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="570" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="570" bodyend="573"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a39b128708b2225a00de527c8ec83d72a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -8513,7 +8555,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="588" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="588" bodyend="591"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="584" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="584" bodyend="587"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a9f50afa50b63aea110be8b9b477d1cb4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
@@ -8550,7 +8592,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="418" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="418" bodyend="421"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="415" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="415" bodyend="418"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a43fad0472de9a72d2680623200138907" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
@@ -8587,7 +8629,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="431" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="431" bodyend="434"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="428" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="428" bodyend="431"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1ab769651a09123be0a13a54a82aaa088a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
@@ -8624,7 +8666,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="444" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="444" bodyend="447"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="441" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="441" bodyend="444"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a5ded64221f16b9a774bc35de58204e28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -8661,7 +8703,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="472" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="472" bodyend="475"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="468" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="468" bodyend="471"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a26bec2e52fdab966f0f3714d1e2ea8bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -8698,7 +8740,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="485" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="485" bodyend="488"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="481" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="481" bodyend="484"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1ac6f8a785c25c21f9b4b8328dfd7da6c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -8735,7 +8777,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="498" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="498" bodyend="501"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="494" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="494" bodyend="497"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a7c52ae6f5c5daf9d27c292e0451cccc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
@@ -8753,7 +8795,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="455" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="455" bodyend="458"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="452" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="452" bodyend="455"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1af29a28cada8fd30111a2c6d41a110ff8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
@@ -8790,7 +8832,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="468" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="468" bodyend="471"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="465" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="465" bodyend="468"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1ad279cbad60173006f6883e0d18b0147e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
@@ -8827,7 +8869,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="481" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="481" bodyend="484"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="478" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="478" bodyend="481"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a7cf1dfd7144b41f4d748af9fb8aa5ffb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
@@ -8864,7 +8906,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="494" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="494" bodyend="497"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="491" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="491" bodyend="494"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a7227073082d530baaf7ebb96ee06995b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -8882,7 +8924,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="509" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="509" bodyend="512"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="505" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="505" bodyend="508"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a6935362e6d04b73f04c0e8191ae3098d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -8919,7 +8961,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="522" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="522" bodyend="525"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="518" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="518" bodyend="521"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1af87da9c66c9e535066221e4f85f3ed90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -8956,7 +8998,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="535" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="535" bodyend="538"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="531" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="531" bodyend="534"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a7c61e5d343e6439c26abb36db5a0b948" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -8993,7 +9035,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="548" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="548" bodyend="551"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="544" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="544" bodyend="547"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1abe2fc114afe7f62aacf55a9288f45c4a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec2" kindref="compound">Vec2</ref></type>
@@ -9030,7 +9072,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="547" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="547" bodyend="550"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="544" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="544" bodyend="547"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a0a070b4ec8a29ee1a357c53857d4778a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="classnc_1_1_vec3" kindref="compound">Vec3</ref></type>
@@ -9067,7 +9109,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="601" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="601" bodyend="604"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="597" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="597" bodyend="600"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1ac5bf4d5c39fe1087aafc7f94b6fb552b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -9104,7 +9146,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="560" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="560" bodyend="564"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" line="557" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec2.hpp" bodystart="557" bodyend="561"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a3b5bc5508bcc2c2f03bfb8fe675d2e6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -9141,7 +9183,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="614" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="614" bodyend="618"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" line="610" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Vector/Vec3.hpp" bodystart="610" bodyend="614"/>
       </memberdef>
       <memberdef kind="function" id="namespacenc_1a54ebb23ac2a5fef9013f82afd8efd143" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

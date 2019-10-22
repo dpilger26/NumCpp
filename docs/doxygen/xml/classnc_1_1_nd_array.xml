@@ -503,18 +503,18 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray.hpp" line="325" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/NdArray.hpp" bodystart="325" bodyend="332"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1_nd_array_1a703abfd03c5de2f54aa55094f0b036ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1_nd_array_1a89d124c04f7cef289e9edf5e2d75f537" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>nc::NdArray&lt; dtype &gt;::NdArray</definition>
-        <argsstring>(dtype *inPtr, uint32 inNumBytes) noexcept</argsstring>
+        <argsstring>(const dtype *const inPtr, uint32 inSize) noexcept</argsstring>
         <name>NdArray</name>
         <param>
-          <type>dtype *</type>
+          <type>const dtype *const</type>
           <declname>inPtr</declname>
         </param>
         <param>
           <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
-          <declname>inNumBytes</declname>
+          <declname>inSize</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -528,10 +528,10 @@
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername>inNumBytes</parametername>
+<parametername>inSize</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>number of bytes </para></parameterdescription>
+<para>number of elements in buffer </para></parameterdescription>
 </parameteritem>
 </parameterlist>
 </para>        </detaileddescription>
@@ -5368,7 +5368,7 @@
       <member refid="classnc_1_1_nd_array_1a67eca413c109e6c68ef4d85b3e4bb0a6" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>NdArray</name></member>
       <member refid="classnc_1_1_nd_array_1a2ea48602d358f67c7af016de78dc8d4a" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>NdArray</name></member>
       <member refid="classnc_1_1_nd_array_1ac0bf7318787d59d060531bfaca75bf72" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>NdArray</name></member>
-      <member refid="classnc_1_1_nd_array_1a703abfd03c5de2f54aa55094f0b036ee" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>NdArray</name></member>
+      <member refid="classnc_1_1_nd_array_1a89d124c04f7cef289e9edf5e2d75f537" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>NdArray</name></member>
       <member refid="classnc_1_1_nd_array_1abd9007fe02f21bcc010c2f6b44e6cd68" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>NdArray</name></member>
       <member refid="classnc_1_1_nd_array_1a59f268663dba2d3a5a0c2ad3460f33b6" prot="public" virt="non-virtual"><scope>nc::NdArray</scope><name>NdArray</name></member>
       <member refid="classnc_1_1_nd_array_1a5b697c0900a93b8e418b87f3e491bb61" prot="private" virt="non-virtual"><scope>nc::NdArray</scope><name>newArray</name></member>

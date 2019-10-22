@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"min_8hpp.html":[4,0,221],
 "min_8hpp.html#a1dcd97ed6259f6a019ff8b59f2ae1adc":[4,0,221,0],
 "min_8hpp_source.html":[4,0,221],
 "minimum_8hpp.html":[4,0,222],
@@ -26,16 +27,16 @@ var NAVTREEINDEX6 =
 "multiply_8hpp.html":[4,0,229],
 "multiply_8hpp.html#a6d7cd3b57c93a891a00d881832fdba77":[4,0,229,0],
 "multiply_8hpp_source.html":[4,0,229],
-"namespacemembers.html":[2,1,0],
 "namespacemembers.html":[2,1,0,0],
+"namespacemembers.html":[2,1,0],
 "namespacemembers_b.html":[2,1,0,1],
 "namespacemembers_c.html":[2,1,0,2],
 "namespacemembers_d.html":[2,1,0,3],
 "namespacemembers_e.html":[2,1,0,4],
 "namespacemembers_enum.html":[2,1,4],
 "namespacemembers_f.html":[2,1,0,5],
-"namespacemembers_func.html":[2,1,1],
 "namespacemembers_func.html":[2,1,1,0],
+"namespacemembers_func.html":[2,1,1],
 "namespacemembers_func_b.html":[2,1,1,1],
 "namespacemembers_func_c.html":[2,1,1,2],
 "namespacemembers_func_d.html":[2,1,1,3],
@@ -88,8 +89,8 @@ var NAVTREEINDEX6 =
 "namespacenc_1_1filter_1_1boundary.html":[2,0,0,5,0],
 "namespacenc_1_1image_processing.html":[3,0,0,4],
 "namespacenc_1_1image_processing.html":[2,0,0,6],
-"namespacenc_1_1linalg.html":[2,0,0,7],
 "namespacenc_1_1linalg.html":[3,0,0,5],
+"namespacenc_1_1linalg.html":[2,0,0,7],
 "namespacenc_1_1polynomial.html":[2,0,0,8],
 "namespacenc_1_1polynomial.html":[3,0,0,6],
 "namespacenc_1_1pybind_interface.html":[2,0,0,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "radian_seperation_8hpp.html":[4,0,289],
 "radian_seperation_8hpp.html#a0fd3df39e04b072bf988390bce990f7c":[4,0,289,1],
 "radian_seperation_8hpp.html#ac26247590cae76bd0e551a3300680f55":[4,0,289,0],
-"radian_seperation_8hpp_source.html":[4,0,289],
-"radians_8hpp.html":[4,0,288]
+"radian_seperation_8hpp_source.html":[4,0,289]
 };

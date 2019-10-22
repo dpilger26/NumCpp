@@ -69,10 +69,10 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_centroid_1a3b97e4ddc31b85eb8c3f84b398429a35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_centroid_1a8f8f09104f3581a418c7759290989a5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>nc::imageProcessing::Centroid&lt; dtype &gt;::Centroid</definition>
-        <argsstring>()=default</argsstring>
+        <argsstring>() noexcept=default</argsstring>
         <name>Centroid</name>
         <briefdescription>
         </briefdescription>
@@ -82,10 +82,10 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Centroid.hpp" line="54" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="classnc_1_1image_processing_1_1_centroid_1a59d0af7acae8d24d29ccb372440aed22" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_centroid_1a07de04ddd4361f4e8c5e827f8b63f76a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>nc::imageProcessing::Centroid&lt; dtype &gt;::Centroid</definition>
-        <argsstring>(const Cluster&lt; dtype &gt; &amp;inCluster)</argsstring>
+        <argsstring>(const Cluster&lt; dtype &gt; &amp;inCluster) noexcept</argsstring>
         <name>Centroid</name>
         <param>
           <type>const <ref refid="classnc_1_1image_processing_1_1_cluster" kindref="compound">Cluster</ref>&lt; dtype &gt; &amp;</type>
@@ -348,8 +348,8 @@
     <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Centroid.hpp" line="48" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Centroid.hpp" bodystart="47" bodyend="266"/>
     <listofallmembers>
       <member refid="classnc_1_1image_processing_1_1_centroid_1abbe27fc0eda557ee241c1fc5f280fc5a" prot="private" virt="non-virtual"><scope>nc::imageProcessing::Centroid</scope><name>centerOfMass</name></member>
-      <member refid="classnc_1_1image_processing_1_1_centroid_1a3b97e4ddc31b85eb8c3f84b398429a35" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Centroid</scope><name>Centroid</name></member>
-      <member refid="classnc_1_1image_processing_1_1_centroid_1a59d0af7acae8d24d29ccb372440aed22" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Centroid</scope><name>Centroid</name></member>
+      <member refid="classnc_1_1image_processing_1_1_centroid_1a8f8f09104f3581a418c7759290989a5a" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Centroid</scope><name>Centroid</name></member>
+      <member refid="classnc_1_1image_processing_1_1_centroid_1a07de04ddd4361f4e8c5e827f8b63f76a" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Centroid</scope><name>Centroid</name></member>
       <member refid="classnc_1_1image_processing_1_1_centroid_1a4ef0e9b2faa4999af5c3597a60140d6c" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Centroid</scope><name>col</name></member>
       <member refid="classnc_1_1image_processing_1_1_centroid_1a0e2207db61af3fa0148e9cc948be87ee" prot="private" virt="non-virtual"><scope>nc::imageProcessing::Centroid</scope><name>col_</name></member>
       <member refid="classnc_1_1image_processing_1_1_centroid_1a098ee235ea6fcf22df2a7a0d80d53e44" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Centroid</scope><name>eod</name></member>
