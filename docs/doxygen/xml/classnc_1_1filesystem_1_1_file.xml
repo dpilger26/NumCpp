@@ -9,45 +9,7 @@
         <definition>bool nc::filesystem::File::exists_</definition>
         <argsstring></argsstring>
         <name>exists_</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="141" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="141" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classnc_1_1filesystem_1_1_file_1a9077d1feb84f8b82cb7d1bd31cd70b2d" prot="private" static="no" mutable="no">
-        <type>std::string</type>
-        <definition>std::string nc::filesystem::File::extension_</definition>
-        <argsstring></argsstring>
-        <name>extension_</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="140" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="140" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classnc_1_1filesystem_1_1_file_1a98d5b030a68c0e720634b05bbbb75ebf" prot="private" static="no" mutable="no">
-        <type>std::string</type>
-        <definition>std::string nc::filesystem::File::filename_</definition>
-        <argsstring></argsstring>
-        <name>filename_</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="139" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="139" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classnc_1_1filesystem_1_1_file_1a537a49e618f082e00a26ed48c704be18" prot="private" static="no" mutable="no">
-        <type>std::string</type>
-        <definition>std::string nc::filesystem::File::fullFilename_</definition>
-        <argsstring></argsstring>
-        <name>fullFilename_</name>
+        <initializer>{false}</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -55,6 +17,48 @@
         <inbodydescription>
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="138" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1filesystem_1_1_file_1a9077d1feb84f8b82cb7d1bd31cd70b2d" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string nc::filesystem::File::extension_</definition>
+        <argsstring></argsstring>
+        <name>extension_</name>
+        <initializer>{&quot;&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="137" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1filesystem_1_1_file_1a98d5b030a68c0e720634b05bbbb75ebf" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string nc::filesystem::File::filename_</definition>
+        <argsstring></argsstring>
+        <name>filename_</name>
+        <initializer>{&quot;&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="136" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1filesystem_1_1_file_1a537a49e618f082e00a26ed48c704be18" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string nc::filesystem::File::fullFilename_</definition>
+        <argsstring></argsstring>
+        <name>fullFilename_</name>
+        <initializer>{&quot;&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="135" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="135" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -81,7 +85,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="49" bodyend="66"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="49" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="49" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a9a9b7d3f9505b025038e16a469553515" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -95,7 +99,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="74" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="74" bodyend="77"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="71" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="71" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1ac51df5a278a9b6045d6f241766c10483" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const std::string &amp;</type>
@@ -109,7 +113,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="85" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="85" bodyend="88"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="82" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="82" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a5a98b4fb748790c8ddbed52d294a4fa2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const std::string</type>
@@ -123,7 +127,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="96" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="96" bodyend="99"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="93" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="93" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a74f7e012422534a9558b630f2b6edd06" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -137,7 +141,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="107" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="107" bodyend="110"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="104" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="104" bodyend="107"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1a29fd40eb720c1caad3dcef59e2f215a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const std::string &amp;</type>
@@ -151,7 +155,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="118" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="118" bodyend="121"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="115" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="115" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="classnc_1_1filesystem_1_1_file_1ac5d517ade2f86c1934ceaaa17601e5d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const std::string</type>
@@ -169,7 +173,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="130" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="130" bodyend="134"/>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="127" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="127" bodyend="131"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -182,7 +186,7 @@
         <link refid="classnc_1_1filesystem_1_1_file"/>
       </node>
     </collaborationgraph>
-    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="41" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="40" bodyend="142"/>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" line="41" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Filesystem.hpp" bodystart="40" bodyend="139"/>
     <listofallmembers>
       <member refid="classnc_1_1filesystem_1_1_file_1a9a9b7d3f9505b025038e16a469553515" prot="public" virt="non-virtual"><scope>nc::filesystem::File</scope><name>exists</name></member>
       <member refid="classnc_1_1filesystem_1_1_file_1a8d459f8a6e3e44b3bfd88b5cbb4caba8" prot="private" virt="non-virtual"><scope>nc::filesystem::File</scope><name>exists_</name></member>

@@ -44,10 +44,8 @@ namespace nc
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
     ///
-    /// @param
-    ///				ptr to array
-    ///             size: the number of elements in the array
-    ///             numCols: the number of columns
+    /// @param  ptr to array
+    /// @param  size: the number of elements in the array
     /// @return
     ///				NdArray
     ///

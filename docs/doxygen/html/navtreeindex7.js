@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"radians_8hpp.html":[4,0,288],
 "radians_8hpp.html#a02193cb36ec03b2d6c86517c55f45207":[4,0,288,1],
 "radians_8hpp.html#ac25bf9dbbc1efc02e31e8737c85bbdd6":[4,0,288,0],
 "radians_8hpp_source.html":[4,0,288],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "unique_8hpp.html":[4,0,369],
 "unique_8hpp.html#ab254accc5490d12c7d2b396345c50493":[4,0,369,0],
 "unique_8hpp_source.html":[4,0,369],
-"unwrap_8hpp.html":[4,0,370],
-"unwrap_8hpp.html#a4a992832492da5b1fccea6eac13af796":[4,0,370,1]
+"unwrap_8hpp.html":[4,0,370]
 };
