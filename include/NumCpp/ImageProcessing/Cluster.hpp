@@ -57,8 +57,8 @@ namespace nc
 
         private:
             //================================Attributes===============================
-            uint32                      clusterId_;
-            std::vector<Pixel<dtype> >  pixels_;
+            int32                       clusterId_{ -1 };
+            std::vector<Pixel<dtype> >  pixels_{};
 
             uint32                      rowMin_{ std::numeric_limits<uint32>::max() }; // largest possible number
             uint32                      rowMax_{ 0 };
@@ -75,9 +75,7 @@ namespace nc
             // Description:
             ///              default constructor needed by containers
             ///
-            Cluster() :
-                clusterId_(-1)
-            {}
+            Cluster() noexcept = default;
 
             //=============================================================================
             // Description:
@@ -86,7 +84,7 @@ namespace nc
             /// @param
             ///              inClusterId
             ///
-            Cluster(uint32 inClusterId) :
+            Cluster(uint32 inClusterId) noexcept :
                 clusterId_(inClusterId)
             {}
 

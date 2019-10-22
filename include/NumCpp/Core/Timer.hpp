@@ -50,7 +50,7 @@ namespace nc
         //==============================Attributes====================================
         std::string		name_{ "" };
         std::string		unit_{ "" };
-        TimePoint		start_;
+        TimePoint		start_{};
 
         void setUnits()
         {

@@ -51,7 +51,7 @@ namespace nc
             // Description:
             ///              defualt constructor needed by containers
             ///
-            Centroid() = default;
+            Centroid() noexcept = default;
 
             //=============================================================================
             // Description:
@@ -59,7 +59,7 @@ namespace nc
             ///
             /// @param               inCluster
             ///
-            Centroid(const Cluster<dtype>& inCluster) :
+            Centroid(const Cluster<dtype>& inCluster) noexcept :
                 intensity_(inCluster.intensity()),
                 eod_(inCluster.eod())
             {

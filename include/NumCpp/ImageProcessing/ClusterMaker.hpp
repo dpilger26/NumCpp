@@ -172,11 +172,11 @@ namespace nc
             //==================================Attributes=================================
             const NdArray<bool>* const      xcds_;
             const NdArray<dtype>* const     intensities_;
-            std::vector<Pixel<dtype> >      xcdsVec_;
+            std::vector<Pixel<dtype> >      xcdsVec_{};
 
-            Shape                           shape_;
+            Shape                           shape_{};
 
-            std::vector<Cluster<dtype> >    clusters_;
+            std::vector<Cluster<dtype> >    clusters_{};
 
             //=============================================================================
             // Description:

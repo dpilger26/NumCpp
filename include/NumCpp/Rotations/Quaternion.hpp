@@ -58,7 +58,7 @@ namespace nc
         {
         private:
             //====================================Attributes==============================
-            std::array<double, 4> components_;
+            std::array<double, 4> components_{ {0.0, 0.0, 0.0, 1.0} };
 
             //============================================================================
             // Method Description:
@@ -176,9 +176,7 @@ namespace nc
             // Method Description:
             ///						Default Constructor
             ///
-            Quaternion() noexcept :
-                components_{ { 0.0, 0.0, 0.0, 1.0 } }
-            {}
+            Quaternion() noexcept = default;
 
             //============================================================================
             // Method Description:

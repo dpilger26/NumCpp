@@ -50,7 +50,7 @@ namespace nc
 
     private:
         //================================Attributes==================================
-        std::deque<NdArray<dtype> >     cube_;
+        std::deque<NdArray<dtype> >     cube_{};
         Shape                           elementShape_{ 0, 0 };
 
     public:

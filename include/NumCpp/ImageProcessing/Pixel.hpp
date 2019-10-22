@@ -56,7 +56,7 @@ namespace nc
             // Description:
             ///              defualt constructor needed by containers
             ///
-            constexpr Pixel() = default;
+            constexpr Pixel() noexcept = default;
 
             //=============================================================================
             // Description:

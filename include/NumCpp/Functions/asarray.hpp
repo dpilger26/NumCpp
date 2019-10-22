@@ -40,7 +40,26 @@ namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Convert the std::array to an array.
+    ///						Convert the c-style array to an array. Makes a copy of the data.
+    ///
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
+    ///
+    /// @param
+    ///				ptr to array
+    ///             size: the number of elements in the array
+    ///             numCols: the number of columns
+    /// @return
+    ///				NdArray
+    ///
+    template<typename dtype>
+    NdArray<dtype> asarray(const dtype* const ptr, uint32 size) noexcept
+    {
+        return NdArray<dtype>(ptr, size);
+    }
+
+    //============================================================================
+    // Method Description:
+    ///						Convert the std::array to an array. Makes a copy of the data.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
     ///
@@ -57,7 +76,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Convert the vector to an array.
+    ///						Convert the vector to an array. Makes a copy of the data.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
     ///
@@ -74,7 +93,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Convert the deque to an array.
+    ///						Convert the deque to an array. Makes a copy of the data.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
     ///
@@ -91,7 +110,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Convert the set to an array.
+    ///						Convert the set to an array. Makes a copy of the data.
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html
     ///
@@ -108,7 +127,7 @@ namespace nc
 
     //============================================================================
     // Method Description:
-    ///						Convert the list initializer to an array.
+    ///						Convert the list initializer to an array. 
     ///						eg: NdArray<int> myArray = NC::asarray<int>({1,2,3});
     ///
     ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.asarray.html

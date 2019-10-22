@@ -34,6 +34,7 @@
 #include "NumCpp/NdArray.hpp"
 
 #include <fstream>
+#include <memory>
 #include <string>
 #include <sstream>
 
@@ -73,8 +74,8 @@ namespace nc
             const uint32 fileSize = static_cast<uint32>(file.tellg());
             file.seekg(0, file.beg);
 
-            char* fileBuffer = new char[fileSize];
-            file.read(fileBuffer, fileSize);
+            const auto fileBuffer = std::unique_ptr<char>(new char[fileSize]);
+            file.read(fileBuffer.get(), fileSize);
 
             if (file.bad() || file.fail())
             {
@@ -83,8 +84,7 @@ namespace nc
 
             file.close();
 
-            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer), fileSize);
-            delete[] fileBuffer;
+            NdArray<dtype> returnArray(reinterpret_cast<dtype*>(fileBuffer.get()), fileSize / sizeof(dtype));
 
             return returnArray;
         }

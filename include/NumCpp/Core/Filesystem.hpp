@@ -47,10 +47,7 @@ namespace nc
             /// @param filename: the full filename
             ///
             File(const std::string& filename) noexcept :
-                fullFilename_(filename),
-                filename_(""),
-                extension_(""),
-                exists_(false)
+                fullFilename_(filename)
             {
                 size_t dot = filename.find_last_of('.');
 
@@ -135,10 +132,10 @@ namespace nc
 
         private:
             //================================Attributes==================================
-            std::string fullFilename_;
-            std::string filename_;
-            std::string extension_;
-            bool        exists_;
+            std::string fullFilename_{""};
+            std::string filename_{""};
+            std::string extension_{""};
+            bool        exists_{false};
         };
     }
 }
