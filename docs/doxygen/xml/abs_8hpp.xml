@@ -116,7 +116,7 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="30">
+      <node id="31">
         <label>vector</label>
       </node>
       <node id="1">
@@ -174,6 +174,8 @@
         </childnode>
         <childnode refid="30" relation="include">
         </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
       </node>
       <node id="7">
         <label>NumCpp/Core/Error.hpp</label>
@@ -189,7 +191,7 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="30">
         <label>utility</label>
       </node>
       <node id="23">
@@ -210,6 +212,9 @@
       <node id="22">
         <label>boost/endian/conversion.hpp</label>
       </node>
+      <node id="29">
+        <label>type_traits</label>
+      </node>
       <node id="28">
         <label>set</label>
       </node>
@@ -221,28 +226,28 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="34">
+      <node id="35">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="31">
+      <node id="32">
         <label>abs.hpp</label>
         <link refid="abs_8hpp"/>
-        <childnode refid="32" relation="include">
-        </childnode>
         <childnode refid="33" relation="include">
         </childnode>
-      </node>
-      <node id="32">
-        <label>allclose.hpp</label>
-        <link refid="allclose_8hpp"/>
-        <childnode refid="33" relation="include">
+        <childnode refid="34" relation="include">
         </childnode>
       </node>
       <node id="33">
+        <label>allclose.hpp</label>
+        <link refid="allclose_8hpp"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
         <label>Functions.hpp</label>
         <link refid="_functions_8hpp"/>
-        <childnode refid="34" relation="include">
+        <childnode refid="35" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

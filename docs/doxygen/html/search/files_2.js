@@ -3,6 +3,7 @@ var searchData=
   ['cauchy_2ehpp',['cauchy.hpp',['../cauchy_8hpp.html',1,'']]],
   ['cbrt_2ehpp',['cbrt.hpp',['../cbrt_8hpp.html',1,'']]],
   ['ceil_2ehpp',['ceil.hpp',['../ceil_8hpp.html',1,'']]],
+  ['centerofmass_2ehpp',['centerOfMass.hpp',['../center_of_mass_8hpp.html',1,'']]],
   ['centroid_2ehpp',['Centroid.hpp',['../_centroid_8hpp.html',1,'']]],
   ['centroidclusters_2ehpp',['centroidClusters.hpp',['../centroid_clusters_8hpp.html',1,'']]],
   ['chebyshev_5ft_2ehpp',['chebyshev_t.hpp',['../chebyshev__t_8hpp.html',1,'']]],

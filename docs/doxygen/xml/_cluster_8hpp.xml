@@ -18,154 +18,154 @@
     <includedby refid="cluster_pixels_8hpp" local="yes">clusterPixels.hpp</includedby>
     <includedby refid="_image_processing_8hpp" local="yes">ImageProcessing.hpp</includedby>
     <incdepgraph>
-      <node id="2405">
+      <node id="2506">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="2406" relation="include">
+        <childnode refid="2507" relation="include">
         </childnode>
       </node>
-      <node id="2408">
+      <node id="2509">
         <label>limits</label>
       </node>
-      <node id="2406">
+      <node id="2507">
         <label>cstdint</label>
       </node>
-      <node id="2409">
+      <node id="2510">
         <label>stdexcept</label>
       </node>
-      <node id="2410">
+      <node id="2511">
         <label>string</label>
       </node>
-      <node id="2403">
+      <node id="2504">
         <label>Cluster.hpp</label>
         <link refid="_cluster_8hpp"/>
-        <childnode refid="2404" relation="include">
+        <childnode refid="2505" relation="include">
         </childnode>
-        <childnode refid="2405" relation="include">
+        <childnode refid="2506" relation="include">
         </childnode>
-        <childnode refid="2411" relation="include">
+        <childnode refid="2512" relation="include">
         </childnode>
-        <childnode refid="2412" relation="include">
+        <childnode refid="2513" relation="include">
         </childnode>
-        <childnode refid="2413" relation="include">
+        <childnode refid="2514" relation="include">
         </childnode>
-        <childnode refid="2407" relation="include">
+        <childnode refid="2508" relation="include">
         </childnode>
-        <childnode refid="2408" relation="include">
+        <childnode refid="2509" relation="include">
         </childnode>
-        <childnode refid="2410" relation="include">
+        <childnode refid="2511" relation="include">
         </childnode>
-        <childnode refid="2414" relation="include">
+        <childnode refid="2515" relation="include">
         </childnode>
-        <childnode refid="2415" relation="include">
+        <childnode refid="2516" relation="include">
         </childnode>
       </node>
-      <node id="2415">
+      <node id="2516">
         <label>vector</label>
       </node>
-      <node id="2404">
+      <node id="2505">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="2405" relation="include">
+        <childnode refid="2506" relation="include">
         </childnode>
-        <childnode refid="2407" relation="include">
+        <childnode refid="2508" relation="include">
         </childnode>
-        <childnode refid="2408" relation="include">
+        <childnode refid="2509" relation="include">
         </childnode>
-        <childnode refid="2409" relation="include">
+        <childnode refid="2510" relation="include">
         </childnode>
-        <childnode refid="2410" relation="include">
+        <childnode refid="2511" relation="include">
         </childnode>
       </node>
-      <node id="2414">
+      <node id="2515">
         <label>utility</label>
       </node>
-      <node id="2412">
+      <node id="2513">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="2410" relation="include">
+        <childnode refid="2511" relation="include">
         </childnode>
       </node>
-      <node id="2407">
+      <node id="2508">
         <label>iostream</label>
       </node>
-      <node id="2411">
+      <node id="2512">
         <label>NumCpp/ImageProcessing/Pixel.hpp</label>
         <link refid="_pixel_8hpp"/>
-        <childnode refid="2405" relation="include">
+        <childnode refid="2506" relation="include">
         </childnode>
-        <childnode refid="2412" relation="include">
+        <childnode refid="2513" relation="include">
         </childnode>
-        <childnode refid="2407" relation="include">
+        <childnode refid="2508" relation="include">
         </childnode>
-        <childnode refid="2410" relation="include">
+        <childnode refid="2511" relation="include">
         </childnode>
       </node>
-      <node id="2413">
+      <node id="2514">
         <label>algorithm</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2418">
+      <node id="2519">
         <label>centroidClusters.hpp</label>
         <link refid="centroid_clusters_8hpp"/>
-        <childnode refid="2419" relation="include">
+        <childnode refid="2520" relation="include">
         </childnode>
-        <childnode refid="2420" relation="include">
+        <childnode refid="2521" relation="include">
         </childnode>
       </node>
-      <node id="2421">
+      <node id="2522">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="2422">
+      <node id="2523">
         <label>ClusterMaker.hpp</label>
         <link refid="_cluster_maker_8hpp"/>
-        <childnode refid="2423" relation="include">
+        <childnode refid="2524" relation="include">
         </childnode>
-        <childnode refid="2420" relation="include">
+        <childnode refid="2521" relation="include">
         </childnode>
       </node>
-      <node id="2417">
+      <node id="2518">
         <label>Centroid.hpp</label>
         <link refid="_centroid_8hpp"/>
-        <childnode refid="2418" relation="include">
+        <childnode refid="2519" relation="include">
         </childnode>
-        <childnode refid="2420" relation="include">
+        <childnode refid="2521" relation="include">
         </childnode>
       </node>
-      <node id="2419">
+      <node id="2520">
         <label>generateCentroids.hpp</label>
         <link refid="generate_centroids_8hpp"/>
-        <childnode refid="2420" relation="include">
+        <childnode refid="2521" relation="include">
         </childnode>
       </node>
-      <node id="2416">
+      <node id="2517">
         <label>Cluster.hpp</label>
         <link refid="_cluster_8hpp"/>
-        <childnode refid="2417" relation="include">
+        <childnode refid="2518" relation="include">
         </childnode>
-        <childnode refid="2418" relation="include">
+        <childnode refid="2519" relation="include">
         </childnode>
-        <childnode refid="2422" relation="include">
+        <childnode refid="2523" relation="include">
         </childnode>
-        <childnode refid="2423" relation="include">
+        <childnode refid="2524" relation="include">
         </childnode>
-        <childnode refid="2420" relation="include">
+        <childnode refid="2521" relation="include">
         </childnode>
       </node>
-      <node id="2420">
+      <node id="2521">
         <label>ImageProcessing.hpp</label>
         <link refid="_image_processing_8hpp"/>
-        <childnode refid="2421" relation="include">
+        <childnode refid="2522" relation="include">
         </childnode>
       </node>
-      <node id="2423">
+      <node id="2524">
         <label>clusterPixels.hpp</label>
         <link refid="cluster_pixels_8hpp"/>
-        <childnode refid="2419" relation="include">
+        <childnode refid="2520" relation="include">
         </childnode>
-        <childnode refid="2420" relation="include">
+        <childnode refid="2521" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

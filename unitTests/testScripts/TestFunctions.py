@@ -1,6 +1,7 @@
 import os
 import getpass
 import numpy as np
+import scipy.ndimage.measurements as meas
 from functools import reduce
 from termcolor import colored
 import sys
@@ -787,6 +788,50 @@ def doTest():
     data = np.random.randn(shape.rows, shape.cols).astype(np.double) * 1000
     cArray.setArray(data)
     if np.array_equal(np.round(NumCpp.ceilArray(cArray), 9), np.round(np.ceil(data), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing centerOfMass Axis = NONE', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols).astype(np.double) * 1000
+    cArray.setArray(data)
+    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.NONE).flatten(), 9),
+                      np.round(meas.center_of_mass(data), 9)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing centerOfMass Axis = ROW', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols).astype(np.double) * 1000
+    cArray.setArray(data)
+
+    coms = list()
+    for col in range(data.shape[1]):
+        coms.append(np.round(meas.center_of_mass(data[:, col])[0], 9))
+
+    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.ROW).flatten(), 9), coms):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing centerOfMass Axis = COL', 'cyan'))
+    shapeInput = np.random.randint(20, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randn(shape.rows, shape.cols).astype(np.double) * 1000
+    cArray.setArray(data)
+
+    coms = list()
+    for row in range(data.shape[0]):
+        coms.append(np.round(meas.center_of_mass(data[row, :])[0], 9))
+
+    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.COL).flatten(), 9), coms):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

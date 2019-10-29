@@ -2397,6 +2397,49 @@
         </inbodydescription>
         <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/ceil.hpp" line="63" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/ceil.hpp" bodystart="63" bodyend="71"/>
       </memberdef>
+      <memberdef kind="function" id="namespacenc_1a2c8a7bd3960753caaa131de297b7895f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; double &gt;</type>
+        <definition>NdArray&lt;double&gt; nc::centerOfMass</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray, Axis inAxis=Axis::NONE) noexcept</argsstring>
+        <name>centerOfMass</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84" kindref="member">Axis</ref></type>
+          <declname>inAxis</declname>
+          <defval><ref refid="namespacenc_1a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693" kindref="member">Axis::NONE</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the center of mass of the array values along an axis.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inAxis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional, default NONE which is a 2d center of mass) </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>: if axis is NONE than a 1x2 array of the centroid row/col is returned. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/centerOfMass.hpp" line="48" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Functions/centerOfMass.hpp" bodystart="48" bodyend="136"/>
+      </memberdef>
       <memberdef kind="function" id="namespacenc_1a6f71d75583176a599a64647109170a08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>

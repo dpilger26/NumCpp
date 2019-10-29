@@ -54,6 +54,7 @@
 #include <numeric>
 #include <set>
 #include <string>
+#include <type_traits>
 #include <utility>
 #include <vector>
 
@@ -1414,7 +1415,7 @@ namespace nc
             }
 
             return *this;
-        }
+            }
 
         //============================================================================
         // Method Description:
@@ -4763,5 +4764,5 @@ namespace nc
             inOStream << inArray.str();
             return inOStream;
         }
-    };
-}
+        };
+    }

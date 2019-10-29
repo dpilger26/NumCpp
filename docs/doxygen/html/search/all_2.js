@@ -9,6 +9,8 @@ var searchData=
   ['ceil',['ceil',['../namespacenc.html#a291189b2c2bc35a608b393ab1c06e84a',1,'nc::ceil(dtype inValue) noexcept'],['../namespacenc.html#af762493e829f0334c506cc05c7668270',1,'nc::ceil(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['ceil_2ehpp',['ceil.hpp',['../ceil_8hpp.html',1,'']]],
   ['cend',['cend',['../classnc_1_1_data_cube.html#af9484ba42f739c5a4e0a32c0d8f916ca',1,'nc::DataCube::cend()'],['../classnc_1_1_nd_array.html#a01305da9771c34f86b419379ee986f3e',1,'nc::NdArray::cend() const noexcept'],['../classnc_1_1_nd_array.html#a72e0f298458da1647e3ecedebb64cd36',1,'nc::NdArray::cend(uint32 inRow) const']]],
+  ['centerofmass',['centerOfMass',['../namespacenc.html#a2c8a7bd3960753caaa131de297b7895f',1,'nc']]],
+  ['centerofmass_2ehpp',['centerOfMass.hpp',['../center_of_mass_8hpp.html',1,'']]],
   ['centroid',['Centroid',['../classnc_1_1image_processing_1_1_centroid.html',1,'nc::imageProcessing::Centroid&lt; dtype &gt;'],['../classnc_1_1image_processing_1_1_centroid.html#a8f8f09104f3581a418c7759290989a5a',1,'nc::imageProcessing::Centroid::Centroid() noexcept=default'],['../classnc_1_1image_processing_1_1_centroid.html#a07de04ddd4361f4e8c5e827f8b63f76a',1,'nc::imageProcessing::Centroid::Centroid(const Cluster&lt; dtype &gt; &amp;inCluster) noexcept']]],
   ['centroid_2ehpp',['Centroid.hpp',['../_centroid_8hpp.html',1,'']]],
   ['centroidclusters',['centroidClusters',['../namespacenc_1_1image_processing.html#ad2838bf346a3d199ee0141fc64be7c5e',1,'nc::imageProcessing']]],
