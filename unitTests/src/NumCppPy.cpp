@@ -1320,6 +1320,14 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray centerOfMass(const NdArray<dtype>& inArray, const Axis inAxis = Axis::NONE) noexcept
+    {
+        return nc2Boost(nc::centerOfMass(inArray, inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     dtype clipScaler(dtype inValue, dtype inMinValue, dtype inMaxValue)
     {
         return clip(inValue, inMinValue, inMaxValue);
@@ -3926,6 +3934,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("cbrtScaler", &MethodsInterface::cbrtScaler<double>);
     bp::def("cbrtArray", &MethodsInterface::cbrtArray<double>);
     bp::def("ceilScaler", &MethodsInterface::ceilScaler<double>);
+    bp::def("centerOfMass", &MethodsInterface::centerOfMass<double>);
     bp::def("ceilArray", &MethodsInterface::ceilArray<double>);
     bp::def("clipScaler", &MethodsInterface::clipScaler<double>);
     bp::def("clipArray", &MethodsInterface::clipArray<double>);

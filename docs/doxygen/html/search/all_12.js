@@ -16,7 +16,7 @@ var searchData=
   ['shapeequal',['shapeEqual',['../classnc_1_1boost_python_interface_1_1_boost_ndarray_helper.html#ab0e47d83edf0a6b6247b30e930e5e8e4',1,'nc::boostPythonInterface::BoostNdarrayHelper']]],
   ['shuffle',['shuffle',['../namespacenc_1_1random.html#a2de486e39f23c66f769b64326d7f3103',1,'nc::random']]],
   ['shuffle_2ehpp',['shuffle.hpp',['../shuffle_8hpp.html',1,'']]],
-  ['sign',['sign',['../classnc_1_1coordinates_1_1_dec.html#ac551f7b1f2728f20fbdbd79dd00919f7',1,'nc::coordinates::Dec::sign()'],['../namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9',1,'nc::sign(dtype inValue) noexcept'],['../namespacenc.html#a3037cf38efbcd863fc1c10d6697ee7fc',1,'nc::sign(const NdArray&lt; dtype &gt; &amp;inArray) noexcept'],['../namespacenc_1_1coordinates.html#a07a05f0462e5f74f05cbd04664c4ca94',1,'nc::coordinates::Sign()']]],
+  ['sign',['sign',['../classnc_1_1coordinates_1_1_dec.html#ac551f7b1f2728f20fbdbd79dd00919f7',1,'nc::coordinates::Dec::sign()'],['../namespacenc_1_1coordinates.html#a07a05f0462e5f74f05cbd04664c4ca94',1,'nc::coordinates::Sign()'],['../namespacenc.html#a4a5d98f334e0b50a3cf9c2718485e5e9',1,'nc::sign(dtype inValue) noexcept'],['../namespacenc.html#a3037cf38efbcd863fc1c10d6697ee7fc',1,'nc::sign(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['sign_2ehpp',['sign.hpp',['../sign_8hpp.html',1,'']]],
   ['signbit',['signbit',['../namespacenc.html#af6dcbdfea85cdc84b4ddcf6c978b71f1',1,'nc::signbit(dtype inValue) noexcept'],['../namespacenc.html#abf6ca72fd57b3037c2d719d49efc226d',1,'nc::signbit(const NdArray&lt; dtype &gt; &amp;inArray) noexcept']]],
   ['signbit_2ehpp',['signbit.hpp',['../signbit_8hpp.html',1,'']]],

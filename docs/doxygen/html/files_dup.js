@@ -64,6 +64,7 @@ var files_dup =
     [ "cauchy.hpp", "cauchy_8hpp.html", "cauchy_8hpp" ],
     [ "cbrt.hpp", "cbrt_8hpp.html", "cbrt_8hpp" ],
     [ "ceil.hpp", "ceil_8hpp.html", "ceil_8hpp" ],
+    [ "centerOfMass.hpp", "center_of_mass_8hpp.html", "center_of_mass_8hpp" ],
     [ "Centroid.hpp", "_centroid_8hpp.html", [
       [ "Centroid", "classnc_1_1image_processing_1_1_centroid.html", "classnc_1_1image_processing_1_1_centroid" ]
     ] ],
