@@ -32,6 +32,7 @@
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Filesystem.hpp"
+#include "NumCpp/Core/ParallelExecution.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -186,7 +187,12 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::copy(std::execution::par_unseq, inList.begin(), inList.end(), array_);
+#else
             std::copy(inList.begin(), inList.end(), array_);
+#endif
         }
 
         //============================================================================
@@ -219,7 +225,12 @@ namespace nc
             uint32 row = 0;
             for (auto& list : inList)
             {
-                std::copy(list.begin(), list.end(), array_ + row * shape_.cols);
+                auto ptr = array_ + row * shape_.cols;
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::copy(std::execution::par_unseq, list.begin(), list.end(), ptr);
+#else
+                std::copy(list.begin(), list.end(), ptr);
+#endif
                 ++row;
             }
 
@@ -241,7 +252,12 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::copy(std::execution::par_unseq, inArray.begin(), inArray.end(), array_);
+#else
             std::copy(inArray.begin(), inArray.end(), array_);
+#endif
         }
 
         //============================================================================
@@ -258,7 +274,12 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::copy(std::execution::par_unseq, inVector.begin(), inVector.end(), array_);
+#else
             std::copy(inVector.begin(), inVector.end(), array_);
+#endif
         }
 
         //============================================================================
@@ -275,7 +296,12 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::copy(std::execution::par_unseq, inDeque.begin(), inDeque.end(), array_);
+#else
             std::copy(inDeque.begin(), inDeque.end(), array_);
+#endif
         }
 
         //============================================================================
@@ -292,7 +318,12 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::copy(std::execution::par_unseq, inSet.begin(), inSet.end(), array_);
+#else
             std::copy(inSet.begin(), inSet.end(), array_);
+#endif
         }
 
         //============================================================================
@@ -309,7 +340,12 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::copy(std::execution::par_unseq, inFirst, inLast, array_);
+#else
             std::copy(inFirst, inLast, array_);
+#endif
         }
 
         //============================================================================
@@ -347,7 +383,12 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::copy(std::execution::par_unseq, inPtr, inPtr + size_, begin());
+#else
             std::copy(inPtr, inPtr + size_, begin());
+#endif
         }
 
         //============================================================================
@@ -364,7 +405,11 @@ namespace nc
             array_(new dtype[inOtherArray.size_]),
             ownsPtr_(true)
         {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::copy(std::execution::par_unseq, inOtherArray.cbegin(), inOtherArray.cend(), begin());
+#else
             std::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
+#endif
         }
 
         //============================================================================
@@ -408,7 +453,11 @@ namespace nc
             newArray(inOtherArray.shape_);
             endianess_ = inOtherArray.endianess_;
 
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::copy(std::execution::par_unseq, inOtherArray.cbegin(), inOtherArray.cend(), begin());
+#else
             std::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
+#endif
 
             return *this;
         }
@@ -425,7 +474,11 @@ namespace nc
         ///
         NdArray<dtype>& operator=(dtype inValue) noexcept
         {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::fill(std::execution::par_unseq, begin(), end(), inValue);
+#else
             std::fill(begin(), end(), inValue);
+#endif
 
             return *this;
         }
@@ -1090,12 +1143,26 @@ namespace nc
         ///
         NdArray<bool> all(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
+            auto function = [](dtype i) noexcept -> bool
+            {
+                return i != static_cast<dtype>(0);
+            };
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    NdArray<bool> returnArray = { std::all_of(cbegin(), cend(),
-                        [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); }) };
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    NdArray<bool> returnArray = { std::all_of(std::execution::par_unseq,
+                        cbegin(), cend(), function) };
+#else
+                    NdArray<bool> returnArray = { std::all_of(cbegin(), cend(), function) };
+#endif
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1103,9 +1170,14 @@ namespace nc
                     NdArray<bool> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::all_of(cbegin(row), cend(row),
-                            [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); });
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = std::all_of(std::execution::par_unseq,
+                            cbegin(row), cend(row), function);
+#else
+                        returnArray(0, row) = std::all_of(cbegin(row), cend(row), function);
+#endif
                     }
+
                     return returnArray;
                 }
                 case Axis::ROW:
@@ -1114,9 +1186,14 @@ namespace nc
                     NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row),
-                            [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); });
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = std::all_of(std::execution::par_unseq,
+                            arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
+#else
+                        returnArray(0, row) = std::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
+#endif
                     }
+
                     return returnArray;
                 }
                 default:
@@ -1141,12 +1218,26 @@ namespace nc
         ///
         NdArray<bool> any(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
+            auto function = [](dtype i) noexcept -> bool 
+            {
+                return i != static_cast<dtype>(0);
+            };
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    NdArray<bool> returnArray = { std::any_of(cbegin(), cend(),
-                        [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); }) };
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    NdArray<bool> returnArray = { std::any_of(std::execution::par_unseq,
+                        cbegin(), cend(), function) };
+#else
+                    NdArray<bool> returnArray = { std::any_of(cbegin(), cend(), function) };
+#endif
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1154,9 +1245,14 @@ namespace nc
                     NdArray<bool> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::any_of(cbegin(row), cend(row),
-                            [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); });
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = std::any_of(std::execution::par_unseq,
+                            cbegin(row), cend(row), function);
+#else
+                        returnArray(0, row) = std::any_of(cbegin(row), cend(row), function);
+#endif
                     }
+
                     return returnArray;
                 }
                 case Axis::ROW:
@@ -1165,9 +1261,14 @@ namespace nc
                     NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row),
-                            [](dtype i) noexcept -> bool {return i != static_cast<dtype>(0); });
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = std::any_of(std::execution::par_unseq,
+                            arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
+#else
+                        returnArray(0, row) = std::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
+#endif
                     }
+
                     return returnArray;
                 }
                 default:
@@ -1193,11 +1294,21 @@ namespace nc
         ///
         NdArray<uint32> argmax(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    NdArray<uint32> returnArray = { static_cast<uint32>(std::max_element(std::execution::par_unseq,
+                        cbegin(), cend()) - cbegin()) };
+#else
                     NdArray<uint32> returnArray = { static_cast<uint32>(std::max_element(cbegin(), cend()) - cbegin()) };
+#endif
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1205,8 +1316,14 @@ namespace nc
                     NdArray<uint32> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = static_cast<uint32>(std::max_element(std::execution::par_unseq,
+                            cbegin(row), cend(row)) - cbegin(row));
+#else
                         returnArray(0, row) = static_cast<uint32>(std::max_element(cbegin(row), cend(row)) - cbegin(row));
+#endif
                     }
+
                     return returnArray;
                 }
                 case Axis::ROW:
@@ -1215,9 +1332,15 @@ namespace nc
                     NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = static_cast<uint32>(std::max_element(std::execution::par_unseq,
+                            arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+#else
                         returnArray(0, row) = static_cast<uint32>(std::max_element(arrayTransposed.cbegin(row),
                             arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+#endif
                     }
+
                     return returnArray;
                 }
                 default:
@@ -1243,11 +1366,21 @@ namespace nc
         ///
         NdArray<uint32> argmin(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    NdArray<uint32> returnArray = { static_cast<uint32>(std::min_element(std::execution::par_unseq,
+                        cbegin(), cend()) - cbegin()) };
+#else
                     NdArray<uint32> returnArray = { static_cast<uint32>(std::min_element(cbegin(), cend()) - cbegin()) };
+#endif
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1255,8 +1388,14 @@ namespace nc
                     NdArray<uint32> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = static_cast<uint32>(std::min_element(std::execution::par_unseq,
+                            cbegin(row), cend(row)) - cbegin(row));
+#else
                         returnArray(0, row) = static_cast<uint32>(std::min_element(cbegin(row), cend(row)) - cbegin(row));
+#endif
                     }
+
                     return returnArray;
                 }
                 case Axis::ROW:
@@ -1265,9 +1404,15 @@ namespace nc
                     NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = static_cast<uint32>(std::min_element(std::execution::par_unseq,
+                            arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+#else
                         returnArray(0, row) = static_cast<uint32>(std::min_element(arrayTransposed.cbegin(row),
                             arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
+#endif
                     }
+
                     return returnArray;
                 }
                 default:
@@ -1292,15 +1437,28 @@ namespace nc
         ///
         NdArray<uint32> argsort(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
                     std::vector<uint32> idx(size_);
                     std::iota(idx.begin(), idx.end(), 0);
-                    std::stable_sort(idx.begin(), idx.end(),
-                        [this](uint32 i1, uint32 i2) noexcept -> bool
-                        {return this->array_[i1] < this->array_[i2]; });
+
+                    auto function = [this](uint32 i1, uint32 i2) noexcept -> bool
+                    {
+                        return this->array_[i1] < this->array_[i2];
+                    };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    std::stable_sort(std::execution::par_unseq, idx.begin(), idx.end(), function);
+#else
+                    std::stable_sort(idx.begin(), idx.end(), function);
+#endif
                     return NdArray<uint32>(idx);
                 }
                 case Axis::COL:
@@ -1310,10 +1468,17 @@ namespace nc
                     {
                         std::vector<uint32> idx(shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
-                        std::stable_sort(idx.begin(), idx.end(),
-                            [this, row](uint32 i1, uint32 i2) noexcept -> bool
-                            {return operator()(row, i1) < operator()(row, i2); });
 
+                        auto function = [this, row](uint32 i1, uint32 i2) noexcept -> bool
+                        {
+                            return operator()(row, i1) < operator()(row, i2);
+                        };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::stable_sort(std::execution::par_unseq, idx.begin(), idx.end(), function);
+#else
+                        std::stable_sort(idx.begin(), idx.end(), function);
+#endif
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
                             returnArray(row, col) = idx[col];
@@ -1329,10 +1494,17 @@ namespace nc
                     {
                         std::vector<uint32> idx(arrayTransposed.shape_.cols);
                         std::iota(idx.begin(), idx.end(), 0);
-                        std::stable_sort(idx.begin(), idx.end(),
-                            [&arrayTransposed, row](uint32 i1, uint32 i2) noexcept -> bool
-                            {return arrayTransposed(row, i1) < arrayTransposed(row, i2); });
 
+                        auto function = [&arrayTransposed, row](uint32 i1, uint32 i2) noexcept -> bool
+                        {
+                            return arrayTransposed(row, i1) < arrayTransposed(row, i2);
+                        };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::stable_sort(std::execution::par_unseq, idx.begin(), idx.end(), function);
+#else
+                        std::stable_sort(idx.begin(), idx.end(), function);
+#endif
                         for (uint32 col = 0; col < arrayTransposed.shape_.cols; ++col)
                         {
                             returnArray(row, col) = idx[col];
@@ -1362,9 +1534,14 @@ namespace nc
         NdArray<dtypeOut> astype() const noexcept
         {
             NdArray<dtypeOut> outArray(shape_);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq, cbegin(), cend(), outArray.begin(),
+                [](dtype value) noexcept -> dtypeOut { return static_cast<dtypeOut>(value); });
+#else
             std::transform(cbegin(), cend(), outArray.begin(),
                 [](dtype value) noexcept -> dtypeOut { return static_cast<dtypeOut>(value); });
-
+#endif
             return outArray;
         }
 
@@ -1415,7 +1592,7 @@ namespace nc
             }
 
             return *this;
-            }
+        }
 
         //============================================================================
         // Method Description:
@@ -1459,11 +1636,21 @@ namespace nc
         ///
         NdArray<bool> contains(dtype inValue, Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    NdArray<bool> returnArray = { std::find(std::execution::par_unseq,
+                        cbegin(), cend(), inValue) != cend() };
+#else
                     NdArray<bool> returnArray = { std::find(cbegin(), cend(), inValue) != cend() };
+#endif
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1471,7 +1658,12 @@ namespace nc
                     NdArray<bool> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = std::find(std::execution::par_unseq,
+                            cbegin(row), cend(row), inValue) != cend(row);
+#else
                         returnArray(0, row) = std::find(cbegin(row), cend(row), inValue) != cend(row);
+#endif
                     }
 
                     return returnArray;
@@ -1482,7 +1674,12 @@ namespace nc
                     NdArray<bool> returnArray(1, transArray.shape_.rows);
                     for (uint32 row = 0; row < transArray.shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = std::find(std::execution::par_unseq,
+                            transArray.cbegin(row), transArray.cend(row), inValue) != transArray.cend(row);
+#else
                         returnArray(0, row) = std::find(transArray.cbegin(row), transArray.cend(row), inValue) != transArray.cend(row);
+#endif
                     }
 
                     return returnArray;
@@ -1523,6 +1720,11 @@ namespace nc
         ///
         NdArray<dtype> cumprod(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -1586,6 +1788,11 @@ namespace nc
         ///
         NdArray<dtype> cumsum(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -1672,6 +1879,11 @@ namespace nc
         ///
         NdArray<dtype> diagonal(int32 inOffset = 0, Axis inAxis = Axis::ROW) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::COL:
@@ -1817,6 +2029,19 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Return if the NdArray is empty. ie the default construtor
+        ///						was used.
+        ///
+        /// @return
+        ///				boolean
+        ///
+        bool isflat() const noexcept
+        {
+            return shape_.rows == 1 || shape_.cols == 1;
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Return the NdArrays endianess
         ///
         /// @return
@@ -1840,8 +2065,11 @@ namespace nc
         ///
         NdArray<dtype>& fill(dtype inFillValue) noexcept
         {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::fill(std::execution::par_unseq, begin(), end(), inFillValue);
+#else
             std::fill(begin(), end(), inFillValue);
-
+#endif
             return *this;
         }
 
@@ -1857,7 +2085,12 @@ namespace nc
         NdArray<dtype> flatten() const noexcept
         {
             NdArray<dtype> outArray(1, size_);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::copy(std::execution::par_unseq, cbegin(), cend(), outArray.begin());
+#else
             std::copy(cbegin(), cend(), outArray.begin());
+#endif
             return outArray;
         }
 
@@ -1939,11 +2172,21 @@ namespace nc
         ///
         NdArray<dtype> max(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    NdArray<dtype> returnArray = { *std::max_element(std::execution::par_unseq,
+                        cbegin(), cend()) };
+#else
                     NdArray<dtype> returnArray = { *std::max_element(cbegin(), cend()) };
+#endif
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1951,7 +2194,12 @@ namespace nc
                     NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = *std::max_element(std::execution::par_unseq,
+                            cbegin(row), cend(row));
+#else
                         returnArray(0, row) = *std::max_element(cbegin(row), cend(row));
+#endif
                     }
 
                     return returnArray;
@@ -1962,7 +2210,12 @@ namespace nc
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = *std::max_element(std::execution::par_unseq,
+                            transposedArray.cbegin(row), transposedArray.cend(row));
+#else
                         returnArray(0, row) = *std::max_element(transposedArray.cbegin(row), transposedArray.cend(row));
+#endif
                     }
 
                     return returnArray;
@@ -1989,11 +2242,21 @@ namespace nc
         ///
         NdArray<dtype> min(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    NdArray<dtype> returnArray = { *std::min_element(std::execution::par_unseq,
+                        cbegin(), cend()) };
+#else
                     NdArray<dtype> returnArray = { *std::min_element(cbegin(), cend()) };
+#endif
                     return returnArray;
                 }
                 case Axis::COL:
@@ -2001,7 +2264,12 @@ namespace nc
                     NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = *std::min_element(std::execution::par_unseq,
+                            cbegin(row), cend(row));
+#else
                         returnArray(0, row) = *std::min_element(cbegin(row), cend(row));
+#endif
                     }
 
                     return returnArray;
@@ -2012,7 +2280,12 @@ namespace nc
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        returnArray(0, row) = *std::min_element(std::execution::par_unseq,
+                            transposedArray.cbegin(row), transposedArray.cend(row));
+#else
                         returnArray(0, row) = *std::min_element(transposedArray.cbegin(row), transposedArray.cend(row));
+#endif
                     }
 
                     return returnArray;
@@ -2039,6 +2312,11 @@ namespace nc
         ///
         NdArray<double> mean(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2092,6 +2370,11 @@ namespace nc
         ///
         NdArray<dtype> median(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2099,7 +2382,12 @@ namespace nc
                     NdArray<dtype> copyArray(*this);
 
                     uint32 middle = size_ / 2;
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    std::nth_element(std::execution::par_unseq,
+                        copyArray.begin(), copyArray.begin() + middle, copyArray.end());
+#else
                     std::nth_element(copyArray.begin(), copyArray.begin() + middle, copyArray.end());
+#endif
                     NdArray<dtype> returnArray = { copyArray.array_[middle] };
 
                     return returnArray;
@@ -2111,7 +2399,12 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         uint32 middle = shape_.cols / 2;
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::nth_element(std::execution::par_unseq,
+                            copyArray.begin(row), copyArray.begin(row) + middle, copyArray.end(row));
+#else
                         std::nth_element(copyArray.begin(row), copyArray.begin(row) + middle, copyArray.end(row));
+#endif
                         returnArray(0, row) = copyArray(row, middle);
                     }
 
@@ -2124,7 +2417,12 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         uint32 middle = transposedArray.shape_.cols / 2;
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::nth_element(std::execution::par_unseq,
+                            transposedArray.begin(row), transposedArray.begin(row) + middle, transposedArray.end(row));
+#else
                         std::nth_element(transposedArray.begin(row), transposedArray.begin(row) + middle, transposedArray.end(row));
+#endif
                         returnArray(0, row) = transposedArray(row, middle);
                     }
 
@@ -2197,14 +2495,24 @@ namespace nc
                         case Endian::BIG:
                         {
                             NdArray<dtype> outArray(shape_);
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                            std::transform(std::execution::par_unseq,
+                                cbegin(), end(), outArray.begin(), boost::endian::native_to_big<dtype>);
+#else
                             std::transform(cbegin(), end(), outArray.begin(), boost::endian::native_to_big<dtype>);
+#endif
                             outArray.endianess_ = Endian::BIG;
                             return outArray;
                         }
                         case Endian::LITTLE:
                         {
                             NdArray<dtype> outArray(shape_);
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                            std::transform(std::execution::par_unseq,
+                                cbegin(), cend(), outArray.begin(), boost::endian::native_to_little<dtype>);
+#else
                             std::transform(cbegin(), cend(), outArray.begin(), boost::endian::native_to_little<dtype>);
+#endif
                             outArray.endianess_ = Endian::LITTLE;
                             return outArray;
                         }
@@ -2224,7 +2532,12 @@ namespace nc
                         case Endian::NATIVE:
                         {
                             NdArray<dtype> outArray(shape_);
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                            std::transform(std::execution::par_unseq,
+                                cbegin(), cend(), outArray.begin(), boost::endian::big_to_native<dtype>);
+#else
                             std::transform(cbegin(), cend(), outArray.begin(), boost::endian::big_to_native<dtype>);
+#endif
                             outArray.endianess_ = Endian::NATIVE;
                             return outArray;
                         }
@@ -2235,9 +2548,16 @@ namespace nc
                         case Endian::LITTLE:
                         {
                             NdArray<dtype> outArray(shape_);
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                            std::transform(std::execution::par_unseq,
+                                cbegin(), cend(), outArray.begin(),
+                                [](dtype value) noexcept -> dtype
+                                {return boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(value)); });
+#else
                             std::transform(cbegin(), cend(), outArray.begin(),
                                 [](dtype value) noexcept -> dtype
                                 {return boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(value)); });
+#endif
                             outArray.endianess_ = Endian::LITTLE;
                             return outArray;
                         }
@@ -2257,16 +2577,28 @@ namespace nc
                         case Endian::NATIVE:
                         {
                             NdArray<dtype> outArray(shape_);
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                            std::transform(std::execution::par_unseq,
+                                cbegin(), cend(), outArray.begin(), boost::endian::little_to_native<dtype>);
+#else
                             std::transform(cbegin(), cend(), outArray.begin(), boost::endian::little_to_native<dtype>);
+#endif
                             outArray.endianess_ = Endian::NATIVE;
                             return outArray;
                         }
                         case Endian::BIG:
                         {
                             NdArray<dtype> outArray(shape_);
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                            std::transform(std::execution::par_unseq,
+                                cbegin(), cend(), outArray.begin(),
+                                [](dtype value) noexcept -> dtype
+                                {return boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(value)); });
+#else
                             std::transform(cbegin(), cend(), outArray.begin(),
                                 [](dtype value) noexcept -> dtype
                                 {return boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(value)); });
+#endif
                             outArray.endianess_ = Endian::BIG;
                             return outArray;
                         }
@@ -2331,14 +2663,25 @@ namespace nc
         ///
         NdArray<double> norm(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
                     double sumOfSquares = 0.0;
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    std::for_each(std::execution::par_unseq, cbegin(), cend(),
+                        [&sumOfSquares](dtype value) noexcept -> void
+                        { sumOfSquares += utils::sqr(static_cast<double>(value)); });
+#else
                     std::for_each(cbegin(), cend(),
                         [&sumOfSquares](dtype value) noexcept -> void
                         { sumOfSquares += utils::sqr(static_cast<double>(value)); });
+#endif
 
                     NdArray<double> returnArray = { std::sqrt(sumOfSquares) };
                     return returnArray;
@@ -2349,9 +2692,15 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         double sumOfSquares = 0.0;
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::for_each(std::execution::par_unseq, cbegin(row), cend(row),
+                            [&sumOfSquares](dtype value) noexcept -> void
+                            { sumOfSquares += utils::sqr(static_cast<double>(value)); });
+#else
                         std::for_each(cbegin(row), cend(row),
                             [&sumOfSquares](dtype value) noexcept -> void
                             { sumOfSquares += utils::sqr(static_cast<double>(value)); });
+#endif
 
                         returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
@@ -2365,9 +2714,16 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         double sumOfSquares = 0.0;
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::for_each(std::execution::par_unseq,
+                            transposedArray.cbegin(row), transposedArray.cend(row),
+                            [&sumOfSquares](dtype value) noexcept -> void
+                            { sumOfSquares += utils::sqr(static_cast<double>(value)); });
+#else
                         std::for_each(transposedArray.cbegin(row), transposedArray.cend(row),
                             [&sumOfSquares](dtype value) noexcept -> void
                             { sumOfSquares += utils::sqr(static_cast<double>(value)); });
+#endif
 
                         returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
@@ -2450,6 +2806,11 @@ namespace nc
         ///
         NdArray<dtype>& partition(uint32 inKth, Axis inAxis = Axis::NONE)
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2460,7 +2821,12 @@ namespace nc
                         errStr += ") out of bounds (" + utils::num2str(size_) + ")";
                         THROW_INVALID_ARGUMENT_ERROR(errStr);
                     }
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    std::nth_element(std::execution::par_unseq,
+                        begin(), begin() + inKth, end());
+#else
                     std::nth_element(begin(), begin() + inKth, end());
+#endif
                     break;
                 }
                 case Axis::COL:
@@ -2474,7 +2840,12 @@ namespace nc
 
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::nth_element(std::execution::par_unseq,
+                            begin(row), begin(row) + inKth, end(row));
+#else
                         std::nth_element(begin(row), begin(row) + inKth, end(row));
+#endif
                     }
                     break;
                 }
@@ -2490,7 +2861,12 @@ namespace nc
                     NdArray<dtype> transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::nth_element(std::execution::par_unseq,
+                            transposedArray.begin(row), transposedArray.begin(row) + inKth, transposedArray.end(row));
+#else
                         std::nth_element(transposedArray.begin(row), transposedArray.begin(row) + inKth, transposedArray.end(row));
+#endif
                     }
                     *this = transposedArray.transpose();
                     break;
@@ -2523,6 +2899,11 @@ namespace nc
         ///
         NdArray<dtype> prod(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -2577,11 +2958,21 @@ namespace nc
         ///
         NdArray<dtype> ptp(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
-                    const std::pair<const dtype*, const dtype*> result = std::minmax_element(cbegin(), cend());
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    auto result = std::minmax_element(std::execution::par_unseq,
+                        cbegin(), cend());
+#else
+                    auto result = std::minmax_element(cbegin(), cend());
+#endif
                     NdArray<dtype> returnArray = { *result.second - *result.first };
                     return returnArray;
                 }
@@ -2590,7 +2981,12 @@ namespace nc
                     NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        std::pair<const dtype*, const dtype*> result = std::minmax_element(cbegin(row), cend(row));
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        auto result = std::minmax_element(std::execution::par_unseq,
+                            cbegin(row), cend(row));
+#else
+                        auto result = std::minmax_element(cbegin(row), cend(row));
+#endif
                         returnArray(0, row) = *result.second - *result.first;
                     }
 
@@ -2602,7 +2998,12 @@ namespace nc
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-                        std::pair<const dtype*, const dtype*> result = std::minmax_element(transposedArray.cbegin(row), transposedArray.cend(row));
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        auto result = std::minmax_element(std::execution::par_unseq,
+                            transposedArray.cbegin(row), transposedArray.cend(row));
+#else
+                        auto result = std::minmax_element(transposedArray.cbegin(row), transposedArray.cend(row));
+#endif
                         returnArray(0, row) = *result.second - *result.first;
                     }
 
@@ -3204,13 +3605,27 @@ namespace nc
         ///
         NdArray<double> rms(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
                     double squareSum = 0;
-                    std::for_each(cbegin(), cend(), [&squareSum](dtype value) noexcept -> void
-                        { squareSum += utils::sqr(static_cast<double>(value)); });
+                    auto function = [&squareSum](dtype value) noexcept -> void
+                    {
+                        squareSum += utils::sqr(static_cast<double>(value));
+                    };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    std::for_each(std::execution::par_unseq,
+                        cbegin(), cend(), function);
+#else
+                    std::for_each(cbegin(), cend(), function);
+#endif
                     NdArray<double> returnArray = { std::sqrt(squareSum / static_cast<double>(size_)) };
 
                     return returnArray;
@@ -3221,8 +3636,17 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         double squareSum = 0;
-                        std::for_each(cbegin(row), cend(row), [&squareSum](dtype value) noexcept -> void
-                            { squareSum += utils::sqr(static_cast<double>(value)); });
+                        auto function = [&squareSum](dtype value) noexcept -> void
+                        {
+                            squareSum += utils::sqr(static_cast<double>(value));
+                        };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::for_each(std::execution::par_unseq,
+                            cbegin(row), cend(row), function);
+#else
+                        std::for_each(cbegin(row), cend(row), function);
+#endif
                         returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(shape_.cols));
                     }
 
@@ -3235,9 +3659,17 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         double squareSum = 0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row),
-                            [&squareSum](dtype value) noexcept -> void
-                            { squareSum += utils::sqr(static_cast<double>(value)); });
+                        auto function = [&squareSum](dtype value) noexcept -> void
+                        {
+                            squareSum += utils::sqr(static_cast<double>(value));
+                        };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::for_each(std::execution::par_unseq,
+                            transposedArray.cbegin(row), transposedArray.cend(row), function);
+#else
+                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
+#endif
                         returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.shape_.cols));
                     }
 
@@ -3274,14 +3706,20 @@ namespace nc
             {
                 NdArray<dtype> returnArray(shape_);
                 double multFactor = utils::power(10.0, inNumDecimals);
-                for (uint32 i = 0; i < size_; ++i)
+                auto function = [multFactor](dtype value) -> dtype
                 {
-                    returnArray[i] = static_cast<dtype>(std::nearbyint(static_cast<double>(array_[i]) * multFactor) / multFactor);
-                }
+                    return static_cast<dtype>(std::nearbyint(static_cast<double>(value) * multFactor) / multFactor);
+                };
 
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                std::transform(std::execution::par_unseq, 
+                    cbegin(), cend(), returnArray.begin(), function);
+#else
+                std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
                 return returnArray;
-            }
         }
+    }
 
         //============================================================================
         // Method Description:
@@ -3337,18 +3775,31 @@ namespace nc
         ///
         NdArray<dtype>& sort(Axis inAxis = Axis::NONE) noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    std::sort(std::execution::par_unseq, begin(), end());
+#else
                     std::sort(begin(), end());
+#endif
                     break;
                 }
                 case Axis::COL:
                 {
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::sort(std::execution::par_unseq, begin(row), end(row));
+#else
                         std::sort(begin(row), end(row));
+#endif
                     }
                     break;
                 }
@@ -3357,8 +3808,14 @@ namespace nc
                     NdArray<dtype> transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::sort(std::execution::par_unseq, 
+                            transposedArray.begin(row), transposedArray.end(row));
+#else
                         std::sort(transposedArray.begin(row), transposedArray.end(row));
+#endif
                     }
+
                     *this = transposedArray.transpose();
                     break;
                 }
@@ -3380,15 +3837,29 @@ namespace nc
         ///
         NdArray<double> stdev(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
                 {
                     double meanValue = mean(inAxis).item();
                     double sum = 0;
-                    std::for_each(cbegin(), cend(), [&sum, meanValue](dtype value) noexcept-> void
-                        { sum += utils::sqr(static_cast<double>(value) - meanValue); });
 
+                    auto function = [&sum, meanValue](dtype value) noexcept-> void
+                    { 
+                        sum += utils::sqr(static_cast<double>(value) - meanValue);
+                    };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                    std::for_each(std::execution::par_unseq,
+                        cbegin(), cend(), function);
+#else
+                    std::for_each(cbegin(), cend(), function);
+#endif
                     NdArray<double> returnArray = { std::sqrt(sum / size_) };
                     return returnArray;
                 }
@@ -3400,8 +3871,18 @@ namespace nc
                     {
                         double meanValue = meanValueArray[row];
                         double sum = 0;
-                        std::for_each(cbegin(row), cend(row), [&sum, meanValue](dtype value) noexcept-> void
-                            { sum += utils::sqr(static_cast<double>(value) - meanValue); });
+
+                        auto function = [&sum, meanValue](dtype value) noexcept-> void
+                        {
+                            sum += utils::sqr(static_cast<double>(value) - meanValue);
+                        };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::for_each(std::execution::par_unseq,
+                            cbegin(row), cend(row), function);
+#else
+                        std::for_each(cbegin(row), cend(row), function);
+#endif
 
                         returnArray(0, row) = std::sqrt(sum / shape_.cols);
                     }
@@ -3417,9 +3898,18 @@ namespace nc
                     {
                         double meanValue = meanValueArray[row];
                         double sum = 0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row),
-                            [&sum, meanValue](dtype value) noexcept-> void
-                            { sum += utils::sqr(static_cast<double>(value) - meanValue); });
+
+                        auto function = [&sum, meanValue](dtype value) noexcept-> void
+                        {
+                            sum += utils::sqr(static_cast<double>(value) - meanValue);
+                        };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                        std::for_each(std::execution::par_unseq,
+                            transposedArray.cbegin(row), transposedArray.cend(row), function);
+#else
+                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
+#endif
 
                         returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
                     }
@@ -3480,6 +3970,11 @@ namespace nc
         ///
         NdArray<dtype> sum(Axis inAxis = Axis::NONE) const noexcept
         {
+            if (isflat())
+            {
+                inAxis = Axis::NONE;
+            }
+
             switch (inAxis)
             {
                 case Axis::NONE:
@@ -3681,8 +4176,17 @@ namespace nc
         NdArray<double> var(Axis inAxis = Axis::NONE) const noexcept
         {
             NdArray<double> stdValues = stdev(inAxis);
-            std::for_each(stdValues.begin(), stdValues.end(),
-                [](double& value) noexcept -> void { value *= value; });
+            auto function = [](double& value) noexcept -> void
+            {
+                value *= value;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq,
+                stdValues.begin(), stdValues.end(), function);
+#else
+            std::for_each(stdValues.begin(), stdValues.end(), function);
+#endif
             return stdValues;
         }
 
@@ -3742,7 +4246,12 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                begin(), end(), inOtherArray.cbegin(), begin(), std::plus<dtype>());
+#else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::plus<dtype>());
+#endif
 
             return *this;
         }
@@ -3758,8 +4267,16 @@ namespace nc
         ///
         NdArray<dtype>& operator+=(dtype inScalar) noexcept
         {
-            std::for_each(begin(), end(),
-                [=](dtype& value) noexcept -> dtype { return value += inScalar; });
+            auto function = [=](dtype& value) noexcept -> dtype
+            { 
+                return value += inScalar;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -3820,7 +4337,12 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
+#else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
+#endif
 
             return *this;
         }
@@ -3836,8 +4358,16 @@ namespace nc
         ///
         NdArray<dtype>& operator-=(dtype inScalar) noexcept
         {
-            std::for_each(begin(), end(),
-                [=](dtype& value) noexcept -> dtype { return value -= inScalar; });
+            auto function = [=](dtype& value) noexcept -> dtype
+            { 
+                return value -= inScalar;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -3886,7 +4416,12 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
+#else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::multiplies<dtype>());
+#endif
 
             return *this;
         }
@@ -3902,8 +4437,16 @@ namespace nc
         ///
         NdArray<dtype>& operator*=(dtype inScalar) noexcept
         {
-            std::for_each(begin(), end(),
-                [=](dtype& value) noexcept -> dtype { return value *= inScalar; });
+            auto function = [=](dtype& value) noexcept -> dtype
+            { 
+                return value *= inScalar;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -3952,7 +4495,12 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
+#else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::divides<dtype>());
+#endif
 
             return *this;
         }
@@ -3968,8 +4516,16 @@ namespace nc
         ///
         NdArray<dtype>& operator/=(dtype inScalar) noexcept
         {
-            std::for_each(begin(), end(),
-                [=](dtype& value) noexcept -> dtype { return value /= inScalar; });
+            auto function = [=](dtype& value) noexcept -> dtype
+            { 
+                return value /= inScalar;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -4020,7 +4576,12 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
+#else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::modulus<dtype>());
+#endif
 
             return *this;
         }
@@ -4043,8 +4604,16 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("modulus by zero.");
             }
 
-            std::for_each(begin(), end(),
-                [=](dtype& value) noexcept -> dtype { return value %= inScalar; });
+            auto function = [=](dtype& value) noexcept -> dtype
+            { 
+                return value %= inScalar;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -4095,7 +4664,12 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                begin(), end(), inOtherArray.cbegin(), begin(), std::bit_or<dtype>());
+#else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_or<dtype>());
+#endif
 
             return *this;
         }
@@ -4113,8 +4687,16 @@ namespace nc
         {
             STATIC_ASSERT_INTEGER(dtype);
 
-            std::for_each(begin(), end(),
-                [=](dtype& value) noexcept -> dtype { return value |= inScalar; });
+            auto function = [=](dtype& value) noexcept -> dtype
+            { 
+                return value |= inScalar;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -4165,7 +4747,12 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                begin(), end(), inOtherArray.cbegin(), begin(), std::bit_and<dtype>());
+#else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_and<dtype>());
+#endif
 
             return *this;
         }
@@ -4183,8 +4770,16 @@ namespace nc
         {
             STATIC_ASSERT_INTEGER(dtype);
 
-            std::for_each(begin(), end(),
-                [=](dtype& value) noexcept -> dtype { return value &= inScalar; });
+            auto function = [=](dtype& value) noexcept -> dtype
+            { 
+                return value &= inScalar;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -4235,7 +4830,12 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                begin(), end(), inOtherArray.cbegin(), begin(), std::bit_xor<dtype>());
+#else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_xor<dtype>());
+#endif
 
             return *this;
         }
@@ -4253,8 +4853,16 @@ namespace nc
         {
             STATIC_ASSERT_INTEGER(dtype);
 
-            std::for_each(begin(), end(),
-                [=](dtype& value) noexcept -> dtype { return value ^= inScalar; });
+            auto function = [=](dtype& value) noexcept -> dtype
+            { 
+                return value ^= inScalar;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -4266,7 +4874,7 @@ namespace nc
         /// @param
         ///				inOtherArray
         /// @return
-        ///				None
+        ///				NdArray
         ///
         NdArray<dtype> operator&&(const NdArray<dtype>& inOtherArray) const
         {
@@ -4275,9 +4883,19 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
-            NdArray<dtype> returnArray(shape_);
-            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(),
-                [](dtype value1, dtype value2) noexcept -> dtype { return value1 && value2; });
+            auto function = [](dtype value1, dtype value2) noexcept -> dtype
+            { 
+                return value1 && value2;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+                NdArray<dtype> returnArray(shape_);
+            std::transform(std::execution::par_unseq, 
+                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), function);
+#else
+                NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4294,8 +4912,17 @@ namespace nc
         NdArray<dtype> operator&&(dtype inScalar) const noexcept
         {
             NdArray<dtype> returnArray(shape_);
-            std::transform(cbegin(), cend(), returnArray.begin(),
-                [inScalar](dtype value) noexcept -> dtype { return value && inScalar; });
+
+            auto function = [inScalar](dtype value) noexcept -> dtype
+            {
+                return value && inScalar;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
+#else
+            std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4307,7 +4934,7 @@ namespace nc
         /// @param
         ///				inOtherArray
         /// @return
-        ///				None
+        ///				NdArray
         ///
         NdArray<dtype> operator||(const NdArray<dtype>& inOtherArray) const
         {
@@ -4316,9 +4943,19 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
+            auto function = [](dtype value1, dtype value2) noexcept -> dtype
+            { 
+                return value1 || value2;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
             NdArray<dtype> returnArray(shape_);
-            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(),
-                [](dtype value1, dtype value2) noexcept -> dtype { return value1 || value2; });
+            std::transform(std::execution::par_unseq, 
+                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), function);
+#else
+            NdArray<dtype> returnArray(shape_);
+            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4335,8 +4972,17 @@ namespace nc
         NdArray<dtype> operator||(dtype inScalar) const noexcept
         {
             NdArray<dtype> returnArray(shape_);
-            std::transform(cbegin(), cend(), returnArray.begin(),
-                [inScalar](dtype value) noexcept -> dtype { return value || inScalar; });
+
+            auto function = [inScalar](dtype value) noexcept -> dtype
+            {
+                return value || inScalar;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
+#else
+            std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4353,8 +4999,17 @@ namespace nc
             STATIC_ASSERT_INTEGER(dtype);
 
             NdArray<dtype> returnArray(shape_);
-            std::transform(cbegin(), cend(), returnArray.begin(),
-                [](dtype value) noexcept -> dtype { return ~value; });
+
+            auto function = [](dtype value) noexcept -> dtype
+            {
+                return ~value;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
+#else
+            std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4369,8 +5024,17 @@ namespace nc
         NdArray<bool> operator!() const noexcept
         {
             NdArray<bool> returnArray(shape_);
-            std::transform(cbegin(), cend(), returnArray.begin(),
-                [](dtype value) noexcept -> bool { return !value; });
+
+            auto function = [](dtype value) noexcept -> dtype
+            {
+                return !value;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
+#else
+            std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4388,8 +5052,17 @@ namespace nc
         NdArray<bool> operator==(dtype inValue) const noexcept
         {
             NdArray<bool> returnArray(shape_);
-            std::transform(cbegin(), cend(), returnArray.begin(),
-                [inValue](dtype value) noexcept -> bool { return value == inValue; });
+
+            auto function = [inValue](dtype value) noexcept -> bool
+            {
+                return value == inValue;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
+#else
+            std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4412,7 +5085,13 @@ namespace nc
             }
 
             NdArray<bool> returnArray(shape_);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::equal_to<dtype>());
+#else
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::equal_to<dtype>());
+#endif
 
             return returnArray;
         }
@@ -4430,8 +5109,17 @@ namespace nc
         NdArray<bool> operator!=(dtype inValue) const noexcept
         {
             NdArray<bool> returnArray(shape_);
-            std::transform(cbegin(), cend(), returnArray.begin(),
-                [inValue](dtype value) noexcept -> bool { return value != inValue; });
+
+            auto function = [inValue](dtype value) noexcept -> bool
+            {
+                return value != inValue; 
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
+#else
+            std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4454,7 +5142,13 @@ namespace nc
             }
 
             NdArray<bool> returnArray(shape_);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
+#else
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
+#endif
 
             return returnArray;
         }
@@ -4472,8 +5166,18 @@ namespace nc
         NdArray<bool> operator<(dtype inValue) const noexcept
         {
             NdArray<bool> returnArray(shape_);
-            std::transform(cbegin(), cend(), returnArray.begin(),
-                [inValue](dtype value) noexcept -> bool { return value < inValue; });
+
+            auto function = [inValue](dtype value) noexcept -> bool
+            {
+                return value < inValue;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                cbegin(), cend(), returnArray.begin(), function);
+#else
+            std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4496,7 +5200,13 @@ namespace nc
             }
 
             NdArray<bool> returnArray(shape_);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less<dtype>());
+#else
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less<dtype>());
+#endif
 
             return returnArray;
         }
@@ -4514,8 +5224,18 @@ namespace nc
         NdArray<bool> operator>(dtype inValue) const noexcept
         {
             NdArray<bool> returnArray(shape_);
-            std::transform(cbegin(), cend(), returnArray.begin(),
-                [inValue](dtype value) noexcept -> bool { return value > inValue; });
+
+            auto function = [inValue](dtype value) noexcept -> bool
+            {
+                return value > inValue;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                cbegin(), cend(), returnArray.begin(), function);
+#else
+            std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4538,7 +5258,13 @@ namespace nc
             }
 
             NdArray<bool> returnArray(shape_);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater<dtype>());
+#else
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater<dtype>());
+#endif
 
             return returnArray;
         }
@@ -4556,8 +5282,18 @@ namespace nc
         NdArray<bool> operator<=(dtype inValue) const noexcept
         {
             NdArray<bool> returnArray(shape_);
-            std::transform(cbegin(), cend(), returnArray.begin(),
-                [inValue](dtype value) noexcept -> bool { return value <= inValue; });
+
+            auto function = [inValue](dtype value) noexcept -> bool
+            {
+                return value <= inValue;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                cbegin(), cend(), returnArray.begin(), function);
+#else
+            std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4580,7 +5316,13 @@ namespace nc
             }
 
             NdArray<bool> returnArray(shape_);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less_equal<dtype>());
+#else
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less_equal<dtype>());
+#endif
 
             return returnArray;
         }
@@ -4598,8 +5340,18 @@ namespace nc
         NdArray<bool> operator>=(dtype inValue) const noexcept
         {
             NdArray<bool> returnArray(shape_);
-            std::transform(cbegin(), cend(), returnArray.begin(),
-                [inValue](dtype value) noexcept -> bool { return value >= inValue; });
+
+            auto function = [inValue](dtype value) noexcept -> bool
+            {
+                return value >= inValue;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                cbegin(), cend(), returnArray.begin(), function);
+#else
+            std::transform(cbegin(), cend(), returnArray.begin(), function);
+#endif
 
             return returnArray;
         }
@@ -4622,7 +5374,13 @@ namespace nc
             }
 
             NdArray<bool> returnArray(shape_);
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::transform(std::execution::par_unseq,
+                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater_equal<dtype>());
+#else
             std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater_equal<dtype>());
+#endif
 
             return returnArray;
         }
@@ -4653,8 +5411,16 @@ namespace nc
         ///
         NdArray<dtype>& operator<<=(uint8 inNumBits) noexcept
         {
-            std::for_each(begin(), end(),
-                [inNumBits](dtype& value) noexcept -> void { value <<= inNumBits;  });
+            auto function = [inNumBits](dtype& value) noexcept -> void 
+            { 
+                value <<= inNumBits; 
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -4685,8 +5451,16 @@ namespace nc
         ///
         NdArray<dtype>& operator>>=(uint8 inNumBits) noexcept
         {
-            std::for_each(begin(), end(),
-                [inNumBits](dtype& value) noexcept -> void { value >>= inNumBits;  });
+            auto function = [inNumBits](dtype& value) noexcept -> void 
+            { 
+                value >>= inNumBits; 
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -4701,7 +5475,16 @@ namespace nc
 
         NdArray<dtype>& operator++() noexcept
         {
-            std::for_each(begin(), end(), [](dtype& value) noexcept -> void { ++value; });
+            auto function = [](dtype& value) noexcept -> void 
+            {
+                ++value;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -4715,7 +5498,16 @@ namespace nc
         ///
         NdArray<dtype>& operator--() noexcept
         {
-            std::for_each(begin(), end(), [](dtype& value) noexcept -> void { --value; });
+            auto function = [](dtype& value) noexcept -> void 
+            {
+                --value;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return *this;
         }
@@ -4730,7 +5522,17 @@ namespace nc
         NdArray<dtype> operator++(int) noexcept
         {
             NdArray<dtype> copy(*this);
-            std::for_each(begin(), end(), [](dtype& value) noexcept -> void { ++value; });
+
+            auto function = [](dtype& value) noexcept -> void 
+            {
+                ++value;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return copy;
         }
@@ -4745,7 +5547,17 @@ namespace nc
         NdArray<dtype> operator--(int) noexcept
         {
             NdArray<dtype> copy(*this);
-            std::for_each(begin(), end(), [](dtype& value) noexcept -> void { --value; });
+
+            auto function = [](dtype& value) noexcept -> void 
+            {
+                --value;
+            };
+
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(begin(), end(), function);
+#else
+            std::for_each(begin(), end(), function);
+#endif
 
             return copy;
         }
@@ -4764,5 +5576,5 @@ namespace nc
             inOStream << inArray.str();
             return inOStream;
         }
-        };
+};
     }

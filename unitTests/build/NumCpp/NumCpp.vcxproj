@@ -35,6 +35,7 @@
     <ClInclude Include="..\..\..\include\NumCpp\Core\DtypeInfo.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Error.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Filesystem.hpp" />
+    <ClInclude Include="..\..\..\include\NumCpp\Core\ParallelExecution.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Shape.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Slice.hpp" />
     <ClInclude Include="..\..\..\include\NumCpp\Core\Timer.hpp" />
@@ -487,6 +488,7 @@
       <AdditionalIncludeDirectories>C:\GitHub\NumC\src;$(PYTHON_INCLUDES);$(BOOST_INCLUDES);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>BOOST_PYTHON_STATIC_LIB;BOOST_NUMPY_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
