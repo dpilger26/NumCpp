@@ -805,7 +805,7 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if cArray.norm(NumCpp.Axis.NONE) == np.linalg.norm(data.flatten()):
+    if cArray.norm(NumCpp.Axis.NONE).item() == np.linalg.norm(data.flatten()):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

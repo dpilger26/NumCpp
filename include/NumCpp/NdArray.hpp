@@ -2617,11 +2617,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    std::for_each(std::execution::par_unseq, cbegin(), cend(), function);
-#else
                     std::for_each(cbegin(), cend(), function);
-#endif
 
                     NdArray<double> returnArray = { std::sqrt(sumOfSquares) };
                     return returnArray;
@@ -2632,13 +2628,7 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         sumOfSquares = 0.0;
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::for_each(std::execution::par_unseq, cbegin(row), cend(row), function);
-#else
                         std::for_each(cbegin(row), cend(row), function);
-#endif
-
                         returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
 
@@ -2651,13 +2641,7 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         sumOfSquares = 0.0;
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::for_each(std::execution::par_unseq,
-                            transposedArray.cbegin(row), transposedArray.cend(row), function);
-#else
                         std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-#endif
-
                         returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
 
@@ -3533,14 +3517,8 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    std::for_each(std::execution::par_unseq,
-                        cbegin(), cend(), function);
-#else
                     std::for_each(cbegin(), cend(), function);
-#endif
                     NdArray<double> returnArray = { std::sqrt(squareSum / static_cast<double>(size_)) };
-
                     return returnArray;
                 }
                 case Axis::COL:
@@ -3549,13 +3527,7 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         squareSum = 0.0;
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::for_each(std::execution::par_unseq,
-                            cbegin(row), cend(row), function);
-#else
                         std::for_each(cbegin(row), cend(row), function);
-#endif
                         returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(shape_.cols));
                     }
 
@@ -3568,13 +3540,7 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         squareSum = 0.0;
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::for_each(std::execution::par_unseq,
-                            transposedArray.cbegin(row), transposedArray.cend(row), function);
-#else
                         std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-#endif
                         returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.shape_.cols));
                     }
 
@@ -3740,7 +3706,7 @@ namespace nc
             double meanValue = 0.0;
             double sum = 0.0;
 
-            auto function = [&sum, meanValue](dtype value) noexcept-> void
+            auto function = [&sum, &meanValue](dtype value) noexcept-> void
             {
                 sum += utils::sqr(static_cast<double>(value) - meanValue);
             };
@@ -3750,13 +3716,8 @@ namespace nc
                 case Axis::NONE:
                 {
                     meanValue = mean(inAxis).item();
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    std::for_each(std::execution::par_unseq,
-                        cbegin(), cend(), function);
-#else
                     std::for_each(cbegin(), cend(), function);
-#endif
+
                     NdArray<double> returnArray = { std::sqrt(sum / size_) };
                     return returnArray;
                 }
@@ -3768,13 +3729,7 @@ namespace nc
                     {
                         meanValue = meanValueArray[row];
                         sum = 0.0;
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::for_each(std::execution::par_unseq,
-                            cbegin(row), cend(row), function);
-#else
                         std::for_each(cbegin(row), cend(row), function);
-#endif
 
                         returnArray(0, row) = std::sqrt(sum / shape_.cols);
                     }
@@ -3790,13 +3745,7 @@ namespace nc
                     {
                         meanValue = meanValueArray[row];
                         sum = 0.0;
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::for_each(std::execution::par_unseq,
-                            transposedArray.cbegin(row), transposedArray.cend(row), function);
-#else
                         std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
-#endif
 
                         returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
                     }
@@ -4300,7 +4249,7 @@ namespace nc
 
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
             std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
+                begin(), end(), inOtherArray.cbegin(), begin(), std::multiplies<dtype>());
 #else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::multiplies<dtype>());
 #endif
@@ -4379,7 +4328,7 @@ namespace nc
 
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
             std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
+                begin(), end(), inOtherArray.cbegin(), begin(), std::divides<dtype>());
 #else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::divides<dtype>());
 #endif
@@ -4460,7 +4409,7 @@ namespace nc
 
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
             std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
+                begin(), end(), inOtherArray.cbegin(), begin(), std::modulus<dtype>());
 #else
             std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::modulus<dtype>());
 #endif
