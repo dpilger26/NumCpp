@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/bessel_prime.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -67,9 +66,11 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            std::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
+            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
                 [inV](dtype2 inX) -> double
-                { return bessel_in_prime(inV, inX); });
+                {
+                    return bessel_in_prime(inV, inX);
+                });
 
             return returnArray;
         }

@@ -29,6 +29,7 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Linalg/hat.hpp"
 #include "NumCpp/Functions/argmax.hpp"
@@ -41,7 +42,6 @@
 #include "NumCpp/Utils/sqr.hpp"
 #include "NumCpp/Vector/Vec3.hpp"
 
-#include <algorithm>
 #include <array>
 #include <cmath>
 #include <iostream>
@@ -225,7 +225,7 @@ namespace nc
                 else if (inArray.size() == 4)
                 {
                     // quaternion i, j, k, s components
-                    std::copy(inArray.cbegin(), inArray.cend(), components_.begin());
+                    stl_algorithms::copy(inArray.cbegin(), inArray.cend(), components_.begin());
                     normalize();
                 }
                 else if (inArray.size() == 9)
@@ -424,7 +424,7 @@ namespace nc
                 const double oneMinus = 1.0 - inPercent;
                 std::array<double, 4> newComponents;
 
-                std::transform(inQuat1.components_.begin(), inQuat1.components_.end(),
+                stl_algorithms::transform(inQuat1.components_.begin(), inQuat1.components_.end(),
                     inQuat2.components_.begin(), newComponents.begin(),
                     [inPercent, oneMinus](double component1, double component2)
                     {
@@ -768,7 +768,7 @@ namespace nc
             ///
             Quaternion& operator+=(const Quaternion& inRhs) noexcept
             {
-                std::transform(components_.begin(), components_.end(),
+                stl_algorithms::transform(components_.begin(), components_.end(),
                     inRhs.components_.begin(), components_.begin(), std::plus<double>());
 
                 normalize();
@@ -813,7 +813,7 @@ namespace nc
             ///
             Quaternion& operator-=(const Quaternion& inRhs) noexcept
             {
-                std::transform(components_.begin(), components_.end(),
+                stl_algorithms::transform(components_.begin(), components_.end(),
                     inRhs.components_.begin(), components_.begin(), std::minus<double>());
 
                 normalize();

@@ -28,10 +28,10 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Error.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
-#include <algorithm>
 #include <cmath>
 #include <string>
 
@@ -81,9 +81,11 @@ namespace nc
 
         NdArray<double> returnArray(inArray1.shape());
 
-        std::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
+        stl_algorithms::transform(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin(), returnArray.begin(),
             [](dtype inValue1, dtype inValue2) noexcept -> double
-            { return fmin(inValue1, inValue2); });
+            {
+                return fmin(inValue1, inValue2); 
+            });
 
         return returnArray;
     }

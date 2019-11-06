@@ -28,10 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Constants.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
+#include "NumCpp/Core/Constants.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 namespace nc
 {
@@ -69,9 +68,11 @@ namespace nc
     NdArray<double> rad2deg(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<double> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> double
-            { return rad2deg(inValue); });
+            { 
+                return rad2deg(inValue);
+            });
 
         return returnArray;
     }

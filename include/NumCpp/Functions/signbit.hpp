@@ -29,8 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 namespace nc
 {
@@ -66,9 +65,11 @@ namespace nc
     NdArray<bool> signbit(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<bool> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> bool
-            { return signbit(inValue); });
+            { 
+                return signbit(inValue); 
+            });
 
         return returnArray;
     }

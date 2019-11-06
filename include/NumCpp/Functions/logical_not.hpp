@@ -29,8 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 namespace nc
 {
@@ -50,9 +49,11 @@ namespace nc
     NdArray<bool> logical_not(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<bool> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> bool
-            { return inValue == 0; });
+            { 
+                return inValue == 0;
+            });
 
         return returnArray;
     }

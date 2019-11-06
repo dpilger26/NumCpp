@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/erf.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -68,9 +67,11 @@ namespace nc
         {
             NdArray<double> returnArray(inArray.shape());
 
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](dtype inValue)  -> double
-                { return erfc(inValue); });
+                {
+                    return erfc(inValue);
+                });
 
             return returnArray;
         }

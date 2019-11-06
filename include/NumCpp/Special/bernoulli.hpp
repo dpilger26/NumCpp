@@ -29,11 +29,10 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 
 #include "boost/math/special_functions/bernoulli.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -75,9 +74,11 @@ namespace nc
         {
             NdArray<double> returnArray(inArray.shape());
 
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [](uint32 inValue) -> double
-                { return bernoilli(inValue); });
+                { 
+                    return bernoilli(inValue);
+                });
 
             return returnArray;
         }

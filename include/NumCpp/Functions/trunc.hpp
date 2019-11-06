@@ -29,8 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
-#include <algorithm>
 #include <cmath>
 
 namespace nc
@@ -69,9 +69,11 @@ namespace nc
     NdArray<dtype> trunc(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<dtype> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> dtype
-            { return trunc(inValue); });
+            { 
+                return trunc(inValue);
+            });
 
         return returnArray;
     }

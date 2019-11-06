@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/beta.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -67,9 +66,11 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayB.shape());
 
-            std::transform(inArrayA.cbegin(), inArrayA.cend(),inArrayB.cbegin(), returnArray.begin(),
+            stl_algorithms::transform(inArrayA.cbegin(), inArrayA.cend(),inArrayB.cbegin(), returnArray.begin(),
                 [](dtype1 a, dtype2 b) -> double
-                { return beta(a, b); });
+                { 
+                    return beta(a, b); 
+                });
 
             return returnArray;
         }

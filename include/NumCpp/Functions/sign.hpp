@@ -29,8 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 namespace nc
 {
@@ -83,9 +82,11 @@ namespace nc
     NdArray<int8> sign(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<int8> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> int8
-            { return sign(inValue); });
+            { 
+                return sign(inValue); 
+            });
 
         return returnArray;
     }

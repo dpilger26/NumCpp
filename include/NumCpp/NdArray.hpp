@@ -32,7 +32,7 @@
 #include "NumCpp/Core/DtypeInfo.hpp"
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Filesystem.hpp"
-#include "NumCpp/Core/ParallelExecution.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Shape.hpp"
 #include "NumCpp/Core/Slice.hpp"
 #include "NumCpp/Core/Types.hpp"
@@ -44,7 +44,6 @@
 #include <boost/predef/other/endian.h>
 #include <boost/endian/conversion.hpp>
 
-#include <algorithm>
 #include <array>
 #include <cmath>
 #include <deque>
@@ -187,12 +186,7 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::copy(std::execution::par_unseq, inList.begin(), inList.end(), array_);
-#else
-            std::copy(inList.begin(), inList.end(), array_);
-#endif
+            stl_algorithms::copy(inList.begin(), inList.end(), array_);
         }
 
         //============================================================================
@@ -226,11 +220,7 @@ namespace nc
             for (auto& list : inList)
             {
                 auto ptr = array_ + row * shape_.cols;
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                std::copy(std::execution::par_unseq, list.begin(), list.end(), ptr);
-#else
-                std::copy(list.begin(), list.end(), ptr);
-#endif
+                stl_algorithms::copy(list.begin(), list.end(), ptr);
                 ++row;
             }
 
@@ -252,12 +242,7 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::copy(std::execution::par_unseq, inArray.begin(), inArray.end(), array_);
-#else
-            std::copy(inArray.begin(), inArray.end(), array_);
-#endif
+            stl_algorithms::copy(inArray.begin(), inArray.end(), array_);
         }
 
         //============================================================================
@@ -274,12 +259,7 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::copy(std::execution::par_unseq, inVector.begin(), inVector.end(), array_);
-#else
-            std::copy(inVector.begin(), inVector.end(), array_);
-#endif
+            stl_algorithms::copy(inVector.begin(), inVector.end(), array_);
         }
 
         //============================================================================
@@ -296,12 +276,7 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::copy(std::execution::par_unseq, inDeque.begin(), inDeque.end(), array_);
-#else
-            std::copy(inDeque.begin(), inDeque.end(), array_);
-#endif
+            stl_algorithms::copy(inDeque.begin(), inDeque.end(), array_);
         }
 
         //============================================================================
@@ -318,12 +293,7 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::copy(std::execution::par_unseq, inSet.begin(), inSet.end(), array_);
-#else
-            std::copy(inSet.begin(), inSet.end(), array_);
-#endif
+            stl_algorithms::copy(inSet.begin(), inSet.end(), array_);
         }
 
         //============================================================================
@@ -340,12 +310,7 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::copy(std::execution::par_unseq, inFirst, inLast, array_);
-#else
-            std::copy(inFirst, inLast, array_);
-#endif
+            stl_algorithms::copy(inFirst, inLast, array_);
         }
 
         //============================================================================
@@ -383,12 +348,7 @@ namespace nc
             ownsPtr_(true)
         {
             STATIC_ASSERT_ARITHMETIC(dtype);
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::copy(std::execution::par_unseq, inPtr, inPtr + size_, begin());
-#else
-            std::copy(inPtr, inPtr + size_, begin());
-#endif
+            stl_algorithms::copy(inPtr, inPtr + size_, begin());
         }
 
         //============================================================================
@@ -405,11 +365,7 @@ namespace nc
             array_(new dtype[inOtherArray.size_]),
             ownsPtr_(true)
         {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::copy(std::execution::par_unseq, inOtherArray.cbegin(), inOtherArray.cend(), begin());
-#else
-            std::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
-#endif
+            stl_algorithms::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
         }
 
         //============================================================================
@@ -453,11 +409,7 @@ namespace nc
             newArray(inOtherArray.shape_);
             endianess_ = inOtherArray.endianess_;
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::copy(std::execution::par_unseq, inOtherArray.cbegin(), inOtherArray.cend(), begin());
-#else
-            std::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
-#endif
+            stl_algorithms::copy(inOtherArray.cbegin(), inOtherArray.cend(), begin());
 
             return *this;
         }
@@ -1515,11 +1467,8 @@ namespace nc
                 return static_cast<dtypeOut>(value);
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq, cbegin(), cend(), outArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), outArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+
             return outArray;
         }
 
@@ -2043,12 +1992,7 @@ namespace nc
         NdArray<dtype> flatten() const noexcept
         {
             NdArray<dtype> outArray(1, size_);
-
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::copy(std::execution::par_unseq, cbegin(), cend(), outArray.begin());
-#else
-            std::copy(cbegin(), cend(), outArray.begin());
-#endif
+            stl_algorithms::copy(cbegin(), cend(), outArray.begin());
             return outArray;
         }
 
@@ -2433,24 +2377,18 @@ namespace nc
                         case Endian::BIG:
                         {
                             NdArray<dtype> outArray(shape_);
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                            std::transform(std::execution::par_unseq,
-                                cbegin(), end(), outArray.begin(), boost::endian::native_to_big<dtype>);
-#else
-                            std::transform(cbegin(), end(), outArray.begin(), boost::endian::native_to_big<dtype>);
-#endif
+
+                            stl_algorithms::transform(cbegin(), end(), outArray.begin(), boost::endian::native_to_big<dtype>);
+
                             outArray.endianess_ = Endian::BIG;
                             return outArray;
                         }
                         case Endian::LITTLE:
                         {
                             NdArray<dtype> outArray(shape_);
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                            std::transform(std::execution::par_unseq,
-                                cbegin(), cend(), outArray.begin(), boost::endian::native_to_little<dtype>);
-#else
-                            std::transform(cbegin(), cend(), outArray.begin(), boost::endian::native_to_little<dtype>);
-#endif
+
+                            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), boost::endian::native_to_little<dtype>);
+
                             outArray.endianess_ = Endian::LITTLE;
                             return outArray;
                         }
@@ -2470,12 +2408,9 @@ namespace nc
                         case Endian::NATIVE:
                         {
                             NdArray<dtype> outArray(shape_);
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                            std::transform(std::execution::par_unseq,
-                                cbegin(), cend(), outArray.begin(), boost::endian::big_to_native<dtype>);
-#else
-                            std::transform(cbegin(), cend(), outArray.begin(), boost::endian::big_to_native<dtype>);
-#endif
+
+                            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), boost::endian::big_to_native<dtype>);
+
                             outArray.endianess_ = Endian::NATIVE;
                             return outArray;
                         }
@@ -2486,20 +2421,13 @@ namespace nc
                         case Endian::LITTLE:
                         {
                             NdArray<dtype> outArray(shape_);
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                            std::transform(std::execution::par_unseq,
-                                cbegin(), cend(), outArray.begin(),
+
+                            stl_algorithms::transform(cbegin(), cend(), outArray.begin(),
                                 [](dtype value) noexcept -> dtype
                                 {
                                     return boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(value));
                                 });
-#else
-                            std::transform(cbegin(), cend(), outArray.begin(),
-                                [](dtype value) noexcept -> dtype
-                                {
-                                    return boost::endian::native_to_little<dtype>(boost::endian::big_to_native<dtype>(value));
-                                });
-#endif
+
                             outArray.endianess_ = Endian::LITTLE;
                             return outArray;
                         }
@@ -2519,12 +2447,9 @@ namespace nc
                         case Endian::NATIVE:
                         {
                             NdArray<dtype> outArray(shape_);
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                            std::transform(std::execution::par_unseq,
-                                cbegin(), cend(), outArray.begin(), boost::endian::little_to_native<dtype>);
-#else
-                            std::transform(cbegin(), cend(), outArray.begin(), boost::endian::little_to_native<dtype>);
-#endif
+
+                            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), boost::endian::little_to_native<dtype>);
+
                             outArray.endianess_ = Endian::NATIVE;
                             return outArray;
                         }
@@ -2537,12 +2462,8 @@ namespace nc
                                 return boost::endian::native_to_big<dtype>(boost::endian::little_to_native<dtype>(value));
                             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                            std::transform(std::execution::par_unseq,
-                                cbegin(), cend(), outArray.begin(), function);
-#else
-                            std::transform(cbegin(), cend(), outArray.begin(), function);
-#endif
+                            stl_algorithms::transform(cbegin(), cend(), outArray.begin(), function);
+
                             outArray.endianess_ = Endian::BIG;
                             return outArray;
                         }
@@ -3454,7 +3375,7 @@ namespace nc
         NdArray<dtype>& resizeSlow(uint32 inNumRows, uint32 inNumCols) noexcept
         {
             std::vector<dtype> oldData(size_);
-            std::copy(begin(), end(), oldData.begin());
+            stl_algorithms::copy(begin(), end(), oldData.begin());
 
             const Shape inShape(inNumRows, inNumCols);
             const Shape oldShape = shape_;
@@ -3582,12 +3503,8 @@ namespace nc
                     return static_cast<dtype>(std::nearbyint(static_cast<double>(value) * multFactor) / multFactor);
                 };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                std::transform(std::execution::par_unseq,
-                    cbegin(), cend(), returnArray.begin(), function);
-#else
-                std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+                stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
+
                 return returnArray;
             }
         }
@@ -4077,12 +3994,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::plus<dtype>());
-#else
-            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::plus<dtype>());
-#endif
+            stl_algorithms::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::plus<dtype>());
 
             return *this;
         }
@@ -4168,12 +4080,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
-#else
-            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
-#endif
+            stl_algorithms::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::minus<dtype>());
 
             return *this;
         }
@@ -4247,12 +4154,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::multiplies<dtype>());
-#else
-            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::multiplies<dtype>());
-#endif
+            stl_algorithms::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::multiplies<dtype>());
 
             return *this;
         }
@@ -4326,12 +4228,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::divides<dtype>());
-#else
-            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::divides<dtype>());
-#endif
+            stl_algorithms::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::divides<dtype>());
 
             return *this;
         }
@@ -4407,12 +4304,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::modulus<dtype>());
-#else
-            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::modulus<dtype>());
-#endif
+            stl_algorithms::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::modulus<dtype>());
 
             return *this;
         }
@@ -4495,12 +4387,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::bit_or<dtype>());
-#else
-            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_or<dtype>());
-#endif
+            stl_algorithms::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_or<dtype>());
 
             return *this;
         }
@@ -4578,12 +4465,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::bit_and<dtype>());
-#else
-            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_and<dtype>());
-#endif
+            stl_algorithms::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_and<dtype>());
 
             return *this;
         }
@@ -4661,12 +4543,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("Array dimensions do not match.");
             }
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                begin(), end(), inOtherArray.cbegin(), begin(), std::bit_xor<dtype>());
-#else
-            std::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_xor<dtype>());
-#endif
+            stl_algorithms::transform(begin(), end(), inOtherArray.cbegin(), begin(), std::bit_xor<dtype>());
 
             return *this;
         }
@@ -4719,14 +4596,8 @@ namespace nc
                 return value1 && value2;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
             NdArray<dtype> returnArray(shape_);
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), function);
-#else
-            NdArray<dtype> returnArray(shape_);
-            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -4749,11 +4620,7 @@ namespace nc
                 return value && inScalar;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -4779,14 +4646,8 @@ namespace nc
                 return value1 || value2;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
             NdArray<dtype> returnArray(shape_);
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), function);
-#else
-            NdArray<dtype> returnArray(shape_);
-            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -4809,11 +4670,7 @@ namespace nc
                 return value || inScalar;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -4836,11 +4693,7 @@ namespace nc
                 return ~value;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -4861,11 +4714,7 @@ namespace nc
                 return !value;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -4889,11 +4738,7 @@ namespace nc
                 return value == inValue;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -4917,12 +4762,7 @@ namespace nc
 
             NdArray<bool> returnArray(shape_);
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::equal_to<dtype>());
-#else
-            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::equal_to<dtype>());
-#endif
+            stl_algorithms::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::equal_to<dtype>());
 
             return returnArray;
         }
@@ -4946,11 +4786,7 @@ namespace nc
                 return value != inValue;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq, cbegin(), cend(), returnArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -4974,12 +4810,7 @@ namespace nc
 
             NdArray<bool> returnArray(shape_);
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
-#else
-            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
-#endif
+            stl_algorithms::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::not_equal_to<dtype>());
 
             return returnArray;
         }
@@ -5003,12 +4834,7 @@ namespace nc
                 return value < inValue;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), returnArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -5032,12 +4858,7 @@ namespace nc
 
             NdArray<bool> returnArray(shape_);
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less<dtype>());
-#else
-            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less<dtype>());
-#endif
+            stl_algorithms::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less<dtype>());
 
             return returnArray;
         }
@@ -5061,12 +4882,7 @@ namespace nc
                 return value > inValue;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), returnArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -5090,12 +4906,7 @@ namespace nc
 
             NdArray<bool> returnArray(shape_);
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater<dtype>());
-#else
-            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater<dtype>());
-#endif
+            stl_algorithms::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater<dtype>());
 
             return returnArray;
         }
@@ -5119,12 +4930,7 @@ namespace nc
                 return value <= inValue;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), returnArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -5148,12 +4954,7 @@ namespace nc
 
             NdArray<bool> returnArray(shape_);
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less_equal<dtype>());
-#else
-            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less_equal<dtype>());
-#endif
+            stl_algorithms::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::less_equal<dtype>());
 
             return returnArray;
         }
@@ -5177,12 +4978,7 @@ namespace nc
                 return value >= inValue;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), returnArray.begin(), function);
-#else
-            std::transform(cbegin(), cend(), returnArray.begin(), function);
-#endif
+            stl_algorithms::transform(cbegin(), cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -5206,12 +5002,7 @@ namespace nc
 
             NdArray<bool> returnArray(shape_);
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::transform(std::execution::par_unseq,
-                cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater_equal<dtype>());
-#else
-            std::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater_equal<dtype>());
-#endif
+            stl_algorithms::transform(cbegin(), cend(), inOtherArray.cbegin(), returnArray.begin(), std::greater_equal<dtype>());
 
             return returnArray;
         }

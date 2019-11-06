@@ -29,10 +29,10 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -73,7 +73,7 @@ namespace nc
             }
 
             NdArray<dtype> returnArray(1, inArray.size() - place);
-            std::copy(inArray.cbegin() + place, inArray.cend(), returnArray.begin());
+            stl_algorithms::copy(inArray.cbegin() + place, inArray.cend(), returnArray.begin());
 
             return returnArray;
         }
@@ -98,7 +98,7 @@ namespace nc
             }
 
             NdArray<dtype> returnArray(1, place);
-            std::copy(inArray.cbegin(), inArray.cbegin() + place, returnArray.begin());
+            stl_algorithms::copy(inArray.cbegin(), inArray.cbegin() + place, returnArray.begin());
 
             return returnArray;
         }
@@ -141,7 +141,7 @@ namespace nc
             }
 
             NdArray<dtype> returnArray(1, placeEnd - placeBegin);
-            std::copy(inArray.cbegin() + placeBegin, inArray.cbegin() + placeEnd, returnArray.begin());
+            stl_algorithms::copy(inArray.cbegin() + placeBegin, inArray.cbegin() + placeEnd, returnArray.begin());
 
             return returnArray;
         }

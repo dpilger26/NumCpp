@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/polygamma.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -69,9 +68,11 @@ namespace nc
         {
             NdArray<double> returnArray(inArray.shape());
 
-            std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+            stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
                 [n](dtype inValue) -> double
-                { return polygamma(n, inValue); });
+                { 
+                    return polygamma(n, inValue);
+                });
 
             return returnArray;
         }

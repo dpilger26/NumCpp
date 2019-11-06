@@ -29,9 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Utils/cube.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -63,9 +62,11 @@ namespace nc
     NdArray<dtype> cube(const NdArray<dtype>& inArray) noexcept
     {
         NdArray<dtype> returnArray(inArray.shape());
-        std::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
+        stl_algorithms::transform(inArray.cbegin(), inArray.cend(), returnArray.begin(),
             [](dtype inValue) noexcept -> dtype
-            { return cube(inValue); });
+            { 
+                return cube(inValue);
+            });
 
         return returnArray;
     }

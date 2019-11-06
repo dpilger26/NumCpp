@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/chebyshev.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -67,9 +66,12 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            std::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [n](dtype x) -> double
-                { return chebyshev_t(n, x); });
+            auto function = [n](dtype x) -> double
+            {
+                return chebyshev_t(n, x);
+            };
+
+            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 
             return returnArray;
         }

@@ -30,10 +30,10 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -121,9 +121,11 @@ namespace nc
                 returnArray[0] = static_cast<double>(inArray[1]) - static_cast<double>(inArray[0]);
                 returnArray[-1] = static_cast<double>(inArray[-1]) - static_cast<double>(inArray[-2]);
 
-                std::transform(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.begin() + 1,
+                stl_algorithms::transform(inArray.cbegin() + 2, inArray.cend(), inArray.cbegin(), returnArray.begin() + 1,
                     [](dtype value1, dtype value2) noexcept -> double
-                    { return (static_cast<double>(value1) - static_cast<double>(value2)) / 2.0; });
+                    { 
+                        return (static_cast<double>(value1) - static_cast<double>(value2)) / 2.0; 
+                    });
 
                 return returnArray;
             }

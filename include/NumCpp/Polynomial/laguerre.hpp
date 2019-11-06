@@ -83,9 +83,12 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            std::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [n](dtype x) -> double
-                { return laguerre(n, x); });
+            auto function = [n](dtype x) -> double
+            {
+                return laguerre(n, x);
+            };
+
+            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 
             return returnArray;
         }
@@ -105,9 +108,12 @@ namespace nc
         {
             NdArray<double> returnArray(inArrayX.shape());
 
-            std::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(),
-                [n, m](dtype x) -> double
-                { return laguerre(n, m, x); });
+            auto function = [n, m](dtype x) -> double
+            {
+                return laguerre(n, m, x);
+            };
+
+            stl_algorithms::transform(inArrayX.cbegin(), inArrayX.cend(), returnArray.begin(), function);
 
             return returnArray;
         }
