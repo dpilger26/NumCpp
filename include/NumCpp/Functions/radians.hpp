@@ -31,8 +31,6 @@
 #include "NumCpp/Functions/deg2rad.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
-
 namespace nc
 {
     //============================================================================

@@ -33,7 +33,6 @@
 #include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc

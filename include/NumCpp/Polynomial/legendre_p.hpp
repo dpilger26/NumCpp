@@ -29,11 +29,10 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 
 #include "boost/math/special_functions/legendre.hpp"
-
-#include <algorithm>
 
 namespace nc
 {

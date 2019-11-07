@@ -36,7 +36,6 @@
 
 #include "boost/random/negative_binomial_distribution.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc

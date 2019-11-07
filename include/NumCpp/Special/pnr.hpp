@@ -34,8 +34,6 @@
 
 #include "boost/math/special_functions/factorials.hpp"
 
-#include <algorithm>
-
 namespace nc
 {
     namespace special

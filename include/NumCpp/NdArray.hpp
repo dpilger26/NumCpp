@@ -1104,12 +1104,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    NdArray<bool> returnArray = { std::all_of(std::execution::par_unseq,
-                        cbegin(), cend(), function) };
-#else
-                    NdArray<bool> returnArray = { std::all_of(cbegin(), cend(), function) };
-#endif
+                    NdArray<bool> returnArray = { stl_algorithms::all_of(cbegin(), cend(), function) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1117,12 +1112,7 @@ namespace nc
                     NdArray<bool> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = std::all_of(std::execution::par_unseq,
-                            cbegin(row), cend(row), function);
-#else
-                        returnArray(0, row) = std::all_of(cbegin(row), cend(row), function);
-#endif
+                        returnArray(0, row) = stl_algorithms::all_of(cbegin(row), cend(row), function);
                     }
 
                     return returnArray;
@@ -1133,12 +1123,7 @@ namespace nc
                     NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = std::all_of(std::execution::par_unseq,
-                            arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
-#else
-                        returnArray(0, row) = std::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
-#endif
+                        returnArray(0, row) = stl_algorithms::all_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
                     }
 
                     return returnArray;
@@ -1174,12 +1159,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    NdArray<bool> returnArray = { std::any_of(std::execution::par_unseq,
-                        cbegin(), cend(), function) };
-#else
-                    NdArray<bool> returnArray = { std::any_of(cbegin(), cend(), function) };
-#endif
+                    NdArray<bool> returnArray = { stl_algorithms::any_of(cbegin(), cend(), function) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1187,12 +1167,7 @@ namespace nc
                     NdArray<bool> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = std::any_of(std::execution::par_unseq,
-                            cbegin(row), cend(row), function);
-#else
-                        returnArray(0, row) = std::any_of(cbegin(row), cend(row), function);
-#endif
+                        returnArray(0, row) = stl_algorithms::any_of(cbegin(row), cend(row), function);
                     }
 
                     return returnArray;
@@ -1203,12 +1178,7 @@ namespace nc
                     NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = std::any_of(std::execution::par_unseq,
-                            arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
-#else
-                        returnArray(0, row) = std::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
-#endif
+                        returnArray(0, row) = stl_algorithms::any_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
                     }
 
                     return returnArray;
@@ -2485,6 +2455,61 @@ namespace nc
                     // this isn't actually possible, just putting this here to get rid
                     // of the compiler warning.
                     return NdArray<dtype>(0);
+                }
+            }
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns True if none elements evaluate to True or non zero
+        ///
+        ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.any.html
+        ///
+        /// @param
+        ///				inAxis (Optional, default NONE)
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<bool> none(Axis inAxis = Axis::NONE) const noexcept
+        {
+            auto function = [](dtype i) noexcept -> bool
+            {
+                return i != static_cast<dtype>(0);
+            };
+
+            switch (inAxis)
+            {
+                case Axis::NONE:
+                {
+                    NdArray<bool> returnArray = { stl_algorithms::none_of(cbegin(), cend(), function) };
+                    return returnArray;
+                }
+                case Axis::COL:
+                {
+                    NdArray<bool> returnArray(1, shape_.rows);
+                    for (uint32 row = 0; row < shape_.rows; ++row)
+                    {
+                        returnArray(0, row) = stl_algorithms::none_of(cbegin(row), cend(row), function);
+                    }
+
+                    return returnArray;
+                }
+                case Axis::ROW:
+                {
+                    NdArray<dtype> arrayTransposed = transpose();
+                    NdArray<bool> returnArray(1, arrayTransposed.shape_.rows);
+                    for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
+                    {
+                        returnArray(0, row) = stl_algorithms::none_of(arrayTransposed.cbegin(row), arrayTransposed.cend(row), function);
+                    }
+
+                    return returnArray;
+                }
+                default:
+                {
+                    // this isn't actually possible, just putting this here to get rid
+                    // of the compiler warning.
+                    return NdArray<bool>(0);
                 }
             }
         }

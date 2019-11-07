@@ -186,6 +186,7 @@
 #include "NumCpp/Functions/nbytes.hpp"
 #include "NumCpp/Functions/negative.hpp"
 #include "NumCpp/Functions/newbyteorder.hpp"
+#include "NumCpp/Functions/none.hpp"
 #include "NumCpp/Functions/nonzero.hpp"
 #include "NumCpp/Functions/norm.hpp"
 #include "NumCpp/Functions/not_equal.hpp"

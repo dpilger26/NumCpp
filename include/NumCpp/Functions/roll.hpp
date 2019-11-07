@@ -29,10 +29,10 @@
 #pragma once
 
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <cmath>
 
 namespace nc
@@ -64,7 +64,7 @@ namespace nc
                 }
 
                 NdArray<dtype> returnArray(inArray);
-                std::rotate(returnArray.begin(), returnArray.begin() + shift, returnArray.end());
+                stl_algorithms::rotate(returnArray.begin(), returnArray.begin() + shift, returnArray.end());
 
                 return returnArray;
             }
@@ -81,7 +81,7 @@ namespace nc
                 NdArray<dtype> returnArray(inArray);
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
-                    std::rotate(returnArray.begin(row), returnArray.begin(row) + shift, returnArray.end(row));
+                    stl_algorithms::rotate(returnArray.begin(row), returnArray.begin(row) + shift, returnArray.end(row));
                 }
 
                 return returnArray;
@@ -99,7 +99,7 @@ namespace nc
                 NdArray<dtype> returnArray = inArray.transpose();
                 for (uint32 row = 0; row < inShape.cols; ++row)
                 {
-                    std::rotate(returnArray.begin(row), returnArray.begin(row) + shift, returnArray.end(row));
+                    stl_algorithms::rotate(returnArray.begin(row), returnArray.begin(row) + shift, returnArray.end(row));
                 }
 
                 return returnArray.transpose();

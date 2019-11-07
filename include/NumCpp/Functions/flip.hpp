@@ -28,10 +28,9 @@
 ///
 #pragma once
 
-#include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
+#include "NumCpp/Core/StlAlgorithms.hpp"
+#include "NumCpp/Core/Types.hpp"
 
 namespace nc
 {
@@ -54,7 +53,7 @@ namespace nc
             case Axis::NONE:
             {
                 NdArray<dtype> returnArray(inArray);
-                std::reverse(returnArray.begin(), returnArray.end());
+                stl_algorithms::reverse(returnArray.begin(), returnArray.end());
                 return returnArray;
             }
             case Axis::COL:
@@ -62,7 +61,7 @@ namespace nc
                 NdArray<dtype> returnArray(inArray);
                 for (uint32 row = 0; row < inArray.shape().rows; ++row)
                 {
-                    std::reverse(returnArray.begin(row), returnArray.end(row));
+                    stl_algorithms::reverse(returnArray.begin(row), returnArray.end(row));
                 }
                 return returnArray;
             }
@@ -71,7 +70,7 @@ namespace nc
                 NdArray<dtype> returnArray = inArray.transpose();
                 for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                 {
-                    std::reverse(returnArray.begin(row), returnArray.end(row));
+                    stl_algorithms::reverse(returnArray.begin(row), returnArray.end(row));
                 }
                 return returnArray.transpose();
             }

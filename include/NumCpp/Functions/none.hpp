@@ -28,42 +28,25 @@
 ///
 #pragma once
 
-#include "NumCpp/Functions/rad2deg.hpp"
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/Types.hpp"
 
 namespace nc
 {
     //============================================================================
     // Method Description:
-    ///						Convert angles from degrees to radians.
+    ///						Test whether no array elements along a given axis evaluate to True.
     ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
+    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.all.html
     ///
-    /// @param
-    ///				inValue
+    /// @param				inArray
+    /// @param				inAxis (Optional, default NONE)
     /// @return
-    ///				value
+    ///				bool
     ///
     template<typename dtype>
-    constexpr double degrees(dtype inValue) noexcept
+    NdArray<bool> none(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
-        return rad2deg(inValue);
-    }
-
-    //============================================================================
-    // Method Description:
-    ///						Convert angles from degrees to radians.
-    ///
-    ///                     NumPy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.degrees.html
-    ///
-    /// @param
-    ///				inArray
-    /// @return
-    ///				NdArray
-    ///
-    template<typename dtype>
-    NdArray<double> degrees(const NdArray<dtype>& inArray) noexcept
-    {
-        return rad2deg(inArray);
+        return inArray.none(inAxis);
     }
 }

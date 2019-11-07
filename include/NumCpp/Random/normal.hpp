@@ -36,7 +36,6 @@
 
 #include "boost/random/normal_distribution.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc

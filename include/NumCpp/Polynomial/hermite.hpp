@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 #include "boost/math/special_functions/hermite.hpp"
-
-#include <algorithm>
 
 namespace nc
 {

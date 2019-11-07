@@ -29,8 +29,8 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
-#include <algorithm>
 #include <set>
 #include <vector>
 
@@ -57,7 +57,7 @@ namespace nc
         std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
         std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
-        const typename std::vector<dtype>::iterator iter = std::set_intersection(in1.begin(), in1.end(),
+        const typename std::vector<dtype>::iterator iter = stl_algorithms::set_intersection(in1.begin(), in1.end(),
             in2.begin(), in2.end(), res.begin());
         res.resize(iter - res.begin());
         return NdArray<dtype>(res);

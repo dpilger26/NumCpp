@@ -328,6 +328,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray none(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    {
+        return nc2Boost(self.none(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray nonzero(const NdArray<dtype>& self)
     {
         return nc2Boost(self.nonzero());
@@ -1911,6 +1919,14 @@ namespace MethodsInterface
     np::ndarray negative(const NdArray<dtype> inArray)
     {
         return nc2Boost(nc::negative(inArray));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
+    np::ndarray noneArray(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE)
+    {
+        return nc2Boost(none(inArray, inAxis));
     }
 
     //================================================================================
@@ -3697,6 +3713,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("median", &NdArrayInterface::median<double>)
         .def("nans", &NdArrayDouble::nans, bp::return_internal_reference<>())
         .def("nbytes", &NdArrayDouble::nbytes)
+        .def("none", &NdArrayInterface::none<double>)
         .def("nonzero", &NdArrayInterface::nonzero<double>)
         .def("norm", &NdArrayInterface::norm<double>)
         .def("numRows", &NdArrayDouble::numCols)
@@ -4079,6 +4096,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("newbyteorderScaler", &MethodsInterface::newbyteorderScaler<uint32>);
     bp::def("newbyteorderArray", &MethodsInterface::newbyteorderArray<uint32>);
     bp::def("negative", &negative<double>);
+    bp::def("none", &MethodsInterface::noneArray<double>);
     bp::def("nonzero", &nonzero<double>);
     bp::def("norm", &norm<double>);
     bp::def("not_equal", &not_equal<double>);

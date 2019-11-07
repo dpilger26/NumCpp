@@ -34,7 +34,6 @@
 #include "NumCpp/Special/factorial.hpp"
 #include "NumCpp/Special/pnr.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
