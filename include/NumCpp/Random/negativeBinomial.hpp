@@ -30,6 +30,7 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
@@ -74,9 +75,11 @@ namespace nc
 
             const boost::random::negative_binomial_distribution<dtype, double> dist(inN, inP);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
+            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
-                { value = dist(generator_); });
+                {
+                    value = dist(generator_);
+                });
 
             return returnArray;
         }

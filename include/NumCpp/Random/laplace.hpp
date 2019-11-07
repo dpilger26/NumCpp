@@ -29,12 +29,11 @@
 #pragma once
 
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/laplace_distribution.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -60,9 +59,11 @@ namespace nc
 
             const boost::random::laplace_distribution<dtype> dist(inLoc, inScale);
 
-            std::for_each(returnArray.begin(), returnArray.end(),
+            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
-                { value = dist(generator_); });
+                { 
+                    value = dist(generator_); 
+                });
 
             return returnArray;
         }

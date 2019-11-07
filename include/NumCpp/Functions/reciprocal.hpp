@@ -28,10 +28,9 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -55,9 +54,11 @@ namespace nc
         NdArray<double> returnArray(inArray.shape());
 
         uint32 counter = 0;
-        std::for_each(inArray.cbegin(), inArray.cend(),
+        stl_algorithms::for_each(inArray.cbegin(), inArray.cend(),
             [&returnArray, &counter](dtype value) noexcept -> void
-            { returnArray[counter++] = 1.0 / static_cast<double>(value); });
+            { 
+                returnArray[counter++] = 1.0 / static_cast<double>(value);
+            });
 
         return returnArray;
     }

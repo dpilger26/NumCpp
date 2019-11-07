@@ -59,7 +59,66 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Copies from one container to another
+        ///						Test if two ranges are equal
+        ///
+        /// @param first1: the first iterator of first container
+        /// @param last1: the last iterator of first container
+        /// @param first2: the first iterator of second container
+        /// @return bool
+        ///
+        template< class InputIt1, class InputIt2 >
+        bool equal(InputIt1 first1, InputIt1 last1,
+            InputIt2 first2)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::equal(std::execution::par_unseq, first1, last1, first2);
+#else
+            return std::equal(first1, last1, first2);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Test if two ranges are equal
+        ///
+        /// @param first1: the first iterator of first container
+        /// @param last1: the last iterator of first container
+        /// @param first2: the first iterator of second container
+        /// @param p: binary predicate to compare the elements
+        /// @return bool
+        ///
+        template< class InputIt1, class InputIt2, class BinaryPredicate >
+        bool equal(InputIt1 first1, InputIt1 last1,
+            InputIt2 first2, BinaryPredicate p)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::equal(std::execution::par_unseq, first1, last1, first2, p);
+#else
+            return std::equal(first1, last1, first2, p);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Runs the function on each element of the range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param f: the function to apply to the input iterators
+        ///
+        template< class InputIt, class UnaryFunction >
+        void for_each(InputIt first, InputIt last, UnaryFunction f)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::for_each(std::execution::par_unseq, first, last, f);
+#else
+            std::for_each(first, last, f);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Transforms the elements of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
@@ -79,7 +138,7 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Copies from one container to another
+        ///						Transforms the elements of the range
         ///
         /// @param first1: the first iterator of the source
         /// @param last1: the last iterator of the source

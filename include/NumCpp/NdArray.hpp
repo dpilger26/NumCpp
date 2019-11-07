@@ -2538,7 +2538,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    std::for_each(cbegin(), cend(), function);
+                    stl_algorithms::for_each(cbegin(), cend(), function);
 
                     NdArray<double> returnArray = { std::sqrt(sumOfSquares) };
                     return returnArray;
@@ -2549,7 +2549,7 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         sumOfSquares = 0.0;
-                        std::for_each(cbegin(row), cend(row), function);
+                        stl_algorithms::for_each(cbegin(row), cend(row), function);
                         returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
 
@@ -2562,7 +2562,7 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         sumOfSquares = 0.0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
+                        stl_algorithms::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
                         returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
 
@@ -3438,7 +3438,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    std::for_each(cbegin(), cend(), function);
+                    stl_algorithms::for_each(cbegin(), cend(), function);
                     NdArray<double> returnArray = { std::sqrt(squareSum / static_cast<double>(size_)) };
                     return returnArray;
                 }
@@ -3448,7 +3448,7 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         squareSum = 0.0;
-                        std::for_each(cbegin(row), cend(row), function);
+                        stl_algorithms::for_each(cbegin(row), cend(row), function);
                         returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(shape_.cols));
                     }
 
@@ -3461,7 +3461,7 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         squareSum = 0.0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
+                        stl_algorithms::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
                         returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.shape_.cols));
                     }
 
@@ -3633,7 +3633,7 @@ namespace nc
                 case Axis::NONE:
                 {
                     meanValue = mean(inAxis).item();
-                    std::for_each(cbegin(), cend(), function);
+                    stl_algorithms::for_each(cbegin(), cend(), function);
 
                     NdArray<double> returnArray = { std::sqrt(sum / size_) };
                     return returnArray;
@@ -3646,7 +3646,7 @@ namespace nc
                     {
                         meanValue = meanValueArray[row];
                         sum = 0.0;
-                        std::for_each(cbegin(row), cend(row), function);
+                        stl_algorithms::for_each(cbegin(row), cend(row), function);
 
                         returnArray(0, row) = std::sqrt(sum / shape_.cols);
                     }
@@ -3662,7 +3662,7 @@ namespace nc
                     {
                         meanValue = meanValueArray[row];
                         sum = 0.0;
-                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
+                        stl_algorithms::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
 
                         returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
                     }
@@ -3929,12 +3929,7 @@ namespace nc
                 value *= value;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq,
-                stdValues.begin(), stdValues.end(), function);
-#else
-            std::for_each(stdValues.begin(), stdValues.end(), function);
-#endif
+            stl_algorithms::for_each(stdValues.begin(), stdValues.end(), function);
             return stdValues;
         }
 
@@ -4015,11 +4010,7 @@ namespace nc
                 return value += inScalar;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -4101,11 +4092,7 @@ namespace nc
                 return value -= inScalar;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -4175,11 +4162,7 @@ namespace nc
                 return value *= inScalar;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -4249,11 +4232,7 @@ namespace nc
                 return value /= inScalar;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -4332,11 +4311,7 @@ namespace nc
                 return value %= inScalar;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -4410,11 +4385,7 @@ namespace nc
                 return value |= inScalar;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -4488,11 +4459,7 @@ namespace nc
                 return value &= inScalar;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -4566,11 +4533,7 @@ namespace nc
                 return value ^= inScalar;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -5038,11 +5001,7 @@ namespace nc
                 value <<= inNumBits;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -5078,11 +5037,7 @@ namespace nc
                 value >>= inNumBits;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(std::execution::par_unseq, begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -5102,11 +5057,7 @@ namespace nc
                 ++value;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -5125,11 +5076,7 @@ namespace nc
                 --value;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return *this;
         }
@@ -5150,11 +5097,7 @@ namespace nc
                 ++value;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return copy;
         }
@@ -5175,11 +5118,7 @@ namespace nc
                 --value;
             };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::for_each(begin(), end(), function);
-#else
-            std::for_each(begin(), end(), function);
-#endif
+            stl_algorithms::for_each(begin(), end(), function);
 
             return copy;
         }

@@ -30,12 +30,12 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/NdArray.hpp"
 #include "NumCpp/Random/generator.hpp"
 
 #include "boost/random/discrete_distribution.hpp"
 
-#include <algorithm>
 
 namespace nc
 {
@@ -63,9 +63,11 @@ namespace nc
 
             boost::random::discrete_distribution<dtype> dist(inWeights.cbegin(), inWeights.cend());
 
-            std::for_each(returnArray.begin(), returnArray.end(),
+            stl_algorithms::for_each(returnArray.begin(), returnArray.end(),
                 [&dist](dtype& value) noexcept -> void
-                { value = dist(generator_); });
+                { 
+                    value = dist(generator_);
+                });
 
             return returnArray;
         }

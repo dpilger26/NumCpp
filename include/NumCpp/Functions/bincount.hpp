@@ -29,10 +29,10 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <string>
 
 namespace nc
@@ -77,9 +77,11 @@ namespace nc
 
         NdArray<dtype> outArray(1, outArraySize);
         outArray.zeros();
-        std::for_each(clippedArray.cbegin(), clippedArray.cend(),
+        stl_algorithms::for_each(clippedArray.cbegin(), clippedArray.cend(),
             [&outArray](dtype value) noexcept -> void
-            { ++outArray[value]; });
+            { 
+                ++outArray[value];
+            });
 
         return outArray;
     }
@@ -133,9 +135,11 @@ namespace nc
         NdArray<dtype> outArray(1, outArraySize);
         outArray.zeros();
         uint32 counter = 0;
-        std::for_each(clippedArray.cbegin(), clippedArray.cend(),
+        stl_algorithms::for_each(clippedArray.cbegin(), clippedArray.cend(),
             [&outArray, &inWeights, &counter](dtype value) noexcept -> void
-            { outArray[value] += inWeights[counter++]; });
+            {
+                outArray[value] += inWeights[counter++];
+            });
 
         return outArray;
     }

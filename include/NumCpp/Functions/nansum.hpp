@@ -28,11 +28,11 @@
 ///
 #pragma once
 
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/sum.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <cmath>
 
 namespace nc
@@ -53,9 +53,11 @@ namespace nc
     NdArray<dtype> nansum(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         NdArray<dtype> arrayCopy(inArray);
-        std::for_each(arrayCopy.begin(), arrayCopy.end(),
+        stl_algorithms::for_each(arrayCopy.begin(), arrayCopy.end(),
             [](dtype& value) noexcept -> void
-            { if (std::isnan(value)) { value = static_cast<dtype>(0); }; });
+            {
+                if (std::isnan(value)) { value = static_cast<dtype>(0); }; 
+            });
 
         return sum(arrayCopy, inAxis);
     }

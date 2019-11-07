@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/exp.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -68,7 +67,7 @@ namespace nc
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
                         double rowExpSum = expSums[row];
-                        std::for_each(returnArray.begin(row), returnArray.end(row), 
+                        stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
                             [rowExpSum](double& value) { value /= rowExpSum; });
                     }
 
@@ -82,7 +81,7 @@ namespace nc
                     for (uint32 row = 0; row < returnArray.shape().rows; ++row)
                     {
                         double rowExpSum = expSums[row];
-                        std::for_each(returnArray.begin(row), returnArray.end(row), 
+                        stl_algorithms::for_each(returnArray.begin(row), returnArray.end(row), 
                             [rowExpSum](double& value) { value /= rowExpSum; });
                     }
 

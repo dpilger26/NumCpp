@@ -29,11 +29,11 @@
 #pragma once
 
 #include "NumCpp/Core/DtypeInfo.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/min.hpp"
 #include "NumCpp/NdArray.hpp"
 
-#include <algorithm>
 #include <cmath>
 
 namespace nc
@@ -54,9 +54,11 @@ namespace nc
     NdArray<dtype> nanmin(const NdArray<dtype>& inArray, Axis inAxis = Axis::NONE) noexcept
     {
         NdArray<dtype> arrayCopy(inArray);
-        std::for_each(arrayCopy.begin(), arrayCopy.end(),
+        stl_algorithms::for_each(arrayCopy.begin(), arrayCopy.end(),
             [](dtype& value) noexcept -> void
-            { if (std::isnan(value)) { value = DtypeInfo<dtype>::max(); }; });
+            { 
+                if (std::isnan(value)) { value = DtypeInfo<dtype>::max(); }; 
+            });
 
         return min(arrayCopy, inAxis);
     }

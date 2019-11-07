@@ -30,6 +30,7 @@
 
 #ifdef INCLUDE_BOOST_PYTHON_INTERFACE
 
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Utils/num2str.hpp"
 
@@ -270,7 +271,7 @@ namespace nc
                     return false;
                 }
 
-                return std::equal(shape_.begin(), shape_.end(), otherNdarrayHelper.shape_.begin());
+                return stl_algorithms::equal(shape_.begin(), shape_.end(), otherNdarrayHelper.shape_.begin());
             }
 
             //============================================================================

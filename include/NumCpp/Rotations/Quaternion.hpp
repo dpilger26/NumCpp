@@ -67,14 +67,14 @@ namespace nc
             void normalize() noexcept
             {
                 double sumOfSquares = 0.0;
-                std::for_each(components_.begin(), components_.end(),
+                stl_algorithms::for_each(components_.begin(), components_.end(),
                     [&sumOfSquares](double component) -> void
                     {
                         sumOfSquares += utils::sqr(component);
                     });
 
                 const double norm = std::sqrt(sumOfSquares);
-                std::for_each(components_.begin(), components_.end(),
+                stl_algorithms::for_each(components_.begin(), components_.end(),
                     [&norm](double& component) -> void
                     {
                         component /= norm;
@@ -724,7 +724,7 @@ namespace nc
             ///
             bool operator==(const Quaternion& inRhs) const noexcept
             {
-                return std::equal(components_.begin(), components_.end(),
+                return stl_algorithms::equal(components_.begin(), components_.end(),
                     inRhs.components_.begin(),
                     static_cast<bool (*)(double, double)>(&utils::essentiallyEqual<double>));
             }
@@ -941,8 +941,11 @@ namespace nc
             ///
             Quaternion& operator*=(double inScalar) noexcept
             {
-                std::for_each(components_.begin(), components_.end(),
-                    [&inScalar](double& component) { component *= inScalar; });
+                stl_algorithms::for_each(components_.begin(), components_.end(),
+                    [&inScalar](double& component)
+                    {
+                        component *= inScalar; 
+                    });
 
                 normalize();
 

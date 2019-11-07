@@ -30,6 +30,7 @@
 #pragma once
 
 #include "NumCpp/Core/Error.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/ImageProcessing/Pixel.hpp"
 #include "NumCpp/Utils/num2str.hpp"
@@ -105,7 +106,7 @@ namespace nc
                     return false;
                 }
 
-                return std::equal(begin(), end(), rhs.begin());
+                return stl_algorithms::equal(begin(), end(), rhs.begin());
             }
 
             //=============================================================================
@@ -347,8 +348,11 @@ namespace nc
             {
                 std::string out;
                 uint32 counter = 0;
-                std::for_each(begin(), end(),
-                    [&](const Pixel<dtype>& pixel) { out += "Pixel " + utils::num2str(counter++) + ":" + pixel.str(); });
+                stl_algorithms::for_each(begin(), end(),
+                    [&](const Pixel<dtype>& pixel)
+                    {
+                        out += "Pixel " + utils::num2str(counter++) + ":" + pixel.str();
+                    });
 
                 return out;
             }

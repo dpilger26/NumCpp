@@ -29,10 +29,9 @@
 #pragma once
 
 #include "NumCpp/Core/Shape.hpp"
+#include "NumCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
 
 namespace nc
 {
@@ -54,9 +53,11 @@ namespace nc
             case Axis::NONE:
             {
                 double inten = 0.0;
-                std::for_each(inArray.begin(), inArray.end(),
+                stl_algorithms::for_each(inArray.begin(), inArray.end(),
                     [&inten](dtype value) -> void
-                    { inten += static_cast<double>(value); });
+                    { 
+                        inten += static_cast<double>(value);
+                    });
 
                 // first get the row center
                 double row = 0;

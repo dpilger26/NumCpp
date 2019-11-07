@@ -29,8 +29,7 @@
 #pragma once
 
 #include "NumCpp/NdArray.hpp"
-
-#include <algorithm>
+#include "NumCpp/Core/StlAlgorithms.hpp"
 
 namespace nc
 {
@@ -57,6 +56,6 @@ namespace nc
             return false;
         }
 
-        return std::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
+        return stl_algorithms::equal(inArray1.cbegin(), inArray1.cend(), inArray2.cbegin());
     }
 }
