@@ -426,11 +426,7 @@ namespace nc
         ///
         NdArray<dtype>& operator=(dtype inValue) noexcept
         {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::fill(std::execution::par_unseq, begin(), end(), inValue);
-#else
-            std::fill(begin(), end(), inValue);
-#endif
+            stl_algorithms::fill(begin(), end(), inValue);
 
             return *this;
         }
@@ -1210,12 +1206,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    NdArray<uint32> returnArray = { static_cast<uint32>(std::max_element(std::execution::par_unseq,
-                        cbegin(), cend()) - cbegin()) };
-#else
-                    NdArray<uint32> returnArray = { static_cast<uint32>(std::max_element(cbegin(), cend()) - cbegin()) };
-#endif
+                    NdArray<uint32> returnArray = { static_cast<uint32>(stl_algorithms::max_element(cbegin(), cend()) - cbegin()) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1223,12 +1214,7 @@ namespace nc
                     NdArray<uint32> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = static_cast<uint32>(std::max_element(std::execution::par_unseq,
-                            cbegin(row), cend(row)) - cbegin(row));
-#else
-                        returnArray(0, row) = static_cast<uint32>(std::max_element(cbegin(row), cend(row)) - cbegin(row));
-#endif
+                        returnArray(0, row) = static_cast<uint32>(stl_algorithms::max_element(cbegin(row), cend(row)) - cbegin(row));
                     }
 
                     return returnArray;
@@ -1239,13 +1225,8 @@ namespace nc
                     NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = static_cast<uint32>(std::max_element(std::execution::par_unseq,
-                            arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
-#else
-                        returnArray(0, row) = static_cast<uint32>(std::max_element(arrayTransposed.cbegin(row),
+                        returnArray(0, row) = static_cast<uint32>(stl_algorithms::max_element(arrayTransposed.cbegin(row),
                             arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
-#endif
                     }
 
                     return returnArray;
@@ -1277,12 +1258,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    NdArray<uint32> returnArray = { static_cast<uint32>(std::min_element(std::execution::par_unseq,
-                        cbegin(), cend()) - cbegin()) };
-#else
-                    NdArray<uint32> returnArray = { static_cast<uint32>(std::min_element(cbegin(), cend()) - cbegin()) };
-#endif
+                    NdArray<uint32> returnArray = { static_cast<uint32>(stl_algorithms::min_element(cbegin(), cend()) - cbegin()) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1290,12 +1266,7 @@ namespace nc
                     NdArray<uint32> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = static_cast<uint32>(std::min_element(std::execution::par_unseq,
-                            cbegin(row), cend(row)) - cbegin(row));
-#else
-                        returnArray(0, row) = static_cast<uint32>(std::min_element(cbegin(row), cend(row)) - cbegin(row));
-#endif
+                        returnArray(0, row) = static_cast<uint32>(stl_algorithms::min_element(cbegin(row), cend(row)) - cbegin(row));
                     }
 
                     return returnArray;
@@ -1306,13 +1277,8 @@ namespace nc
                     NdArray<uint32> returnArray(1, arrayTransposed.shape_.rows);
                     for (uint32 row = 0; row < arrayTransposed.shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = static_cast<uint32>(std::min_element(std::execution::par_unseq,
-                            arrayTransposed.cbegin(row), arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
-#else
-                        returnArray(0, row) = static_cast<uint32>(std::min_element(arrayTransposed.cbegin(row),
+                        returnArray(0, row) = static_cast<uint32>(stl_algorithms::min_element(arrayTransposed.cbegin(row),
                             arrayTransposed.cend(row)) - arrayTransposed.cbegin(row));
-#endif
                     }
 
                     return returnArray;
@@ -1351,11 +1317,7 @@ namespace nc
                         return this->array_[i1] < this->array_[i2];
                     };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    std::stable_sort(std::execution::par_unseq, idx.begin(), idx.end(), function);
-#else
-                    std::stable_sort(idx.begin(), idx.end(), function);
-#endif
+                    stl_algorithms::stable_sort(idx.begin(), idx.end(), function);
                     return NdArray<uint32>(idx);
                 }
                 case Axis::COL:
@@ -1371,11 +1333,8 @@ namespace nc
                             return operator()(row, i1) < operator()(row, i2);
                         };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::stable_sort(std::execution::par_unseq, idx.begin(), idx.end(), function);
-#else
-                        std::stable_sort(idx.begin(), idx.end(), function);
-#endif
+                        stl_algorithms::stable_sort(idx.begin(), idx.end(), function);
+
                         for (uint32 col = 0; col < shape_.cols; ++col)
                         {
                             returnArray(row, col) = idx[col];
@@ -1397,11 +1356,8 @@ namespace nc
                             return arrayTransposed(row, i1) < arrayTransposed(row, i2);
                         };
 
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::stable_sort(std::execution::par_unseq, idx.begin(), idx.end(), function);
-#else
-                        std::stable_sort(idx.begin(), idx.end(), function);
-#endif
+                        stl_algorithms::stable_sort(idx.begin(), idx.end(), function);
+
                         for (uint32 col = 0; col < arrayTransposed.shape_.cols; ++col)
                         {
                             returnArray(row, col) = idx[col];
@@ -1537,12 +1493,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    NdArray<bool> returnArray = { std::find(std::execution::par_unseq,
-                        cbegin(), cend(), inValue) != cend() };
-#else
-                    NdArray<bool> returnArray = { std::find(cbegin(), cend(), inValue) != cend() };
-#endif
+                    NdArray<bool> returnArray = { stl_algorithms::find(cbegin(), cend(), inValue) != cend() };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -1550,12 +1501,7 @@ namespace nc
                     NdArray<bool> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = std::find(std::execution::par_unseq,
-                            cbegin(row), cend(row), inValue) != cend(row);
-#else
-                        returnArray(0, row) = std::find(cbegin(row), cend(row), inValue) != cend(row);
-#endif
+                        returnArray(0, row) = stl_algorithms::find(cbegin(row), cend(row), inValue) != cend(row);
                     }
 
                     return returnArray;
@@ -1566,12 +1512,7 @@ namespace nc
                     NdArray<bool> returnArray(1, transArray.shape_.rows);
                     for (uint32 row = 0; row < transArray.shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = std::find(std::execution::par_unseq,
-                            transArray.cbegin(row), transArray.cend(row), inValue) != transArray.cend(row);
-#else
-                        returnArray(0, row) = std::find(transArray.cbegin(row), transArray.cend(row), inValue) != transArray.cend(row);
-#endif
+                        returnArray(0, row) = stl_algorithms::find(transArray.cbegin(row), transArray.cend(row), inValue) != transArray.cend(row);
                     }
 
                     return returnArray;
@@ -1942,11 +1883,7 @@ namespace nc
         ///
         NdArray<dtype>& fill(dtype inFillValue) noexcept
         {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::fill(std::execution::par_unseq, begin(), end(), inFillValue);
-#else
-            std::fill(begin(), end(), inFillValue);
-#endif
+            stl_algorithms::fill(begin(), end(), inFillValue);
             return *this;
         }
 
@@ -2048,12 +1985,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    NdArray<dtype> returnArray = { *std::max_element(std::execution::par_unseq,
-                        cbegin(), cend()) };
-#else
-                    NdArray<dtype> returnArray = { *std::max_element(cbegin(), cend()) };
-#endif
+                    NdArray<dtype> returnArray = { *stl_algorithms::max_element(cbegin(), cend()) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -2061,12 +1993,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = *std::max_element(std::execution::par_unseq,
-                            cbegin(row), cend(row));
-#else
-                        returnArray(0, row) = *std::max_element(cbegin(row), cend(row));
-#endif
+                        returnArray(0, row) = *stl_algorithms::max_element(cbegin(row), cend(row));
                     }
 
                     return returnArray;
@@ -2077,12 +2004,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = *std::max_element(std::execution::par_unseq,
-                            transposedArray.cbegin(row), transposedArray.cend(row));
-#else
-                        returnArray(0, row) = *std::max_element(transposedArray.cbegin(row), transposedArray.cend(row));
-#endif
+                        returnArray(0, row) = *stl_algorithms::max_element(transposedArray.cbegin(row), transposedArray.cend(row));
                     }
 
                     return returnArray;
@@ -2113,12 +2035,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    NdArray<dtype> returnArray = { *std::min_element(std::execution::par_unseq,
-                        cbegin(), cend()) };
-#else
-                    NdArray<dtype> returnArray = { *std::min_element(cbegin(), cend()) };
-#endif
+                    NdArray<dtype> returnArray = { *stl_algorithms::min_element(cbegin(), cend()) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -2126,12 +2043,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = *std::min_element(std::execution::par_unseq,
-                            cbegin(row), cend(row));
-#else
-                        returnArray(0, row) = *std::min_element(cbegin(row), cend(row));
-#endif
+                        returnArray(0, row) = *stl_algorithms::min_element(cbegin(row), cend(row));
                     }
 
                     return returnArray;
@@ -2142,12 +2054,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        returnArray(0, row) = *std::min_element(std::execution::par_unseq,
-                            transposedArray.cbegin(row), transposedArray.cend(row));
-#else
-                        returnArray(0, row) = *std::min_element(transposedArray.cbegin(row), transposedArray.cend(row));
-#endif
+                        returnArray(0, row) = *stl_algorithms::min_element(transposedArray.cbegin(row), transposedArray.cend(row));
                     }
 
                     return returnArray;
@@ -2234,12 +2141,7 @@ namespace nc
                     NdArray<dtype> copyArray(*this);
 
                     uint32 middle = size_ / 2;
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    std::nth_element(std::execution::par_unseq,
-                        copyArray.begin(), copyArray.begin() + middle, copyArray.end());
-#else
-                    std::nth_element(copyArray.begin(), copyArray.begin() + middle, copyArray.end());
-#endif
+                    stl_algorithms::nth_element(copyArray.begin(), copyArray.begin() + middle, copyArray.end());
                     NdArray<dtype> returnArray = { copyArray.array_[middle] };
 
                     return returnArray;
@@ -2251,12 +2153,7 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         uint32 middle = shape_.cols / 2;
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::nth_element(std::execution::par_unseq,
-                            copyArray.begin(row), copyArray.begin(row) + middle, copyArray.end(row));
-#else
-                        std::nth_element(copyArray.begin(row), copyArray.begin(row) + middle, copyArray.end(row));
-#endif
+                        stl_algorithms::nth_element(copyArray.begin(row), copyArray.begin(row) + middle, copyArray.end(row));
                         returnArray(0, row) = copyArray(row, middle);
                     }
 
@@ -2269,12 +2166,7 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         uint32 middle = transposedArray.shape_.cols / 2;
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::nth_element(std::execution::par_unseq,
-                            transposedArray.begin(row), transposedArray.begin(row) + middle, transposedArray.end(row));
-#else
-                        std::nth_element(transposedArray.begin(row), transposedArray.begin(row) + middle, transposedArray.end(row));
-#endif
+                        stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + middle, transposedArray.end(row));
                         returnArray(0, row) = transposedArray(row, middle);
                     }
 
@@ -2563,7 +2455,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    stl_algorithms::for_each(cbegin(), cend(), function);
+                    std::for_each(cbegin(), cend(), function);
 
                     NdArray<double> returnArray = { std::sqrt(sumOfSquares) };
                     return returnArray;
@@ -2574,7 +2466,7 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         sumOfSquares = 0.0;
-                        stl_algorithms::for_each(cbegin(row), cend(row), function);
+                        std::for_each(cbegin(row), cend(row), function);
                         returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
 
@@ -2587,7 +2479,7 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         sumOfSquares = 0.0;
-                        stl_algorithms::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
+                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
                         returnArray(0, row) = std::sqrt(sumOfSquares);
                     }
 
@@ -2679,12 +2571,8 @@ namespace nc
                         errStr += ") out of bounds (" + utils::num2str(size_) + ")";
                         THROW_INVALID_ARGUMENT_ERROR(errStr);
                     }
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    std::nth_element(std::execution::par_unseq,
-                        begin(), begin() + inKth, end());
-#else
-                    std::nth_element(begin(), begin() + inKth, end());
-#endif
+
+                    stl_algorithms::nth_element(begin(), begin() + inKth, end());
                     break;
                 }
                 case Axis::COL:
@@ -2698,12 +2586,7 @@ namespace nc
 
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::nth_element(std::execution::par_unseq,
-                            begin(row), begin(row) + inKth, end(row));
-#else
-                        std::nth_element(begin(row), begin(row) + inKth, end(row));
-#endif
+                        stl_algorithms::nth_element(begin(row), begin(row) + inKth, end(row));
                     }
                     break;
                 }
@@ -2719,12 +2602,7 @@ namespace nc
                     NdArray<dtype> transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::nth_element(std::execution::par_unseq,
-                            transposedArray.begin(row), transposedArray.begin(row) + inKth, transposedArray.end(row));
-#else
-                        std::nth_element(transposedArray.begin(row), transposedArray.begin(row) + inKth, transposedArray.end(row));
-#endif
+                        stl_algorithms::nth_element(transposedArray.begin(row), transposedArray.begin(row) + inKth, transposedArray.end(row));
                     }
                     *this = transposedArray.transpose();
                     break;
@@ -2815,12 +2693,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    auto result = std::minmax_element(std::execution::par_unseq,
-                        cbegin(), cend());
-#else
-                    auto result = std::minmax_element(cbegin(), cend());
-#endif
+                    auto result = stl_algorithms::minmax_element(cbegin(), cend());
                     NdArray<dtype> returnArray = { *result.second - *result.first };
                     return returnArray;
                 }
@@ -2829,12 +2702,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        auto result = std::minmax_element(std::execution::par_unseq,
-                            cbegin(row), cend(row));
-#else
-                        auto result = std::minmax_element(cbegin(row), cend(row));
-#endif
+                        auto result = stl_algorithms::minmax_element(cbegin(row), cend(row));
                         returnArray(0, row) = *result.second - *result.first;
                     }
 
@@ -2846,12 +2714,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, transposedArray.shape_.rows);
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        auto result = std::minmax_element(std::execution::par_unseq,
-                            transposedArray.cbegin(row), transposedArray.cend(row));
-#else
-                        auto result = std::minmax_element(transposedArray.cbegin(row), transposedArray.cend(row));
-#endif
+                        auto result = stl_algorithms::minmax_element(transposedArray.cbegin(row), transposedArray.cend(row));
                         returnArray(0, row) = *result.second - *result.first;
                     }
 
@@ -3463,7 +3326,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    stl_algorithms::for_each(cbegin(), cend(), function);
+                    std::for_each(cbegin(), cend(), function);
                     NdArray<double> returnArray = { std::sqrt(squareSum / static_cast<double>(size_)) };
                     return returnArray;
                 }
@@ -3473,7 +3336,7 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         squareSum = 0.0;
-                        stl_algorithms::for_each(cbegin(row), cend(row), function);
+                        std::for_each(cbegin(row), cend(row), function);
                         returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(shape_.cols));
                     }
 
@@ -3486,7 +3349,7 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         squareSum = 0.0;
-                        stl_algorithms::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
+                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
                         returnArray(0, row) = std::sqrt(squareSum / static_cast<double>(transposedArray.shape_.cols));
                     }
 
@@ -3592,22 +3455,14 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                    std::sort(std::execution::par_unseq, begin(), end());
-#else
-                    std::sort(begin(), end());
-#endif
+                    stl_algorithms::sort(begin(), end());
                     break;
                 }
                 case Axis::COL:
                 {
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::sort(std::execution::par_unseq, begin(row), end(row));
-#else
-                        std::sort(begin(row), end(row));
-#endif
+                        stl_algorithms::sort(begin(row), end(row));
                     }
                     break;
                 }
@@ -3616,12 +3471,7 @@ namespace nc
                     NdArray<dtype> transposedArray = transpose();
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-                        std::sort(std::execution::par_unseq,
-                            transposedArray.begin(row), transposedArray.end(row));
-#else
-                        std::sort(transposedArray.begin(row), transposedArray.end(row));
-#endif
+                        stl_algorithms::sort(transposedArray.begin(row), transposedArray.end(row));
                     }
 
                     *this = transposedArray.transpose();
@@ -3658,7 +3508,7 @@ namespace nc
                 case Axis::NONE:
                 {
                     meanValue = mean(inAxis).item();
-                    stl_algorithms::for_each(cbegin(), cend(), function);
+                    std::for_each(cbegin(), cend(), function);
 
                     NdArray<double> returnArray = { std::sqrt(sum / size_) };
                     return returnArray;
@@ -3671,7 +3521,7 @@ namespace nc
                     {
                         meanValue = meanValueArray[row];
                         sum = 0.0;
-                        stl_algorithms::for_each(cbegin(row), cend(row), function);
+                        std::for_each(cbegin(row), cend(row), function);
 
                         returnArray(0, row) = std::sqrt(sum / shape_.cols);
                     }
@@ -3687,7 +3537,7 @@ namespace nc
                     {
                         meanValue = meanValueArray[row];
                         sum = 0.0;
-                        stl_algorithms::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
+                        std::for_each(transposedArray.cbegin(row), transposedArray.cend(row), function);
 
                         returnArray(0, row) = std::sqrt(sum / transposedArray.shape_.cols);
                     }

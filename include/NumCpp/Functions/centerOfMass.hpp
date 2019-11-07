@@ -53,7 +53,7 @@ namespace nc
             case Axis::NONE:
             {
                 double inten = 0.0;
-                stl_algorithms::for_each(inArray.begin(), inArray.end(),
+                std::for_each(inArray.begin(), inArray.end(),
                     [&inten](dtype value) -> void
                     { 
                         inten += static_cast<double>(value);

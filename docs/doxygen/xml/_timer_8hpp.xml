@@ -8,52 +8,52 @@
     <includes local="no">string</includes>
     <includedby refid="_core_8hpp" local="yes">Core.hpp</includedby>
     <incdepgraph>
-      <node id="16941">
+      <node id="18011">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="16942" relation="include">
+        <childnode refid="18012" relation="include">
         </childnode>
       </node>
-      <node id="16942">
+      <node id="18012">
         <label>cstdint</label>
       </node>
-      <node id="16945">
+      <node id="18015">
         <label>string</label>
       </node>
-      <node id="16940">
+      <node id="18010">
         <label>Timer.hpp</label>
         <link refid="_timer_8hpp"/>
-        <childnode refid="16941" relation="include">
+        <childnode refid="18011" relation="include">
         </childnode>
-        <childnode refid="16943" relation="include">
+        <childnode refid="18013" relation="include">
         </childnode>
-        <childnode refid="16944" relation="include">
+        <childnode refid="18014" relation="include">
         </childnode>
-        <childnode refid="16945" relation="include">
+        <childnode refid="18015" relation="include">
         </childnode>
       </node>
-      <node id="16944">
+      <node id="18014">
         <label>iostream</label>
       </node>
-      <node id="16943">
+      <node id="18013">
         <label>chrono</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="16948">
+      <node id="18018">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="16947">
+      <node id="18017">
         <label>Core.hpp</label>
         <link refid="_core_8hpp"/>
-        <childnode refid="16948" relation="include">
+        <childnode refid="18018" relation="include">
         </childnode>
       </node>
-      <node id="16946">
+      <node id="18016">
         <label>Timer.hpp</label>
         <link refid="_timer_8hpp"/>
-        <childnode refid="16947" relation="include">
+        <childnode refid="18017" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -160,7 +160,7 @@
 <codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight></codeline>
 <codeline lineno="133" refid="classnc_1_1_timer_1a7c64b31bb98c3e037a587416f3d51015" refkind="member"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kindref="member">uint64</ref><sp/><ref refid="classnc_1_1_timer_1a7c64b31bb98c3e037a587416f3d51015" kindref="member">toc</ref>()<sp/>noexcept</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>duration<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kindref="member">uint64</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(std::chrono::duration_cast&lt;TimeUnit&gt;(ChronoClock::now()<sp/>-<sp/>start_).count());</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>duration<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kindref="member">uint64</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(std::chrono::duration_cast&lt;TimeUnit&gt;(ChronoClock::now()<sp/>-<sp/>start_).<ref refid="namespacenc_1_1stl__algorithms_1ae1e1834ec458e90544d643b4b1e68735" kindref="member">count</ref>());</highlight></codeline>
 <codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>name_<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Elapsed<sp/>Time<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>duration<sp/>&lt;&lt;<sp/>unit_<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
 <codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>duration;</highlight></codeline>
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>

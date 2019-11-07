@@ -3,245 +3,258 @@
   <compounddef id="chebyshev__u_8hpp" kind="file" language="C++">
     <compoundname>chebyshev_u.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
+    <includes refid="_stl_algorithms_8hpp" local="yes">NumCpp/Core/StlAlgorithms.hpp</includes>
     <includes local="yes">boost/math/special_functions/chebyshev.hpp</includes>
-    <includes local="no">algorithm</includes>
     <includedby refid="_polynomial_8hpp" local="yes">Polynomial.hpp</includedby>
     <incdepgraph>
-      <node id="2369">
+      <node id="2500">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="2356">
+      <node id="2484">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="2357" relation="include">
+        <childnode refid="2485" relation="include">
         </childnode>
       </node>
-      <node id="2348">
+      <node id="2476">
         <label>chebyshev_u.hpp</label>
         <link refid="chebyshev__u_8hpp"/>
-        <childnode refid="2349" relation="include">
+        <childnode refid="2477" relation="include">
         </childnode>
-        <childnode refid="2380" relation="include">
+        <childnode refid="2490" relation="include">
         </childnode>
-        <childnode refid="2365" relation="include">
+        <childnode refid="2510" relation="include">
         </childnode>
       </node>
-      <node id="2373">
+      <node id="2504">
         <label>functional</label>
       </node>
-      <node id="2352">
+      <node id="2480">
         <label>limits</label>
       </node>
-      <node id="2354">
+      <node id="2492">
+        <label>iterator</label>
+      </node>
+      <node id="2482">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="2352" relation="include">
+        <childnode refid="2480" relation="include">
         </childnode>
       </node>
-      <node id="2366">
+      <node id="2497">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="2356" relation="include">
+        <childnode refid="2484" relation="include">
         </childnode>
       </node>
-      <node id="2357">
+      <node id="2485">
         <label>cstdint</label>
       </node>
-      <node id="2380">
+      <node id="2510">
         <label>boost/math/special_functions/chebyshev.hpp</label>
       </node>
-      <node id="2351">
+      <node id="2479">
         <label>cmath</label>
       </node>
-      <node id="2359">
+      <node id="2487">
         <label>stdexcept</label>
       </node>
-      <node id="2375">
+      <node id="2506">
         <label>numeric</label>
       </node>
-      <node id="2353">
+      <node id="2481">
         <label>string</label>
       </node>
-      <node id="2367">
+      <node id="2498">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="2364">
+      <node id="2496">
         <label>NumCpp/Core/Slice.hpp</label>
         <link refid="_slice_8hpp"/>
-        <childnode refid="2355" relation="include">
+        <childnode refid="2483" relation="include">
         </childnode>
-        <childnode refid="2356" relation="include">
+        <childnode refid="2484" relation="include">
         </childnode>
-        <childnode refid="2363" relation="include">
+        <childnode refid="2495" relation="include">
         </childnode>
-        <childnode refid="2365" relation="include">
+        <childnode refid="2491" relation="include">
         </childnode>
-        <childnode refid="2358" relation="include">
+        <childnode refid="2486" relation="include">
         </childnode>
-        <childnode refid="2353" relation="include">
+        <childnode refid="2481" relation="include">
         </childnode>
       </node>
-      <node id="2361">
+      <node id="2489">
         <label>fstream</label>
       </node>
-      <node id="2360">
+      <node id="2488">
         <label>NumCpp/Core/Filesystem.hpp</label>
         <link refid="_filesystem_8hpp"/>
-        <childnode refid="2361" relation="include">
+        <childnode refid="2489" relation="include">
         </childnode>
-        <childnode refid="2353" relation="include">
+        <childnode refid="2481" relation="include">
         </childnode>
       </node>
-      <node id="2350">
+      <node id="2478">
         <label>NumCpp/Core/Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="2351" relation="include">
+        <childnode refid="2479" relation="include">
         </childnode>
-        <childnode refid="2352" relation="include">
+        <childnode refid="2480" relation="include">
         </childnode>
-        <childnode refid="2353" relation="include">
+        <childnode refid="2481" relation="include">
         </childnode>
       </node>
-      <node id="2368">
+      <node id="2499">
         <label>boost/algorithm/clamp.hpp</label>
       </node>
-      <node id="2362">
+      <node id="2494">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="2356" relation="include">
+        <childnode refid="2484" relation="include">
         </childnode>
-        <childnode refid="2363" relation="include">
+        <childnode refid="2495" relation="include">
         </childnode>
-        <childnode refid="2358" relation="include">
+        <childnode refid="2486" relation="include">
         </childnode>
-        <childnode refid="2353" relation="include">
+        <childnode refid="2481" relation="include">
         </childnode>
       </node>
-      <node id="2379">
+      <node id="2509">
         <label>vector</label>
       </node>
-      <node id="2349">
+      <node id="2477">
         <label>NumCpp/NdArray.hpp</label>
         <link refid="_nd_array_8hpp"/>
-        <childnode refid="2350" relation="include">
+        <childnode refid="2478" relation="include">
         </childnode>
-        <childnode refid="2354" relation="include">
+        <childnode refid="2482" relation="include">
         </childnode>
-        <childnode refid="2355" relation="include">
+        <childnode refid="2483" relation="include">
         </childnode>
-        <childnode refid="2360" relation="include">
+        <childnode refid="2488" relation="include">
         </childnode>
-        <childnode refid="2362" relation="include">
+        <childnode refid="2490" relation="include">
         </childnode>
-        <childnode refid="2364" relation="include">
+        <childnode refid="2494" relation="include">
         </childnode>
-        <childnode refid="2356" relation="include">
+        <childnode refid="2496" relation="include">
         </childnode>
-        <childnode refid="2363" relation="include">
+        <childnode refid="2484" relation="include">
         </childnode>
-        <childnode refid="2366" relation="include">
+        <childnode refid="2495" relation="include">
         </childnode>
-        <childnode refid="2367" relation="include">
+        <childnode refid="2497" relation="include">
         </childnode>
-        <childnode refid="2368" relation="include">
+        <childnode refid="2498" relation="include">
         </childnode>
-        <childnode refid="2369" relation="include">
+        <childnode refid="2499" relation="include">
         </childnode>
-        <childnode refid="2370" relation="include">
+        <childnode refid="2500" relation="include">
         </childnode>
-        <childnode refid="2365" relation="include">
+        <childnode refid="2501" relation="include">
         </childnode>
-        <childnode refid="2371" relation="include">
+        <childnode refid="2502" relation="include">
         </childnode>
-        <childnode refid="2351" relation="include">
+        <childnode refid="2479" relation="include">
         </childnode>
-        <childnode refid="2372" relation="include">
+        <childnode refid="2503" relation="include">
         </childnode>
-        <childnode refid="2373" relation="include">
+        <childnode refid="2504" relation="include">
         </childnode>
-        <childnode refid="2361" relation="include">
+        <childnode refid="2489" relation="include">
         </childnode>
-        <childnode refid="2374" relation="include">
+        <childnode refid="2505" relation="include">
         </childnode>
-        <childnode refid="2358" relation="include">
+        <childnode refid="2486" relation="include">
         </childnode>
-        <childnode refid="2375" relation="include">
+        <childnode refid="2506" relation="include">
         </childnode>
-        <childnode refid="2376" relation="include">
+        <childnode refid="2507" relation="include">
         </childnode>
-        <childnode refid="2353" relation="include">
+        <childnode refid="2481" relation="include">
         </childnode>
-        <childnode refid="2377" relation="include">
+        <childnode refid="2508" relation="include">
         </childnode>
-        <childnode refid="2378" relation="include">
+        <childnode refid="2493" relation="include">
         </childnode>
-        <childnode refid="2379" relation="include">
+        <childnode refid="2509" relation="include">
         </childnode>
       </node>
-      <node id="2355">
+      <node id="2483">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="2356" relation="include">
+        <childnode refid="2484" relation="include">
         </childnode>
-        <childnode refid="2358" relation="include">
+        <childnode refid="2486" relation="include">
         </childnode>
-        <childnode refid="2352" relation="include">
+        <childnode refid="2480" relation="include">
         </childnode>
-        <childnode refid="2359" relation="include">
+        <childnode refid="2487" relation="include">
         </childnode>
-        <childnode refid="2353" relation="include">
+        <childnode refid="2481" relation="include">
         </childnode>
       </node>
-      <node id="2378">
+      <node id="2493">
         <label>utility</label>
       </node>
-      <node id="2371">
+      <node id="2502">
         <label>array</label>
       </node>
-      <node id="2363">
+      <node id="2495">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="2353" relation="include">
+        <childnode refid="2481" relation="include">
         </childnode>
       </node>
-      <node id="2358">
+      <node id="2490">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="2491" relation="include">
+        </childnode>
+        <childnode refid="2492" relation="include">
+        </childnode>
+        <childnode refid="2493" relation="include">
+        </childnode>
+      </node>
+      <node id="2486">
         <label>iostream</label>
       </node>
-      <node id="2372">
+      <node id="2503">
         <label>deque</label>
       </node>
-      <node id="2370">
+      <node id="2501">
         <label>boost/endian/conversion.hpp</label>
       </node>
-      <node id="2377">
+      <node id="2508">
         <label>type_traits</label>
       </node>
-      <node id="2376">
+      <node id="2507">
         <label>set</label>
       </node>
-      <node id="2365">
+      <node id="2491">
         <label>algorithm</label>
       </node>
-      <node id="2374">
+      <node id="2505">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2383">
+      <node id="2513">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="2381">
+      <node id="2511">
         <label>chebyshev_u.hpp</label>
         <link refid="chebyshev__u_8hpp"/>
-        <childnode refid="2382" relation="include">
+        <childnode refid="2512" relation="include">
         </childnode>
       </node>
-      <node id="2382">
+      <node id="2512">
         <label>Polynomial.hpp</label>
         <link refid="_polynomial_8hpp"/>
-        <childnode refid="2383" relation="include">
+        <childnode refid="2513" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -263,38 +276,40 @@
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_nd_array_8hpp" kindref="compound">NumCpp/NdArray.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;boost/math/special_functions/chebyshev.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
-<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">polynomial</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="50"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="51" refid="namespacenc_1_1polynomial_1abc99c09581c24b9eb1f7bcaa6f0d40e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1abc99c09581c24b9eb1f7bcaa6f0d40e4" kindref="member">chebyshev_u</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>n,<sp/>dtype<sp/>x)<sp/>noexcept</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1aed39a034f0126aaeccbeb0718dea3c8b" kindref="member">boost::math::chebyshev_u</ref>(n,<sp/>static_cast&lt;double&gt;(x));</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="65"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="66" refid="namespacenc_1_1polynomial_1aed39a034f0126aaeccbeb0718dea3c8b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/><ref refid="namespacenc_1_1polynomial_1abc99c09581c24b9eb1f7bcaa6f0d40e4" kindref="member">chebyshev_u</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArrayX)<sp/>noexcept</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(inArrayX.shape());</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform(inArrayX.cbegin(),<sp/>inArrayX.cend(),<sp/>returnArray.begin(),</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[n](dtype<sp/>x)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1abc99c09581c24b9eb1f7bcaa6f0d40e4" kindref="member">chebyshev_u</ref>(n,<sp/>x);<sp/>});</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_stl_algorithms_8hpp" kindref="compound">NumCpp/Core/StlAlgorithms.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;boost/math/special_functions/chebyshev.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">polynomial</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="50" refid="namespacenc_1_1polynomial_1abc99c09581c24b9eb1f7bcaa6f0d40e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1abc99c09581c24b9eb1f7bcaa6f0d40e4" kindref="member">chebyshev_u</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>n,<sp/>dtype<sp/>x)<sp/>noexcept</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1aed39a034f0126aaeccbeb0718dea3c8b" kindref="member">boost::math::chebyshev_u</ref>(n,<sp/>static_cast&lt;double&gt;(x));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="65" refid="namespacenc_1_1polynomial_1aed39a034f0126aaeccbeb0718dea3c8b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/><ref refid="namespacenc_1_1polynomial_1abc99c09581c24b9eb1f7bcaa6f0d40e4" kindref="member">chebyshev_u</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArrayX)<sp/>noexcept</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(inArrayX.shape());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>[n](dtype<sp/>x)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1abc99c09581c24b9eb1f7bcaa6f0d40e4" kindref="member">chebyshev_u</ref>(n,<sp/>x);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(inArrayX.cbegin(),<sp/>inArrayX.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1a90547fcd7b438dd9e0d77d2f8fd3036d" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/chebyshev_u.hpp"/>
   </compounddef>

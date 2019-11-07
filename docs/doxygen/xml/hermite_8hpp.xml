@@ -3,245 +3,258 @@
   <compounddef id="hermite_8hpp" kind="file" language="C++">
     <compoundname>hermite.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
+    <includes refid="_stl_algorithms_8hpp" local="yes">NumCpp/Core/StlAlgorithms.hpp</includes>
     <includes local="yes">boost/math/special_functions/hermite.hpp</includes>
-    <includes local="no">algorithm</includes>
     <includedby refid="_polynomial_8hpp" local="yes">Polynomial.hpp</includedby>
     <incdepgraph>
-      <node id="7879">
+      <node id="8207">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="7866">
+      <node id="8191">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="7867" relation="include">
+        <childnode refid="8192" relation="include">
         </childnode>
       </node>
-      <node id="7883">
+      <node id="8211">
         <label>functional</label>
       </node>
-      <node id="7862">
+      <node id="8187">
         <label>limits</label>
       </node>
-      <node id="7864">
+      <node id="8199">
+        <label>iterator</label>
+      </node>
+      <node id="8189">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="7862" relation="include">
+        <childnode refid="8187" relation="include">
         </childnode>
       </node>
-      <node id="7876">
+      <node id="8204">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="7866" relation="include">
+        <childnode refid="8191" relation="include">
         </childnode>
       </node>
-      <node id="7867">
+      <node id="8192">
         <label>cstdint</label>
       </node>
-      <node id="7861">
+      <node id="8186">
         <label>cmath</label>
       </node>
-      <node id="7869">
+      <node id="8194">
         <label>stdexcept</label>
       </node>
-      <node id="7885">
+      <node id="8213">
         <label>numeric</label>
       </node>
-      <node id="7863">
+      <node id="8188">
         <label>string</label>
       </node>
-      <node id="7877">
+      <node id="8205">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="7874">
+      <node id="8203">
         <label>NumCpp/Core/Slice.hpp</label>
         <link refid="_slice_8hpp"/>
-        <childnode refid="7865" relation="include">
+        <childnode refid="8190" relation="include">
         </childnode>
-        <childnode refid="7866" relation="include">
+        <childnode refid="8191" relation="include">
         </childnode>
-        <childnode refid="7873" relation="include">
+        <childnode refid="8202" relation="include">
         </childnode>
-        <childnode refid="7875" relation="include">
+        <childnode refid="8198" relation="include">
         </childnode>
-        <childnode refid="7868" relation="include">
+        <childnode refid="8193" relation="include">
         </childnode>
-        <childnode refid="7863" relation="include">
+        <childnode refid="8188" relation="include">
         </childnode>
       </node>
-      <node id="7871">
+      <node id="8196">
         <label>fstream</label>
       </node>
-      <node id="7870">
+      <node id="8195">
         <label>NumCpp/Core/Filesystem.hpp</label>
         <link refid="_filesystem_8hpp"/>
-        <childnode refid="7871" relation="include">
+        <childnode refid="8196" relation="include">
         </childnode>
-        <childnode refid="7863" relation="include">
+        <childnode refid="8188" relation="include">
         </childnode>
       </node>
-      <node id="7860">
+      <node id="8185">
         <label>NumCpp/Core/Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="7861" relation="include">
+        <childnode refid="8186" relation="include">
         </childnode>
-        <childnode refid="7862" relation="include">
+        <childnode refid="8187" relation="include">
         </childnode>
-        <childnode refid="7863" relation="include">
+        <childnode refid="8188" relation="include">
         </childnode>
       </node>
-      <node id="7878">
+      <node id="8206">
         <label>boost/algorithm/clamp.hpp</label>
       </node>
-      <node id="7872">
+      <node id="8201">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="7866" relation="include">
+        <childnode refid="8191" relation="include">
         </childnode>
-        <childnode refid="7873" relation="include">
+        <childnode refid="8202" relation="include">
         </childnode>
-        <childnode refid="7868" relation="include">
+        <childnode refid="8193" relation="include">
         </childnode>
-        <childnode refid="7863" relation="include">
+        <childnode refid="8188" relation="include">
         </childnode>
       </node>
-      <node id="7889">
+      <node id="8216">
         <label>vector</label>
       </node>
-      <node id="7859">
+      <node id="8184">
         <label>NumCpp/NdArray.hpp</label>
         <link refid="_nd_array_8hpp"/>
-        <childnode refid="7860" relation="include">
+        <childnode refid="8185" relation="include">
         </childnode>
-        <childnode refid="7864" relation="include">
+        <childnode refid="8189" relation="include">
         </childnode>
-        <childnode refid="7865" relation="include">
+        <childnode refid="8190" relation="include">
         </childnode>
-        <childnode refid="7870" relation="include">
+        <childnode refid="8195" relation="include">
         </childnode>
-        <childnode refid="7872" relation="include">
+        <childnode refid="8197" relation="include">
         </childnode>
-        <childnode refid="7874" relation="include">
+        <childnode refid="8201" relation="include">
         </childnode>
-        <childnode refid="7866" relation="include">
+        <childnode refid="8203" relation="include">
         </childnode>
-        <childnode refid="7873" relation="include">
+        <childnode refid="8191" relation="include">
         </childnode>
-        <childnode refid="7876" relation="include">
+        <childnode refid="8202" relation="include">
         </childnode>
-        <childnode refid="7877" relation="include">
+        <childnode refid="8204" relation="include">
         </childnode>
-        <childnode refid="7878" relation="include">
+        <childnode refid="8205" relation="include">
         </childnode>
-        <childnode refid="7879" relation="include">
+        <childnode refid="8206" relation="include">
         </childnode>
-        <childnode refid="7880" relation="include">
+        <childnode refid="8207" relation="include">
         </childnode>
-        <childnode refid="7875" relation="include">
+        <childnode refid="8208" relation="include">
         </childnode>
-        <childnode refid="7881" relation="include">
+        <childnode refid="8209" relation="include">
         </childnode>
-        <childnode refid="7861" relation="include">
+        <childnode refid="8186" relation="include">
         </childnode>
-        <childnode refid="7882" relation="include">
+        <childnode refid="8210" relation="include">
         </childnode>
-        <childnode refid="7883" relation="include">
+        <childnode refid="8211" relation="include">
         </childnode>
-        <childnode refid="7871" relation="include">
+        <childnode refid="8196" relation="include">
         </childnode>
-        <childnode refid="7884" relation="include">
+        <childnode refid="8212" relation="include">
         </childnode>
-        <childnode refid="7868" relation="include">
+        <childnode refid="8193" relation="include">
         </childnode>
-        <childnode refid="7885" relation="include">
+        <childnode refid="8213" relation="include">
         </childnode>
-        <childnode refid="7886" relation="include">
+        <childnode refid="8214" relation="include">
         </childnode>
-        <childnode refid="7863" relation="include">
+        <childnode refid="8188" relation="include">
         </childnode>
-        <childnode refid="7887" relation="include">
+        <childnode refid="8215" relation="include">
         </childnode>
-        <childnode refid="7888" relation="include">
+        <childnode refid="8200" relation="include">
         </childnode>
-        <childnode refid="7889" relation="include">
+        <childnode refid="8216" relation="include">
         </childnode>
       </node>
-      <node id="7865">
+      <node id="8190">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="7866" relation="include">
+        <childnode refid="8191" relation="include">
         </childnode>
-        <childnode refid="7868" relation="include">
+        <childnode refid="8193" relation="include">
         </childnode>
-        <childnode refid="7862" relation="include">
+        <childnode refid="8187" relation="include">
         </childnode>
-        <childnode refid="7869" relation="include">
+        <childnode refid="8194" relation="include">
         </childnode>
-        <childnode refid="7863" relation="include">
+        <childnode refid="8188" relation="include">
         </childnode>
       </node>
-      <node id="7888">
+      <node id="8200">
         <label>utility</label>
       </node>
-      <node id="7881">
+      <node id="8209">
         <label>array</label>
       </node>
-      <node id="7873">
+      <node id="8202">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="7863" relation="include">
+        <childnode refid="8188" relation="include">
         </childnode>
       </node>
-      <node id="7868">
+      <node id="8197">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="8198" relation="include">
+        </childnode>
+        <childnode refid="8199" relation="include">
+        </childnode>
+        <childnode refid="8200" relation="include">
+        </childnode>
+      </node>
+      <node id="8193">
         <label>iostream</label>
       </node>
-      <node id="7882">
+      <node id="8210">
         <label>deque</label>
       </node>
-      <node id="7858">
+      <node id="8183">
         <label>hermite.hpp</label>
         <link refid="hermite_8hpp"/>
-        <childnode refid="7859" relation="include">
+        <childnode refid="8184" relation="include">
         </childnode>
-        <childnode refid="7890" relation="include">
+        <childnode refid="8197" relation="include">
         </childnode>
-        <childnode refid="7875" relation="include">
+        <childnode refid="8217" relation="include">
         </childnode>
       </node>
-      <node id="7880">
+      <node id="8208">
         <label>boost/endian/conversion.hpp</label>
       </node>
-      <node id="7890">
+      <node id="8217">
         <label>boost/math/special_functions/hermite.hpp</label>
       </node>
-      <node id="7887">
+      <node id="8215">
         <label>type_traits</label>
       </node>
-      <node id="7886">
+      <node id="8214">
         <label>set</label>
       </node>
-      <node id="7875">
+      <node id="8198">
         <label>algorithm</label>
       </node>
-      <node id="7884">
+      <node id="8212">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="7893">
+      <node id="8220">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="7892">
+      <node id="8219">
         <label>Polynomial.hpp</label>
         <link refid="_polynomial_8hpp"/>
-        <childnode refid="7893" relation="include">
+        <childnode refid="8220" relation="include">
         </childnode>
       </node>
-      <node id="7891">
+      <node id="8218">
         <label>hermite.hpp</label>
         <link refid="hermite_8hpp"/>
-        <childnode refid="7892" relation="include">
+        <childnode refid="8219" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -263,38 +276,40 @@
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_nd_array_8hpp" kindref="compound">NumCpp/NdArray.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;boost/math/special_functions/hermite.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
-<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">polynomial</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="50"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="51" refid="namespacenc_1_1polynomial_1aeaa35e3294d44739bd292234542fb032" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1aeaa35e3294d44739bd292234542fb032" kindref="member">hermite</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>n,<sp/>dtype<sp/>x)<sp/>noexcept</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1ab1427f4d365eb6cfde7d1633e4c4233b" kindref="member">boost::math::hermite</ref>(n,<sp/>static_cast&lt;double&gt;(x));</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="65"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="66" refid="namespacenc_1_1polynomial_1ab1427f4d365eb6cfde7d1633e4c4233b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/><ref refid="namespacenc_1_1polynomial_1aeaa35e3294d44739bd292234542fb032" kindref="member">hermite</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArrayX)<sp/>noexcept</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(inArrayX.shape());</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform(inArrayX.cbegin(),<sp/>inArrayX.cend(),<sp/>returnArray.begin(),</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[n](dtype<sp/>x)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1aeaa35e3294d44739bd292234542fb032" kindref="member">hermite</ref>(n,<sp/>x);<sp/>});</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_stl_algorithms_8hpp" kindref="compound">NumCpp/Core/StlAlgorithms.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;boost/math/special_functions/hermite.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">polynomial</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="50" refid="namespacenc_1_1polynomial_1aeaa35e3294d44739bd292234542fb032" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1aeaa35e3294d44739bd292234542fb032" kindref="member">hermite</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>n,<sp/>dtype<sp/>x)<sp/>noexcept</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1ab1427f4d365eb6cfde7d1633e4c4233b" kindref="member">boost::math::hermite</ref>(n,<sp/>static_cast&lt;double&gt;(x));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="65" refid="namespacenc_1_1polynomial_1ab1427f4d365eb6cfde7d1633e4c4233b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/><ref refid="namespacenc_1_1polynomial_1aeaa35e3294d44739bd292234542fb032" kindref="member">hermite</ref>(<ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref><sp/>n,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArrayX)<sp/>noexcept</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(inArrayX.shape());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>=<sp/>[n](dtype<sp/>x)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1polynomial_1aeaa35e3294d44739bd292234542fb032" kindref="member">hermite</ref>(n,<sp/>x);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(inArrayX.cbegin(),<sp/>inArrayX.cend(),<sp/>returnArray.<ref refid="classnc_1_1_nd_array_1a90547fcd7b438dd9e0d77d2f8fd3036d" kindref="member">begin</ref>(),<sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial/hermite.hpp"/>
   </compounddef>

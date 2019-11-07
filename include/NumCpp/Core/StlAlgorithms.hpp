@@ -30,6 +30,7 @@
 
 #include <algorithm>
 #include <iterator>
+#include <utility>
 
 #if defined(__cpp_lib_execution) && defined(__cpp_lib_parallel_algorithm)
 #define PARALLEL_ALGORITHMS_SUPPORTED
@@ -49,7 +50,7 @@ namespace nc
         /// @param p: unary predicate function
         /// @return bool
         /// 
-        template< class InputIt, class UnaryPredicate >
+        template<class InputIt, class UnaryPredicate>
         bool all_of(InputIt first, InputIt last, UnaryPredicate p)
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -68,7 +69,7 @@ namespace nc
         /// @param p: unary predicate function
         /// @return bool
         /// 
-        template< class InputIt, class UnaryPredicate >
+        template<class InputIt, class UnaryPredicate>
         bool any_of(InputIt first, InputIt last, UnaryPredicate p)
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -85,6 +86,7 @@ namespace nc
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
         /// @param destination: the first iterator of the destination
+        /// @return OutputIt
         ///
         template<class InputIt, class OutputIt>
         OutputIt copy(InputIt first, InputIt last, OutputIt destination)
@@ -105,7 +107,7 @@ namespace nc
         /// @param value: the initial value
         /// @return count
         ///
-        template< class InputIt, class T >
+        template<class InputIt, class T>
         typename std::iterator_traits<InputIt>::difference_type
             count(InputIt first, InputIt last, const T &value)
         {
@@ -125,7 +127,7 @@ namespace nc
         /// @param first2: the first iterator of second container
         /// @return bool
         ///
-        template< class InputIt1, class InputIt2 >
+        template<class InputIt1, class InputIt2>
         bool equal(InputIt1 first1, InputIt1 last1,
             InputIt2 first2)
         {
@@ -146,7 +148,7 @@ namespace nc
         /// @param p: binary predicate to compare the elements
         /// @return bool
         ///
-        template< class InputIt1, class InputIt2, class BinaryPredicate >
+        template<class InputIt1, class InputIt2, class BinaryPredicate>
         bool equal(InputIt1 first1, InputIt1 last1,
             InputIt2 first2, BinaryPredicate p)
         {
@@ -159,19 +161,111 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Fills the range with the value
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param value: the function to apply to the input iterators
+        ///
+        template<class ForwardIt, class T>
+        void fill(ForwardIt first, ForwardIt last, const T& value)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::fill(std::execution::par_unseq, first, last, value);
+#else
+            return std::fill(first, last, value);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Returns the first element in the range [first, last) 
+        ///                     that satisfies specific criteria:
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param value: the value to find
+        /// @return InputIt
+        ///
+        template<class InputIt, class T>
+        InputIt find(InputIt first, InputIt last, const T& value)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::find(std::execution::par_unseq, first, last, value);
+#else
+            return std::find(first, last, value);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Runs the function on each element of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
         /// @param f: the function to apply to the input iterators
         ///
-        template< class InputIt, class UnaryFunction >
+        template<class InputIt, class UnaryFunction>
         void for_each(InputIt first, InputIt last, UnaryFunction f)
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
             std::for_each(std::execution::par_unseq, first, last, f);
 #else
             std::for_each(first, last, f);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Runs the maximum element of the range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @return ForwordIt
+        ///
+        template<class ForwardIt>
+        ForwardIt max_element(ForwardIt first, ForwardIt last)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::max_element(std::execution::par_unseq, first, last);
+#else
+            return std::max_element(first, last);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Runs the minimum element of the range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @return ForwardIt
+        template<class ForwardIt>
+        ForwardIt min_element(ForwardIt first, ForwardIt last)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::min_element(std::execution::par_unseq, first, last);
+#else
+            return std::min_element(first, last);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Runs the minimum and maximum elements of the range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @return std::pair
+        ///
+        template<class ForwardIt>
+        std::pair<ForwardIt, ForwardIt>
+            minmax_element(ForwardIt first, ForwardIt last)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::minmax_element(std::execution::par_unseq, first, last);
+#else
+            return std::minmax_element(first, last);
 #endif
         }
 
@@ -184,7 +278,7 @@ namespace nc
         /// @param p: unary predicate function
         /// @return bool
         /// 
-        template< class InputIt, class UnaryPredicate >
+        template<class InputIt, class UnaryPredicate>
         bool none_of(InputIt first, InputIt last, UnaryPredicate p)
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -202,7 +296,7 @@ namespace nc
         /// @param nth: the element that should be sorted
         /// @param last: the last iterator of the range
         ///
-        template< class RandomIt >
+        template<class RandomIt>
         void nth_element(RandomIt first, RandomIt nth, RandomIt last)
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -219,7 +313,7 @@ namespace nc
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
         ///
-        template< class BidirIt >
+        template<class BidirIt>
         void reverse(BidirIt first, BidirIt last)
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
@@ -238,8 +332,9 @@ namespace nc
         /// @param first2: the first iterator of the second source
         /// @param last2: the first iterator of the destination
         /// @param destination: the function to apply to the input iterators
+        /// @return OutputIt
         ///
-        template< class InputIt1, class InputIt2, class OutputIt >
+        template<class InputIt1, class InputIt2, class OutputIt>
         OutputIt set_intersection(InputIt1 first1, InputIt1 last1,
             InputIt2 first2, InputIt2 last2,
             OutputIt destination)
@@ -254,14 +349,50 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Sorts the range
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        ///
+        template<class RandomIt>
+        void sort(RandomIt first, RandomIt last)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::sort(std::execution::par_unseq, first, last);
+#else
+            return std::sort(first, last);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Sorts the range preserving order
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param comp: the comparitor function
+        ///
+        template<class RandomIt, class Compare>
+        void stable_sort(RandomIt first, RandomIt last, Compare comp)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::stable_sort(std::execution::par_unseq, first, last, comp);
+#else
+            std::stable_sort(first, last, comp);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Transforms the elements of the range
         ///
         /// @param first: the first iterator of the source
         /// @param last: the last iterator of the source
         /// @param destination: the first iterator of the destination
         /// @param unaryFunction: the function to apply to the input iterators
+        /// @return OutputIt
         ///
-        template< class InputIt, class OutputIt, class UnaryOperation >
+        template<class InputIt, class OutputIt, class UnaryOperation>
         OutputIt transform(InputIt first, InputIt last, OutputIt destination,
             UnaryOperation unaryFunction)
         {
@@ -281,13 +412,14 @@ namespace nc
         /// @param first2: the first iterator of the second source
         /// @param destination: the first iterator of the destination
         /// @param unaryFunction: the function to apply to the input iterators
+        /// @return OutputIt
         ///
-        template< class InputIt1, class InputIt2, class OutputIt, class BinaryOperation >
-        OutputIt  transform( InputIt1 first1, InputIt1 last1, InputIt2 first2,
-            OutputIt destination, BinaryOperation unaryFunction )
+        template<class InputIt1, class InputIt2, class OutputIt, class BinaryOperation>
+        OutputIt  transform(InputIt1 first1, InputIt1 last1, InputIt2 first2,
+            OutputIt destination, BinaryOperation unaryFunction)
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            return std::transform(std::execution::par_unseq, 
+            return std::transform(std::execution::par_unseq,
                 first1, last1, first2, destination, unaryFunction);
 #else
             return std::transform(first1, last1, first2, destination, unaryFunction);
@@ -299,10 +431,10 @@ namespace nc
         ///						Rotates the elements of a range
         ///
         /// @param first: the first iterator of the range
-        /// @param nFirst: the element that should appear at the beginning of the rotated range
+        /// @param firstN: the element that should appear at the beginning of the rotated range
         /// @param last: the last iterator of the range
         ///
-        template< class ForwardIt >
+        template<class ForwardIt>
         void rotate(ForwardIt first, ForwardIt firstN, ForwardIt last)
         {
 #ifdef PARALLEL_ALGORITHMS_SUPPORTED

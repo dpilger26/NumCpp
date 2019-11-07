@@ -77,7 +77,7 @@ namespace nc
 
         NdArray<dtype> outArray(1, outArraySize);
         outArray.zeros();
-        stl_algorithms::for_each(clippedArray.cbegin(), clippedArray.cend(),
+        std::for_each(clippedArray.cbegin(), clippedArray.cend(),
             [&outArray](dtype value) noexcept -> void
             { 
                 ++outArray[value];
@@ -135,7 +135,7 @@ namespace nc
         NdArray<dtype> outArray(1, outArraySize);
         outArray.zeros();
         uint32 counter = 0;
-        stl_algorithms::for_each(clippedArray.cbegin(), clippedArray.cend(),
+        std::for_each(clippedArray.cbegin(), clippedArray.cend(),
             [&outArray, &inWeights, &counter](dtype value) noexcept -> void
             {
                 outArray[value] += inWeights[counter++];

@@ -11,255 +11,268 @@
     <includes local="no">utility</includes>
     <includedby refid="_python_interface_8hpp" local="yes">PythonInterface.hpp</includedby>
     <incdepgraph>
-      <node id="13414">
+      <node id="13995">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="13395">
+      <node id="13973">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="13396" relation="include">
+        <childnode refid="13974" relation="include">
         </childnode>
       </node>
-      <node id="13418">
+      <node id="13999">
         <label>functional</label>
       </node>
-      <node id="13398">
+      <node id="13976">
         <label>limits</label>
       </node>
-      <node id="13406">
+      <node id="13989">
+        <label>iterator</label>
+      </node>
+      <node id="13984">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="13398" relation="include">
+        <childnode refid="13976" relation="include">
         </childnode>
       </node>
-      <node id="13411">
+      <node id="13992">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="13395" relation="include">
+        <childnode refid="13973" relation="include">
         </childnode>
       </node>
-      <node id="13396">
+      <node id="13974">
         <label>cstdint</label>
       </node>
-      <node id="13405">
+      <node id="13983">
         <label>cmath</label>
       </node>
-      <node id="13399">
+      <node id="13977">
         <label>stdexcept</label>
       </node>
-      <node id="13420">
+      <node id="14001">
         <label>numeric</label>
       </node>
-      <node id="13400">
+      <node id="13978">
         <label>string</label>
       </node>
-      <node id="13427">
+      <node id="14007">
         <label>map</label>
       </node>
-      <node id="13412">
+      <node id="13993">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="13409">
+      <node id="13991">
         <label>NumCpp/Core/Slice.hpp</label>
         <link refid="_slice_8hpp"/>
-        <childnode refid="13394" relation="include">
+        <childnode refid="13972" relation="include">
         </childnode>
-        <childnode refid="13395" relation="include">
+        <childnode refid="13973" relation="include">
         </childnode>
-        <childnode refid="13402" relation="include">
+        <childnode refid="13980" relation="include">
         </childnode>
-        <childnode refid="13410" relation="include">
+        <childnode refid="13988" relation="include">
         </childnode>
-        <childnode refid="13397" relation="include">
+        <childnode refid="13975" relation="include">
         </childnode>
-        <childnode refid="13400" relation="include">
+        <childnode refid="13978" relation="include">
         </childnode>
       </node>
-      <node id="13408">
+      <node id="13986">
         <label>fstream</label>
       </node>
-      <node id="13426">
+      <node id="14006">
         <label>pybind11/numpy.h</label>
       </node>
-      <node id="13407">
+      <node id="13985">
         <label>NumCpp/Core/Filesystem.hpp</label>
         <link refid="_filesystem_8hpp"/>
-        <childnode refid="13408" relation="include">
+        <childnode refid="13986" relation="include">
         </childnode>
-        <childnode refid="13400" relation="include">
+        <childnode refid="13978" relation="include">
         </childnode>
       </node>
-      <node id="13404">
+      <node id="13982">
         <label>NumCpp/Core/Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="13405" relation="include">
+        <childnode refid="13983" relation="include">
         </childnode>
-        <childnode refid="13398" relation="include">
+        <childnode refid="13976" relation="include">
         </childnode>
-        <childnode refid="13400" relation="include">
+        <childnode refid="13978" relation="include">
         </childnode>
       </node>
-      <node id="13413">
+      <node id="13994">
         <label>boost/algorithm/clamp.hpp</label>
       </node>
-      <node id="13401">
+      <node id="13979">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="13395" relation="include">
+        <childnode refid="13973" relation="include">
         </childnode>
-        <childnode refid="13402" relation="include">
+        <childnode refid="13980" relation="include">
         </childnode>
-        <childnode refid="13397" relation="include">
+        <childnode refid="13975" relation="include">
         </childnode>
-        <childnode refid="13400" relation="include">
+        <childnode refid="13978" relation="include">
         </childnode>
       </node>
-      <node id="13424">
+      <node id="14004">
         <label>vector</label>
       </node>
-      <node id="13403">
+      <node id="13981">
         <label>NumCpp/NdArray.hpp</label>
         <link refid="_nd_array_8hpp"/>
-        <childnode refid="13404" relation="include">
+        <childnode refid="13982" relation="include">
         </childnode>
-        <childnode refid="13406" relation="include">
+        <childnode refid="13984" relation="include">
         </childnode>
-        <childnode refid="13394" relation="include">
+        <childnode refid="13972" relation="include">
         </childnode>
-        <childnode refid="13407" relation="include">
+        <childnode refid="13985" relation="include">
         </childnode>
-        <childnode refid="13401" relation="include">
+        <childnode refid="13987" relation="include">
         </childnode>
-        <childnode refid="13409" relation="include">
+        <childnode refid="13979" relation="include">
         </childnode>
-        <childnode refid="13395" relation="include">
+        <childnode refid="13991" relation="include">
         </childnode>
-        <childnode refid="13402" relation="include">
+        <childnode refid="13973" relation="include">
         </childnode>
-        <childnode refid="13411" relation="include">
+        <childnode refid="13980" relation="include">
         </childnode>
-        <childnode refid="13412" relation="include">
+        <childnode refid="13992" relation="include">
         </childnode>
-        <childnode refid="13413" relation="include">
+        <childnode refid="13993" relation="include">
         </childnode>
-        <childnode refid="13414" relation="include">
+        <childnode refid="13994" relation="include">
         </childnode>
-        <childnode refid="13415" relation="include">
+        <childnode refid="13995" relation="include">
         </childnode>
-        <childnode refid="13410" relation="include">
+        <childnode refid="13996" relation="include">
         </childnode>
-        <childnode refid="13416" relation="include">
+        <childnode refid="13997" relation="include">
         </childnode>
-        <childnode refid="13405" relation="include">
+        <childnode refid="13983" relation="include">
         </childnode>
-        <childnode refid="13417" relation="include">
+        <childnode refid="13998" relation="include">
         </childnode>
-        <childnode refid="13418" relation="include">
+        <childnode refid="13999" relation="include">
         </childnode>
-        <childnode refid="13408" relation="include">
+        <childnode refid="13986" relation="include">
         </childnode>
-        <childnode refid="13419" relation="include">
+        <childnode refid="14000" relation="include">
         </childnode>
-        <childnode refid="13397" relation="include">
+        <childnode refid="13975" relation="include">
         </childnode>
-        <childnode refid="13420" relation="include">
+        <childnode refid="14001" relation="include">
         </childnode>
-        <childnode refid="13421" relation="include">
+        <childnode refid="14002" relation="include">
         </childnode>
-        <childnode refid="13400" relation="include">
+        <childnode refid="13978" relation="include">
         </childnode>
-        <childnode refid="13422" relation="include">
+        <childnode refid="14003" relation="include">
         </childnode>
-        <childnode refid="13423" relation="include">
+        <childnode refid="13990" relation="include">
         </childnode>
-        <childnode refid="13424" relation="include">
+        <childnode refid="14004" relation="include">
         </childnode>
       </node>
-      <node id="13394">
+      <node id="13972">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="13395" relation="include">
+        <childnode refid="13973" relation="include">
         </childnode>
-        <childnode refid="13397" relation="include">
+        <childnode refid="13975" relation="include">
         </childnode>
-        <childnode refid="13398" relation="include">
+        <childnode refid="13976" relation="include">
         </childnode>
-        <childnode refid="13399" relation="include">
+        <childnode refid="13977" relation="include">
         </childnode>
-        <childnode refid="13400" relation="include">
+        <childnode refid="13978" relation="include">
         </childnode>
       </node>
-      <node id="13423">
+      <node id="13990">
         <label>utility</label>
       </node>
-      <node id="13416">
+      <node id="13997">
         <label>array</label>
       </node>
-      <node id="13425">
+      <node id="14005">
         <label>pybind11/pybind11.h</label>
       </node>
-      <node id="13402">
+      <node id="13980">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="13400" relation="include">
+        <childnode refid="13978" relation="include">
         </childnode>
       </node>
-      <node id="13397">
+      <node id="13987">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="13988" relation="include">
+        </childnode>
+        <childnode refid="13989" relation="include">
+        </childnode>
+        <childnode refid="13990" relation="include">
+        </childnode>
+      </node>
+      <node id="13975">
         <label>iostream</label>
       </node>
-      <node id="13417">
+      <node id="13998">
         <label>deque</label>
       </node>
-      <node id="13415">
+      <node id="13996">
         <label>boost/endian/conversion.hpp</label>
       </node>
-      <node id="13393">
+      <node id="13971">
         <label>PybindInterface.hpp</label>
         <link refid="_pybind_interface_8hpp"/>
-        <childnode refid="13394" relation="include">
+        <childnode refid="13972" relation="include">
         </childnode>
-        <childnode refid="13401" relation="include">
+        <childnode refid="13979" relation="include">
         </childnode>
-        <childnode refid="13403" relation="include">
+        <childnode refid="13981" relation="include">
         </childnode>
-        <childnode refid="13425" relation="include">
+        <childnode refid="14005" relation="include">
         </childnode>
-        <childnode refid="13426" relation="include">
+        <childnode refid="14006" relation="include">
         </childnode>
-        <childnode refid="13427" relation="include">
+        <childnode refid="14007" relation="include">
         </childnode>
-        <childnode refid="13423" relation="include">
+        <childnode refid="13990" relation="include">
         </childnode>
       </node>
-      <node id="13422">
+      <node id="14003">
         <label>type_traits</label>
       </node>
-      <node id="13421">
+      <node id="14002">
         <label>set</label>
       </node>
-      <node id="13410">
+      <node id="13988">
         <label>algorithm</label>
       </node>
-      <node id="13419">
+      <node id="14000">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="13430">
+      <node id="14010">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="13429">
+      <node id="14009">
         <label>PythonInterface.hpp</label>
         <link refid="_python_interface_8hpp"/>
-        <childnode refid="13430" relation="include">
+        <childnode refid="14010" relation="include">
         </childnode>
       </node>
-      <node id="13428">
+      <node id="14008">
         <label>PybindInterface.hpp</label>
         <link refid="_pybind_interface_8hpp"/>
-        <childnode refid="13429" relation="include">
+        <childnode refid="14009" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

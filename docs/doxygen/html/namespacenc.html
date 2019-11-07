@@ -128,6 +128,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacenc_1_1special"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1special.html">special</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacenc_1_1stl__algorithms"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1stl__algorithms.html">stl_algorithms</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacenc_1_1utils"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenc_1_1utils.html">utils</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -802,6 +804,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac2f8fda6236a8f2c6a8eb259dad5399b"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:ac2f8fda6236a8f2c6a8eb259dad5399b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#ac2f8fda6236a8f2c6a8eb259dad5399b">newbyteorder</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespacenc.html#a8dcbcb343147d09e74689ad8a2586152">Endian</a> inEndianess) noexcept</td></tr>
 <tr class="separator:ac2f8fda6236a8f2c6a8eb259dad5399b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a368ccbde67adc66eb0523686457c5948"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
+<tr class="memitem:a368ccbde67adc66eb0523686457c5948"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; bool &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a368ccbde67adc66eb0523686457c5948">none</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray, <a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a> inAxis=<a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a>) noexcept</td></tr>
+<tr class="separator:a368ccbde67adc66eb0523686457c5948"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fcb2b43990a7d3bfd76b3d873032d53"><td class="memTemplParams" colspan="2">template&lt;typename dtype &gt; </td></tr>
 <tr class="memitem:a6fcb2b43990a7d3bfd76b3d873032d53"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; <a class="el" href="namespacenc.html#aacba4d66f94f6f53637e23c5d82e20d8">uint32</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacenc.html#a6fcb2b43990a7d3bfd76b3d873032d53">nonzero</a> (const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;inArray) noexcept</td></tr>
 <tr class="separator:a6fcb2b43990a7d3bfd76b3d873032d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -9946,6 +9951,54 @@ template&lt;typename dtype &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classnc_1_1_nd_array.html" title="Holds 1D and 2D arrays, the main work horse of the NumCpp library. ">NdArray</a> </dd></dl>
+
+</div>
+</div>
+<a id="a368ccbde67adc66eb0523686457c5948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a368ccbde67adc66eb0523686457c5948">&#9670;&nbsp;</a></span>none()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename dtype &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt;bool&gt; nc::none </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classnc_1_1_nd_array.html">NdArray</a>&lt; dtype &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inArray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84">Axis</a>&#160;</td>
+          <td class="paramname"><em>inAxis</em> = <code><a class="el" href="namespacenc.html#a5edb9ac6f596ae1256faa3f5d797dc84ab50339a10e1de285ac99d4c3990b8693">Axis::NONE</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Test whether no array elements along a given axis evaluate to True.</p>
+<p>NumPy Reference: <a href="https://www.numpy.org/devdocs/reference/generated/numpy.all.html">https://www.numpy.org/devdocs/reference/generated/numpy.all.html</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inArray</td><td></td></tr>
+    <tr><td class="paramname">inAxis</td><td>(Optional, default NONE) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>

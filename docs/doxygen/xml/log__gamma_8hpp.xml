@@ -3,245 +3,258 @@
   <compounddef id="log__gamma_8hpp" kind="file" language="C++">
     <compoundname>log_gamma.hpp</compoundname>
     <includes refid="_nd_array_8hpp" local="yes">NumCpp/NdArray.hpp</includes>
+    <includes refid="_stl_algorithms_8hpp" local="yes">NumCpp/Core/StlAlgorithms.hpp</includes>
     <includes local="yes">boost/math/special_functions/gamma.hpp</includes>
-    <includes local="no">algorithm</includes>
     <includedby refid="_special_8hpp" local="yes">Special.hpp</includedby>
     <incdepgraph>
-      <node id="9011">
+      <node id="9399">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="8998">
+      <node id="9383">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="8999" relation="include">
+        <childnode refid="9384" relation="include">
         </childnode>
       </node>
-      <node id="9015">
+      <node id="9403">
         <label>functional</label>
       </node>
-      <node id="8994">
+      <node id="9379">
         <label>limits</label>
       </node>
-      <node id="8996">
+      <node id="9391">
+        <label>iterator</label>
+      </node>
+      <node id="9381">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="8994" relation="include">
+        <childnode refid="9379" relation="include">
         </childnode>
       </node>
-      <node id="9008">
+      <node id="9396">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="8998" relation="include">
+        <childnode refid="9383" relation="include">
         </childnode>
       </node>
-      <node id="8999">
+      <node id="9384">
         <label>cstdint</label>
       </node>
-      <node id="8993">
+      <node id="9378">
         <label>cmath</label>
       </node>
-      <node id="9001">
+      <node id="9386">
         <label>stdexcept</label>
       </node>
-      <node id="9017">
+      <node id="9405">
         <label>numeric</label>
       </node>
-      <node id="8995">
+      <node id="9380">
         <label>string</label>
       </node>
-      <node id="9009">
+      <node id="9397">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="9006">
+      <node id="9395">
         <label>NumCpp/Core/Slice.hpp</label>
         <link refid="_slice_8hpp"/>
-        <childnode refid="8997" relation="include">
+        <childnode refid="9382" relation="include">
         </childnode>
-        <childnode refid="8998" relation="include">
+        <childnode refid="9383" relation="include">
         </childnode>
-        <childnode refid="9005" relation="include">
+        <childnode refid="9394" relation="include">
         </childnode>
-        <childnode refid="9007" relation="include">
+        <childnode refid="9390" relation="include">
         </childnode>
-        <childnode refid="9000" relation="include">
+        <childnode refid="9385" relation="include">
         </childnode>
-        <childnode refid="8995" relation="include">
+        <childnode refid="9380" relation="include">
         </childnode>
       </node>
-      <node id="9003">
+      <node id="9388">
         <label>fstream</label>
       </node>
-      <node id="9002">
+      <node id="9387">
         <label>NumCpp/Core/Filesystem.hpp</label>
         <link refid="_filesystem_8hpp"/>
-        <childnode refid="9003" relation="include">
+        <childnode refid="9388" relation="include">
         </childnode>
-        <childnode refid="8995" relation="include">
+        <childnode refid="9380" relation="include">
         </childnode>
       </node>
-      <node id="8992">
+      <node id="9377">
         <label>NumCpp/Core/Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="8993" relation="include">
+        <childnode refid="9378" relation="include">
         </childnode>
-        <childnode refid="8994" relation="include">
+        <childnode refid="9379" relation="include">
         </childnode>
-        <childnode refid="8995" relation="include">
+        <childnode refid="9380" relation="include">
         </childnode>
       </node>
-      <node id="9010">
+      <node id="9398">
         <label>boost/algorithm/clamp.hpp</label>
       </node>
-      <node id="9004">
+      <node id="9393">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="8998" relation="include">
+        <childnode refid="9383" relation="include">
         </childnode>
-        <childnode refid="9005" relation="include">
+        <childnode refid="9394" relation="include">
         </childnode>
-        <childnode refid="9000" relation="include">
+        <childnode refid="9385" relation="include">
         </childnode>
-        <childnode refid="8995" relation="include">
+        <childnode refid="9380" relation="include">
         </childnode>
       </node>
-      <node id="9021">
+      <node id="9408">
         <label>vector</label>
       </node>
-      <node id="8991">
+      <node id="9376">
         <label>NumCpp/NdArray.hpp</label>
         <link refid="_nd_array_8hpp"/>
-        <childnode refid="8992" relation="include">
+        <childnode refid="9377" relation="include">
         </childnode>
-        <childnode refid="8996" relation="include">
+        <childnode refid="9381" relation="include">
         </childnode>
-        <childnode refid="8997" relation="include">
+        <childnode refid="9382" relation="include">
         </childnode>
-        <childnode refid="9002" relation="include">
+        <childnode refid="9387" relation="include">
         </childnode>
-        <childnode refid="9004" relation="include">
+        <childnode refid="9389" relation="include">
         </childnode>
-        <childnode refid="9006" relation="include">
+        <childnode refid="9393" relation="include">
         </childnode>
-        <childnode refid="8998" relation="include">
+        <childnode refid="9395" relation="include">
         </childnode>
-        <childnode refid="9005" relation="include">
+        <childnode refid="9383" relation="include">
         </childnode>
-        <childnode refid="9008" relation="include">
+        <childnode refid="9394" relation="include">
         </childnode>
-        <childnode refid="9009" relation="include">
+        <childnode refid="9396" relation="include">
         </childnode>
-        <childnode refid="9010" relation="include">
+        <childnode refid="9397" relation="include">
         </childnode>
-        <childnode refid="9011" relation="include">
+        <childnode refid="9398" relation="include">
         </childnode>
-        <childnode refid="9012" relation="include">
+        <childnode refid="9399" relation="include">
         </childnode>
-        <childnode refid="9007" relation="include">
+        <childnode refid="9400" relation="include">
         </childnode>
-        <childnode refid="9013" relation="include">
+        <childnode refid="9401" relation="include">
         </childnode>
-        <childnode refid="8993" relation="include">
+        <childnode refid="9378" relation="include">
         </childnode>
-        <childnode refid="9014" relation="include">
+        <childnode refid="9402" relation="include">
         </childnode>
-        <childnode refid="9015" relation="include">
+        <childnode refid="9403" relation="include">
         </childnode>
-        <childnode refid="9003" relation="include">
+        <childnode refid="9388" relation="include">
         </childnode>
-        <childnode refid="9016" relation="include">
+        <childnode refid="9404" relation="include">
         </childnode>
-        <childnode refid="9000" relation="include">
+        <childnode refid="9385" relation="include">
         </childnode>
-        <childnode refid="9017" relation="include">
+        <childnode refid="9405" relation="include">
         </childnode>
-        <childnode refid="9018" relation="include">
+        <childnode refid="9406" relation="include">
         </childnode>
-        <childnode refid="8995" relation="include">
+        <childnode refid="9380" relation="include">
         </childnode>
-        <childnode refid="9019" relation="include">
+        <childnode refid="9407" relation="include">
         </childnode>
-        <childnode refid="9020" relation="include">
+        <childnode refid="9392" relation="include">
         </childnode>
-        <childnode refid="9021" relation="include">
+        <childnode refid="9408" relation="include">
         </childnode>
       </node>
-      <node id="8997">
+      <node id="9382">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="8998" relation="include">
+        <childnode refid="9383" relation="include">
         </childnode>
-        <childnode refid="9000" relation="include">
+        <childnode refid="9385" relation="include">
         </childnode>
-        <childnode refid="8994" relation="include">
+        <childnode refid="9379" relation="include">
         </childnode>
-        <childnode refid="9001" relation="include">
+        <childnode refid="9386" relation="include">
         </childnode>
-        <childnode refid="8995" relation="include">
+        <childnode refid="9380" relation="include">
         </childnode>
       </node>
-      <node id="9020">
+      <node id="9392">
         <label>utility</label>
       </node>
-      <node id="9013">
+      <node id="9401">
         <label>array</label>
       </node>
-      <node id="8990">
+      <node id="9375">
         <label>log_gamma.hpp</label>
         <link refid="log__gamma_8hpp"/>
-        <childnode refid="8991" relation="include">
+        <childnode refid="9376" relation="include">
         </childnode>
-        <childnode refid="9022" relation="include">
+        <childnode refid="9389" relation="include">
         </childnode>
-        <childnode refid="9007" relation="include">
+        <childnode refid="9409" relation="include">
         </childnode>
       </node>
-      <node id="9005">
+      <node id="9394">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="8995" relation="include">
+        <childnode refid="9380" relation="include">
         </childnode>
       </node>
-      <node id="9000">
+      <node id="9389">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="9390" relation="include">
+        </childnode>
+        <childnode refid="9391" relation="include">
+        </childnode>
+        <childnode refid="9392" relation="include">
+        </childnode>
+      </node>
+      <node id="9385">
         <label>iostream</label>
       </node>
-      <node id="9014">
+      <node id="9402">
         <label>deque</label>
       </node>
-      <node id="9012">
+      <node id="9400">
         <label>boost/endian/conversion.hpp</label>
       </node>
-      <node id="9022">
+      <node id="9409">
         <label>boost/math/special_functions/gamma.hpp</label>
       </node>
-      <node id="9019">
+      <node id="9407">
         <label>type_traits</label>
       </node>
-      <node id="9018">
+      <node id="9406">
         <label>set</label>
       </node>
-      <node id="9007">
+      <node id="9390">
         <label>algorithm</label>
       </node>
-      <node id="9016">
+      <node id="9404">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="9025">
+      <node id="9412">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="9024">
+      <node id="9411">
         <label>Special.hpp</label>
         <link refid="_special_8hpp"/>
-        <childnode refid="9025" relation="include">
+        <childnode refid="9412" relation="include">
         </childnode>
       </node>
-      <node id="9023">
+      <node id="9410">
         <label>log_gamma.hpp</label>
         <link refid="log__gamma_8hpp"/>
-        <childnode refid="9024" relation="include">
+        <childnode refid="9411" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -263,38 +276,39 @@
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_nd_array_8hpp" kindref="compound">NumCpp/NdArray.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;boost/math/special_functions/gamma.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
-<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">special</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="50"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="51" refid="namespacenc_1_1special_1a0cb1312c9f5ba140d36b2c6565556c20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1special_1a0cb1312c9f5ba140d36b2c6565556c20" kindref="member">log_gamma</ref>(dtype<sp/>inValue)<sp/>noexcept</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>boost::math::lgamma(static_cast&lt;double&gt;(inValue));</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
-<codeline lineno="65"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
-<codeline lineno="66" refid="namespacenc_1_1special_1aada2f70d0f67c79921b1c03020f0cec5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/><ref refid="namespacenc_1_1special_1a0cb1312c9f5ba140d36b2c6565556c20" kindref="member">log_gamma</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray)<sp/>noexcept</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(inArray.shape());</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::transform(inArray.cbegin(),<sp/>inArray.cend(),<sp/>returnArray.begin(),</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](dtype<sp/>inValue)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1special_1a0cb1312c9f5ba140d36b2c6565556c20" kindref="member">log_gamma</ref>(inValue);<sp/>});</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_stl_algorithms_8hpp" kindref="compound">NumCpp/Core/StlAlgorithms.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;boost/math/special_functions/gamma.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacenc" kindref="compound">nc</ref></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">special</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="50" refid="namespacenc_1_1special_1a0cb1312c9f5ba140d36b2c6565556c20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1special_1a0cb1312c9f5ba140d36b2c6565556c20" kindref="member">log_gamma</ref>(dtype<sp/>inValue)<sp/>noexcept</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>boost::math::lgamma(static_cast&lt;double&gt;(inValue));</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Method<sp/>Description:</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>dtype&gt;</highlight></codeline>
+<codeline lineno="65" refid="namespacenc_1_1special_1aada2f70d0f67c79921b1c03020f0cec5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/><ref refid="namespacenc_1_1special_1a0cb1312c9f5ba140d36b2c6565556c20" kindref="member">log_gamma</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;dtype&gt;</ref>&amp;<sp/>inArray)<sp/>noexcept</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray&lt;double&gt;</ref><sp/>returnArray(inArray.shape());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacenc_1_1stl__algorithms_1a616d5dabd547326285946d0014361ab4" kindref="member">stl_algorithms::transform</ref>(inArray.cbegin(),<sp/>inArray.cend(),<sp/>returnArray.begin(),</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](dtype<sp/>inValue)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacenc_1_1special_1a0cb1312c9f5ba140d36b2c6565556c20" kindref="member">log_gamma</ref>(inValue);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnArray;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Special/log_gamma.hpp"/>
   </compounddef>

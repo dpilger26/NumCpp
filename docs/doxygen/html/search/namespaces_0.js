@@ -15,5 +15,6 @@ var searchData=
   ['random',['random',['../namespacenc_1_1random.html',1,'nc']]],
   ['rotations',['rotations',['../namespacenc_1_1rotations.html',1,'nc']]],
   ['special',['special',['../namespacenc_1_1special.html',1,'nc']]],
+  ['stl_5falgorithms',['stl_algorithms',['../namespacenc_1_1stl__algorithms.html',1,'nc']]],
   ['utils',['utils',['../namespacenc_1_1utils.html',1,'nc']]]
 ];

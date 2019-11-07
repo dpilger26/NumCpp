@@ -8,244 +8,257 @@
     <includes local="no">string</includes>
     <includedby refid="_functions_8hpp" local="yes">Functions.hpp</includedby>
     <incdepgraph>
-      <node id="8114">
+      <node id="8454">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="8095">
+      <node id="8432">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="8096" relation="include">
+        <childnode refid="8433" relation="include">
         </childnode>
       </node>
-      <node id="8118">
+      <node id="8458">
         <label>functional</label>
       </node>
-      <node id="8098">
+      <node id="8435">
         <label>limits</label>
       </node>
-      <node id="8104">
+      <node id="8446">
+        <label>iterator</label>
+      </node>
+      <node id="8441">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="8098" relation="include">
+        <childnode refid="8435" relation="include">
         </childnode>
       </node>
-      <node id="8111">
+      <node id="8451">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="8095" relation="include">
+        <childnode refid="8432" relation="include">
         </childnode>
       </node>
-      <node id="8096">
+      <node id="8433">
         <label>cstdint</label>
       </node>
-      <node id="8103">
+      <node id="8440">
         <label>cmath</label>
       </node>
-      <node id="8099">
+      <node id="8436">
         <label>stdexcept</label>
       </node>
-      <node id="8120">
+      <node id="8460">
         <label>numeric</label>
       </node>
-      <node id="8100">
+      <node id="8437">
         <label>string</label>
       </node>
-      <node id="8112">
+      <node id="8452">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="8109">
+      <node id="8450">
         <label>NumCpp/Core/Slice.hpp</label>
         <link refid="_slice_8hpp"/>
-        <childnode refid="8094" relation="include">
+        <childnode refid="8431" relation="include">
         </childnode>
-        <childnode refid="8095" relation="include">
+        <childnode refid="8432" relation="include">
         </childnode>
-        <childnode refid="8108" relation="include">
+        <childnode refid="8449" relation="include">
         </childnode>
-        <childnode refid="8110" relation="include">
+        <childnode refid="8445" relation="include">
         </childnode>
-        <childnode refid="8097" relation="include">
+        <childnode refid="8434" relation="include">
         </childnode>
-        <childnode refid="8100" relation="include">
+        <childnode refid="8437" relation="include">
         </childnode>
       </node>
-      <node id="8093">
+      <node id="8430">
         <label>interp.hpp</label>
         <link refid="_functions_2interp_8hpp"/>
-        <childnode refid="8094" relation="include">
+        <childnode refid="8431" relation="include">
         </childnode>
-        <childnode refid="8101" relation="include">
+        <childnode refid="8438" relation="include">
         </childnode>
-        <childnode refid="8125" relation="include">
+        <childnode refid="8464" relation="include">
         </childnode>
-        <childnode refid="8100" relation="include">
+        <childnode refid="8437" relation="include">
         </childnode>
       </node>
-      <node id="8106">
+      <node id="8443">
         <label>fstream</label>
       </node>
-      <node id="8105">
+      <node id="8442">
         <label>NumCpp/Core/Filesystem.hpp</label>
         <link refid="_filesystem_8hpp"/>
-        <childnode refid="8106" relation="include">
+        <childnode refid="8443" relation="include">
         </childnode>
-        <childnode refid="8100" relation="include">
+        <childnode refid="8437" relation="include">
         </childnode>
       </node>
-      <node id="8102">
+      <node id="8439">
         <label>NumCpp/Core/Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="8103" relation="include">
+        <childnode refid="8440" relation="include">
         </childnode>
-        <childnode refid="8098" relation="include">
+        <childnode refid="8435" relation="include">
         </childnode>
-        <childnode refid="8100" relation="include">
+        <childnode refid="8437" relation="include">
         </childnode>
       </node>
-      <node id="8125">
+      <node id="8464">
         <label>NumCpp/Utils/interp.hpp</label>
         <link refid="_utils_2interp_8hpp"/>
       </node>
-      <node id="8113">
+      <node id="8453">
         <label>boost/algorithm/clamp.hpp</label>
       </node>
-      <node id="8107">
+      <node id="8448">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="8095" relation="include">
+        <childnode refid="8432" relation="include">
         </childnode>
-        <childnode refid="8108" relation="include">
+        <childnode refid="8449" relation="include">
         </childnode>
-        <childnode refid="8097" relation="include">
+        <childnode refid="8434" relation="include">
         </childnode>
-        <childnode refid="8100" relation="include">
+        <childnode refid="8437" relation="include">
         </childnode>
       </node>
-      <node id="8124">
+      <node id="8463">
         <label>vector</label>
       </node>
-      <node id="8101">
+      <node id="8438">
         <label>NumCpp/NdArray.hpp</label>
         <link refid="_nd_array_8hpp"/>
-        <childnode refid="8102" relation="include">
+        <childnode refid="8439" relation="include">
         </childnode>
-        <childnode refid="8104" relation="include">
+        <childnode refid="8441" relation="include">
         </childnode>
-        <childnode refid="8094" relation="include">
+        <childnode refid="8431" relation="include">
         </childnode>
-        <childnode refid="8105" relation="include">
+        <childnode refid="8442" relation="include">
         </childnode>
-        <childnode refid="8107" relation="include">
+        <childnode refid="8444" relation="include">
         </childnode>
-        <childnode refid="8109" relation="include">
+        <childnode refid="8448" relation="include">
         </childnode>
-        <childnode refid="8095" relation="include">
+        <childnode refid="8450" relation="include">
         </childnode>
-        <childnode refid="8108" relation="include">
+        <childnode refid="8432" relation="include">
         </childnode>
-        <childnode refid="8111" relation="include">
+        <childnode refid="8449" relation="include">
         </childnode>
-        <childnode refid="8112" relation="include">
+        <childnode refid="8451" relation="include">
         </childnode>
-        <childnode refid="8113" relation="include">
+        <childnode refid="8452" relation="include">
         </childnode>
-        <childnode refid="8114" relation="include">
+        <childnode refid="8453" relation="include">
         </childnode>
-        <childnode refid="8115" relation="include">
+        <childnode refid="8454" relation="include">
         </childnode>
-        <childnode refid="8110" relation="include">
+        <childnode refid="8455" relation="include">
         </childnode>
-        <childnode refid="8116" relation="include">
+        <childnode refid="8456" relation="include">
         </childnode>
-        <childnode refid="8103" relation="include">
+        <childnode refid="8440" relation="include">
         </childnode>
-        <childnode refid="8117" relation="include">
+        <childnode refid="8457" relation="include">
         </childnode>
-        <childnode refid="8118" relation="include">
+        <childnode refid="8458" relation="include">
         </childnode>
-        <childnode refid="8106" relation="include">
+        <childnode refid="8443" relation="include">
         </childnode>
-        <childnode refid="8119" relation="include">
+        <childnode refid="8459" relation="include">
         </childnode>
-        <childnode refid="8097" relation="include">
+        <childnode refid="8434" relation="include">
         </childnode>
-        <childnode refid="8120" relation="include">
+        <childnode refid="8460" relation="include">
         </childnode>
-        <childnode refid="8121" relation="include">
+        <childnode refid="8461" relation="include">
         </childnode>
-        <childnode refid="8100" relation="include">
+        <childnode refid="8437" relation="include">
         </childnode>
-        <childnode refid="8122" relation="include">
+        <childnode refid="8462" relation="include">
         </childnode>
-        <childnode refid="8123" relation="include">
+        <childnode refid="8447" relation="include">
         </childnode>
-        <childnode refid="8124" relation="include">
+        <childnode refid="8463" relation="include">
         </childnode>
       </node>
-      <node id="8094">
+      <node id="8431">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="8095" relation="include">
+        <childnode refid="8432" relation="include">
         </childnode>
-        <childnode refid="8097" relation="include">
+        <childnode refid="8434" relation="include">
         </childnode>
-        <childnode refid="8098" relation="include">
+        <childnode refid="8435" relation="include">
         </childnode>
-        <childnode refid="8099" relation="include">
+        <childnode refid="8436" relation="include">
         </childnode>
-        <childnode refid="8100" relation="include">
+        <childnode refid="8437" relation="include">
         </childnode>
       </node>
-      <node id="8123">
+      <node id="8447">
         <label>utility</label>
       </node>
-      <node id="8116">
+      <node id="8456">
         <label>array</label>
       </node>
-      <node id="8108">
+      <node id="8449">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="8100" relation="include">
+        <childnode refid="8437" relation="include">
         </childnode>
       </node>
-      <node id="8097">
+      <node id="8444">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="8445" relation="include">
+        </childnode>
+        <childnode refid="8446" relation="include">
+        </childnode>
+        <childnode refid="8447" relation="include">
+        </childnode>
+      </node>
+      <node id="8434">
         <label>iostream</label>
       </node>
-      <node id="8117">
+      <node id="8457">
         <label>deque</label>
       </node>
-      <node id="8115">
+      <node id="8455">
         <label>boost/endian/conversion.hpp</label>
       </node>
-      <node id="8122">
+      <node id="8462">
         <label>type_traits</label>
       </node>
-      <node id="8121">
+      <node id="8461">
         <label>set</label>
       </node>
-      <node id="8110">
+      <node id="8445">
         <label>algorithm</label>
       </node>
-      <node id="8119">
+      <node id="8459">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="8128">
+      <node id="8467">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="8126">
+      <node id="8465">
         <label>interp.hpp</label>
         <link refid="_functions_2interp_8hpp"/>
-        <childnode refid="8127" relation="include">
+        <childnode refid="8466" relation="include">
         </childnode>
       </node>
-      <node id="8127">
+      <node id="8466">
         <label>Functions.hpp</label>
         <link refid="_functions_8hpp"/>
-        <childnode refid="8128" relation="include">
+        <childnode refid="8467" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

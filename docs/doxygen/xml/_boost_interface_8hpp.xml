@@ -12,281 +12,294 @@
     <includes local="no">string</includes>
     <includedby refid="_python_interface_8hpp" local="yes">PythonInterface.hpp</includedby>
     <incdepgraph>
-      <node id="1997">
+      <node id="2108">
         <label>boost/predef/other/endian.h</label>
       </node>
-      <node id="1978">
+      <node id="2086">
         <label>NumCpp/Core/Types.hpp</label>
         <link refid="_types_8hpp"/>
-        <childnode refid="1979" relation="include">
+        <childnode refid="2087" relation="include">
         </childnode>
       </node>
-      <node id="2001">
+      <node id="2112">
         <label>functional</label>
       </node>
-      <node id="1981">
+      <node id="2089">
         <label>limits</label>
       </node>
-      <node id="2010">
+      <node id="2102">
+        <label>iterator</label>
+      </node>
+      <node id="2120">
         <label>boost/python/numpy.hpp</label>
       </node>
-      <node id="1989">
+      <node id="2097">
         <label>NumCpp/Core/DtypeInfo.hpp</label>
         <link refid="_dtype_info_8hpp"/>
-        <childnode refid="1981" relation="include">
+        <childnode refid="2089" relation="include">
         </childnode>
       </node>
-      <node id="1994">
+      <node id="2105">
         <label>NumCpp/Utils/power.hpp</label>
         <link refid="_utils_2power_8hpp"/>
-        <childnode refid="1978" relation="include">
+        <childnode refid="2086" relation="include">
         </childnode>
       </node>
-      <node id="1979">
+      <node id="2087">
         <label>cstdint</label>
       </node>
-      <node id="1988">
+      <node id="2096">
         <label>cmath</label>
       </node>
-      <node id="1982">
+      <node id="2090">
         <label>stdexcept</label>
       </node>
-      <node id="2003">
+      <node id="2114">
         <label>numeric</label>
       </node>
-      <node id="1983">
+      <node id="2091">
         <label>string</label>
       </node>
-      <node id="2011">
+      <node id="2121">
         <label>map</label>
       </node>
-      <node id="1995">
+      <node id="2106">
         <label>NumCpp/Utils/sqr.hpp</label>
         <link refid="sqr_8hpp"/>
       </node>
-      <node id="1992">
+      <node id="2104">
         <label>NumCpp/Core/Slice.hpp</label>
         <link refid="_slice_8hpp"/>
-        <childnode refid="1977" relation="include">
+        <childnode refid="2085" relation="include">
         </childnode>
-        <childnode refid="1978" relation="include">
+        <childnode refid="2086" relation="include">
         </childnode>
-        <childnode refid="1985" relation="include">
+        <childnode refid="2093" relation="include">
         </childnode>
-        <childnode refid="1993" relation="include">
+        <childnode refid="2101" relation="include">
         </childnode>
-        <childnode refid="1980" relation="include">
+        <childnode refid="2088" relation="include">
         </childnode>
-        <childnode refid="1983" relation="include">
+        <childnode refid="2091" relation="include">
         </childnode>
       </node>
-      <node id="1991">
+      <node id="2099">
         <label>fstream</label>
       </node>
-      <node id="1990">
+      <node id="2098">
         <label>NumCpp/Core/Filesystem.hpp</label>
         <link refid="_filesystem_8hpp"/>
-        <childnode refid="1991" relation="include">
+        <childnode refid="2099" relation="include">
         </childnode>
-        <childnode refid="1983" relation="include">
+        <childnode refid="2091" relation="include">
         </childnode>
       </node>
-      <node id="1987">
+      <node id="2095">
         <label>NumCpp/Core/Constants.hpp</label>
         <link refid="_constants_8hpp"/>
-        <childnode refid="1988" relation="include">
+        <childnode refid="2096" relation="include">
         </childnode>
-        <childnode refid="1981" relation="include">
+        <childnode refid="2089" relation="include">
         </childnode>
-        <childnode refid="1983" relation="include">
+        <childnode refid="2091" relation="include">
         </childnode>
       </node>
-      <node id="1996">
+      <node id="2107">
         <label>boost/algorithm/clamp.hpp</label>
       </node>
-      <node id="1984">
+      <node id="2092">
         <label>NumCpp/Core/Shape.hpp</label>
         <link refid="_core_2_shape_8hpp"/>
-        <childnode refid="1978" relation="include">
+        <childnode refid="2086" relation="include">
         </childnode>
-        <childnode refid="1985" relation="include">
+        <childnode refid="2093" relation="include">
         </childnode>
-        <childnode refid="1980" relation="include">
+        <childnode refid="2088" relation="include">
         </childnode>
-        <childnode refid="1983" relation="include">
+        <childnode refid="2091" relation="include">
         </childnode>
       </node>
-      <node id="2009">
+      <node id="2119">
         <label>boost/python.hpp</label>
       </node>
-      <node id="1976">
+      <node id="2084">
         <label>BoostInterface.hpp</label>
         <link refid="_boost_interface_8hpp"/>
-        <childnode refid="1977" relation="include">
+        <childnode refid="2085" relation="include">
         </childnode>
-        <childnode refid="1984" relation="include">
+        <childnode refid="2092" relation="include">
         </childnode>
-        <childnode refid="1986" relation="include">
+        <childnode refid="2094" relation="include">
         </childnode>
-        <childnode refid="2008" relation="include">
+        <childnode refid="2118" relation="include">
         </childnode>
-        <childnode refid="2009" relation="include">
+        <childnode refid="2119" relation="include">
         </childnode>
-        <childnode refid="2010" relation="include">
+        <childnode refid="2120" relation="include">
         </childnode>
-        <childnode refid="2011" relation="include">
+        <childnode refid="2121" relation="include">
         </childnode>
-        <childnode refid="1983" relation="include">
+        <childnode refid="2091" relation="include">
         </childnode>
       </node>
-      <node id="2007">
+      <node id="2117">
         <label>vector</label>
       </node>
-      <node id="1986">
+      <node id="2094">
         <label>NumCpp/NdArray.hpp</label>
         <link refid="_nd_array_8hpp"/>
-        <childnode refid="1987" relation="include">
+        <childnode refid="2095" relation="include">
         </childnode>
-        <childnode refid="1989" relation="include">
+        <childnode refid="2097" relation="include">
         </childnode>
-        <childnode refid="1977" relation="include">
+        <childnode refid="2085" relation="include">
         </childnode>
-        <childnode refid="1990" relation="include">
+        <childnode refid="2098" relation="include">
         </childnode>
-        <childnode refid="1984" relation="include">
+        <childnode refid="2100" relation="include">
         </childnode>
-        <childnode refid="1992" relation="include">
+        <childnode refid="2092" relation="include">
         </childnode>
-        <childnode refid="1978" relation="include">
+        <childnode refid="2104" relation="include">
         </childnode>
-        <childnode refid="1985" relation="include">
+        <childnode refid="2086" relation="include">
         </childnode>
-        <childnode refid="1994" relation="include">
+        <childnode refid="2093" relation="include">
         </childnode>
-        <childnode refid="1995" relation="include">
+        <childnode refid="2105" relation="include">
         </childnode>
-        <childnode refid="1996" relation="include">
+        <childnode refid="2106" relation="include">
         </childnode>
-        <childnode refid="1997" relation="include">
+        <childnode refid="2107" relation="include">
         </childnode>
-        <childnode refid="1998" relation="include">
+        <childnode refid="2108" relation="include">
         </childnode>
-        <childnode refid="1993" relation="include">
+        <childnode refid="2109" relation="include">
         </childnode>
-        <childnode refid="1999" relation="include">
+        <childnode refid="2110" relation="include">
         </childnode>
-        <childnode refid="1988" relation="include">
+        <childnode refid="2096" relation="include">
         </childnode>
-        <childnode refid="2000" relation="include">
+        <childnode refid="2111" relation="include">
         </childnode>
-        <childnode refid="2001" relation="include">
+        <childnode refid="2112" relation="include">
         </childnode>
-        <childnode refid="1991" relation="include">
+        <childnode refid="2099" relation="include">
         </childnode>
-        <childnode refid="2002" relation="include">
+        <childnode refid="2113" relation="include">
         </childnode>
-        <childnode refid="1980" relation="include">
+        <childnode refid="2088" relation="include">
         </childnode>
-        <childnode refid="2003" relation="include">
+        <childnode refid="2114" relation="include">
         </childnode>
-        <childnode refid="2004" relation="include">
+        <childnode refid="2115" relation="include">
         </childnode>
-        <childnode refid="1983" relation="include">
+        <childnode refid="2091" relation="include">
         </childnode>
-        <childnode refid="2005" relation="include">
+        <childnode refid="2116" relation="include">
         </childnode>
-        <childnode refid="2006" relation="include">
+        <childnode refid="2103" relation="include">
         </childnode>
-        <childnode refid="2007" relation="include">
+        <childnode refid="2117" relation="include">
         </childnode>
       </node>
-      <node id="1977">
+      <node id="2085">
         <label>NumCpp/Core/Error.hpp</label>
         <link refid="_error_8hpp"/>
-        <childnode refid="1978" relation="include">
+        <childnode refid="2086" relation="include">
         </childnode>
-        <childnode refid="1980" relation="include">
+        <childnode refid="2088" relation="include">
         </childnode>
-        <childnode refid="1981" relation="include">
+        <childnode refid="2089" relation="include">
         </childnode>
-        <childnode refid="1982" relation="include">
+        <childnode refid="2090" relation="include">
         </childnode>
-        <childnode refid="1983" relation="include">
+        <childnode refid="2091" relation="include">
         </childnode>
       </node>
-      <node id="2008">
+      <node id="2118">
         <label>NumCpp/PythonInterface/BoostNumpyNdarrayHelper.hpp</label>
         <link refid="_boost_numpy_ndarray_helper_8hpp"/>
-        <childnode refid="1978" relation="include">
+        <childnode refid="2100" relation="include">
         </childnode>
-        <childnode refid="1985" relation="include">
+        <childnode refid="2086" relation="include">
         </childnode>
-        <childnode refid="1993" relation="include">
+        <childnode refid="2093" relation="include">
         </childnode>
-        <childnode refid="1988" relation="include">
+        <childnode refid="2096" relation="include">
         </childnode>
-        <childnode refid="1980" relation="include">
+        <childnode refid="2088" relation="include">
         </childnode>
-        <childnode refid="2007" relation="include">
+        <childnode refid="2117" relation="include">
         </childnode>
-        <childnode refid="1983" relation="include">
+        <childnode refid="2091" relation="include">
         </childnode>
-        <childnode refid="2006" relation="include">
+        <childnode refid="2103" relation="include">
         </childnode>
-        <childnode refid="2009" relation="include">
+        <childnode refid="2119" relation="include">
         </childnode>
-        <childnode refid="2010" relation="include">
+        <childnode refid="2120" relation="include">
         </childnode>
       </node>
-      <node id="2006">
+      <node id="2103">
         <label>utility</label>
       </node>
-      <node id="1999">
+      <node id="2110">
         <label>array</label>
       </node>
-      <node id="1985">
+      <node id="2093">
         <label>NumCpp/Utils/num2str.hpp</label>
         <link refid="num2str_8hpp"/>
-        <childnode refid="1983" relation="include">
+        <childnode refid="2091" relation="include">
         </childnode>
       </node>
-      <node id="1980">
+      <node id="2100">
+        <label>NumCpp/Core/StlAlgorithms.hpp</label>
+        <link refid="_stl_algorithms_8hpp"/>
+        <childnode refid="2101" relation="include">
+        </childnode>
+        <childnode refid="2102" relation="include">
+        </childnode>
+        <childnode refid="2103" relation="include">
+        </childnode>
+      </node>
+      <node id="2088">
         <label>iostream</label>
       </node>
-      <node id="2000">
+      <node id="2111">
         <label>deque</label>
       </node>
-      <node id="1998">
+      <node id="2109">
         <label>boost/endian/conversion.hpp</label>
       </node>
-      <node id="2005">
+      <node id="2116">
         <label>type_traits</label>
       </node>
-      <node id="2004">
+      <node id="2115">
         <label>set</label>
       </node>
-      <node id="1993">
+      <node id="2101">
         <label>algorithm</label>
       </node>
-      <node id="2002">
+      <node id="2113">
         <label>initializer_list</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2014">
+      <node id="2124">
         <label>NumCpp.hpp</label>
         <link refid="_num_cpp_8hpp"/>
       </node>
-      <node id="2013">
+      <node id="2123">
         <label>PythonInterface.hpp</label>
         <link refid="_python_interface_8hpp"/>
-        <childnode refid="2014" relation="include">
+        <childnode refid="2124" relation="include">
         </childnode>
       </node>
-      <node id="2012">
+      <node id="2122">
         <label>BoostInterface.hpp</label>
         <link refid="_boost_interface_8hpp"/>
-        <childnode refid="2013" relation="include">
+        <childnode refid="2123" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
