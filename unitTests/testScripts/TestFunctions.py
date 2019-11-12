@@ -815,7 +815,7 @@ def doTest():
     for col in range(data.shape[1]):
         coms.append(np.round(meas.center_of_mass(data[:, col])[0], 9))
 
-    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.ROW).flatten(), 9), coms):
+    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.ROW).flatten(), 9), np.round(coms, 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))
@@ -831,7 +831,7 @@ def doTest():
     for row in range(data.shape[0]):
         coms.append(np.round(meas.center_of_mass(data[row, :])[0], 9))
 
-    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.COL).flatten(), 9), coms):
+    if np.array_equal(np.round(NumCpp.centerOfMass(cArray, NumCpp.Axis.COL).flatten(), 9), np.round(coms, 9)):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

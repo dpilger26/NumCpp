@@ -325,6 +325,48 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Rotates the elements of a range
+        ///
+        /// @param first: the first iterator of the range
+        /// @param firstN: the element that should appear at the beginning of the rotated range
+        /// @param last: the last iterator of the range
+        ///
+        template<class ForwardIt>
+        void rotate(ForwardIt first, ForwardIt firstN, ForwardIt last)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::rotate(std::execution::par_unseq, first, firstN, last);
+#else
+            std::rotate(first, firstN, last);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						finds the difference of two ranges
+        ///
+        /// @param first1: the first iterator of the source
+        /// @param last1: the last iterator of the source
+        /// @param first2: the first iterator of the second source
+        /// @param last2: the first iterator of the destination
+        /// @param destination: the function to apply to the input iterators
+        /// @return OutputIt
+        ///
+        template<class InputIt1, class InputIt2, class OutputIt>
+        OutputIt set_difference(InputIt1 first1, InputIt1 last1,
+            InputIt2 first2, InputIt2 last2,
+            OutputIt destination)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::set_difference(std::execution::par_unseq,
+                first1, last1, first2, last2, destination);
+#else
+            return std::set_difference(first1, last1, first2, last2, destination);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
         ///						finds the intersection of two ranges
         ///
         /// @param first1: the first iterator of the source
@@ -344,6 +386,30 @@ namespace nc
                 first1, last1, first2, last2, destination);
 #else
             return std::set_intersection(first1, last1, first2, last2, destination);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						finds the union of two ranges
+        ///
+        /// @param first1: the first iterator of the source
+        /// @param last1: the last iterator of the source
+        /// @param first2: the first iterator of the second source
+        /// @param last2: the first iterator of the destination
+        /// @param destination: the function to apply to the input iterators
+        /// @return OutputIt
+        ///
+        template<class InputIt1, class InputIt2, class OutputIt>
+        OutputIt set_union(InputIt1 first1, InputIt1 last1,
+            InputIt2 first2, InputIt2 last2,
+            OutputIt destination)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::set_union(std::execution::par_unseq,
+                first1, last1, first2, last2, destination);
+#else
+            return std::set_union(first1, last1, first2, last2, destination);
 #endif
         }
 
@@ -423,24 +489,6 @@ namespace nc
                 first1, last1, first2, destination, unaryFunction);
 #else
             return std::transform(first1, last1, first2, destination, unaryFunction);
-#endif
-        }
-
-        //============================================================================
-        // Method Description:
-        ///						Rotates the elements of a range
-        ///
-        /// @param first: the first iterator of the range
-        /// @param firstN: the element that should appear at the beginning of the rotated range
-        /// @param last: the last iterator of the range
-        ///
-        template<class ForwardIt>
-        void rotate(ForwardIt first, ForwardIt firstN, ForwardIt last)
-        {
-#ifdef PARALLEL_ALGORITHMS_SUPPORTED
-            std::rotate(std::execution::par_unseq, first, firstN, last);
-#else
-            std::rotate(first, firstN, last);
 #endif
         }
     }

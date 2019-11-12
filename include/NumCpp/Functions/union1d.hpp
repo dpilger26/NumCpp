@@ -54,13 +54,13 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> union1d(const NdArray<dtype>& inArray1, const NdArray<dtype>& inArray2)
     {
-        if (inArray1.shape() != inArray2.shape())
-        {
-            THROW_INVALID_ARGUMENT_ERROR("input array shapes are not consistant.");
-        }
+        std::vector<dtype> res(inArray1.size() + inArray2.size());
+        const std::set<dtype> in1(inArray1.cbegin(), inArray1.cend());
+        const std::set<dtype> in2(inArray2.cbegin(), inArray2.cend());
 
-        std::set<dtype> theSet(inArray1.cbegin(), inArray1.cend());
-        theSet.insert(inArray2.cbegin(), inArray2.cend());
-        return NdArray<dtype>(theSet);
+        const auto iter = std::set_union(in1.begin(), in1.end(),
+            in2.begin(), in2.end(), res.begin());
+        res.resize(iter - res.begin());
+        return NdArray<dtype>(res);
     }
 }

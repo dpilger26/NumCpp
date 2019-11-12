@@ -30,6 +30,7 @@
 
 #include "NumCpp/Core/Error.hpp"
 #include "NumCpp/Core/Shape.hpp"
+#include "NuMCpp/Core/StlAlgorithms.hpp"
 #include "NumCpp/Core/Types.hpp"
 #include "NumCpp/Functions/argmin.hpp"
 #include "NumCpp/Functions/clip.hpp"
@@ -99,7 +100,7 @@ namespace nc
                 const uint32 indexLower = static_cast<uint32>(clip<uint32>(i, 0, inArray.size() - 2));
 
                 NdArray<double> arrayCopy = inArray.template astype<double>();
-                std::sort(arrayCopy.begin(), arrayCopy.end());
+                stl_algorithms::sort(arrayCopy.begin(), arrayCopy.end());
 
                 if (inInterpMethod.compare("linear") == 0)
                 {

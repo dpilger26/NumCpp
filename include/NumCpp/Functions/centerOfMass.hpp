@@ -55,7 +55,7 @@ namespace nc
                 double inten = 0.0;
                 std::for_each(inArray.begin(), inArray.end(),
                     [&inten](dtype value) -> void
-                    { 
+                    {
                         inten += static_cast<double>(value);
                     });
 
@@ -64,10 +64,12 @@ namespace nc
                 for (uint32 rowIdx = 0; rowIdx < shape.rows; ++rowIdx)
                 {
                     double rowSum = 0;
-                    for (uint32 colIdx = 0; colIdx < shape.cols; ++colIdx)
-                    {
-                        rowSum += static_cast<double>(inArray(rowIdx, colIdx));
-                    }
+                    std::for_each(inArray.begin(rowIdx), inArray.end(rowIdx),
+                        [&rowSum](dtype value) -> void
+                        {
+                            rowSum += static_cast<double>(value);
+                        });
+
                     row += rowSum * static_cast<double>(rowIdx);
                 }
 
