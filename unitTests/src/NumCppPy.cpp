@@ -552,6 +552,15 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray replace(NdArray<dtype>& self, dtype oldValue, dtype newValue)
+    {
+        self.replace(oldValue, newValue);
+        return nc2Boost(self);
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray resizeFast(NdArray<dtype>& self, const Shape& inShape)
     {
         self.resizeFast(inShape);
@@ -2172,6 +2181,15 @@ namespace MethodsInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray replace(NdArray<dtype>& inArray, dtype oldValue, dtype newValue)
+    {
+        return nc2Boost(nc::replace(inArray, oldValue, newValue));
+    }
+
+
+    //================================================================================
+
+    template<typename dtype>
     NdArray<dtype>& reshapeInt(NdArray<dtype>& inArray, uint32 inSize)
     {
         return nc::reshape(inArray, inSize);
@@ -3741,6 +3759,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("reshape", &NdArrayInterface::reshapeValues<double>)
         .def("reshape", &NdArrayInterface::reshapeShape<double>)
         .def("reshapeList", &NdArrayInterface::reshapeList<double>)
+        .def("replace", &NdArrayInterface::replace<double>)
         .def("resizeFast", &NdArrayInterface::resizeFast<double>)
         .def("resizeFastList", &NdArrayInterface::resizeFastList<double>)
         .def("resizeSlow", &NdArrayInterface::resizeSlow<double>)
@@ -3824,6 +3843,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("size", &NdArrayInt32::size)
         .def("getNumpyArray", &NdArrayInterface::getNumpyArray<int32>)
         .def("endianess", &NdArrayInt32::endianess)
+        .def("replace", &NdArrayInterface::replace<int32>)
         .def("setArray", &NdArrayInterface::setArray<int32>);
 
     typedef NdArray<uint32> NdArrayUInt32;
@@ -4124,6 +4144,7 @@ BOOST_PYTHON_MODULE(NumCpp)
     bp::def("reciprocal", &reciprocal<double>);
     bp::def("remainderScaler", &MethodsInterface::remainderScaler<double>);
     bp::def("remainderArray", &MethodsInterface::remainderArray<double>);
+    bp::def("replace", &MethodsInterface::replace<double>);
     bp::def("reshape", &MethodsInterface::reshapeInt<double>, bp::return_internal_reference<>());
     bp::def("reshape", &MethodsInterface::reshapeShape<double>, bp::return_internal_reference<>());
     bp::def("reshape", &MethodsInterface::reshapeValues<double>, bp::return_internal_reference<>());

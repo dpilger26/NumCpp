@@ -308,6 +308,26 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						replaces a value in the range with another value
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @param oldValue: the value to replace
+        /// @param newValue: the replacement value
+        ///
+        template<class ForwardIt, class T>
+        void replace(ForwardIt first, ForwardIt last,
+            const T& oldValue, const T& newValue)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            std::replace(std::execution::par_unseq, first, last, oldValue, newValue);
+#else
+            std::replace(first, last, oldValue, newValue);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
         ///						reverses the range
         ///
         /// @param first: the first iterator of the source

@@ -211,6 +211,7 @@
 #include "NumCpp/Functions/reciprocal.hpp"
 #include "NumCpp/Functions/remainder.hpp"
 #include "NumCpp/Functions/repeat.hpp"
+#include "NumCpp/Functions/replace.hpp"
 #include "NumCpp/Functions/reshape.hpp"
 #include "NumCpp/Functions/resizeFast.hpp"
 #include "NumCpp/Functions/resizeSlow.hpp"

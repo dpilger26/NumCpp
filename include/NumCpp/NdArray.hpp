@@ -3119,6 +3119,18 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Replaces a value of the array with another value
+        ///
+        /// @param  oldValue: the value to replace
+        /// @param  newValue: the value to replace with
+        ///
+        void replace(dtype oldValue, dtype newValue) noexcept
+        {
+            stl_algorithms::replace(begin(), end(), oldValue, newValue);
+        }
+
+        //============================================================================
+        // Method Description:
         ///	The new shape should be compatible with the original shape. If an single integer,
         /// then the result will be a 1-D array of that length. One shape dimension 
         /// can be -1. In this case, the value is inferred from the length of the 

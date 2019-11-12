@@ -1152,6 +1152,21 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing replace', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArrayInt32(shape)
+    data = np.random.randint(1, 100, [shape.rows, shape.cols], dtype=np.uint32)
+    cArray.setArray(data)
+    oldValue = np.random.randint(1, 100, 1).item()
+    newValue = np.random.randint(1, 100, 1).item()
+    dataCopy = data.copy()
+    dataCopy[dataCopy == oldValue] = newValue
+    if np.array_equal(cArray.replace(oldValue, newValue), dataCopy):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing reshapeInt', 'cyan'))
     shapeInput = np.random.randint(1, 100, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
