@@ -24,7 +24,8 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "NumCpp", "index.html", [
-    [ "NumCpp: A Templatized Header Only C++ Implementation of the <a href=\"http://www.numpy.org/\">Python NumPy Library</a>", "index.html", null ],
+    [ "NumCpp: A Templatized Header Only C++ Implementation of the [Python NumPy Library](http://www.numpy.org)", "index.html", null ],
+    [ "Installation", "md__c_1__users_pilgeda__documents__git_hub__num_cpp_install__r_e_a_d_m_e.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -43,6 +44,7 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -59,11 +61,15 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_boost_numpy_ndarray_helper_8hpp.html",
-"_methods_8hpp.html#a7a526300e6258fc6a008cfabc53d679c",
-"classnc_1_1_dtype_info.html#a643006f8f1beb238b4f1bfd160d9d5c9",
-"classnc_1_1_shape.html#abcd1dafbc4c959f49d40b70d78a3ef2c",
-"globals_defs.html"
+"_boost_interface_8hpp.html",
+"alen_8hpp.html",
+"classnc_1_1_nd_array.html#a1638d4bfc3788d2154edf848ad6b18f1",
+"classnc_1_1_vec3.html#a431b2ac6af51bf59d804adbe5c8a7700",
+"cluster_pixels_8hpp_source.html",
+"functions_f.html",
+"meshgrid_8hpp.html#ab41fc0d9f63ddb858c0470a665d5d605",
+"radian_seperation_8hpp.html#a0fd3df39e04b072bf988390bce990f7c",
+"unique_8hpp.html#ab254accc5490d12c7d2b396345c50493"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

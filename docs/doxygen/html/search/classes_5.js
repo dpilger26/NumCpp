@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quaternion',['Quaternion',['../classnc_1_1rotations_1_1_quaternion.html',1,'nc::rotations']]]
+  ['pixel',['Pixel',['../classnc_1_1image_processing_1_1_pixel.html',1,'nc::imageProcessing']]],
+  ['poly1d',['Poly1d',['../classnc_1_1polynomial_1_1_poly1d.html',1,'nc::polynomial']]]
 ];

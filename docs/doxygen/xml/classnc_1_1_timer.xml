@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classnc_1_1_timer" kind="class" language="C++" prot="public">
+    <compoundname>nc::Timer</compoundname>
+    <includes refid="_timer_8hpp" local="no">Timer.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename TimeUnit</type>
+        <defval>std::chrono::milliseconds</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classnc_1_1_timer_1a6be07919fb1d118dafe6c9da3fc13280" prot="public" static="no">
+        <type>std::chrono::high_resolution_clock</type>
+        <definition>typedef std::chrono::high_resolution_clock nc::Timer&lt; TimeUnit &gt;::ChronoClock</definition>
+        <argsstring></argsstring>
+        <name>ChronoClock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="46" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classnc_1_1_timer_1a4ab76fe63a2c714307e7278d2032fe17" prot="public" static="no">
+        <type>std::chrono::time_point&lt; <ref refid="classnc_1_1_timer_1a6be07919fb1d118dafe6c9da3fc13280" kindref="member">ChronoClock</ref> &gt;</type>
+        <definition>typedef std::chrono::time_point&lt;ChronoClock&gt; nc::Timer&lt; TimeUnit &gt;::TimePoint</definition>
+        <argsstring></argsstring>
+        <name>TimePoint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="47" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classnc_1_1_timer_1a52e5ae0218fac907c758519bdfa4ce39" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string nc::Timer&lt; TimeUnit &gt;::name_</definition>
+        <argsstring></argsstring>
+        <name>name_</name>
+        <initializer>{ &quot;&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1_timer_1a890f4041ecfbe82a171d31de4c93221f" prot="private" static="no" mutable="no">
+        <type><ref refid="classnc_1_1_timer_1a4ab76fe63a2c714307e7278d2032fe17" kindref="member">TimePoint</ref></type>
+        <definition>TimePoint nc::Timer&lt; TimeUnit &gt;::start_</definition>
+        <argsstring></argsstring>
+        <name>start_</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1_timer_1a180b0c239172ed02e9dd4fabd41de2c8" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string nc::Timer&lt; TimeUnit &gt;::unit_</definition>
+        <argsstring></argsstring>
+        <name>unit_</name>
+        <initializer>{ &quot;&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classnc_1_1_timer_1ab3525068b39a9a0cfbce91908ca1974c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::Timer&lt; TimeUnit &gt;::setUnits</definition>
+        <argsstring>()</argsstring>
+        <name>setUnits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="55" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="55" bodyend="85"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnc_1_1_timer_1abe4f1d945b159d71211b86d7c7152147" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::Timer&lt; TimeUnit &gt;::Timer</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>Timer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="91" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="91" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_timer_1a2aa595ac4946f888bad3ebe0a2fd7468" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::Timer&lt; TimeUnit &gt;::Timer</definition>
+        <argsstring>(const std::string &amp;inName) noexcept</argsstring>
+        <name>Timer</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>inName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="102" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="102" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_timer_1a836e409a7c47556092849d56d8d3267b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::Timer&lt; TimeUnit &gt;::setName</definition>
+        <argsstring>(const std::string &amp;inName) noexcept</argsstring>
+        <name>setName</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>inName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets/changes the timer name</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="114" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="114" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_timer_1a4a08ec3e6ba7a7979cb9e72d0cf3f2f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::Timer&lt; TimeUnit &gt;::tic</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>tic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starts the timer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="122" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_timer_1a7c64b31bb98c3e037a587416f3d51015" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacenc_1a25da52a834e7af0e341d1503ebb62dcd" kindref="member">uint64</ref></type>
+        <definition>uint64 nc::Timer&lt; TimeUnit &gt;::toc</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>toc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method Description: Stops the timer</para><para><simplesect kind="return"><para>ellapsed time in specified time units </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="133" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="133" bodyend="138"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A timer class for timing code execution. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="38">
+        <label>nc::Timer&lt; TimeUnit &gt;</label>
+        <link refid="classnc_1_1_timer"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" line="43" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Core/Timer.hpp" bodystart="42" bodyend="139"/>
+    <listofallmembers>
+      <member refid="classnc_1_1_timer_1a6be07919fb1d118dafe6c9da3fc13280" prot="public" virt="non-virtual"><scope>nc::Timer</scope><name>ChronoClock</name></member>
+      <member refid="classnc_1_1_timer_1a52e5ae0218fac907c758519bdfa4ce39" prot="private" virt="non-virtual"><scope>nc::Timer</scope><name>name_</name></member>
+      <member refid="classnc_1_1_timer_1a836e409a7c47556092849d56d8d3267b" prot="public" virt="non-virtual"><scope>nc::Timer</scope><name>setName</name></member>
+      <member refid="classnc_1_1_timer_1ab3525068b39a9a0cfbce91908ca1974c" prot="private" virt="non-virtual"><scope>nc::Timer</scope><name>setUnits</name></member>
+      <member refid="classnc_1_1_timer_1a890f4041ecfbe82a171d31de4c93221f" prot="private" virt="non-virtual"><scope>nc::Timer</scope><name>start_</name></member>
+      <member refid="classnc_1_1_timer_1a4a08ec3e6ba7a7979cb9e72d0cf3f2f7" prot="public" virt="non-virtual"><scope>nc::Timer</scope><name>tic</name></member>
+      <member refid="classnc_1_1_timer_1a4ab76fe63a2c714307e7278d2032fe17" prot="public" virt="non-virtual"><scope>nc::Timer</scope><name>TimePoint</name></member>
+      <member refid="classnc_1_1_timer_1abe4f1d945b159d71211b86d7c7152147" prot="public" virt="non-virtual"><scope>nc::Timer</scope><name>Timer</name></member>
+      <member refid="classnc_1_1_timer_1a2aa595ac4946f888bad3ebe0a2fd7468" prot="public" virt="non-virtual"><scope>nc::Timer</scope><name>Timer</name></member>
+      <member refid="classnc_1_1_timer_1a7c64b31bb98c3e037a587416f3d51015" prot="public" virt="non-virtual"><scope>nc::Timer</scope><name>toc</name></member>
+      <member refid="classnc_1_1_timer_1a180b0c239172ed02e9dd4fabd41de2c8" prot="private" virt="non-virtual"><scope>nc::Timer</scope><name>unit_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -13,7 +13,7 @@ def doTest():
     print(colored('Testing Image Processing Module', 'magenta'))
 
     # generate a random noise
-    imageSize = 1024
+    imageSize = 512
     noiseStd = np.random.rand(1) * 4
     noiseMean = np.random.randint(75, 100, [1, ]).item()
     noise = np.round(np.random.randn(imageSize, imageSize) * noiseStd + noiseMean)

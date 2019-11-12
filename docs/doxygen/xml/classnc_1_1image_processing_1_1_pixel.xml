@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classnc_1_1image_processing_1_1_pixel" kind="class" language="C++" prot="public">
+    <compoundname>nc::imageProcessing::Pixel</compoundname>
+    <includes refid="_pixel_8hpp" local="no">Pixel.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>dtype</declname>
+        <defname>dtype</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classnc_1_1image_processing_1_1_pixel_1ac22936e8b5b80a1c557faaf9722b3183" prot="public" static="no" mutable="yes">
+        <type><ref refid="namespacenc_1ae1001b41fda4e17eb2dd197b4bfa56df" kindref="member">int32</ref></type>
+        <definition>int32 nc::imageProcessing::Pixel&lt; dtype &gt;::clusterId</definition>
+        <argsstring></argsstring>
+        <name>clusterId</name>
+        <initializer>{ -1 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="50" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1image_processing_1_1_pixel_1a6749c7a5513e2b7ee5c027aef104b269" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <definition>uint32 nc::imageProcessing::Pixel&lt; dtype &gt;::col</definition>
+        <argsstring></argsstring>
+        <name>col</name>
+        <initializer>{ 0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="52" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1image_processing_1_1_pixel_1a2ffea8fff18945da4971ab4c847a49bd" prot="public" static="no" mutable="no">
+        <type>dtype</type>
+        <definition>dtype nc::imageProcessing::Pixel&lt; dtype &gt;::intensity</definition>
+        <argsstring></argsstring>
+        <name>intensity</name>
+        <initializer>{ 0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classnc_1_1image_processing_1_1_pixel_1a6e712ef3b6547f5cafb6e8db1349658e" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <definition>uint32 nc::imageProcessing::Pixel&lt; dtype &gt;::row</definition>
+        <argsstring></argsstring>
+        <name>row</name>
+        <initializer>{ 0 }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a02c524151a89fb50a6553aa2cac411b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr nc::imageProcessing::Pixel&lt; dtype &gt;::Pixel</definition>
+        <argsstring>() noexcept=default</argsstring>
+        <name>Pixel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>defualt constructor needed by containers </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="59" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a4d1db82b1617d892266270d2bec28f61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr nc::imageProcessing::Pixel&lt; dtype &gt;::Pixel</definition>
+        <argsstring>(uint32 inRow, uint32 inCol, dtype inIntensity) noexcept</argsstring>
+        <name>Pixel</name>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inRow</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inCol</declname>
+        </param>
+        <param>
+          <type>dtype</type>
+          <declname>inIntensity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inRow</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pixel row </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inCol</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pixel column </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inIntensity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pixel intensity </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="69" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="69" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a4b80694a366506909633ff28c74b4042" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool nc::imageProcessing::Pixel&lt; dtype &gt;::operator!=</definition>
+        <argsstring>(const Pixel&lt; dtype &gt; &amp;rhs) const noexcept</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>not equality operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="100" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a592926833195d4f2587efef12e4b1148" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool nc::imageProcessing::Pixel&lt; dtype &gt;::operator&lt;</definition>
+        <argsstring>(const Pixel&lt; dtype &gt; &amp;rhs) const noexcept</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>less than operator for std::sort algorithm and std::set&lt;&gt;; NOTE: std::sort sorts in ascending order. Since I want to sort the centroids in descensing order, I am purposefully defining this operator backwards!</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="118" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="118" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a008757a06c498b1a31e26d53a54e51dc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool nc::imageProcessing::Pixel&lt; dtype &gt;::operator==</definition>
+        <argsstring>(const Pixel&lt; dtype &gt; &amp;rhs) const noexcept</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>equality operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>bool </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="85" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1a3a8fb91578395ef70a5f6038c4c48062" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::imageProcessing::Pixel&lt; dtype &gt;::print</definition>
+        <argsstring>() const</argsstring>
+        <name>print</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method Description: prints the <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref> object to the console </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="159" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="159" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1image_processing_1_1_pixel_1ae47f279d2f0ba0921027e787e3773ee8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string nc::imageProcessing::Pixel&lt; dtype &gt;::str</definition>
+        <argsstring>() const</argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>returns the pixel information as a string</para><para><simplesect kind="return"><para>std::string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="148" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="148" bodyend="153"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classnc_1_1image_processing_1_1_pixel_1a157a2e98ace3e2185af571a68e5a5b9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;inStream, const Pixel&lt; dtype &gt; &amp;inPixel)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>inStream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1image_processing_1_1_pixel" kindref="compound">Pixel</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inPixel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>osstream operator</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inStream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPixel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::ostream </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="173" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="173" bodyend="177"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Holds the information for a single pixel. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="22">
+        <label>dtype</label>
+      </node>
+      <node id="21">
+        <label>nc::imageProcessing::Pixel&lt; dtype &gt;</label>
+        <link refid="classnc_1_1image_processing_1_1_pixel"/>
+        <childnode refid="22" relation="usage">
+          <edgelabel>+intensity</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" line="47" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/ImageProcessing/Pixel.hpp" bodystart="46" bodyend="178"/>
+    <listofallmembers>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1ac22936e8b5b80a1c557faaf9722b3183" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>clusterId</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a6749c7a5513e2b7ee5c027aef104b269" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>col</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a2ffea8fff18945da4971ab4c847a49bd" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>intensity</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a4b80694a366506909633ff28c74b4042" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator!=</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a592926833195d4f2587efef12e4b1148" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator&lt;</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a157a2e98ace3e2185af571a68e5a5b9c" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a008757a06c498b1a31e26d53a54e51dc" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>operator==</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a02c524151a89fb50a6553aa2cac411b3" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>Pixel</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a4d1db82b1617d892266270d2bec28f61" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>Pixel</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a3a8fb91578395ef70a5f6038c4c48062" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>print</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1a6e712ef3b6547f5cafb6e8db1349658e" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>row</name></member>
+      <member refid="classnc_1_1image_processing_1_1_pixel_1ae47f279d2f0ba0921027e787e3773ee8" prot="public" virt="non-virtual"><scope>nc::imageProcessing::Pixel</scope><name>str</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

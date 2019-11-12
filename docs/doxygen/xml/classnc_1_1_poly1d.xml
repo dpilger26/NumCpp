@@ -1,0 +1,439 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="classnc_1_1_poly1d" kind="class" language="C++" prot="public">
+    <compoundname>nc::Poly1d</compoundname>
+    <includes refid="_polynomial_8hpp" local="no">Polynomial.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename</type>
+        <declname>dtype</declname>
+        <defname>dtype</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classnc_1_1_poly1d_1ab0dc386b00f5efd7740debcb2a56dbed" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; dtype &gt;</type>
+        <definition>std::vector&lt;dtype&gt; nc::Poly1d&lt; dtype &gt;::coefficients_</definition>
+        <argsstring></argsstring>
+        <name>coefficients_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="53" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a0003fc289206aad178df9a8d5834384f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>nc::Poly1d&lt; dtype &gt;::Poly1d</definition>
+        <argsstring>() noexcept=default</argsstring>
+        <name>Poly1d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default Constructor (not very usefull, but needed for other containers. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="61" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a342131534c0d1324be479b6a41e76525" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>nc::Poly1d&lt; dtype &gt;::Poly1d</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inValues, bool isRoots=false)</argsstring>
+        <name>Poly1d</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inValues</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isRoots</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValues</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(polynomial coefficients in ascending order of power if second input is false, polynomial roots if second input is true) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isRoots</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="71" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="71" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a14d19ab43dc4f354ce1a583a369822b3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt;dtype&gt; nc::Poly1d&lt; dtype &gt;::coefficients</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>coefficients</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> coefficients</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="103" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="103" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a7eed4e24b0713965446130e44d2d30f4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>dtype</type>
+        <definition>dtype nc::Poly1d&lt; dtype &gt;::operator()</definition>
+        <argsstring>(dtype inValue) const noexcept</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>dtype</type>
+          <declname>inValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Evaluates the Poly1D object for the input value</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="158" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="158" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1aa0a0a8d19598451836861bb43a7d2f72" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt;</type>
+        <definition>Poly1d&lt;dtype&gt; nc::Poly1d&lt; dtype &gt;::operator*</definition>
+        <argsstring>(const Poly1d&lt; dtype &gt; &amp;inOtherPoly) const noexcept</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inOtherPoly</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Multiplies the two <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> objects</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inOtherPoly</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="273" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="273" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1aa37af655ace63c299538d57021294d61" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+        <definition>Poly1d&lt;dtype&gt;&amp; nc::Poly1d&lt; dtype &gt;::operator*=</definition>
+        <argsstring>(const Poly1d&lt; dtype &gt; &amp;inOtherPoly) noexcept</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inOtherPoly</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Multiplies the two <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> objects</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inOtherPoly</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="287" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="287" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1aabfc041f684fb6f98a0df0777e375695" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt;</type>
+        <definition>Poly1d&lt;dtype&gt; nc::Poly1d&lt; dtype &gt;::operator+</definition>
+        <argsstring>(const Poly1d&lt; dtype &gt; &amp;inOtherPoly) const noexcept</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inOtherPoly</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds the two <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> objects</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inOtherPoly</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="179" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="179" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a4d481cb3879cb651d44ab7fb59ff9296" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+        <definition>Poly1d&lt;dtype&gt;&amp; nc::Poly1d&lt; dtype &gt;::operator+=</definition>
+        <argsstring>(const Poly1d&lt; dtype &gt; &amp;inOtherPoly) noexcept</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inOtherPoly</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds the two <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> objects</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inOtherPoly</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="193" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="193" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a58c13341cd99a2b325dc3ff43ea4f732" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt;</type>
+        <definition>Poly1d&lt;dtype&gt; nc::Poly1d&lt; dtype &gt;::operator-</definition>
+        <argsstring>(const Poly1d&lt; dtype &gt; &amp;inOtherPoly) const noexcept</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inOtherPoly</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Subtracts the two <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> objects</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inOtherPoly</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="226" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="226" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a1532ecc5494f2409f06b0037e360f1a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+        <definition>Poly1d&lt;dtype&gt;&amp; nc::Poly1d&lt; dtype &gt;::operator-=</definition>
+        <argsstring>(const Poly1d&lt; dtype &gt; &amp;inOtherPoly) noexcept</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inOtherPoly</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Subtracts the two <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> objects</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inOtherPoly</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="240" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="240" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a81d17d865ab14491f11d13912b13f80e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt;</type>
+        <definition>Poly1d&lt;dtype&gt; nc::Poly1d&lt; dtype &gt;::operator^</definition>
+        <argsstring>(uint32 inPower) const noexcept</argsstring>
+        <name>operator^</name>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inPower</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Raise the <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> to an integer power</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inPower</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="318" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="318" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a496d984bfae45cadae3665cea6b3d7c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+        <definition>Poly1d&lt;dtype&gt;&amp; nc::Poly1d&lt; dtype &gt;::operator^=</definition>
+        <argsstring>(uint32 inPower) noexcept</argsstring>
+        <name>operator^=</name>
+        <param>
+          <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+          <declname>inPower</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Raise the <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> to an integer power</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inPower</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="332" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="332" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a98b30308386e0cfb32b2f6a2debbe83c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacenc_1aacba4d66f94f6f53637e23c5d82e20d8" kindref="member">uint32</ref></type>
+        <definition>uint32 nc::Poly1d&lt; dtype &gt;::order</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>order</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the order of the <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref></para><para><simplesect kind="return"><para><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="115" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1aeffc6cebcd30ed1a2b478958b732c367" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void nc::Poly1d&lt; dtype &gt;::print</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>print</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints the string representation of the <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> object to the console </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="144" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="144" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classnc_1_1_poly1d_1a16f1c9b8cddcfcf8999277d6446251e1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string nc::Poly1d&lt; dtype &gt;::str</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts the polynomial to a string representation</para><para><simplesect kind="return"><para><ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="127" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="127" bodyend="137"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classnc_1_1_poly1d_1a80f939448c8b58ab286c57ab0212b785" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;inOStream, const Poly1d&lt; dtype &gt; &amp;inPoly) noexcept</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>inOStream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inPoly</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>io operator for the <ref refid="classnc_1_1_poly1d" kindref="compound">Poly1d</ref> class</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inOStream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>inPoly</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::ostream </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="363" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="363" bodyend="367"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A one-dimensional polynomial class. A convenience class, used to encapsulate &quot;natural&quot; operations on polynomials </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="26">
+        <label>nc::Poly1d&lt; dtype &gt;</label>
+        <link refid="classnc_1_1_poly1d"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" line="51" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/Polynomial.hpp" bodystart="50" bodyend="368"/>
+    <listofallmembers>
+      <member refid="classnc_1_1_poly1d_1a14d19ab43dc4f354ce1a583a369822b3" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>coefficients</name></member>
+      <member refid="classnc_1_1_poly1d_1ab0dc386b00f5efd7740debcb2a56dbed" prot="private" virt="non-virtual"><scope>nc::Poly1d</scope><name>coefficients_</name></member>
+      <member refid="classnc_1_1_poly1d_1a7eed4e24b0713965446130e44d2d30f4" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>operator()</name></member>
+      <member refid="classnc_1_1_poly1d_1aa0a0a8d19598451836861bb43a7d2f72" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>operator*</name></member>
+      <member refid="classnc_1_1_poly1d_1aa37af655ace63c299538d57021294d61" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>operator*=</name></member>
+      <member refid="classnc_1_1_poly1d_1aabfc041f684fb6f98a0df0777e375695" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>operator+</name></member>
+      <member refid="classnc_1_1_poly1d_1a4d481cb3879cb651d44ab7fb59ff9296" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>operator+=</name></member>
+      <member refid="classnc_1_1_poly1d_1a58c13341cd99a2b325dc3ff43ea4f732" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>operator-</name></member>
+      <member refid="classnc_1_1_poly1d_1a1532ecc5494f2409f06b0037e360f1a5" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>operator-=</name></member>
+      <member refid="classnc_1_1_poly1d_1a80f939448c8b58ab286c57ab0212b785" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classnc_1_1_poly1d_1a81d17d865ab14491f11d13912b13f80e" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>operator^</name></member>
+      <member refid="classnc_1_1_poly1d_1a496d984bfae45cadae3665cea6b3d7c9" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>operator^=</name></member>
+      <member refid="classnc_1_1_poly1d_1a98b30308386e0cfb32b2f6a2debbe83c" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>order</name></member>
+      <member refid="classnc_1_1_poly1d_1a0003fc289206aad178df9a8d5834384f" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>Poly1d</name></member>
+      <member refid="classnc_1_1_poly1d_1a342131534c0d1324be479b6a41e76525" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>Poly1d</name></member>
+      <member refid="classnc_1_1_poly1d_1aeffc6cebcd30ed1a2b478958b732c367" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>print</name></member>
+      <member refid="classnc_1_1_poly1d_1a16f1c9b8cddcfcf8999277d6446251e1" prot="public" virt="non-virtual"><scope>nc::Poly1d</scope><name>str</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

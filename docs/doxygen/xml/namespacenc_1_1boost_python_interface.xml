@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="namespacenc_1_1boost_python_interface" kind="namespace" language="C++">
+    <compoundname>nc::boostPythonInterface</compoundname>
+    <innerclass refid="classnc_1_1boost_python_interface_1_1_boost_ndarray_helper" prot="public">nc::boostPythonInterface::BoostNdarrayHelper</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacenc_1_1boost_python_interface_1a7195ee32d5fb06600aba55dc53b193ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt;</type>
+        <definition>NdArray&lt;dtype&gt; nc::boostPythonInterface::boost2Nc</definition>
+        <argsstring>(const boost::python::numpy::ndarray &amp;inArray)</argsstring>
+        <name>boost2Nc</name>
+        <param>
+          <type>const boost::python::numpy::ndarray &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts from a boost ndarray to a NumCpp NdArray&lt;T&gt;</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>NdArray&lt;T&gt; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" line="56" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" bodystart="56" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1boost_python_interface_1a924e2a76cccb1b95a9ef94ee659265b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; nc::boostPythonInterface::list2vector</definition>
+        <argsstring>(const boost::python::list &amp;inList) noexcept</argsstring>
+        <name>list2vector</name>
+        <param>
+          <type>const boost::python::list &amp;</type>
+          <declname>inList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>converts a boost python list to a std::vector</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>std::vector&lt;T&gt; </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" line="129" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" bodystart="129" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1boost_python_interface_1a902099e2b25ba03effa74ec4f711df98" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Key</type>
+          </param>
+          <param>
+            <type>class Value</type>
+          </param>
+        </templateparamlist>
+        <type>boost::python::dict</type>
+        <definition>boost::python::dict nc::boostPythonInterface::map2dict</definition>
+        <argsstring>(const std::map&lt; Key, Value &gt; &amp;inMap) noexcept</argsstring>
+        <name>map2dict</name>
+        <param>
+          <type>const std::map&lt; Key, Value &gt; &amp;</type>
+          <declname>inMap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>converts a std::map in to a boost python dictionary</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inMap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boost::python::dict </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" line="161" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" bodystart="161" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1boost_python_interface_1ade0e9a078ced194c389c02e7870a8464" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename dtype</type>
+          </param>
+        </templateparamlist>
+        <type>boost::python::numpy::ndarray</type>
+        <definition>boost::python::numpy::ndarray nc::boostPythonInterface::nc2Boost</definition>
+        <argsstring>(const NdArray&lt; dtype &gt; &amp;inArray) noexcept</argsstring>
+        <name>nc2Boost</name>
+        <param>
+          <type>const <ref refid="classnc_1_1_nd_array" kindref="compound">NdArray</ref>&lt; dtype &gt; &amp;</type>
+          <declname>inArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts from a NumCpp NdArray&lt;T&gt; to a boost ndarray</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ndarray </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" line="105" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" bodystart="105" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacenc_1_1boost_python_interface_1a51a40e2866bcdb72f03c5ded0ce94f9b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>boost::python::list</type>
+        <definition>boost::python::list nc::boostPythonInterface::vector2list</definition>
+        <argsstring>(std::vector&lt; T &gt; &amp;inVector) noexcept</argsstring>
+        <name>vector2list</name>
+        <param>
+          <type>std::vector&lt; T &gt; &amp;</type>
+          <declname>inVector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>converts a std::vector to a boost python list</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>inVector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boost::python::list </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" line="142" column="1" bodyfile="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" bodystart="142" bodyend="151"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/pilgeda/Documents/GitHub/NumCpp/include/NumCpp/PythonInterface/BoostInterface.hpp" line="47" column="1"/>
+  </compounddef>
+</doxygen>

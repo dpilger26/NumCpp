@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sign',['Sign',['../namespacenc_1_1coordinates.html#a07a05f0462e5f74f05cbd04664c4ca94',1,'nc::coordinates']]]
+  ['returnpolicy',['ReturnPolicy',['../namespacenc_1_1pybind_interface.html#a0ca16a67f36ad5d1960cd9567208ed19',1,'nc::pybindInterface']]]
 ];
