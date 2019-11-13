@@ -217,6 +217,24 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Returns true if the array is sorted
+        ///
+        /// @param first: the first iterator of the source
+        /// @param last: the last iterator of the source
+        /// @return bool true if sorted
+        ///
+        template<class ForwardIt>
+        bool is_sorted(ForwardIt first, ForwardIt last)
+        {
+#ifdef PARALLEL_ALGORITHMS_SUPPORTED
+            return std::is_sorted(std::execution::par_unseq, first, last);
+#else
+            return std::is_sorted(first, last);
+#endif
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Runs the maximum element of the range
         ///
         /// @param first: the first iterator of the source

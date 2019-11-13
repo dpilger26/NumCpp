@@ -288,6 +288,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray issorted(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
+    {
+        return nc2Boost(self.issorted(inAxis));
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray max(const NdArray<dtype>& self, Axis inAxis = Axis::NONE)
     {
         return nc2Boost(self.max(inAxis));
@@ -3724,6 +3732,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("getByMask", &NdArrayInterface::getByMask<double>)
         .def("isempty", &NdArrayDouble::isempty)
         .def("isflat", &NdArrayDouble::isflat)
+        .def("issorted", &NdArrayInterface::issorted<double>)
         .def("item", &NdArrayDouble::item)
         .def("max", &NdArrayInterface::max<double>)
         .def("min", &NdArrayInterface::min<double>)

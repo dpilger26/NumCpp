@@ -1860,6 +1860,50 @@ namespace nc
 
         //============================================================================
         // Method Description:
+        ///						Return if the NdArray is sorted.
+        ///
+        /// @param inAxis
+        /// @return boolean
+        ///
+        NdArray<bool> issorted(Axis inAxis = Axis::NONE) const noexcept
+        {
+            switch (inAxis)
+            {
+                case Axis::NONE:
+                {
+                    return { stl_algorithms::is_sorted(cbegin(), cend()) };
+                }
+                case Axis::ROW:
+                {
+                    NdArray<bool> returnArray(shape_.cols, 1);
+                    auto transposedArray = transpose();
+                    for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
+                    {
+                        returnArray(0, row) = stl_algorithms::is_sorted(transposedArray.cbegin(row), transposedArray.cend(row));
+                    }
+
+                    return returnArray;
+                }
+                case Axis::COL:
+                {
+                    NdArray<bool> returnArray(1, shape_.rows);
+                    for (uint32 row = 0; row < shape_.rows; ++row)
+                    {
+                        returnArray(0, row) = stl_algorithms::is_sorted(cbegin(row), cend(row));
+                    }
+
+                    return returnArray;
+                }
+                default:
+                {
+                    // not actually possible, just getting rid of compiler warning
+                    return NdArray<bool>(0);
+                }
+            }
+        }
+
+        //============================================================================
+        // Method Description:
         ///						Return the NdArrays endianess
         ///
         /// @return

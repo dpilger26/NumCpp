@@ -606,6 +606,54 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing issorted: Axis = None', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    dataSorted = np.sort(data.flatten()).reshape(data.shape)
+    cArray.setArray(data)
+    if not cArray.issorted(NumCpp.Axis.NONE).item():
+        cArray.setArray(dataSorted)
+        if cArray.issorted(NumCpp.Axis.NONE).item():
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing issorted: Axis = Row', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    dataSorted = np.sort(data, axis=0).reshape(data.shape)
+    cArray.setArray(data)
+    if not np.all(cArray.issorted(NumCpp.Axis.ROW)):
+        cArray.setArray(dataSorted)
+        if np.all(cArray.issorted(NumCpp.Axis.ROW)):
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
+    print(colored('Testing issorted: Axis = Col', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 100, [shape.rows, shape.cols])
+    dataSorted = np.sort(data, axis=1).reshape(data.shape)
+    cArray.setArray(data)
+    if not np.all(cArray.issorted(NumCpp.Axis.COL)):
+        cArray.setArray(dataSorted)
+        if np.all(cArray.issorted(NumCpp.Axis.COL)):
+            print(colored('\tPASS', 'green'))
+        else:
+            print(colored('\tFAIL', 'red'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing item', 'cyan'))
     shape = NumCpp.Shape(1, 1)
     cArray = NumCpp.NdArray(shape)
