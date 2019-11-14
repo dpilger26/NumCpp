@@ -560,6 +560,17 @@ def doTest():
     else:
         print(colored('\tFAIL', 'red'))
 
+    print(colored('Testing flatnonzero', 'cyan'))
+    shapeInput = np.random.randint(1, 100, [2, ])
+    shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
+    cArray = NumCpp.NdArray(shape)
+    data = np.random.randint(0, 10, [shape.rows, shape.cols])
+    cArray.setArray(data)
+    if np.array_equal(cArray.flatnonzero().flatten().astype(np.uint32), np.flatnonzero(data)):
+        print(colored('\tPASS', 'green'))
+    else:
+        print(colored('\tFAIL', 'red'))
+
     print(colored('Testing flatten', 'cyan'))
     shapeInput = np.random.randint(1, 50, [2, ])
     shape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
@@ -875,7 +886,9 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 10, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(cArray.nonzero(), data.flatten().nonzero()):
+    rowsC, colsC = cArray.nonzero()
+    rows, cols = data.nonzero()
+    if np.array_equal(rowsC.flatten(), rows) and np.array_equal(colsC.flatten(), cols):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

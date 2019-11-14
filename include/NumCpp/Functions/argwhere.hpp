@@ -46,6 +46,6 @@ namespace nc
     template<typename dtype>
     NdArray<uint32> argwhere(const NdArray<dtype>& inArray) noexcept
     {
-        return inArray.nonzero();
+        return inArray.flatnonzero();
     }
 }

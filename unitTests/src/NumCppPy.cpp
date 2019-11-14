@@ -215,6 +215,14 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
+    np::ndarray flatnonzero(const NdArray<dtype>& self)
+    {
+        return nc2Boost(self.flatnonzero());
+    }
+
+    //================================================================================
+
+    template<typename dtype>
     np::ndarray flatten(const NdArray<dtype>& self)
     {
         return nc2Boost(self.flatten());
@@ -344,9 +352,10 @@ namespace NdArrayInterface
     //================================================================================
 
     template<typename dtype>
-    np::ndarray nonzero(const NdArray<dtype>& self)
+    bp::tuple nonzero(const NdArray<dtype>& self)
     {
-        return nc2Boost(self.nonzero());
+        auto rowCol = self.nonzero();
+        return bp::make_tuple(nc2Boost(rowCol.first), nc2Boost(rowCol.second));
     }
 
     //================================================================================
@@ -3617,6 +3626,11 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def_readonly("first", &doublePair::first)
         .def_readonly("second", &doublePair::second);
 
+    typedef std::pair<NdArray<uint32>, NdArray<uint32> > uint32Pair;
+    bp::class_<uint32Pair>("uint32Pair")
+        .def_readonly("first", &uint32Pair::first)
+        .def_readonly("second", &uint32Pair::second);
+
     // Constants.hpp
     bp::scope().attr("c") = constants::c;
     bp::scope().attr("e") = constants::e;
@@ -3720,6 +3734,7 @@ BOOST_PYTHON_MODULE(NumCpp)
         .def("dot", &NdArrayInterface::dot<double>)
         .def("dump", &NdArrayDouble::dump)
         .def("fill", &NdArrayInterface::fill<double>)
+        .def("flatnonzero", &NdArrayInterface::flatnonzero<double>)
         .def("flatten", &NdArrayInterface::flatten<double>)
         .def("front", &NdArrayDouble::front)
         .def("get", &NdArrayInterface::getValueFlat<double>)

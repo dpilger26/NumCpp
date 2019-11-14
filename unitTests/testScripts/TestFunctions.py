@@ -3557,7 +3557,11 @@ def doTest():
     cArray = NumCpp.NdArray(shape)
     data = np.random.randint(0, 100, [shape.rows, shape.cols])
     cArray.setArray(data)
-    if np.array_equal(NumCpp.nonzero(cArray).getNumpyArray().flatten(), data.flatten().nonzero()[0]):
+    row, col = np.nonzero(data)
+    rowCol = NumCpp.nonzero(cArray)
+    rowC = rowCol.first.getNumpyArray().flatten()
+    colC = rowCol.second.getNumpyArray().flatten()
+    if np.array_equal(rowC, row) and np.array_equal(colC, col):
         print(colored('\tPASS', 'green'))
     else:
         print(colored('\tFAIL', 'red'))

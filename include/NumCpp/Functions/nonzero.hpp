@@ -30,6 +30,8 @@
 
 #include "NumCpp/NdArray.hpp"
 
+#include <utility>
+
 namespace nc
 {
     //============================================================================
@@ -46,7 +48,7 @@ namespace nc
     ///				NdArray
     ///
     template<typename dtype>
-    NdArray<uint32> nonzero(const NdArray<dtype>& inArray) noexcept
+    std::pair<NdArray<uint32>, NdArray<uint32> > nonzero(const NdArray<dtype>& inArray) noexcept
     {
         return inArray.nonzero();
     }

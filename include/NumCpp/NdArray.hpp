@@ -585,7 +585,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input inMask must have the same shape as the NdArray it will be masking.");
             }
 
-            auto indices = inMask.nonzero();
+            auto indices = inMask.flatnonzero();
             auto outArray = NdArray<dtype>(1, indices.size());
             for (uint32 i = 0; i < indices.size(); ++i)
             {
@@ -1314,7 +1314,7 @@ namespace nc
 
                     auto function = [this](uint32 i1, uint32 i2) noexcept -> bool
                     {
-                        return this->array_[i1] < this->array_[i2];
+                        return operator[](i1) < operator[](i2);
                     };
 
                     stl_algorithms::stable_sort(idx.begin(), idx.end(), function);
@@ -1830,6 +1830,30 @@ namespace nc
 
             ofile.write(reinterpret_cast<const char*>(array_), size_ * sizeof(dtype));
             ofile.close();
+        }
+
+        //============================================================================
+        // Method Description:
+        ///						Return the indices of the flattened array of the
+        ///						elements that are non-zero.
+        ///
+        /// @return
+        ///				NdArray
+        ///
+        NdArray<uint32> flatnonzero() const noexcept
+        {
+            std::vector<uint32> indices;
+            uint32 idx = 0;
+            for (auto value : *this)
+            {
+                if (value != dtype{ 0 })
+                {
+                    indices.push_back(idx);
+                }
+                ++idx;
+            }
+
+            return NdArray<uint32>(indices);
         }
 
         //============================================================================
@@ -2452,28 +2476,33 @@ namespace nc
 
         //============================================================================
         // Method Description:
-        ///						Return the indices of the flattened array of the
+        ///						Return the row/col indices of the array of the
         ///						elements that are non-zero.
         ///
         ///                     Numpy Reference: https://www.numpy.org/devdocs/reference/generated/numpy.ndarray.nonzero.html
         ///
         /// @return
-        ///				NdArray
+        ///				std::pair<NdArray, NdArray> where first is the row indices and second is the
+        ///             column indices
         ///
-        NdArray<uint32> nonzero() const noexcept
+        auto nonzero() const noexcept
         {
-            std::vector<uint32> indices;
-            uint32 idx = 0;
-            for (auto value : *this)
+            std::vector<uint32> rowIndices;
+            std::vector<uint32> colIndices;
+            
+            for (uint32 row = 0; row < shape_.rows; ++row)
             {
-                if (value != dtype{ 0 })
+                for (uint32 col = 0; col < shape_.cols; ++col)
                 {
-                    indices.push_back(idx);
+                    if (operator()(row, col) != dtype{ 0 })
+                    {
+                        rowIndices.push_back(row);
+                        colIndices.push_back(col);
+                    }
                 }
-                ++idx;
             }
 
-            return NdArray<uint32>(indices);
+            return std::make_pair(NdArray<uint32>(rowIndices), NdArray<uint32>(colIndices));
         }
 
         //============================================================================
@@ -3068,7 +3097,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input inMask must be the same shape as the array it is masking.");
             }
 
-            return put(inMask.nonzero(), inValue);
+            return put(inMask.flatnonzero(), inValue);
         }
 
         //============================================================================
@@ -3085,7 +3114,7 @@ namespace nc
                 THROW_INVALID_ARGUMENT_ERROR("input inMask must be the same shape as the array it is masking.");
             }
 
-            return put(inMask.nonzero(), inValues);
+            return put(inMask.flatnonzero(), inValues);
         }
 
         //============================================================================

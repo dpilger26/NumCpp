@@ -46,6 +46,6 @@ namespace nc
     template<typename dtype>
     NdArray<uint32> flatnonzero(const NdArray<dtype>& inArray) noexcept
     {
-        return inArray.flatten().nonzero();
+        return inArray.flatnonzero();
     }
 }
