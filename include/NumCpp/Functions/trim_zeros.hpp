@@ -57,7 +57,7 @@ namespace nc
             uint32 place = 0;
             for (auto value : inArray)
             {
-                if (value != static_cast<dtype>(0))
+                if (value != dtype{ 0 })
                 {
                     break;
                 }
@@ -82,7 +82,7 @@ namespace nc
             uint32 place = inArray.size();
             for (uint32 i = inArray.size() - 1; i > 0; --i)
             {
-                if (inArray[i] != static_cast<dtype>(0))
+                if (inArray[i] != dtype{ 0 })
                 {
                     break;
                 }
@@ -107,7 +107,7 @@ namespace nc
             uint32 placeBegin = 0;
             for (auto value : inArray)
             {
-                if (value != static_cast<dtype>(0))
+                if (value != dtype{ 0 })
                 {
                     break;
                 }
@@ -125,7 +125,7 @@ namespace nc
             uint32 placeEnd = inArray.size();
             for (uint32 i = inArray.size() - 1; i > 0; --i)
             {
-                if (inArray[i] != static_cast<dtype>(0))
+                if (inArray[i] != dtype{ 0 })
                 {
                     break;
                 }

@@ -54,7 +54,7 @@ namespace nc
             case Axis::NONE:
             {
                 NdArray<uint32> count = { inArray.size() - 
-                    static_cast<uint32>(stl_algorithms::count(inArray.cbegin(), inArray.cend(), static_cast<dtype>(0))) };
+                    static_cast<uint32>(stl_algorithms::count(inArray.cbegin(), inArray.cend(), dtype{ 0 })) };
                 return count;
             }
             case Axis::COL:
@@ -65,7 +65,7 @@ namespace nc
                 for (uint32 row = 0; row < inShape.rows; ++row)
                 {
                     returnArray(0, row) = inShape.cols -
-                        static_cast<uint32>(stl_algorithms::count(inArray.cbegin(row), inArray.cend(row), static_cast<dtype>(0)));
+                        static_cast<uint32>(stl_algorithms::count(inArray.cbegin(row), inArray.cend(row), dtype{ 0 }));
                 }
 
                 return returnArray;
@@ -78,7 +78,7 @@ namespace nc
                 for (uint32 row = 0; row < inShapeTransposed.rows; ++row)
                 {
                     returnArray(0, row) = inShapeTransposed.cols -
-                        static_cast<uint32>(stl_algorithms::count(inArrayTranspose.cbegin(row), inArrayTranspose.cend(row), static_cast<dtype>(0)));
+                        static_cast<uint32>(stl_algorithms::count(inArrayTranspose.cbegin(row), inArrayTranspose.cend(row), dtype{ 0 }));
                 }
 
                 return returnArray;

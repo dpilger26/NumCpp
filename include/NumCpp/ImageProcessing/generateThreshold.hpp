@@ -77,7 +77,7 @@ namespace nc
                 }
                 else
                 {
-                    return static_cast<dtype>(0);
+                    return dtype{ 0 };
                 }
             }
 

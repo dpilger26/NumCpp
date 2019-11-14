@@ -1093,7 +1093,7 @@ namespace nc
         {
             auto function = [](dtype i) noexcept -> bool
             {
-                return i != static_cast<dtype>(0);
+                return i != dtype{ 0 };
             };
 
             switch (inAxis)
@@ -1148,7 +1148,7 @@ namespace nc
         {
             auto function = [](dtype i) noexcept -> bool
             {
-                return i != static_cast<dtype>(0);
+                return i != dtype{ 0 };
             };
 
             switch (inAxis)
@@ -1773,7 +1773,7 @@ namespace nc
         {
             if (shape_ == inOtherArray.shape_ && (shape_.rows == 1 || shape_.cols == 1))
             {
-                dtype dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), static_cast<dtype>(0));
+                dtype dotProduct = std::inner_product(cbegin(), cend(), inOtherArray.cbegin(), dtype{ 0 });
                 NdArray<dtype> returnArray = { dotProduct };
                 return returnArray;
             }
@@ -1787,7 +1787,7 @@ namespace nc
                 {
                     for (uint32 j = 0; j < otherArrayT.shape_.rows; ++j)
                     {
-                        returnArray(i, j) = std::inner_product(otherArrayT.cbegin(j), otherArrayT.cend(j), cbegin(i), static_cast<dtype>(0));
+                        returnArray(i, j) = std::inner_product(otherArrayT.cbegin(j), otherArrayT.cend(j), cbegin(i), dtype{ 0 });
                     }
                 }
 
@@ -2410,7 +2410,7 @@ namespace nc
         {
             auto function = [](dtype i) noexcept -> bool
             {
-                return i != static_cast<dtype>(0);
+                return i != dtype{ 0 };
             };
 
             switch (inAxis)
@@ -2466,7 +2466,7 @@ namespace nc
             uint32 idx = 0;
             for (auto value : *this)
             {
-                if (value != static_cast<dtype>(0))
+                if (value != dtype{ 0 })
                 {
                     indices.push_back(idx);
                 }
@@ -2684,7 +2684,7 @@ namespace nc
                 case Axis::NONE:
                 {
                     dtype product = std::accumulate(cbegin(), cend(),
-                        static_cast<dtype>(1), std::multiplies<dtype>());
+                        dtype{ 1 }, std::multiplies<dtype>());
                     NdArray<dtype> returnArray = { product };
                     return returnArray;
                 }
@@ -2694,7 +2694,7 @@ namespace nc
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
                         returnArray(0, row) = std::accumulate(cbegin(row), cend(row),
-                            static_cast<dtype>(1), std::multiplies<dtype>());
+                            dtype{ 1 }, std::multiplies<dtype>());
                     }
 
                     return returnArray;
@@ -2706,7 +2706,7 @@ namespace nc
                     for (uint32 row = 0; row < transposedArray.shape_.rows; ++row)
                     {
                         returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row),
-                            static_cast<dtype>(1), std::multiplies<dtype>());
+                            dtype{ 1 }, std::multiplies<dtype>());
                     }
 
                     return returnArray;
@@ -3332,7 +3332,7 @@ namespace nc
                 {
                     if (row >= oldShape.rows || col >= oldShape.cols)
                     {
-                        operator()(row, col) = static_cast<dtype>(0); // zero fill
+                        operator()(row, col) = dtype{ 0 }; // zero fill
                     }
                     else
                     {
@@ -3658,7 +3658,7 @@ namespace nc
             {
                 case Axis::NONE:
                 {
-                    NdArray<dtype> returnArray = { std::accumulate(cbegin(), cend(), static_cast<dtype>(0)) };
+                    NdArray<dtype> returnArray = { std::accumulate(cbegin(), cend(), dtype{ 0 }) };
                     return returnArray;
                 }
                 case Axis::COL:
@@ -3666,7 +3666,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, shape_.rows);
                     for (uint32 row = 0; row < shape_.rows; ++row)
                     {
-                        returnArray(0, row) = std::accumulate(cbegin(row), cend(row), static_cast<dtype>(0));
+                        returnArray(0, row) = std::accumulate(cbegin(row), cend(row), dtype{ 0 });
                     }
 
                     return returnArray;
@@ -3678,7 +3678,7 @@ namespace nc
                     NdArray<dtype> returnArray(1, transShape.rows);
                     for (uint32 row = 0; row < transShape.rows; ++row)
                     {
-                        returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), static_cast<dtype>(0));
+                        returnArray(0, row) = std::accumulate(transposedArray.cbegin(row), transposedArray.cend(row), dtype{ 0 });
                     }
 
                     return returnArray;
@@ -3802,7 +3802,7 @@ namespace nc
 
             if (rowStart >= shape_.rows || colStart >= shape_.cols)
             {
-                return static_cast<dtype>(0);
+                return dtype{ 0 };
             }
 
             uint32 col = colStart;

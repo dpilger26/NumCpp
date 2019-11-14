@@ -48,7 +48,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> ones(uint32 inSquareSize) noexcept
     {
-        return full(inSquareSize, inSquareSize, static_cast<dtype>(1));
+        return full(inSquareSize, inSquareSize, dtype{ 1 });
     }
 
     //============================================================================
@@ -65,7 +65,7 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> ones(uint32 inNumRows, uint32 inNumCols) noexcept
     {
-        return full(inNumRows, inNumCols, static_cast<dtype>(1));
+        return full(inNumRows, inNumCols, dtype{ 1 });
     }
 
     //============================================================================
@@ -82,6 +82,6 @@ namespace nc
     template<typename dtype>
     NdArray<dtype> ones(const Shape& inShape) noexcept
     {
-        return full(inShape, static_cast<dtype>(1));
+        return full(inShape, dtype{ 1 });
     }
 }

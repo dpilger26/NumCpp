@@ -72,7 +72,7 @@ namespace nc
                     break;
                 }
 
-                returnArray(row, col) = static_cast<dtype>(1);
+                returnArray(row, col) = dtype{ 1 };
             }
         }
 
@@ -118,7 +118,7 @@ namespace nc
                     break;
                 }
 
-                returnArray(row, col) = static_cast<dtype>(1);
+                returnArray(row, col) = dtype{ 1 };
             }
         }
 
@@ -197,7 +197,7 @@ namespace nc
                     break;
                 }
 
-                returnArray(row, col) = static_cast<dtype>(0);
+                returnArray(row, col) = dtype{ 0 };
             }
         }
 
