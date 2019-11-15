@@ -86,7 +86,7 @@ int main()
     auto a37 = a == b;
     auto a38 = nc::not_equal(a, b);
     auto a39 = a != b;
-    auto a40 = nc::nonzero(a);
+    auto [rows, cols] = nc::nonzero(a);
 
     // Minimum, Maximum, Sorting
     auto value1 = nc::min(a);
