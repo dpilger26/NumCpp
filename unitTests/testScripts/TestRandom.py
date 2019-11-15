@@ -189,6 +189,7 @@ def doTest():
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     values = np.random.randint(1, 100, [2, ])
+    values.sort()
     r = NumCpp.randFloat(inShape, values[0].item(), values[1].item())
     print(colored('\tPASS', 'green'))
 
@@ -196,6 +197,7 @@ def doTest():
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     values = np.random.randint(1, 100, [2, ])
+    values.sort()
     r = NumCpp.randInt(inShape, values[0].item(), values[1].item())
     print(colored('\tPASS', 'green'))
 
@@ -243,6 +245,7 @@ def doTest():
     shapeInput = np.random.randint(1, 100, [2,])
     inShape = NumCpp.Shape(shapeInput[0].item(), shapeInput[1].item())
     values = np.random.randint(1, 100, [2, ])
+    values.sort()
     r = NumCpp.uniform(inShape, values[0].item(), values[1].item())
     print(colored('\tPASS', 'green'))
 
